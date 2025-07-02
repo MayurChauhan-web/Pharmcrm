@@ -10,7 +10,7 @@ public class DriverFactory {
 	public static WebDriver createDriver() {
 		WebDriverManager.chromedriver().setup();
 		ChromeOptions options = new ChromeOptions();
-		options.addArguments("--headless=new");
+		// options.addArguments("--headless=new");
 		options.addArguments("--window-size=1920,1080");
 		return new ChromeDriver(options);
 	}
