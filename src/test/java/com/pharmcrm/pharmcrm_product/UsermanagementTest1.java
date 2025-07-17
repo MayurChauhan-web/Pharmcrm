@@ -1,3 +1,6 @@
+
+// Create Profile: Organization : Administrator
+
 package com.pharmcrm.pharmcrm_product;
 
 import org.openqa.selenium.*;
@@ -6,11 +9,11 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 import java.util.List;
 
-public class UsermanagementTest {
+public class UsermanagementTest1 {
 
 	WebDriver driver;
 	WebDriverWait wait;
-	String createdEmail = "testuser11_static@mailinator.com";
+	String createdEmail = "testuser5_static@mailinator.com";
 
 	@Test
 	public void testFullUserProfileFlow() throws InterruptedException {
@@ -30,7 +33,6 @@ public class UsermanagementTest {
 
 		// Fill New User Form
 		selectDropdownByIndexWhenReady(By.id("TenantRoleId"), 1);
-
 		waitAndSendKeys(By.id("User_EmailId"), createdEmail);
 		waitAndSendKeys(By.id("User_FirstName"), "John");
 		waitAndSendKeys(By.id("User_LastName"), "Doe");
@@ -41,10 +43,27 @@ public class UsermanagementTest {
 		waitAndSendKeys(By.id("User_MailingAddress_State"), "California");
 		waitAndSendKeys(By.id("User_MailingAddress_ZipCode"), "90001");
 		waitAndSendKeys(By.id("User_MailingAddress_Country"), "USA");
-
 		clickWhenClickable(By.xpath("//label[@for='User_MobileAccess_IsMobileUser']"));
 		clickWhenClickable(By.xpath("//label[@for='User_MobileAccess_SalesAccess']"));
 		clickWhenClickable(By.xpath("//label[@for='User_MobileAccess_DeliveryAccess']"));
+		clickWhenClickable(By.id("btnSave"));
+		sleep(3000);
+
+		// Create Profile: Organization : Administrator
+		driver.get("https://qa01.pharmcrm.com/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		String profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
 		clickWhenClickable(By.id("btnSave"));
 		sleep(3000);
 
@@ -52,28 +71,26 @@ public class UsermanagementTest {
 		driver.get("https://qa01.pharmcrm.com/Setup/Home/WorkspaceUsers");
 		clickWhenClickable(By.xpath("//a[@id='liUsers']//span[@class='sidebar-icons']//*[name()='svg']"));
 		clickWhenClickable(By.xpath("//span[normalize-space()='New User']"));
-
 		WebElement searchBox = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtUserSearch")));
 		searchBox.clear();
 		searchBox.sendKeys(createdEmail);
 		System.out.println("Entered email in search box: " + createdEmail);
 		sleep(5000);
-
-		List<WebElement> dropdownItems = driver
+		waitForDropdownItemsToLoad();
+		List<WebElement> freshDropdownItems = driver
 				.findElements(By.xpath("//a[@class='list-group-item list-group-item-action']"));
-		System.out.println("Dropdown result count: " + dropdownItems.size());
-		for (WebElement item : dropdownItems) {
+		System.out.println("Dropdown result count: " + freshDropdownItems.size());
+		for (WebElement item : freshDropdownItems) {
 			System.out.println("Dropdown item: " + item.getText());
 		}
 
-		waitForDropdownItemsToLoad();
 		By firstDropdownItem = By.xpath("(//a[@class='list-group-item list-group-item-action'])[1]");
 		wait.until(ExpectedConditions.elementToBeClickable(firstDropdownItem));
 		driver.findElement(firstDropdownItem).click();
-		selectDropdownByIndexWhenReady(By.id("WorkspaceUser_Profile_Id"), 1);
+		selectDropdownByVisibleTextWhenReady(By.id("WorkspaceUser_Profile_Id"), profileName);
 		clickWhenClickable(By.id("btnSubmitUser"));
 
-		// Workspace user ResetPassword
+		// Workspace user ResetPasswordss
 		sleep(5000);
 		By workspacefilter = By.xpath("//span[normalize-space()='Filter']");
 		wait.until(ExpectedConditions.elementToBeClickable(workspacefilter));
@@ -97,21 +114,15 @@ public class UsermanagementTest {
 
 		// Workspace user login
 		sleep(500);
-		waitAndSendKeys(By.id("UserName"), "testuser_static@mailinator.com");
+		waitAndSendKeys(By.id("UserName"), createdEmail);
 		waitAndSendKeys(By.id("Password"), "Admin@123");
-
-		clickWhenClickable(By.xpath("(//input[@type='checkbox' and @id='chkgLoginAck'])[1]"));
-
-		// clickWhenClickable(By.xpath("//label[@for='chkgLoginAck']"));
-
 		clickWhenClickable(By.id("btnSubmit"));
 		waitAndSendKeys(By.id("OldPassword"), "Admin@123");
 		waitAndSendKeys(By.id("NewPassword"), "Admin@1234");
 		waitAndSendKeys(By.id("ConfirmNewPassword"), "Admin@1234");
 		clickWhenClickable(By.id("btnSubmit"));
-		waitAndSendKeys(By.id("UserName"), "testuser_static@mailinator.com");
+		waitAndSendKeys(By.id("UserName"), createdEmail);
 		waitAndSendKeys(By.id("Password"), "Admin@1234");
-		clickWhenClickable(By.xpath("//label[@for='chkgLoginAck']"));
 		clickWhenClickable(By.id("btnSubmit"));
 
 	}
@@ -156,6 +167,13 @@ public class UsermanagementTest {
 	private void waitForDropdownItemsToLoad() {
 		wait.until(ExpectedConditions
 				.numberOfElementsToBeMoreThan(By.xpath("//a[@class='list-group-item list-group-item-action']"), 0));
+	}
+
+	public void selectDropdownByVisibleTextWhenReady(By locator, String visibleText) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		WebElement dropdown = wait.until(ExpectedConditions.elementToBeClickable(locator));
+		Select select = new Select(dropdown);
+		select.selectByVisibleText(visibleText);
 	}
 
 }
