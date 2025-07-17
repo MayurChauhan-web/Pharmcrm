@@ -2,12 +2,12 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-07-17T14:47:31 IST" name="Default suite" finished-at="2025-07-17T14:48:24 IST" duration-ms="53197">
+  <suite started-at="2025-07-17T15:57:30 IST" name="Default suite" finished-at="2025-07-17T15:58:30 IST" duration-ms="60456">
     <groups>
     </groups>
-    <test started-at="2025-07-17T14:47:31 IST" name="Default test" finished-at="2025-07-17T14:48:24 IST" duration-ms="53197">
+    <test started-at="2025-07-17T15:57:30 IST" name="Default test" finished-at="2025-07-17T15:58:30 IST" duration-ms="60456">
       <class name="com.pharmcrm.pharmcrm_product.UsermanagementTest1">
-        <test-method signature="testFullUserProfileFlow()[pri:0, instance:com.pharmcrm.pharmcrm_product.UsermanagementTest1@6f27a732]" started-at="2025-07-17T14:47:31 IST" name="testFullUserProfileFlow" finished-at="2025-07-17T14:48:24 IST" duration-ms="53147" status="PASS">
+        <test-method signature="testFullUserProfileFlow()[pri:0, instance:com.pharmcrm.pharmcrm_product.UsermanagementTest1@6f27a732]" started-at="2025-07-17T15:57:30 IST" name="testFullUserProfileFlow" finished-at="2025-07-17T15:58:30 IST" duration-ms="60395" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testFullUserProfileFlow -->

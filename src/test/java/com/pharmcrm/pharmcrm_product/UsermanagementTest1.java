@@ -13,7 +13,7 @@ public class UsermanagementTest1 {
 
 	WebDriver driver;
 	WebDriverWait wait;
-	String createdEmail = "testuser5_static@mailinator.com";
+	String createdEmail = "testuser6_static@mailinator.com";
 
 	@Test
 	public void testFullUserProfileFlow() throws InterruptedException {
@@ -64,6 +64,10 @@ public class UsermanagementTest1 {
 		System.out.println("Final Profile Name: " + profileName);
 		waitAndSendKeys(By.id("profilename"), profileName);
 		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Setup Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
 		clickWhenClickable(By.id("btnSave"));
 		sleep(3000);
 
@@ -124,6 +128,21 @@ public class UsermanagementTest1 {
 		waitAndSendKeys(By.id("UserName"), createdEmail);
 		waitAndSendKeys(By.id("Password"), "Admin@1234");
 		clickWhenClickable(By.id("btnSubmit"));
+		driver.get("https://qa01.pharmcrm.com/Setup/Home/Dashboard");
+		List<WebElement> sidebarIcons = driver.findElements(By.xpath("//span[@class='sidebar-icons']"));
+		if (sidebarIcons.isEmpty()) {
+			System.out.println("Sidebar icons are NOT present on the page.");
+		} else {
+			System.out.println("Sidebar icons found: " + sidebarIcons.size());
+		}
+		driver.get("https://qa01.pharmcrm.com/Setup/Home/WorkspaceUsers");
+		sleep(2000);
+		List<WebElement> errorHeaders = driver.findElements(By.xpath("//h2[normalize-space()='Error']"));
+		if (!errorHeaders.isEmpty()) {
+			System.out.println("Error is showing for >> Error: Don't have proper access to requested page");
+		} else {
+			System.out.println("No error. Page loaded successfully.");
+		}
 
 	}
 
