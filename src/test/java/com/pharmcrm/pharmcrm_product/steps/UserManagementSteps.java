@@ -210,9 +210,7 @@ public class UserManagementSteps {
 	@And("I reset the user's password")
 	public void resetPassword() {
 		sleep(3000);
-		By workspacefilter = By.xpath("//span[normalize-space()='Filter']");
-		wait.until(ExpectedConditions.elementToBeClickable(workspacefilter));
-		driver.findElement(workspacefilter).click();
+		clickWhenReadyAndVisible(By.xpath("//span[normalize-space()='Filter']"));
 		waitAndSendKeys(By.id("Filter_Email"), createdEmail);
 		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-magnifying-glass']"));
 		String email = createdEmail;
@@ -343,7 +341,7 @@ public class UserManagementSteps {
 			System.out.println("Sidebar icons found: " + sidebarIcons.size());
 		}
 
-		driver.get(baseUrl + "/Drug/Home/Drugs");
+		driver.get(baseUrl + "/Workflow/Home/AuditWorkflow");
 		sleep(2000);
 		List<WebElement> errorHeaders = driver.findElements(By.xpath("//h2[normalize-space()='Error']"));
 		if (!errorHeaders.isEmpty()) {
@@ -395,5 +393,23 @@ public class UserManagementSteps {
 		WebElement dropdown = wait.until(ExpectedConditions.elementToBeClickable(locator));
 		Select select = new Select(dropdown);
 		select.selectByVisibleText(visibleText);
+	}
+
+	public void clickWhenReadyAndVisible(By locator) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.elementToBeClickable(locator));
+
+		try {
+			WebElement element = driver.findElement(locator);
+			((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+			element.click();
+		} catch (StaleElementReferenceException e) {
+			WebElement element = driver.findElement(locator);
+			element.click();
+		} catch (ElementClickInterceptedException e) {
+			System.out.println("Click intercepted, trying JS click as fallback...");
+			WebElement element = driver.findElement(locator);
+			((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
+		}
 	}
 }
