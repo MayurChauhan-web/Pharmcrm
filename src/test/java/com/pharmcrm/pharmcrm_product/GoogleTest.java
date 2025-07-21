@@ -1,8 +1,9 @@
 package com.pharmcrm.pharmcrm_product;
 
+import org.junit.Assert;
+import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
-import org.testng.annotations.Test;
+
 
 public class GoogleTest {
 

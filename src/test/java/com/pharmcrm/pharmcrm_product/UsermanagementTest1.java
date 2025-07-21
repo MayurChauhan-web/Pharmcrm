@@ -3,9 +3,9 @@
 
 package com.pharmcrm.pharmcrm_product;
 
+import org.junit.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.*;
-import org.testng.annotations.Test;
 import java.time.Duration;
 import java.util.List;
 
@@ -13,7 +13,8 @@ public class UsermanagementTest1 {
 
 	WebDriver driver;
 	WebDriverWait wait;
-	String createdEmail = "testuser6_static@mailinator.com";
+	String createdEmail = "testuser7_static@mailinator.com";
+	String baseUrl = "http://qa01.pharmcrm.com";
 
 	@Test
 	public void testFullUserProfileFlow() throws InterruptedException {
@@ -21,7 +22,7 @@ public class UsermanagementTest1 {
 		wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 
 		// Login
-		driver.get("http://qa01.pharmcrm.com/");
+		driver.get(baseUrl);
 		waitAndSendKeys(By.id("UserName"), "support@pharmcrm.com");
 		waitAndSendKeys(By.id("Password"), "Admin@1234");
 		clickWhenClickable(By.xpath("//button[@id='btnSubmit']//i[@class='fa fa-check']"));
@@ -50,7 +51,7 @@ public class UsermanagementTest1 {
 		sleep(3000);
 
 		// Create Profile: Organization : Administrator
-		driver.get("https://qa01.pharmcrm.com/Setup/Home/Profiles");
+		driver.get(baseUrl + "/Setup/Home/Profiles");
 		sleep(1000);
 		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
 		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
@@ -72,7 +73,7 @@ public class UsermanagementTest1 {
 		sleep(3000);
 
 		// Assign Workspace to User
-		driver.get("https://qa01.pharmcrm.com/Setup/Home/WorkspaceUsers");
+		driver.get(baseUrl + "/Setup/Home/WorkspaceUsers");
 		clickWhenClickable(By.xpath("//a[@id='liUsers']//span[@class='sidebar-icons']//*[name()='svg']"));
 		clickWhenClickable(By.xpath("//span[normalize-space()='New User']"));
 		WebElement searchBox = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtUserSearch")));
@@ -94,7 +95,7 @@ public class UsermanagementTest1 {
 		selectDropdownByVisibleTextWhenReady(By.id("WorkspaceUser_Profile_Id"), profileName);
 		clickWhenClickable(By.id("btnSubmitUser"));
 
-		// Workspace user ResetPasswordss
+		// Workspace user ResetPassword
 		sleep(5000);
 		By workspacefilter = By.xpath("//span[normalize-space()='Filter']");
 		wait.until(ExpectedConditions.elementToBeClickable(workspacefilter));
@@ -128,14 +129,14 @@ public class UsermanagementTest1 {
 		waitAndSendKeys(By.id("UserName"), createdEmail);
 		waitAndSendKeys(By.id("Password"), "Admin@1234");
 		clickWhenClickable(By.id("btnSubmit"));
-		driver.get("https://qa01.pharmcrm.com/Setup/Home/Dashboard");
+		driver.get(baseUrl + "/Setup/Home/Dashboard");
 		List<WebElement> sidebarIcons = driver.findElements(By.xpath("//span[@class='sidebar-icons']"));
 		if (sidebarIcons.isEmpty()) {
 			System.out.println("Sidebar icons are NOT present on the page.");
 		} else {
 			System.out.println("Sidebar icons found: " + sidebarIcons.size());
 		}
-		driver.get("https://qa01.pharmcrm.com/Setup/Home/WorkspaceUsers");
+		driver.get(baseUrl + "/Setup/Home/WorkspaceUsers");
 		sleep(2000);
 		List<WebElement> errorHeaders = driver.findElements(By.xpath("//h2[normalize-space()='Error']"));
 		if (!errorHeaders.isEmpty()) {

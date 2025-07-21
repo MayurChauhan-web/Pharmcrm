@@ -1,8 +1,9 @@
 package com.pharmcrm.pharmcrm_product;
 
+import org.junit.Assert;
+import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
-import org.testng.annotations.Test;
+
 
 public class FacebookTest {
 
@@ -10,7 +11,7 @@ public class FacebookTest {
 	public void testFacebookHomePage() {
 		WebDriver driver = DriverFactory.createDriver();
 		driver.get("https://www.facebook.com");
-		Assert.assertTrue(driver.getTitle().contains("Facebook"), "Title does not contain 'Facebook'");
+		Assert.assertTrue(driver.getTitle().contains("Facebook"));
 		driver.quit();
 	}
 
