@@ -70,8 +70,8 @@ public class UserManagementSteps {
 		sleep(3000);
 	}
 
-	@And("I create a profile without Setup access")
-	public void createProfileWithoutSetupAccess() {
+	@And("I create a profile without Setup Module access")
+	public void createProfileWithoutSetupmoduleAccess() {
 		driver.get(baseUrl + "/Setup/Home/Profiles");
 		sleep(1000);
 		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
@@ -87,6 +87,102 @@ public class UserManagementSteps {
 		waitAndSendKeys(By.id("profilename"), profileName);
 		clickWhenClickable(By.id("btnSaveProfile"));
 		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Setup Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.id("btnSave"));
+		sleep(3000);
+	}
+
+	@And("I create a profile without Patient Module access")
+	public void createProfileWithoutpatientmoduleAccess() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Patient Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.id("btnSave"));
+		sleep(3000);
+	}
+
+	@And("I create a profile without Delivery Module access")
+	public void createProfileWithoutDeliverymoduleAccess() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Delivery Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.id("btnSave"));
+		sleep(3000);
+	}
+
+	@And("I create a profile without Drug Module access")
+	public void createProfileWithoutDrugmoduleAccess() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Drug Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.id("btnSave"));
+		sleep(3000);
+	}
+
+	@And("I create a profile without Workflow Module access")
+	public void createProfileWithoutworkflowmoduleAccess() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Workflow Module']");
 		clickWhenClickable(setupModuleCheckbox);
 		sleep(2000);
 		clickWhenClickable(setupModuleCheckbox);
@@ -157,7 +253,7 @@ public class UserManagementSteps {
 
 	}
 
-	@Then("the user should not see or edit any Setup pages")
+	@Then("the user should not see or edit any Setup Module pages")
 	public void verifyNoSetupAccess() {
 		driver.get(baseUrl + "/Setup/Home/Dashboard");
 		List<WebElement> sidebarIcons = driver.findElements(By.xpath("//span[@class='sidebar-icons']"));
@@ -168,6 +264,86 @@ public class UserManagementSteps {
 		}
 
 		driver.get(baseUrl + "/Setup/Home/WorkspaceUsers");
+		sleep(2000);
+		List<WebElement> errorHeaders = driver.findElements(By.xpath("//h2[normalize-space()='Error']"));
+		if (!errorHeaders.isEmpty()) {
+			System.out.println("❌ Error: Don't have proper access to requested page");
+		} else {
+			System.out.println("✅ No error. Page loaded successfully.");
+		}
+	}
+
+	@Then("the user should not see or edit any Patient Module pages")
+	public void verifyNoPatinetAccess() {
+		driver.get(baseUrl + "/Patient/Home/Dashboard");
+		List<WebElement> sidebarIcons = driver.findElements(By.xpath("//span[@class='sidebar-icons']"));
+		if (sidebarIcons.isEmpty()) {
+			System.out.println("Sidebar icons are NOT present on the page.");
+		} else {
+			System.out.println("Sidebar icons found: " + sidebarIcons.size());
+		}
+
+		driver.get(baseUrl + "/Patient/Home/Patients");
+		sleep(2000);
+		List<WebElement> errorHeaders = driver.findElements(By.xpath("//h2[normalize-space()='Error']"));
+		if (!errorHeaders.isEmpty()) {
+			System.out.println("❌ Error: Don't have proper access to requested page");
+		} else {
+			System.out.println("✅ No error. Page loaded successfully.");
+		}
+	}
+
+	@Then("the user should not see or edit any Delivery Module pages")
+	public void verifyNoDeliveryAccess() {
+		driver.get(baseUrl + "/Delivery/Home/Dashboard");
+		List<WebElement> sidebarIcons = driver.findElements(By.xpath("//span[@class='sidebar-icons']"));
+		if (sidebarIcons.isEmpty()) {
+			System.out.println("Sidebar icons are NOT present on the page.");
+		} else {
+			System.out.println("Sidebar icons found: " + sidebarIcons.size());
+		}
+
+		driver.get(baseUrl + "/Delivery/Home/Manifests");
+		sleep(2000);
+		List<WebElement> errorHeaders = driver.findElements(By.xpath("//h2[normalize-space()='Error']"));
+		if (!errorHeaders.isEmpty()) {
+			System.out.println("❌ Error: Don't have proper access to requested page");
+		} else {
+			System.out.println("✅ No error. Page loaded successfully.");
+		}
+	}
+
+	@Then("the user should not see or edit any Drug Module pages")
+	public void verifyNoDrugAccess() {
+		driver.get(baseUrl + "/Drug/Home/Dashboard");
+		List<WebElement> sidebarIcons = driver.findElements(By.xpath("//span[@class='sidebar-icons']"));
+		if (sidebarIcons.isEmpty()) {
+			System.out.println("Sidebar icons are NOT present on the page.");
+		} else {
+			System.out.println("Sidebar icons found: " + sidebarIcons.size());
+		}
+
+		driver.get(baseUrl + "/Drug/Home/Drugs");
+		sleep(2000);
+		List<WebElement> errorHeaders = driver.findElements(By.xpath("//h2[normalize-space()='Error']"));
+		if (!errorHeaders.isEmpty()) {
+			System.out.println("❌ Error: Don't have proper access to requested page");
+		} else {
+			System.out.println("✅ No error. Page loaded successfully.");
+		}
+	}
+
+	@Then("the user should not see or edit any Workflow Module pages")
+	public void verifyNoworkflowAccess() {
+		driver.get(baseUrl + "/Drug/Home/Dashboard");
+		List<WebElement> sidebarIcons = driver.findElements(By.xpath("//span[@class='sidebar-icons']"));
+		if (sidebarIcons.isEmpty()) {
+			System.out.println("Sidebar icons are NOT present on the page.");
+		} else {
+			System.out.println("Sidebar icons found: " + sidebarIcons.size());
+		}
+
+		driver.get(baseUrl + "/Drug/Home/Drugs");
 		sleep(2000);
 		List<WebElement> errorHeaders = driver.findElements(By.xpath("//h2[normalize-space()='Error']"));
 		if (!errorHeaders.isEmpty()) {
