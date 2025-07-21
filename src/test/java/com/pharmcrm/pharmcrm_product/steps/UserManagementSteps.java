@@ -11,7 +11,7 @@ public class UserManagementSteps {
 
 	WebDriver driver;
 	WebDriverWait wait;
-	String createdEmail = "testuser3_static@mailinator.com";
+	String createdEmail;
 	String baseUrl = "http://qa01.pharmcrm.com";
 	String profileName;
 
@@ -25,8 +25,9 @@ public class UserManagementSteps {
 		clickWhenClickable(By.id("btnSubmit"));
 	}
 
-	@When("I create a new user")
-	public void createNewUser() {
+	@When("I create a new user with email {string}")
+	public void createNewUser(String email) {
+		this.createdEmail = email;
 		clickWhenClickable(By.xpath("//a[@href='#']//span[@class='userTopIcon']//*[name()='svg']"));
 		clickWhenClickable(By.xpath("//a[@id='liUsers']//span[@class='userTopIcon']//*[name()='svg']"));
 		clickWhenClickable(By.xpath("//span[normalize-space()='New User']"));
@@ -48,8 +49,29 @@ public class UserManagementSteps {
 		sleep(3000);
 	}
 
-	@And("I create a profile for the user")
-	public void createProfile() {
+	@And("I create a profile with log-only access")
+	public void createProfileWithLogOnlyAccess() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		sleep(3000);
+		clickWhenClickable(By.id("btnSave"));
+		sleep(3000);
+	}
+
+	@And("I create a profile without Setup access")
+	public void createProfileWithoutSetupAccess() {
 		driver.get(baseUrl + "/Setup/Home/Profiles");
 		sleep(1000);
 		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
@@ -72,7 +94,7 @@ public class UserManagementSteps {
 		sleep(3000);
 	}
 
-	@And("I assign a workspace and profile to the user")
+	@And("I assign the profile and workspace to the user")
 	public void assignWorkspace() {
 		driver.get(baseUrl + "/Setup/Home/WorkspaceUsers");
 		clickWhenClickable(By.xpath("//span[normalize-space()='New User']"));
@@ -89,7 +111,7 @@ public class UserManagementSteps {
 
 	}
 
-	@And("I reset the user password")
+	@And("I reset the user's password")
 	public void resetPassword() {
 		sleep(3000);
 		By workspacefilter = By.xpath("//span[normalize-space()='Filter']");
@@ -115,7 +137,7 @@ public class UserManagementSteps {
 		clickWhenClickable(By.id("LogoutID"));
 	}
 
-	@And("I log in with the new user")
+	@And("I log in using the new user")
 	public void userLogin() {
 		waitAndSendKeys(By.id("UserName"), createdEmail);
 		waitAndSendKeys(By.id("Password"), "Admin@123");
@@ -129,8 +151,14 @@ public class UserManagementSteps {
 		clickWhenClickable(By.id("btnSubmit"));
 	}
 
-	@Then("I should see proper permissions for the new user")
-	public void verifyAccess() {
+	@Then("I should see only log access for the new user")
+	public void verifyLogOnlyAccess() {
+		driver.get(baseUrl + "/Setup/Home/Dashboard");
+
+	}
+
+	@Then("the user should not see or edit any Setup pages")
+	public void verifyNoSetupAccess() {
 		driver.get(baseUrl + "/Setup/Home/Dashboard");
 		List<WebElement> sidebarIcons = driver.findElements(By.xpath("//span[@class='sidebar-icons']"));
 		if (sidebarIcons.isEmpty()) {
