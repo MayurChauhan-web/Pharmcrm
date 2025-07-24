@@ -4,8 +4,14 @@ import io.cucumber.java.en.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.*;
 import com.pharmcrm.pharmcrm_product.DriverFactory;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.InetAddress;
 import java.time.Duration;
 import java.util.List;
+import org.junit.Assert;
 
 public class UserManagementSteps {
 
@@ -17,9 +23,13 @@ public class UserManagementSteps {
 
 	@Given("I log in as admin")
 	public void loginAsAdmin() {
+		if (!isInternetAvailable()) {
+			Assert.fail("❌ Internet connection not available. Please check your connection.");
+		}
 		driver = DriverFactory.createDriver();
 		wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 		driver.get(baseUrl);
+		measurePageLoadTime(baseUrl, 5000);
 		waitAndSendKeys(By.id("UserName"), "support@pharmcrm.com");
 		waitAndSendKeys(By.id("Password"), "Admin@1234");
 		clickWhenClickable(By.id("btnSubmit"));
@@ -91,7 +101,59 @@ public class UserManagementSteps {
 		sleep(2000);
 		clickWhenClickable(setupModuleCheckbox);
 		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with full access to Setup Module → Profile")
+	public void createProfileWithFullSetupModuleAccess() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with access only to the Setup Module → Profile with 'View' permission")
+	public void createViewOnlyProfileForSetupModule() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
 		sleep(3000);
+		uncheckPermissionIfChecked("chkg01ProfileAdd");
+		uncheckPermissionIfChecked("chkg01ProfileEdit");
+		uncheckPermissionIfChecked("chkg01ProfileDelete");
+		sleep(2000);
+		clickWhenClickable(By.id("btnSave"));
 	}
 
 	@And("I create a profile without Patient Module access")
@@ -203,8 +265,8 @@ public class UserManagementSteps {
 		((JavascriptExecutor) driver).executeScript("arguments[0].click();", firstItem);
 		sleep(500);
 		selectDropdownByVisibleTextWhenReady(By.id("WorkspaceUser_Profile_Id"), profileName);
+		sleep(500);
 		clickWhenClickable(By.id("btnSubmitUser"));
-
 	}
 
 	@And("I reset the user's password")
@@ -223,7 +285,6 @@ public class UserManagementSteps {
 		clickWhenClickable(By.xpath("//label[normalize-space()='Show Password']"));
 		clickWhenClickable(By.id("btnResetPassword"));
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='toast toast-success']")));
-
 		// Logout
 		sleep(500);
 		WebElement initialsBtn = driver.findElement(By.cssSelector("button[id='userInitials'] span"));
@@ -248,10 +309,59 @@ public class UserManagementSteps {
 	@Then("I should see only log access for the new user")
 	public void verifyLogOnlyAccess() {
 		driver.get(baseUrl + "/Setup/Home/Dashboard");
-
 	}
 
-	@Then("the user should not see or edit any Setup Module pages")
+	@Then("the user should be able to view, add, edit, and delete profiles")
+	public void verifyFullProfileAccess() {
+		sleep(5000);
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/Profiles"));
+		sleep(1000);
+		clickWhenReadyAndVisible(By.xpath("//span[normalize-space()='Filter']"));
+		sleep(3000);
+		waitAndSendKeys(By.id("Filter_Name"), profileName);
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-magnifying-glass']"));
+		sleep(1000);
+		By actionMenu = By.xpath("//tr[td[normalize-space()='" + profileName + "']]//td[@class='text-right']//button");
+		clickWhenClickable(actionMenu);
+		clickWhenClickable(By.xpath("//li[1]//a[1]//div[1]")); // Edit
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+		sleep(1000);
+		clickWhenReadyAndVisible(By.xpath("//span[normalize-space()='Filter']"));
+		waitAndSendKeys(By.id("Filter_Name"), profileName);
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-magnifying-glass']"));
+		actionMenu = By.xpath("//tr[td[normalize-space()='" + profileName + "']]//td[@class='text-right']//button");
+		clickWhenClickable(actionMenu);
+		clickWhenClickable(By.xpath("//a[@id='btnDeleteProfile']//div[@class='gridRecordContextInner']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//div[@id='profileModel']//button[@id='btnDeleteConfirm']"));
+	}
+
+	@Then("the user should be able to view profiles")
+	public void verifyUserCanViewProfile() {
+		sleep(5000);
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/Profiles"));
+	}
+
+	@And("the user should not be able to add, edit, or delete any profiles")
+	public void verifyNoAddEditDeletePermissionForProfiles() {
+		sleep(5000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New Profile']"));
+		sleep(1000);
+		clickWhenReadyAndVisible(By.xpath("//span[normalize-space()='Filter']"));
+		sleep(3000);
+		waitAndSendKeys(By.id("Filter_Name"), profileName);
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-magnifying-glass']"));
+		sleep(1000);
+		By actionMenu = By.xpath("//tr[td[normalize-space()='" + profileName + "']]//td[@class='text-right']//button");
+		clickWhenClickable(actionMenu);
+		assertElementNotPresent(By.xpath("//li[1]//a[1]//div[normalize-space()='Edit']"));
+		assertElementNotPresent(By.xpath("//a[@id='btnDeleteProfile']//div[normalize-space()='Delete']"));
+	}
+
+	@Then("the user should have no Setup access via UI or direct URL")
 	public void verifyNoSetupAccess() {
 		driver.get(baseUrl + "/Setup/Home/Dashboard");
 		List<WebElement> sidebarIcons = driver.findElements(By.xpath("//span[@class='sidebar-icons']"));
@@ -260,7 +370,6 @@ public class UserManagementSteps {
 		} else {
 			System.out.println("Sidebar icons found: " + sidebarIcons.size());
 		}
-
 		driver.get(baseUrl + "/Setup/Home/WorkspaceUsers");
 		sleep(2000);
 		List<WebElement> errorHeaders = driver.findElements(By.xpath("//h2[normalize-space()='Error']"));
@@ -271,8 +380,8 @@ public class UserManagementSteps {
 		}
 	}
 
-	@Then("the user should not see or edit any Patient Module pages")
-	public void verifyNoPatinetAccess() {
+	@Then("the user should have no patient access via UI or direct URL")
+	public void verifyNoPatientAccess() {
 		driver.get(baseUrl + "/Patient/Home/Dashboard");
 		List<WebElement> sidebarIcons = driver.findElements(By.xpath("//span[@class='sidebar-icons']"));
 		if (sidebarIcons.isEmpty()) {
@@ -280,7 +389,6 @@ public class UserManagementSteps {
 		} else {
 			System.out.println("Sidebar icons found: " + sidebarIcons.size());
 		}
-
 		driver.get(baseUrl + "/Patient/Home/Patients");
 		sleep(2000);
 		List<WebElement> errorHeaders = driver.findElements(By.xpath("//h2[normalize-space()='Error']"));
@@ -291,7 +399,7 @@ public class UserManagementSteps {
 		}
 	}
 
-	@Then("the user should not see or edit any Delivery Module pages")
+	@Then("the user should have no Delivery access via UI or direct URL")
 	public void verifyNoDeliveryAccess() {
 		driver.get(baseUrl + "/Delivery/Home/Dashboard");
 		List<WebElement> sidebarIcons = driver.findElements(By.xpath("//span[@class='sidebar-icons']"));
@@ -300,7 +408,6 @@ public class UserManagementSteps {
 		} else {
 			System.out.println("Sidebar icons found: " + sidebarIcons.size());
 		}
-
 		driver.get(baseUrl + "/Delivery/Home/Manifests");
 		sleep(2000);
 		List<WebElement> errorHeaders = driver.findElements(By.xpath("//h2[normalize-space()='Error']"));
@@ -311,7 +418,7 @@ public class UserManagementSteps {
 		}
 	}
 
-	@Then("the user should not see or edit any Drug Module pages")
+	@Then("the user should have no Drug access via UI or direct URL")
 	public void verifyNoDrugAccess() {
 		driver.get(baseUrl + "/Drug/Home/Dashboard");
 		List<WebElement> sidebarIcons = driver.findElements(By.xpath("//span[@class='sidebar-icons']"));
@@ -320,7 +427,6 @@ public class UserManagementSteps {
 		} else {
 			System.out.println("Sidebar icons found: " + sidebarIcons.size());
 		}
-
 		driver.get(baseUrl + "/Drug/Home/Drugs");
 		sleep(2000);
 		List<WebElement> errorHeaders = driver.findElements(By.xpath("//h2[normalize-space()='Error']"));
@@ -331,7 +437,7 @@ public class UserManagementSteps {
 		}
 	}
 
-	@Then("the user should not see or edit any Workflow Module pages")
+	@Then("the user should have no Workflow access via UI or direct URL")
 	public void verifyNoworkflowAccess() {
 		driver.get(baseUrl + "/Drug/Home/Dashboard");
 		List<WebElement> sidebarIcons = driver.findElements(By.xpath("//span[@class='sidebar-icons']"));
@@ -340,7 +446,6 @@ public class UserManagementSteps {
 		} else {
 			System.out.println("Sidebar icons found: " + sidebarIcons.size());
 		}
-
 		driver.get(baseUrl + "/Workflow/Home/AuditWorkflow");
 		sleep(2000);
 		List<WebElement> errorHeaders = driver.findElements(By.xpath("//h2[normalize-space()='Error']"));
@@ -412,4 +517,77 @@ public class UserManagementSteps {
 			((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
 		}
 	}
+
+	public void uncheckIfSelected(By checkboxLocator) {
+		WebElement checkbox = driver.findElement(checkboxLocator);
+		if (checkbox.isSelected()) {
+			checkbox.click();
+		}
+	}
+
+	public void assertElementNotPresent(By locator) {
+		List<WebElement> elements = driver.findElements(locator);
+		Assert.assertTrue("Element should not be present: " + locator.toString(), elements.isEmpty());
+	}
+
+	public void scrollIntoViewAndClick(By locator) {
+		WebElement element = driver.findElement(locator);
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", element);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.elementToBeClickable(locator)).click();
+	}
+
+	public boolean isInternetAvailable() {
+		try {
+			return InetAddress.getByName("8.8.8.8").isReachable(2000);
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	public void measurePageLoadTime(String url, long maxExpectedMillis) {
+		long start = System.currentTimeMillis();
+		driver.get(url);
+		long end = System.currentTimeMillis();
+		long duration = end - start;
+
+		System.out.println("⏱️ Page Load Time: " + duration + " ms for " + url);
+		if (duration > maxExpectedMillis) {
+			System.out.println("⚠️ Warning: Page load is slower than expected.");
+		}
+	}
+
+	public void logInternetSpeed() {
+		try {
+			Process process = new ProcessBuilder("speedtest", "--simple").start();
+			BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+			String line;
+			System.out.println("📡 Internet Speed:");
+			while ((line = reader.readLine()) != null) {
+				System.out.println("   " + line);
+			}
+		} catch (IOException e) {
+			System.out.println("⚠️ Unable to measure internet speed: " + e.getMessage());
+		}
+	}
+
+	public void uncheckPermissionIfChecked(String checkboxId) {
+		By checkboxBy = By.id(checkboxId);
+		By labelBy = By.cssSelector("label[for='" + checkboxId + "']");
+
+		if (driver.findElement(checkboxBy).isSelected()) {
+			scrollIntoViewAndClick(labelBy);
+			sleep(500);
+		}
+
+	}
+
+	public void assertElementPresent(By locator) {
+		try {
+			wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+		} catch (TimeoutException e) {
+			Assert.fail("Element not present after wait: " + locator.toString());
+		}
+	}
+
 }

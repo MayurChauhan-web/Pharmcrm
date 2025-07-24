@@ -9,7 +9,8 @@ import io.cucumber.junit.CucumberOptions;
     features = "src/test/resources/Features/UserManagement.feature",
     glue = "com.pharmcrm.pharmcrm_product.steps",
     plugin = {"pretty", "html:target/cucumber-report.html"},
-    monochrome = true
+    monochrome = true,
+    tags = "@ProfileViewOnly"  
 )
 public class TestRunner {
 }

@@ -16,8 +16,8 @@ Feature: Full User Management Flow
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user   
-  Then the user should not see or edit any Setup Module pages  
-    
+  Then the user should have no Setup access via UI or direct URL   
+     
  Scenario: Create user without Patient Module access and check restrictions
   Given I log in as admin
   When I create a new user with email "testuser3_static@mailinator.com"
@@ -25,7 +25,7 @@ Feature: Full User Management Flow
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user
-  Then the user should not see or edit any Patient Module pages 
+  Then the user should have no patient access via UI or direct URL
   
   Scenario: Create user without Delivery Module access and check restrictions
   Given I log in as admin
@@ -34,7 +34,7 @@ Feature: Full User Management Flow
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user
-  Then the user should not see or edit any Delivery Module pages 
+  Then the user should have no Delivery access via UI or direct URL 
   
   Scenario: Create user without Drug Module access and check restrictions
   Given I log in as admin
@@ -43,7 +43,7 @@ Feature: Full User Management Flow
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user
-  Then the user should not see or edit any Drug Module pages 
+  Then the user should have no Drug access via UI or direct URL   
   
   Scenario: Create user without Workflow Module access and check restrictions
   Given I log in as admin
@@ -52,8 +52,30 @@ Feature: Full User Management Flow
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user
-  Then the user should not see or edit any Workflow Module pages 
+  Then the user should have no Workflow access via UI or direct URL    
   
+  Scenario: User with only 'View' permission for Profile
+  Given I log in as admin
+  When I create a new user with email "testuser1_static@mailinator.com"
+  And I create a profile with access only to the Setup Module → Profile with 'View' permission 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view profiles  
+  And the user should not be able to add, edit, or delete any profiles 
+ 
+  Scenario: User with full access (View, Add, Edit, Delete) for Profile
+  Given I log in as admin
+  When I create a new user with email "testuser4_static@mailinator.com"
+  And I create a profile with full access to Setup Module → Profile 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view, add, edit, and delete profiles    
+  
+  
+  
+
   
   
   
