@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="PharmCRM Suite" verbose="1" parallel="false">
+
+	<test name="User Management Flow Test">
+		<classes>
+			<class name="com.pharmcrm.pharmcrm_product.UsermanagementTest" />
+		</classes>
+	</test>
+
+</suite>
