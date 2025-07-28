@@ -10,7 +10,7 @@ import io.cucumber.junit.CucumberOptions;
     glue = "com.pharmcrm.pharmcrm_product.steps",
     plugin = {"pretty", "html:target/cucumber-report.html"},
     monochrome = true,
-    tags = "@ProfileViewOnly"  
+    tags = "@Templates"  
 )
 public class TestRunner {
 }
