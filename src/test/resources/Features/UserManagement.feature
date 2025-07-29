@@ -163,7 +163,6 @@ Feature: Full User Management Flow
   And the user should be able to edit an existing text template
   And the user should be able to delete a text template 
   
-  @Templates
   Scenario: User with View only access for BOT Call Template
   Given I log in as admin
   When I create a new user with email "testuser2_static@mailinator.com"
@@ -173,7 +172,8 @@ Feature: Full User Management Flow
   And I log in using the new user
   Then the user should be able to view BOT call templates 
   But the user should not be able to add, edit, or delete any BOT call template 
-
+  
+  @Templates
   Scenario: User with View and Add access for BOT Call Template
   Given I log in as admin
   When I create a new user with email "testuser2_static@mailinator.com"

@@ -704,18 +704,13 @@ public class UserManagementSteps {
 	@But("the user should not be able to delete users")
 	public void verifyUserCannotDeleteUsers() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("menucontext")));
-
 		clickWhenClickable(By.xpath("//span[normalize-space()='Filter']"));
-
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("Filter_Email")));
 		waitAndSendKeys(By.id("Filter_Email"), createdEmail);
-
 		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-magnifying-glass']"));
-
 		By actionMenu = By.xpath("//tr[td[normalize-space()='" + profileName + "']]//td[@class='text-right']//button");
 		wait.until(ExpectedConditions.elementToBeClickable(actionMenu));
 		clickWhenClickable(actionMenu);
-
 		assertElementNotPresent(By.xpath(
 				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
 	}
@@ -744,8 +739,6 @@ public class UserManagementSteps {
 	@Then("the user should be able to add a new BOT call template")
 	public void verifyUserCanAddBotCallTemplate() {
 		sleep(3000);
-		driver.get(baseUrl + "/Setup/Home/BOTCallTemplates");
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/BOTCallTemplates"));
 		clickWhenClickable(By.xpath("//span[normalize-space()='New Callout Template']"));
 		String templateName = "Test BOT Template " + System.currentTimeMillis();
 		waitAndSendKeys(By.id("BOTCallTemplate_Title"), templateName);
@@ -832,13 +825,11 @@ public class UserManagementSteps {
 	@But("the user should not be able to delete any text template")
 	public void verifyDeleteOptionNotAvailableForTextTemplates() throws InterruptedException {
 		sleep(3000);
-
 		By actionMenu = By.xpath("(//td[@class='text-right']//button)[1]");
-
 		WebElement menuButton = driver.findElement(actionMenu);
 		try {
 			menuButton.click();
-			Thread.sleep(1000); // Use WebDriverWait instead for better practice
+			Thread.sleep(1000);
 
 			boolean editExists = !driver
 					.findElements(By.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Edit')]"))
