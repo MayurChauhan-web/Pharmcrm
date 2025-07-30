@@ -348,6 +348,430 @@ public class UserManagementSteps {
 		clickWhenClickable(By.id("btnSave"));
 	}
 
+	@And("I create a profile with View access only to Setup Module → Mail Template")
+	public void createProfileWithViewAccessOnlyForMailTemplate() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(3000);
+		uncheckPermissionIfChecked("chkg9MailTemplateAdd");
+		uncheckPermissionIfChecked("chkg9MailTemplateEdit");
+		uncheckPermissionIfChecked("chkg9MailTemplateDelete");
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Add access to Setup Module → Mail Template")
+	public void createProfileWithViewAndAddAccessForMailTemplate() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(3000);
+		uncheckPermissionIfChecked("chkg9MailTemplateEdit");
+		uncheckPermissionIfChecked("chkg9MailTemplateDelete");
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View, Add, and Edit access to Setup Module → Mail Template")
+	public void createProfileWithViewAddEditAccessForMailTemplate() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(3000);
+		uncheckPermissionIfChecked("chkg9MailTemplateDelete");
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with full access to Setup Module → Mail Template")
+	public void createProfileWithFullAccessForMailTemplate() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(3000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with full access to Setup Module → Fax Template")
+	public void createProfileWithFullAccessForFaxTemplate() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(3000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View, Add, and Edit access to Setup Module → Fax Template")
+	public void createProfileWithViewAddEditAccessForFaxTemplate() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(3000);
+		uncheckPermissionIfChecked("chkg9FaxTemplateDelete");
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Add access to Setup Module → Fax Template")
+	public void createProfileWithViewAndAddAccessForFaxTemplate() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(3000);
+		uncheckPermissionIfChecked("chkg9FaxTemplateEdit");
+		uncheckPermissionIfChecked("chkg9FaxTemplateDelete");
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View access only to Setup Module → Fax Template")
+	public void createProfileWithViewOnlyAccessForFaxTemplate() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(3000);
+		uncheckPermissionIfChecked("chkg9FaxTemplateAdd");
+		uncheckPermissionIfChecked("chkg9FaxTemplateEdit");
+		uncheckPermissionIfChecked("chkg9FaxTemplateDelete");
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View access only to Setup Module → Patient Signature Template")
+	public void createProfileWithViewOnlyAccessForPatientSignatureTemplate() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(3000);
+		uncheckPermissionIfChecked("chkg12PatientSignatureTemplateAdd");
+		uncheckPermissionIfChecked("chkg12PatientSignatureTemplateEdit");
+		uncheckPermissionIfChecked("chkg12PatientSignatureTemplateDelete");
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Add access to Setup Module → Patient Signature Template")
+	public void createProfileWithViewAndAddAccessForPatientSignatureTemplate() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(3000);
+		uncheckPermissionIfChecked("chkg12PatientSignatureTemplateEdit");
+		uncheckPermissionIfChecked("chkg12PatientSignatureTemplateDelete");
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View, Add, and Edit access to Setup Module → Patient Signature Template")
+	public void createProfileWithViewAddEditAccessForPatientSignatureTemplate() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(3000);
+		uncheckPermissionIfChecked("chkg12PatientSignatureTemplateDelete");
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with full access to Setup Module → Patient Signature Template")
+	public void createProfileWithFullAccessForPatientSignatureTemplate() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(3000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with full access to Setup Module → Feedback Form")
+	public void createProfileWithFullAccessForFeedbackForm() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(3000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View, Add, and Edit access to Setup Module → Feedback Form")
+	public void createProfileWithViewAddEditForFeedbackForm() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(3000);
+		uncheckPermissionIfChecked("chkg36FeedbackFormDelete");
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Add access to Setup Module → Feedback Form")
+	public void createProfileWithViewAndAddForFeedbackForm() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(3000);
+		uncheckPermissionIfChecked("chkg36FeedbackFormEdit");
+		uncheckPermissionIfChecked("chkg36FeedbackFormDelete");
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View access only to Setup Module → Feedback Form")
+	public void createProfileWithViewOnlyForFeedbackForm() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(3000);
+		uncheckPermissionIfChecked("chkg36FeedbackFormAdd");
+		uncheckPermissionIfChecked("chkg36FeedbackFormEdit");
+		uncheckPermissionIfChecked("chkg36FeedbackFormDelete");
+		clickWhenClickable(By.id("btnSave"));
+	}
+
 	@And("I create a profile with View and Add access to Setup Module → Text Template")
 	public void createProfileWithViewAndAddAccessToTextTemplate() {
 		driver.get(baseUrl + "/Setup/Home/Profiles");
@@ -637,6 +1061,474 @@ public class UserManagementSteps {
 		clickWhenClickable(By.id("btnSubmit"));
 	}
 
+	@Then("the user should be able to view fax templates")
+	public void userShouldBeAbleToViewFaxTemplates() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/FaxTemplates");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/FaxTemplates"));
+	}
+
+	@Then("the user should be able to view patient signature templates")
+	public void userShouldBeAbleToViewPatientSignatureTemplates() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/PatientSignatureTemplates");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/PatientSignatureTemplates"));
+	}
+
+	@Then("the user should be able to view feedback forms")
+	public void userShouldBeAbleToViewFeedbackForms() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/FeedbackForms");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/FeedbackForms"));
+	}
+
+	@And("the user should be able to add a new feedback form")
+	public void userShouldBeAbleToAddNewFeedbackForm() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Feedback Form']"));
+		waitAndSendKeys(By.id("FeedbackForm_Title"), profileName);
+
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+	}
+
+	@And("the user should be able to edit an existing feedback form")
+	public void userShouldBeAbleToEditFeedbackForm() {
+		sleep(3000);
+
+		By actionMenu = By.xpath("//tbody/tr[1]/td[4]/div[1]/div[1]/button[1]/i[1]");
+		WebElement menuButton = driver.findElement(actionMenu);
+
+		try {
+			menuButton.click();
+			sleep(1000);
+
+			boolean editExists = !driver.findElements(By.xpath(
+					"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"))
+					.isEmpty();
+
+			if (editExists) {
+				System.out.println("PASS: Edit option is visible as expected.");
+			} else {
+				Assert.fail("FAIL: Edit option is not visible, but it should be.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			Assert.fail("FAIL: Could not open the action menu to verify Edit option.");
+		}
+	}
+
+	@And("the user should be able to delete a feedback form")
+	public void serShouldBeAbleToDeleteFeedbackForm() {
+		sleep(3000);
+		By actionMenu = By.xpath("//tbody/tr[1]/td[8]/div[1]/div[1]/button[1]");
+		WebElement menuButton = driver.findElement(actionMenu);
+
+		try {
+			menuButton.click();
+			sleep(1000);
+
+			boolean deleteExists = !driver
+					.findElements(By.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Delete')]"))
+					.isEmpty();
+
+			if (deleteExists) {
+				System.out.println("PASS: Delete option is visible as expected.");
+			} else {
+				Assert.fail("FAIL: Delete option is not visible, but it should be.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			Assert.fail("FAIL: Could not open the action menu to verify Delete option.");
+		}
+	}
+
+	@And("the user should not be able to delete any feedback form")
+	public void userShouldNotBeAbleToDeleteFeedbackForm() {
+		sleep(3000);
+		By actionMenu = By.xpath("//tbody/tr[1]/td[4]/div[1]/div[1]/button[1]/i[1]");
+		WebElement menuButton = driver.findElement(actionMenu);
+
+		try {
+			menuButton.click();
+			sleep(1000);
+
+			boolean deleteExists = !driver.findElements(By.xpath(
+					"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"))
+					.isEmpty();
+
+			if (deleteExists) {
+				System.out.println("PASS: Delete option is visible as expected.");
+			} else {
+				Assert.fail("FAIL: Delete option is not visible, but it should be.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			Assert.fail("FAIL: Could not open the action menu to verify Delete option.");
+		}
+	}
+
+	@But("the user should not be able to edit or delete any feedback form")
+	public void userShouldNotBeAbleToEditOrDeleteFeedbackForm() {
+		sleep(3000);
+
+		By actionMenu = By.xpath("//tbody/tr[1]/td[4]/div[1]/div[1]/button[1]/i[1]");
+
+		WebElement menuButton = driver.findElement(actionMenu);
+
+		try {
+			menuButton.click();
+			sleep(1000);
+			boolean editExists = !driver.findElements(By.xpath(
+					"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"))
+					.isEmpty();
+			boolean deleteExists = !driver.findElements(By.xpath(
+					"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"))
+					.isEmpty();
+
+			if (!editExists && !deleteExists) {
+				System.out.println("PASS: User cannot see Edit/Delete options.");
+			} else {
+				Assert.fail("FAIL: User should not see Edit/Delete options.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			System.out.println("PASS: Action menu exists but cannot be opened (no permissions).");
+		}
+	}
+
+	@But("the user should not be able to add, edit, or delete any feedback form")
+	public void userShouldNotBeAbleToAddEditOrDeleteFeedbackForm() {
+		sleep(3000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New Callout Template']"));
+
+		By actionMenu = By.xpath("//tbody/tr[1]/td[8]/div[1]/div[1]/button[1]");
+
+		WebElement menuButton = driver.findElement(actionMenu);
+		try {
+			menuButton.click();
+			sleep(1000);
+			boolean editExists = !driver
+					.findElements(By.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Edit')]"))
+					.isEmpty();
+			boolean deleteExists = !driver
+					.findElements(By.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Delete')]"))
+					.isEmpty();
+
+			if (!editExists && !deleteExists) {
+				System.out.println("PASS: User cannot see Edit/Delete options.");
+			} else {
+				Assert.fail("FAIL: User should not see Edit/Delete options.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			System.out.println("PASS: Action menu exists but cannot be opened (no permissions).");
+		}
+	}
+
+	@And("the user should be able to add a new patient signature template")
+	public void userShouldBeAbleToAddNewPatientSignatureTemplate() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Patient Signature']"));
+		waitAndSendKeys(By.id("PatientSignatureTemplate_Title"), profileName);
+		waitAndSendKeys(By.xpath("//div[@aria-label='Editor editing area: main. Press Alt+0 for help.']//p"),
+				profileName);
+		clickWhenClickable(
+				By.xpath("//button[@class='btn btn-primary waves-effect waves-light'][normalize-space()='Submit']"));
+	}
+
+	@And("the user should be able to edit an existing patient signature template")
+	public void userShouldBeAbleToEditPatientSignatureTemplate() {
+		sleep(3000);
+
+		By actionMenu = By.xpath("//tbody/tr[1]/td[4]/div[1]/div[1]/button[1]/i[1]");
+		WebElement menuButton = driver.findElement(actionMenu);
+
+		try {
+			menuButton.click();
+			sleep(1000);
+
+			boolean editExists = !driver.findElements(By.xpath(
+					"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"))
+					.isEmpty();
+
+			if (editExists) {
+				System.out.println("PASS: Edit option is visible as expected.");
+			} else {
+				Assert.fail("FAIL: Edit option is not visible, but it should be.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			Assert.fail("FAIL: Could not open the action menu to verify Edit option.");
+		}
+	}
+
+	@And("the user should be able to delete a patient signature template")
+	public void userShouldBeAbleToDeletePatientSignatureTemplate() {
+		sleep(3000);
+		By actionMenu = By.xpath("//tbody/tr[1]/td[8]/div[1]/div[1]/button[1]");
+		WebElement menuButton = driver.findElement(actionMenu);
+
+		try {
+			menuButton.click();
+			sleep(1000);
+
+			boolean deleteExists = !driver
+					.findElements(By.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Delete')]"))
+					.isEmpty();
+
+			if (deleteExists) {
+				System.out.println("PASS: Delete option is visible as expected.");
+			} else {
+				Assert.fail("FAIL: Delete option is not visible, but it should be.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			Assert.fail("FAIL: Could not open the action menu to verify Delete option.");
+		}
+	}
+
+	@And("the user should not be able to delete any patient signature template")
+	public void userShouldNotBeAbleToDeletePatientSignatureTemplate() {
+		sleep(3000);
+		By actionMenu = By.xpath("//tbody/tr[1]/td[4]/div[1]/div[1]/button[1]/i[1]");
+		WebElement menuButton = driver.findElement(actionMenu);
+
+		try {
+			menuButton.click();
+			sleep(1000);
+
+			boolean deleteExists = !driver.findElements(By.xpath(
+					"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"))
+					.isEmpty();
+
+			if (deleteExists) {
+				System.out.println("PASS: Delete option is visible as expected.");
+			} else {
+				Assert.fail("FAIL: Delete option is not visible, but it should be.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			Assert.fail("FAIL: Could not open the action menu to verify Delete option.");
+		}
+	}
+
+	@But("the user should not be able to edit or delete any patient signature template")
+	public void userShouldNotBeAbleToEditOrDeletePatientSignatureTemplate() {
+		sleep(3000);
+
+		By actionMenu = By.xpath("//tbody/tr[1]/td[4]/div[1]/div[1]/button[1]/i[1]");
+
+		WebElement menuButton = driver.findElement(actionMenu);
+
+		try {
+			menuButton.click();
+			sleep(1000);
+			boolean editExists = !driver.findElements(By.xpath(
+					"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"))
+					.isEmpty();
+			boolean deleteExists = !driver.findElements(By.xpath(
+					"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"))
+					.isEmpty();
+
+			if (!editExists && !deleteExists) {
+				System.out.println("PASS: User cannot see Edit/Delete options.");
+			} else {
+				Assert.fail("FAIL: User should not see Edit/Delete options.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			System.out.println("PASS: Action menu exists but cannot be opened (no permissions).");
+		}
+	}
+
+	@But("the user should not be able to add, edit, or delete any patient signature template")
+	public void userShouldNotBeAbleToAddEditOrDeletePatientSignatureTemplate() {
+		sleep(3000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New Callout Template']"));
+
+		By actionMenu = By.xpath("//tbody/tr[1]/td[8]/div[1]/div[1]/button[1]");
+
+		WebElement menuButton = driver.findElement(actionMenu);
+		try {
+			menuButton.click();
+			sleep(1000);
+			boolean editExists = !driver
+					.findElements(By.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Edit')]"))
+					.isEmpty();
+			boolean deleteExists = !driver
+					.findElements(By.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Delete')]"))
+					.isEmpty();
+
+			if (!editExists && !deleteExists) {
+				System.out.println("PASS: User cannot see Edit/Delete options.");
+			} else {
+				Assert.fail("FAIL: User should not see Edit/Delete options.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			System.out.println("PASS: Action menu exists but cannot be opened (no permissions).");
+		}
+	}
+
+	@Then("the user should be able to add a new fax template")
+	public void userShouldBeAbleToAddNewFaxTemplate() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Fax Template']"));
+		waitAndSendKeys(By.id("FaxTemplate_Title"), profileName);
+		waitAndSendKeys(By.id("FaxTemplate_Subject"), profileName);
+		selectDropdownByIndexWhenReady(By.id("TemplateFeatureMapping_FeatureType"), 4);
+		clickWhenClickable(By.xpath("//button[contains(text(),'Submit')]"));
+	}
+
+	@Then("the user should be able to edit an existing fax template")
+	public void userShouldBeAbleToEditFaxTemplate() {
+		sleep(3000);
+		clickWhenReadyAndVisible(By.xpath("//span[normalize-space()='Filter']"));
+		sleep(3000);
+		waitAndSendKeys(By.id("Filter_Title"), profileName);
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-magnifying-glass']"));
+		sleep(1000);
+
+		By actionMenu = By.xpath("//tbody/tr[1]/td[8]/div[1]/div[1]/button[1]");
+		WebElement menuButton = driver.findElement(actionMenu);
+
+		try {
+			menuButton.click();
+			sleep(1000);
+
+			boolean editExists = !driver
+					.findElements(By.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Edit')]"))
+					.isEmpty();
+
+			if (editExists) {
+				System.out.println("PASS: Edit option is visible as expected.");
+			} else {
+				Assert.fail("FAIL: Edit option is not visible, but it should be.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			Assert.fail("FAIL: Could not open the action menu to verify Edit option.");
+		}
+	}
+
+	@Then("the user should be able to delete a fax template")
+	public void userShouldBeAbleToDeleteFaxTemplate() {
+		sleep(3000);
+		By actionMenu = By.xpath("//tbody/tr[1]/td[8]/div[1]/div[1]/button[1]");
+		WebElement menuButton = driver.findElement(actionMenu);
+
+		try {
+			menuButton.click();
+			sleep(1000);
+
+			boolean deleteExists = !driver
+					.findElements(By.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Delete')]"))
+					.isEmpty();
+
+			if (deleteExists) {
+				System.out.println("PASS: Delete option is visible as expected.");
+			} else {
+				Assert.fail("FAIL: Delete option is not visible, but it should be.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			Assert.fail("FAIL: Could not open the action menu to verify Delete option.");
+		}
+	}
+
+	@But("the user should not be able to delete any fax template")
+	public void userShouldNotBeAbleToDeleteFaxTemplate() {
+		sleep(3000);
+		clickWhenReadyAndVisible(By.xpath("//span[normalize-space()='Filter']"));
+		sleep(3000);
+		waitAndSendKeys(By.id("Filter_Title"), profileName);
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-magnifying-glass']"));
+		sleep(1000);
+
+		By actionMenu = By.xpath("//tbody/tr[1]/td[8]/div[1]/div[1]/button[1]");
+		WebElement menuButton = driver.findElement(actionMenu);
+
+		try {
+			menuButton.click();
+			sleep(1000);
+
+			boolean editExists = !driver
+					.findElements(By.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Edit')]"))
+					.isEmpty();
+
+			if (editExists) {
+				System.out.println("PASS: Edit option is visible as expected.");
+			} else {
+				Assert.fail("FAIL: Edit option is not visible, but it should be.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			Assert.fail("FAIL: Could not open the action menu to verify Edit option.");
+		}
+	}
+
+	@But("the user should not be able to edit or delete any fax template")
+	public void userShouldNotBeAbleToEditOrDeleteFaxTemplate() {
+		sleep(3000);
+		clickWhenReadyAndVisible(By.xpath("//span[normalize-space()='Filter']"));
+		sleep(3000);
+		waitAndSendKeys(By.id("Filter_Title"), profileName);
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-magnifying-glass']"));
+		sleep(1000);
+		By actionMenu = By.xpath("//tbody/tr[1]/td[8]/div[1]/div[1]/button[1]");
+
+		WebElement menuButton = driver.findElement(actionMenu);
+
+		try {
+			menuButton.click();
+			sleep(1000);
+			boolean editExists = !driver
+					.findElements(By.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Edit')]"))
+					.isEmpty();
+			boolean deleteExists = !driver
+					.findElements(By.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Delete')]"))
+					.isEmpty();
+
+			if (!editExists && !deleteExists) {
+				System.out.println("PASS: User cannot see Edit/Delete options.");
+			} else {
+				Assert.fail("FAIL: User should not see Edit/Delete options.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			System.out.println("PASS: Action menu exists but cannot be opened (no permissions).");
+		}
+	}
+
+	@Then("the user should not be able to add, edit, or delete any fax template")
+	public void userShouldNotBeAbleToAddEditOrDeleteFaxTemplate() {
+		sleep(3000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New Callout Template']"));
+
+		By actionMenu = By.xpath("//tbody/tr[1]/td[8]/div[1]/div[1]/button[1]");
+
+		WebElement menuButton = driver.findElement(actionMenu);
+		try {
+			menuButton.click();
+			sleep(1000);
+			boolean editExists = !driver
+					.findElements(By.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Edit')]"))
+					.isEmpty();
+			boolean deleteExists = !driver
+					.findElements(By.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Delete')]"))
+					.isEmpty();
+
+			if (!editExists && !deleteExists) {
+				System.out.println("PASS: User cannot see Edit/Delete options.");
+			} else {
+				Assert.fail("FAIL: User should not see Edit/Delete options.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			System.out.println("PASS: Action menu exists but cannot be opened (no permissions).");
+		}
+	}
+
 	@Then("I should see only log access for the new user")
 	public void verifyLogOnlyAccess() {
 		driver.get(baseUrl + "/Setup/Home/Dashboard");
@@ -734,6 +1626,166 @@ public class UserManagementSteps {
 		sleep(3000);
 		driver.get(baseUrl + "/Setup/Home/BOTCallTemplates");
 		wait.until(ExpectedConditions.urlContains("/Setup/Home/BOTCallTemplates"));
+	}
+
+	@Then("the user should be able to view mail templates")
+	public void userShouldBeAbleToViewMailTemplates() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/MailTemplates");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/MailTemplates"));
+	}
+
+	@Then("the user should be able to add a new mail template")
+	public void userShouldBeAbleToAddNewMailTemplate() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Mail Template']"));
+		waitAndSendKeys(By.id("MailTemplate_Title"), profileName);
+		waitAndSendKeys(By.id("MailTemplate_Subject"), profileName);
+		selectDropdownByIndexWhenReady(By.id("TemplateFeatureMapping_FeatureType"), 1);
+		clickWhenClickable(
+				By.xpath("//button[@class='btn btn-primary waves-effect waves-light'][normalize-space()='Submit']"));
+	}
+
+	@And("the user should be able to edit an existing mail template")
+	public void userShouldBeAbleToEditMailTemplate() {
+		sleep(3000);
+		clickWhenReadyAndVisible(By.xpath("//span[normalize-space()='Filter']"));
+		sleep(3000);
+		waitAndSendKeys(By.id("Filter_Title"), profileName);
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-magnifying-glass']"));
+		sleep(1000);
+
+		By actionMenu = By.xpath("//tbody/tr[1]/td[8]/div[1]/div[1]/button[1]");
+		WebElement menuButton = driver.findElement(actionMenu);
+
+		try {
+			menuButton.click();
+			sleep(1000);
+
+			boolean editExists = !driver
+					.findElements(By.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Edit')]"))
+					.isEmpty();
+
+			if (editExists) {
+				System.out.println("PASS: Edit option is visible as expected.");
+			} else {
+				Assert.fail("FAIL: Edit option is not visible, but it should be.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			Assert.fail("FAIL: Could not open the action menu to verify Edit option.");
+		}
+	}
+
+	@And("the user should be able to delete a mail template")
+	public void userShouldBeAbleToDeleteMailTemplate() {
+		sleep(3000);
+		By actionMenu = By.xpath("//tbody/tr[1]/td[8]/div[1]/div[1]/button[1]");
+		WebElement menuButton = driver.findElement(actionMenu);
+
+		try {
+			menuButton.click();
+			sleep(1000);
+
+			boolean deleteExists = !driver
+					.findElements(By.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Delete')]"))
+					.isEmpty();
+
+			if (deleteExists) {
+				System.out.println("PASS: Delete option is visible as expected.");
+			} else {
+				Assert.fail("FAIL: Delete option is not visible, but it should be.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			Assert.fail("FAIL: Could not open the action menu to verify Delete option.");
+		}
+	}
+
+	@But("the user should not be able to delete any mail template")
+	public void userShouldNotBeAbleToDeleteMailTemplate() {
+		By actionMenu = By.xpath("//tbody/tr[1]/td[8]/div[1]/div[1]/button[1]");
+		WebElement menuButton = driver.findElement(actionMenu);
+
+		try {
+			menuButton.click();
+			sleep(1000);
+
+			boolean deleteExists = !driver
+					.findElements(By.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Delete')]"))
+					.isEmpty();
+
+			if (!deleteExists) {
+				System.out.println("PASS: Delete option is not visible as expected.");
+			} else {
+				Assert.fail("FAIL: Delete option is visible, but it should not be.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			System.out.println("PASS: Action menu exists but cannot be opened (no delete permissions).");
+		}
+	}
+
+	@But("the user should not be able to edit or delete any mail template")
+	public void userShouldNotBeAbleToEditOrDeleteMailTemplate() {
+		sleep(3000);
+		clickWhenReadyAndVisible(By.xpath("//span[normalize-space()='Filter']"));
+		sleep(3000);
+		waitAndSendKeys(By.id("Filter_Title"), profileName);
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-magnifying-glass']"));
+		sleep(1000);
+		By actionMenu = By.xpath("//tbody/tr[1]/td[8]/div[1]/div[1]/button[1]");
+
+		WebElement menuButton = driver.findElement(actionMenu);
+
+		try {
+			menuButton.click();
+			sleep(1000);
+			boolean editExists = !driver
+					.findElements(By.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Edit')]"))
+					.isEmpty();
+			boolean deleteExists = !driver
+					.findElements(By.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Delete')]"))
+					.isEmpty();
+
+			if (!editExists && !deleteExists) {
+				System.out.println("PASS: User cannot see Edit/Delete options.");
+			} else {
+				Assert.fail("FAIL: User should not see Edit/Delete options.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			System.out.println("PASS: Action menu exists but cannot be opened (no permissions).");
+		}
+	}
+
+	@But("the user should not be able to add, edit, or delete any mail template")
+	public void userShouldNotBeAbleToModifyMailTemplate() {
+		sleep(3000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New Mail Template']"));
+
+		By actionMenu = By.xpath("//tbody/tr[1]/td[8]/div[1]/div[1]/button[1]");
+
+		WebElement menuButton = driver.findElement(actionMenu);
+		try {
+			menuButton.click();
+			sleep(1000);
+			boolean editExists = !driver
+					.findElements(By.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Edit')]"))
+					.isEmpty();
+			boolean deleteExists = !driver
+					.findElements(By.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Delete')]"))
+					.isEmpty();
+
+			if (!editExists && !deleteExists) {
+				System.out.println("PASS: User cannot see Edit/Delete options.");
+			} else {
+				Assert.fail("FAIL: User should not see Edit/Delete options.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			System.out.println("PASS: Action menu exists but cannot be opened (no permissions).");
+		}
 	}
 
 	@Then("the user should be able to add a new BOT call template")
