@@ -130,7 +130,7 @@ Feature: Full User Management Flow
 
   Scenario: User with View and Add access for Text Template
   Given I log in as admin
-  When I create a new user with email "testuser3_static@mailinator.com"
+  When I create a new user with email "testuser9_static@mailinator.com"
   And I create a profile with View and Add access to Setup Module → Text Template 
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -138,10 +138,10 @@ Feature: Full User Management Flow
   Then the user should be able to view text templates
   And the user should be able to add a new text template 
   But the user should not be able to edit or delete any text template 
-
+  
   Scenario: User with View, Add, and Edit access for Text Template
   Given I log in as admin
-  When I create a new user with email "testuser4_static@mailinator.com"
+  When I create a new user with email "testuser10_static@mailinator.com"
   And I create a profile with View, Add, and Edit access to Setup Module → Text Template 
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -153,7 +153,7 @@ Feature: Full User Management Flow
   
   Scenario: User with full access (View, Add, Edit, Delete) for Text Template
   Given I log in as admin
-  When I create a new user with email "testuser5_static@mailinator.com"
+  When I create a new user with email "testuser11_static@mailinator.com"
   And I create a profile with full access to Setup Module → Text Template 
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -165,7 +165,7 @@ Feature: Full User Management Flow
   
   Scenario: User with View only access for BOT Call Template
   Given I log in as admin
-  When I create a new user with email "testuser2_static@mailinator.com"
+  When I create a new user with email "testuser1_static@mailinator.com"
   And I create a profile with View access only to Setup Module → BOT Call Template 
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -173,10 +173,10 @@ Feature: Full User Management Flow
   Then the user should be able to view BOT call templates 
   But the user should not be able to add, edit, or delete any BOT call template 
   
-  @Templates
+  
   Scenario: User with View and Add access for BOT Call Template
   Given I log in as admin
-  When I create a new user with email "testuser2_static@mailinator.com"
+  When I create a new user with email "testuser3_static@mailinator.com"
   And I create a profile with View and Add access to Setup Module → BOT Call Template 
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -187,7 +187,7 @@ Feature: Full User Management Flow
   
   Scenario: User with View, Add, and Edit access for BOT Call Template
   Given I log in as admin
-  When I create a new user with email "testuser3_static@mailinator.com"
+  When I create a new user with email "testuser5_static@mailinator.com"
   And I create a profile with View, Add, and Edit access to Setup Module → BOT Call Template 
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -197,9 +197,10 @@ Feature: Full User Management Flow
   And the user should be able to edit an existing BOT call template 
   But the user should not be able to delete any BOT call template 
   
+  @Templates
   Scenario: User with full access (View, Add, Edit, Delete) for BOT Call Template
   Given I log in as admin
-  When I create a new user with email "testuser4_static@mailinator.com"
+  When I create a new user with email "testuser6_static@mailinator.com"
   And I create a profile with full access to Setup Module → BOT Call Template 
   And I assign the profile and workspace to the user
   And I reset the user's password

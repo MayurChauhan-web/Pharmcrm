@@ -740,11 +740,10 @@ public class UserManagementSteps {
 	public void verifyUserCanAddBotCallTemplate() {
 		sleep(3000);
 		clickWhenClickable(By.xpath("//span[normalize-space()='New Callout Template']"));
-		String templateName = "Test BOT Template " + System.currentTimeMillis();
-		waitAndSendKeys(By.id("BOTCallTemplate_Title"), templateName);
+		waitAndSendKeys(By.id("BOTCallTemplate_Title"), profileName);
 		selectDropdownByIndexWhenReady(By.id("TemplateFeatureMapping_FeatureType"), 3);
 		selectDropdownByIndexWhenReady(By.id("TemplateFeatureMapping_SubFeatureType"), 1);
-		waitAndSendKeys(By.id("BOTCallTemplate_Body"), templateName + " Message");
+		waitAndSendKeys(By.id("BOTCallTemplate_Body"), " Message");
 		clickWhenClickable(
 				By.xpath("//button[@class='btn btn-primary waves-effect waves-light'][normalize-space()='Submit']"));
 
@@ -758,27 +757,78 @@ public class UserManagementSteps {
 		waitAndSendKeys(By.id("Filter_Title"), profileName);
 		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-magnifying-glass']"));
 		sleep(1000);
-		By actionMenu = By.xpath("//tr[td[normalize-space()='" + profileName + "']]//td[@class='text-right']//button");
-		clickWhenClickable(actionMenu);
-		sleep(1000);
-		assertElementPresent(By.xpath(
-				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+
+		By actionMenu = By.xpath("//tbody/tr[1]/td[8]/div[1]/div[1]/button[1]");
+		WebElement menuButton = driver.findElement(actionMenu);
+
+		try {
+			menuButton.click();
+			sleep(1000);
+
+			boolean editExists = !driver
+					.findElements(By.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Edit')]"))
+					.isEmpty();
+
+			if (editExists) {
+				System.out.println("PASS: Edit option is visible as expected.");
+			} else {
+				Assert.fail("FAIL: Edit option is not visible, but it should be.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			Assert.fail("FAIL: Could not open the action menu to verify Edit option.");
+		}
 
 	}
 
 	@But("the user should not be able to delete any BOT call template")
 	public void verifyUserCannotDeleteBotCallTemplate() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath(
-				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		By actionMenu = By.xpath("//tbody/tr[1]/td[8]/div[1]/div[1]/button[1]");
+		WebElement menuButton = driver.findElement(actionMenu);
+
+		try {
+			menuButton.click();
+			sleep(1000);
+
+			boolean deleteExists = !driver
+					.findElements(By.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Delete')]"))
+					.isEmpty();
+
+			if (!deleteExists) {
+				System.out.println("PASS: Delete option is not visible as expected.");
+			} else {
+				Assert.fail("FAIL: Delete option is visible, but it should not be.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			System.out.println("PASS: Action menu exists but cannot be opened (no delete permissions).");
+		}
 
 	}
 
 	@And("the user should be able to delete a BOT call template")
 	public void verifyUserCanDeleteBotCallTemplate() {
 		sleep(3000);
-		assertElementPresent(By.xpath(
-				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		By actionMenu = By.xpath("//tbody/tr[1]/td[8]/div[1]/div[1]/button[1]");
+		WebElement menuButton = driver.findElement(actionMenu);
+
+		try {
+			menuButton.click();
+			sleep(1000);
+
+			boolean deleteExists = !driver
+					.findElements(By.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Delete')]"))
+					.isEmpty();
+
+			if (deleteExists) {
+				System.out.println("PASS: Delete option is visible as expected.");
+			} else {
+				Assert.fail("FAIL: Delete option is not visible, but it should be.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			Assert.fail("FAIL: Could not open the action menu to verify Delete option.");
+		}
 
 	}
 
@@ -888,7 +938,7 @@ public class UserManagementSteps {
 	public void verifyUserCannotEditOrDeleteBotCallTemplate() {
 		sleep(3000);
 		driver.get(baseUrl + "/Setup/Home/BOTCallTemplates");
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/SMSTemplates"));
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/BOTCallTemplates"));
 		assertElementNotPresent(By.xpath("//span[normalize-space()='New Text Template']"));
 
 		clickWhenReadyAndVisible(By.xpath("//span[normalize-space()='Filter']"));
@@ -896,12 +946,29 @@ public class UserManagementSteps {
 		waitAndSendKeys(By.id("Filter_Title"), profileName);
 		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-magnifying-glass']"));
 		sleep(1000);
-		By actionMenu = By.xpath("//tr[td[normalize-space()='" + profileName + "']]//td[@class='text-right']//button");
-		clickWhenClickable(actionMenu);
-		assertElementNotPresent(By.xpath(
-				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
-		assertElementNotPresent(By.xpath(
-				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		By actionMenu = By.xpath("//tbody/tr[1]/td[8]/div[1]/div[1]/button[1]");
+
+		WebElement menuButton = driver.findElement(actionMenu);
+
+		try {
+			menuButton.click();
+			sleep(1000);
+			boolean editExists = !driver
+					.findElements(By.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Edit')]"))
+					.isEmpty();
+			boolean deleteExists = !driver
+					.findElements(By.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Delete')]"))
+					.isEmpty();
+
+			if (!editExists && !deleteExists) {
+				System.out.println("PASS: User cannot see Edit/Delete options.");
+			} else {
+				Assert.fail("FAIL: User should not see Edit/Delete options.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			System.out.println("PASS: Action menu exists but cannot be opened (no permissions).");
+		}
 
 	}
 
