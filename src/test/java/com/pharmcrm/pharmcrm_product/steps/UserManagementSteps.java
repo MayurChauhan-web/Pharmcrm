@@ -772,6 +772,142 @@ public class UserManagementSteps {
 		clickWhenClickable(By.id("btnSave"));
 	}
 
+	@And("I create a profile with View access only to Organization Bucket")
+	public void createProfileWithViewAccessToOrganizationBucket() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(3000);
+		uncheckPermissionIfChecked("chkg12OrganizationBucketAddFile");
+		uncheckPermissionIfChecked("chkg12OrganizationBucketEditFile");
+		uncheckPermissionIfChecked("chkg12OrganizationBucketDeleteFile");
+		uncheckPermissionIfChecked("chkg12OrganizationBucketDownloadFile");
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Add File access to Organization Bucket")
+	public void createProfileWithViewAndAddFileAccessToOrganizationBucket() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(3000);
+		uncheckPermissionIfChecked("chkg12OrganizationBucketEditFile");
+		uncheckPermissionIfChecked("chkg12OrganizationBucketDeleteFile");
+		uncheckPermissionIfChecked("chkg12OrganizationBucketDownloadFile");
+		clickWhenClickable(By.id("btnSave"));
+
+	}
+
+	@And("I create a profile with View, Add File, and Edit File access to Organization Bucket")
+	public void createProfileWithViewAddAndEditFileAccessToOrganizationBucket() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(3000);
+		uncheckPermissionIfChecked("chkg12OrganizationBucketDeleteFile");
+		uncheckPermissionIfChecked("chkg12OrganizationBucketDownloadFile");
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View, Add, Edit, and Delete File access to Organization Bucket")
+	public void createProfileWithViewAddEditAndDeleteFileAccessToOrganizationBucket() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(3000);
+		uncheckPermissionIfChecked("chkg12OrganizationBucketDownloadFile");
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with full access to Organization Bucket")
+	public void createProfileWithFullAccessToOrganizationBucket() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(3000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
 	@And("I create a profile with View and Add access to Setup Module → Text Template")
 	public void createProfileWithViewAndAddAccessToTextTemplate() {
 		driver.get(baseUrl + "/Setup/Home/Profiles");
@@ -1082,18 +1218,212 @@ public class UserManagementSteps {
 		wait.until(ExpectedConditions.urlContains("/Setup/Home/FeedbackForms"));
 	}
 
+	@Then("the user should be able to view files in the Organization Bucket")
+	public void verifyUserCanViewFilesInOrganizationBucket() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/OrganizationDocuments");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/OrganizationDocuments"));
+	}
+
+	@And("the user should be able to add a new file")
+	public void verifyUserCanAddNewFileInOrganizationBucket() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[@id='btnAddFile']//*[name()='svg']"));
+		String filePath = "C:\\Users\\MayurChauhan\\Downloads\\dummy.pdf";
+		WebElement fileInput = driver.findElement(By.xpath("//div[@class='pb-2']//input[@id='file-3']"));
+		fileInput.sendKeys(filePath);
+		sleep(3000);
+		clickWhenClickable(By.xpath("//button[@id='btnSaveFile']"));
+	}
+
+	@And("the user should be able to edit an existing file")
+	public void verifyUserCanEditExistingFileInOrganizationBucket() {
+		sleep(3000);
+		By actionMenu = By.xpath("//div[@class='settings-inner']//div[1]//div[1]//div[1]//div[1]//button[1]//i[1]");
+		WebElement menuButton = driver.findElement(actionMenu);
+
+		try {
+			menuButton.click();
+			sleep(1000);
+
+			boolean editExists = !driver
+					.findElements(By.xpath("//div[@class='bucket-mainn show']//li[1]//a[1]//*[name()='svg']"))
+					.isEmpty();
+
+			if (editExists) {
+				System.out.println("PASS: Edit option is visible as expected.");
+			} else {
+				Assert.fail("FAIL: Edit option is not visible, but it should be.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			Assert.fail("FAIL: Could not open the action menu to verify Edit option.");
+		}
+	}
+
+	@And("the user should be able to delete a file")
+	public void verifyUserCanDeleteFileInOrganizationBucket() {
+		sleep(3000);
+
+		try {
+			sleep(1000);
+
+			boolean deleteExists = !driver.findElements(By.xpath(
+					"//div[@class='dropdown-menu bucket-dropdown-content show']//a[@id='btnDeleteFile']//*[name()='svg']"))
+					.isEmpty();
+
+			if (deleteExists) {
+				System.out.println("PASS: Delete option is visible as expected.");
+			} else {
+				Assert.fail("FAIL: Delete option is not visible, but it should be.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			Assert.fail("FAIL: Could not open the action menu to verify Delete option.");
+		}
+	}
+
+	@And("the user should be able to download a file")
+	public void verifyUserCanDownloadFileInOrganizationBucket() {
+		sleep(3000);
+
+		try {
+			sleep(1000);
+
+			boolean downloadExists = !driver
+					.findElements(By.xpath("(//a[starts-with(@href, '/Security/DownloadFile')])[1]")).isEmpty();
+
+			if (downloadExists) {
+				System.out.println("PASS: Delete option is visible as expected.");
+			} else {
+				Assert.fail("FAIL: Delete option is not visible, but it should be.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			Assert.fail("FAIL: Could not open the action menu to verify Delete option.");
+		}
+	}
+
+	@And("the user should not be able to download any file")
+	public void verifyUserCannotDownloadFilesInOrganizationBucket() {
+		sleep(3000);
+		try {
+			sleep(1000);
+
+			boolean downloadExists = !driver
+					.findElements(By.xpath("(//a[starts-with(@href, '/Security/DownloadFile')])[1]")).isEmpty();
+
+			if (!downloadExists) {
+				System.out.println("PASS: Download option is not visible as expected.");
+			} else {
+				Assert.fail("FAIL: Download option is visible, but it should not be.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			System.out.println("PASS: Action menu exists but cannot be opened (no Download permissions).");
+		}
+	}
+
+	@And("the user should not be able to delete or download any files")
+	public void verifyUserCannotDeleteOrDownloadFilesInOrganizationBucket() {
+		sleep(3000);
+		By actionMenu = By.xpath("//div[@class='settings-inner']//div[1]//div[1]//div[1]//div[1]//button[1]//i[1]");
+		WebElement menuButton = driver.findElement(actionMenu);
+
+		try {
+			menuButton.click();
+			sleep(1000);
+			boolean deleteExists = !driver.findElements(By.xpath(
+					"//div[@class='dropdown-menu bucket-dropdown-content show']//a[@id='btnDeleteFile']//*[name()='svg']//*[name()='path' and @id='Union_1']"))
+					.isEmpty();
+			boolean downloadExists = !driver
+					.findElements(By.xpath("//div[@class='bucket-mainn show']//li[2]//a[1]//*[name()='svg']"))
+					.isEmpty();
+			if (!deleteExists && !downloadExists) {
+				System.out.println("PASS: Delete and Download options are not visible as expected.");
+			} else {
+				Assert.fail("FAIL: Delete and/or Download option is visible, but it should not be.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			System.out.println("PASS: Action menu exists but cannot be opened (no permissions).");
+		}
+	}
+
+	@But("the user should not be able to edit, delete, or download any files")
+	public void verifyUserCannotEditDeleteOrDownloadFilesInOrganizationBucket() {
+		sleep(3000);
+		By actionMenu = By.xpath("//div[@class='settings-inner']//div[1]//div[1]//div[1]//div[1]//button[1]//i[1]");
+		WebElement menuButton = driver.findElement(actionMenu);
+		try {
+			menuButton.click();
+			sleep(1000);
+			boolean editExists = !driver
+					.findElements(By.xpath("//div[@class='bucket-mainn show']//li[1]//a[1]//*[name()='svg']"))
+					.isEmpty();
+			boolean deleteExists = !driver.findElements(By.xpath(
+					"//div[@class='dropdown-menu bucket-dropdown-content show']//a[@id='btnDeleteFile']//*[name()='svg']"))
+					.isEmpty();
+			boolean downloadExists = !driver.findElements(By.xpath(
+					"//div[@class='bucket-mainn show']//li[2]//a[1]//*[name()='svg']//*[name()='path' and @id='Union_1']"))
+					.isEmpty();
+			if (!editExists && !deleteExists && !downloadExists) {
+				System.out.println("PASS: User cannot see Edit/Delete/Download options.");
+			} else {
+				Assert.fail("FAIL: User should not see Edit/Delete/Download options.");
+			}
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			System.out.println("PASS: Action menu exists but cannot be opened (no permissions).");
+		}
+	}
+
+	@But("the user should not be able to add, edit, delete, or download any files")
+	public void verifyUserCannotAddEditDeleteOrDownloadFilesInOrganizationBucket() {
+		sleep(3000);
+		assertElementNotPresent(By.xpath("//a[@id='btnAddFile']//*[name()='svg']"));
+		By actionMenu = By.xpath("//div[@class='settings-inner']//div[1]//div[1]//div[1]//div[1]//button[1]//i[1]");
+		WebElement menuButton = driver.findElement(actionMenu);
+		try {
+			menuButton.click();
+			sleep(1000);
+			boolean editExists = !driver
+					.findElements(By.xpath("//div[@class='bucket-mainn show']//li[1]//a[1]//*[name()='svg']"))
+					.isEmpty();
+			boolean deleteExists = !driver.findElements(By.xpath(
+					"//div[@class='dropdown-menu bucket-dropdown-content show']//a[@id='btnDeleteFile']//*[name()='svg']"))
+					.isEmpty();
+			boolean downloadExists = !driver.findElements(By.xpath(
+					"//div[@class='bucket-mainn show']//li[2]//a[1]//*[name()='svg']//*[name()='path' and @id='Union_1']"))
+					.isEmpty();
+			if (!editExists && !deleteExists && !downloadExists) {
+				System.out.println("PASS: User cannot see Edit/Delete/Download options.");
+			} else {
+				Assert.fail("FAIL: User should not see Edit/Delete/Download options.");
+			}
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			System.out.println("PASS: Action menu exists but cannot be opened (no permissions).");
+		}
+	}
+
 	@And("the user should be able to add a new feedback form")
 	public void userShouldBeAbleToAddNewFeedbackForm() {
 		sleep(3000);
 		clickWhenClickable(By.xpath("//span[normalize-space()='New Feedback Form']"));
 		waitAndSendKeys(By.id("FeedbackForm_Title"), profileName);
-
 		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+		waitAndSendKeys(By.id("FeedbackQuestion_Question"), profileName);
+		sleep(3000);
+		clickWhenClickable(
+				By.xpath("//a[@class='settings-add-btn']//*[name()='svg']//*[name()='path' and @id='Path_1']"));
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+
 	}
 
 	@And("the user should be able to edit an existing feedback form")
 	public void userShouldBeAbleToEditFeedbackForm() {
 		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/FeedbackForms");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/FeedbackForms"));
 
 		By actionMenu = By.xpath("//tbody/tr[1]/td[4]/div[1]/div[1]/button[1]/i[1]");
 		WebElement menuButton = driver.findElement(actionMenu);
@@ -1120,15 +1450,12 @@ public class UserManagementSteps {
 	@And("the user should be able to delete a feedback form")
 	public void serShouldBeAbleToDeleteFeedbackForm() {
 		sleep(3000);
-		By actionMenu = By.xpath("//tbody/tr[1]/td[8]/div[1]/div[1]/button[1]");
-		WebElement menuButton = driver.findElement(actionMenu);
 
 		try {
-			menuButton.click();
 			sleep(1000);
 
-			boolean deleteExists = !driver
-					.findElements(By.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Delete')]"))
+			boolean deleteExists = !driver.findElements(By.xpath(
+					"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"))
 					.isEmpty();
 
 			if (deleteExists) {
@@ -1156,20 +1483,22 @@ public class UserManagementSteps {
 					"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"))
 					.isEmpty();
 
-			if (deleteExists) {
-				System.out.println("PASS: Delete option is visible as expected.");
+			if (!deleteExists) {
+				System.out.println("PASS: Delete option is not visible as expected.");
 			} else {
-				Assert.fail("FAIL: Delete option is not visible, but it should be.");
+				Assert.fail("FAIL: Delete option is visible, but it should not be.");
 			}
 
 		} catch (ElementClickInterceptedException | TimeoutException e) {
-			Assert.fail("FAIL: Could not open the action menu to verify Delete option.");
+			System.out.println("PASS: Action menu exists but cannot be opened (no delete permissions).");
 		}
 	}
 
 	@But("the user should not be able to edit or delete any feedback form")
 	public void userShouldNotBeAbleToEditOrDeleteFeedbackForm() {
 		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/FeedbackForms");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/FeedbackForms"));
 
 		By actionMenu = By.xpath("//tbody/tr[1]/td[4]/div[1]/div[1]/button[1]/i[1]");
 
@@ -1199,19 +1528,19 @@ public class UserManagementSteps {
 	@But("the user should not be able to add, edit, or delete any feedback form")
 	public void userShouldNotBeAbleToAddEditOrDeleteFeedbackForm() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//span[normalize-space()='New Callout Template']"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New Feedback Form']"));
 
-		By actionMenu = By.xpath("//tbody/tr[1]/td[8]/div[1]/div[1]/button[1]");
+		By actionMenu = By.xpath("//tbody/tr[1]/td[4]/div[1]/div[1]/button[1]/i[1]");
 
 		WebElement menuButton = driver.findElement(actionMenu);
 		try {
 			menuButton.click();
 			sleep(1000);
-			boolean editExists = !driver
-					.findElements(By.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Edit')]"))
+			boolean editExists = !driver.findElements(By.xpath(
+					"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"))
 					.isEmpty();
-			boolean deleteExists = !driver
-					.findElements(By.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Delete')]"))
+			boolean deleteExists = !driver.findElements(By.xpath(
+					"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"))
 					.isEmpty();
 
 			if (!editExists && !deleteExists) {
@@ -1265,15 +1594,11 @@ public class UserManagementSteps {
 	@And("the user should be able to delete a patient signature template")
 	public void userShouldBeAbleToDeletePatientSignatureTemplate() {
 		sleep(3000);
-		By actionMenu = By.xpath("//tbody/tr[1]/td[8]/div[1]/div[1]/button[1]");
-		WebElement menuButton = driver.findElement(actionMenu);
-
 		try {
-			menuButton.click();
 			sleep(1000);
 
-			boolean deleteExists = !driver
-					.findElements(By.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Delete')]"))
+			boolean deleteExists = !driver.findElements(By.xpath(
+					"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"))
 					.isEmpty();
 
 			if (deleteExists) {
@@ -1301,14 +1626,14 @@ public class UserManagementSteps {
 					"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"))
 					.isEmpty();
 
-			if (deleteExists) {
-				System.out.println("PASS: Delete option is visible as expected.");
+			if (!deleteExists) {
+				System.out.println("PASS: Delete option is not visible as expected.");
 			} else {
-				Assert.fail("FAIL: Delete option is not visible, but it should be.");
+				Assert.fail("FAIL: Delete option is visible, but it should not be.");
 			}
 
 		} catch (ElementClickInterceptedException | TimeoutException e) {
-			Assert.fail("FAIL: Could not open the action menu to verify Delete option.");
+			System.out.println("PASS: Action menu exists but cannot be opened (no delete permissions).");
 		}
 	}
 
@@ -1344,19 +1669,19 @@ public class UserManagementSteps {
 	@But("the user should not be able to add, edit, or delete any patient signature template")
 	public void userShouldNotBeAbleToAddEditOrDeletePatientSignatureTemplate() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//span[normalize-space()='New Callout Template']"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New Patient Signature']"));
 
-		By actionMenu = By.xpath("//tbody/tr[1]/td[8]/div[1]/div[1]/button[1]");
+		By actionMenu = By.xpath("//tbody/tr[1]/td[4]/div[1]/div[1]/button[1]/i[1]");
 
 		WebElement menuButton = driver.findElement(actionMenu);
 		try {
 			menuButton.click();
 			sleep(1000);
-			boolean editExists = !driver
-					.findElements(By.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Edit')]"))
+			boolean editExists = !driver.findElements(By.xpath(
+					"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"))
 					.isEmpty();
-			boolean deleteExists = !driver
-					.findElements(By.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Delete')]"))
+			boolean deleteExists = !driver.findElements(By.xpath(
+					"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"))
 					.isEmpty();
 
 			if (!editExists && !deleteExists) {
@@ -1376,8 +1701,8 @@ public class UserManagementSteps {
 		clickWhenClickable(By.xpath("//span[normalize-space()='New Fax Template']"));
 		waitAndSendKeys(By.id("FaxTemplate_Title"), profileName);
 		waitAndSendKeys(By.id("FaxTemplate_Subject"), profileName);
-		selectDropdownByIndexWhenReady(By.id("TemplateFeatureMapping_FeatureType"), 4);
-		clickWhenClickable(By.xpath("//button[contains(text(),'Submit')]"));
+		selectDropdownByIndexWhenReady(By.id("TemplateFeatureMapping_FeatureType"), 3);
+		clickWhenClickable(By.cssSelector("button[onclick='javascript:SubmitFaxTemplate();']"));
 	}
 
 	@Then("the user should be able to edit an existing fax template")
@@ -1439,12 +1764,6 @@ public class UserManagementSteps {
 	@But("the user should not be able to delete any fax template")
 	public void userShouldNotBeAbleToDeleteFaxTemplate() {
 		sleep(3000);
-		clickWhenReadyAndVisible(By.xpath("//span[normalize-space()='Filter']"));
-		sleep(3000);
-		waitAndSendKeys(By.id("Filter_Title"), profileName);
-		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-magnifying-glass']"));
-		sleep(1000);
-
 		By actionMenu = By.xpath("//tbody/tr[1]/td[8]/div[1]/div[1]/button[1]");
 		WebElement menuButton = driver.findElement(actionMenu);
 
@@ -1452,18 +1771,18 @@ public class UserManagementSteps {
 			menuButton.click();
 			sleep(1000);
 
-			boolean editExists = !driver
-					.findElements(By.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Edit')]"))
+			boolean deleteExists = !driver
+					.findElements(By.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Delete')]"))
 					.isEmpty();
 
-			if (editExists) {
-				System.out.println("PASS: Edit option is visible as expected.");
+			if (!deleteExists) {
+				System.out.println("PASS: Delete option is not visible as expected.");
 			} else {
-				Assert.fail("FAIL: Edit option is not visible, but it should be.");
+				Assert.fail("FAIL: Delete option is visible, but it should not be.");
 			}
 
 		} catch (ElementClickInterceptedException | TimeoutException e) {
-			Assert.fail("FAIL: Could not open the action menu to verify Edit option.");
+			System.out.println("PASS: Action menu exists but cannot be opened (no delete permissions).");
 		}
 	}
 

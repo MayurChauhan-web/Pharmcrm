@@ -254,7 +254,6 @@ Feature: Full User Management Flow
   And the user should be able to edit an existing mail template
   And the user should be able to delete a mail template  
 
-  @Templates 
   Scenario: User with View only access for Fax Template
   Given I log in as admin
   When I create a new user with email "testuser1_static@mailinator.com"
@@ -267,7 +266,7 @@ Feature: Full User Management Flow
 
   Scenario: User with View and Add access for Fax Template
   Given I log in as admin
-  When I create a new user with email "testuser1_static@mailinator.com"
+  When I create a new user with email "testuser4_static@mailinator.com"
   And I create a profile with View and Add access to Setup Module → Fax Template 
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -278,7 +277,7 @@ Feature: Full User Management Flow
   
   Scenario: User with View, Add, and Edit access for Fax Template
   Given I log in as admin
-  When I create a new user with email "testuser1_static@mailinator.com"
+  When I create a new user with email "testuser6_static@mailinator.com"
   And I create a profile with View, Add, and Edit access to Setup Module → Fax Template 
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -290,7 +289,7 @@ Feature: Full User Management Flow
 
   Scenario: User with full access (View, Add, Edit, Delete) for Fax Template
   Given I log in as admin
-  When I create a new user with email "testuser1_static@mailinator.com"
+  When I create a new user with email "testuser7_static@mailinator.com"
   And I create a profile with full access to Setup Module → Fax Template 
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -298,11 +297,11 @@ Feature: Full User Management Flow
   Then the user should be able to view fax templates
   And the user should be able to add a new fax template
   And the user should be able to edit an existing fax template
-  And the user should be able to delete a fax template  
-
+  And the user should be able to delete a fax template
+    
   Scenario: User with View only access for Patient Signature Template
   Given I log in as admin
-  When I create a new user with email "testuser1_static@mailinator.com"
+  When I create a new user with email "testuser2_static@mailinator.com"
   And I create a profile with View access only to Setup Module → Patient Signature Template 
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -312,7 +311,7 @@ Feature: Full User Management Flow
   
   Scenario: User with View and Add access for Patient Signature Template
   Given I log in as admin
-  When I create a new user with email "testuser1_static@mailinator.com"
+  When I create a new user with email "testuser4_static@mailinator.com"
   And I create a profile with View and Add access to Setup Module → Patient Signature Template 
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -323,7 +322,7 @@ Feature: Full User Management Flow
   
   Scenario: User with View, Add, and Edit access for Patient Signature Template
   Given I log in as admin
-  When I create a new user with email "testuser1_static@mailinator.com"
+  When I create a new user with email "testuser6_static@mailinator.com"
   And I create a profile with View, Add, and Edit access to Setup Module → Patient Signature Template 
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -335,7 +334,7 @@ Feature: Full User Management Flow
   
   Scenario: User with full access (View, Add, Edit, Delete) for Patient Signature Template
   Given I log in as admin
-  When I create a new user with email "testuser1_static@mailinator.com"
+  When I create a new user with email "testuser3_static@mailinator.com"
   And I create a profile with full access to Setup Module → Patient Signature Template 
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -347,7 +346,7 @@ Feature: Full User Management Flow
 
   Scenario: User with View only access for Feedback Form
   Given I log in as admin
-  When I create a new user with email "testuser1_static@mailinator.com"
+  When I create a new user with email "testuser5_static@mailinator.com"
   And I create a profile with View access only to Setup Module → Feedback Form 
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -357,7 +356,7 @@ Feature: Full User Management Flow
   
   Scenario: User with View and Add access for Feedback Form
   Given I log in as admin
-  When I create a new user with email "testuser1_static@mailinator.com"
+  When I create a new user with email "testuser3_static@mailinator.com"
   And I create a profile with View and Add access to Setup Module → Feedback Form 
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -368,7 +367,7 @@ Feature: Full User Management Flow
 
   Scenario: User with View, Add, and Edit access for Feedback Form
   Given I log in as admin
-  When I create a new user with email "testuser1_static@mailinator.com"
+  When I create a new user with email "testuser3_static@mailinator.com"
   And I create a profile with View, Add, and Edit access to Setup Module → Feedback Form 
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -380,7 +379,7 @@ Feature: Full User Management Flow
 
   Scenario: User with full access (View, Add, Edit, Delete) for Feedback Form
   Given I log in as admin
-  When I create a new user with email "testuser1_static@mailinator.com"
+  When I create a new user with email "testuser6_static@mailinator.com"
   And I create a profile with full access to Setup Module → Feedback Form  
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -389,7 +388,93 @@ Feature: Full User Management Flow
   And the user should be able to add a new feedback form
   And the user should be able to edit an existing feedback form
   And the user should be able to delete a feedback form  
+  
+  Scenario: Create user without Update access to Default Mail Template and check restrictions
+  Given I log in as admin
+  When I create a new user with email "testuser_mailtemplate@mailinator.com"
+  And I create a profile without Update access to Setup Module → Default Mail Template
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should have no Default Mail Template access via UI or direct URL   
 
+  Scenario: Create user without Update access to Default Fax Template and check restrictions
+  Given I log in as admin
+  When I create a new user with email "testuser_faxtemplate@mailinator.com"
+  And I create a profile without Update access to Setup Module → Default Fax Template
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should have no Default Fax Template access via UI or direct URL 
+  
+  Scenario: User with View only access for Organization Bucket
+  Given I log in as admin
+  When I create a new user with email "testuser1_static@mailinator.com"
+  And I create a profile with View access only to Organization Bucket 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view files in the Organization Bucket 
+  But the user should not be able to add, edit, delete, or download any files 
+
+  Scenario: User with View and Add File access for Organization Bucket
+  Given I log in as admin
+  When I create a new user with email "testuser2_static@mailinator.com"
+  And I create a profile with View and Add File access to Organization Bucket
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view files in the Organization Bucket
+  And the user should be able to add a new file  
+  But the user should not be able to edit, delete, or download any files  
+
+  Scenario: User with View, Add File, and Edit File access for Organization Bucket
+  Given I log in as admin
+  When I create a new user with email "testuser3_static@mailinator.com"
+  And I create a profile with View, Add File, and Edit File access to Organization Bucket
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view files in the Organization Bucket
+  And the user should be able to add a new file
+  And the user should be able to edit an existing file 
+  But the user should not be able to delete or download any files  
+
+  Scenario: User with View, Add File, Edit File, and Delete File access for Organization Bucket
+  Given I log in as admin
+  When I create a new user with email "testuser6_static@mailinator.com"
+  And I create a profile with View, Add, Edit, and Delete File access to Organization Bucket
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view files in the Organization Bucket
+  And the user should be able to add a new file
+  And the user should be able to edit an existing file
+  And the user should be able to delete a file 
+  But the user should not be able to download any file  
+
+  @Orgbucket
+  Scenario: User with full access (View, Add, Edit, Delete, Download) for Organization Bucket
+  Given I log in as admin
+  When I create a new user with email "testuser8_static@mailinator.com"
+  And I create a profile with full access to Organization Bucket
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view files in the Organization Bucket
+  And the user should be able to add a new file
+  And the user should be able to edit an existing file
+  And the user should be able to delete a file
+  And the user should be able to download a file 
+  
+  Scenario: Create user without Update access to Bucket Setting and check restrictions
+  Given I log in as admin
+  When I create a new user with email "testuser_bucketsetting@mailinator.com"
+  And I create a profile without Update access to Setup Module → Bucket Setting
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should have no Bucket Setting access via UI or direct URL 
 
 
 
