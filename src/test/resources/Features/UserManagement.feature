@@ -173,7 +173,6 @@ Feature: Full User Management Flow
   Then the user should be able to view BOT call templates 
   But the user should not be able to add, edit, or delete any BOT call template 
   
-  
   Scenario: User with View and Add access for BOT Call Template
   Given I log in as admin
   When I create a new user with email "testuser3_static@mailinator.com"
@@ -392,20 +391,20 @@ Feature: Full User Management Flow
   Scenario: Create user without Update access to Default Mail Template and check restrictions
   Given I log in as admin
   When I create a new user with email "testuser_mailtemplate@mailinator.com"
-  And I create a profile without Update access to Setup Module → Default Mail Template
+  And I create a profile without Update access to Setup Module → Default Mail Template 
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user
-  Then the user should have no Default Mail Template access via UI or direct URL   
+  Then the user should have no Default Mail Template access via UI or direct URL     
 
   Scenario: Create user without Update access to Default Fax Template and check restrictions
   Given I log in as admin
   When I create a new user with email "testuser_faxtemplate@mailinator.com"
-  And I create a profile without Update access to Setup Module → Default Fax Template
+  And I create a profile without Update access to Setup Module → Default Fax Template   
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user
-  Then the user should have no Default Fax Template access via UI or direct URL 
+  Then the user should have no Default Fax Template access via UI or direct URL   
   
   Scenario: User with View only access for Organization Bucket
   Given I log in as admin
@@ -453,7 +452,6 @@ Feature: Full User Management Flow
   And the user should be able to delete a file 
   But the user should not be able to download any file  
 
-  @Orgbucket
   Scenario: User with full access (View, Add, Edit, Delete, Download) for Organization Bucket
   Given I log in as admin
   When I create a new user with email "testuser8_static@mailinator.com"
@@ -470,20 +468,380 @@ Feature: Full User Management Flow
   Scenario: Create user without Update access to Bucket Setting and check restrictions
   Given I log in as admin
   When I create a new user with email "testuser_bucketsetting@mailinator.com"
-  And I create a profile without Update access to Setup Module → Bucket Setting
+  And I create a profile without Update access to Setup Module → Bucket Setting    
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user
-  Then the user should have no Bucket Setting access via UI or direct URL 
+  Then the user should have no Bucket Setting access via UI or direct URL    
 
+  Scenario: User with View only access for Reminders
+  Given I log in as admin
+  When I create a new user with email "testuser_reminder1@mailinator.com"
+  And I create a profile with only View access to Setup Module → Reminders 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view reminders  
+  But the user should not see any action buttons for reminders 
 
+  Scenario: User with View and Action View access for Reminders
+  Given I log in as admin
+  When I create a new user with email "testuser_reminder2@mailinator.com"
+  And I create a profile with View and Action View access to Setup Module → Reminders 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view reminders
+  And the user should see action buttons and perform allowed reminder actions   
 
+  @GeneralSetting
+  Scenario: Create user without Update access to Setup Module → Application Status and check restrictions
+  Given I log in as admin
+  When I create a new user with email "testuser_appstatus@mailinator.com"
+  And I create a profile without Update access to Setup Module → Application Status   
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should have no Application Status update access via UI or direct URL 
+  
+  Scenario: Create user without Update access to Setup Module → Brand Management and check restrictions
+  Given I log in as admin
+  When I create a new user with email "testuser_brandupdate@mailinator.com"
+  And I create a profile without Update access to Setup Module → Brand Management 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should have no Brand Management update access via UI or direct URL 
+  
+  Scenario: Create user without Send VCard access to Setup Module → Brand Management and check restrictions
+  Given I log in as admin
+  When I create a new user with email "testuser_brandvcard@mailinator.com"
+  And I create a profile without Send VCard access to Setup Module → Brand Management 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should not see the Send VCard option in Brand Management 
+  
+  Scenario: User with only View access to Organization Calendar
+  Given I log in as admin
+  When I create a new user with email "testuser_orgcalendar_view@mailinator.com"
+  And I create a profile with only View access to Organization Calendar
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view Organization Calendar entries 
+  But the user should not be able to edit any Organization Calendar entry 
 
+  Scenario: User with View and Edit access to Organization Calendar
+  Given I log in as admin
+  When I create a new user with email "testuser_orgcalendar_edit@mailinator.com"
+  And I create a profile with View and Edit access to Organization Calendar 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view Organization Calendar entries
+  And the user should be able to edit an Organization Calendar entry  
+  
+  Scenario: User without Update access to Technical Setting
+  Given I log in as admin
+  When I create a profile without Update access to Technical Setting 
+  And I assign the profile and workspace to the user 
+  And I log in using the new user
+  Then the user should have no Technical Setting update access via UI or direct URL  
+  
+  Scenario: User without Update access to Notification Setting
+  Given I log in as admin
+  When I create a profile without Update access to Notification Setting 
+  And I assign the profile and workspace to the user
+  And I log in using the new user
+  Then the user should have no Notification Setting update access via UI or direct URL 
+
+  Scenario: User without Update access to Text Forward Setting
+  Given I log in as admin
+  When I create a profile without Update access to Text Forward Setting 
+  And I assign the profile and workspace to the user
+  And I log in using the new user
+  Then the user should have no Text Forward Setting update access via UI or direct URL
+
+  Scenario: User with View only access to EHR Types
+  Given I log in as admin
+  When I create a new user with email "ehruser1_static@mailinator.com"
+  And I create a profile with View access only to EHR Types 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view EHR Types   
+  But the user should not be able to add, edit, or delete any EHR Types 
+
+  Scenario: User with View and Add access to EHR Types
+  Given I log in as admin
+  When I create a new user with email "ehruser2_static@mailinator.com"
+  And I create a profile with View and Add access to EHR Types  
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view EHR Types
+  And the user should be able to add a new EHR Type 
+  But the user should not be able to edit or delete any EHR Types 
+
+  Scenario: User with View, Add, and Edit access to EHR Types
+  Given I log in as admin
+  When I create a new user with email "ehruser3_static@mailinator.com"
+  And I create a profile with View, Add, and Edit access to EHR Types  
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view EHR Types
+  And the user should be able to add a new EHR Type
+  And the user should be able to edit an existing EHR Type  
+  But the user should not be able to delete any EHR Types 
+
+  Scenario: User with View, Add, Edit, and Delete access to EHR Types
+  Given I log in as admin
+  When I create a new user with email "ehruser4_static@mailinator.com"
+  And I create a profile with View, Add, Edit, and Delete access to EHR Types      
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view EHR Types
+  And the user should be able to add a new EHR Type
+  And the user should be able to edit an existing EHR Type
+  And the user should be able to delete an EHR Type 
+
+  Scenario: User with View only access for Progress Step
+  Given I log in as admin
+  When I create a new user with email "progressuser1_static@mailinator.com"
+  And I create a profile with View access only to Progress Step
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view entries in the Progress Step 
+  But the user should not be able to add, edit, or delete any Progress Step entries 
+
+  Scenario: User with View and Add access for Progress Step
+  Given I log in as admin
+  When I create a new user with email "progressuser2_static@mailinator.com"
+  And I create a profile with View and Add access to Progress Step 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view entries in the Progress Step
+  And the user should be able to add a new Progress Step entry
+  But the user should not be able to edit or delete any Progress Step entries
+
+  Scenario: User with View, Add, and Edit access for Progress Step
+  Given I log in as admin
+  When I create a new user with email "progressuser3_static@mailinator.com"
+  And I create a profile with View, Add, and Edit access to Progress Step 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view entries in the Progress Step
+  And the user should be able to add a new Progress Step entry
+  And the user should be able to edit an existing Progress Step entry
+  But the user should not be able to delete any Progress Step entries
+
+  Scenario: User with full access to Progress Step
+  Given I log in as admin
+  When I create a new user with email "progressuser4_static@mailinator.com"
+  And I create a profile with View, Add, Edit, and Delete access to Progress Step 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view entries in the Progress Step
+  And the user should be able to add a new Progress Step entry
+  And the user should be able to edit an existing Progress Step entry
+  And the user should be able to delete a Progress Step entry
+
+Scenario: User with View only access for Whitelist IP
+  Given I log in as admin
+  When I create a new user with email "ipuser1_static@mailinator.com"
+  And I create a profile with View access only to Whitelist IP 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view the list of Whitelist IP entries 
+  But the user should not be able to add or delete IPs
+  And the user should not be able to exclude or remove excluded users
+
+Scenario: User with View and Add access for Whitelist IP
+  Given I log in as admin
+  When I create a new user with email "ipuser2_static@mailinator.com"
+  And I create a profile with View and Add access to Whitelist IP 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view the list of Whitelist IP entries
+  And the user should be able to add a new Whitelist IP
+  But the user should not be able to delete IPs or manage excluded users
+
+Scenario: User with View, Add, and Delete access for Whitelist IP
+  Given I log in as admin
+  When I create a new user with email "ipuser3_static@mailinator.com"
+  And I create a profile with View, Add, and Delete access to Whitelist IP  
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view the list of Whitelist IP entries
+  And the user should be able to add a new Whitelist IP
+  And the user should be able to delete a Whitelist IP
+  But the user should not be able to exclude or remove excluded users
+
+Scenario: User with full access to Whitelist IP
+  Given I log in as admin
+  When I create a new user with email "ipuser5_static@mailinator.com"
+  And I create a profile with View, Add, Delete, Exclude User, and Remove Excluded User access to Whitelist IP 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view the list of Whitelist IP entries
+  And the user should be able to add a new Whitelist IP
+  And the user should be able to delete a Whitelist IP
+  And the user should be able to exclude a user from Whitelist IP
+  And the user should be able to remove an excluded user
      
+Scenario: User with View only access to Designation
+  Given I log in as admin
+  When I create a new user with email "desigviewonly@mailinator.com"
+  And I create a profile with View access only to Designation
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view the Designation list 
+  But the user should not be able to add, edit, or delete any Designation
+
+Scenario: User with View and Add access to Designation
+  Given I log in as admin
+  When I create a new user with email "desigadd@mailinator.com"
+  And I create a profile with View and Add access to Designation  
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view the Designation list
+  And the user should be able to add a new Designation
+  But the user should not be able to edit or delete any Designation
+
+Scenario: User with View, Add, and Edit access to Designation
+  Given I log in as admin
+  When I create a new user with email "desigedit@mailinator.com"
+  And I create a profile with View, Add, and Edit access to Designation 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view the Designation list
+  And the user should be able to add a new Designation
+  And the user should be able to edit an existing Designation
+  But the user should not be able to delete any Designation
+
+Scenario: User with full access to Designation
+  Given I log in as admin
+  When I create a new user with email "desigfull@mailinator.com"
+  And I create a profile with View, Add, Edit, and Delete access to Designation  
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view the Designation list
+  And the user should be able to add a new Designation
+  And the user should be able to edit an existing Designation
+  And the user should be able to delete a Designation
+
+Scenario: User with View only access to Professional License Type
+  Given I log in as admin
+  When I create a new user with email "pltviewonly@mailinator.com"
+  And I create a profile with View access only to Professional License Type 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view the Professional License Type list 
+  But the user should not be able to add, edit, or delete any Professional License Type
+
+Scenario: User with View and Add access to Professional License Type
+  Given I log in as admin
+  When I create a new user with email "pltadd@mailinator.com"
+  And I create a profile with View and Add access to Professional License Type  
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view the Professional License Type list
+  And the user should be able to add a new Professional License Type
+  But the user should not be able to edit or delete any Professional License Type
+
+Scenario: User with View, Add, and Edit access to Professional License Type
+  Given I log in as admin
+  When I create a new user with email "pltedit@mailinator.com"
+  And I create a profile with View, Add, and Edit access to Professional License Type 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view the Professional License Type list
+  And the user should be able to add a new Professional License Type
+  And the user should be able to edit an existing Professional License Type
+  But the user should not be able to delete any Professional License Type
+
+Scenario: User with full access to Professional License Type
+  Given I log in as admin
+  When I create a new user with email "pltfull@mailinator.com"
+  And I create a profile with View, Add, Edit, and Delete access to Professional License Type 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view the Professional License Type list
+  And the user should be able to add a new Professional License Type
+  And the user should be able to edit an existing Professional License Type
+  And the user should be able to delete a Professional License Type
+  
+  Scenario: User with View only access to Fax Setting
+  Given I log in as admin
+  When I create a new user with email "faxviewonly@mailinator.com"
+  And I create a profile with View access only to Fax Setting 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view the Fax Setting list 
+  But the user should not be able to add, edit, or delete any Fax Setting
+
+Scenario: User with View and Add access to Fax Setting
+  Given I log in as admin
+  When I create a new user with email "faxadd@mailinator.com"
+  And I create a profile with View and Add access to Fax Setting 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view the Fax Setting list
+  And the user should be able to add a new Fax Setting
+  But the user should not be able to edit or delete any Fax Setting
+
+Scenario: User with View, Add, and Edit access to Fax Setting
+  Given I log in as admin
+  When I create a new user with email "faxedit@mailinator.com"
+  And I create a profile with View, Add, and Edit access to Fax Setting  
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view the Fax Setting list
+  And the user should be able to add a new Fax Setting
+  And the user should be able to edit an existing Fax Setting
+  But the user should not be able to delete any Fax Setting
+
+Scenario: User with full access to Fax Setting
+  Given I log in as admin
+  When I create a new user with email "faxfull@mailinator.com"
+  And I create a profile with View, Add, Edit, and Delete access to Fax Setting  
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view the Fax Setting list
+  And the user should be able to add a new Fax Setting
+  And the user should be able to edit an existing Fax Setting
+  And the user should be able to delete a Fax Setting
      
-     
-     
-  	
+  Scenario: User without access to Driver and SalesRep User
+  Given I log in as admin
+  When I create a profile without any access to Driver and SalesRep User 
+  And I assign the profile and workspace to the user
+  And I log in using the new user
+  Then the user should not be able to access the Driver and SalesRep User page via direct URL
+
   	
   	
   
