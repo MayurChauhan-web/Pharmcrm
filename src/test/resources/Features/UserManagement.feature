@@ -626,8 +626,8 @@ Feature: Full User Management Flow
   And I reset the user's password
   And I log in using the new user
   Then the user should be able to view entries in the Progress Step
-  And the user should be able to add a new Progress Step entry
-  But the user should not be able to edit or delete any Progress Step entries
+  And the user should be able to add a new Progress Step entry 
+  But the user should not be able to edit or delete any Progress Step entries 
 
   Scenario: User with View, Add, and Edit access for Progress Step
   Given I log in as admin
@@ -638,8 +638,8 @@ Feature: Full User Management Flow
   And I log in using the new user
   Then the user should be able to view entries in the Progress Step
   And the user should be able to add a new Progress Step entry
-  And the user should be able to edit an existing Progress Step entry
-  But the user should not be able to delete any Progress Step entries
+  And the user should be able to edit an existing Progress Step entry 
+  But the user should not be able to delete any Progress Step entries 
 
   Scenario: User with full access to Progress Step
   Given I log in as admin
@@ -651,7 +651,7 @@ Feature: Full User Management Flow
   Then the user should be able to view entries in the Progress Step
   And the user should be able to add a new Progress Step entry
   And the user should be able to edit an existing Progress Step entry
-  And the user should be able to delete a Progress Step entry
+  And the user should be able to delete a Progress Step entry 
 
 Scenario: User with View only access for Whitelist IP
   Given I log in as admin
@@ -661,8 +661,8 @@ Scenario: User with View only access for Whitelist IP
   And I reset the user's password
   And I log in using the new user
   Then the user should be able to view the list of Whitelist IP entries 
-  But the user should not be able to add or delete IPs
-  And the user should not be able to exclude or remove excluded users
+  But the user should not be able to add or delete IPs 
+  And the user should not be able to exclude or remove excluded users 
 
 Scenario: User with View and Add access for Whitelist IP
   Given I log in as admin
@@ -672,8 +672,8 @@ Scenario: User with View and Add access for Whitelist IP
   And I reset the user's password
   And I log in using the new user
   Then the user should be able to view the list of Whitelist IP entries
-  And the user should be able to add a new Whitelist IP
-  But the user should not be able to delete IPs or manage excluded users
+  And the user should be able to add a new Whitelist IP 
+  But the user should not be able to delete IPs or manage excluded users 
 
 Scenario: User with View, Add, and Delete access for Whitelist IP
   Given I log in as admin
@@ -684,7 +684,7 @@ Scenario: User with View, Add, and Delete access for Whitelist IP
   And I log in using the new user
   Then the user should be able to view the list of Whitelist IP entries
   And the user should be able to add a new Whitelist IP
-  And the user should be able to delete a Whitelist IP
+  And the user should be able to delete a Whitelist IP 
   But the user should not be able to exclude or remove excluded users
 
 Scenario: User with full access to Whitelist IP
@@ -697,8 +697,8 @@ Scenario: User with full access to Whitelist IP
   Then the user should be able to view the list of Whitelist IP entries
   And the user should be able to add a new Whitelist IP
   And the user should be able to delete a Whitelist IP
-  And the user should be able to exclude a user from Whitelist IP
-  And the user should be able to remove an excluded user
+  And the user should be able to exclude a user from Whitelist IP 
+  And the user should be able to remove an excluded user 
      
 Scenario: User with View only access to Designation
   Given I log in as admin
@@ -708,7 +708,7 @@ Scenario: User with View only access to Designation
   And I reset the user's password
   And I log in using the new user
   Then the user should be able to view the Designation list 
-  But the user should not be able to add, edit, or delete any Designation
+  But the user should not be able to add, edit, or delete any Designation  
 
 Scenario: User with View and Add access to Designation
   Given I log in as admin
@@ -718,8 +718,8 @@ Scenario: User with View and Add access to Designation
   And I reset the user's password
   And I log in using the new user
   Then the user should be able to view the Designation list
-  And the user should be able to add a new Designation
-  But the user should not be able to edit or delete any Designation
+  And the user should be able to add a new Designation 
+  But the user should not be able to edit or delete any Designation 
 
 Scenario: User with View, Add, and Edit access to Designation
   Given I log in as admin
@@ -730,8 +730,8 @@ Scenario: User with View, Add, and Edit access to Designation
   And I log in using the new user
   Then the user should be able to view the Designation list
   And the user should be able to add a new Designation
-  And the user should be able to edit an existing Designation
-  But the user should not be able to delete any Designation
+  And the user should be able to edit an existing Designation 
+  But the user should not be able to delete any Designation 
 
 Scenario: User with full access to Designation
   Given I log in as admin
@@ -743,7 +743,7 @@ Scenario: User with full access to Designation
   Then the user should be able to view the Designation list
   And the user should be able to add a new Designation
   And the user should be able to edit an existing Designation
-  And the user should be able to delete a Designation
+  And the user should be able to delete a Designation 
 
 Scenario: User with View only access to Professional License Type
   Given I log in as admin
@@ -753,7 +753,7 @@ Scenario: User with View only access to Professional License Type
   And I reset the user's password
   And I log in using the new user
   Then the user should be able to view the Professional License Type list 
-  But the user should not be able to add, edit, or delete any Professional License Type
+  But the user should not be able to add, edit, or delete any Professional License Type 
 
 Scenario: User with View and Add access to Professional License Type
   Given I log in as admin
@@ -763,8 +763,8 @@ Scenario: User with View and Add access to Professional License Type
   And I reset the user's password
   And I log in using the new user
   Then the user should be able to view the Professional License Type list
-  And the user should be able to add a new Professional License Type
-  But the user should not be able to edit or delete any Professional License Type
+  And the user should be able to add a new Professional License Type 
+  But the user should not be able to edit or delete any Professional License Type 
 
 Scenario: User with View, Add, and Edit access to Professional License Type
   Given I log in as admin
@@ -775,8 +775,8 @@ Scenario: User with View, Add, and Edit access to Professional License Type
   And I log in using the new user
   Then the user should be able to view the Professional License Type list
   And the user should be able to add a new Professional License Type
-  And the user should be able to edit an existing Professional License Type
-  But the user should not be able to delete any Professional License Type
+  And the user should be able to edit an existing Professional License Type 
+  But the user should not be able to delete any Professional License Type 
 
 Scenario: User with full access to Professional License Type
   Given I log in as admin
@@ -788,7 +788,7 @@ Scenario: User with full access to Professional License Type
   Then the user should be able to view the Professional License Type list
   And the user should be able to add a new Professional License Type
   And the user should be able to edit an existing Professional License Type
-  And the user should be able to delete a Professional License Type
+  And the user should be able to delete a Professional License Type 
   
   Scenario: User with View only access to Fax Setting
   Given I log in as admin
@@ -798,7 +798,7 @@ Scenario: User with full access to Professional License Type
   And I reset the user's password
   And I log in using the new user
   Then the user should be able to view the Fax Setting list 
-  But the user should not be able to add, edit, or delete any Fax Setting
+  But the user should not be able to add, edit, or delete any Fax Setting 
 
 Scenario: User with View and Add access to Fax Setting
   Given I log in as admin
@@ -808,8 +808,8 @@ Scenario: User with View and Add access to Fax Setting
   And I reset the user's password
   And I log in using the new user
   Then the user should be able to view the Fax Setting list
-  And the user should be able to add a new Fax Setting
-  But the user should not be able to edit or delete any Fax Setting
+  And the user should be able to add a new Fax Setting 
+  But the user should not be able to edit or delete any Fax Setting 
 
 Scenario: User with View, Add, and Edit access to Fax Setting
   Given I log in as admin
@@ -820,8 +820,8 @@ Scenario: User with View, Add, and Edit access to Fax Setting
   And I log in using the new user
   Then the user should be able to view the Fax Setting list
   And the user should be able to add a new Fax Setting
-  And the user should be able to edit an existing Fax Setting
-  But the user should not be able to delete any Fax Setting
+  And the user should be able to edit an existing Fax Setting 
+  But the user should not be able to delete any Fax Setting 
 
 Scenario: User with full access to Fax Setting
   Given I log in as admin
@@ -833,14 +833,14 @@ Scenario: User with full access to Fax Setting
   Then the user should be able to view the Fax Setting list
   And the user should be able to add a new Fax Setting
   And the user should be able to edit an existing Fax Setting
-  And the user should be able to delete a Fax Setting
+  And the user should be able to delete a Fax Setting 
      
   Scenario: User without access to Driver and SalesRep User
   Given I log in as admin
   When I create a profile without any access to Driver and SalesRep User 
   And I assign the profile and workspace to the user
   And I log in using the new user
-  Then the user should not be able to access the Driver and SalesRep User page via direct URL
+  Then the user should not be able to access the Driver and SalesRep User page via direct URL  
 
   	
   	

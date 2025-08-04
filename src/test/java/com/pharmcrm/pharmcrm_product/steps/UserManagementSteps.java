@@ -4,7 +4,7 @@ import io.cucumber.java.en.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.*;
 import com.pharmcrm.pharmcrm_product.DriverFactory;
-
+import java.util.Random;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -2485,6 +2485,28 @@ public class UserManagementSteps {
 		}
 	}
 
+	@And("the user should be able to edit an existing Progress Step entry")
+	public void verifyUserCanEditExistingProgressStepEntry() {
+		sleep(3000);
+
+		try {
+			sleep(1000);
+
+			boolean editExists = !driver.findElements(By.cssSelector(
+					"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"))
+					.isEmpty();
+
+			if (editExists) {
+				System.out.println("PASS: Edit option is visible as expected.");
+			} else {
+				Assert.fail("FAIL: Edit option is not visible, but it should be.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			Assert.fail("FAIL: Could not open the action menu to verify Edit option.");
+		}
+	}
+
 	@And("the user should be able to delete a file")
 	public void verifyUserCanDeleteFileInOrganizationBucket() {
 		sleep(3000);
@@ -2529,8 +2551,226 @@ public class UserManagementSteps {
 		}
 	}
 
+	@And("the user should be able to delete a Progress Step entry")
+	public void verifyUserCanDeleteProgressStepEntry() {
+		sleep(3000);
+
+		try {
+			sleep(1000);
+
+			boolean deleteExists = !driver.findElements(By.xpath(
+					"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"))
+					.isEmpty();
+
+			if (deleteExists) {
+				System.out.println("PASS: Delete option is visible as expected.");
+			} else {
+				Assert.fail("FAIL: Delete option is not visible, but it should be.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			Assert.fail("FAIL: Could not open the action menu to verify Delete option.");
+		}
+	}
+
+	@And("the user should be able to exclude a user from Whitelist IP")
+	public void verifyUserCanExcludeUserFromWhitelistIP() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='Exclude User']"));
+		assertElementPresent(By.xpath("//span[normalize-space()='New Exclude User']"));
+	}
+
+	@And("the user should be able to remove an excluded user")
+	public void verifyUserCanRemoveExcludedUser() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='Exclude User']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Exclude User']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("(//input[@type='checkbox'])[1]"));
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+		sleep(1000);
+
+	}
+
+	@And("the user should be able to delete a Whitelist IP")
+	public void verifyUserCanDeleteWhitelistIP() {
+		sleep(3000);
+
+		try {
+			sleep(1000);
+
+			boolean deleteExists = !driver.findElements(By.xpath(
+					"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"))
+					.isEmpty();
+
+			if (deleteExists) {
+				System.out.println("PASS: Delete option is visible as expected.");
+			} else {
+				Assert.fail("FAIL: Delete option is not visible, but it should be.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			Assert.fail("FAIL: Could not open the action menu to verify Delete option.");
+		}
+	}
+
+	@And("the user should be able to delete a Designation")
+	public void verifyUserCanDeleteDesignation() {
+		sleep(3000);
+
+		try {
+			sleep(1000);
+			boolean deleteExists = !driver.findElements(By.xpath(
+					"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"))
+					.isEmpty();
+			if (deleteExists) {
+				System.out.println("PASS: Delete option is visible as expected.");
+			} else {
+				Assert.fail("FAIL: Delete option is not visible, but it should be.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			Assert.fail("FAIL: Could not open the action menu to verify Delete option.");
+		}
+	}
+
+	@And("the user should be able to delete a Professional License Type")
+	public void verifyUserCanDeleteProfessionalLicenseType() {
+		sleep(3000);
+
+		try {
+			sleep(1000);
+			boolean deleteExists = !driver.findElements(By.xpath(
+					"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"))
+					.isEmpty();
+			if (deleteExists) {
+				System.out.println("PASS: Delete option is visible as expected.");
+			} else {
+				Assert.fail("FAIL: Delete option is not visible, but it should be.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			Assert.fail("FAIL: Could not open the action menu to verify Delete option.");
+		}
+	}
+
+	@And("the user should be able to delete a Fax Setting")
+	public void verifyUserCanDeleteFaxSetting() {
+		sleep(3000);
+
+		try {
+			sleep(1000);
+			boolean deleteExists = !driver.findElements(By.xpath(
+					"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"))
+					.isEmpty();
+			if (deleteExists) {
+				System.out.println("PASS: Delete option is visible as expected.");
+			} else {
+				Assert.fail("FAIL: Delete option is not visible, but it should be.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			Assert.fail("FAIL: Could not open the action menu to verify Delete option.");
+		}
+	}
+
+	@And("the user should be able to edit an existing Designation")
+	public void verifyUserCanEditExistingDesignation() {
+		sleep(3000);
+
+		try {
+			sleep(1000);
+
+			boolean editExists = !driver.findElements(By.xpath(
+					"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"))
+					.isEmpty();
+
+			if (editExists) {
+				System.out.println("PASS: Edit option is visible as expected.");
+			} else {
+				Assert.fail("FAIL: Edit option is not visible, but it should be.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			Assert.fail("FAIL: Could not open the action menu to verify Delete option.");
+		}
+	}
+
+	@And("the user should be able to edit an existing Professional License Type")
+	public void verifyUserCanEditExistingProfessionalLicenseType() {
+		sleep(3000);
+		By actionMenu = By.xpath("//tbody/tr[1]/td[4]/div[1]/div[1]/button[1]/i[1]");
+		WebElement menuButton = driver.findElement(actionMenu);
+
+		try {
+			sleep(1000);
+			menuButton.click();
+
+			boolean editExists = !driver.findElements(By.xpath(
+					"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"))
+					.isEmpty();
+
+			if (editExists) {
+				System.out.println("PASS: Edit option is visible as expected.");
+			} else {
+				Assert.fail("FAIL: Edit option is not visible, but it should be.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			Assert.fail("FAIL: Could not open the action menu to verify Delete option.");
+		}
+	}
+
+	@And("the user should be able to edit an existing Fax Setting")
+	public void verifyUserCanEditExistingFaxSetting() {
+		sleep(3000);
+		By actionMenu = By.xpath("//tbody/tr[1]/td[7]/div[1]/div[1]/button[1]/i[1]");
+		WebElement menuButton = driver.findElement(actionMenu);
+
+		try {
+			sleep(1000);
+			menuButton.click();
+
+			boolean editExists = !driver.findElements(By.xpath(
+					"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"))
+					.isEmpty();
+
+			if (editExists) {
+				System.out.println("PASS: Edit option is visible as expected.");
+			} else {
+				Assert.fail("FAIL: Edit option is not visible, but it should be.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			Assert.fail("FAIL: Could not open the action menu to verify Delete option.");
+		}
+	}
+
 	@And("the user should not be able to delete any EHR Types")
 	public void verifyUserCannotDeleteEHRTypes() {
+		sleep(3000);
+
+		try {
+			sleep(1000);
+
+			boolean deleteExists = !driver.findElements(By.xpath(
+					"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"))
+					.isEmpty();
+
+			if (deleteExists) {
+				System.out.println("PASS: Delete option is visible as expected.");
+			} else {
+				Assert.fail("FAIL: Delete option is not visible, but it should be.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			Assert.fail("FAIL: Could not open the action menu to verify Delete option.");
+		}
+	}
+
+	@And("the user should not be able to delete any Progress Step entries")
+	public void verifyUserCannotDeleteProgressStepEntries() {
 		sleep(3000);
 
 		try {
@@ -2634,6 +2874,56 @@ public class UserManagementSteps {
 					"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"))
 					.isEmpty();
 			if (!editExists && !deleteExists) {
+				System.out.println("PASS: Delete and Download options are not visible as expected.");
+			} else {
+				Assert.fail("FAIL: Delete and/or Download option is visible, but it should not be.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			System.out.println("PASS: Action menu exists but cannot be opened (no permissions).");
+		}
+	}
+
+	@And("the user should not be able to edit or delete any Progress Step entries")
+	public void verifyUserCannotEditOrDeleteProgressStepEntries() {
+		sleep(3000);
+		By actionMenu = By.xpath("//tbody/tr[1]/td[7]/div[1]/div[1]/button[1]");
+		WebElement menuButton = driver.findElement(actionMenu);
+
+		try {
+			menuButton.click();
+			sleep(1000);
+			boolean editExists = !driver
+					.findElements(By.xpath("//div[@class='gridRecordContextMain show']//li[1]//a[1]//div[1]"))
+					.isEmpty();
+			boolean deleteExists = !driver.findElements(By.xpath(
+					"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"))
+					.isEmpty();
+			if (!editExists && !deleteExists) {
+				System.out.println("PASS: Delete and Download options are not visible as expected.");
+			} else {
+				Assert.fail("FAIL: Delete and/or Download option is visible, but it should not be.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			System.out.println("PASS: Action menu exists but cannot be opened (no permissions).");
+		}
+	}
+
+	@And("the user should not be able to delete IPs or manage excluded users")
+	public void verifyUserCannotDeleteIPsOrManageExcludedUsers() {
+		sleep(3000);
+		By actionMenu = By.xpath("//tbody/tr[1]/td[3]/div[1]/div[1]/button[1]/i[1]");
+		WebElement menuButton = driver.findElement(actionMenu);
+
+		try {
+			menuButton.click();
+			sleep(1000);
+
+			boolean deleteExists = !driver.findElements(By.xpath(
+					"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"))
+					.isEmpty();
+			if (!deleteExists) {
 				System.out.println("PASS: Delete and Download options are not visible as expected.");
 			} else {
 				Assert.fail("FAIL: Delete and/or Download option is visible, but it should not be.");
@@ -2928,6 +3218,273 @@ public class UserManagementSteps {
 		}
 	}
 
+	@But("the user should not be able to edit or delete any Designation")
+	public void verifyUserCannotEditOrDeleteAnyDesignation() {
+		sleep(3000);
+
+		By actionMenu = By.xpath("//tbody/tr[1]/td[5]/div[1]/div[1]/button[1]");
+
+		WebElement menuButton = driver.findElement(actionMenu);
+		try {
+			menuButton.click();
+			sleep(1000);
+			boolean editExists = !driver.findElements(By.xpath(
+					"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"))
+					.isEmpty();
+			boolean deleteExists = !driver.findElements(By.xpath(
+					"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"))
+					.isEmpty();
+
+			if (!editExists && !deleteExists) {
+				System.out.println("PASS: User cannot see Edit/Delete options.");
+			} else {
+				Assert.fail("FAIL: User should not see Edit/Delete options.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			System.out.println("PASS: Action menu exists but cannot be opened (no permissions).");
+		}
+	}
+
+	@But("the user should not be able to add, edit, or delete any Professional License Type")
+	public void verifyUserCannotAddEditOrDeleteProfessionalLicenseType() {
+		sleep(3000);
+
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New Professional License Type']"));
+
+		By actionMenu = By.xpath("//tbody/tr[1]/td[4]/div[1]/div[1]/button[1]/i[1]");
+
+		WebElement menuButton = driver.findElement(actionMenu);
+		try {
+			menuButton.click();
+			sleep(1000);
+			boolean editExists = !driver.findElements(By.xpath(
+					"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"))
+					.isEmpty();
+			boolean deleteExists = !driver.findElements(By.xpath(
+					"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"))
+					.isEmpty();
+
+			if (!editExists && !deleteExists) {
+				System.out.println("PASS: User cannot see Edit/Delete options.");
+			} else {
+				Assert.fail("FAIL: User should not see Edit/Delete options.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			System.out.println("PASS: Action menu exists but cannot be opened (no permissions).");
+		}
+	}
+
+	@But("the user should not be able to add, edit, or delete any Fax Setting")
+	public void verifyUserCannotAddEditOrDeleteFaxSetting() {
+		sleep(3000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New Fax Settings']"));
+		By actionMenu = By.xpath("//tbody/tr[1]/td[7]/div[1]/div[1]/button[1]/i[1]");
+		WebElement menuButton = driver.findElement(actionMenu);
+		try {
+			menuButton.click();
+			sleep(1000);
+			boolean editExists = !driver.findElements(By.xpath(
+					"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"))
+					.isEmpty();
+			boolean deleteExists = !driver.findElements(By.xpath(
+					"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"))
+					.isEmpty();
+
+			if (!editExists && !deleteExists) {
+				System.out.println("PASS: User cannot see Edit/Delete options.");
+			} else {
+				Assert.fail("FAIL: User should not see Edit/Delete options.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			System.out.println("PASS: Action menu exists but cannot be opened (no permissions).");
+		}
+	}
+
+	@But("the user should not be able to edit or delete any Professional License Type")
+	public void verifyUserCannotEditOrDeleteProfessionalLicenseType() {
+		sleep(3000);
+
+		By actionMenu = By.xpath("//tbody/tr[1]/td[4]/div[1]/div[1]/button[1]/i[1]");
+
+		WebElement menuButton = driver.findElement(actionMenu);
+		try {
+			menuButton.click();
+			sleep(1000);
+			boolean editExists = !driver.findElements(By.xpath(
+					"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"))
+					.isEmpty();
+			boolean deleteExists = !driver.findElements(By.xpath(
+					"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"))
+					.isEmpty();
+
+			if (!editExists && !deleteExists) {
+				System.out.println("PASS: User cannot see Edit/Delete options.");
+			} else {
+				Assert.fail("FAIL: User should not see Edit/Delete options.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			System.out.println("PASS: Action menu exists but cannot be opened (no permissions).");
+		}
+	}
+
+	@But("the user should not be able to edit or delete any Fax Setting")
+	public void verifyUserCannotEditOrDeleteFaxSetting() {
+		sleep(3000);
+
+		By actionMenu = By.xpath("//tbody/tr[1]/td[7]/div[1]/div[1]/button[1]");
+
+		WebElement menuButton = driver.findElement(actionMenu);
+		try {
+			menuButton.click();
+			sleep(1000);
+			boolean editExists = !driver.findElements(By.xpath(
+					"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"))
+					.isEmpty();
+			boolean deleteExists = !driver.findElements(By.xpath(
+					"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"))
+					.isEmpty();
+
+			if (!editExists && !deleteExists) {
+				System.out.println("PASS: User cannot see Edit/Delete options.");
+			} else {
+				Assert.fail("FAIL: User should not see Edit/Delete options.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			System.out.println("PASS: Action menu exists but cannot be opened (no permissions).");
+		}
+	}
+
+	@But("the user should not be able to delete any Professional License Type")
+	public void verifyUserCannotDeleteAnyProfessionalLicenseType() {
+		sleep(3000);
+
+		try {
+			sleep(1000);
+
+			boolean deleteExists = !driver.findElements(By.xpath(
+					"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"))
+					.isEmpty();
+
+			if (!deleteExists) {
+				System.out.println("PASS: User cannot see Edit/Delete options.");
+			} else {
+				Assert.fail("FAIL: User should not see Edit/Delete options.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			System.out.println("PASS: Action menu exists but cannot be opened (no permissions).");
+		}
+	}
+
+	@But("the user should not be able to delete any Fax Setting")
+	public void verifyUserCannotDeleteFaxSetting() {
+		sleep(3000);
+
+		try {
+			sleep(1000);
+
+			boolean deleteExists = !driver.findElements(By.xpath(
+					"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"))
+					.isEmpty();
+
+			if (!deleteExists) {
+				System.out.println("PASS: User cannot see Edit/Delete options.");
+			} else {
+				Assert.fail("FAIL: User should not see Edit/Delete options.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			System.out.println("PASS: Action menu exists but cannot be opened (no permissions).");
+		}
+	}
+
+	@But("the user should not be able to delete any Designation")
+	public void verifyUserCannotDeleteAnyDesignation() {
+		sleep(3000);
+
+		By actionMenu = By.xpath("//tbody/tr[1]/td[5]/div[1]/div[1]/button[1]");
+
+		WebElement menuButton = driver.findElement(actionMenu);
+		try {
+			menuButton.click();
+			sleep(1000);
+
+			boolean deleteExists = !driver.findElements(By.xpath(
+					"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"))
+					.isEmpty();
+
+			if (!deleteExists) {
+				System.out.println("PASS: User cannot see Delete options.");
+			} else {
+				Assert.fail("FAIL: User should not see Delete options.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			System.out.println("PASS: Action menu exists but cannot be opened (no permissions).");
+		}
+	}
+
+	@But("the user should not be able to add or delete IPs")
+	public void verifyUserCannotAddOrDeleteIPs() {
+		sleep(3000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New IP']"));
+
+		By actionMenu = By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']");
+
+		WebElement menuButton = driver.findElement(actionMenu);
+		try {
+			menuButton.click();
+			sleep(1000);
+			boolean deleteExists = !driver.findElements(By.xpath("//span[normalize-space()='Delete']")).isEmpty();
+			if (!deleteExists) {
+				System.out.println("PASS: User cannot see Edit/Delete options.");
+			} else {
+				Assert.fail("FAIL: User should not see Edit/Delete options.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			System.out.println("PASS: Action menu exists but cannot be opened (no permissions).");
+		}
+	}
+
+	@And("the user should not be able to add, edit, or delete any Designation")
+	public void verifyUserCannotAddEditOrDeleteDesignation() {
+		sleep(3000);
+		By actionMenu = By.xpath("//tbody/tr[1]/td[5]/div[1]/div[1]/button[1]/i[1]");
+		WebElement menuButton = driver.findElement(actionMenu);
+
+		try {
+			menuButton.click();
+			sleep(1000);
+			boolean editExists = !driver.findElements(By.xpath(
+					"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"))
+					.isEmpty();
+			boolean deleteExists = !driver.findElements(By.xpath(
+					"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"))
+					.isEmpty();
+			if (!editExists && !deleteExists) {
+				System.out.println("PASS: Delete and Download options are not visible as expected.");
+			} else {
+				Assert.fail("FAIL: Delete and/or Download option is visible, but it should not be.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			System.out.println("PASS: Action menu exists but cannot be opened (no permissions).");
+		}
+	}
+
+	@But("the user should not be able to exclude or remove excluded users")
+	public void verifyUserCannotExcludeOrRemoveExcludedUsers() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='Exclude User']"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New Exclude User']"));
+	}
+
 	@And("the user should be able to add a new patient signature template")
 	public void userShouldBeAbleToAddNewPatientSignatureTemplate() {
 		sleep(3000);
@@ -2944,12 +3501,49 @@ public class UserManagementSteps {
 		sleep(3000);
 		clickWhenClickable(By.xpath("//span[normalize-space()='New Progress Step']"));
 		waitAndSendKeys(By.id("ProgressStatus_Name"), profileName);
-		waitAndSendKeys(By.id("ProgressStatus_Priority"), "1");
+		selectDropdownByIndexWhenReady(By.id("ProgressStatus_FeatureType"), 1);
+		sleep(1000);
+		waitAndSendKeys(By.id("ProgressStatus_Notes"), profileName);
+		clickWhenClickable(By.xpath("//button[@id='btnSaveProgressStatus']"));
+	}
 
-		waitAndSendKeys(By.xpath("//div[@aria-label='Editor editing area: main. Press Alt+0 for help.']//p"),
-				profileName);
+	@And("the user should be able to add a new Whitelist IP")
+	public void verifyUserCanAddNewWhitelistIP() {
+		sleep(3000);
+		Random random = new Random();
+		int lastOctet = random.nextInt(254) + 1;
+		String randomIP = "192.168.100." + lastOctet;
+		clickWhenClickable(By.xpath("//span[normalize-space()='New IP']"));
+		waitAndSendKeys(By.id("WhiteListIP_IP"), randomIP);
+		waitAndSendKeys(By.id("WhiteListIP_GivenName"), profileName);
 		clickWhenClickable(
 				By.xpath("//button[@class='btn btn-primary waves-effect waves-light'][normalize-space()='Submit']"));
+	}
+
+	@And("the user should be able to add a new Designation")
+	public void verifyUserCanAddNewDesignation() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Designation']"));
+		waitAndSendKeys(By.id("Designation_Name"), profileName);
+		waitAndSendKeys(By.id("Designation_Level"), profileName);
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+	}
+
+	@And("the user should be able to add a new Professional License Type")
+	public void verifyUserCanAddNewProfessionalLicenseType() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Professional License Type']"));
+		waitAndSendKeys(By.id("ProfessionalLicenseType_Name"), profileName);
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+	}
+
+	@And("the user should be able to add a new Fax Setting")
+	public void verifyUserCanAddNewFaxSetting() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Fax Settings']"));
+		waitAndSendKeys(By.id("FaxSetting_FAXAPIId"), profileName);
+		waitAndSendKeys(By.id("FaxSetting_FromEmail"), createdEmail);
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
 	}
 
 	@And("the user should be able to edit an existing patient signature template")
@@ -3873,6 +4467,23 @@ public class UserManagementSteps {
 			System.out.println("❌ Error: Don't have proper access to requested page");
 		} else {
 			System.out.println("✅ No error. Page loaded successfully.");
+		}
+	}
+
+	@Then("the user should not be able to access the Driver and SalesRep User page via direct URL")
+	public void verifyUserCannotAccessDriverAndSalesRepUserPageViaDirectURL() {
+		String[] urls = { baseUrl + "/Setup/Home/DriverAndSalesRepUsers?userType=DriverUsers",
+				baseUrl + "/Setup/Home/DriverAndSalesRepUsers?userType=SalesRepUsers" };
+		for (String url : urls) {
+			driver.get(url);
+			sleep(2000);
+			boolean isErrorVisible = !driver.findElements(By.xpath("//h2[normalize-space()='Error']")).isEmpty();
+
+			if (isErrorVisible) {
+				System.out.println("✅ Access blocked as expected for URL: " + url);
+			} else {
+				System.out.println("❌ Access granted unexpectedly for URL: " + url);
+			}
 		}
 	}
 
