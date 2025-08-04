@@ -24,7 +24,7 @@ public class UserManagementSteps {
 	@Given("I log in as admin")
 	public void loginAsAdmin() {
 		if (!isInternetAvailable()) {
-			Assert.fail("❌ Internet connection not available. Please check your connection.");
+			Assert.fail("Internet connection not available. Please check your connection.");
 		}
 		driver = DriverFactory.createDriver();
 		wait = new WebDriverWait(driver, Duration.ofSeconds(15));
@@ -2205,9 +2205,9 @@ public class UserManagementSteps {
 		sleep(2000);
 		List<WebElement> errorHeaders = driver.findElements(By.xpath("//h2[normalize-space()='Error']"));
 		if (!errorHeaders.isEmpty()) {
-			System.out.println("❌ Error: Don't have proper access to requested page");
+			System.out.println("Error: Don't have proper access to requested page");
 		} else {
-			System.out.println("✅ No error. Page loaded successfully.");
+			System.out.println("No error. Page loaded successfully.");
 		}
 	}
 
@@ -2218,9 +2218,9 @@ public class UserManagementSteps {
 		sleep(2000);
 		List<WebElement> errorHeaders = driver.findElements(By.xpath("//h2[normalize-space()='Error']"));
 		if (!errorHeaders.isEmpty()) {
-			System.out.println("❌ Error: Don't have proper access to requested page");
+			System.out.println("Error: Don't have proper access to requested page");
 		} else {
-			System.out.println("✅ No error. Page loaded successfully.");
+			System.out.println("No error. Page loaded successfully.");
 		}
 	}
 
@@ -2231,9 +2231,9 @@ public class UserManagementSteps {
 		sleep(2000);
 		List<WebElement> errorHeaders = driver.findElements(By.xpath("//h2[normalize-space()='Error']"));
 		if (!errorHeaders.isEmpty()) {
-			System.out.println("❌ Error: Don't have proper access to requested page");
+			System.out.println("Error: Don't have proper access to requested page");
 		} else {
-			System.out.println("✅ No error. Page loaded successfully.");
+			System.out.println("No error. Page loaded successfully.");
 		}
 	}
 
@@ -2244,9 +2244,9 @@ public class UserManagementSteps {
 		sleep(2000);
 		List<WebElement> errorHeaders = driver.findElements(By.xpath("//h2[normalize-space()='Error']"));
 		if (!errorHeaders.isEmpty()) {
-			System.out.println("❌ Error: Don't have proper access to requested page");
+			System.out.println("Error: Don't have proper access to requested page");
 		} else {
-			System.out.println("✅ No error. Page loaded successfully.");
+			System.out.println("No error. Page loaded successfully.");
 		}
 	}
 
@@ -2257,9 +2257,9 @@ public class UserManagementSteps {
 		sleep(2000);
 		List<WebElement> errorHeaders = driver.findElements(By.xpath("//h2[normalize-space()='Error']"));
 		if (!errorHeaders.isEmpty()) {
-			System.out.println("❌ Error: Don't have proper access to requested page");
+			System.out.println("Error: Don't have proper access to requested page");
 		} else {
-			System.out.println("✅ No error. Page loaded successfully.");
+			System.out.println("No error. Page loaded successfully.");
 		}
 	}
 
@@ -2270,9 +2270,9 @@ public class UserManagementSteps {
 		sleep(2000);
 		List<WebElement> errorHeaders = driver.findElements(By.xpath("//h2[normalize-space()='Error']"));
 		if (!errorHeaders.isEmpty()) {
-			System.out.println("❌ Error: Don't have proper access to requested page");
+			System.out.println("Error: Don't have proper access to requested page");
 		} else {
-			System.out.println("✅ No error. Page loaded successfully.");
+			System.out.println("No error. Page loaded successfully.");
 		}
 	}
 
@@ -2283,9 +2283,9 @@ public class UserManagementSteps {
 		sleep(2000);
 		List<WebElement> errorHeaders = driver.findElements(By.xpath("//h2[normalize-space()='Error']"));
 		if (!errorHeaders.isEmpty()) {
-			System.out.println("❌ Error: Don't have proper access to requested page");
+			System.out.println("Error: Don't have proper access to requested page");
 		} else {
-			System.out.println("✅ No error. Page loaded successfully.");
+			System.out.println("No error. Page loaded successfully.");
 		}
 	}
 
@@ -2296,9 +2296,9 @@ public class UserManagementSteps {
 		sleep(2000);
 		List<WebElement> errorHeaders = driver.findElements(By.xpath("//h2[normalize-space()='Error']"));
 		if (!errorHeaders.isEmpty()) {
-			System.out.println("❌ Error: Don't have proper access to requested page");
+			System.out.println("Error: Don't have proper access to requested page");
 		} else {
-			System.out.println("✅ No error. Page loaded successfully.");
+			System.out.println("No error. Page loaded successfully.");
 		}
 	}
 
@@ -4445,9 +4445,9 @@ public class UserManagementSteps {
 		sleep(2000);
 		List<WebElement> errorHeaders = driver.findElements(By.xpath("//h2[normalize-space()='Error']"));
 		if (!errorHeaders.isEmpty()) {
-			System.out.println("❌ Error: Don't have proper access to requested page");
+			System.out.println("Error: Don't have proper access to requested page");
 		} else {
-			System.out.println("✅ No error. Page loaded successfully.");
+			System.out.println("No error. Page loaded successfully.");
 		}
 	}
 
@@ -4464,9 +4464,9 @@ public class UserManagementSteps {
 		sleep(2000);
 		List<WebElement> errorHeaders = driver.findElements(By.xpath("//h2[normalize-space()='Error']"));
 		if (!errorHeaders.isEmpty()) {
-			System.out.println("❌ Error: Don't have proper access to requested page");
+			System.out.println("Error: Don't have proper access to requested page");
 		} else {
-			System.out.println("✅ No error. Page loaded successfully.");
+			System.out.println("No error. Page loaded successfully.");
 		}
 	}
 
@@ -4480,9 +4480,9 @@ public class UserManagementSteps {
 			boolean isErrorVisible = !driver.findElements(By.xpath("//h2[normalize-space()='Error']")).isEmpty();
 
 			if (isErrorVisible) {
-				System.out.println("✅ Access blocked as expected for URL: " + url);
+				System.out.println("Access blocked as expected for URL: " + url);
 			} else {
-				System.out.println("❌ Access granted unexpectedly for URL: " + url);
+				System.out.println("Access granted unexpectedly for URL: " + url);
 			}
 		}
 	}
@@ -4500,9 +4500,9 @@ public class UserManagementSteps {
 		sleep(2000);
 		List<WebElement> errorHeaders = driver.findElements(By.xpath("//h2[normalize-space()='Error']"));
 		if (!errorHeaders.isEmpty()) {
-			System.out.println("❌ Error: Don't have proper access to requested page");
+			System.out.println("Error: Don't have proper access to requested page");
 		} else {
-			System.out.println("✅ No error. Page loaded successfully.");
+			System.out.println("No error. Page loaded successfully.");
 		}
 	}
 
@@ -4519,9 +4519,9 @@ public class UserManagementSteps {
 		sleep(2000);
 		List<WebElement> errorHeaders = driver.findElements(By.xpath("//h2[normalize-space()='Error']"));
 		if (!errorHeaders.isEmpty()) {
-			System.out.println("❌ Error: Don't have proper access to requested page");
+			System.out.println("Error: Don't have proper access to requested page");
 		} else {
-			System.out.println("✅ No error. Page loaded successfully.");
+			System.out.println("No error. Page loaded successfully.");
 		}
 	}
 
@@ -4538,9 +4538,9 @@ public class UserManagementSteps {
 		sleep(2000);
 		List<WebElement> errorHeaders = driver.findElements(By.xpath("//h2[normalize-space()='Error']"));
 		if (!errorHeaders.isEmpty()) {
-			System.out.println("❌ Error: Don't have proper access to requested page");
+			System.out.println("Error: Don't have proper access to requested page");
 		} else {
-			System.out.println("✅ No error. Page loaded successfully.");
+			System.out.println("No error. Page loaded successfully.");
 		}
 	}
 
@@ -4643,9 +4643,9 @@ public class UserManagementSteps {
 		long end = System.currentTimeMillis();
 		long duration = end - start;
 
-		System.out.println("⏱️ Page Load Time: " + duration + " ms for " + url);
+		System.out.println("Page Load Time: " + duration + " ms for " + url);
 		if (duration > maxExpectedMillis) {
-			System.out.println("⚠️ Warning: Page load is slower than expected.");
+			System.out.println("Warning: Page load is slower than expected.");
 		}
 	}
 
@@ -4654,12 +4654,12 @@ public class UserManagementSteps {
 			Process process = new ProcessBuilder("speedtest", "--simple").start();
 			BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
 			String line;
-			System.out.println("📡 Internet Speed:");
+			System.out.println("Internet Speed:");
 			while ((line = reader.readLine()) != null) {
 				System.out.println("   " + line);
 			}
 		} catch (IOException e) {
-			System.out.println("⚠️ Unable to measure internet speed: " + e.getMessage());
+			System.out.println("Unable to measure internet speed: " + e.getMessage());
 		}
 	}
 
