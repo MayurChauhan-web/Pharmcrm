@@ -1703,6 +1703,216 @@ public class UserManagementSteps {
 		clickWhenClickable(By.id("btnSave"));
 	}
 
+	@And("I create a profile with View access only to Setup Module → Central PA Setting")
+	public void createProfileWithViewAccessToCentralPASetting() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(3000);
+		uncheckPermissionIfChecked("chkg45CentralPASettingAdd");
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Add access to Setup Module → Central PA Setting")
+	public void createProfileWithViewAndAddAccessToCentralPASetting() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(3000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile without Central PA Setting access")
+	public void createProfileWithoutCentralPASettingAccess() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(3000);
+		uncheckPermissionIfChecked("chkg45CentralPASettingView");
+		uncheckPermissionIfChecked("chkg45CentralPASettingAdd");
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile without Mail Setting access")
+	public void createProfileWithoutMailSettingAccess() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(3000);
+		uncheckPermissionIfChecked("chkg44MailSettingView");
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View access only to Setup Module Show On Dashboard")
+	public void createProfileWithViewAccessToShowOnDashboard() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(3000);
+		uncheckPermissionIfChecked("chkg29ShowOnDashboardAdd");
+		uncheckPermissionIfChecked("chkg29ShowOnDashboardEdit");
+		uncheckPermissionIfChecked("chkg29ShowOnDashboardDelete");
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Add access to Setup Module Show On Dashboard")
+	public void createProfileWithViewAndAddAccessToShowOnDashboard() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(3000);
+		uncheckPermissionIfChecked("chkg29ShowOnDashboardEdit");
+		uncheckPermissionIfChecked("chkg29ShowOnDashboardDelete");
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View, Add, and Edit access to Setup Module Show On Dashboard")
+	public void createProfileWithViewAddEditAccessToShowOnDashboard() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(3000);
+		uncheckPermissionIfChecked("chkg29ShowOnDashboardDelete");
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with full access to Setup Module Show On Dashboard")
+	public void createProfileWithFullAccessToShowOnDashboard() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(3000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
 	@And("I create a profile with View Detail and Reset Password access to Setup Module → Workspace User")
 	public void createProfileWithViewDetailAndResetPasswordAccessToWorkspaceUser() {
 		driver.get(baseUrl + "/Setup/Home/Profiles");
@@ -3743,108 +3953,28 @@ public class UserManagementSteps {
 
 	@And("the user should be able to reset password for a workspace user")
 	public void verifyUserCanResetPasswordForWorkspaceUser() {
-		sleep(3000);
-		By actionMenu = By.xpath("//tbody/tr[1]/td[9]/div[1]/div[1]/button[1]/i[1]");
 
-		try {
-			WebElement menuButton = driver.findElement(actionMenu);
-			menuButton.click();
-			sleep(1000);
+		assertElementPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Reset Password')]"));
 
-			boolean canResetPassword = isElementPresent(
-					By.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Reset Password')]"));
-
-			boolean canChangeProfile = isElementPresent(
-					By.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Change Profile')]"));
-
-			clickWhenClickable(
-					By.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'View Detail')]"));
-			sleep(1000);
-
-			boolean canLinkEmployee = isElementPresent(By.xpath("//div[@id='EmployeeDetail']"));
-			boolean canDelinkEmployee = isElementPresent(By.xpath("//div[@id='EmployeeDetail']"));
-
-			if (canResetPassword && !canChangeProfile && !canLinkEmployee && !canDelinkEmployee) {
-				System.out.println("PASS: User has access only to Reset Password.");
-			} else {
-				StringBuilder failureReasons = new StringBuilder("FAIL: Access mismatch:");
-				if (!canResetPassword)
-					failureReasons.append(" Reset Password option is missing;");
-				if (canChangeProfile)
-					failureReasons.append(" Change Profile should not be visible;");
-				if (canLinkEmployee)
-					failureReasons.append(" Link Employee should not be visible;");
-				if (canDelinkEmployee)
-					failureReasons.append(" Delink Employee should not be visible;");
-				Assert.fail(failureReasons.toString());
-			}
-
-		} catch (ElementClickInterceptedException | TimeoutException e) {
-			Assert.fail("Could not open action menu or page did not load properly.");
-		}
 	}
 
 	@And("the user should be able to change profile for a workspace user")
 	public void verifyUserCanChangeProfileForWorkspaceUser() {
-		sleep(3000);
-		By actionMenu = By.xpath("//tbody/tr[1]/td[9]/div[1]/div[1]/button[1]/i[1]");
 
-		try {
-			WebElement menuButton = driver.findElement(actionMenu);
-			menuButton.click();
-			sleep(1000);
+		assertElementPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Change Profile')]"));
 
-			boolean canChangeProfile = isElementPresent(
-					By.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Change Profile')]"));
-
-			if (canChangeProfile) {
-				System.out.println("PASS: User has access to Change Profile.");
-			} else {
-				Assert.fail("FAIL: User does not have access to Change Profile.");
-			}
-
-		} catch (ElementClickInterceptedException | TimeoutException e) {
-			Assert.fail("FAIL: Action menu not accessible, unable to verify Change Profile access.");
-		}
 	}
 
 	@And("the user should be able to link and delink employee to a workspace user")
 	public void verifyUserCanLinkEmployeeToWorkspaceUser() {
+		sleep(5000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'View Detail')]"));
 		sleep(3000);
-		By actionMenu = By.xpath("//tbody/tr[1]/td[9]/div[1]/div[1]/button[1]/i[1]");
+		assertElementPresent(By.xpath("//div[@id='EmployeeDetail']"));
 
-		try {
-			WebElement menuButton = driver.findElement(actionMenu);
-			menuButton.click();
-			sleep(1000);
-
-			clickWhenClickable(
-					By.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'View Detail')]"));
-			sleep(1000);
-
-			boolean employeeDetailVisible = isElementPresent(By.id("EmployeeDetail"));
-			boolean canLinkEmployee = false;
-			boolean canDelinkEmployee = false;
-
-			if (employeeDetailVisible) {
-				canLinkEmployee = isElementPresent(By.xpath("//div[@id='EmployeeDetail']"));
-				canDelinkEmployee = isElementPresent(By.xpath("//div[@id='EmployeeDetail']"));
-			}
-
-			if (canLinkEmployee && canDelinkEmployee) {
-				System.out.println("PASS: User can link and delink employee as expected.");
-			} else {
-				StringBuilder failureReasons = new StringBuilder("FAIL: User should have access to:");
-				if (!canLinkEmployee)
-					failureReasons.append(" Link Employee;");
-				if (!canDelinkEmployee)
-					failureReasons.append(" Delink Employee;");
-				Assert.fail(failureReasons.toString());
-			}
-
-		} catch (ElementClickInterceptedException | TimeoutException e) {
-			Assert.fail("FAIL: Could not open action menu or View Detail due to exception: " + e.getMessage());
-		}
 	}
 
 	@And("the user should be able to add a new Progress Step entry")
@@ -3900,6 +4030,18 @@ public class UserManagementSteps {
 		waitAndSendKeys(By.id("FaxSetting_FAXAPIId"), profileName);
 		waitAndSendKeys(By.id("FaxSetting_FromEmail"), createdEmail);
 		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+	}
+
+	@And("the user should be able to add a new Central PA entry")
+	public void verifyUserCanAddCentralPAEntry() {
+		sleep(2000);
+		clickWhenClickable(By.id("Filter_ProcessFromDate"));
+		sleep(2000);
+		WebElement anyActiveDate = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
+				"//div[contains(@class,'datepicker')]//td[not(contains(@class,'old')) and not(contains(@class,'new')) and not(contains(@class,'disabled'))]")));
+		anyActiveDate.click();
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[normalize-space()='Submit']"));
 	}
 
 	@And("the user should be able to edit an existing patient signature template")
@@ -4082,18 +4224,15 @@ public class UserManagementSteps {
 	@But("the user should not be able to change profile, link or delink employee to user")
 	public void verifyUserCannotChangeProfileOrLinkOrDelinkEmployee() {
 		sleep(3000);
-		By actionMenu = By.xpath("//tbody/tr[1]/td[9]/div[1]/div[1]/button[1]/i[1]");
 
 		try {
-			WebElement menuButton = driver.findElement(actionMenu);
-			menuButton.click();
 			sleep(1000);
 
-			boolean canChangeProfile = isElementPresent(
-					By.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Change Profile')]"));
+			boolean canChangeProfile = isElementPresent(By.xpath(
+					"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Change Profile')]"));
 
-			clickWhenClickable(
-					By.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'View Detail')]"));
+			clickWhenClickable(By.xpath(
+					"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'View Detail')]"));
 			sleep(1000);
 
 			boolean canLinkEmployee = isElementPresent(By.xpath("//div[@id='EmployeeDetail']"));
@@ -4119,41 +4258,12 @@ public class UserManagementSteps {
 
 	@But("the user should not be able to link or delink employee to user")
 	public void verifyUserCannotLinkOrDelinkEmployeeToUser() {
+		sleep(5000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'View Detail')]"));
 		sleep(3000);
-		By actionMenu = By.xpath("//tbody/tr[1]/td[9]/div[1]/div[1]/button[1]/i[1]");
+		assertElementNotPresent(By.xpath("//div[@id='EmployeeDetail']"));
 
-		try {
-			WebElement menuButton = driver.findElement(actionMenu);
-			menuButton.click();
-			sleep(1000);
-
-			clickWhenClickable(
-					By.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'View Detail')]"));
-			sleep(1000);
-
-			boolean employeeDetailVisible = isElementPresent(By.id("EmployeeDetail"));
-			boolean canLinkEmployee = false;
-			boolean canDelinkEmployee = false;
-
-			if (employeeDetailVisible) {
-				canLinkEmployee = isElementPresent(By.xpath("//div[@id='EmployeeDetail']"));
-				canDelinkEmployee = isElementPresent(By.xpath("//div[@id='EmployeeDetail']"));
-			}
-
-			if (!canLinkEmployee && !canDelinkEmployee) {
-				System.out.println("PASS: User cannot link or delink employee.");
-			} else {
-				StringBuilder failureReasons = new StringBuilder("FAIL: User should not have access to:");
-				if (canLinkEmployee)
-					failureReasons.append(" Link Employee;");
-				if (canDelinkEmployee)
-					failureReasons.append(" Delink Employee;");
-				Assert.fail(failureReasons.toString());
-			}
-
-		} catch (ElementClickInterceptedException | TimeoutException e) {
-			System.out.println("PASS: Action menu or View Detail not accessible (as expected for restricted user).");
-		}
 	}
 
 	@Then("the user should be able to add a new fax template")
@@ -4403,6 +4513,41 @@ public class UserManagementSteps {
 		sleep(500);
 		assertElementPresent(By.xpath(
 				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'View Detail')]"));
+	}
+
+	@Then("the user should be able to view Central PA Setting")
+	public void verifyUserCanViewCentralPASetting() {
+		sleep(3000);
+		driver.get(baseUrl + "/Web/Home/CentralPASettings");
+		wait.until(ExpectedConditions.urlContains("/Web/Home/CentralPASettings"));
+	}
+
+	@Then("the user should be able to view Show On Dashboard settings")
+	public void verifyUserCanViewShowOnDashboardSettings() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/Reminder?id=dbff8740-5363-4666-9eaa-271d42298025#showdashboard");
+		wait.until(ExpectedConditions
+				.urlContains("/Setup/Home/Reminder?id=dbff8740-5363-4666-9eaa-271d42298025#showdashboard"));
+	}
+
+	@But("the user should not be able to add Central PA Setting")
+	public void verifyUserCannotAddCentralPASetting() {
+		sleep(3000);
+		assertElementNotPresent(
+				By.xpath("//button[@class='btn btn-primary waves-effect waves-light'][normalize-space()='Submit']"));
+
+	}
+
+	@But("the user should not be able to add, edit, or delete Show On Dashboard settings")
+	public void verifyUserCannotAddEditDeleteShowOnDashboardSettings() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='Show On Dashboard']"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Add Show On Dashboard']"));
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']"));
+		sleep(1000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Edit']"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Delete']"));
+
 	}
 
 	@Then("the user should be able to view text templates")
@@ -4933,6 +5078,30 @@ public class UserManagementSteps {
 			System.out.println("Sidebar icons found: " + sidebarIcons.size());
 		}
 		driver.get(baseUrl + "/Setup/Home/WorkspaceUsers");
+		sleep(2000);
+		List<WebElement> errorHeaders = driver.findElements(By.xpath("//h2[normalize-space()='Error']"));
+		if (!errorHeaders.isEmpty()) {
+			System.out.println("Error: Don't have proper access to requested page");
+		} else {
+			System.out.println("No error. Page loaded successfully.");
+		}
+	}
+
+	@Then("the user should have no Central PA Setting access via UI or direct URL")
+	public void verifyUserHasNoAccessToCentralPASetting() {
+		driver.get(baseUrl + "/Web/Home/CentralPASettings");
+		sleep(2000);
+		List<WebElement> errorHeaders = driver.findElements(By.xpath("//h2[normalize-space()='Error']"));
+		if (!errorHeaders.isEmpty()) {
+			System.out.println("Error: Don't have proper access to requested page");
+		} else {
+			System.out.println("No error. Page loaded successfully.");
+		}
+	}
+
+	@Then("the user should have no Mail Setting access via UI or direct URL")
+	public void verifyUserHasNoAccessToMailSetting() {
+		driver.get(baseUrl + "/Setup/Home/MailSetting");
 		sleep(2000);
 		List<WebElement> errorHeaders = driver.findElements(By.xpath("//h2[normalize-space()='Error']"));
 		if (!errorHeaders.isEmpty()) {

@@ -904,10 +904,9 @@ Feature: Full User Management Flow
   Then the user should be able to view workspace user details 
   But the user should not be able to reset password, change profile, link or delink employee to user 
 
-  @Setup
   Scenario: User with View Detail and Reset Password access for Workspace User
   Given I log in as admin
-  When I create a new user with email "testuser34_static@mailinator.com"
+  When I create a new user with email "testuser3_static@mailinator.com"
   And I create a profile with View Detail and Reset Password access to Setup Module → Workspace User 
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -918,19 +917,19 @@ Feature: Full User Management Flow
 
   Scenario: User with View Detail, Reset Password, and Change Profile access for Workspace User
   Given I log in as admin
-  When I create a new user with email "testuser31_static@mailinator.com"
+  When I create a new user with email "testuser9_static@mailinator.com"
   And I create a profile with View Detail, Reset Password, and Change Profile access to Setup Module → Workspace User 
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user
-  Then the user should be able to view workspace user details
-  And the user should be able to reset password for a workspace user
+  Then the user should be able to view workspace user details 
+  And the user should be able to reset password for a workspace user     
   And the user should be able to change profile for a workspace user 
   But the user should not be able to link or delink employee to user 
   
   Scenario: User with full access for Workspace User
   Given I log in as admin
-  When I create a new user with email "testuser31_static@mailinator.com"
+  When I create a new user with email "testuser10_static@mailinator.com"
   And I create a profile with View Detail, Reset Password, Change Profile, Link Employee To User, and DeLink Employee To User access to Setup Module → Workspace User  
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -940,7 +939,89 @@ Feature: Full User Management Flow
   And the user should be able to change profile for a workspace user
   And the user should be able to link and delink employee to a workspace user        
 
+  Scenario: User with View only access for Central PA Setting
+  Given I log in as admin
+  When I create a new user with email "testuser2_static@mailinator.com"
+  And I create a profile with View access only to Setup Module → Central PA Setting  
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view Central PA Setting      
+  But the user should not be able to add Central PA Setting  
 
+  Scenario: User with View and Add access for Central PA Setting
+  Given I log in as admin
+  When I create a new user with email "testuser6_static@mailinator.com"
+  And I create a profile with View and Add access to Setup Module → Central PA Setting  
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view Central PA Setting
+  And the user should be able to add a new Central PA entry 
+  
+  Scenario: Create user without Central PA Setting access and check restrictions
+  Given I log in as admin
+  When I create a new user with email "testuser4_static@mailinator.com"
+  And I create a profile without Central PA Setting access   
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should have no Central PA Setting access via UI or direct URL 
+
+  Scenario: Create user without Mail Setting access and check restrictions
+  Given I log in as admin
+  When I create a new user with email "testuser7_static@mailinator.com"
+  And I create a profile without Mail Setting access 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should have no Mail Setting access via UI or direct URL 
+
+  @Setup
+  Scenario: User with View only access for Show On Dashboard
+  Given I log in as admin
+  When I create a new user with email "testuser9_static@mailinator.com"
+  And I create a profile with View access only to Setup Module Show On Dashboard    
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view Show On Dashboard settings       
+  But the user should not be able to add, edit, or delete Show On Dashboard settings 
+  
+  Scenario: User with View and Add access for Show On Dashboard
+  Given I log in as admin
+  When I create a new user with email "testuser7_static@mailinator.com"
+  And I create a profile with View and Add access to Setup Module Show On Dashboard 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view Show On Dashboard settings
+  And the user should be able to add a new Show On Dashboard entry
+  But the user should not be able to edit or delete Show On Dashboard settings
+  
+  Scenario: User with View, Add, and Edit access for Show On Dashboard
+  Given I log in as admin
+  When I create a new user with email "testuser7_static@mailinator.com"
+  And I create a profile with View, Add, and Edit access to Setup Module Show On Dashboard   
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view Show On Dashboard settings
+  And the user should be able to add a new Show On Dashboard entry
+  And the user should be able to edit an existing Show On Dashboard entry
+  But the user should not be able to delete Show On Dashboard settings
+  
+  Scenario: User with full access (View, Add, Edit, Delete) for Show On Dashboard
+  Given I log in as admin
+  When I create a new user with email "testuser7_static@mailinator.com"
+  And I create a profile with full access to Setup Module Show On Dashboard   
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view Show On Dashboard settings
+  And the user should be able to add a new Show On Dashboard entry
+  And the user should be able to edit an existing Show On Dashboard entry
+  And the user should be able to delete a Show On Dashboard entry
 
 
 
