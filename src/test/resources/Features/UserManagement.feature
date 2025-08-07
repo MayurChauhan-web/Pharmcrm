@@ -977,7 +977,6 @@ Feature: Full User Management Flow
   And I log in using the new user
   Then the user should have no Mail Setting access via UI or direct URL 
 
-  @Setup
   Scenario: User with View only access for Show On Dashboard
   Given I log in as admin
   When I create a new user with email "testuser9_static@mailinator.com"
@@ -990,30 +989,30 @@ Feature: Full User Management Flow
   
   Scenario: User with View and Add access for Show On Dashboard
   Given I log in as admin
-  When I create a new user with email "testuser7_static@mailinator.com"
+  When I create a new user with email "testuser10_static@mailinator.com"
   And I create a profile with View and Add access to Setup Module Show On Dashboard 
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user
   Then the user should be able to view Show On Dashboard settings
-  And the user should be able to add a new Show On Dashboard entry
-  But the user should not be able to edit or delete Show On Dashboard settings
+  And the user should be able to add a new Show On Dashboard entry 
+  But the user should not be able to edit or delete Show On Dashboard settings  
   
   Scenario: User with View, Add, and Edit access for Show On Dashboard
   Given I log in as admin
-  When I create a new user with email "testuser7_static@mailinator.com"
+  When I create a new user with email "testuser11_static@mailinator.com"
   And I create a profile with View, Add, and Edit access to Setup Module Show On Dashboard   
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user
   Then the user should be able to view Show On Dashboard settings
   And the user should be able to add a new Show On Dashboard entry
-  And the user should be able to edit an existing Show On Dashboard entry
-  But the user should not be able to delete Show On Dashboard settings
+  And the user should be able to edit an existing Show On Dashboard entry   
+  But the user should not be able to delete Show On Dashboard settings 
   
   Scenario: User with full access (View, Add, Edit, Delete) for Show On Dashboard
   Given I log in as admin
-  When I create a new user with email "testuser7_static@mailinator.com"
+  When I create a new user with email "testuser13_static@mailinator.com"
   And I create a profile with full access to Setup Module Show On Dashboard   
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -1021,7 +1020,172 @@ Feature: Full User Management Flow
   Then the user should be able to view Show On Dashboard settings
   And the user should be able to add a new Show On Dashboard entry
   And the user should be able to edit an existing Show On Dashboard entry
-  And the user should be able to delete a Show On Dashboard entry
+  And the user should be able to delete a Show On Dashboard entry    
+  
+  Scenario: User with View only access for Email Notification
+  Given I log in as admin
+  When I create a new user with email "testuser14_static@mailinator.com"
+  And I create a profile with View access only to Setup Module Email Notification 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view Email Notification settings   
+  But the user should not be able to add, edit, or delete Email Notification settings 
+
+  Scenario: User with View and Add access for Email Notification
+  Given I log in as admin
+  When I create a new user with email "testuser18_static@mailinator.com"
+  And I create a profile with View and Add access to Setup Module Email Notification
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view Email Notification settings
+  And the user should be able to add a new Email Notification entry   
+  But the user should not be able to edit or delete Email Notification settings 
+
+  Scenario: User with View, Add, and Edit access for Email Notification
+  Given I log in as admin
+  When I create a new user with email "testuser19_static@mailinator.com"
+  And I create a profile with View, Add, and Edit access to Setup Module Email Notification
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view Email Notification settings
+  And the user should be able to add a new Email Notification entry
+  And the user should be able to edit an existing Email Notification entry      
+  But the user should not be able to delete Email Notification settings     
+
+  Scenario: User with full access (View, Add, Edit, Delete) for Email Notification
+  Given I log in as admin
+  When I create a new user with email "testuser20_static@mailinator.com"
+  And I create a profile with full access to Setup Module Email Notification 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view Email Notification settings
+  And the user should be able to add a new Email Notification entry
+  And the user should be able to edit an existing Email Notification entry
+  And the user should be able to delete an Email Notification entry 
+
+  Scenario: User with View only access for Auto Text
+  Given I log in as admin
+  When I create a new user with email "testuser21_static@mailinator.com"
+  And I create a profile with View access only to Setup Module Auto Text 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view Auto Text settings 
+  But the user should not be able to add, edit, or delete Auto Text entries   
+
+  Scenario: User with View and Add access for Auto Text
+  Given I log in as admin
+  When I create a new user with email "testuser23_static@mailinator.com"
+  And I create a profile with View and Add access to Setup Module Auto Text 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view Auto Text settings
+  And the user should be able to add a new Auto Text entry 
+  But the user should not be able to edit or delete Auto Text entries  
+
+  Scenario: User with View, Add, and Edit access for Auto Text
+  Given I log in as admin
+  When I create a new user with email "testuser24_static@mailinator.com"
+  And I create a profile with View, Add, and Edit access to Setup Module Auto Text  
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view Auto Text settings
+  And the user should be able to add a new Auto Text entry
+  And the user should be able to edit an existing Auto Text entry 
+  But the user should not be able to delete Auto Text entries 
+
+  Scenario: User with full access (View, Add, Edit, Delete) for Auto Text
+  Given I log in as admin
+  When I create a new user with email "testuser26_static@mailinator.com"
+  And I create a profile with full access to Setup Module Auto Text 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view Auto Text settings
+  And the user should be able to add a new Auto Text entry
+  And the user should be able to edit an existing Auto Text entry
+  And the user should be able to delete an Auto Text entry 
+
+  Scenario: User with View only access for Auto Call
+  Given I log in as admin
+  When I create a new user with email "testuser27_static@mailinator.com"
+  And I create a profile with View access only to Setup Module Auto Call 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view Auto Call settings 
+  But the user should not be able to add, edit, or delete Auto Call entries  
+
+  Scenario: User with View and Add access for Auto Call
+  Given I log in as admin
+  When I create a new user with email "testuser28_static@mailinator.com"
+  And I create a profile with View and Add access to Setup Module Auto Call 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view Auto Call settings
+  And the user should be able to add a new Auto Call entry 
+  But the user should not be able to edit or delete Auto Call entries 
+
+  Scenario: User with View, Add, and Edit access for Auto Call
+  Given I log in as admin
+  When I create a new user with email "testuser31_static@mailinator.com"
+  And I create a profile with View, Add, and Edit access to Setup Module Auto Call  
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view Auto Call settings
+  And the user should be able to add a new Auto Call entry
+  And the user should be able to edit an existing Auto Call entry  
+  But the user should not be able to delete Auto Call entries 
+
+  Scenario: User with full access (View, Add, Edit, Delete) for Auto Call
+  Given I log in as admin
+  When I create a new user with email "testuser33_static@mailinator.com"
+  And I create a profile with full access to Setup Module Auto Call   
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view Auto Call settings
+  And the user should be able to add a new Auto Call entry
+  And the user should be able to edit an existing Auto Call entry
+  And the user should be able to delete an Auto Call entry  
+
+  @Setup
+  Scenario: Create user without Connector App access and check restrictions
+  Given I log in as admin
+  When I create a new user with email "testuser39_static@mailinator.com"
+  And I create a profile without Connector App access  
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should have no Connector App access via UI or direct URL  
+
+  Scenario: User with View only access for Spam Email
+  Given I log in as admin
+  When I create a new user with email "testuser37_static@mailinator.com"
+  And I create a profile with View access only to Setup Module Spam Email 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view Spam Email settings 
+  But the user should not be able to delete Spam Email entries 
+  
+  Scenario: User with View and Delete access for Spam Email
+  Given I log in as admin
+  When I create a new user with email "testuser38_static@mailinator.com"
+  And I create a profile with View and Delete access to Setup Module Spam Email   
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view Spam Email settings
+  And the user should be able to delete a Spam Email entry  
 
 
 
