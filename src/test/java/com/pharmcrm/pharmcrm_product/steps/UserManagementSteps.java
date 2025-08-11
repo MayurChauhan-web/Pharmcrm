@@ -2308,6 +2308,288 @@ public class UserManagementSteps {
 		clickWhenClickable(By.id("btnSave"));
 	}
 
+	@And("I create a profile with View access only to Setup Module Bounce Email")
+	public void createProfileWithAccessOnlyToModule() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(3000);
+		uncheckPermissionIfChecked("chkg37BounceDelete");
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Delete access to Setup Module Bounce Email")
+	public void createProfileWithViewAndDeleteAccessToModule() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(3000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View access only to Setup Module Block Email")
+	public void createProfileWithViewAccessOnlyToModule() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(3000);
+		uncheckPermissionIfChecked("chkg37BlockDelete");
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Delete access to Setup Module Block Email")
+	public void createProfileWithViewAndDeleteAccessToSetupModuleBlockEmail() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(3000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View access only to Setup Module Sender Authentication")
+	public void createProfileWithViewAccessOnlyToSetupModuleSenderAuthentication() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(3000);
+		uncheckPermissionIfChecked("chkg8SenderAuthenticationAdd");
+		uncheckPermissionIfChecked("chkg8SenderAuthenticationDelete");
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Add access to Setup Module Sender Authentication")
+	public void createProfileWithViewAndAddAccessToSetupModuleSenderAuthentication() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(3000);
+		uncheckPermissionIfChecked("chkg8SenderAuthenticationDelete");
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View, Add, and Delete access to Setup Module Sender Authentication")
+	public void createProfileWithViewAddAndDeleteAccessToSetupModuleSenderAuthentication() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(3000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with Download access to Setup Module XFlow")
+	public void createProfileWithDownloadAccessToSetupModuleXFlow() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(3000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with No access to Setup Module XFlow")
+	public void createProfileWithNoAccessToSetupModuleXFlow() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(3000);
+		uncheckPermissionIfChecked("chkg02XFlowDownload");
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View access only to Setup Module General Audit View")
+	public void createProfileWithViewAccessOnlyToSetupModuleGeneralAuditView() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(3000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with No access to Setup Module General Audit View")
+	public void createProfileWithNoAccessToSetupModuleGeneralAuditView() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(3000);
+		uncheckPermissionIfChecked("chkg37SetupAuditView");
+		clickWhenClickable(By.id("btnSave"));
+	}
+
 	@And("I create a profile with View Detail and Reset Password access to Setup Module → Workspace User")
 	public void createProfileWithViewDetailAndResetPasswordAccessToWorkspaceUser() {
 		driver.get(baseUrl + "/Setup/Home/Profiles");
@@ -4526,6 +4808,69 @@ public class UserManagementSteps {
 		clickWhenClickable(By.xpath("//button[@id='btnSaveAutoCall']"));
 	}
 
+	@And("the user should be able to add a Sender Authentication entry")
+	public void userShouldBeAbleToAddSenderAuthenticationEntry() {
+		sleep(2000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Sender Authentication']"));
+		sleep(2000);
+		waitAndSendKeys(By.xpath("//input[@id='domainName']"), profileName);
+		clickWhenClickable(By.xpath("//button[@id='btnDomainName']"));
+
+	}
+
+	@And("the user should not be able to add or delete Sender Authentication entries")
+	public void userShouldNotBeAbleToAddOrDeleteSenderAuthenticationEntries() {
+		sleep(3000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New Sender Authentication']"));
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[6]/div[1]/div[1]/button[1]/i[1]"));
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+
+	}
+
+	@And("the user should not be able to delete Sender Authentication entries")
+	public void userShouldNotBeAbleToDeleteSenderAuthenticationEntries() {
+
+		sleep(3000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[6]/div[1]/div[1]/button[1]/i[1]"));
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+
+	}
+
+	@And("the user should not be able to view or download from XFlow")
+	public void userShouldNotBeAbleToViewOrDownloadFromXFlow() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[@href='#']//span[@class='userTopIcon']//*[name()='svg']"));
+		assertElementNotPresent(
+				By.xpath("//span[@class='co-settings']//*[name()='svg']//*[name()='path' and @id='Union_1']"));
+
+	}
+
+	@And("the user should not be able to view General Audit View settings")
+	public void userShouldNotBeAbleToViewGeneralAuditViewSettings() {
+		sleep(3000);
+		assertElementNotPresent(By.id("delete"));
+
+	}
+
+	@And("the user should not be able to edit or delete General Audit View entries")
+	public void userShouldNotBeAbleToEditOrDeleteGeneralAuditViewEntries() {
+
+		sleep(3000);
+		assertElementNotPresent(By.xpath("//th[normalize-space()='Created Date']"));
+		assertElementNotPresent(By.xpath("//th[normalize-space()='Updated Date']"));
+
+	}
+
+	@And("the user should be able to view General Audit View settings")
+	public void userShouldBeAbleToViewGeneralAuditViewSettings() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/Profiles"));
+
+	}
+
 	@And("the user should be able to edit an existing patient signature template")
 	public void userShouldBeAbleToEditPatientSignatureTemplate() {
 		sleep(3000);
@@ -5043,6 +5388,48 @@ public class UserManagementSteps {
 		wait.until(ExpectedConditions.urlContains("/Web/Home/Spams"));
 	}
 
+	@Then("the user should be able to view Bounce Email settings")
+	public void userShouldBeAbleToViewBounceEmailSettings() {
+		sleep(3000);
+		driver.get(baseUrl + "/Web/Home/Bounces");
+		wait.until(ExpectedConditions.urlContains("/Web/Home/Bounces"));
+	}
+
+	@Then("the user should be able to view Block Email settings")
+	public void userShouldBeAbleToViewBlockEmailSettings() {
+		sleep(3000);
+		driver.get(baseUrl + "/Web/Home/Blocks");
+		wait.until(ExpectedConditions.urlContains("/Web/Home/Blocks"));
+	}
+
+	@Then("the user should be able to view Sender Authentication settings")
+	public void userShouldBeAbleToViewSenderAuthenticationSettings() {
+		sleep(3000);
+		driver.get(baseUrl + "/Web/Home/SenderAuthentications");
+		wait.until(ExpectedConditions.urlContains("/Web/Home/SenderAuthentications"));
+	}
+
+	@Then("the user should be able to download from XFlow")
+	public void userShouldBeAbleToDownloadFromXFlow() {
+		sleep(3000);
+		driver.get(baseUrl + "/Web/Home/XFlowVersions");
+		wait.until(ExpectedConditions.urlContains("/Web/Home/XFlowVersions"));
+	}
+
+	@And("I navigate to the User page")
+	public void navigateToUserPage() {
+		sleep(3000);
+		driver.get(baseUrl + "/Web/Home/Users");
+		wait.until(ExpectedConditions.urlContains("/Web/Home/Users"));
+	}
+
+	@And("I navigate to the Profile page")
+	public void navigateToProfilePage() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/Profiles"));
+	}
+
 	@But("the user should not be able to add Central PA Setting")
 	public void verifyUserCannotAddCentralPASetting() {
 		sleep(3000);
@@ -5107,6 +5494,20 @@ public class UserManagementSteps {
 	public void userShouldNotBeAbleToDeleteSpamEmailEntries() {
 		sleep(3000);
 		assertElementNotPresent(By.id("delete"));
+
+	}
+
+	@But("the user should not be able to delete Bounce Email entries")
+	public void userShouldNotBeAbleToDeleteBounceEmailEntries() {
+		sleep(3000);
+		assertElementNotPresent(By.xpath("//tbody/tr[1]/td[4]/a[1]/img[1]"));
+
+	}
+
+	@But("the user should not be able to delete Block Email entries")
+	public void userShouldNotBeAbleToDeleteBlockEmailEntries() {
+		sleep(3000);
+		assertElementNotPresent(By.xpath("//tbody/tr[1]/td[4]/a[1]/img[1]"));
 
 	}
 
@@ -5280,7 +5681,98 @@ public class UserManagementSteps {
 	@And("the user should be able to delete a Spam Email entry")
 	public void userShouldBeAbleToDeleteSpamEmailEntry() {
 		sleep(3000);
-		assertElementPresent(By.id("delete"));
+		assertElementPresent(By.xpath("//tbody/tr[1]/td[4]/a[1]/img[1]"));
+	}
+
+	@And("the user should be able to delete a Bounce Email entry")
+	public void userShouldBeAbleToDeleteBounceEmailEntry() {
+		sleep(3000);
+		assertElementPresent(By.xpath("//tbody/tr[1]/td[4]/a[1]/img[1]"));
+	}
+
+	@And("the user should be able to delete a Block Email entry")
+	public void userShouldBeAbleToDeleteBlockEmailEntry() {
+		sleep(3000);
+		assertElementPresent(By.xpath("//tbody/tr[1]/td[4]/a[1]/img[1]"));
+	}
+
+	@And("the user should be able to delete a Sender Authentication entry")
+	public void userShouldBeAbleToDeleteSenderAuthenticationEntry() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[6]/div[1]/div[1]/button[1]/i[1]"));
+		assertElementPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+	}
+
+	@When("I repeatedly delete available user entries")
+	public void deleteAllUserEntries() {
+		sleep(3000);
+
+		for (int i = 0; i < 20; i++) {
+			try {
+				WebElement deleteIcon = driver
+						.findElement(By.xpath("//tbody/tr[4]/td[7]/div[1]/div[1]/button[1]/i[1]"));
+				deleteIcon.click();
+				sleep(500);
+
+				WebElement deleteOption = driver.findElement(By.xpath(
+						"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+				deleteOption.click();
+				sleep(500);
+
+				WebElement confirmDelete = driver
+						.findElement(By.xpath("//div[@id='deleteUserModel']//button[@id='btnDeleteConfirm']"));
+				confirmDelete.click();
+				sleep(1000);
+
+			} catch (NoSuchElementException e) {
+				System.out.println("No more user entries to delete.");
+				break;
+			} catch (Exception e) {
+				e.printStackTrace();
+				break;
+			}
+		}
+	}
+
+	@When("I repeatedly delete available profile entries")
+	public void repeatedlyDeleteAvailableProfileEntries() {
+		sleep(3000);
+
+		for (int i = 1; i <= 20; i++) {
+			try {
+				driver.findElement(By.xpath("//span[normalize-space()='Filter']")).click();
+				sleep(1000);
+
+				WebElement filterInput = driver.findElement(By.id("Filter_Name"));
+				filterInput.clear();
+				filterInput.sendKeys("Organization_Administrator");
+				sleep(500);
+
+				driver.findElement(By.xpath("//i[@class='fa-solid fa-magnifying-glass']")).click();
+				sleep(1500);
+
+				driver.findElement(By.xpath("//tbody/tr[1]/td[8]/div[1]/div[1]/button[1]/i[1]")).click();
+				sleep(500);
+
+				driver.findElement(By.xpath(
+						"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"))
+						.click();
+				sleep(500);
+
+				WebElement confirmDelete = driver
+						.findElement(By.xpath("//div[@id='profileModel']//button[@id='btnDeleteConfirm']"));
+				confirmDelete.click();
+
+				sleep(1500);
+
+				System.out.println("Deleted profile entry #" + i);
+
+			} catch (NoSuchElementException e) {
+				System.out.println("No more profile entries found at iteration " + i);
+				break;
+			}
+		}
 	}
 
 	@Then("the user should be able to view text templates")

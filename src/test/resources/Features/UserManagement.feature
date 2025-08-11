@@ -1157,10 +1157,9 @@ Feature: Full User Management Flow
   And the user should be able to edit an existing Auto Call entry
   And the user should be able to delete an Auto Call entry  
 
-  @Setup
   Scenario: Create user without Connector App access and check restrictions
   Given I log in as admin
-  When I create a new user with email "testuser39_static@mailinator.com"
+  When I create a new user with email "testuser40_static@mailinator.com"
   And I create a profile without Connector App access  
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -1169,7 +1168,7 @@ Feature: Full User Management Flow
 
   Scenario: User with View only access for Spam Email
   Given I log in as admin
-  When I create a new user with email "testuser37_static@mailinator.com"
+  When I create a new user with email "testuser41_static@mailinator.com"
   And I create a profile with View access only to Setup Module Spam Email 
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -1179,13 +1178,141 @@ Feature: Full User Management Flow
   
   Scenario: User with View and Delete access for Spam Email
   Given I log in as admin
-  When I create a new user with email "testuser38_static@mailinator.com"
+  When I create a new user with email "testuser2_static@mailinator.com"
   And I create a profile with View and Delete access to Setup Module Spam Email   
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user
   Then the user should be able to view Spam Email settings
   And the user should be able to delete a Spam Email entry  
+
+  Scenario: User with View only access for Bounce Email
+  Given I log in as admin
+  When I create a new user with email "testuser3_static@mailinator.com"
+  And I create a profile with View access only to Setup Module Bounce Email  
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view Bounce Email settings  
+  But the user should not be able to delete Bounce Email entries  
+
+  Scenario: User with View and Delete access for Bounce Email
+  Given I log in as admin
+  When I create a new user with email "testuser4_static@mailinator.com"
+  And I create a profile with View and Delete access to Setup Module Bounce Email  
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view Bounce Email settings
+  And the user should be able to delete a Bounce Email entry 
+
+  Scenario: User with View only access for Block Email
+  Given I log in as admin
+  When I create a new user with email "testuser5_static@mailinator.com"
+  And I create a profile with View access only to Setup Module Block Email  
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view Block Email settings  
+  But the user should not be able to delete Block Email entries  
+
+  Scenario: User with View and Delete access for Block Email
+  Given I log in as admin
+  When I create a new user with email "testuser6_static@mailinator.com"
+  And I create a profile with View and Delete access to Setup Module Block Email   
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view Block Email settings
+  And the user should be able to delete a Block Email entry  
+
+  Scenario: User with View only access for Sender Authentication
+  Given I log in as admin
+  When I create a new user with email "testuser7_static@mailinator.com"
+  And I create a profile with View access only to Setup Module Sender Authentication 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view Sender Authentication settings   
+  But the user should not be able to add or delete Sender Authentication entries    
+
+  Scenario: User with View and Add access for Sender Authentication
+  Given I log in as admin
+  When I create a new user with email "testuser8_static@mailinator.com"
+  And I create a profile with View and Add access to Setup Module Sender Authentication     
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view Sender Authentication settings
+  And the user should be able to add a Sender Authentication entry    
+  But the user should not be able to delete Sender Authentication entries   
+
+  Scenario: User with View, Add, and Delete access for Sender Authentication
+  Given I log in as admin
+  When I create a new user with email "testuser9_static@mailinator.com"
+  And I create a profile with View, Add, and Delete access to Setup Module Sender Authentication   
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view Sender Authentication settings
+  And the user should be able to add a Sender Authentication entry
+  And the user should be able to delete a Sender Authentication entry   
+
+  Scenario: User with Download access for XFlow
+  Given I log in as admin
+  When I create a new user with email "testuser10_static@mailinator.com"
+  And I create a profile with Download access to Setup Module XFlow   
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to download from XFlow  
+
+  Scenario: User with No access for XFlow
+  Given I log in as admin
+  When I create a new user with email "testuser11_static@mailinator.com"
+  And I create a profile with No access to Setup Module XFlow 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should not be able to view or download from XFlow  
+
+  @Setup
+  Scenario: User with View only access for General (Audit View)
+  Given I log in as admin
+  When I create a new user with email "testuser12_static@mailinator.com"
+  And I create a profile with View access only to Setup Module General Audit View             
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view General Audit View settings  
+  But the user should not be able to edit or delete General Audit View entries   
+
+  Scenario: User with No access for General (Audit View)
+  Given I log in as admin
+  When I create a new user with email "testuser13_static@mailinator.com"
+  And I create a profile with No access to Setup Module General Audit View 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should not be able to view General Audit View settings   
+  
+  @Delete
+  Scenario: User with Delete access can repeatedly delete user entries
+  Given I log in as admin 
+  And I navigate to the User page   
+  When I repeatedly delete available user entries  
+  
+  @Delete
+  Scenario: User with Delete access can repeatedly delete profile entries
+  Given I log in as admin 
+  And I navigate to the Profile page  
+  When I repeatedly delete available profile entries
+                                         
+  
+    
+
+  
+  
 
 
 
