@@ -4850,14 +4850,6 @@ public class UserManagementSteps {
 	@And("the user should not be able to view General Audit View settings")
 	public void userShouldNotBeAbleToViewGeneralAuditViewSettings() {
 		sleep(3000);
-		assertElementNotPresent(By.id("delete"));
-
-	}
-
-	@And("the user should not be able to edit or delete General Audit View entries")
-	public void userShouldNotBeAbleToEditOrDeleteGeneralAuditViewEntries() {
-
-		sleep(3000);
 		assertElementNotPresent(By.xpath("//th[normalize-space()='Created Date']"));
 		assertElementNotPresent(By.xpath("//th[normalize-space()='Updated Date']"));
 

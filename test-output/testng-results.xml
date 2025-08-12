@@ -2,46 +2,46 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-07-18T11:13:13 IST" name="Default suite" finished-at="2025-07-18T11:13:14 IST" duration-ms="763">
+  <suite started-at="2025-08-12T11:05:58 IST" name="Cucumber Parallel Suite" finished-at="2025-08-12T11:08:25 IST" duration-ms="147352">
     <groups>
       <group name="cucumber">
-        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.pharmcrm.pharmcrm_product.runner.TestRunner@37654521]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.pharmcrm.pharmcrm_product.runner.TestNGRunner@6d4e5011]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2025-07-18T11:13:13 IST" name="Default test" finished-at="2025-07-18T11:13:14 IST" duration-ms="763">
-      <class name="com.pharmcrm.pharmcrm_product.runner.TestRunner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.pharmcrm.pharmcrm_product.runner.TestRunner@37654521]" started-at="2025-07-18T11:13:13 IST" name="setUpClass" finished-at="2025-07-18T11:13:14 IST" duration-ms="590" status="PASS">
+    <test started-at="2025-08-12T11:05:58 IST" name="Cucumber Tests" finished-at="2025-08-12T11:08:25 IST" duration-ms="147352">
+      <class name="com.pharmcrm.pharmcrm_product.runner.TestNGRunner">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.pharmcrm.pharmcrm_product.runner.TestNGRunner@6d4e5011]" started-at="2025-08-12T11:05:58 IST" name="setUpClass" finished-at="2025-08-12T11:05:58 IST" duration-ms="741" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@79f227a9]]>
+                <![CDATA[org.testng.TestRunner@53fe15ff]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.pharmcrm.pharmcrm_product.runner.TestRunner@37654521]" started-at="2025-07-18T11:13:14 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-07-18T11:13:14 IST" duration-ms="98" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.pharmcrm.pharmcrm_product.runner.TestNGRunner@6d4e5011]" started-at="2025-08-12T11:05:58 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-08-12T11:08:25 IST" duration-ms="146412" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["Just testing"]]>
+                <![CDATA["User with Delete access can repeatedly delete profile entries"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["Debug Step"]]>
+                <![CDATA["Full User Management Flow"]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.pharmcrm.pharmcrm_product.runner.TestRunner@37654521]" started-at="2025-07-18T11:13:14 IST" name="tearDownClass" finished-at="2025-07-18T11:13:14 IST" duration-ms="26" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.pharmcrm.pharmcrm_product.runner.TestNGRunner@6d4e5011]" started-at="2025-08-12T11:08:25 IST" name="tearDownClass" finished-at="2025-08-12T11:08:25 IST" duration-ms="144" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
-      </class> <!-- com.pharmcrm.pharmcrm_product.runner.TestRunner -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+      </class> <!-- com.pharmcrm.pharmcrm_product.runner.TestNGRunner -->
+    </test> <!-- Cucumber Tests -->
+  </suite> <!-- Cucumber Parallel Suite -->
 </testng-results>

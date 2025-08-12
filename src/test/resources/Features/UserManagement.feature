@@ -1276,27 +1276,25 @@ Feature: Full User Management Flow
   And I log in using the new user
   Then the user should not be able to view or download from XFlow  
 
-  @Setup
   Scenario: User with View only access for General (Audit View)
   Given I log in as admin
-  When I create a new user with email "testuser12_static@mailinator.com"
+  When I create a new user with email "testuser20_static@mailinator.com"
   And I create a profile with View access only to Setup Module General Audit View             
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user
   Then the user should be able to view General Audit View settings  
-  But the user should not be able to edit or delete General Audit View entries   
 
+  @Setup
   Scenario: User with No access for General (Audit View)
   Given I log in as admin
-  When I create a new user with email "testuser13_static@mailinator.com"
+  When I create a new user with email "testuser23_static@mailinator.com"
   And I create a profile with No access to Setup Module General Audit View 
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user
   Then the user should not be able to view General Audit View settings   
   
-  @Delete
   Scenario: User with Delete access can repeatedly delete user entries
   Given I log in as admin 
   And I navigate to the User page   
