@@ -13,7 +13,7 @@ import org.testng.annotations.DataProvider;
         "json:target/cucumber.json"
     },
     monochrome = true,
-    tags = "@Delete"  
+    tags = "@Setup"  
 )
 public class TestNGRunner extends AbstractTestNGCucumberTests {
 

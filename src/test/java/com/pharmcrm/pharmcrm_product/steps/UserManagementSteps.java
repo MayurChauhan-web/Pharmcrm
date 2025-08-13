@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.InetAddress;
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.List;
 import org.junit.Assert;
 
@@ -2587,6 +2588,29 @@ public class UserManagementSteps {
 		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
 		sleep(3000);
 		uncheckPermissionIfChecked("chkg37SetupAuditView");
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with all modules and all permissions selected")
+	public void createProfileWithAllModulesAndPermissions() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(3000);
 		clickWhenClickable(By.id("btnSave"));
 	}
 
@@ -5256,7 +5280,9 @@ public class UserManagementSteps {
 		sleep(1000);
 		By actionMenu = By.xpath("//tr[td[normalize-space()='" + profileName + "']]//td[@class='text-right']//button");
 		clickWhenClickable(actionMenu);
-		clickWhenClickable(By.xpath("//li[1]//a[1]//div[1]")); // Edit
+		clickWhenClickable(By.xpath("//li[1]//a[1]//div[1]"));
+		sleep(1000);
+		clickWhenClickable(By.id("chkg37BlockDelete"));
 		sleep(1000);
 		clickWhenClickable(By.id("btnSave"));
 		sleep(1000);
@@ -5279,8 +5305,8 @@ public class UserManagementSteps {
 
 	@And("the user should be able to edit an existing user")
 	public void verifyUserCanEditUser() {
+		sleep(3000);
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("menucontext")));
-
 		clickWhenReadyAndVisible(By.xpath("//span[normalize-space()='Filter']"));
 		sleep(1000);
 		waitAndSendKeys(By.id("Filter_Email"), createdEmail);
@@ -5292,13 +5318,64 @@ public class UserManagementSteps {
 		sleep(2000);
 		assertElementPresent(By.xpath(
 				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Change Profile')]"));
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Change Profile')]"));
+		clickWhenClickable(By.xpath("//select[@id='WorkspaceUser_Profile_Id']"));
+		selectDropdownByIndexWhenReady(By.id("WorkspaceUser_Profile_Id"), 1);
+		clickWhenClickable(By.xpath("//button[@id='btnSubmitUser']"));
+		sleep(3000);
 
+	}
+
+	@And("I reopen the profile in edit mode")
+	public void reopenProfileInEditMode() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("menucontext")));
+		clickWhenReadyAndVisible(By.xpath("//span[normalize-space()='Filter']"));
+		sleep(1000);
+		waitAndSendKeys(By.id("Filter_Name"), profileName);
+		sleep(1000);
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-magnifying-glass']"));
+		sleep(3000);
+		By actionMenu = By.xpath("//tr[td[normalize-space()='" + profileName + "']]//td[@class='text-right']//button");
+		clickWhenClickable(actionMenu);
+		clickWhenClickable(By.xpath("//span[normalize-space()='Edit']"));
+		sleep(3000);
+
+	}
+
+	@Then("all module permission checkboxes should be selected")
+	public void verifyAllModulePermissionCheckboxesSelected() {
+		List<WebElement> checkboxes = driver.findElements(
+				By.xpath("//input[@type='checkbox' and not(@id='allModulePermission') and not(contains(@id,'All'))]"));
+
+		List<String> notSelected = new ArrayList<>();
+
+		for (WebElement checkbox : checkboxes) {
+			if (!checkbox.isSelected()) {
+				notSelected.add(checkbox.getAttribute("id"));
+			}
+		}
+
+		Assert.assertTrue("Some permission checkboxes are not selected: " + String.join(", ", notSelected),
+				notSelected.isEmpty());
 	}
 
 	@And("the user should be able to delete a user")
 	public void verifyUserCanDeleteUser() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("menucontext")));
+		clickWhenReadyAndVisible(By.xpath("//span[normalize-space()='Filter']"));
+		sleep(1000);
+		waitAndSendKeys(By.id("Filter_Email"), createdEmail);
+		sleep(1000);
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-magnifying-glass']"));
+		sleep(3000);
+		By actionMenu = By.xpath("//tr[td[normalize-space()='" + profileName + "']]//td[@class='text-right']//button");
+		clickWhenClickable(actionMenu);
 		assertElementPresent(By.xpath(
 				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		clickWhenClickable(By.xpath("//div[@id='deleteUserModel']//button[@id='btnDeleteConfirm']"));
 
 	}
 
@@ -5976,6 +6053,12 @@ public class UserManagementSteps {
 
 			if (editExists) {
 				System.out.println("PASS: Edit option is visible as expected.");
+				clickWhenClickable(By.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Edit')]"));
+				sleep(2000);
+				waitAndSendKeys(By.id("BOTCallTemplate_Body"), profileName);
+				clickWhenClickable(By.xpath(
+						"//button[@class='btn btn-primary waves-effect waves-light'][normalize-space()='Submit']"));
+
 			} else {
 				Assert.fail("FAIL: Edit option is not visible, but it should be.");
 			}
@@ -5988,6 +6071,7 @@ public class UserManagementSteps {
 
 	@But("the user should not be able to delete any BOT call template")
 	public void verifyUserCannotDeleteBotCallTemplate() {
+		sleep(2000);
 		By actionMenu = By.xpath("//tbody/tr[1]/td[8]/div[1]/div[1]/button[1]");
 		WebElement menuButton = driver.findElement(actionMenu);
 
@@ -6027,6 +6111,9 @@ public class UserManagementSteps {
 
 			if (deleteExists) {
 				System.out.println("PASS: Delete option is visible as expected.");
+				clickWhenClickable(
+						By.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Delete')]"));
+
 			} else {
 				Assert.fail("FAIL: Delete option is not visible, but it should be.");
 			}
@@ -6067,13 +6154,32 @@ public class UserManagementSteps {
 		clickWhenClickable(actionMenu);
 		assertElementPresent(By.xpath(
 				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		sleep(1000);
+		String templateTitle = profileName + " Template";
+		By bodyTextarea = By.xpath("//textarea[@id='SMSTemplate_Body']");
+		waitAndSendKeys(bodyTextarea, templateTitle);
+		By submitBtn = By
+				.xpath("//button[@class='btn btn-primary waves-effect waves-light'][normalize-space()='Submit']");
+		clickWhenReadyAndVisible(submitBtn);
 	}
 
 	@And("the user should be able to delete a text template")
 	public void erifyUserCanDeleteTextTemplate() {
 		sleep(3000);
+		clickWhenReadyAndVisible(By.xpath("//span[normalize-space()='Filter']"));
+		sleep(3000);
+		waitAndSendKeys(By.id("Filter_Title"), profileName);
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-magnifying-glass']"));
+		sleep(1000);
+		By actionMenu = By.xpath("(//td[@class='text-right']//button)[1]");
+		clickWhenClickable(actionMenu);
 		assertElementPresent(By.xpath(
 				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		clickWhenClickable(By.xpath("//div[@id='genericmodal']//button[@id='btnDeleteConfirm']"));
 
 	}
 
