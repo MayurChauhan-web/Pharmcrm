@@ -6,7 +6,7 @@
       <class name="com.pharmcrm.pharmcrm_product.runner.TestNGRunner">
         <methods>
           <include name="setUpClass"/>
-          <include name="runScenario" invocation-numbers="0"/>
+          <include name="runScenario" invocation-numbers="1"/>
           <include name="tearDownClass"/>
         </methods>
       </class> <!-- com.pharmcrm.pharmcrm_product.runner.TestNGRunner -->

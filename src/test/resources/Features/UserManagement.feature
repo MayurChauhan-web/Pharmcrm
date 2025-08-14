@@ -1294,6 +1294,7 @@ Feature: Full User Management Flow
   And I log in using the new user
   Then the user should not be able to view General Audit View settings   
   
+  @Delete
   Scenario: User with Delete access can repeatedly delete user entries
   Given I log in as admin 
   And I navigate to the User page   
@@ -1308,7 +1309,7 @@ Feature: Full User Management Flow
   @Setup
   Scenario: Verify that Select All Module checkbox saves all permissions
   Given I log in as admin
-  When I create a new user with email "testuser4_static@mailinator.com"
+  When I create a new user with email "testuser1_static@mailinator.com"
   And I create a profile with all modules and all permissions selected  
   And I reopen the profile in edit mode  
   Then all module permission checkboxes should be selected     

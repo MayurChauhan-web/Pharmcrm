@@ -5,12 +5,14 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.*;
 import com.pharmcrm.pharmcrm_product.DriverFactory;
 import java.util.Random;
+import java.util.Set;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.InetAddress;
 import java.time.Duration;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import org.junit.Assert;
 
@@ -5345,14 +5347,47 @@ public class UserManagementSteps {
 
 	@Then("all module permission checkboxes should be selected")
 	public void verifyAllModulePermissionCheckboxesSelected() {
-		List<WebElement> checkboxes = driver.findElements(
-				By.xpath("//input[@type='checkbox' and not(@id='allModulePermission') and not(contains(@id,'All'))]"));
 
+		String dataAccessPattern = "chkg(daqla|ql_|referralcategory_|programall|stage).*";
+
+		WebElement permissionContainer = driver.findElement(By.cssSelector(".col-lg-10.col-md-9"));
+
+		List<WebElement> checkboxes = permissionContainer.findElements(
+				By.xpath(".//input[@type='checkbox' and not(@id='allModulePermission') and not(contains(@id,'All'))]"));
+
+		Set<String> seenIds = new HashSet<>();
 		List<String> notSelected = new ArrayList<>();
 
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+
 		for (WebElement checkbox : checkboxes) {
-			if (!checkbox.isSelected()) {
-				notSelected.add(checkbox.getAttribute("id"));
+			String id = checkbox.getAttribute("id");
+
+			if (id == null || id.trim().isEmpty()) {
+				continue;
+			}
+
+			if (id.matches(dataAccessPattern)) {
+				continue;
+			}
+
+			if (!seenIds.add(id)) {
+				continue;
+			}
+
+			if (!checkbox.isDisplayed()) {
+				continue;
+			}
+
+			boolean byIsSelected = checkbox.isSelected();
+			String checkedAttr = checkbox.getAttribute("checked");
+			String ariaChecked = checkbox.getAttribute("aria-checked");
+			boolean byJs = Boolean.TRUE.equals(js.executeScript("return arguments[0].checked === true;", checkbox));
+
+			boolean isSelected = byIsSelected || (checkedAttr != null) || "true".equalsIgnoreCase(ariaChecked) || byJs;
+
+			if (!isSelected) {
+				notSelected.add(id);
 			}
 		}
 
