@@ -3587,6 +3587,11 @@ public class UserManagementSteps {
 
 			if (editExists) {
 				System.out.println("PASS: Edit option is visible as expected.");
+				clickWhenClickable(By.xpath("//div[@class='bucket-mainn show']//li[1]//a[1]//*[name()='svg']"));
+				sleep(1000);
+				waitAndSendKeys(By.xpath("//input[@id='fileNameTextBox']"), profileName);
+				clickWhenClickable(By.xpath("//button[@id='btnSaveFile']"));
+
 			} else {
 				Assert.fail("FAIL: Edit option is not visible, but it should be.");
 			}
@@ -3608,6 +3613,8 @@ public class UserManagementSteps {
 
 			if (editExists) {
 				System.out.println("PASS: Edit option is visible as expected.");
+				clickWhenClickable(By.cssSelector("button[onclick='return SubmitCalendarSetting()']"));
+
 			} else {
 				Assert.fail("FAIL: Edit option is not visible, but it should be.");
 			}
@@ -3633,6 +3640,11 @@ public class UserManagementSteps {
 
 			if (editExists) {
 				System.out.println("PASS: Edit option is visible as expected.");
+				clickWhenClickable(By.xpath(
+						"div[class='gridRecordContextMain show'] li:nth-child(1) a:nth-child(1) div:nth-child(1)"));
+				waitAndSendKeys(By.id("ExternalSource_Description"), profileName);
+				clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+
 			} else {
 				Assert.fail("FAIL: Edit option is not visible, but it should be.");
 			}
@@ -3657,6 +3669,12 @@ public class UserManagementSteps {
 
 			if (editExists) {
 				System.out.println("PASS: Edit option is visible as expected.");
+				clickWhenClickable(By.xpath(
+						"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+				sleep(1000);
+				waitAndSendKeys(By.xpath("//textarea[@id='ProgressStatus_Notes']"), profileName);
+				clickWhenClickable(By.xpath("//button[@id='btnSaveProgressStatus']"));
+
 			} else {
 				Assert.fail("FAIL: Edit option is not visible, but it should be.");
 			}
@@ -3679,6 +3697,10 @@ public class UserManagementSteps {
 
 			if (deleteExists) {
 				System.out.println("PASS: Delete option is visible as expected.");
+				clickWhenClickable(By.xpath(
+						"//div[@class='dropdown-menu bucket-dropdown-content show']//a[@id='btnDeleteFile']//*[name()='svg']"));
+				clickWhenClickable(By.xpath("//button[@id='btnDeleteFileConfirm']"));
+
 			} else {
 				Assert.fail("FAIL: Delete option is not visible, but it should be.");
 			}
@@ -3701,6 +3723,10 @@ public class UserManagementSteps {
 
 			if (deleteExists) {
 				System.out.println("PASS: Delete option is visible as expected.");
+				clickWhenClickable(By.xpath(
+						"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+				clickWhenClickable(By.xpath("//div[@id='genericmodal']//button[@id='btnDeleteConfirm']"));
+
 			} else {
 				Assert.fail("FAIL: Delete option is not visible, but it should be.");
 			}
@@ -3723,6 +3749,10 @@ public class UserManagementSteps {
 
 			if (deleteExists) {
 				System.out.println("PASS: Delete option is visible as expected.");
+				clickWhenClickable(By.xpath(
+						"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+				clickWhenClickable(By.xpath("//div[@id='genericmodal']//button[@id='btnDeleteConfirm']"));
+
 			} else {
 				Assert.fail("FAIL: Delete option is not visible, but it should be.");
 			}
@@ -3737,6 +3767,10 @@ public class UserManagementSteps {
 		sleep(3000);
 		clickWhenClickable(By.xpath("//a[normalize-space()='Exclude User']"));
 		assertElementPresent(By.xpath("//span[normalize-space()='New Exclude User']"));
+		clickWhenClickable(By.xpath("//a[normalize-space()='Exclude User']"));
+		clickWhenClickable(By.xpath("//label[@for='337a4702-104a-4939-ac6e-3b188d3ff055']"));
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+
 	}
 
 	@And("the user should be able to remove an excluded user")
@@ -3768,6 +3802,10 @@ public class UserManagementSteps {
 
 			if (deleteExists) {
 				System.out.println("PASS: Delete option is visible as expected.");
+				clickWhenClickable(By.xpath(
+						"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+				clickWhenClickable(By.xpath("//div[@id='genericmodal']//button[@id='btnDeleteConfirm']"));
+
 			} else {
 				Assert.fail("FAIL: Delete option is not visible, but it should be.");
 			}
@@ -3788,6 +3826,10 @@ public class UserManagementSteps {
 					.isEmpty();
 			if (deleteExists) {
 				System.out.println("PASS: Delete option is visible as expected.");
+				clickWhenClickable(By.xpath(
+						"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+				clickWhenClickable(By.xpath("//div[@id='genericmodal']//button[@id='btnDeleteConfirm']"));
+
 			} else {
 				Assert.fail("FAIL: Delete option is not visible, but it should be.");
 			}
@@ -3808,6 +3850,10 @@ public class UserManagementSteps {
 					.isEmpty();
 			if (deleteExists) {
 				System.out.println("PASS: Delete option is visible as expected.");
+				clickWhenClickable(By.xpath(
+						"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+				clickWhenClickable(By.xpath("//div[@id='genericmodal']//button[@id='btnDeleteConfirm']"));
+
 			} else {
 				Assert.fail("FAIL: Delete option is not visible, but it should be.");
 			}
@@ -3828,6 +3874,10 @@ public class UserManagementSteps {
 					.isEmpty();
 			if (deleteExists) {
 				System.out.println("PASS: Delete option is visible as expected.");
+				clickWhenClickable(By.xpath(
+						"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+				clickWhenClickable(By.xpath("//div[@id='genericmodal']//button[@id='btnDeleteConfirm']"));
+
 			} else {
 				Assert.fail("FAIL: Delete option is not visible, but it should be.");
 			}
@@ -3852,6 +3902,11 @@ public class UserManagementSteps {
 
 			if (editExists) {
 				System.out.println("PASS: Edit option is visible as expected.");
+				clickWhenClickable(By.xpath(
+						"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+				waitAndSendKeys(By.xpath("//input[@id='Designation_Level']"), profileName);
+				clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+
 			} else {
 				Assert.fail("FAIL: Edit option is not visible, but it should be.");
 			}
@@ -3877,6 +3932,11 @@ public class UserManagementSteps {
 
 			if (editExists) {
 				System.out.println("PASS: Edit option is visible as expected.");
+				clickWhenClickable(By.xpath(
+						"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+				waitAndSendKeys(By.xpath("//input[@id='ProfessionalLicenseType_Name']"), profileName);
+				clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+
 			} else {
 				Assert.fail("FAIL: Edit option is not visible, but it should be.");
 			}
@@ -3902,6 +3962,12 @@ public class UserManagementSteps {
 
 			if (editExists) {
 				System.out.println("PASS: Edit option is visible as expected.");
+				clickWhenClickable(By.xpath(
+						"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+				sleep(1000);
+				waitAndSendKeys(By.xpath("//input[@id='FaxSetting_FAXAPIId']"), profileName);
+				clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+
 			} else {
 				Assert.fail("FAIL: Edit option is not visible, but it should be.");
 			}
@@ -3965,6 +4031,8 @@ public class UserManagementSteps {
 
 			if (downloadExists) {
 				System.out.println("PASS: Delete option is visible as expected.");
+				clickWhenClickable(By.xpath("(//a[starts-with(@href, '/Security/DownloadFile')])[1]"));
+
 			} else {
 				Assert.fail("FAIL: Delete option is not visible, but it should be.");
 			}
@@ -4206,6 +4274,10 @@ public class UserManagementSteps {
 
 			if (editExists) {
 				System.out.println("PASS: Edit option is visible as expected.");
+				clickWhenClickable(By.xpath(
+						"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+				waitAndSendKeys(By.xpath("//input[@id='FeedbackForm_Title']"), profileName);
+				clickWhenClickable(By.xpath("//button[@id='btnSave']"));
 			} else {
 				Assert.fail("FAIL: Edit option is not visible, but it should be.");
 			}
@@ -4228,6 +4300,10 @@ public class UserManagementSteps {
 
 			if (deleteExists) {
 				System.out.println("PASS: Delete option is visible as expected.");
+				clickWhenClickable(By.xpath(
+						"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+				clickWhenClickable(By.xpath("//button[@id='deleteFeedbackForm']"));
+
 			} else {
 				Assert.fail("FAIL: Delete option is not visible, but it should be.");
 			}
@@ -4659,6 +4735,11 @@ public class UserManagementSteps {
 
 		assertElementPresent(By.xpath(
 				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Reset Password')]"));
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Reset Password')]"));
+		waitAndSendKeys(By.xpath("//input[@id='newPassword']"), "Admin@1234");
+		waitAndSendKeys(By.xpath("//input[@id='confirmPassword']"), "Admin@1234");
+		clickWhenClickable(By.xpath("//button[@id='btnResetPassword']"));
 
 	}
 
@@ -4667,6 +4748,10 @@ public class UserManagementSteps {
 
 		assertElementPresent(By.xpath(
 				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Change Profile')]"));
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Change Profile')]"));
+		selectDropdownByIndexWhenReady(By.id("WorkspaceUser_Profile_Id"), 2);
+		clickWhenClickable(By.xpath("//button[@id='btnSubmitUser']"));
 
 	}
 
@@ -4677,6 +4762,14 @@ public class UserManagementSteps {
 				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'View Detail')]"));
 		sleep(3000);
 		assertElementPresent(By.xpath("//div[@id='EmployeeDetail']"));
+		clickWhenClickable(By.xpath("//div[@id='EmployeeDetail']"));
+		waitAndSendKeys(By.xpath("//input[@id='Filter_FirstName']"), "First Name");
+		clickWhenClickable(By.xpath("//button[normalize-space()='Search']"));
+		clickWhenClickable(By.xpath("//input[@id='340929ac-3f18-46be-99c1-ad72bc0d3f1f']"));
+		clickWhenClickable(By.xpath("//button[@id='btnEmployee']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//div[@id='btnDelinkUserToEmployee']//*[name()='svg']"));
+		clickWhenClickable(By.xpath("//div[@id='delinkUserEmployeeModel']//button[@id='btnDeleteConfirm']"));
 
 	}
 
@@ -4906,6 +4999,12 @@ public class UserManagementSteps {
 
 			if (editExists) {
 				System.out.println("PASS: Edit option is visible as expected.");
+				clickWhenClickable(By.xpath(
+						"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+				sleep(1000);
+				waitAndSendKeys(By.xpath("//input[@id='PatientSignatureTemplate_Title']"), profileName);
+				clickWhenClickable(By.xpath(
+						"//button[@class='btn btn-primary waves-effect waves-light'][normalize-space()='Submit']"));
 			} else {
 				Assert.fail("FAIL: Edit option is not visible, but it should be.");
 			}
@@ -4927,6 +5026,11 @@ public class UserManagementSteps {
 
 			if (deleteExists) {
 				System.out.println("PASS: Delete option is visible as expected.");
+				clickWhenClickable(By.xpath(
+						"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+				clickWhenClickable(
+						By.xpath("//div[@id='deletePatientSignatureModel']//button[@id='btnDeleteConfirm']"));
+
 			} else {
 				Assert.fail("FAIL: Delete option is not visible, but it should be.");
 			}
@@ -5143,6 +5247,12 @@ public class UserManagementSteps {
 
 			if (editExists) {
 				System.out.println("PASS: Edit option is visible as expected.");
+				clickWhenClickable(By.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Edit')]"));
+				sleep(1000);
+				clickWhenClickable(By.xpath("//label[normalize-space()='Active?']"));
+				sleep(1000);
+				clickWhenClickable(By.cssSelector("button[onclick='javascript:SubmitFaxTemplate();']"));
+
 			} else {
 				Assert.fail("FAIL: Edit option is not visible, but it should be.");
 			}
@@ -5155,6 +5265,12 @@ public class UserManagementSteps {
 	@Then("the user should be able to delete a fax template")
 	public void userShouldBeAbleToDeleteFaxTemplate() {
 		sleep(3000);
+		clickWhenReadyAndVisible(By.xpath("//span[normalize-space()='Filter']"));
+		sleep(3000);
+		waitAndSendKeys(By.id("Filter_Title"), profileName);
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-magnifying-glass']"));
+		sleep(1000);
+
 		By actionMenu = By.xpath("//tbody/tr[1]/td[8]/div[1]/div[1]/button[1]");
 		WebElement menuButton = driver.findElement(actionMenu);
 
@@ -5165,9 +5281,12 @@ public class UserManagementSteps {
 			boolean deleteExists = !driver
 					.findElements(By.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Delete')]"))
 					.isEmpty();
-
 			if (deleteExists) {
 				System.out.println("PASS: Delete option is visible as expected.");
+				clickWhenClickable(
+						By.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Delete')]"));
+				clickWhenClickable(By.xpath("//div[@id='genericmodal']//button[@id='btnDeleteConfirm']"));
+
 			} else {
 				Assert.fail("FAIL: Delete option is not visible, but it should be.");
 			}
@@ -5518,6 +5637,8 @@ public class UserManagementSteps {
 		sleep(3000);
 		driver.get(baseUrl + "/Web/Home/XFlowVersions");
 		wait.until(ExpectedConditions.urlContains("/Web/Home/XFlowVersions"));
+		clickWhenClickable(By.xpath("//h6[normalize-space()='Click To Download']"));
+
 	}
 
 	@And("I navigate to the User page")
@@ -5671,6 +5792,9 @@ public class UserManagementSteps {
 		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']"));
 		sleep(1000);
 		assertElementPresent(By.xpath("//span[normalize-space()='Edit']"));
+		clickWhenClickable(By.xpath("//span[normalize-space()='Edit']"));
+		clickWhenClickable(By.xpath("//label[@for='ReminderActionSetting_ShowOnDashboard_IsEnabled']"));
+		clickWhenClickable(By.xpath("//button[@id='btnSaveShowOnDashboard']"));
 
 	}
 
@@ -5682,6 +5806,10 @@ public class UserManagementSteps {
 		sleep(1000);
 		assertElementPresent(By.xpath(
 				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		clickWhenClickable(By.xpath("//label[@for='ReminderActionSetting_EmailNotification_IsEnabled']"));
+		clickWhenClickable(By.xpath("//button[@id='btnSaveEmailNotification']"));
 
 	}
 
@@ -5693,6 +5821,10 @@ public class UserManagementSteps {
 		sleep(1000);
 		assertElementPresent(By.xpath(
 				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		clickWhenClickable(By.xpath("//label[@for='ReminderActionSetting_AutoText_IsEnabled']"));
+		clickWhenClickable(By.xpath("//button[@id='btnSaveAutoText']"));
 
 	}
 
@@ -5703,6 +5835,10 @@ public class UserManagementSteps {
 		sleep(1000);
 		assertElementPresent(By.xpath(
 				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		clickWhenClickable(By.xpath("//label[@for='ReminderActionSetting_AutoCall_IsEnabled']"));
+		clickWhenClickable(By.xpath("//button[@id='btnSaveAutoCall']"));
 
 	}
 
@@ -5754,6 +5890,9 @@ public class UserManagementSteps {
 		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']"));
 		sleep(1000);
 		assertElementPresent(By.xpath("//span[normalize-space()='Delete']"));
+		clickWhenClickable(By.xpath("//span[normalize-space()='Delete']"));
+		clickWhenClickable(By.xpath("//button[@id='btnDeleteShowOnDashboardConfirm']"));
+
 	}
 
 	@But("the user should be able to delete an Email Notification entry")
@@ -5763,6 +5902,9 @@ public class UserManagementSteps {
 		clickWhenClickable(By.xpath("//tr[@id='trEmailNotification_0']//i[@class='fa-solid fa-ellipsis-vertical']"));
 		sleep(1000);
 		assertElementPresent(By.xpath("//a[@id='btnDeleteEmailNotification']//span[contains(text(),'Delete')]"));
+		clickWhenClickable(By.xpath("//a[@id='btnDeleteEmailNotification']//span[contains(text(),'Delete')]"));
+		clickWhenClickable(By.xpath("//button[@id='btnDeleteEmailNotificationConfirm']"));
+
 	}
 
 	@But("the user should be able to delete an Auto Text entry")
@@ -5773,6 +5915,10 @@ public class UserManagementSteps {
 		sleep(1000);
 		assertElementPresent(By.xpath(
 				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		clickWhenClickable(By.xpath("//button[@id='btnDeleteAutoTextConfirm']"));
+
 	}
 
 	@But("the user should be able to delete an Auto Call entry")
@@ -5780,24 +5926,37 @@ public class UserManagementSteps {
 		sleep(3000);
 		assertElementPresent(By.xpath(
 				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		clickWhenClickable(By.xpath("//button[@id='btnDeleteAutoCallConfirm']"));
+
 	}
 
 	@And("the user should be able to delete a Spam Email entry")
 	public void userShouldBeAbleToDeleteSpamEmailEntry() {
 		sleep(3000);
 		assertElementPresent(By.xpath("//tbody/tr[1]/td[4]/a[1]/img[1]"));
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[4]/a[1]/img[1]"));
+		clickWhenClickable(By.xpath("//div[@id='deleteSpamModel']//button[@id='btnDeleteConfirm']"));
+
 	}
 
 	@And("the user should be able to delete a Bounce Email entry")
 	public void userShouldBeAbleToDeleteBounceEmailEntry() {
 		sleep(3000);
 		assertElementPresent(By.xpath("//tbody/tr[1]/td[4]/a[1]/img[1]"));
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[4]/a[1]/img[1]"));
+		clickWhenClickable(By.xpath("//div[@id='deleteBounceModel']//button[@id='btnDeleteConfirm']"));
+
 	}
 
 	@And("the user should be able to delete a Block Email entry")
 	public void userShouldBeAbleToDeleteBlockEmailEntry() {
 		sleep(3000);
 		assertElementPresent(By.xpath("//tbody/tr[1]/td[4]/a[1]/img[1]"));
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[4]/a[1]/img[1]"));
+		clickWhenClickable(By.xpath("//div[@id='deleteBlockModel']//button[@id='btnDeleteConfirm']"));
+
 	}
 
 	@And("the user should be able to delete a Sender Authentication entry")
@@ -5806,6 +5965,10 @@ public class UserManagementSteps {
 		clickWhenClickable(By.xpath("//tbody/tr[1]/td[6]/div[1]/div[1]/button[1]/i[1]"));
 		assertElementPresent(By.xpath(
 				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		clickWhenClickable(By.xpath("//div[@id='deleteSenderAuthModel']//button[@id='btnDeleteConfirm']"));
+
 	}
 
 	@When("I repeatedly delete available user entries")
@@ -5933,6 +6096,11 @@ public class UserManagementSteps {
 
 			if (editExists) {
 				System.out.println("PASS: Edit option is visible as expected.");
+				clickWhenClickable(By.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Edit')]"));
+				waitAndSendKeys(By.xpath("//tbody//tr//p[4]"), profileName);
+				clickWhenClickable(By.xpath(
+						"//button[@class='btn btn-primary waves-effect waves-light'][normalize-space()='Submit']"));
+
 			} else {
 				Assert.fail("FAIL: Edit option is not visible, but it should be.");
 			}
@@ -5958,6 +6126,10 @@ public class UserManagementSteps {
 
 			if (deleteExists) {
 				System.out.println("PASS: Delete option is visible as expected.");
+				clickWhenClickable(
+						By.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Delete')]"));
+				clickWhenClickable(By.xpath("//div[@id='genericmodal']//button[@id='btnDeleteConfirm']"));
+
 			} else {
 				Assert.fail("FAIL: Delete option is not visible, but it should be.");
 			}
@@ -6146,8 +6318,9 @@ public class UserManagementSteps {
 
 			if (deleteExists) {
 				System.out.println("PASS: Delete option is visible as expected.");
-				clickWhenClickable(
-						By.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Delete')]"));
+				clickWhenClickable(By.xpath(
+						"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+				clickWhenClickable(By.xpath("//div[@id='genericmodal']//button[@id='btnDeleteConfirm']"));
 
 			} else {
 				Assert.fail("FAIL: Delete option is not visible, but it should be.");
