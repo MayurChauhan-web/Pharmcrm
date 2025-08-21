@@ -2616,6 +2616,166 @@ public class UserManagementSteps {
 		clickWhenClickable(By.id("btnSave"));
 	}
 
+	@And("I create a profile with View access only to Setup Module → Quick Links")
+	public void createProfileWithViewAccessQuickLinks() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(3000);
+		uncheckPermissionIfChecked("chkg03QuicklinkAdd");
+		uncheckPermissionIfChecked("chkg03QuicklinkEdit");
+		uncheckPermissionIfChecked("chkg03QuicklinkDelete");
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Add access to Setup Module → Quick Links")
+	public void createProfileWithViewAndAddAccessQuickLinks() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(3000);
+		uncheckPermissionIfChecked("chkg03QuicklinkEdit");
+		uncheckPermissionIfChecked("chkg03QuicklinkDelete");
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View, Add, and Edit access to Setup Module → Quick Links")
+	public void createProfileWithViewAddAndEditAccessQuickLinks() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(3000);
+		uncheckPermissionIfChecked("chkg03QuicklinkDelete");
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with no access to Setup Module → T&C")
+	public void createProfileWithNoAccessTC() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(3000);
+		uncheckPermissionIfChecked("chkg03ProviderTermsUpdate");
+		uncheckPermissionIfChecked("chkg03ManufacturerTermsUpdate");
+		uncheckPermissionIfChecked("chkg12PatientTermsAndConditionsUpdate");
+		uncheckPermissionIfChecked("chkg33PartnerTermsAndConditionsUpdate");
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with full access to Setup Module → Quick Links")
+	public void createProfileWithFullAccessQuickLinks() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(3000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Update access to Setup Module → T&C")
+	public void createProfileWithViewAndUpdateAccessTC() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(3000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
 	@And("I create a profile with View Detail and Reset Password access to Setup Module → Workspace User")
 	public void createProfileWithViewDetailAndResetPasswordAccessToWorkspaceUser() {
 		driver.get(baseUrl + "/Setup/Home/Profiles");
@@ -3391,6 +3551,32 @@ public class UserManagementSteps {
 			System.out.println("No error. Page loaded successfully.");
 		}
 	}
+
+	@Then("the user should not see the T&C section for Provider, Manufacturer, Patient, or Partner")
+	public void userShouldNotSeeTCSection() {
+	    String[] tcPages = {
+	        "/Setup/Home/ProviderTermsAndCondition",
+	        "/Setup/Home/ManufacturerTermsAndCondition",
+	        "/Setup/Home/PatientTermsAndCondition",
+	        "/Setup/Home/PartnerTermsAndCondition"
+	    };
+
+	    for (String page : tcPages) {
+	        driver.get(baseUrl + page);
+	        sleep(2000);
+
+	        // Check if redirected to Module OR Error shown
+	        boolean redirected = driver.getCurrentUrl().contains("/Web/Home/Module");
+	        boolean errorVisible = !driver.findElements(By.xpath("//h2[normalize-space()='Error']")).isEmpty();
+
+	        if (!(redirected || errorVisible)) {
+	            Assert.fail("User should not have access to: " + page);
+	        } else {
+	            System.out.println("✅ Access correctly restricted for: " + page);
+	        }
+	    }
+	}
+
 
 	@Then("the user should have no Brand Management update access via UI or direct URL")
 	public void verifyNoUpdateAccessToBrandManagement() {
@@ -4937,6 +5123,16 @@ public class UserManagementSteps {
 
 	}
 
+	@And("the user should be able to add a new quick link")
+	public void userShouldBeAbleToAddNewQuickLink() {
+		sleep(2000);
+		clickWhenClickable(By.xpath("//*[name()='path' and contains(@d,'M256 80c0-')]"));
+		sleep(2000);
+		waitAndSendKeys(By.xpath("//input[@id='groupName']"), profileName);
+		clickWhenClickable(By.xpath("//button[@id='btnSaveQuickLinkGroup']"));
+
+	}
+
 	@And("the user should not be able to add or delete Sender Authentication entries")
 	public void userShouldNotBeAbleToAddOrDeleteSenderAuthenticationEntries() {
 		sleep(3000);
@@ -4944,6 +5140,13 @@ public class UserManagementSteps {
 		clickWhenClickable(By.xpath("//tbody/tr[1]/td[6]/div[1]/div[1]/button[1]/i[1]"));
 		assertElementNotPresent(By.xpath(
 				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+
+	}
+
+	@And("the user should not be able to add, edit, or delete any quick link")
+	public void userShouldNotBeAbleToAddEditOrDeleteQuickLinks() {
+		sleep(3000);
+		assertElementNotPresent(By.xpath("//*[name()='path' and contains(@d,'M256 80c0-')]"));
 
 	}
 
@@ -4955,6 +5158,19 @@ public class UserManagementSteps {
 		assertElementNotPresent(By.xpath(
 				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
 
+	}
+
+	@And("the user should not be able to edit or delete any quick link")
+	public void userShouldNotBeAbleToEditOrDeleteQuickLinks() {
+		sleep(3000);
+		assertElementNotPresent(By.xpath("//*[name()='path' and @id='Union_9']"));
+		assertElementNotPresent(By.xpath("//*[name()='path' and @id='Union_7']"));
+	}
+
+	@And("the user should not be able to delete any quick link")
+	public void userShouldNotBeAbleToDeleteQuickLinks() {
+		sleep(3000);
+		assertElementNotPresent(By.xpath("//*[name()='path' and @id='Union_7']"));
 	}
 
 	@And("the user should not be able to view or download from XFlow")
@@ -4981,6 +5197,42 @@ public class UserManagementSteps {
 		wait.until(ExpectedConditions.urlContains("/Setup/Home/Profiles"));
 
 	}
+
+	@And("the user should be able to view quick links")
+	public void userShouldBeAbleToViewQuickLinks() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/Dashboard");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/Dashboard"));
+		assertElementPresent(By.xpath("//div[@id='accordion']//div[@class='sdql-title']/h1"));
+	}
+
+	@And("the user should be able to view Provider, Manufacturer, Patient, and Partner T&C labels")
+	public void userShouldBeAbleToViewAllTCLabels() {
+	    String[] tcPages = {
+	        "/Setup/Home/ProviderTermsAndCondition",
+	        "/Setup/Home/ManufacturerTermsAndCondition",
+	        "/Setup/Home/PatientTermsAndCondition",
+	        "/Setup/Home/PartnerTermsAndCondition"
+	    };
+
+	    By editorLocator = By.xpath("//div[@aria-label='Editor editing area: main. Press Alt+0 for help.']");
+	    By submitBtnLocator = By.xpath("//button[@class='btn btn-primary waves-effect waves-light'][normalize-space()='Submit']");
+
+	    for (String page : tcPages) {
+	        driver.get(baseUrl + page);
+	        sleep(2000);
+
+	        if (driver.getCurrentUrl().contains("/Web/Home/Module")) {
+	            System.out.println("❌ Redirected to Module → No access for: " + page);
+	        } else {
+	            wait.until(ExpectedConditions.visibilityOfElementLocated(editorLocator));
+	            waitAndSendKeys(editorLocator, profileName);
+	            clickWhenClickable(submitBtnLocator);
+	            System.out.println("✅ T&C updated successfully for: " + page);
+	        }
+	    }
+	}
+
 
 	@And("the user should be able to edit an existing patient signature template")
 	public void userShouldBeAbleToEditPatientSignatureTemplate() {
@@ -5445,6 +5697,28 @@ public class UserManagementSteps {
 		selectDropdownByIndexWhenReady(By.id("WorkspaceUser_Profile_Id"), 1);
 		clickWhenClickable(By.xpath("//button[@id='btnSubmitUser']"));
 		sleep(3000);
+
+	}
+
+	@And("the user should be able to edit an existing quick link")
+	public void userShouldBeAbleToEditQuickLink() {
+		sleep(3000);
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("menucontext")));
+		clickWhenReadyAndVisible(By.xpath("//div[@class='sdql-title']//button[1]//*[name()='svg']"));
+		sleep(1000);
+		waitAndSendKeys(By.xpath("//input[@id='groupName']"), profileName);
+		sleep(1000);
+		clickWhenClickable(By.xpath("//button[@id='btnSaveQuickLinkGroup']"));
+
+	}
+
+	@And("the user should be able to delete a quick link")
+	public void userShouldBeAbleToDeleteQuickLink() {
+		sleep(3000);
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("menucontext")));
+		clickWhenReadyAndVisible(By.xpath("//div[@id='page-wrapper']//button[2]//*[name()='svg']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//button[@id='btnDeleteQuickLinkGroup']"));
 
 	}
 

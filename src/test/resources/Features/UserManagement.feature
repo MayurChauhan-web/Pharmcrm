@@ -1306,7 +1306,6 @@ Feature: Full User Management Flow
   And I navigate to the Profile page  
   When I repeatedly delete available profile entries
        
-  @Setup
   Scenario: Verify that Select All Module checkbox saves all permissions
   Given I log in as admin
   When I create a new user with email "testuser1_static@mailinator.com"
@@ -1314,6 +1313,73 @@ Feature: Full User Management Flow
   And I reopen the profile in edit mode  
   Then all module permission checkboxes should be selected     
   
+  Scenario: User with View only access for Quick Links
+  Given I log in as admin
+  When I create a new user with email "testuser6_static@mailinator.com"
+  And I create a profile with View access only to Setup Module → Quick Links 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view quick links 
+  But the user should not be able to add, edit, or delete any quick link 
+  
+  Scenario: User with View and Add access for Quick Links
+  Given I log in as admin
+  When I create a new user with email "testuser3_static@mailinator.com"
+  And I create a profile with View and Add access to Setup Module → Quick Links  
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view quick links
+  And the user should be able to add a new quick link  
+  But the user should not be able to edit or delete any quick link   
+  
+  Scenario: User with View, Add, and Edit access for Quick Links
+  Given I log in as admin
+  When I create a new user with email "testuser4_static@mailinator.com"
+  And I create a profile with View, Add, and Edit access to Setup Module → Quick Links   
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view quick links
+  And the user should be able to add a new quick link
+  And the user should be able to edit an existing quick link   
+  But the user should not be able to delete any quick link  
+  
+  Scenario: User with full access (View, Add, Edit, Delete) for Quick Links
+  Given I log in as admin
+  When I create a new user with email "testuser5_static@mailinator.com"
+  And I create a profile with full access to Setup Module → Quick Links   
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view quick links
+  And the user should be able to add a new quick link
+  And the user should be able to edit an existing quick link
+  And the user should be able to delete a quick link   
+  
+  Scenario: User with View and Update access for T&C
+  Given I log in as admin
+  When I create a new user with email "testuser9_static@mailinator.com"
+  And I create a profile with View and Update access to Setup Module → T&C 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view Provider, Manufacturer, Patient, and Partner T&C labels 
+
+  @Setup
+  Scenario: User with No access for T&C
+  Given I log in as admin
+  When I create a new user with email "testuser11_static@mailinator.com"
+  And I create a profile with no access to Setup Module → T&C   
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should not see the T&C section for Provider, Manufacturer, Patient, or Partner    
+
+
+
+
 
 
     
