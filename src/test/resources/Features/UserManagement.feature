@@ -1385,7 +1385,6 @@ Feature: Full User Management Flow
   And I log in using the new user
   Then the user should be able to view and update Privacy Policy and Terms of Use content  
 
-  @Setup
   Scenario: User with No access for Privacy Policy & Terms of Use
   Given I log in as admin
   When I create a new user with email "testuser3_static@mailinator.com"
@@ -1395,7 +1394,69 @@ Feature: Full User Management Flow
   And I log in using the new user
   Then the user should not see the Privacy Policy & Terms of Use section  
 
+  Scenario: User with View only access for Patient Module (General Audit View)
+  Given I log in as admin
+  When I create a new user with email "testuser8_static@mailinator.com"
+  And I create a profile with View access only to Patient Module General Audit View
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view Patient Module General Audit View      
 
+  Scenario: User with No access for Patient Module (General Audit View)
+  Given I log in as admin
+  When I create a new user with email "testuser9_static@mailinator.com"
+  And I create a profile with No access to Patient Module General Audit View 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should not be able to view Patient Module General Audit View   
+
+  @Setup
+  Scenario: User with View only access for Patient
+  Given I log in as admin
+  When I create a new user with email "testpatient1_static@mailinator.com"
+  And I create a profile with View access only to Patient Module Patient  
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view patients   
+  But the user should not be able to add, edit, or delete patients 
+
+  Scenario: User with View and Add access for Patient
+  Given I log in as admin
+  When I create a new user with email "testpatient2_static@mailinator.com"
+  And I create a profile with View and Add access to Patient Module Patient   
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view patients
+  And the user should be able to add a new patient 
+  But the user should not be able to edit or delete patients
+
+  Scenario: User with View, Add, and Edit access for Patient
+  Given I log in as admin
+  When I create a new user with email "testpatient3_static@mailinator.com"
+  And I create a profile with View, Add, and Edit access to Patient Module Patient 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view patients
+  And the user should be able to add a new patient
+  And the user should be able to edit an existing patient
+  But the user should not be able to delete patients
+
+  Scenario: User with full access (View, Add, Edit, Delete) for Patient
+  Given I log in as admin
+  When I create a new user with email "testpatient4_static@mailinator.com"
+  And I create a profile with full access to Patient Module Patient 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view patients
+  And the user should be able to add a new patient
+  And the user should be able to edit an existing patient
+  And the user should be able to delete a patient
 
 
 
