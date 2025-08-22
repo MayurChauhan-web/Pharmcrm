@@ -930,7 +930,7 @@ Feature: Full User Management Flow
   Scenario: User with full access for Workspace User
   Given I log in as admin
   When I create a new user with email "testuser10_static@mailinator.com"
-  And I create a profile with View Detail, Reset Password, Change Profile, Link Employee To User, and DeLink Employee To User access to Setup Module → Workspace User  
+  And I create a profile with View Detail, Reset Password, Change Profile, Link Employee To User, and DeLink Employee To User access to Setup Module Workspace User   
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user
@@ -1305,7 +1305,7 @@ Feature: Full User Management Flow
   Given I log in as admin 
   And I navigate to the Profile page  
   When I repeatedly delete available profile entries
-       
+  
   Scenario: Verify that Select All Module checkbox saves all permissions
   Given I log in as admin
   When I create a new user with email "testuser1_static@mailinator.com"
@@ -1367,16 +1367,33 @@ Feature: Full User Management Flow
   And I log in using the new user
   Then the user should be able to view Provider, Manufacturer, Patient, and Partner T&C labels 
 
-  @Setup
   Scenario: User with No access for T&C
   Given I log in as admin
-  When I create a new user with email "testuser11_static@mailinator.com"
+  When I create a new user with email "testuser12_static@mailinator.com"
   And I create a profile with no access to Setup Module → T&C   
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user
   Then the user should not see the T&C section for Provider, Manufacturer, Patient, or Partner    
 
+  Scenario: User with View and Update access for Privacy Policy & Terms of Use
+  Given I log in as admin
+  When I create a new user with email "testuser1_static@mailinator.com"
+  And I create a profile with View and Update access to Setup Module Privacy Policy & Terms of Use 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view and update Privacy Policy and Terms of Use content  
+
+  @Setup
+  Scenario: User with No access for Privacy Policy & Terms of Use
+  Given I log in as admin
+  When I create a new user with email "testuser3_static@mailinator.com"
+  And I create a profile with no access to Setup Module Privacy Policy & Terms of Use
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should not see the Privacy Policy & Terms of Use section  
 
 
 

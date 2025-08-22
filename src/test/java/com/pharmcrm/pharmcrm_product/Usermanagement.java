@@ -1,4 +1,3 @@
-
 // Create Profile: Organization : Administrator
 
 package com.pharmcrm.pharmcrm_product;
@@ -9,7 +8,7 @@ import org.openqa.selenium.support.ui.*;
 import java.time.Duration;
 import java.util.List;
 
-public class UsermanagementTest1 {
+public class Usermanagement {
 
 	WebDriver driver;
 	WebDriverWait wait;

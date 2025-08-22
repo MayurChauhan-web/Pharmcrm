@@ -84,7 +84,7 @@ public class UserManagementSteps {
 	}
 
 	@And("I create a profile without Setup Module access")
-	public void createProfileWithoutSetupmoduleAccess() {
+	public void createProfileWithoutSetupModuleAccess() {
 		driver.get(baseUrl + "/Setup/Home/Profiles");
 		sleep(1000);
 		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
@@ -2726,6 +2726,58 @@ public class UserManagementSteps {
 		clickWhenClickable(By.id("btnSave"));
 	}
 
+	@And("I create a profile with View and Update access to Setup Module Privacy Policy & Terms of Use")
+	public void createProfileWithViewAndUpdateAccessForPrivacyPolicyAndTermsOfUse() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(3000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with no access to Setup Module Privacy Policy & Terms of Use")
+	public void createProfileWithNoAccessForPrivacyPolicyAndTermsOfUse() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(3000);
+		uncheckPermissionIfChecked("chkg11PrivacyPolicyUpdate");
+		uncheckPermissionIfChecked("chkg14TermsOfuseUpdate");
+		clickWhenClickable(By.id("btnSave"));
+	}
+
 	@And("I create a profile with full access to Setup Module → Quick Links")
 	public void createProfileWithFullAccessQuickLinks() {
 		driver.get(baseUrl + "/Setup/Home/Profiles");
@@ -2831,7 +2883,7 @@ public class UserManagementSteps {
 		clickWhenClickable(By.id("btnSave"));
 	}
 
-	@And("I create a profile with View Detail, Reset Password, Change Profile, Link Employee To User, and DeLink Employee To User access to Setup Module → Workspace User")
+	@And("I create a profile with View Detail, Reset Password, Change Profile, Link Employee To User, and DeLink Employee To User access to Setup Module Workspace User")
 	public void createProfileWithViewDetailResetPasswordChangeProfileLinkAndDelinkAccessToWorkspaceUser() {
 		driver.get(baseUrl + "/Setup/Home/Profiles");
 		sleep(1000);
@@ -3554,29 +3606,42 @@ public class UserManagementSteps {
 
 	@Then("the user should not see the T&C section for Provider, Manufacturer, Patient, or Partner")
 	public void userShouldNotSeeTCSection() {
-	    String[] tcPages = {
-	        "/Setup/Home/ProviderTermsAndCondition",
-	        "/Setup/Home/ManufacturerTermsAndCondition",
-	        "/Setup/Home/PatientTermsAndCondition",
-	        "/Setup/Home/PartnerTermsAndCondition"
-	    };
+		String[] tcPages = { "/Setup/Home/ProviderTermsAndCondition", "/Setup/Home/ManufacturerTermsAndCondition",
+				"/Setup/Home/PatientTermsAndCondition", "/Setup/Home/PartnerTermsAndCondition" };
 
-	    for (String page : tcPages) {
-	        driver.get(baseUrl + page);
-	        sleep(2000);
+		for (String page : tcPages) {
+			driver.get(baseUrl + page);
+			sleep(2000);
 
-	        // Check if redirected to Module OR Error shown
-	        boolean redirected = driver.getCurrentUrl().contains("/Web/Home/Module");
-	        boolean errorVisible = !driver.findElements(By.xpath("//h2[normalize-space()='Error']")).isEmpty();
+			boolean redirected = driver.getCurrentUrl().contains("/Web/Home/Module");
+			boolean errorVisible = !driver.findElements(By.xpath("//h2[normalize-space()='Error']")).isEmpty();
 
-	        if (!(redirected || errorVisible)) {
-	            Assert.fail("User should not have access to: " + page);
-	        } else {
-	            System.out.println("✅ Access correctly restricted for: " + page);
-	        }
-	    }
+			if (!(redirected || errorVisible)) {
+				Assert.fail("User should not have access to: " + page);
+			} else {
+				System.out.println("Access correctly restricted for: " + page);
+			}
+		}
 	}
 
+	@Then("the user should not see the Privacy Policy & Terms of Use section")
+	public void userShouldNotSeePrivacyPolicyAndTermsOfUseSection() {
+		String[] tcPages = { "/Setup/Home/PrivacyPolicy", "/Setup/Home/TermsOfUse" };
+
+		for (String page : tcPages) {
+			driver.get(baseUrl + page);
+			sleep(2000);
+
+			boolean redirected = driver.getCurrentUrl().contains("/Web/Home/Module");
+			boolean errorVisible = !driver.findElements(By.xpath("//h2[normalize-space()='Error']")).isEmpty();
+
+			if (!(redirected || errorVisible)) {
+				Assert.fail("User should not have access to: " + page);
+			} else {
+				System.out.println("Access correctly restricted for: " + page);
+			}
+		}
+	}
 
 	@Then("the user should have no Brand Management update access via UI or direct URL")
 	public void verifyNoUpdateAccessToBrandManagement() {
@@ -5208,31 +5273,50 @@ public class UserManagementSteps {
 
 	@And("the user should be able to view Provider, Manufacturer, Patient, and Partner T&C labels")
 	public void userShouldBeAbleToViewAllTCLabels() {
-	    String[] tcPages = {
-	        "/Setup/Home/ProviderTermsAndCondition",
-	        "/Setup/Home/ManufacturerTermsAndCondition",
-	        "/Setup/Home/PatientTermsAndCondition",
-	        "/Setup/Home/PartnerTermsAndCondition"
-	    };
+		String[] tcPages = { "/Setup/Home/ProviderTermsAndCondition", "/Setup/Home/ManufacturerTermsAndCondition",
+				"/Setup/Home/PatientTermsAndCondition", "/Setup/Home/PartnerTermsAndCondition" };
 
-	    By editorLocator = By.xpath("//div[@aria-label='Editor editing area: main. Press Alt+0 for help.']");
-	    By submitBtnLocator = By.xpath("//button[@class='btn btn-primary waves-effect waves-light'][normalize-space()='Submit']");
+		By editorLocator = By.xpath("//div[@aria-label='Editor editing area: main. Press Alt+0 for help.']");
+		By submitBtnLocator = By
+				.xpath("//button[@class='btn btn-primary waves-effect waves-light'][normalize-space()='Submit']");
 
-	    for (String page : tcPages) {
-	        driver.get(baseUrl + page);
-	        sleep(2000);
+		for (String page : tcPages) {
+			driver.get(baseUrl + page);
+			sleep(2000);
 
-	        if (driver.getCurrentUrl().contains("/Web/Home/Module")) {
-	            System.out.println("❌ Redirected to Module → No access for: " + page);
-	        } else {
-	            wait.until(ExpectedConditions.visibilityOfElementLocated(editorLocator));
-	            waitAndSendKeys(editorLocator, profileName);
-	            clickWhenClickable(submitBtnLocator);
-	            System.out.println("✅ T&C updated successfully for: " + page);
-	        }
-	    }
+			if (driver.getCurrentUrl().contains("/Web/Home/Module")) {
+				System.out.println("Redirected to Module No access for: " + page);
+			} else {
+				wait.until(ExpectedConditions.visibilityOfElementLocated(editorLocator));
+				waitAndSendKeys(editorLocator, profileName);
+				clickWhenClickable(submitBtnLocator);
+				System.out.println("T&C updated successfully for: " + page);
+			}
+		}
 	}
 
+	@And("the user should be able to view and update Privacy Policy and Terms of Use content")
+	public void userShouldBeAbleToViewAndUpdatePrivacyPolicyAndTermsOfUseContent() {
+		String[] tcPages = { "/Setup/Home/PrivacyPolicy", "/Setup/Home/TermsOfUse" };
+
+		By editorLocator = By.xpath("//div[@aria-label='Editor editing area: main. Press Alt+0 for help.']");
+		By submitBtnLocator = By
+				.xpath("//button[@class='btn btn-primary waves-effect waves-light'][normalize-space()='Submit']");
+
+		for (String page : tcPages) {
+			driver.get(baseUrl + page);
+			sleep(2000);
+
+			if (driver.getCurrentUrl().contains("/Web/Home/Module")) {
+				System.out.println("Redirected to Module No access for: " + page);
+			} else {
+				wait.until(ExpectedConditions.visibilityOfElementLocated(editorLocator));
+				waitAndSendKeys(editorLocator, profileName);
+				clickWhenClickable(submitBtnLocator);
+				System.out.println("T&C updated successfully for: " + page);
+			}
+		}
+	}
 
 	@And("the user should be able to edit an existing patient signature template")
 	public void userShouldBeAbleToEditPatientSignatureTemplate() {
@@ -7087,7 +7171,6 @@ public class UserManagementSteps {
 	}
 
 	// ==== Utility Methods ====
-
 	private void waitAndSendKeys(By locator, String value) {
 		WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 		element.clear();
