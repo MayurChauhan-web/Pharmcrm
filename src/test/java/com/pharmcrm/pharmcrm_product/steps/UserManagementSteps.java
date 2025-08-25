@@ -2935,6 +2935,61 @@ public class UserManagementSteps {
 		clickWhenClickable(By.id("btnSave"));
 	}
 
+	@And("I create a profile with all additional access permissions enabled in Patient Module")
+	public void createProfileWithAllAdditionalAccessPermissionsEnabledInPatientModule() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Patient Module']"));
+		sleep(3000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with all additional access permissions disabled in Patient Module")
+	public void createProfileWithAllAdditionalAccessPermissionsDisabledInPatientModule() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Patient Module']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg9PatientAll']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg9PatientView']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg9PatientAdd']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg9PatientEdit']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg9PatientDelete']"));
+		clickWhenClickable(By.id("btnSave"));
+	}
+
 	@And("I create a profile with full access to Setup Module → Quick Links")
 	public void createProfileWithFullAccessQuickLinks() {
 		driver.get(baseUrl + "/Setup/Home/Profiles");
@@ -5446,6 +5501,244 @@ public class UserManagementSteps {
 
 	}
 
+	@And("the user should be able to send a patient for review")
+	public void userShouldBeAbleToSendPatientForReview() {
+		sleep(3000);
+		driver.get(baseUrl + "/Patient/Home/Patients");
+		wait.until(ExpectedConditions.urlContains("/Patient/Home/Patients"));
+		clickWhenClickable(By.xpath("(//a[@class='gridLinkButton'])[1]"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//*[name()='path' and contains(@d,'M9.0949 14')]"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Enrollments']"));
+		clickWhenClickable(By.xpath("//button[@id='savesendforreview']"));
+
+	}
+
+	@And("the user should be able to send a patient for signature")
+	public void userShouldBeAbleToSendPatientForSignature() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[@id='btnpatientSignature']//*[name()='svg']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='Email']"));
+		clickWhenClickable(By.xpath("//select[@id='MailTemplate_Id']"));
+		selectDropdownByIndexWhenReady(By.id("MailTemplate_Id"), 1);
+		waitAndSendKeys(By.xpath("//div[@aria-label='Editor editing area: main. Press Alt+0 for help.']//p"),
+				profileName);
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Placeat esse ut cu']"));
+		clickWhenClickable(By.xpath("//button[@id='btnPatientSignatureSave']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[@id='btnpatientSignature']//*[name()='svg']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='Text']"));
+		clickWhenClickable(By.xpath("//select[@id='SMSTemplate_Id']"));
+		selectDropdownByIndexWhenReady(By.id("SMSTemplate_Id"), 1);
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Placeat esse ut cu']"));
+		clickWhenClickable(By.xpath("//button[@id='btnPatientSignatureSave']"));
+
+	}
+
+	@And("the user should be able to print a patient signature")
+	public void userShouldBeAbleToPrintPatientSignature() throws Exception {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='Patient Signatures']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath(
+				"//tbody/tr/td[@scope='row']/div[@class='gridListIconsFlex justify-content-center']/a/div[1]//*[name()='svg']"));
+		sleep(1000);
+		clickWhenClickable(By
+				.xpath("//a[@class='printpage btn btn-primary']//*[name()='svg']//*[name()='path' and @id='Path_1']"));
+		sleep(2000);
+		Runtime.getRuntime().exec("C:\\Users\\MayurChauhan\\eclipse-workspace\\pharmcrm-product\\SaveAs.exe");
+		sleep(5000);
+	}
+
+	@And("the user should be able to map a tag")
+	public void userShouldBeAbleToMapTag() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//div[@class='col-md-4']//input[@type='text']"));
+		sleep(1000);
+		selectDropdownByIndexWhenReady(By.xpath("//div[@class='col-md-4']//input[@type='text']"), 1);
+		clickWhenClickable(By.xpath("//div[@id='btnPatientTag']//*[name()='svg']"));
+
+	}
+
+	@And("the user should be able to delete a mapped tag")
+	public void userShouldBeAbleToDeleteMappedTag() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//ul[@class='dropdownSelectedLabelMain']//li//a[@id='btnAddPatientTag'])[1]"));
+		clickWhenClickable(By.xpath("//div[33]//div[1]//div[1]//div[1]//button[1]//i[1]"));
+
+	}
+
+	@And("the user should be able to view patient prescriptions")
+	public void userNavigatesToPatientPrescriptions() {
+		sleep(3000);
+		assertElementPresent(By.xpath("//*[name()='path' and @id='Path_2472']"));
+		clickWhenClickable(By.xpath("//*[name()='path' and @id='Path_2472']"));
+	}
+
+	@And("the user should be able to add a referral source")
+	public void userClicksOnAddReferralSource() {
+		sleep(3000);
+		driver.get(baseUrl + "/Referral/Home/GenerateReferral");
+		clickWhenClickable(By.xpath("//a[@id='addPatientNamePopup']//img"));
+		waitAndSendKeys(By.xpath("//input[@id='Filter_PatientId']"), "0004403");
+		clickWhenClickable(By.xpath("//button[normalize-space()='Search']"));
+		clickWhenClickable(By.xpath("//input[@id='d2666909-ed0d-49fd-9500-af849059511e']"));
+		clickWhenClickable(By.xpath("//div[@class='modal-footer text-right d-block']//button[@id='btnPatient']"));
+		clickWhenClickable(By.xpath("//select[@id='ReferralEntityType']"));
+		selectDropdownByIndexWhenReady(By.id("ReferralEntityType"), 1);
+		clickWhenClickable(By.xpath("//a[@id='addCurrentProviderPopup']//img"));
+		clickWhenClickable(By.xpath("//input[@id='rdoFullSearch']"));
+		waitAndSendKeys(By.xpath("//input[@id='Filter_DoctorLastName']"), "Pate");
+		clickWhenClickable(By.xpath("//input[@id='9759a37e-c5fa-4310-abfd-ecc9ab729697']"));
+		clickWhenClickable(By.xpath("//button[@id='btnProvider']"));
+		clickWhenClickable(By.xpath("//select[@id='ReferralType']"));
+		selectDropdownByIndexWhenReady(By.id("ReferralType"), 1);
+		clickWhenClickable(By.xpath("//select[@id='ReferralCategoryId']"));
+		selectDropdownByIndexWhenReady(By.id("ReferralCategoryId"), 1);
+		clickWhenClickable(By.xpath("//select[@id='Priority']"));
+		selectDropdownByIndexWhenReady(By.id("Priority"), 1);
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+		sleep(3000);
+		driver.get(baseUrl + "/Patient/Home/Patients");
+		wait.until(ExpectedConditions.urlContains("/Patient/Home/Patients"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='Filter']"));
+		waitAndSendKeys(By.xpath("//input[@id='Filter_PatientId']"), "0004403");
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-magnifying-glass']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("(//a[@class='gridLinkButton'])[1]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='Referrals']"));
+		assertElementPresent(By.xpath("//td[normalize-space()='New Assignment']"));
+
+	}
+
+	@And("the user should be able to delete a referral source")
+	public void userShouldBeAbleToDeleteReferralSource() {
+		sleep(3000);
+		driver.get(baseUrl + "/Referral/Home/GenerateReferrals");
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']"));
+		clickWhenClickable(By.xpath("//span[normalize-space()='Delete']"));
+		clickWhenClickable(By.xpath("//div[@id='deleteClinicalMedReconModel']//button[@id='btnDeleteConfirm']"));
+		sleep(3000);
+		driver.get(baseUrl + "/Patient/Home/Patients");
+		wait.until(ExpectedConditions.urlContains("/Patient/Home/Patients"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='Filter']"));
+		waitAndSendKeys(By.xpath("//input[@id='Filter_PatientId']"), "0004403");
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-magnifying-glass']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("(//a[@class='gridLinkButton'])[1]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='Referrals']"));
+		assertElementNotPresent(By.xpath("//td[normalize-space()='New Assignment']"));
+
+	}
+
+	@And("the user should be able to add a patient enrollment")
+	public void userAddsPatientEnrollment() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//div[@class='col-md-4 pr-0']//input[@type='text']"));
+		selectDropdownByIndexWhenReady(By.xpath("//div[@class='col-md-4 pr-0']//input[@type='text']"), 1);
+		clickWhenClickable(By.xpath(
+				"//div[@id='btnPatientEnrollmentApp']//*[name()='svg']//*[name()='path' and contains(@d,'M256 80c0-')]"));
+
+	}
+
+	@And("the user should be able to delete a patient enrollment")
+	public void userDeletesPatientEnrollment() {
+		sleep(3000);
+		clickWhenClickable(
+				By.xpath("(//ul[@class='dropdownSelectedLabelMain']/li//a[@id='btnAddPatientEnrollment'])[1]"));
+		clickWhenClickable(By.xpath(
+				"//button[@onclick='javascript: CloseDeletePatientEnrollmentPopup();']//i[@class='fa fa-times']"));
+	}
+
+	@And("the user should be able to update patient status")
+	public void userUpdatesPatientStatus() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//select[@id='Patient_Status']"));
+		selectDropdownByIndexWhenReady(By.id("Patient_Status"), 0);
+		clickWhenClickable(By.xpath("//a[@class='patientStatusBtn']//*[name()='svg']"));
+		clickWhenClickable(By.xpath("//select[@id='Patient_Status']"));
+		selectDropdownByIndexWhenReady(By.id("Patient_Status"), 1);
+		clickWhenClickable(By.xpath("//a[@class='patientStatusBtn']//*[name()='svg']"));
+
+	}
+
+	@And("the user should be able to set delivery preference")
+	public void userSetsDeliveryPreference() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//select[@id='Patient_PrimaryDeliveryPreferenceType']"));
+		selectDropdownByIndexWhenReady(By.id("Patient_PrimaryDeliveryPreferenceType"), 1);
+		clickWhenClickable(By.xpath("//select[@id='Patient_SecondaryDeliveryPreferenceType']"));
+		selectDropdownByIndexWhenReady(By.id("Patient_SecondaryDeliveryPreferenceType"), 1);
+		clickWhenClickable(By.xpath("//button[@id='btnAddDeliveryPreference']"));
+
+	}
+
+	@And("the user should be able to make an outgoing call")
+	public void userMakesOutgoingCall() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//div[@id='page-wrapper']//div[4]//div[2]//button[1]//*[name()='svg']"));
+		clickWhenClickable(By.xpath("//i[@onclick='closeDialerDialog();']"));
+
+	}
+
+	@And("the user should be able to export patient data to excel")
+	public void userExportsPatientDataToExcel() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//div[@id='content']//div//div[5]//div[2]//button[1]//*[name()='svg']"));
+
+	}
+
+	@And("the user should be able to add an RPM device")
+	public void userAddsRPMDevice() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//select[@id='registeredDeviceId']"));
+		selectDropdownByIndexWhenReady(By.id("registeredDeviceId"), 1);
+		clickWhenClickable(By.xpath(
+				"//div[@class='model-inp dropdownCaretAdd mb-0']//div[@class='usersearch plus-usersearch']//*[name()='svg']"));
+
+	}
+
+	@And("the user should be able to edit an RPM device")
+	public void userEditsRPMDevice() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//tbody/tr/td[4]/div[1]/div[1]/button[1]/i[1]"));
+		clickWhenClickable(
+				By.xpath("//a[@class='tooltiped txt-decor-none user-access']//span[contains(text(),'Edit')]"));
+		clickWhenClickable(By.xpath("//label[@id='chk2PatientRPMDevice_IsActive']"));
+		clickWhenClickable(By.xpath("//button[@id='btnSavePatientRPMDevice']"));
+
+	}
+
+	@And("the user should be able to delete an RPM device")
+	public void userDeletesRPMDevice() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//tbody/tr/td[4]/div[1]/div[1]/button[1]/i[1]"));
+		clickWhenClickable(By.xpath("//a[@id='btnDeleteRPMDeviceConfirm']//span[contains(text(),'Delete')]"));
+		clickWhenClickable(By.xpath("//button[@id='deletepatientRPMDevice']"));
+
+	}
+
+	@And("the user should be able to reset a patient password")
+	public void userResetsPatientPassword() {
+		sleep(3000);
+		driver.get(baseUrl + "/Patient/Home/Patients");
+		wait.until(ExpectedConditions.urlContains("/Patient/Home/Patients"));
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[12]/div[1]/div[1]/button[1]/i[1]"));
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Reset Password')]"));
+		clickWhenClickable(By.xpath("//button[@id='deletepatientRPMDevice']"));
+
+	}
+
 	@And("the user should be able to view Patient Module General Audit View")
 	public void userShouldBeAbleToViewPatientModuleGeneralAuditViewSettings() {
 		sleep(3000);
@@ -5984,6 +6277,37 @@ public class UserManagementSteps {
 		selectDropdownByIndexWhenReady(By.id("WorkspaceUser_Profile_Id"), 1);
 		clickWhenClickable(By.xpath("//button[@id='btnSubmitUser']"));
 		sleep(3000);
+
+	}
+
+	@And("the user should be able to edit an existing patient")
+	public void userShouldBeAbleToEditExistingPatient() {
+		sleep(1000);
+		driver.get(baseUrl + "/Patient/Home/Patients");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[12]/div[1]/div[1]/button[1]/i[1]"));
+		assertElementPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		sleep(1000);
+		waitAndSendKeys(By.xpath("//input[@id='Patient_Height']"), "5.00");
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+
+	}
+
+	@And("the user should be able to delete a patient")
+	public void userShouldBeAbleToDeletePatient() {
+		sleep(1000);
+		driver.get(baseUrl + "/Patient/Home/Patients");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[12]/div[1]/div[1]/button[1]/i[1]"));
+		assertElementPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//div[@id='deletePatientModel']//button[@id='btnDeleteConfirm']"));
 
 	}
 
@@ -7119,26 +7443,29 @@ public class UserManagementSteps {
 	@And("the user should be able to add a new patient")
 	public void userShouldBeAbleToAddNewPatient() {
 		sleep(1000);
-		assertElementPresent(By.xpath("//span[normalize-space()='New User']"));
+		assertElementPresent(By.xpath("//span[normalize-space()='New Patient']"));
 		clickWhenReadyAndVisible(By.xpath("//span[normalize-space()='New Patient']"));
 		waitAndSendKeys(By.id("Patient_LastName"), "John");
 		waitAndSendKeys(By.id("Patient_FirstName"), "Doe");
 		WebElement birthDateInput = driver.findElement(By.id("Patient_BirthDate"));
 		birthDateInput.click();
-
-		while (true) {
-			WebElement monthYearHeader = driver.findElement(By.xpath("//div[@class='ui-datepicker-title']"));
-			if (monthYearHeader.getText().equals("October 1993")) {
-				break;
-			}
-			driver.findElement(By.xpath("//a[@class='ui-datepicker-prev']")).click();
-			sleep(500);
-		}
-
-		WebElement dateToSelect = driver.findElement(By.xpath("//td[normalize-space()='1']"));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		WebElement yearDropdown = driver.findElement(By.xpath("//select[contains(@class,'ui-datepicker-year')]"));
+		Select yearSelect = new Select(yearDropdown);
+		yearSelect.selectByVisibleText("1993");
+		WebElement monthDropdown = wait.until(ExpectedConditions
+				.visibilityOfElementLocated(By.xpath("//select[contains(@class,'ui-datepicker-month')]")));
+		Select monthSelect = new Select(monthDropdown);
+		monthSelect.selectByVisibleText("Oct");
+		WebElement dateToSelect = wait
+				.until(ExpectedConditions.elementToBeClickable(By.xpath("//td[normalize-space()='1']")));
 		dateToSelect.click();
-
 		clickWhenClickable(By.xpath("//button[normalize-space()='Add New Patient']"));
+		sleep(1000);
+		waitAndSendKeys(By.id("Patient_EmailId"), createdEmail);
+		waitAndSendKeys(By.id("Patient_PhoneNumber"), "1234567890");
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+
 	}
 
 	@But("the user should not be able to edit or delete users")
@@ -7193,6 +7520,30 @@ public class UserManagementSteps {
 		sleep(1000);
 		assertElementNotPresent(By.xpath(
 				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+	}
+
+	@And("the user should not be able to edit or delete patients")
+	public void userShouldNotBeAbleToEditOrDeletePatients() {
+		sleep(1000);
+		driver.get(baseUrl + "/Patient/Home/Patients");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[12]/div[1]/div[1]/button[1]/i[1]"));
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		sleep(1000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+	}
+
+	@And("the user should not be able to delete patients")
+	public void userShouldNotBeAbleToDeletePatients() {
+		sleep(1000);
+		driver.get(baseUrl + "/Patient/Home/Patients");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[12]/div[1]/div[1]/button[1]/i[1]"));
+		sleep(1000);
 		assertElementNotPresent(By.xpath(
 				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
 	}
