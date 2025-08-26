@@ -3,7 +3,6 @@ package com.pharmcrm.pharmcrm_product.steps;
 import io.cucumber.java.en.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.*;
-import com.pharmcrm.pharmcrm_product.DriverFactory;
 import java.util.Random;
 import java.util.Set;
 import java.io.BufferedReader;
@@ -15,6 +14,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import org.junit.Assert;
+import driver.DriverFactory; // <-- make sure this is added
 
 public class UserManagementSteps {
 
@@ -5544,25 +5544,25 @@ public class UserManagementSteps {
 	public void userShouldBeAbleToPrintPatientSignature() throws Exception {
 		sleep(3000);
 		clickWhenClickable(By.xpath("//a[normalize-space()='Patient Signatures']"));
-		sleep(1000);
-		clickWhenClickable(By.xpath(
-				"//tbody/tr/td[@scope='row']/div[@class='gridListIconsFlex justify-content-center']/a/div[1]//*[name()='svg']"));
-		sleep(1000);
-		clickWhenClickable(By
-				.xpath("//a[@class='printpage btn btn-primary']//*[name()='svg']//*[name()='path' and @id='Path_1']"));
-		sleep(2000);
-		Runtime.getRuntime().exec("C:\\Users\\MayurChauhan\\eclipse-workspace\\pharmcrm-product\\SaveAs.exe");
-		sleep(5000);
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//tbody/tr/td[@scope='row']//a)[6]"));
+		sleep(3000);
+		((JavascriptExecutor) DriverFactory.getDriver()).executeScript("window.print();");
+		System.out.println("Patient signature PDF auto-saved in Downloads folder");
+
 	}
 
 	@And("the user should be able to map a tag")
 	public void userShouldBeAbleToMapTag() {
 		sleep(3000);
+		driver.get(baseUrl + "/Patient/Home/Patients");
+		wait.until(ExpectedConditions.urlContains("/Patient/Home/Patients"));
+		clickWhenClickable(By.xpath("(//a[@class='gridLinkButton'])[1]"));
 		clickWhenClickable(By.xpath("//div[@class='col-md-4']//input[@type='text']"));
-		sleep(1000);
-		selectDropdownByIndexWhenReady(By.xpath("//div[@class='col-md-4']//input[@type='text']"), 1);
+		WebElement option = wait.until(ExpectedConditions.elementToBeClickable(
+				By.xpath("(//ul[contains(@class,'multiple-select-dropdown')]//li[not(@class='disabled')]//label)[1]")));
+		option.click();
 		clickWhenClickable(By.xpath("//div[@id='btnPatientTag']//*[name()='svg']"));
-
 	}
 
 	@And("the user should be able to delete a mapped tag")
@@ -5594,6 +5594,8 @@ public class UserManagementSteps {
 		clickWhenClickable(By.xpath("//a[@id='addCurrentProviderPopup']//img"));
 		clickWhenClickable(By.xpath("//input[@id='rdoFullSearch']"));
 		waitAndSendKeys(By.xpath("//input[@id='Filter_DoctorLastName']"), "Pate");
+		clickWhenClickable(By.xpath("//button[normalize-space()='Search']"));
+		sleep(1000);
 		clickWhenClickable(By.xpath("//input[@id='9759a37e-c5fa-4310-abfd-ecc9ab729697']"));
 		clickWhenClickable(By.xpath("//button[@id='btnProvider']"));
 		clickWhenClickable(By.xpath("//select[@id='ReferralType']"));
@@ -5643,10 +5645,28 @@ public class UserManagementSteps {
 	@And("the user should be able to add a patient enrollment")
 	public void userAddsPatientEnrollment() {
 		sleep(3000);
+		driver.get(baseUrl + "/Patient/Home/Patients");
+		wait.until(ExpectedConditions.urlContains("/Patient/Home/Patients"));
+		clickWhenClickable(By.xpath("(//a[@class='gridLinkButton'])[1]"));		
+		sleep(3000);
 		clickWhenClickable(By.xpath("//div[@class='col-md-4 pr-0']//input[@type='text']"));
-		selectDropdownByIndexWhenReady(By.xpath("//div[@class='col-md-4 pr-0']//input[@type='text']"), 1);
+		sleep(2000);
+		
+	    // Wait for the first available option to be visible and clickable
+	    WebElement firstOption = wait.until(ExpectedConditions.elementToBeClickable(
+	        By.xpath("(//h6[normalize-space()='Enrollment']/ancestor::div[contains(@class,'contentContainerInner')]//ul[contains(@class,'multiple-select-dropdown')]//li[not(contains(@class,'disabled'))]//input)[1]")
+	    ));
+
+	    // Scroll into view and click
+	    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", firstOption);
+	    firstOption.click();
+		
+		
+		sleep(2000);
+		
 		clickWhenClickable(By.xpath(
 				"//div[@id='btnPatientEnrollmentApp']//*[name()='svg']//*[name()='path' and contains(@d,'M256 80c0-')]"));
+		sleep(3000);
 
 	}
 
@@ -5735,7 +5755,9 @@ public class UserManagementSteps {
 		clickWhenClickable(By.xpath("//tbody/tr[1]/td[12]/div[1]/div[1]/button[1]/i[1]"));
 		clickWhenClickable(By.xpath(
 				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Reset Password')]"));
-		clickWhenClickable(By.xpath("//button[@id='deletepatientRPMDevice']"));
+		waitAndSendKeys(By.xpath("//input[@id='newPassword']"), "Admin@123");
+		waitAndSendKeys(By.xpath("//input[@id='confirmPassword']"), "Admin@123");
+		clickWhenClickable(By.xpath("//button[@id='btnResetPassword']"));
 
 	}
 
@@ -7772,7 +7794,16 @@ public class UserManagementSteps {
 		try {
 			wait.until(ExpectedConditions.elementToBeClickable(locator)).click();
 		} catch (ElementClickInterceptedException e) {
-			System.out.println("Click intercepted for element: " + locator.toString() + ". Skipping click.");
+			System.out.println("Click intercepted for element: " + locator.toString() + ". Retrying with JS click.");
+			try {
+				WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+				((JavascriptExecutor) driver).executeScript(
+						"var evt = new MouseEvent('click', {bubbles: true, cancelable: true, view: window}); arguments[0].dispatchEvent(evt);",
+						element);
+			} catch (Exception ex) {
+				System.out.println("JS click also failed for element: " + locator.toString());
+				throw ex;
+			}
 		}
 	}
 

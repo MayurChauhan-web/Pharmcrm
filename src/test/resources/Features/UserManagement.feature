@@ -1460,7 +1460,7 @@ Feature: Full User Management Flow
   @Setup
   Scenario: User with all additional access enabled
   Given I log in as admin
-  When I create a new user with email "testpatient_access1_static@mailinator.com"
+  When I create a new user with email "testuser9_static@mailinator.com"
   And I create a profile with all additional access permissions enabled in Patient Module 
   And I assign the profile and workspace to the user
   And I reset the user's password

@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Cucumber Tests</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>1/0/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Mon Aug 25 10:43:32 IST 2025</td>
+<td>Started on:</td><td>Tue Aug 26 17:49:46 IST 2025</td>
 </tr>
-<tr><td>Total time:</td><td>81 seconds (81421 ms)</td>
+<tr><td>Total time:</td><td>39 seconds (39673 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,8 +67,8 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
-<table width='100%' border='1' class='invocation-passed'>
-<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
 <td><b>Attribute(s)</b></td>
 <td width="30%"><b>Exception</b></td>
@@ -76,9 +76,30 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.pharmcrm.pharmcrm_product.runner.TestNGRunner.runScenario()'><b>runScenario</b><br>Test class: com.pharmcrm.pharmcrm_product.runner.TestNGRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "User with full access (View, Add, Edit, Delete) for Patient", "Full User Management Flow"</td>
-<td></td>
-<td>80</td>
+<td title='com.pharmcrm.pharmcrm_product.runner.TestNGRunner.runScenario()'><b>runScenario</b><br>Test class: com.pharmcrm.pharmcrm_product.runner.TestNGRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "User with all additional access enabled", "Full User Management Flow"</td>
+<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: (//h6[normalize-space()=&apos;Enrollment&apos;]/ancestor::div[contains(@class,&apos;contentContainerInner&apos;)]//ul[contains(@class,&apos;multiple-select-dropdown&apos;)]//li[not(contains(@class,&apos;disabled&apos;))]//input)[1] (tried for 15 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.34.0&apos;, revision: &apos;707dcb4246*&apos;
+System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.12&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 139.0.7258.139, chrome: {chromedriverVersion: 139.0.7258.138 (884e54ea8d4..., userDataDir: C:\Users\MAYURC~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54315}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54315/devtoo..., se:cdpVersion: 139.0.7258.139, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: b54a07f24bf0fe0332e245edb1316bd3
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+	at com.pharmcrm.pharmcrm_product.steps.UserManagementSteps.userAddsPatientEnrollment(UserManagementSteps.java:5656)
+	at ✽.the user should be able to add a patient enrollment(file:///C:/Users/MayurChauhan/eclipse-workspace/pharmcrm-product/src/test/resources/Features/UserManagement.feature:1463)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1329882874", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1329882874'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: (//h6[normalize-space()=&apos;Enrollment&apos;]/ancestor::div[contains(@class,&apos;contentContainerInner&apos;)]//ul[contains(@class,&apos;multiple-select-dropdown&apos;)]//li[not(contains(@class,&apos;disabled&apos;))]//input)[1] (tried for 15 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.34.0&apos;, revision: &apos;707dcb4246*&apos;
+System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.12&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 139.0.7258.139, chrome: {chromedriverVersion: 139.0.7258.138 (884e54ea8d4..., userDataDir: C:\Users\MAYURC~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54315}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54315/devtoo..., se:cdpVersion: 139.0.7258.139, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: b54a07f24bf0fe0332e245edb1316bd3
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+	at com.pharmcrm.pharmcrm_product.steps.UserManagementSteps.userAddsPatientEnrollment(UserManagementSteps.java:5656)
+	at ✽.the user should be able to add a patient enrollment(file:///C:/Users/MayurChauhan/eclipse-workspace/pharmcrm-product/src/test/resources/Features/UserManagement.feature:1463)
+</pre></div></td>
+<td>38</td>
 <td>com.pharmcrm.pharmcrm_product.runner.TestNGRunner@6d4e5011</td></tr>
 </table><p>
 </body>
