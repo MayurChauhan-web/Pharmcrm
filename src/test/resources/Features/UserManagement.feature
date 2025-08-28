@@ -3,6 +3,8 @@ Feature: Full User Management Flow
   @login
   Scenario: Create user with log-only access and check login
   Given I log in as admin
+  When I create a new user with email "testuser1_static@mailinator.com"
+
 
 
   Scenario: Create user without Setup Module access and check restrictions
