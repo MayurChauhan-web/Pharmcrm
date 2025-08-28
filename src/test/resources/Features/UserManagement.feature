@@ -1483,6 +1483,7 @@ Feature: Full User Management Flow
   And the user should be able to edit an RPM device 
   And the user should be able to delete an RPM device 
   And the user should be able to reset a patient password 
+  And Jeniks test 
 
   Scenario: User with all additional access disabled
   Given I log in as admin
