@@ -1445,7 +1445,7 @@ Feature: Full User Management Flow
   And the user should be able to add a new patient
   And the user should be able to edit an existing patient 
   But the user should not be able to delete patients 
-
+  @Setup
   Scenario: User with full access (View, Add, Edit, Delete) for Patient
   Given I log in as admin
   When I create a new user with email "testpatient7_static@mailinator.com"
@@ -1484,7 +1484,7 @@ Feature: Full User Management Flow
   And the user should be able to edit an RPM device 
   And the user should be able to delete an RPM device 
   And the user should be able to reset a patient password 
-
+  @Setup
   Scenario: User with all additional access disabled
   Given I log in as admin
   When I create a new user with email "testpatient_access2_static@mailinator.com"
