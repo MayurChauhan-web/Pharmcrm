@@ -6237,6 +6237,7 @@ public class UserManagementSteps {
 
 	@Then("I should see only log access for the new user")
 	public void verifyLogOnlyAccess() {
+		sleep(2000);
 		driver.get(baseUrl + "/Setup/Home/Dashboard");
 	}
 
