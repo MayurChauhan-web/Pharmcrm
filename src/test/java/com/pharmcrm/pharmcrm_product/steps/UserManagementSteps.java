@@ -5647,23 +5647,21 @@ public class UserManagementSteps {
 		sleep(3000);
 		driver.get(baseUrl + "/Patient/Home/Patients");
 		wait.until(ExpectedConditions.urlContains("/Patient/Home/Patients"));
-		clickWhenClickable(By.xpath("(//a[@class='gridLinkButton'])[1]"));		
+		clickWhenClickable(By.xpath("(//a[@class='gridLinkButton'])[1]"));
 		sleep(3000);
 		clickWhenClickable(By.xpath("//div[@class='col-md-4 pr-0']//input[@type='text']"));
 		sleep(2000);
-		
-	    // Wait for the first available option to be visible and clickable
-	    WebElement firstOption = wait.until(ExpectedConditions.elementToBeClickable(
-	        By.xpath("(//h6[normalize-space()='Enrollment']/ancestor::div[contains(@class,'contentContainerInner')]//ul[contains(@class,'multiple-select-dropdown')]//li[not(contains(@class,'disabled'))]//input)[1]")
-	    ));
 
-	    // Scroll into view and click
-	    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", firstOption);
-	    firstOption.click();
-		
-		
+		// Wait for the first available option to be visible and clickable
+		WebElement firstOption = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
+				"(//h6[normalize-space()='Enrollment']/ancestor::div[contains(@class,'contentContainerInner')]//ul[contains(@class,'multiple-select-dropdown')]//li[not(contains(@class,'disabled'))]//input)[1]")));
+
+		// Scroll into view and click
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", firstOption);
+		firstOption.click();
+
 		sleep(2000);
-		
+
 		clickWhenClickable(By.xpath(
 				"//div[@id='btnPatientEnrollmentApp']//*[name()='svg']//*[name()='path' and contains(@d,'M256 80c0-')]"));
 		sleep(3000);
