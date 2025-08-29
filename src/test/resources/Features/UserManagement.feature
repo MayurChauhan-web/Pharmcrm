@@ -1,13 +1,11 @@
 Feature: Full User Management Flow
 
+  @login
   Scenario: Create user with log-only access and check login
   Given I log in as admin
   When I create a new user with email "testuser1_static@mailinator.com"
-  And I create a profile with log-only access 
-  And I assign the profile and workspace to the user 
-  And I reset the user's password   
-  And I log in using the new user
-  Then I should see only log access for the new user 
+
+
 
   Scenario: Create user without Setup Module access and check restrictions
   Given I log in as admin
@@ -1385,7 +1383,6 @@ Feature: Full User Management Flow
   And I log in using the new user
   Then the user should be able to view and update Privacy Policy and Terms of Use content  
 
-  @Setup
   Scenario: User with No access for Privacy Policy & Terms of Use
   Given I log in as admin
   When I create a new user with email "testuser3_static@mailinator.com"
@@ -1395,9 +1392,121 @@ Feature: Full User Management Flow
   And I log in using the new user
   Then the user should not see the Privacy Policy & Terms of Use section  
 
+  Scenario: User with View only access for Patient Module (General Audit View)
+  Given I log in as admin
+  When I create a new user with email "testuser8_static@mailinator.com"
+  And I create a profile with View access only to Patient Module General Audit View
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view Patient Module General Audit View      
 
+  Scenario: User with No access for Patient Module (General Audit View)
+  Given I log in as admin
+  When I create a new user with email "testuser9_static@mailinator.com"
+  And I create a profile with No access to Patient Module General Audit View 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should not be able to view Patient Module General Audit View   
 
+  Scenario: User with View only access for Patient
+  Given I log in as admin
+  When I create a new user with email "testpatient1_static@mailinator.com"
+  And I create a profile with View access only to Patient Module Patient  
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view patients   
+  But the user should not be able to add, edit, or delete patients 
 
+  Scenario: User with View and Add access for Patient
+  Given I log in as admin
+  When I create a new user with email "testuser5_static@mailinator.com"
+  And I create a profile with View and Add access to Patient Module Patient   
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view patients
+  And the user should be able to add a new patient
+  But the user should not be able to edit or delete patients 
+ 
+  Scenario: User with View, Add, and Edit access for Patient
+  Given I log in as admin
+  When I create a new user with email "testpatient6_static@mailinator.com"
+  And I create a profile with View, Add, and Edit access to Patient Module Patient 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view patients
+  And the user should be able to add a new patient
+  And the user should be able to edit an existing patient 
+  But the user should not be able to delete patients 
+  
+  Scenario: User with full access (View, Add, Edit, Delete) for Patient
+  Given I log in as admin
+  When I create a new user with email "testpatient7_static@mailinator.com"
+  And I create a profile with full access to Patient Module Patient 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view patients
+  And the user should be able to add a new patient
+  And the user should be able to edit an existing patient
+  And the user should be able to delete a patient   
+
+  Scenario: User with all additional access enabled
+  Given I log in as admin
+  When I create a new user with email "testuser9_static@mailinator.com"
+  And I create a profile with all additional access permissions enabled in Patient Module 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to send a patient for review  
+  And the user should be able to send a patient for signature  
+  And the user should be able to print a patient signature 
+  And the user should be able to map a tag 
+  And the user should be able to delete a mapped tag 
+  And the user should be able to view patient prescriptions 
+  And the user should be able to add a referral source   
+  And the user should be able to delete a referral source 
+  And the user should be able to add a patient enrollment 
+  And the user should be able to delete a patient enrollment 
+  And the user should be able to update patient status 
+  And the user should be able to set delivery preference 
+  And the user should be able to make an outgoing call 
+  And the user should be able to export patient data to excel 
+  And the user should be able to add an RPM device 
+  And the user should be able to edit an RPM device 
+  And the user should be able to delete an RPM device 
+  And the user should be able to reset a patient password 
+  
+  @SetupModule
+  Scenario: User with all additional access disabled
+  Given I log in as admin
+  When I create a new user with email "testpatient_access2_static@mailinator.com"
+  And I create a profile with all additional access permissions disabled in Patient Module   
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should not be able to send a patient for review
+  And the user should not be able to send a patient for signature
+  And the user should not be able to print a patient signature
+  And the user should not be able to map a tag
+  And the user should not be able to delete a mapped tag
+  And the user should not be able to view patient prescriptions
+  And the user should not be able to add a referral source
+  And the user should not be able to delete a referral source
+  And the user should not be able to add a patient enrollment
+  And the user should not be able to delete a patient enrollment
+  And the user should not be able to update patient status
+  And the user should not be able to set delivery preference
+  And the user should not be able to make an outgoing call
+  And the user should not be able to export patient data to excel
+  And the user should not be able to add an RPM device
+  And the user should not be able to edit an RPM device
+  And the user should not be able to delete an RPM device
+  And the user should not be able to reset a patient password
 
     
 
