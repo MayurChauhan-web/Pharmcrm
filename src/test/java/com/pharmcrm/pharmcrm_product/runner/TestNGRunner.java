@@ -13,7 +13,7 @@ import org.testng.annotations.DataProvider;
         "json:target/cucumber.json"
     },
     monochrome = true,
-    tags = "@login"  
+    tags = "@Setup"  
 )
 public class TestNGRunner extends AbstractTestNGCucumberTests {
 
@@ -23,3 +23,4 @@ public class TestNGRunner extends AbstractTestNGCucumberTests {
         return super.scenarios();
     }
 }
+
