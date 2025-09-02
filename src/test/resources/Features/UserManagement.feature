@@ -1293,8 +1293,8 @@ Feature: Full User Management Flow
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user
-  Then the user should not be able to view General Audit View settings   
-  
+  Then the user should not be able to view General Audit View settings 
+    
   @Delete
   Scenario: User with Delete access can repeatedly delete user entries
   Given I log in as admin 
@@ -1551,7 +1551,6 @@ Feature: Full User Management Flow
   And the user should be able to add a new tag  
   But the user should not be able to edit or delete tags  
 
-  @Setup
   Scenario: User with View, Add, and Edit access for Tag
   Given I log in as admin
   When I create a new user with email "testuser8_static@mailinator.com"
@@ -1578,86 +1577,86 @@ Feature: Full User Management Flow
 
   Scenario: User with View only access for Review Category
   Given I log in as admin
-  When I create a new user with email "testuser3_static@mailinator.com"
-  And I create a profile with View access only to Setup Module Review Category
+  When I create a new user with email "testuser5_static@mailinator.com"
+  And I create a profile with View access only to Setup Module Review Category 
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user
-  Then the user should be able to view review categories
-  But the user should not be able to add, edit, or delete review categories
+  Then the user should be able to view review categories   
+  But the user should not be able to add, edit, or delete review categories   
 
   Scenario: User with View and Add access for Review Category
   Given I log in as admin
-  When I create a new user with email "testuser3_static@mailinator.com"
-  And I create a profile with View and Add access to Setup Module Review Category
+  When I create a new user with email "testuser6_static@mailinator.com"
+  And I create a profile with View and Add access to Setup Module Review Category 
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user
   Then the user should be able to view review categories
-  And the user should be able to add a new review category
-  But the user should not be able to edit or delete review categories
+  And the user should be able to add a new review category   
+  But the user should not be able to edit or delete review categories   
   
   Scenario: User with View, Add, and Edit access for Review Category
   Given I log in as admin
-  When I create a new user with email "testuser3_static@mailinator.com"
-  And I create a profile with View, Add, and Edit access to Setup Module Review Category
+  When I create a new user with email "testuser7_static@mailinator.com"
+  And I create a profile with View, Add, and Edit access to Setup Module Review Category 
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user
   Then the user should be able to view review categories
   And the user should be able to add a new review category
-  And the user should be able to edit an existing review category
-  But the user should not be able to delete review categories
+  And the user should be able to edit an existing review category    
+  But the user should not be able to delete review categories   
 
   Scenario: User with View, Add, Edit, and Delete access for Review Category
   Given I log in as admin
-  When I create a new user with email "testuser3_static@mailinator.com"
-  And I create a profile with View, Add, Edit, and Delete access to Setup Module Review Category
+  When I create a new user with email "testuser8_static@mailinator.com"
+  And I create a profile with View, Add, Edit, and Delete access to Setup Module Review Category  
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user
   Then the user should be able to view review categories
   And the user should be able to add a new review category
   And the user should be able to edit an existing review category
-  And the user should be able to delete a review category
+  And the user should be able to delete a review category   
   
   Scenario: User with View only access for Referral Source
   Given I log in as admin
-  When I create a new user with email "testuser3_static@mailinator.com"
-  And I create a profile with View access only to Setup Module Referral Source
+  When I create a new user with email "testuser6_static@mailinator.com"
+  And I create a profile with View access only to Setup Module Referral Source    
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user
-  Then the user should be able to view referral sources
-  But the user should not be able to add, edit, or delete referral sources
+  Then the user should be able to view referral sources       
+  But the user should not be able to add, edit, or delete referral sources   
 
   Scenario: User with View and Add access for Referral Source
   Given I log in as admin
-  When I create a new user with email "testuser3_static@mailinator.com"
-  And I create a profile with View and Add access to Setup Module Referral Source
+  When I create a new user with email "testuser7_static@mailinator.com"
+  And I create a profile with View and Add access to Setup Module Referral Source 
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user
   Then the user should be able to view referral sources
-  And the user should be able to add a new referral source
-  But the user should not be able to edit or delete referral sources
+  And the user should be able to add a new referral source  
+  But the user should not be able to edit or delete referral sources    
   
   Scenario: User with View, Add, and Edit access for Referral Source
   Given I log in as admin
-  When I create a new user with email "testuser3_static@mailinator.com"
-  And I create a profile with View, Add, and Edit access to Setup Module Referral Source
+  When I create a new user with email "testuser8_static@mailinator.com"
+  And I create a profile with View, Add, and Edit access to Setup Module Referral Source  
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user
   Then the user should be able to view referral sources
   And the user should be able to add a new referral source
-  And the user should be able to edit an existing referral source
-  But the user should not be able to delete referral sources
-
+  And the user should be able to edit an existing referral source    
+  But the user should not be able to delete referral sources   
+  
   Scenario: User with View, Add, Edit, and Delete access for Referral Source
   Given I log in as admin
-  When I create a new user with email "testuser3_static@mailinator.com"
-  And I create a profile with View, Add, Edit, and Delete access to Setup Module Referral Source
+  When I create a new user with email "testuser9_static@mailinator.com"
+  And I create a profile with View, Add, Edit, and Delete access to Setup Module Referral Source   
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user
@@ -1668,196 +1667,197 @@ Feature: Full User Management Flow
 
   Scenario: User with View only access for Enrollment
   Given I log in as admin
-  When I create a new user with email "testuser3_static@mailinator.com"
-  And I create a profile with View access only to Setup Module Enrollment
+  When I create a new user with email "testuser1_static@mailinator.com"
+  And I create a profile with View access only to Setup Module Enrollment   
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user
-  Then the user should be able to view enrollments
-  But the user should not be able to add, edit, or delete enrollments
+  Then the user should be able to view enrollments    
+  But the user should not be able to add, edit, or delete enrollments  
   
   Scenario: User with View and Add access for Enrollment
   Given I log in as admin
-  When I create a new user with email "testuser3_static@mailinator.com"
-  And I create a profile with View and Add access to Setup Module Enrollment
+  When I create a new user with email "testuser2_static@mailinator.com"
+  And I create a profile with View and Add access to Setup Module Enrollment  
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user
   Then the user should be able to view enrollments
-  And the user should be able to add a new enrollment
-  But the user should not be able to edit or delete enrollments
+  And the user should be able to add a new enrollment   
+  But the user should not be able to edit or delete enrollments   
 
   Scenario: User with View, Add, and Edit access for Enrollment
   Given I log in as admin
-  When I create a new user with email "testuser3_static@mailinator.com"
-  And I create a profile with View, Add, and Edit access to Setup Module Enrollment
+  When I create a new user with email "testuser6_static@mailinator.com"
+  And I create a profile with View, Add, and Edit access to Setup Module Enrollment  
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user
   Then the user should be able to view enrollments
   And the user should be able to add a new enrollment
-  And the user should be able to edit an existing enrollment
-  But the user should not be able to delete enrollments
+  And the user should be able to edit an existing enrollment   
+  But the user should not be able to delete enrollments   
 
   Scenario: User with View, Add, Edit, and Delete access for Enrollment
   Given I log in as admin
-  When I create a new user with email "testuser3_static@mailinator.com"
-  And I create a profile with View, Add, Edit, and Delete access to Setup Module Enrollment
+  When I create a new user with email "testuser5_static@mailinator.com"
+  And I create a profile with View, Add, Edit, and Delete access to Setup Module Enrollment  
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user
   Then the user should be able to view enrollments
   And the user should be able to add a new enrollment
   And the user should be able to edit an existing enrollment
-  And the user should be able to delete an enrollment
+  And the user should be able to delete an enrollment   
 
+  @Setup
   Scenario: User with View only access for Bucket
   Given I log in as admin
   When I create a new user with email "testuser3_static@mailinator.com"
-  And I create a profile with View access only to Setup Module Bucket
+  And I create a profile with View access only to Setup Module Bucket     
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user
-  Then the user should be able to view buckets, folders, and files
-  But the user should not be able to add, edit, delete, or download any folders or files
+  Then the user should be able to view buckets, folders, and files      
+  But the user should not be able to add, edit, delete, or download any folders or files   
   
   Scenario: User with View and Add Folder access for Bucket
   Given I log in as admin
   When I create a new user with email "testuser3_static@mailinator.com"
-  And I create a profile with View and Add Folder access to Setup Module Bucket
+  And I create a profile with View and Add Folder access to Setup Module Bucket 
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user
-  Then the user should be able to view buckets
-  And the user should be able to add new folders
-  But the user should not be able to edit, delete, add files, or download files
+  Then the user should be able to view buckets  
+  And the user should be able to add new folders    
+  But the user should not be able to edit, delete, add files, or download files   
 
   Scenario: User with View, Add Folder, and Edit Folder access for Bucket
   Given I log in as admin
   When I create a new user with email "testuser3_static@mailinator.com"
-  And I create a profile with View, Add Folder, and Edit Folder access to Setup Module Bucket
+  And I create a profile with View, Add Folder, and Edit Folder access to Setup Module Bucket               
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user
   Then the user should be able to view buckets
   And the user should be able to add new folders
-  And the user should be able to edit existing folders
-  But the user should not be able to delete folders, manage files, or download files
+  And the user should be able to edit existing folders   
+  But the user should not be able to delete folders, manage files, or download files   
 
   Scenario: User with full Folder permissions for Bucket
   Given I log in as admin
   When I create a new user with email "testuser3_static@mailinator.com"
-  And I create a profile with View, Add Folder, Edit Folder, and Delete Folder access to Setup Module Bucket
+  And I create a profile with View, Add Folder, Edit Folder, and Delete Folder access to Setup Module Bucket   
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user
   Then the user should be able to view buckets
   And the user should be able to add new folders
   And the user should be able to edit existing folders
-  And the user should be able to delete folders
-  But the user should not be able to add, edit, delete, or download files
+  And the user should be able to delete folders  
+  But the user should not be able to add, edit, delete, or download files   
 
   Scenario: User with File management access for Bucket
   Given I log in as admin
   When I create a new user with email "testuser3_static@mailinator.com"
-  And I create a profile with View, Add File, Edit File, Delete File, and Download File access to Setup Module Bucket
+  And I create a profile with View, Add File, Edit File, Delete File, and Download File access to Setup Module Bucket   
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user
   Then the user should be able to view buckets
-  And the user should be able to add new files to folders
-  And the user should be able to edit existing files
-  And the user should be able to delete files
-  And the user should be able to download files
-  But the user should not be able to add, edit, or delete folders
+  And the user should be able to add new files to folders  
+  And the user should be able to edit existing files   
+  And the user should be able to delete files   
+  And the user should be able to download files   
+  But the user should not be able to add, edit, or delete folders    
 
   Scenario: User with Full Access for Bucket
   Given I log in as admin
   When I create a new user with email "testuser3_static@mailinator.com"
-  And I create a profile with View, Add Folder, Edit Folder, Delete Folder, Add File, Edit File, Delete File, and Download File access to Setup Module Bucket
+  And I create a profile with View, Add Folder, Edit Folder, Delete Folder, Add File, Edit File, Delete File, and Download File access to Setup Module Bucket  
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user
   Then the user should be able to view buckets
-  And the user should be able to add, edit, and delete folders
-  And the user should be able to add, edit, delete, and download files
+  And the user should be able to add, edit, and delete folders    
+  And the user should be able to add, edit, delete, and download files     
 
   Scenario: User with Add only access for Patient Health Card
   Given I log in as admin
   When I create a new user with email "testuser3_static@mailinator.com"
-  And I create a profile with Add access only to Patient Module Patient Health Card
+  And I create a profile with Add access only to Patient Module Patient Health Card  
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user
-  Then the user should be able to add a patient health card
-  But the user should not be able to edit or delete patient health cards
+  Then the user should be able to add a patient health card    
+  But the user should not be able to edit or delete patient health cards   
   
   Scenario: User with Add and Edit access for Patient Health Card
   Given I log in as admin
   When I create a new user with email "testuser3_static@mailinator.com"
-  And I create a profile with Add and Edit access to Patient Module Patient Health Card
+  And I create a profile with Add and Edit access to Patient Module Patient Health Card  
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user
   Then the user should be able to add a patient health card
-  And the user should be able to edit patient health cards
-  But the user should not be able to delete patient health cards
+  And the user should be able to edit patient health cards   
+  But the user should not be able to delete patient health cards   
 
   Scenario: User with Add, Edit, and Delete access for Patient Health Card
   Given I log in as admin
   When I create a new user with email "testuser3_static@mailinator.com"
-  And I create a profile with Add, Edit, and Delete access to Patient Module Patient Health Card
+  And I create a profile with Add, Edit, and Delete access to Patient Module Patient Health Card    
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user
   Then the user should be able to add a patient health card
   And the user should be able to edit patient health cards
-  And the user should be able to delete patient health cards
+  And the user should be able to delete patient health cards   
 
   Scenario: User with Add only access for Patient Intake Form
   Given I log in as admin
   When I create a new user with email "testuser3_static@mailinator.com"
-  And I create a profile with Add access only to Patient Module Patient Intake Form
+  And I create a profile with Add access only to Patient Module Patient Intake Form     
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user
-  Then the user should be able to add a patient intake form
-  But the user should not be able to edit, print, or send for signature
+  Then the user should be able to add a patient intake form   
+  But the user should not be able to edit, print, or send for signature   
   
   Scenario: User with Add and Edit access for Patient Intake Form
   Given I log in as admin
   When I create a new user with email "testuser3_static@mailinator.com"
-  And I create a profile with Add and Edit access to Patient Module Patient Intake Form
+  And I create a profile with Add and Edit access to Patient Module Patient Intake Form          
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user
   Then the user should be able to add a patient intake form
-  And the user should be able to edit patient intake forms
-  But the user should not be able to print or send for signature
+  And the user should be able to edit patient intake forms    
+  But the user should not be able to print or send for signature   
   
   Scenario: User with Add, Edit, and Print access for Patient Intake Form
   Given I log in as admin
   When I create a new user with email "testuser3_static@mailinator.com"
-  And I create a profile with Add, Edit, and Print access to Patient Module Patient Intake Form
+  And I create a profile with Add, Edit, and Print access to Patient Module Patient Intake Form  
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user
   Then the user should be able to add a patient intake form
   And the user should be able to edit patient intake forms
-  And the user should be able to print patient intake forms
-  But the user should not be able to send for signature
+  And the user should be able to print patient intake forms   
+  But the user should not be able to send for signature  
 
   Scenario: User with Add, Edit, Print, and Send For Signature access for Patient Intake Form
   Given I log in as admin
   When I create a new user with email "testuser3_static@mailinator.com"
-  And I create a profile with Add, Edit, Print, and Send For Signature access to Patient Module Patient Intake Form
+  And I create a profile with Add, Edit, Print, and Send For Signature access to Patient Module Patient Intake Form    
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user
   Then the user should be able to add a patient intake form
   And the user should be able to edit patient intake forms
   And the user should be able to print patient intake forms
-  And the user should be able to send patient intake forms for signature
+  And the user should be able to send patient intake forms for signature   
 
 
 
