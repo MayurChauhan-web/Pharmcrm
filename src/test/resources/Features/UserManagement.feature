@@ -1431,7 +1431,7 @@ Feature: Full User Management Flow
   And I reset the user's password
   And I log in using the new user
   Then the user should be able to view patients
-  And the user should be able to add a new patient
+  And the user should be able to add a new patient   
   But the user should not be able to edit or delete patients 
  
   Scenario: User with View, Add, and Edit access for Patient
@@ -1784,7 +1784,7 @@ Feature: Full User Management Flow
   When I create a new user with email "testuser3_static@mailinator.com"
   And I create a profile with Add and Edit access to Patient Module Patient Health Card  
   And I assign the profile and workspace to the user
-  And I reset the user's password
+  And I reset the user's password  
   And I log in using the new user
   Then the user should be able to add a patient health card
   And the user should be able to edit patient health cards   
@@ -1797,7 +1797,7 @@ Feature: Full User Management Flow
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user
-  Then the user should be able to add a patient health card
+  Then the user should be able to add a patient health card    
   And the user should be able to edit patient health cards
   And the user should be able to delete patient health cards   
 
@@ -1846,7 +1846,6 @@ Feature: Full User Management Flow
   And the user should be able to print patient intake forms
   And the user should be able to send patient intake forms for signature   
 
-  @Setup
   Scenario: User with Add only access for Patient Claim Verification
   Given I log in as admin
   When I create a new user with email "testuser1_static@mailinator.com"
@@ -1857,7 +1856,6 @@ Feature: Full User Management Flow
   Then the user should be able to add a patient claim verification   
   But the user should not be able to edit, print, or send for signature for Patient Claim Verification 
 
-  @Setup
   Scenario: User with Add and Edit access for Patient Claim Verification
   Given I log in as admin
   When I create a new user with email "testuser2_static@mailinator.com"
@@ -1869,7 +1867,6 @@ Feature: Full User Management Flow
   And the user should be able to edit patient claim verifications  
   But the user should not be able to print or send for signature for Patient Claim Verification    
 
-  @Setup
   Scenario: User with Add, Edit, and Print access for Patient Claim Verification
   Given I log in as admin
   When I create a new user with email "testuser3_static@mailinator.com"
@@ -1882,7 +1879,6 @@ Feature: Full User Management Flow
   And the user should be able to print patient claim verifications  
   But the user should not be able to send for signature for Patient Claim Verification   
 
-  @Setup
   Scenario: User with Add, Edit, Print, and Send For Signature access for Patient Claim Verification
   Given I log in as admin
   When I create a new user with email "testuser4_static@mailinator.com"
@@ -1902,8 +1898,8 @@ Feature: Full User Management Flow
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user
-  Then the user should be able to add patient medication
-  But the user should not be able to edit, delete, view gross margin, update sync, or update gross margin
+  Then the user should be able to add patient medication 
+  But the user should not be able to edit, delete Patient Medication 
 
   Scenario: User with Add and Edit access for Patient Medication
   Given I log in as admin
@@ -1913,8 +1909,8 @@ Feature: Full User Management Flow
   And I reset the user's password
   And I log in using the new user
   Then the user should be able to add patient medication
-  And the user should be able to edit patient medications
-  But the user should not be able to delete, view gross margin, update sync, or update gross margin
+  And the user should be able to edit patient medications  
+  But the user should not be able to delete Patient Medication     
 
   Scenario: User with Add, Edit, and Delete access for Patient Medication
   Given I log in as admin
@@ -1925,35 +1921,7 @@ Feature: Full User Management Flow
   And I log in using the new user
   Then the user should be able to add patient medication
   And the user should be able to edit patient medications
-  And the user should be able to delete patient medications
-  But the user should not be able to view gross margin, update sync, or update gross margin
-
-  Scenario: User with Add, Edit, Delete, and View Gross Margin access for Patient Medication
-  Given I log in as admin
-  When I create a new user with email "testuser_med4@mailinator.com"
-  And I create a profile with Add, Edit, Delete, and View Gross Margin access to Patient Module Patient Medication  
-  And I assign the profile and workspace to the user
-  And I reset the user's password
-  And I log in using the new user
-  Then the user should be able to add patient medication
-  And the user should be able to edit patient medications
-  And the user should be able to delete patient medications
-  And the user should be able to view patient medication gross margin
-  But the user should not be able to update sync or update gross margin
-
-  Scenario: User with Add, Edit, Delete, View Gross Margin, and Update Patient Medication Sync access
-  Given I log in as admin
-  When I create a new user with email "testuser_med5@mailinator.com"
-  And I create a profile with Add, Edit, Delete, View Gross Margin, and Update Patient Medication Sync access to Patient Module Patient Medication  
-  And I assign the profile and workspace to the user
-  And I reset the user's password
-  And I log in using the new user
-  Then the user should be able to add patient medication
-  And the user should be able to edit patient medications
-  And the user should be able to delete patient medications
-  And the user should be able to view patient medication gross margin
-  And the user should be able to update patient medication sync
-  But the user should not be able to update patient medication gross margin
+  And the user should be able to delete patient medications  
 
   Scenario: User with Add, Edit, Delete, View Gross Margin, Update Sync, and Update Gross Margin access for Patient Medication
   Given I log in as admin
@@ -1967,7 +1935,7 @@ Feature: Full User Management Flow
   And the user should be able to delete patient medications
   And the user should be able to view patient medication gross margin
   And the user should be able to update patient medication sync
-  And the user should be able to update patient medication gross margin
+  And the user should be able to update patient medication gross margin  
 
   Scenario: User with Add only access for Patient Meds On Chart
   Given I log in as admin
@@ -1976,8 +1944,8 @@ Feature: Full User Management Flow
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user
-  Then the user should be able to add patient meds on chart
-  But the user should not be able to edit, delete, or copy to medication
+  Then the user should be able to add patient meds on chart   
+  But the user should not be able to edit, delete, Patient Meds On Chart  
 
   Scenario: User with Add and Edit access for Patient Meds On Chart
   Given I log in as admin
@@ -1987,8 +1955,8 @@ Feature: Full User Management Flow
   And I reset the user's password
   And I log in using the new user
   Then the user should be able to add patient meds on chart
-  And the user should be able to edit patient meds on chart
-  But the user should not be able to delete or copy to medication
+  And the user should be able to edit patient meds on chart 
+  But the user should not be able to delete meds on chart   
 
   Scenario: User with Add, Edit, and Delete access for Patient Meds On Chart
   Given I log in as admin
@@ -1999,8 +1967,7 @@ Feature: Full User Management Flow
   And I log in using the new user
   Then the user should be able to add patient meds on chart
   And the user should be able to edit patient meds on chart
-  And the user should be able to delete patient meds on chart
-  But the user should not be able to copy to medication
+  And the user should be able to delete patient meds on chart  
 
   Scenario: User with Add, Edit, Delete, and Copied To Medication access for Patient Meds On Chart
   Given I log in as admin
@@ -2012,7 +1979,7 @@ Feature: Full User Management Flow
   Then the user should be able to add patient meds on chart
   And the user should be able to edit patient meds on chart
   And the user should be able to delete patient meds on chart
-  And the user should be able to copy patient meds to medication
+  And the user should be able to copy patient meds to medication  
 
   Scenario: User with Add only access for Patient Pharmacy
   Given I log in as admin
@@ -2021,8 +1988,8 @@ Feature: Full User Management Flow
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user
-  Then the user should be able to add patient pharmacy
-  But the user should not be able to edit or delete patient pharmacy
+  Then the user should be able to add patient pharmacy  
+  But the user should not be able to edit or delete patient pharmacy   
 
   Scenario: User with Add and Edit access for Patient Pharmacy
   Given I log in as admin
@@ -2032,8 +1999,8 @@ Feature: Full User Management Flow
   And I reset the user's password
   And I log in using the new user
   Then the user should be able to add patient pharmacy
-  And the user should be able to edit patient pharmacy
-  But the user should not be able to delete patient pharmacy
+  And the user should be able to edit patient pharmacy   
+  But the user should not be able to delete patient pharmacy  
 
   Scenario: User with Add, Edit, and Delete access for Patient Pharmacy
   Given I log in as admin
@@ -2044,7 +2011,7 @@ Feature: Full User Management Flow
   And I log in using the new user
   Then the user should be able to add patient pharmacy
   And the user should be able to edit patient pharmacy
-  And the user should be able to delete patient pharmacy
+  And the user should be able to delete patient pharmacy  
   
   Scenario: User with Add only access for Patient Physician
   Given I log in as admin
@@ -2053,8 +2020,8 @@ Feature: Full User Management Flow
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user
-  Then the user should be able to add patient physician
-  But the user should not be able to edit or delete patient physician
+  Then the user should be able to add patient physician  
+  But the user should not be able to edit or delete patient physician 
 
   Scenario: User with Add and Edit access for Patient Physician
   Given I log in as admin
@@ -2064,8 +2031,8 @@ Feature: Full User Management Flow
   And I reset the user's password
   And I log in using the new user
   Then the user should be able to add patient physician
-  And the user should be able to edit patient physician
-  But the user should not be able to delete patient physician
+  And the user should be able to edit patient physician 
+  But the user should not be able to delete patient physician  
 
   Scenario: User with Add, Edit, and Delete access for Patient Physician
   Given I log in as admin
@@ -2076,7 +2043,7 @@ Feature: Full User Management Flow
   And I log in using the new user
   Then the user should be able to add patient physician
   And the user should be able to edit patient physician
-  And the user should be able to delete patient physician
+  And the user should be able to delete patient physician  
 
   Scenario: User with Add only access for Patient Communication
   Given I log in as admin
@@ -2085,8 +2052,8 @@ Feature: Full User Management Flow
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user
-  Then the user should be able to add patient communication
-  But the user should not be able to edit or delete patient communication
+  Then the user should be able to add patient communication 
+  But the user should not be able to edit or delete patient communication  
 
   Scenario: User with Add and Edit access for Patient Communication
   Given I log in as admin
@@ -2096,8 +2063,8 @@ Feature: Full User Management Flow
   And I reset the user's password
   And I log in using the new user
   Then the user should be able to add patient communication
-  And the user should be able to edit patient communication
-  But the user should not be able to delete patient communication
+  And the user should be able to edit patient communication 
+  But the user should not be able to delete patient communication  
 
   Scenario: User with Add, Edit, and Delete access for Patient Communication
   Given I log in as admin
@@ -2108,8 +2075,9 @@ Feature: Full User Management Flow
   And I log in using the new user
   Then the user should be able to add patient communication
   And the user should be able to edit patient communication
-  And the user should be able to delete patient communication
+  And the user should be able to delete patient communication    
 
+  @Setup
   Scenario: User with Add only access for Patient Family
   Given I log in as admin
   When I create a new user with email "testuser_family1@mailinator.com"
@@ -2117,8 +2085,8 @@ Feature: Full User Management Flow
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user
-  Then the user should be able to add patient family
-  But the user should not be able to delete patient family
+  Then the user should be able to add patient family    
+  But the user should not be able to delete patient family  
 
   Scenario: User with Add and Delete access for Patient Family
   Given I log in as admin
@@ -2128,40 +2096,196 @@ Feature: Full User Management Flow
   And I reset the user's password
   And I log in using the new user
   Then the user should be able to add patient family
-  And the user should be able to delete patient family
+  And the user should be able to delete patient family  
   
-  Scenario: User with Add only access for Patient ReSync
+  Scenario: User with Add only access for Patient External Source
   Given I log in as admin
-  When I create a new user with email "testuser_resync1@mailinator.com"
-  And I create a profile with Add access only to Patient Module Patient ReSync  
+  When I create a new user with email "testuser_extsource1@mailinator.com"
+  And I create a profile with Add access only to Patient Module Patient External Source 
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user
-  Then the user should be able to add patient re-sync
-  But the user should not be able to edit or delete patient re-sync
+  Then the user should be able to add patient external source 
+  But the user should not be able to edit or delete patient external source  
 
-  Scenario: User with Add and Edit access for Patient ReSync
+  Scenario: User with Add and Edit access for Patient External Source
   Given I log in as admin
-  When I create a new user with email "testuser_resync2@mailinator.com"
-  And I create a profile with Add and Edit access to Patient Module Patient ReSync 
+  When I create a new user with email "testuser_extsource2@mailinator.com"
+  And I create a profile with Add and Edit access to Patient Module Patient External Source   
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user
-  Then the user should be able to add patient re-sync
-  And the user should be able to edit patient re-sync
-  But the user should not be able to delete patient re-sync
+  Then the user should be able to add patient external source
+  And the user should be able to edit patient external source   
+  But the user should not be able to delete patient external source  
 
-  Scenario: User with Add, Edit, and Delete access for Patient ReSync
+  Scenario: User with Add, Edit, and Delete access for Patient External Source
   Given I log in as admin
-  When I create a new user with email "testuser_resync3@mailinator.com"
-  And I create a profile with Add, Edit, and Delete access to Patient Module Patient ReSync  
+  When I create a new user with email "testuser_extsource3@mailinator.com"
+  And I create a profile with Add, Edit, and Delete access to Patient Module Patient External Source  
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user
-  Then the user should be able to add patient re-sync
-  And the user should be able to edit patient re-sync
-  And the user should be able to delete patient re-sync
+  Then the user should be able to add patient external source
+  And the user should be able to edit patient external source
+  And the user should be able to delete patient external source  
 
+  Scenario: User with Add only access for Generate New Access Code
+  Given I log in as admin
+  When I create a new user with email "testuser_accesscode1@mailinator.com"
+  And I create a profile with Add access only to Generate New Access Code  
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to add generate new access code  
+  But the user should not be able to edit or delete generate new access code  
+
+  Scenario: User with no Add access cannot add Generate New Access Code
+  Given I log in as admin
+  When I create a new user with email "testuser_accesscode_noadd@mailinator.com"
+  And I create a profile with no Add access to Generate New Access Code  
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  When the user tries to add generate new access code  
+  Then the user should not be able to add generate new access code  
+  And the user should see an access denied message or restriction   
+  
+  Scenario: User with View only access for Patient Text
+  Given I log in as admin
+  When I create a new user with email "testuser_patienttext1@mailinator.com"
+  And I create a profile with View access only to Patient Text  
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view patient text  
+  But the user should not be able to use Quick Text, Reply, or Send VCard   
+
+  Scenario: User with View and Quick Text access for Patient Text
+  Given I log in as admin
+  When I create a new user with email "testuser_patienttext2@mailinator.com"
+  And I create a profile with View and Quick Text access to Patient Text   
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view patient text
+  And the user should be able to use Quick Text  
+  But the user should not be able to Reply or Send VCard   
+
+  Scenario: User with View, Quick Text, and Reply access for Patient Text
+  Given I log in as admin
+  When I create a new user with email "testuser_patienttext3@mailinator.com"
+  And I create a profile with View, Quick Text, and Reply access to Patient Text   
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view patient text
+  And the user should be able to use Quick Text
+  And the user should be able to Reply  
+  But the user should not be able to Send VCard     
+
+  Scenario: User with full access for Patient Text
+  Given I log in as admin
+  When I create a new user with email "testuser_patienttext4@mailinator.com"
+  And I create a profile with View, Quick Text, Reply, and Send VCard access to Patient Text  
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view patient text
+  And the user should be able to use Quick Text
+  And the user should be able to Reply
+  And the user should be able to Send VCard   
+  
+  Scenario: User with View only access for Text
+  Given I log in as admin
+  When I create a new user with email "testuser_text1@mailinator.com"
+  And I create a profile with View access only to Text    
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view text   
+  But the user should not be able to use Quick Text, Reply, Add To Patient, or Send VCard  
+
+  Scenario: User with View and Quick Text access for Text
+  Given I log in as admin
+  When I create a new user with email "testuser_text2@mailinator.com"
+  And I create a profile with View and Quick Text access to Text   
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view text
+  And the user should be able to use Quick Text
+  But the user should not be able to Reply, Add To Patient, or Send VCard   
+
+  Scenario: User with View, Quick Text, and Reply access for Text
+  Given I log in as admin
+  When I create a new user with email "testuser_text3@mailinator.com"
+  And I create a profile with View, Quick Text, and Reply access to Text  
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view text
+  And the user should be able to use Quick Text
+  And the user should be able to Reply
+  But the user should not be able to Add To Patient or Send VCard   
+
+  Scenario: User with View, Quick Text, Reply, and Add To Patient access for Text
+  Given I log in as admin
+  When I create a new user with email "testuser_text4@mailinator.com"
+  And I create a profile with View, Quick Text, Reply, and Add To Patient access to Text                        
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view text
+  And the user should be able to use Quick Text
+  And the user should be able to Reply
+  And the user should be able to Add To Patient
+  But the user should not be able to Send VCard
+
+  Scenario: User with full access for Text
+  Given I log in as admin
+  When I create a new user with email "testuser_text5@mailinator.com"
+  And I create a profile with View, Quick Text, Reply, Add To Patient, and Send VCard access to Text  
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view text
+  And the user should be able to use Quick Text
+  And the user should be able to Reply
+  And the user should be able to Add To Patient   
+  And the user should be able to Send VCard
+  
+  Scenario: User with Add only access for CareGiver Name
+  Given I log in as admin
+  When I create a new user with email "testuser_caregiver1@mailinator.com"
+  And I create a profile with Add access only to CareGiver Name  
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to add caregiver name  
+  But the user should not be able to edit or delete caregiver name 
+
+  Scenario: User with Add and Edit access for CareGiver Name
+  Given I log in as admin
+  When I create a new user with email "testuser_caregiver2@mailinator.com"
+  And I create a profile with Add and Edit access to CareGiver Name
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to add caregiver name
+  And the user should be able to edit caregiver name   
+  But the user should not be able to delete caregiver name  
+
+  Scenario: User with Add, Edit, and Delete access for CareGiver Name
+  Given I log in as admin
+  When I create a new user with email "testuser_caregiver3@mailinator.com"
+  And I create a profile with Add, Edit, and Delete access to CareGiver Name   
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to add caregiver name
+  And the user should be able to edit caregiver name
+  And the user should be able to delete caregiver name   
 
 
 
