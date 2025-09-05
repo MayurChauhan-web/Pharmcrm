@@ -1301,7 +1301,7 @@ Feature: Full User Management Flow
   And I navigate to the User page   
   When I repeatedly delete available user entries  
   
-  @Delete
+  @Delete  
   Scenario: User with Delete access can repeatedly delete profile entries
   Given I log in as admin 
   And I navigate to the Profile page  
@@ -1858,7 +1858,7 @@ Feature: Full User Management Flow
 
   Scenario: User with Add and Edit access for Patient Claim Verification
   Given I log in as admin
-  When I create a new user with email "testuser2_static@mailinator.com"
+  When I create a new user with email "testuser3_static@mailinator.com"
   And I create a profile with Add and Edit access to Patient Module Patient Claim Verification  
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -1869,7 +1869,7 @@ Feature: Full User Management Flow
 
   Scenario: User with Add, Edit, and Print access for Patient Claim Verification
   Given I log in as admin
-  When I create a new user with email "testuser3_static@mailinator.com"
+  When I create a new user with email "testuser5_static@mailinator.com"
   And I create a profile with Add, Edit, and Print access to Patient Module Patient Claim Verification  
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -1881,7 +1881,7 @@ Feature: Full User Management Flow
 
   Scenario: User with Add, Edit, Print, and Send For Signature access for Patient Claim Verification
   Given I log in as admin
-  When I create a new user with email "testuser4_static@mailinator.com"
+  When I create a new user with email "testuser7_static@mailinator.com"
   And I create a profile with Add, Edit, Print, and Send For Signature access to Patient Module Patient Claim Verification  
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -1893,7 +1893,7 @@ Feature: Full User Management Flow
 
   Scenario: User with Add only access for Patient Medication
   Given I log in as admin
-  When I create a new user with email "testuser_med1@mailinator.com"
+  When I create a new user with email "testuser11_static@mailinator.com"
   And I create a profile with Add access only to Patient Module Patient Medication 
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -1903,7 +1903,7 @@ Feature: Full User Management Flow
 
   Scenario: User with Add and Edit access for Patient Medication
   Given I log in as admin
-  When I create a new user with email "testuser_med2@mailinator.com"
+  When I create a new user with email "testuser7_static@mailinator.com"
   And I create a profile with Add and Edit access to Patient Module Patient Medication 
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -1914,7 +1914,7 @@ Feature: Full User Management Flow
 
   Scenario: User with Add, Edit, and Delete access for Patient Medication
   Given I log in as admin
-  When I create a new user with email "testuser_med3@mailinator.com"
+  When I create a new user with email "testuser8_static@mailinator.com"
   And I create a profile with Add, Edit, and Delete access to Patient Module Patient Medication 
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -1925,7 +1925,7 @@ Feature: Full User Management Flow
 
   Scenario: User with Add, Edit, Delete, View Gross Margin, Update Sync, and Update Gross Margin access for Patient Medication
   Given I log in as admin
-  When I create a new user with email "testuser_med6@mailinator.com"
+  When I create a new user with email "testuser9_static@mailinator.com"
   And I create a profile with Add, Edit, Delete, View Gross Margin, Update Sync, and Update Gross Margin access to Patient Module Patient Medication  
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -1939,7 +1939,7 @@ Feature: Full User Management Flow
 
   Scenario: User with Add only access for Patient Meds On Chart
   Given I log in as admin
-  When I create a new user with email "testuser_chart1@mailinator.com"
+  When I create a new user with email "testuser10_static@mailinator.com"
   And I create a profile with Add access only to Patient Module Patient Meds On Chart 
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -1949,7 +1949,7 @@ Feature: Full User Management Flow
 
   Scenario: User with Add and Edit access for Patient Meds On Chart
   Given I log in as admin
-  When I create a new user with email "testuser_chart2@mailinator.com"
+  When I create a new user with email "testuser9_static@mailinator.com"
   And I create a profile with Add and Edit access to Patient Module Patient Meds On Chart  
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -1960,7 +1960,7 @@ Feature: Full User Management Flow
 
   Scenario: User with Add, Edit, and Delete access for Patient Meds On Chart
   Given I log in as admin
-  When I create a new user with email "testuser_chart3@mailinator.com"
+  When I create a new user with email "testuser8_static@mailinator.com"
   And I create a profile with Add, Edit, and Delete access to Patient Module Patient Meds On Chart 
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -1971,7 +1971,7 @@ Feature: Full User Management Flow
 
   Scenario: User with Add, Edit, Delete, and Copied To Medication access for Patient Meds On Chart
   Given I log in as admin
-  When I create a new user with email "testuser_chart4@mailinator.com"
+  When I create a new user with email "testuser7_static@mailinator.com"
   And I create a profile with Add, Edit, Delete, and Copied To Medication access to Patient Module Patient Meds On Chart 
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -1983,7 +1983,7 @@ Feature: Full User Management Flow
 
   Scenario: User with Add only access for Patient Pharmacy
   Given I log in as admin
-  When I create a new user with email "testuser_pharmacy1@mailinator.com"
+  When I create a new user with email "testuser6_static@mailinator.com"
   And I create a profile with Add access only to Patient Module Patient Pharmacy 
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -1993,7 +1993,7 @@ Feature: Full User Management Flow
 
   Scenario: User with Add and Edit access for Patient Pharmacy
   Given I log in as admin
-  When I create a new user with email "testuser_pharmacy2@mailinator.com"
+  When I create a new user with email "testuser1_static@mailinator.com"
   And I create a profile with Add and Edit access to Patient Module Patient Pharmacy  
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -2004,7 +2004,7 @@ Feature: Full User Management Flow
 
   Scenario: User with Add, Edit, and Delete access for Patient Pharmacy
   Given I log in as admin
-  When I create a new user with email "testuser_pharmacy3@mailinator.com"
+  When I create a new user with email "testuser1_static@mailinator.com"
   And I create a profile with Add, Edit, and Delete access to Patient Module Patient Pharmacy 
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -2015,7 +2015,7 @@ Feature: Full User Management Flow
   
   Scenario: User with Add only access for Patient Physician
   Given I log in as admin
-  When I create a new user with email "testuser_physician1@mailinator.com"
+  When I create a new user with email "testuser1_static@mailinator.com"
   And I create a profile with Add access only to Patient Module Patient Physician  
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -2025,7 +2025,7 @@ Feature: Full User Management Flow
 
   Scenario: User with Add and Edit access for Patient Physician
   Given I log in as admin
-  When I create a new user with email "testuser_physician2@mailinator.com"
+  When I create a new user with email "testuser1_static@mailinator.com"
   And I create a profile with Add and Edit access to Patient Module Patient Physician  
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -2036,7 +2036,7 @@ Feature: Full User Management Flow
 
   Scenario: User with Add, Edit, and Delete access for Patient Physician
   Given I log in as admin
-  When I create a new user with email "testuser_physician3@mailinator.com"
+  When I create a new user with email "testuser1_static@mailinator.com"
   And I create a profile with Add, Edit, and Delete access to Patient Module Patient Physician 
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -2047,7 +2047,7 @@ Feature: Full User Management Flow
 
   Scenario: User with Add only access for Patient Communication
   Given I log in as admin
-  When I create a new user with email "testuser_comm1@mailinator.com"
+  When I create a new user with email "testuser1_static@mailinator.com"
   And I create a profile with Add access only to Patient Module Patient Communication  
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -2057,7 +2057,7 @@ Feature: Full User Management Flow
 
   Scenario: User with Add and Edit access for Patient Communication
   Given I log in as admin
-  When I create a new user with email "testuser_comm2@mailinator.com"
+  When I create a new user with email "testuser1_static@mailinator.com"
   And I create a profile with Add and Edit access to Patient Module Patient Communication       
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -2068,7 +2068,7 @@ Feature: Full User Management Flow
 
   Scenario: User with Add, Edit, and Delete access for Patient Communication
   Given I log in as admin
-  When I create a new user with email "testuser_comm3@mailinator.com"
+  When I create a new user with email "testuser1_static@mailinator.com"
   And I create a profile with Add, Edit, and Delete access to Patient Module Patient Communication  
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -2079,7 +2079,7 @@ Feature: Full User Management Flow
 
   Scenario: User with Add only access for Patient Family
   Given I log in as admin
-  When I create a new user with email "testuser_family1@mailinator.com"
+  When I create a new user with email "testuser1_static@mailinator.com"
   And I create a profile with Add access only to Patient Module Patient Family  
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -2089,7 +2089,7 @@ Feature: Full User Management Flow
 
   Scenario: User with Add and Delete access for Patient Family
   Given I log in as admin
-  When I create a new user with email "testuser_family2@mailinator.com"
+  When I create a new user with email "testuser1_static@mailinator.com"
   And I create a profile with Add and Delete access to Patient Module Patient Family  
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -2099,7 +2099,7 @@ Feature: Full User Management Flow
   
   Scenario: User with Add only access for Patient External Source
   Given I log in as admin
-  When I create a new user with email "testuser_extsource1@mailinator.com"
+  When I create a new user with email "testuser1_static@mailinator.com"
   And I create a profile with Add access only to Patient Module Patient External Source 
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -2109,7 +2109,7 @@ Feature: Full User Management Flow
 
   Scenario: User with Add and Edit access for Patient External Source
   Given I log in as admin
-  When I create a new user with email "testuser_extsource2@mailinator.com"
+  When I create a new user with email "testuser1_static@mailinator.com"
   And I create a profile with Add and Edit access to Patient Module Patient External Source   
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -2120,7 +2120,7 @@ Feature: Full User Management Flow
 
   Scenario: User with Add, Edit, and Delete access for Patient External Source
   Given I log in as admin
-  When I create a new user with email "testuser_extsource3@mailinator.com"
+  When I create a new user with email "testuser1_static@mailinator.com"
   And I create a profile with Add, Edit, and Delete access to Patient Module Patient External Source  
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -2131,7 +2131,7 @@ Feature: Full User Management Flow
 
   Scenario: User with Add only access for Generate New Access Code
   Given I log in as admin
-  When I create a new user with email "testuser_accesscode1@mailinator.com"
+  When I create a new user with email "testuser1_static@mailinator.com"
   And I create a profile with Add access only to Generate New Access Code  
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -2140,7 +2140,7 @@ Feature: Full User Management Flow
 
   Scenario: User with no Add access cannot add Generate New Access Code
   Given I log in as admin
-  When I create a new user with email "testuser_accesscode_noadd@mailinator.com"
+  When I create a new user with email "testuser1_static@mailinator.com"
   And I create a profile with no Add access to Generate New Access Code  
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -2149,7 +2149,7 @@ Feature: Full User Management Flow
   
   Scenario: User with View only access for Patient Text
   Given I log in as admin
-  When I create a new user with email "testuser_patienttext1@mailinator.com"
+  When I create a new user with email "testuser1_static@mailinator.com"
   And I create a profile with View access only to Patient Text  
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -2159,7 +2159,7 @@ Feature: Full User Management Flow
 
   Scenario: User with View and Quick Text access for Patient Text
   Given I log in as admin
-  When I create a new user with email "testuser_patienttext2@mailinator.com"
+  When I create a new user with email "testuser1_static@mailinator.com"
   And I create a profile with View and Quick Text access to Patient Text   
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -2170,7 +2170,7 @@ Feature: Full User Management Flow
 
   Scenario: User with View, Quick Text, and Reply access for Patient Text
   Given I log in as admin
-  When I create a new user with email "testuser_patienttext3@mailinator.com"
+  When I create a new user with email "testuser1_static@mailinator.com"
   And I create a profile with View, Quick Text, and Reply access to Patient Text   
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -2182,7 +2182,7 @@ Feature: Full User Management Flow
 
   Scenario: User with full access for Patient Text
   Given I log in as admin
-  When I create a new user with email "testuser_patienttext4@mailinator.com"
+  When I create a new user with email "testuser1_static@mailinator.com"
   And I create a profile with View, Quick Text, Reply, and Send VCard access to Patient Text  
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -2192,7 +2192,6 @@ Feature: Full User Management Flow
   And the user should be able to Reply
   And the user should be able to Send VCard   
   
-  @Setup
   Scenario: User with View and Quick Text access for Text
   Given I log in as admin
   When I create a new user with email "testuser_text2@mailinator.com"
@@ -2238,9 +2237,10 @@ Feature: Full User Management Flow
   And the user should be able to Add To Patient   
   And the user should be able to Send VCard
   
+  @Patient
   Scenario: User with Add only access for CareGiver Name
   Given I log in as admin
-  When I create a new user with email "testuser_caregiver1@mailinator.com"
+  When I create a new user with email "testuser1_static@mailinator.com"
   And I create a profile with Add access only to CareGiver Name  
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -2248,9 +2248,10 @@ Feature: Full User Management Flow
   Then the user should be able to add caregiver name  
   But the user should not be able to edit or delete caregiver name 
 
+  @Patient
   Scenario: User with Add and Edit access for CareGiver Name
   Given I log in as admin
-  When I create a new user with email "testuser_caregiver2@mailinator.com"
+  When I create a new user with email "testuser2_static@mailinator.com"
   And I create a profile with Add and Edit access to CareGiver Name
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -2259,9 +2260,10 @@ Feature: Full User Management Flow
   And the user should be able to edit caregiver name   
   But the user should not be able to delete caregiver name  
 
+  @Patient
   Scenario: User with Add, Edit, and Delete access for CareGiver Name
   Given I log in as admin
-  When I create a new user with email "testuser_caregiver3@mailinator.com"
+  When I create a new user with email "testuser3_static@mailinator.com"
   And I create a profile with Add, Edit, and Delete access to CareGiver Name   
   And I assign the profile and workspace to the user
   And I reset the user's password

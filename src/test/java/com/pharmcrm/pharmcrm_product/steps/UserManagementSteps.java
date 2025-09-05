@@ -7787,6 +7787,8 @@ public class UserManagementSteps {
 		sleep(1000);
 		clickWhenClickable(By.xpath("//input[@id='0']"));
 		clickWhenClickable(By.xpath("//div[@id='divSearchDrugInfo']//button[@id='btnDrug']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//button[@onclick='javascript: saveMedication();']"));
 
 	}
 
@@ -7800,15 +7802,15 @@ public class UserManagementSteps {
 		clickWhenClickable(By.xpath("//a[normalize-space()='Meds On Chart']"));
 		sleep(2000);
 		clickWhenClickable(By.xpath("//span[normalize-space()='Add Medications On Chart']"));
-		sleep(1000);
+		sleep(2000);
 		clickWhenClickable(By.xpath("//div[@class='model-inp requiredfield']//img"));
-		sleep(1000);
+		sleep(2000);
 		waitAndSendKeys(By.xpath("//input[@id='Filter_DrugName']"), "amoxilin");
 		clickWhenClickable(By.xpath("//button[normalize-space()='Search']"));
-		sleep(1000);
+		sleep(2000);
 		clickWhenClickable(By.xpath("//input[@id='0']"));
 		clickWhenClickable(By.xpath("//div[@id='divSearchDrugInfo']//button[@id='btnDrug']"));
-		sleep(1000);
+		sleep(3000);
 		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-circle-check']"));
 
 	}
@@ -8284,6 +8286,15 @@ public class UserManagementSteps {
 				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
 		sleep(2000);
 		waitAndSendKeys(By.xpath("//input[@id='Patient_PatientClaimVerification_CellNumber']"), "1234567890");
+		sleep(2000);
+		clickWhenClickable(By.xpath("//img[@id='btnDeleteAdjuster']"));
+		sleep(2000);
+		waitAndSendKeys(By.xpath("//input[@id='Patient_PatientClaimVerification_Adjuster']"), profileName);
+		waitAndSendKeys(By.xpath("//input[@id='Patient_PatientClaimVerification_AdjusterEmail']"), createdEmail);
+		waitAndSendKeys(By.xpath("//input[@id='Patient_PatientClaimVerification_AdjusterPhoneNumber']"), "1234567890");
+		waitAndSendKeys(By.xpath("//input[@id='Patient_PatientClaimVerification_AdjusterFax']"), "1234567890");
+		clickWhenClickable(By.xpath("//img[@id='btnAddAdjuster']"));
+		sleep(2000);
 		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
 
 	}
@@ -8293,12 +8304,12 @@ public class UserManagementSteps {
 		sleep(3000);
 		clickWhenClickable(By.xpath("//a[normalize-space()='Medication']"));
 		sleep(2000);
-		clickWhenClickable(By.xpath("//tbody/tr/td[36]/div[1]/div[1]/button[1]/i[1]"));
-		sleep(1000);
+		clickWhenClickable(By.xpath("(//i[contains(@class,'fa-ellipsis-vertical')])[1]"));
+		sleep(2000);
 		clickWhenClickable(By.xpath(
 				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
 		sleep(2000);
-		waitAndSendKeys(By.xpath("//input[@id='PatientMedication_GrossMargin']"), "100");
+		waitAndSendKeys(By.xpath("//input[@id='PatientMedication_RxStatus']"), "Active");
 		clickWhenClickable(By.xpath("//button[@onclick='javascript: saveMedication();']"));
 
 	}
@@ -8309,8 +8320,8 @@ public class UserManagementSteps {
 		clickWhenClickable(By.xpath("//a[normalize-space()='Meds On Chart']"));
 		sleep(2000);
 		clickWhenClickable(
-				By.xpath("//div[@class='gridRecordContextMain show']//i[@class='fa-solid fa-ellipsis-vertical']"));
-		sleep(1000);
+				By.xpath("//body[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[2]/table[1]/tbody[1]/tr[2]/td[10]/div[1]/div[1]/button[1]/i[1]"));
+		sleep(2000);
 		clickWhenClickable(By.xpath(
 				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
 		sleep(2000);
@@ -8325,7 +8336,7 @@ public class UserManagementSteps {
 		clickWhenClickable(By.xpath("//a[normalize-space()='Meds On Chart']"));
 		sleep(2000);
 		clickWhenClickable(By.xpath(
-				"//div[@class='gridListIconsFlex justify-content-end']//i[@class='fa-solid fa-ellipsis-vertical']"));
+				"//body[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[2]/table[1]/tbody[1]/tr[3]/td[10]/div[1]/div[1]/button[1]/i[1]"));
 		sleep(1000);
 		clickWhenClickable(By.xpath(
 				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
@@ -8389,7 +8400,7 @@ public class UserManagementSteps {
 		sleep(3000);
 		clickWhenClickable(By.xpath("//a[normalize-space()='Medication']"));
 		sleep(2000);
-		clickWhenClickable(By.xpath("//tbody/tr/td[36]/div[1]/div[1]/button[1]/i[1]"));
+		clickWhenClickable(By.xpath("(//i[contains(@class,'fa-ellipsis-vertical')])[1]"));
 		sleep(1000);
 		clickWhenClickable(By.xpath(
 				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
@@ -8417,15 +8428,19 @@ public class UserManagementSteps {
 	public void userShouldBeAbleToPrintPatientClaimVerifications() {
 		sleep(3000);
 		clickWhenClickable(By.xpath("//a[normalize-space()='Patient Claim Verification']"));
-		sleep(1000);
+		sleep(2000);
 		clickWhenClickable(By.xpath(
-				"//body[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[6]/div[2]/table[1]/tbody[1]/tr[1]/td[10]/div[1]/div[1]/button[1]/i[1]"));
-		sleep(1000);
+				"//body[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/div[2]/table[1]/tbody[1]/tr[1]/td[10]/div[1]/div[1]/button[1]/i[1]"));
+		sleep(2000);
 		clickWhenClickable(By.xpath(
 				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Print')]"));
 		sleep(3000);
 		((JavascriptExecutor) DriverFactory.getDriver()).executeScript("window.print();");
 		System.out.println("Patient signature PDF auto-saved in Downloads folder");
+		sleep(2000);
+		clickWhenClickable(
+				By.xpath("//button[@onclick='CloseClaimVerificationSignature();']//i[@class='fa fa-times']"));
+
 	}
 
 	@Then("the user should be able to send patient intake forms for signature")
@@ -8451,16 +8466,16 @@ public class UserManagementSteps {
 	public void userShouldBeAbleToSendPatientClaimVerificationsForSignature() {
 		sleep(3000);
 		clickWhenClickable(By.xpath("//a[normalize-space()='Patient Claim Verification']"));
-		sleep(1000);
+		sleep(2000);
 		clickWhenClickable(By.xpath(
-				"//body[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[6]/div[2]/table[1]/tbody[1]/tr[1]/td[10]/div[1]/div[1]/button[1]/i[1]"));
-		sleep(1000);
+				"//body[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/div[2]/table[1]/tbody[1]/tr[1]/td[10]/div[1]/div[1]/button[1]/i[1]"));
+		sleep(2000);
 		clickWhenClickable(By.xpath(
 				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Send Mail')]"));
 		sleep(2000);
 		clickWhenClickable(By.xpath(
-				"//body[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[6]/div[2]/table[1]/tbody[1]/tr[1]/td[10]/div[1]/div[1]/button[1]/i[1]"));
-		sleep(1000);
+				"//body[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/div[2]/table[1]/tbody[1]/tr[1]/td[10]/div[1]/div[1]/button[1]/i[1]"));
+		sleep(2000);
 		clickWhenClickable(By.xpath(
 				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Send Text')]"));
 
@@ -9236,7 +9251,7 @@ public class UserManagementSteps {
 		sleep(3000);
 		clickWhenClickable(By.xpath("//a[normalize-space()='Medication']"));
 		sleep(2000);
-		clickWhenClickable(By.xpath("//tbody/tr/td[36]/div[1]/div[1]/button[1]/i[1]"));
+		clickWhenClickable(By.xpath("(//i[contains(@class,'fa-ellipsis-vertical')])[1]"));
 		sleep(1000);
 		assertElementNotPresent(By.xpath(
 				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
@@ -9250,8 +9265,8 @@ public class UserManagementSteps {
 		sleep(3000);
 		clickWhenClickable(By.xpath("//a[normalize-space()='Medication']"));
 		sleep(2000);
-		clickWhenClickable(By.xpath("//tbody/tr/td[36]/div[1]/div[1]/button[1]/i[1]"));
-		sleep(1000);
+		clickWhenClickable(By.xpath("(//i[contains(@class,'fa-ellipsis-vertical')])[1]"));
+		sleep(2000);
 		assertElementNotPresent(By.xpath(
 				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
 

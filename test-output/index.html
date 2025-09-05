@@ -25,7 +25,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite, 4 failed tests</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -92,7 +92,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">4 methods, 4 failed,   </span>
+                    <span class="method-stats">2 methods, 1 failed,   1 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title failed">Failed methods</span>
@@ -103,25 +103,24 @@
                     <div class="method-list-content failed suite-Cucumber_Parallel_Suite">
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Cucumber_Parallel_Suite" title="com.pharmcrm.pharmcrm_product.runner.TestNGRunner" class="method navigator-link" hash-for-method="runScenario(&quot;User with Add only access for Patient Claim Verification&quot;, &quot;Full User Management Flow&quot;)">runScenario("User with Add only access for Patient Claim Verification", "Full User Management Flow")</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Cucumber_Parallel_Suite" title="com.pharmcrm.pharmcrm_product.runner.TestNGRunner" class="method navigator-link" hash-for-method="runScenario(&quot;User with Add and Edit access for Patient Claim Verification&quot;, &quot;Full User Management Flow&quot;)">runScenario("User with Add and Edit access for Patient Claim Verification", "Full User Management Flow")</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Cucumber_Parallel_Suite" title="com.pharmcrm.pharmcrm_product.runner.TestNGRunner" class="method navigator-link" hash-for-method="runScenario(&quot;User with Add, Edit, and Print access for Patient Claim Verification&quot;, &quot;Full User Management Flow&quot;)">runScenario("User with Add, Edit, and Print access for Patient Claim Verification", "Full User Management Flow")</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Cucumber_Parallel_Suite" title="com.pharmcrm.pharmcrm_product.runner.TestNGRunner" class="method navigator-link" hash-for-method="runScenario(&quot;User with Add, Edit, Print, and Send For Signature access for Patient Claim Verification&quot;, &quot;Full Us...)">runScenario("User with Add, Edit, Print, and Send For Signature access for Patient Claim Verification", "Full Us...)</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Cucumber_Parallel_Suite" title="com.pharmcrm.pharmcrm_product.runner.TestNGRunner" class="method navigator-link" hash-for-method="runScenario(&quot;User with Delete access can repeatedly delete profile entries&quot;, &quot;Full User Management Flow&quot;)">runScenario("User with Delete access can repeatedly delete profile entries", "Full User Management Flow")</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Cucumber_Parallel_Suite -->
+                  </li>
+                  <li>
+                    <span class="method-list-title passed">Passed methods</span>
+                    <span class="show-or-hide-methods passed">
+                      <a href="#" panel-name="suite-Cucumber_Parallel_Suite" class="hide-methods passed suite-Cucumber_Parallel_Suite"> (hide)</a> <!-- hide-methods passed suite-Cucumber_Parallel_Suite -->
+                      <a href="#" panel-name="suite-Cucumber_Parallel_Suite" class="show-methods passed suite-Cucumber_Parallel_Suite"> (show)</a> <!-- show-methods passed suite-Cucumber_Parallel_Suite -->
+                    </span>
+                    <div class="method-list-content passed suite-Cucumber_Parallel_Suite">
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Cucumber_Parallel_Suite" title="com.pharmcrm.pharmcrm_product.runner.TestNGRunner" class="method navigator-link" hash-for-method="runScenario(&quot;User with Delete access can repeatedly delete user entries&quot;, &quot;Full User Management Flow&quot;)">runScenario("User with Delete access can repeatedly delete user entries", "Full User Management Flow")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content passed suite-Cucumber_Parallel_Suite -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -141,79 +140,33 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="runScenario(&quot;User with Add only access for Patient Claim Verification&quot;, &quot;Full User Management Flow&quot;)">
-                  </a> <!-- runScenario("User with Add only access for Patient Claim Verification", "Full User Management Flow") -->
+                  <a name="runScenario(&quot;User with Delete access can repeatedly delete profile entries&quot;, &quot;Full User Management Flow&quot;)">
+                  </a> <!-- runScenario("User with Delete access can repeatedly delete profile entries", "Full User Management Flow") -->
                   <span class="method-name">runScenario</span>
-                  <span class="parameters">("User with Add only access for Patient Claim Verification","Full User Management Flow")</span>
-                  <div class="stack-trace">java.lang.AssertionError: Element should not be present: By.xpath: //div[@class=&apos;dropdown-menu bucket-dropdown-content gridRecordContext show&apos;]//span[contains(text(),&apos;Edit&apos;)]
-	at org.junit.Assert.fail(Assert.java:89)
-	at org.junit.Assert.assertTrue(Assert.java:42)
-	at com.pharmcrm.pharmcrm_product.steps.UserManagementSteps.assertElementNotPresent(UserManagementSteps.java:10373)
-	at com.pharmcrm.pharmcrm_product.steps.UserManagementSteps.userShouldNotBeAbleToEditPrintOrSendForSignatureForPatientClaimVerification(UserManagementSteps.java:8190)
-	at ✽.the user should not be able to edit, print, or send for signature for Patient Claim Verification(file:///C:/Users/MayurChauhan/eclipse-workspace/pharmcrm-product/src/test/resources/Features/UserManagement.feature:1858)
-
-</div> <!-- stack-trace -->
-                  <em>
-(Runs Cucumber Scenarios)                  </em>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="runScenario(&quot;User with Add and Edit access for Patient Claim Verification&quot;, &quot;Full User Management Flow&quot;)">
-                  </a> <!-- runScenario("User with Add and Edit access for Patient Claim Verification", "Full User Management Flow") -->
-                  <span class="method-name">runScenario</span>
-                  <span class="parameters">("User with Add and Edit access for Patient Claim Verification","Full User Management Flow")</span>
-                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: //body[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[6]/div[2]/table[1]/tbody[1]/tr[1]/td[10]/div[1]/div[1]/button[1]/i[1] (tried for 15 second(s) with 500 milliseconds interval)
+                  <span class="parameters">("User with Delete access can repeatedly delete profile entries","Full User Management Flow")</span>
+                  <div class="stack-trace">org.openqa.selenium.NoSuchSessionException: invalid session id: session deleted as the browser has closed the connection
+from disconnected: unable to send message to renderer
+  (Session info: chrome=139.0.7258.157)
 Build info: version: &apos;4.34.0&apos;, revision: &apos;707dcb4246*&apos;
 System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.12&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 139.0.7258.157, chrome: {chromedriverVersion: 139.0.7258.154 (9e0d6b2b47f..., userDataDir: C:\Users\MAYURC~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65105}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65105/devtoo..., se:cdpVersion: 139.0.7258.157, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 8c9e74c99c1bd9d442005fc4c0d34a46
-	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
-	at com.pharmcrm.pharmcrm_product.steps.UserManagementSteps.clickWhenClickable(UserManagementSteps.java:10299)
-	at com.pharmcrm.pharmcrm_product.steps.UserManagementSteps.userShouldBeAbleToEditPatientClaimVerifications(UserManagementSteps.java:7357)
-	at ✽.the user should be able to edit patient claim verifications(file:///C:/Users/MayurChauhan/eclipse-workspace/pharmcrm-product/src/test/resources/Features/UserManagement.feature:1869)
-
-</div> <!-- stack-trace -->
-                  <em>
-(Runs Cucumber Scenarios)                  </em>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="runScenario(&quot;User with Add, Edit, and Print access for Patient Claim Verification&quot;, &quot;Full User Management Flow&quot;)">
-                  </a> <!-- runScenario("User with Add, Edit, and Print access for Patient Claim Verification", "Full User Management Flow") -->
-                  <span class="method-name">runScenario</span>
-                  <span class="parameters">("User with Add, Edit, and Print access for Patient Claim Verification","Full User Management Flow")</span>
-                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: //tr[td[normalize-space()=&apos;testuser3_static@mailinator.com&apos;]]//td[@class=&apos;text-right&apos;]//button (tried for 15 second(s) with 500 milliseconds interval)
-Build info: version: &apos;4.34.0&apos;, revision: &apos;707dcb4246*&apos;
-System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.12&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 139.0.7258.157, chrome: {chromedriverVersion: 139.0.7258.154 (9e0d6b2b47f..., userDataDir: C:\Users\MAYURC~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65104}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65104/devtoo..., se:cdpVersion: 139.0.7258.157, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 447c20c73889f014f832db8dae087a19
-	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
-	at com.pharmcrm.pharmcrm_product.steps.UserManagementSteps.clickWhenClickable(UserManagementSteps.java:10299)
-	at com.pharmcrm.pharmcrm_product.steps.UserManagementSteps.resetPassword(UserManagementSteps.java:5289)
-	at ✽.I reset the user&apos;s password(file:///C:/Users/MayurChauhan/eclipse-workspace/pharmcrm-product/src/test/resources/Features/UserManagement.feature:1878)
-
-</div> <!-- stack-trace -->
-                  <em>
-(Runs Cucumber Scenarios)                  </em>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="runScenario(&quot;User with Add, Edit, Print, and Send For Signature access for Patient Claim Verification&quot;, &quot;Full Us...)">
-                  </a> <!-- runScenario("User with Add, Edit, Print, and Send For Signature access for Patient Claim Verification", "Full Us...) -->
-                  <span class="method-name">runScenario</span>
-                  <span class="parameters">("User with Add, Edit, Print, and Send For Signature access for Patient Claim Verification","Full User Management Flow")</span>
-                  <div class="stack-trace">java.lang.AssertionError: Internet connection not available. Please check your connection.
-	at org.junit.Assert.fail(Assert.java:89)
-	at com.pharmcrm.pharmcrm_product.steps.UserManagementSteps.loginAsAdmin(UserManagementSteps.java:30)
-	at ✽.I log in as admin(file:///C:/Users/MayurChauhan/eclipse-workspace/pharmcrm-product/src/test/resources/Features/UserManagement.feature:1887)
-
+Command: [d073e1ac0ee3f30f90f2c1d1991ceeeb, findElement {value=//tbody/tr[1]/td[8]/div[1]/div[1]/button[1]/i[1], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 139.0.7258.157, chrome: {chromedriverVersion: 139.0.7258.154 (9e0d6b2b47f..., userDataDir: C:\Users\MAYURC~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59842}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59842/devtoo..., se:cdpVersion: 139.0.7258.157, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: d073e1ac0ee3f30f90f2c1d1991ceeeb
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:544)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:367)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:361)
+	at com.pharmcrm.pharmcrm_product.steps.UserManagementSteps.repeatedlyDeleteAvailableProfileEntries(UserManagementSteps.java:10632)
+	at ✽.I repeatedly delete available profile entries(file:///C:/Users/MayurChauhan/eclipse-workspace/pharmcrm-product/src/test/resources/Features/UserManagement.feature:1308)
+... Removed 5 stack frames
 </div> <!-- stack-trace -->
                   <em>
 (Runs Cucumber Scenarios)                  </em>
@@ -221,6 +174,24 @@ Session ID: 447c20c73889f014f832db8dae087a19
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
           </div> <!-- suite-Cucumber_Parallel_Suite-class-failed -->
+          <div class="suite-Cucumber_Parallel_Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.pharmcrm.pharmcrm_product.runner.TestNGRunner</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;User with Delete access can repeatedly delete user entries&quot;, &quot;Full User Management Flow&quot;)">
+                  </a> <!-- runScenario("User with Delete access can repeatedly delete user entries", "Full User Management Flow") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("User with Delete access can repeatedly delete user entries","Full User Management Flow")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Cucumber_Parallel_Suite-class-passed -->
         </div> <!-- panel Cucumber_Parallel_Suite -->
         <div panel-name="test-xml-Cucumber_Parallel_Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
@@ -230,8 +201,8 @@ Session ID: 447c20c73889f014f832db8dae087a19
             <pre>
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
-&lt;suite thread-count=&quot;4&quot; parallel=&quot;methods&quot; name=&quot;Cucumber Parallel Suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
-  &lt;test thread-count=&quot;4&quot; parallel=&quot;methods&quot; name=&quot;Cucumber Tests&quot;&gt;
+&lt;suite thread-count=&quot;3&quot; parallel=&quot;methods&quot; name=&quot;Cucumber Parallel Suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
+  &lt;test thread-count=&quot;3&quot; parallel=&quot;methods&quot; name=&quot;Cucumber Tests&quot;&gt;
     &lt;classes&gt;
       &lt;class name=&quot;com.pharmcrm.pharmcrm_product.runner.TestNGRunner&quot;/&gt;
     &lt;/classes&gt;
@@ -281,28 +252,20 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(4);
+data.addRows(2);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'runScenario')
 data.setCell(0, 2, 'com.pharmcrm.pharmcrm_product.runner.TestNGRunner')
-data.setCell(0, 3, 147087);
+data.setCell(0, 3, 32032);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'runScenario')
 data.setCell(1, 2, 'com.pharmcrm.pharmcrm_product.runner.TestNGRunner')
-data.setCell(1, 3, 145962);
-data.setCell(2, 0, 2)
-data.setCell(2, 1, 'runScenario')
-data.setCell(2, 2, 'com.pharmcrm.pharmcrm_product.runner.TestNGRunner')
-data.setCell(2, 3, 90335);
-data.setCell(3, 0, 3)
-data.setCell(3, 1, 'runScenario')
-data.setCell(3, 2, 'com.pharmcrm.pharmcrm_product.runner.TestNGRunner')
-data.setCell(3, 3, 2169);
+data.setCell(1, 3, 31694);
 window.suiteTableData['Cucumber_Parallel_Suite']= { tableData: data, tableDiv: 'times-div-Cucumber_Parallel_Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 6 minutes</span>
+              <span class="suite-total-time">Total running time: 1 minutes</span>
               <div id="times-div-Cucumber_Parallel_Suite">
               </div> <!-- times-div-Cucumber_Parallel_Suite -->
             </div> <!-- times-div -->
@@ -334,32 +297,18 @@ return data;
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
-                <img src="failed.png">
-                </img>
-                <span class="method-name">runScenario("User with Add, Edit, and Print access for Patient Claim Verification", "Full User Management Flow")</span>
-                <span class="method-start">783 ms</span>
+                <span class="method-name">runScenario("User with Delete access can repeatedly delete user entries", "Full User Management Flow")</span>
+                <span class="method-start">781 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">runScenario("User with Add only access for Patient Claim Verification", "Full User Management Flow")</span>
-                <span class="method-start">784 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <img src="failed.png">
-                </img>
-                <span class="method-name">runScenario("User with Add and Edit access for Patient Claim Verification", "Full User Management Flow")</span>
-                <span class="method-start">784 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <img src="failed.png">
-                </img>
-                <span class="method-name">runScenario("User with Add, Edit, Print, and Send For Signature access for Patient Claim Verification", "Full Us...)</span>
-                <span class="method-start">784 ms</span>
+                <span class="method-name">runScenario("User with Delete access can repeatedly delete profile entries", "Full User Management Flow")</span>
+                <span class="method-start">781 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">tearDownClass</span>
-                <span class="method-start">147877 ms</span>
+                <span class="method-start">32819 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
