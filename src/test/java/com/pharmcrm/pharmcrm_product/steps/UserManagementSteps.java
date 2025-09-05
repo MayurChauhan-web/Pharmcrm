@@ -4420,6 +4420,9 @@ public class UserManagementSteps {
 		clickWhenClickable(setupModuleCheckbox);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Patient Module']"));
 		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg12PatientEHREdit']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg12PatientEHRDelete']"));
+		sleep(1000);
 		clickWhenClickable(By.id("btnSave"));
 	}
 
@@ -4445,6 +4448,8 @@ public class UserManagementSteps {
 		clickWhenClickable(setupModuleCheckbox);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Patient Module']"));
 		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg12PatientEHRDelete']"));
+		sleep(1000);
 		clickWhenClickable(By.id("btnSave"));
 	}
 
@@ -4520,6 +4525,8 @@ public class UserManagementSteps {
 		clickWhenClickable(setupModuleCheckbox);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Patient Module']"));
 		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg41GenerateNewAccessCodeAdd']"));
+		sleep(1000);
 		clickWhenClickable(By.id("btnSave"));
 	}
 
@@ -4545,6 +4552,10 @@ public class UserManagementSteps {
 		clickWhenClickable(setupModuleCheckbox);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Patient Module']"));
 		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg20PatientTextQuickText']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg20PatientTextReply']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg34PatientTextSendVCard']"));
+		sleep(1000);
 		clickWhenClickable(By.id("btnSave"));
 	}
 
@@ -4570,6 +4581,9 @@ public class UserManagementSteps {
 		clickWhenClickable(setupModuleCheckbox);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Patient Module']"));
 		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg20PatientTextReply']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg34PatientTextSendVCard']"));
+		sleep(1000);
 		clickWhenClickable(By.id("btnSave"));
 	}
 
@@ -4595,6 +4609,8 @@ public class UserManagementSteps {
 		clickWhenClickable(setupModuleCheckbox);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Patient Module']"));
 		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg34PatientTextSendVCard']"));
+		sleep(1000);
 		clickWhenClickable(By.id("btnSave"));
 	}
 
@@ -4645,6 +4661,8 @@ public class UserManagementSteps {
 		clickWhenClickable(setupModuleCheckbox);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Patient Module']"));
 		sleep(3000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Patient Module']"));
+
 		clickWhenClickable(By.id("btnSave"));
 	}
 
@@ -4670,6 +4688,10 @@ public class UserManagementSteps {
 		clickWhenClickable(setupModuleCheckbox);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Patient Module']"));
 		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg20TextReply']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg20TextAddToPatient']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg34TextSendVCard']"));
+		sleep(1000);
 		clickWhenClickable(By.id("btnSave"));
 	}
 
@@ -4695,6 +4717,9 @@ public class UserManagementSteps {
 		clickWhenClickable(setupModuleCheckbox);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Patient Module']"));
 		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg20TextAddToPatient']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg34TextSendVCard']"));
+		sleep(1000);
 		clickWhenClickable(By.id("btnSave"));
 	}
 
@@ -4720,6 +4745,8 @@ public class UserManagementSteps {
 		clickWhenClickable(setupModuleCheckbox);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Patient Module']"));
 		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg34TextSendVCard']"));
+		sleep(1000);
 		clickWhenClickable(By.id("btnSave"));
 	}
 
@@ -4770,6 +4797,9 @@ public class UserManagementSteps {
 		clickWhenClickable(setupModuleCheckbox);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Patient Module']"));
 		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg21PatientCareGiverNameEdit']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg21PatientCareGiverNameDelete']"));
+		sleep(1000);
 		clickWhenClickable(By.id("btnSave"));
 	}
 
@@ -4795,6 +4825,8 @@ public class UserManagementSteps {
 		clickWhenClickable(setupModuleCheckbox);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Patient Module']"));
 		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg21PatientCareGiverNameDelete']"));
+		sleep(1000);
 		clickWhenClickable(By.id("btnSave"));
 	}
 
@@ -7846,10 +7878,27 @@ public class UserManagementSteps {
 		clickWhenClickable(By.xpath("//a[normalize-space()='Family Details']"));
 		sleep(2000);
 		clickWhenClickable(By.xpath("//span[normalize-space()='Add Family']"));
+		sleep(3000);
+		waitAndSendKeys(By.xpath("//input[@id='PatientFamily_LastName']"), "Hinton");
+		waitAndSendKeys(By.xpath("//input[@id='PatientFamily_FirstName']"), "Howard");
+		WebElement birthDateInput = driver.findElement(By.id("Patient_BirthDate"));
+		birthDateInput.click();
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		WebElement yearDropdown = driver.findElement(By.xpath("//select[contains(@class,'ui-datepicker-year')]"));
+		Select yearSelect = new Select(yearDropdown);
+		yearSelect.selectByVisibleText("2025");
+		WebElement monthDropdown = wait.until(ExpectedConditions
+				.visibilityOfElementLocated(By.xpath("//select[contains(@class,'ui-datepicker-month')]")));
+		Select monthSelect = new Select(monthDropdown);
+		monthSelect.selectByVisibleText("Apr");
+		WebElement dateToSelect = wait
+				.until(ExpectedConditions.elementToBeClickable(By.xpath("//td[normalize-space()='1']")));
+		dateToSelect.click();
+		clickWhenClickable(By.xpath("//button[@id='btnFindPatient']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//input[@id='c87acbbb-8d62-4aee-bc00-cff67e2700a2']"));
 		sleep(1000);
-		waitAndSendKeys(By.xpath("//textarea[@id='PatientCommunication_Notes']"), "comunication note");
-		sleep(1000);
-		clickWhenClickable(By.xpath("//button[@id='btnSaveCommunication']"));
+		clickWhenClickable(By.xpath("//button[@class='btn btn-primary'][normalize-space()='Submit']"));
 
 	}
 
@@ -7859,32 +7908,15 @@ public class UserManagementSteps {
 		driver.get(baseUrl + "/Patient/Home/Patients");
 		wait.until(ExpectedConditions.urlContains("/Patient/Home/Patients"));
 		clickWhenClickable(By.xpath("(//a[@class='gridLinkButton'])[1]"));
-		sleep(1000);
-		clickWhenClickable(By.xpath("//*[name()='path' and @id='Union_79']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='External Source']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='Add External Source']"));
 		sleep(3000);
-		waitAndSendKeys(By.xpath("//input[@id='Patient_PatientClaimVerification_Adjuster']"), profileName);
-		waitAndSendKeys(By.xpath("//input[@id='Patient_PatientClaimVerification_AdjusterEmail']"), createdEmail);
-		waitAndSendKeys(By.xpath("//input[@id='Patient_PatientClaimVerification_AdjusterPhoneNumber']"), "1234567890");
-		waitAndSendKeys(By.xpath("//input[@id='Patient_PatientClaimVerification_AdjusterFax']"), "1234567890");
-		clickWhenClickable(By.xpath("//img[@id='btnAddAdjuster']"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//a[@id='addPayorNamePopup']//img"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//input[@id='rdoFullSearch']"));
-		sleep(1000);
-		waitAndSendKeys(By.xpath("//input[@id='Filter_BusinessName']"), "Charlotte Baird");
-		clickWhenClickable(By.xpath("//button[@id='btnpayorserach']"));
-		sleep(1000);
-		clickWhenClickable(By.xpath("//input[@id='84996e1c-2e81-4b80-81cf-7d1f1b095d1e']"));
-		clickWhenClickable(By.xpath("//button[@id='btnPayor']"));
-		sleep(1000);
-		waitAndSendKeys(By.xpath("//input[@id='Patient_PatientClaimVerification_ClaimNumber']"), "1234567890");
-		clickWhenClickable(By.xpath("//a[@id='addPayorAddressPopup']//img"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//input[@id='9b8ba6bd-e587-487e-8788-8bde0c276d5b']"));
-		clickWhenClickable(By.xpath("//div[@class='modal-footer text-center d-block']//button[@id='btnPayorAddress']"));
-		sleep(3000);
-		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+		clickWhenClickable(By.xpath("//select[@id='Patient_PatientExternalSource_ExternalSource_Id']"));
+		selectDropdownByIndexWhenReady(By.id("Patient_PatientExternalSource_ExternalSource_Id"), 1);
+		waitAndSendKeys(By.xpath("//input[@id='PatientExternalSource_ExternalPatientId']"), "22");
+		clickWhenClickable(By.xpath("//button[@id='btnSaveEHR']"));
 
 	}
 
@@ -7894,67 +7926,11 @@ public class UserManagementSteps {
 		driver.get(baseUrl + "/Patient/Home/Patients");
 		wait.until(ExpectedConditions.urlContains("/Patient/Home/Patients"));
 		clickWhenClickable(By.xpath("(//a[@class='gridLinkButton'])[1]"));
-		sleep(1000);
-		clickWhenClickable(By.xpath("//*[name()='path' and @id='Union_79']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//a[@class='active'][normalize-space()='Access Code']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='Generate Access Code']"));
 		sleep(3000);
-		waitAndSendKeys(By.xpath("//input[@id='Patient_PatientClaimVerification_Adjuster']"), profileName);
-		waitAndSendKeys(By.xpath("//input[@id='Patient_PatientClaimVerification_AdjusterEmail']"), createdEmail);
-		waitAndSendKeys(By.xpath("//input[@id='Patient_PatientClaimVerification_AdjusterPhoneNumber']"), "1234567890");
-		waitAndSendKeys(By.xpath("//input[@id='Patient_PatientClaimVerification_AdjusterFax']"), "1234567890");
-		clickWhenClickable(By.xpath("//img[@id='btnAddAdjuster']"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//a[@id='addPayorNamePopup']//img"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//input[@id='rdoFullSearch']"));
-		sleep(1000);
-		waitAndSendKeys(By.xpath("//input[@id='Filter_BusinessName']"), "Charlotte Baird");
-		clickWhenClickable(By.xpath("//button[@id='btnpayorserach']"));
-		sleep(1000);
-		clickWhenClickable(By.xpath("//input[@id='84996e1c-2e81-4b80-81cf-7d1f1b095d1e']"));
-		clickWhenClickable(By.xpath("//button[@id='btnPayor']"));
-		sleep(1000);
-		waitAndSendKeys(By.xpath("//input[@id='Patient_PatientClaimVerification_ClaimNumber']"), "1234567890");
-		clickWhenClickable(By.xpath("//a[@id='addPayorAddressPopup']//img"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//input[@id='9b8ba6bd-e587-487e-8788-8bde0c276d5b']"));
-		clickWhenClickable(By.xpath("//div[@class='modal-footer text-center d-block']//button[@id='btnPayorAddress']"));
-		sleep(3000);
-		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
-
-	}
-
-	@Then("the user tries to add generate new access code")
-	public void userTriesToAddGenerateNewAccessCode() {
-		sleep(3000);
-		driver.get(baseUrl + "/Patient/Home/Patients");
-		wait.until(ExpectedConditions.urlContains("/Patient/Home/Patients"));
-		clickWhenClickable(By.xpath("(//a[@class='gridLinkButton'])[1]"));
-		sleep(1000);
-		clickWhenClickable(By.xpath("//*[name()='path' and @id='Union_79']"));
-		sleep(3000);
-		waitAndSendKeys(By.xpath("//input[@id='Patient_PatientClaimVerification_Adjuster']"), profileName);
-		waitAndSendKeys(By.xpath("//input[@id='Patient_PatientClaimVerification_AdjusterEmail']"), createdEmail);
-		waitAndSendKeys(By.xpath("//input[@id='Patient_PatientClaimVerification_AdjusterPhoneNumber']"), "1234567890");
-		waitAndSendKeys(By.xpath("//input[@id='Patient_PatientClaimVerification_AdjusterFax']"), "1234567890");
-		clickWhenClickable(By.xpath("//img[@id='btnAddAdjuster']"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//a[@id='addPayorNamePopup']//img"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//input[@id='rdoFullSearch']"));
-		sleep(1000);
-		waitAndSendKeys(By.xpath("//input[@id='Filter_BusinessName']"), "Charlotte Baird");
-		clickWhenClickable(By.xpath("//button[@id='btnpayorserach']"));
-		sleep(1000);
-		clickWhenClickable(By.xpath("//input[@id='84996e1c-2e81-4b80-81cf-7d1f1b095d1e']"));
-		clickWhenClickable(By.xpath("//button[@id='btnPayor']"));
-		sleep(1000);
-		waitAndSendKeys(By.xpath("//input[@id='Patient_PatientClaimVerification_ClaimNumber']"), "1234567890");
-		clickWhenClickable(By.xpath("//a[@id='addPayorAddressPopup']//img"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//input[@id='9b8ba6bd-e587-487e-8788-8bde0c276d5b']"));
-		clickWhenClickable(By.xpath("//div[@class='modal-footer text-center d-block']//button[@id='btnPayorAddress']"));
-		sleep(3000);
-		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
 
 	}
 
@@ -7964,32 +7940,8 @@ public class UserManagementSteps {
 		driver.get(baseUrl + "/Patient/Home/Patients");
 		wait.until(ExpectedConditions.urlContains("/Patient/Home/Patients"));
 		clickWhenClickable(By.xpath("(//a[@class='gridLinkButton'])[1]"));
-		sleep(1000);
-		clickWhenClickable(By.xpath("//*[name()='path' and @id='Union_79']"));
-		sleep(3000);
-		waitAndSendKeys(By.xpath("//input[@id='Patient_PatientClaimVerification_Adjuster']"), profileName);
-		waitAndSendKeys(By.xpath("//input[@id='Patient_PatientClaimVerification_AdjusterEmail']"), createdEmail);
-		waitAndSendKeys(By.xpath("//input[@id='Patient_PatientClaimVerification_AdjusterPhoneNumber']"), "1234567890");
-		waitAndSendKeys(By.xpath("//input[@id='Patient_PatientClaimVerification_AdjusterFax']"), "1234567890");
-		clickWhenClickable(By.xpath("//img[@id='btnAddAdjuster']"));
 		sleep(2000);
-		clickWhenClickable(By.xpath("//a[@id='addPayorNamePopup']//img"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//input[@id='rdoFullSearch']"));
-		sleep(1000);
-		waitAndSendKeys(By.xpath("//input[@id='Filter_BusinessName']"), "Charlotte Baird");
-		clickWhenClickable(By.xpath("//button[@id='btnpayorserach']"));
-		sleep(1000);
-		clickWhenClickable(By.xpath("//input[@id='84996e1c-2e81-4b80-81cf-7d1f1b095d1e']"));
-		clickWhenClickable(By.xpath("//button[@id='btnPayor']"));
-		sleep(1000);
-		waitAndSendKeys(By.xpath("//input[@id='Patient_PatientClaimVerification_ClaimNumber']"), "1234567890");
-		clickWhenClickable(By.xpath("//a[@id='addPayorAddressPopup']//img"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//input[@id='9b8ba6bd-e587-487e-8788-8bde0c276d5b']"));
-		clickWhenClickable(By.xpath("//div[@class='modal-footer text-center d-block']//button[@id='btnPayorAddress']"));
-		sleep(3000);
-		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+		assertElementPresent(By.xpath("//a[@id='btnTextViewPatient']//*[name()='svg']"));
 
 	}
 
@@ -7998,32 +7950,11 @@ public class UserManagementSteps {
 		sleep(3000);
 		driver.get(baseUrl + "/Patient/Home/Patients");
 		wait.until(ExpectedConditions.urlContains("/Patient/Home/Patients"));
-		clickWhenClickable(By.xpath("(//a[@class='gridLinkButton'])[1]"));
 		sleep(1000);
-		clickWhenClickable(By.xpath("//*[name()='path' and @id='Union_79']"));
-		sleep(3000);
-		waitAndSendKeys(By.xpath("//input[@id='Patient_PatientClaimVerification_Adjuster']"), profileName);
-		waitAndSendKeys(By.xpath("//input[@id='Patient_PatientClaimVerification_AdjusterEmail']"), createdEmail);
-		waitAndSendKeys(By.xpath("//input[@id='Patient_PatientClaimVerification_AdjusterPhoneNumber']"), "1234567890");
-		waitAndSendKeys(By.xpath("//input[@id='Patient_PatientClaimVerification_AdjusterFax']"), "1234567890");
-		clickWhenClickable(By.xpath("//img[@id='btnAddAdjuster']"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//a[@id='addPayorNamePopup']//img"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//input[@id='rdoFullSearch']"));
+		clickWhenClickable(By.xpath("//span[normalize-space()='Quick Text']"));
 		sleep(1000);
-		waitAndSendKeys(By.xpath("//input[@id='Filter_BusinessName']"), "Charlotte Baird");
-		clickWhenClickable(By.xpath("//button[@id='btnpayorserach']"));
-		sleep(1000);
-		clickWhenClickable(By.xpath("//input[@id='84996e1c-2e81-4b80-81cf-7d1f1b095d1e']"));
-		clickWhenClickable(By.xpath("//button[@id='btnPayor']"));
-		sleep(1000);
-		waitAndSendKeys(By.xpath("//input[@id='Patient_PatientClaimVerification_ClaimNumber']"), "1234567890");
-		clickWhenClickable(By.xpath("//a[@id='addPayorAddressPopup']//img"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//input[@id='9b8ba6bd-e587-487e-8788-8bde0c276d5b']"));
-		clickWhenClickable(By.xpath("//div[@class='modal-footer text-center d-block']//button[@id='btnPayorAddress']"));
-		sleep(3000);
+		waitAndSendKeys(By.xpath("//input[@id='newPhoneNumber']"), "1234567890");
+		waitAndSendKeys(By.xpath("//textarea[@id='newBody']"), "text message");
 		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
 
 	}
@@ -8047,47 +7978,34 @@ public class UserManagementSteps {
 	@Then("the user should be able to Reply")
 	public void userShouldBeAbleToReply() {
 		sleep(3000);
-		clickWhenClickable(By.xpath("//a[normalize-space()='Patient Intake Forms']"));
-		sleep(1000);
-		clickWhenClickable(By.xpath(
-				"//body[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[6]/div[2]/table[1]/tbody[1]/tr[1]/td[10]/div[1]/div[1]/button[1]/i[1]"));
-		sleep(1000);
-		clickWhenClickable(By.xpath(
-				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
-		sleep(2000);
-		waitAndSendKeys(By.xpath("//input[@id='Patient_PatientIntakeForm_CellNumber']"), "1234567890");
-		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+		assertElementPresent(By.xpath("//span[normalize-space()='Quick Text']"));
 
 	}
 
 	@Then("the user should be able to Add To Patient")
 	public void userShouldBeAbleToAddToPatient() {
 		sleep(3000);
-		clickWhenClickable(By.xpath("//a[normalize-space()='Patient Intake Forms']"));
-		sleep(1000);
-		clickWhenClickable(By.xpath(
-				"//body[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[6]/div[2]/table[1]/tbody[1]/tr[1]/td[10]/div[1]/div[1]/button[1]/i[1]"));
-		sleep(1000);
-		clickWhenClickable(By.xpath(
-				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
-		sleep(2000);
-		waitAndSendKeys(By.xpath("//input[@id='Patient_PatientIntakeForm_CellNumber']"), "1234567890");
-		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+		assertElementPresent(By.xpath("//span[normalize-space()='Quick Text']"));
 
 	}
 
 	@Then("the user should be able to add caregiver name")
 	public void userShouldBeAbleToAddCareGiverName() {
 		sleep(3000);
-		clickWhenClickable(By.xpath("//a[normalize-space()='Patient Intake Forms']"));
-		sleep(1000);
-		clickWhenClickable(By.xpath(
-				"//body[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[6]/div[2]/table[1]/tbody[1]/tr[1]/td[10]/div[1]/div[1]/button[1]/i[1]"));
-		sleep(1000);
-		clickWhenClickable(By.xpath(
-				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		driver.get(baseUrl + "/Patient/Home/Patients");
+		wait.until(ExpectedConditions.urlContains("/Patient/Home/Patients"));
+		clickWhenClickable(By.xpath("(//a[@class='gridLinkButton'])[1]"));
 		sleep(2000);
-		waitAndSendKeys(By.xpath("//input[@id='Patient_PatientIntakeForm_CellNumber']"), "1234567890");
+		clickWhenClickable(By.xpath("//a[@id='btnEditPatient']//*[name()='svg']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='Add New Caregiver']"));
+		sleep(2000);
+		waitAndSendKeys(By.xpath("//input[@id='PatientCareGiverName_LastName']"), "Batson");
+		waitAndSendKeys(By.xpath("//input[@id='PatientCareGiverName_FirstName']"), "Kelli");
+		waitAndSendKeys(By.xpath("//input[@id='PatientCareGiverName_PhoneNumber']"), "5014324826");
+		waitAndSendKeys(By.xpath("//input[@id='PatientCareGiverName_RelationOFCaregivertoPatient']"), "Mother");
+		clickWhenClickable(By.xpath("//button[@id='btnSaveCareGiverNamePopup']"));
+		sleep(1000);
 		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
 
 	}
@@ -8095,15 +8013,20 @@ public class UserManagementSteps {
 	@Then("the user should be able to edit caregiver name")
 	public void userShouldBeAbleToEditCaregiverName() {
 		sleep(3000);
-		clickWhenClickable(By.xpath("//a[normalize-space()='Patient Intake Forms']"));
-		sleep(1000);
-		clickWhenClickable(By.xpath(
-				"//body[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[6]/div[2]/table[1]/tbody[1]/tr[1]/td[10]/div[1]/div[1]/button[1]/i[1]"));
-		sleep(1000);
-		clickWhenClickable(By.xpath(
-				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		driver.get(baseUrl + "/Patient/Home/Patients");
+		wait.until(ExpectedConditions.urlContains("/Patient/Home/Patients"));
+		clickWhenClickable(By.xpath("(//a[@class='gridLinkButton'])[1]"));
 		sleep(2000);
-		waitAndSendKeys(By.xpath("//input[@id='Patient_PatientIntakeForm_CellNumber']"), "1234567890");
+		clickWhenClickable(By.xpath("//a[@id='btnEditPatient']//*[name()='svg']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='Edit']"));
+		sleep(2000);
+		waitAndSendKeys(By.xpath("//input[@id='PatientCareGiverName_LastName']"), "Batson");
+		waitAndSendKeys(By.xpath("//input[@id='PatientCareGiverName_FirstName']"), "Kelli");
+		clickWhenClickable(By.xpath("//button[@id='btnSaveCareGiverNamePopup']"));
+		sleep(1000);
 		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
 
 	}
@@ -8111,15 +8034,18 @@ public class UserManagementSteps {
 	@Then("the user should be able to delete caregiver name")
 	public void userShouldBeAbleToDeleteCaregiverName() {
 		sleep(3000);
-		clickWhenClickable(By.xpath("//a[normalize-space()='Patient Intake Forms']"));
-		sleep(1000);
-		clickWhenClickable(By.xpath(
-				"//body[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[6]/div[2]/table[1]/tbody[1]/tr[1]/td[10]/div[1]/div[1]/button[1]/i[1]"));
-		sleep(1000);
-		clickWhenClickable(By.xpath(
-				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		driver.get(baseUrl + "/Patient/Home/Patients");
+		wait.until(ExpectedConditions.urlContains("/Patient/Home/Patients"));
+		clickWhenClickable(By.xpath("(//a[@class='gridLinkButton'])[1]"));
 		sleep(2000);
-		waitAndSendKeys(By.xpath("//input[@id='Patient_PatientIntakeForm_CellNumber']"), "1234567890");
+		clickWhenClickable(By.xpath("//a[@id='btnEditPatient']//*[name()='svg']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='Delete']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='deletePatientCareGiverName']"));
+		sleep(2000);
 		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
 
 	}
@@ -8127,80 +8053,47 @@ public class UserManagementSteps {
 	@Then("the user should be able to Send VCard")
 	public void userShouldBeAbleToSendVCard() {
 		sleep(3000);
-		clickWhenClickable(By.xpath("//a[normalize-space()='Patient Intake Forms']"));
+		driver.get(baseUrl + "/Patient/Home/Patients");
+		wait.until(ExpectedConditions.urlContains("/Patient/Home/Patients"));
 		sleep(1000);
-		clickWhenClickable(By.xpath(
-				"//body[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[6]/div[2]/table[1]/tbody[1]/tr[1]/td[10]/div[1]/div[1]/button[1]/i[1]"));
+		clickWhenClickable(By.xpath("//span[normalize-space()='Send VCard']"));
 		sleep(1000);
-		clickWhenClickable(By.xpath(
-				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
-		sleep(2000);
-		waitAndSendKeys(By.xpath("//input[@id='Patient_PatientIntakeForm_CellNumber']"), "1234567890");
-		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
-
-	}
-
-	@Then("the user should be able to view text")
-	public void userShouldBeAbleToViewText() {
-		sleep(3000);
-		clickWhenClickable(By.xpath("//a[normalize-space()='Patient Intake Forms']"));
-		sleep(1000);
-		clickWhenClickable(By.xpath(
-				"//body[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[6]/div[2]/table[1]/tbody[1]/tr[1]/td[10]/div[1]/div[1]/button[1]/i[1]"));
-		sleep(1000);
-		clickWhenClickable(By.xpath(
-				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
-		sleep(2000);
-		waitAndSendKeys(By.xpath("//input[@id='Patient_PatientIntakeForm_CellNumber']"), "1234567890");
-		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+		waitAndSendKeys(By.xpath("//input[@id='vCardPhoneNumber']"), "1234567890");
+		waitAndSendKeys(By.xpath("//textarea[@id='vcardBody']"), "text message");
+		clickWhenClickable(By.xpath("//button[@id='btnSendVCard']"));
 
 	}
 
 	@Then("the user should be able to edit patient external source")
 	public void userShouldBeAbleToEditPatientExternalSource() {
+		clickWhenClickable(By.xpath("//a[normalize-space()='External Source']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//tbody/tr/td[7]/div[1]/div[1]/button[1]/i[1]"));
 		sleep(3000);
-		clickWhenClickable(By.xpath("//a[normalize-space()='Patient Intake Forms']"));
-		sleep(1000);
-		clickWhenClickable(By.xpath(
-				"//body[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[6]/div[2]/table[1]/tbody[1]/tr[1]/td[10]/div[1]/div[1]/button[1]/i[1]"));
-		sleep(1000);
 		clickWhenClickable(By.xpath(
 				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
-		sleep(2000);
-		waitAndSendKeys(By.xpath("//input[@id='Patient_PatientIntakeForm_CellNumber']"), "1234567890");
-		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+		waitAndSendKeys(By.xpath("//input[@id='PatientExternalSource_ExternalPatientId']"), "22");
+		clickWhenClickable(By.xpath("//button[@id='btnSaveEHR']"));
 
 	}
 
 	@Then("the user should be able to delete patient external source")
 	public void userShouldBeAbleToDeletePatientExternalSource() {
-		sleep(3000);
-		clickWhenClickable(By.xpath("//a[normalize-space()='Patient Intake Forms']"));
-		sleep(1000);
-		clickWhenClickable(By.xpath(
-				"//body[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[6]/div[2]/table[1]/tbody[1]/tr[1]/td[10]/div[1]/div[1]/button[1]/i[1]"));
-		sleep(1000);
-		clickWhenClickable(By.xpath(
-				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		clickWhenClickable(By.xpath("//a[normalize-space()='External Source']"));
 		sleep(2000);
-		waitAndSendKeys(By.xpath("//input[@id='Patient_PatientIntakeForm_CellNumber']"), "1234567890");
-		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+		clickWhenClickable(By.xpath("//tbody/tr/td[7]/div[1]/div[1]/button[1]/i[1]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[@id='btnDeleteEHR']//span[contains(text(),'Delete')]"));
+		clickWhenClickable(By.xpath("//button[@id='deletepatientEHR']"));
 
 	}
 
 	@Then("the user should be able to delete patient family")
 	public void userShouldBeAbleToDeletePatientFamily() {
 		sleep(3000);
-		clickWhenClickable(By.xpath("//a[normalize-space()='Patient Intake Forms']"));
-		sleep(1000);
-		clickWhenClickable(By.xpath(
-				"//body[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[6]/div[2]/table[1]/tbody[1]/tr[1]/td[10]/div[1]/div[1]/button[1]/i[1]"));
-		sleep(1000);
-		clickWhenClickable(By.xpath(
-				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		clickWhenClickable(By.xpath("//a[normalize-space()='Family Details']"));
 		sleep(2000);
-		waitAndSendKeys(By.xpath("//input[@id='Patient_PatientIntakeForm_CellNumber']"), "1234567890");
-		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+		clickWhenClickable(By.xpath("//a[@id='btnDeleteFamilyConfirm']//img"));
 
 	}
 
@@ -8235,160 +8128,101 @@ public class UserManagementSteps {
 	@Then("the user should not be able to delete patient family")
 	public void userShouldNotBeAbleToDeletePatientFamily() {
 		sleep(3000);
-		clickWhenClickable(By.xpath("//a[normalize-space()='Patient Intake Forms']"));
-		sleep(1000);
-		clickWhenClickable(By.xpath(
-				"//body[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[6]/div[2]/table[1]/tbody[1]/tr[1]/td[10]/div[1]/div[1]/button[1]/i[1]"));
-		sleep(1000);
-		clickWhenClickable(By.xpath(
-				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		clickWhenClickable(By.xpath("//a[normalize-space()='Family Details']"));
 		sleep(2000);
-		waitAndSendKeys(By.xpath("//input[@id='Patient_PatientIntakeForm_CellNumber']"), "1234567890");
-		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+		assertElementNotPresent(By.xpath("//a[@id='btnDeleteFamilyConfirm']//img"));
 
 	}
 
 	@Then("the user should not be able to edit or delete patient external source")
 	public void userShouldNotBeAbleToEditOrDeletePatientExternalSource() {
-		sleep(3000);
-		clickWhenClickable(By.xpath("//a[normalize-space()='Patient Intake Forms']"));
-		sleep(1000);
-		clickWhenClickable(By.xpath(
-				"//body[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[6]/div[2]/table[1]/tbody[1]/tr[1]/td[10]/div[1]/div[1]/button[1]/i[1]"));
-		sleep(1000);
-		clickWhenClickable(By.xpath(
-				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		clickWhenClickable(By.xpath("//a[normalize-space()='External Source']"));
 		sleep(2000);
-		waitAndSendKeys(By.xpath("//input[@id='Patient_PatientIntakeForm_CellNumber']"), "1234567890");
-		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+		clickWhenClickable(By.xpath("//tbody/tr/td[7]/div[1]/div[1]/button[1]/i[1]"));
+		sleep(3000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		assertElementNotPresent(By.xpath("//a[@id='btnDeleteEHR']//span[contains(text(),'Delete')]"));
 
 	}
 
 	@Then("the user should not be able to delete patient external source")
 	public void userShouldNotBeAbleToDeletePatientExternalSource() {
-		sleep(3000);
-		clickWhenClickable(By.xpath("//a[normalize-space()='Patient Intake Forms']"));
-		sleep(1000);
-		clickWhenClickable(By.xpath(
-				"//body[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[6]/div[2]/table[1]/tbody[1]/tr[1]/td[10]/div[1]/div[1]/button[1]/i[1]"));
-		sleep(1000);
-		clickWhenClickable(By.xpath(
-				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		clickWhenClickable(By.xpath("//a[normalize-space()='External Source']"));
 		sleep(2000);
-		waitAndSendKeys(By.xpath("//input[@id='Patient_PatientIntakeForm_CellNumber']"), "1234567890");
-		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
-
-	}
-
-	@Then("the user should not be able to edit or delete generate new access code")
-	public void userShouldNotBeAbleToEditOrDeleteGenerateNewAccessCode() {
+		clickWhenClickable(By.xpath("//tbody/tr/td[7]/div[1]/div[1]/button[1]/i[1]"));
 		sleep(3000);
-		clickWhenClickable(By.xpath("//a[normalize-space()='Patient Intake Forms']"));
-		sleep(1000);
-		clickWhenClickable(By.xpath(
-				"//body[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[6]/div[2]/table[1]/tbody[1]/tr[1]/td[10]/div[1]/div[1]/button[1]/i[1]"));
-		sleep(1000);
-		clickWhenClickable(By.xpath(
-				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
-		sleep(2000);
-		waitAndSendKeys(By.xpath("//input[@id='Patient_PatientIntakeForm_CellNumber']"), "1234567890");
-		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+		assertElementNotPresent(By.xpath("//a[@id='btnDeleteEHR']//span[contains(text(),'Delete')]"));
 
 	}
 
 	@Then("the user should not be able to add generate new access code")
 	public void userShouldNotBeAbleToAddGenerateNewAccessCode() {
 		sleep(3000);
-		clickWhenClickable(By.xpath("//a[normalize-space()='Patient Intake Forms']"));
-		sleep(1000);
-		clickWhenClickable(By.xpath(
-				"//body[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[6]/div[2]/table[1]/tbody[1]/tr[1]/td[10]/div[1]/div[1]/button[1]/i[1]"));
-		sleep(1000);
-		clickWhenClickable(By.xpath(
-				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		driver.get(baseUrl + "/Patient/Home/Patients");
+		wait.until(ExpectedConditions.urlContains("/Patient/Home/Patients"));
+		clickWhenClickable(By.xpath("(//a[@class='gridLinkButton'])[1]"));
 		sleep(2000);
-		waitAndSendKeys(By.xpath("//input[@id='Patient_PatientIntakeForm_CellNumber']"), "1234567890");
-		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+		clickWhenClickable(By.xpath("//a[@class='active'][normalize-space()='Access Code']"));
+		sleep(2000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Generate Access Code']"));
 
 	}
 
 	@Then("the user should not be able to use Quick Text, Reply, or Send VCard")
 	public void userShouldNotBeAbleToUseQuickTextReplyOrSendVCard() {
 		sleep(3000);
-		clickWhenClickable(By.xpath("//a[normalize-space()='Patient Intake Forms']"));
-		sleep(1000);
-		clickWhenClickable(By.xpath(
-				"//body[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[6]/div[2]/table[1]/tbody[1]/tr[1]/td[10]/div[1]/div[1]/button[1]/i[1]"));
-		sleep(1000);
-		clickWhenClickable(By.xpath(
-				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		driver.get(baseUrl + "/Patient/Home/Patients");
+		wait.until(ExpectedConditions.urlContains("/Patient/Home/Patients"));
+		clickWhenClickable(By.xpath("(//a[@class='gridLinkButton'])[1]"));
 		sleep(2000);
-		waitAndSendKeys(By.xpath("//input[@id='Patient_PatientIntakeForm_CellNumber']"), "1234567890");
-		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+		clickWhenClickable(By.xpath("//a[@id='btnTextViewPatient']//*[name()='svg']"));
+		sleep(2000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Quick Text']"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Send VCard']"));
 
 	}
 
 	@Then("the user should not be able to Reply or Send VCard")
 	public void userShouldNotBeAbleToReplyOrSendVCard() {
 		sleep(3000);
-		clickWhenClickable(By.xpath("//a[normalize-space()='Patient Intake Forms']"));
-		sleep(1000);
-		clickWhenClickable(By.xpath(
-				"//body[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[6]/div[2]/table[1]/tbody[1]/tr[1]/td[10]/div[1]/div[1]/button[1]/i[1]"));
-		sleep(1000);
-		clickWhenClickable(By.xpath(
-				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		driver.get(baseUrl + "/Patient/Home/Patients");
+		wait.until(ExpectedConditions.urlContains("/Patient/Home/Patients"));
+		clickWhenClickable(By.xpath("(//a[@class='gridLinkButton'])[1]"));
 		sleep(2000);
-		waitAndSendKeys(By.xpath("//input[@id='Patient_PatientIntakeForm_CellNumber']"), "1234567890");
-		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+		clickWhenClickable(By.xpath("//a[@id='btnTextViewPatient']//*[name()='svg']"));
+		sleep(2000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Send VCard']"));
 
 	}
 
 	@Then("the user should not be able to Send VCard")
 	public void userShouldNotBeAbleToSendVCard() {
 		sleep(3000);
-		clickWhenClickable(By.xpath("//a[normalize-space()='Patient Intake Forms']"));
-		sleep(1000);
-		clickWhenClickable(By.xpath(
-				"//body[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[6]/div[2]/table[1]/tbody[1]/tr[1]/td[10]/div[1]/div[1]/button[1]/i[1]"));
-		sleep(1000);
-		clickWhenClickable(By.xpath(
-				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
-		sleep(2000);
-		waitAndSendKeys(By.xpath("//input[@id='Patient_PatientIntakeForm_CellNumber']"), "1234567890");
-		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Send VCard']"));
 
 	}
 
 	@Then("the user should not be able to edit or delete caregiver name")
 	public void userShouldNotBeAbleToEditOrDeleteCaregiverName() {
-		sleep(3000);
-		clickWhenClickable(By.xpath("//a[normalize-space()='Patient Intake Forms']"));
-		sleep(1000);
-		clickWhenClickable(By.xpath(
-				"//body[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[6]/div[2]/table[1]/tbody[1]/tr[1]/td[10]/div[1]/div[1]/button[1]/i[1]"));
-		sleep(1000);
-		clickWhenClickable(By.xpath(
-				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
 		sleep(2000);
-		waitAndSendKeys(By.xpath("//input[@id='Patient_PatientIntakeForm_CellNumber']"), "1234567890");
-		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+		clickWhenClickable(By.xpath("//a[@id='btnEditPatient']//*[name()='svg']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']"));
+		sleep(2000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Edit']"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Delete']"));
 
 	}
 
 	@Then("the user should not be able to delete caregiver name")
 	public void userShouldNotBeAbleToDeleteCaregiverName() {
-		sleep(3000);
-		clickWhenClickable(By.xpath("//a[normalize-space()='Patient Intake Forms']"));
-		sleep(1000);
-		clickWhenClickable(By.xpath(
-				"//body[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[6]/div[2]/table[1]/tbody[1]/tr[1]/td[10]/div[1]/div[1]/button[1]/i[1]"));
-		sleep(1000);
-		clickWhenClickable(By.xpath(
-				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
 		sleep(2000);
-		waitAndSendKeys(By.xpath("//input[@id='Patient_PatientIntakeForm_CellNumber']"), "1234567890");
-		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+		clickWhenClickable(By.xpath("//a[@id='btnEditPatient']//*[name()='svg']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']"));
+		sleep(2000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Delete']"));
 
 	}
 
@@ -8411,48 +8245,14 @@ public class UserManagementSteps {
 	@Then("the user should not be able to Reply, Add To Patient, or Send VCard")
 	public void userShouldNotBeAbleToReplyAddToPatientOrSendVCard() {
 		sleep(3000);
-		clickWhenClickable(By.xpath("//a[normalize-space()='Patient Intake Forms']"));
-		sleep(1000);
-		clickWhenClickable(By.xpath(
-				"//body[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[6]/div[2]/table[1]/tbody[1]/tr[1]/td[10]/div[1]/div[1]/button[1]/i[1]"));
-		sleep(1000);
-		clickWhenClickable(By.xpath(
-				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
-		sleep(2000);
-		waitAndSendKeys(By.xpath("//input[@id='Patient_PatientIntakeForm_CellNumber']"), "1234567890");
-		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Send VCard']"));
 
 	}
 
 	@Then("the user should not be able to Add To Patient or Send VCard")
 	public void userShouldNotBeAbleToAddToPatientOrSendVCard() {
 		sleep(3000);
-		clickWhenClickable(By.xpath("//a[normalize-space()='Patient Intake Forms']"));
-		sleep(1000);
-		clickWhenClickable(By.xpath(
-				"//body[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[6]/div[2]/table[1]/tbody[1]/tr[1]/td[10]/div[1]/div[1]/button[1]/i[1]"));
-		sleep(1000);
-		clickWhenClickable(By.xpath(
-				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
-		sleep(2000);
-		waitAndSendKeys(By.xpath("//input[@id='Patient_PatientIntakeForm_CellNumber']"), "1234567890");
-		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
-
-	}
-
-	@Then("the user should see an access denied message or restriction")
-	public void userShouldSeeAccessDeniedMessageOrRestriction() {
-		sleep(3000);
-		clickWhenClickable(By.xpath("//a[normalize-space()='Patient Intake Forms']"));
-		sleep(1000);
-		clickWhenClickable(By.xpath(
-				"//body[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[6]/div[2]/table[1]/tbody[1]/tr[1]/td[10]/div[1]/div[1]/button[1]/i[1]"));
-		sleep(1000);
-		clickWhenClickable(By.xpath(
-				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
-		sleep(2000);
-		waitAndSendKeys(By.xpath("//input[@id='Patient_PatientIntakeForm_CellNumber']"), "1234567890");
-		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Send VCard']"));
 
 	}
 

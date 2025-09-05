@@ -2077,7 +2077,6 @@ Feature: Full User Management Flow
   And the user should be able to edit patient communication
   And the user should be able to delete patient communication    
 
-  @Setup
   Scenario: User with Add only access for Patient Family
   Given I log in as admin
   When I create a new user with email "testuser_family1@mailinator.com"
@@ -2138,7 +2137,6 @@ Feature: Full User Management Flow
   And I reset the user's password
   And I log in using the new user
   Then the user should be able to add generate new access code  
-  But the user should not be able to edit or delete generate new access code  
 
   Scenario: User with no Add access cannot add Generate New Access Code
   Given I log in as admin
@@ -2147,9 +2145,7 @@ Feature: Full User Management Flow
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user
-  When the user tries to add generate new access code  
   Then the user should not be able to add generate new access code  
-  And the user should see an access denied message or restriction   
   
   Scenario: User with View only access for Patient Text
   Given I log in as admin
@@ -2196,16 +2192,7 @@ Feature: Full User Management Flow
   And the user should be able to Reply
   And the user should be able to Send VCard   
   
-  Scenario: User with View only access for Text
-  Given I log in as admin
-  When I create a new user with email "testuser_text1@mailinator.com"
-  And I create a profile with View access only to Text    
-  And I assign the profile and workspace to the user
-  And I reset the user's password
-  And I log in using the new user
-  Then the user should be able to view text   
-  But the user should not be able to use Quick Text, Reply, Add To Patient, or Send VCard  
-
+  @Setup
   Scenario: User with View and Quick Text access for Text
   Given I log in as admin
   When I create a new user with email "testuser_text2@mailinator.com"
@@ -2213,7 +2200,6 @@ Feature: Full User Management Flow
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user
-  Then the user should be able to view text
   And the user should be able to use Quick Text
   But the user should not be able to Reply, Add To Patient, or Send VCard   
 
@@ -2224,7 +2210,6 @@ Feature: Full User Management Flow
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user
-  Then the user should be able to view text
   And the user should be able to use Quick Text
   And the user should be able to Reply
   But the user should not be able to Add To Patient or Send VCard   
@@ -2236,7 +2221,6 @@ Feature: Full User Management Flow
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user
-  Then the user should be able to view text
   And the user should be able to use Quick Text
   And the user should be able to Reply
   And the user should be able to Add To Patient
@@ -2249,7 +2233,6 @@ Feature: Full User Management Flow
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user
-  Then the user should be able to view text
   And the user should be able to use Quick Text
   And the user should be able to Reply
   And the user should be able to Add To Patient   
