@@ -2375,7 +2375,6 @@ Feature: Full User Management Flow
   Then the user should be able to add patient appointment   
   But the user should not be able to edit or delete patient appointment  
 
-  @Patient
   Scenario: User with Add and Edit access for Patient Appointment
   Given I log in as admin
   When I create a new user with email "testuser8_static@mailinator.com"
@@ -2387,7 +2386,6 @@ Feature: Full User Management Flow
   And the user should be able to edit patient appointment    
   But the user should not be able to delete patient appointment   
 
-  @Patient
   Scenario: User with Add, Edit, and Delete access for Patient Appointment
   Given I log in as admin
   When I create a new user with email "testuser9_static@mailinator.com"
@@ -2399,7 +2397,110 @@ Feature: Full User Management Flow
   And the user should be able to edit patient appointment
   And the user should be able to delete patient appointment   
 
- 
+  Scenario: User with View only access for Patient Medication ColorCode Setting
+  Given I log in as admin
+  When I create a new user with email "testuser9_static@mailinator.com"
+  And I create a profile with View access only to Patient Medication ColorCode Setting 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view color codes 
+  But the user should not be able to add, edit, or delete color codes 
+
+  Scenario: User with View and Add access for Patient Medication ColorCode Setting
+  Given I log in as admin
+  When I create a new user with email "testuser9_static@mailinator.com"
+  And I create a profile with View and Add access to Patient Medication ColorCode Setting  
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view color codes
+  And the user should be able to add a color code 
+  But the user should not be able to edit or delete color codes   
+
+  Scenario: User with View, Add, and Edit access for Patient Medication ColorCode Setting
+  Given I log in as admin
+  When I create a new user with email "testuser9_static@mailinator.com"
+  And I create a profile with View, Add, and Edit access to Patient Medication ColorCode Setting 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view color codes
+  And the user should be able to add a color code
+  And the user should be able to edit a color code  
+  But the user should not be able to delete color codes 
+
+  Scenario: User with full access for Patient Medication ColorCode Setting
+  Given I log in as admin
+  When I create a new user with email "testuser9_static@mailinator.com"
+  And I create a profile with View, Add, Edit, and Delete access to Patient Medication ColorCode Setting   
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view color codes
+  And the user should be able to add a color code
+  And the user should be able to edit a color code
+  And the user should be able to delete a color code  
+  
+  @Patient
+  Scenario: Create user with Consent Settings access and check permissions
+  Given I log in as admin
+  When I create a new user with email "testuser9_static@mailinator.com"
+  And I create a profile with Consent Settings access 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view and manage Consent Settings  
+
+  Scenario: Create user without Consent Settings access and check restrictions
+  Given I log in as admin
+  When I create a new user with email "testuser9_static@mailinator.com"
+  And I create a profile without Consent Settings access 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should not have access to Consent Settings via UI or direct URL  
+
+  Scenario: Create user with Intake Form Settings access and check permissions
+  Given I log in as admin
+  When I create a new user with email "testuser9_static@mailinator.com"
+  And I create a profile with Intake Form Settings access    
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view and manage Intake Form Settings 
+
+  Scenario: Create user without Intake Form Settings access and check restrictions
+  Given I log in as admin
+  When I create a new user with email "testuser9_static@mailinator.com"
+  And I create a profile without Intake Form Settings access 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should not have access to Intake Form Settings via UI or direct URL  
+  
+  Scenario: User with View only access for Outgoing Call
+  Given I log in as admin
+  When I create a new user with email "testuser19_static@mailinator.com"
+  And I create a profile with View access only to Outgoing Call 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view outgoing calls 
+  But the user should not be able to access call records  
+
+  Scenario: User with View and Call Record access for Outgoing Call
+  Given I log in as admin
+  When I create a new user with email "testuser20_static@mailinator.com"
+  And I create a profile with View and Call Record access to Outgoing Call  
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view outgoing calls
+  And the user should be able to access call records
+
+
+
   
   
 

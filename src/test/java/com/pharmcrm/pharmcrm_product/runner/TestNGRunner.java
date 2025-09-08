@@ -6,7 +6,7 @@ import org.testng.annotations.DataProvider;
 
 @CucumberOptions(features = "src/test/resources/Features/UserManagement.feature", glue = "com.pharmcrm.pharmcrm_product.steps", plugin = {
 		"pretty", "html:target/cucumber-report.html",
-		"json:target/cucumber.json" }, monochrome = true, tags = "@Patient")
+		"json:target/cucumber.json" }, monochrome = true, tags = "@Delete")
 public class TestNGRunner extends AbstractTestNGCucumberTests {
 
 	@Override

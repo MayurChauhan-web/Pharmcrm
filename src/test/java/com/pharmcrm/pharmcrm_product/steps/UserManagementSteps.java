@@ -5149,6 +5149,271 @@ public class UserManagementSteps {
 		clickWhenClickable(By.id("btnSave"));
 	}
 
+	@And("I create a profile with View access only to Patient Medication ColorCode Setting")
+	public void verifyPatientMedicationColorCodeSettingViewOnlyAccess() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Patient Module']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg43PatientMedicationColorCodeSettingAdd']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg43PatientMedicationColorCodeSettingEdit']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg43PatientMedicationColorCodeSettingDelete']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Add access to Patient Medication ColorCode Setting")
+	public void verifyPatientMedicationColorCodeSettingViewAndAddAccess() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Patient Module']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg43PatientMedicationColorCodeSettingEdit']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg43PatientMedicationColorCodeSettingDelete']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View, Add, and Edit access to Patient Medication ColorCode Setting")
+	public void verifyPatientMedicationColorCodeSettingViewAddEditAccess() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Patient Module']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg43PatientMedicationColorCodeSettingDelete']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View, Add, Edit, and Delete access to Patient Medication ColorCode Setting")
+	public void verifyPatientMedicationColorCodeSettingViewAddEditDeleteAccess() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Patient Module']"));
+		sleep(3000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with Consent Settings access")
+	public void createUserWithConsentSettingsAccess() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Patient Module']"));
+		sleep(3000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile without Consent Settings access")
+	public void createUserWithoutConsentSettingsAccess() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Patient Module']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg10PatientConsentSetting']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with Intake Form Settings access")
+	public void createUserWithIntakeFormSettingsAccess() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Patient Module']"));
+		sleep(3000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile without Intake Form Settings access")
+	public void createUserWithoutIntakeFormSettingsAccess() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Patient Module']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg10PatientIntakeFormSetting']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View access only to Outgoing Call")
+	public void createUserWithOutgoingCallViewAccess() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Patient Module']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg35OutgoingCallRecordingURL']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Call Record access to Outgoing Call")
+	public void createUserWithOutgoingCallViewAndRecordAccess() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Patient Module']"));
+		sleep(3000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
 	@And("I create a profile with Add and Edit access to Patient Appointment")
 	public void createProfileWithAddAndEditAccessToPatientAppointment() {
 		driver.get(baseUrl + "/Setup/Home/Profiles");
@@ -8480,6 +8745,74 @@ public class UserManagementSteps {
 
 	}
 
+	@Then("the user should be able to view color codes")
+	public void userShouldBeAbleToViewColorCodesInPatientMedicationColorCodeSetting() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/PatientMedicationColorCodeSettings");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/PatientMedicationColorCodeSettings"));
+
+	}
+
+	@Then("the user should be able to view and manage Consent Settings")
+	public void verifyUserCanViewAndManageConsentSettings() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/PatientSetting");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/PatientSetting"));
+
+	}
+
+	@Then("the user should be able to view and manage Intake Form Settings")
+	public void verifyUserCanViewAndManageIntakeFormSettings() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/IntakeFormNoticeSetting");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/IntakeFormNoticeSetting"));
+
+	}
+
+	@Then("the user should be able to view outgoing calls")
+	public void verifyUserCanViewOutgoingCalls() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/OutgoingCalls");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/OutgoingCalls"));
+
+	}
+
+	@Then("the user should be able to add a color code")
+	public void userShouldBeAbleToAddColorCodeInPatientMedicationColorCodeSetting() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/PatientMedicationColorCodeSettings");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/PatientMedicationColorCodeSettings"));
+		clickWhenClickable(By.xpath("//button[@id='btnSaveAppointment']"));
+		sleep(2000);
+		selectDropdownByIndexWhenReady(By.id("PatientMedicationColorCodeSetting_MedicationColorCodeType"), 1);
+		sleep(2000);
+		selectDropdownByIndexWhenReady(By.id("PatientMedicationColorCodeSetting_ColumnName"), 1);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='btnSaveMedicationColorCode']"));
+	}
+
+	@Then("the user should be able to edit a color code")
+	public void userShouldBeAbleToEditColorCodeInPatientMedicationColorCodeSetting() {
+		sleep(2000);
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='Edit']"));
+		selectDropdownByIndexWhenReady(By.id("PatientMedicationColorCodeSetting_MedicationColorCodeType"), 2);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='btnSaveMedicationColorCode']"));
+
+	}
+
+	@Then("the user should be able to delete a color code")
+	public void userShouldBeAbleToDeleteColorCodeInPatientMedicationColorCodeSetting() {
+		sleep(2000);
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='Delete']"));
+		clickWhenClickable(By.xpath("//button[@id='deleteMedicationColorCode']"));
+
+	}
+
 	@Then("the user should be able to delete patient appointment")
 	public void userShouldBeAbleToDeletePatientAppointment() {
 		sleep(2000);
@@ -8851,6 +9184,37 @@ public class UserManagementSteps {
 		clickWhenClickable(By.xpath("//tbody/tr/td[8]/div[1]/div[1]/div[1]/button[1]/i[1]"));
 		sleep(2000);
 		assertElementNotPresent(By.xpath("//a[@id='btnDeleteAppointment']//span[contains(text(),'Delete')]"));
+
+	}
+
+	@Then("the user should not be able to add, edit, or delete color codes")
+	public void userShouldNotBeAbleToAddEditOrDeleteColorCodesInPatientMedicationColorCodeSetting() {
+		sleep(2000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Patient Medication ColorCode Setting']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']"));
+		sleep(2000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Edit']"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Delete']"));
+
+	}
+
+	@Then("the user should not be able to edit or delete color codes")
+	public void userShouldNotBeAbleToEditOrDeleteColorCodesInPatientMedicationColorCodeSetting() {
+		sleep(2000);
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']"));
+		sleep(2000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Edit']"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Delete']"));
+
+	}
+
+	@Then("the user should not be able to delete color codes")
+	public void userShouldNotBeAbleToDeleteColorCodesInPatientMedicationColorCodeSetting() {
+		sleep(2000);
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']"));
+		sleep(2000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Delete']"));
 
 	}
 
@@ -11925,6 +12289,37 @@ public class UserManagementSteps {
 		} else {
 			System.out.println("No error. Page loaded successfully.");
 		}
+	}
+
+	@Then("the user should not have access to Consent Settings via UI or direct URL")
+	public void verifyUserCannotAccessConsentSettings() {
+		driver.get(baseUrl + "/Setup/Home/PatientSetting");
+		sleep(2000);
+		List<WebElement> errorHeaders = driver.findElements(By.xpath("//h2[normalize-space()='Error']"));
+		if (!errorHeaders.isEmpty()) {
+			System.out.println("Error: Don't have proper access to requested page");
+		} else {
+			System.out.println("No error. Page loaded successfully.");
+		}
+	}
+
+	@Then("the user should not have access to Intake Form Settings via UI or direct URL")
+	public void verifyUserCannotAccessIntakeFormSettings() {
+		driver.get(baseUrl + "/Setup/Home/IntakeFormNoticeSetting");
+		sleep(2000);
+		List<WebElement> errorHeaders = driver.findElements(By.xpath("//h2[normalize-space()='Error']"));
+		if (!errorHeaders.isEmpty()) {
+			System.out.println("Error: Don't have proper access to requested page");
+		} else {
+			System.out.println("No error. Page loaded successfully.");
+		}
+	}
+	
+	@Then("the user should not be able to access call records")
+	public void verifyUserCannotAccessCallRecords() {
+		sleep(2000);
+		driver.get(baseUrl + "/Setup/Home/CallActivities");
+		
 	}
 
 	@Then("the user should have no Central PA Setting access via UI or direct URL")
