@@ -1295,13 +1295,13 @@ Feature: Full User Management Flow
   And I log in using the new user
   Then the user should not be able to view General Audit View settings 
   
-  @Delete  
+  @Delete
   Scenario: User with Delete access can repeatedly delete user entries
   Given I log in as admin 
   And I navigate to the User page   
   When I repeatedly delete available user entries  
   
-  @Delete  
+  @Delete
   Scenario: User with Delete access can repeatedly delete profile entries
   Given I log in as admin 
   And I navigate to the Profile page  
@@ -2109,7 +2109,7 @@ Feature: Full User Management Flow
 
   Scenario: User with Add and Edit access for Patient External Source
   Given I log in as admin
-  When I create a new user with email "testuser1_static@mailinator.com"
+  When I create a new user with email "testuser2_static@mailinator.com"
   And I create a profile with Add and Edit access to Patient Module Patient External Source   
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -2120,7 +2120,7 @@ Feature: Full User Management Flow
 
   Scenario: User with Add, Edit, and Delete access for Patient External Source
   Given I log in as admin
-  When I create a new user with email "testuser1_static@mailinator.com"
+  When I create a new user with email "testuser3_static@mailinator.com"
   And I create a profile with Add, Edit, and Delete access to Patient Module Patient External Source  
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -2131,7 +2131,7 @@ Feature: Full User Management Flow
 
   Scenario: User with Add only access for Generate New Access Code
   Given I log in as admin
-  When I create a new user with email "testuser1_static@mailinator.com"
+  When I create a new user with email "testuser11_static@mailinator.com"
   And I create a profile with Add access only to Generate New Access Code  
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -2140,7 +2140,7 @@ Feature: Full User Management Flow
 
   Scenario: User with no Add access cannot add Generate New Access Code
   Given I log in as admin
-  When I create a new user with email "testuser1_static@mailinator.com"
+  When I create a new user with email "testuser12_static@mailinator.com"
   And I create a profile with no Add access to Generate New Access Code  
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -2149,17 +2149,17 @@ Feature: Full User Management Flow
   
   Scenario: User with View only access for Patient Text
   Given I log in as admin
-  When I create a new user with email "testuser1_static@mailinator.com"
+  When I create a new user with email "testuser5_static@mailinator.com"
   And I create a profile with View access only to Patient Text  
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user
   Then the user should be able to view patient text  
   But the user should not be able to use Quick Text, Reply, or Send VCard   
-
+  
   Scenario: User with View and Quick Text access for Patient Text
   Given I log in as admin
-  When I create a new user with email "testuser1_static@mailinator.com"
+  When I create a new user with email "testuser8_static@mailinator.com"
   And I create a profile with View and Quick Text access to Patient Text   
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -2170,7 +2170,7 @@ Feature: Full User Management Flow
 
   Scenario: User with View, Quick Text, and Reply access for Patient Text
   Given I log in as admin
-  When I create a new user with email "testuser1_static@mailinator.com"
+  When I create a new user with email "testuser9_static@mailinator.com"
   And I create a profile with View, Quick Text, and Reply access to Patient Text   
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -2182,7 +2182,7 @@ Feature: Full User Management Flow
 
   Scenario: User with full access for Patient Text
   Given I log in as admin
-  When I create a new user with email "testuser1_static@mailinator.com"
+  When I create a new user with email "testuser10_static@mailinator.com"
   And I create a profile with View, Quick Text, Reply, and Send VCard access to Patient Text  
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -2194,7 +2194,7 @@ Feature: Full User Management Flow
   
   Scenario: User with View and Quick Text access for Text
   Given I log in as admin
-  When I create a new user with email "testuser_text2@mailinator.com"
+  When I create a new user with email "testuser4_static@mailinator.com"
   And I create a profile with View and Quick Text access to Text   
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -2204,7 +2204,7 @@ Feature: Full User Management Flow
 
   Scenario: User with View, Quick Text, and Reply access for Text
   Given I log in as admin
-  When I create a new user with email "testuser_text3@mailinator.com"
+  When I create a new user with email "testuser5_static@mailinator.com"
   And I create a profile with View, Quick Text, and Reply access to Text  
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -2215,7 +2215,7 @@ Feature: Full User Management Flow
 
   Scenario: User with View, Quick Text, Reply, and Add To Patient access for Text
   Given I log in as admin
-  When I create a new user with email "testuser_text4@mailinator.com"
+  When I create a new user with email "testuser6_static@mailinator.com"
   And I create a profile with View, Quick Text, Reply, and Add To Patient access to Text                        
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -2227,7 +2227,7 @@ Feature: Full User Management Flow
 
   Scenario: User with full access for Text
   Given I log in as admin
-  When I create a new user with email "testuser_text5@mailinator.com"
+  When I create a new user with email "testuser7_static@mailinator.com"
   And I create a profile with View, Quick Text, Reply, Add To Patient, and Send VCard access to Text  
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -2237,7 +2237,6 @@ Feature: Full User Management Flow
   And the user should be able to Add To Patient   
   And the user should be able to Send VCard
   
-  @Patient
   Scenario: User with Add only access for CareGiver Name
   Given I log in as admin
   When I create a new user with email "testuser1_static@mailinator.com"
@@ -2248,7 +2247,6 @@ Feature: Full User Management Flow
   Then the user should be able to add caregiver name  
   But the user should not be able to edit or delete caregiver name 
 
-  @Patient
   Scenario: User with Add and Edit access for CareGiver Name
   Given I log in as admin
   When I create a new user with email "testuser2_static@mailinator.com"
@@ -2260,7 +2258,6 @@ Feature: Full User Management Flow
   And the user should be able to edit caregiver name   
   But the user should not be able to delete caregiver name  
 
-  @Patient
   Scenario: User with Add, Edit, and Delete access for CareGiver Name
   Given I log in as admin
   When I create a new user with email "testuser3_static@mailinator.com"
@@ -2271,6 +2268,140 @@ Feature: Full User Management Flow
   Then the user should be able to add caregiver name
   And the user should be able to edit caregiver name
   And the user should be able to delete caregiver name   
+
+  Scenario: User with Add only access for Medical Health Card
+  Given I log in as admin
+  When I create a new user with email "testuser1_static@mailinator.com"
+  And I create a profile with Add access only to Medical Health Card   
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to add medical health card   
+  But the user should not be able to edit or delete medical health card 
+
+  Scenario: User with Add and Edit access for Medical Health Card
+  Given I log in as admin
+  When I create a new user with email "testuser2_static@mailinator.com"
+  And I create a profile with Add and Edit access to Medical Health Card   
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to add medical health card
+  And the user should be able to edit medical health card    
+  But the user should not be able to delete medical health card   
+  
+  Scenario: User with Add, Edit, and Delete access for Medical Health Card
+  Given I log in as admin
+  When I create a new user with email "testuser3_static@mailinator.com"
+  And I create a profile with Add, Edit, and Delete access to Medical Health Card   
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to add medical health card
+  And the user should be able to edit medical health card
+  And the user should be able to delete medical health card   
+
+  Scenario: User with View only access for Feedback Form
+  Given I log in as admin
+  When I create a new user with email "testuser4_static@mailinator.com"
+  And I create a profile with View access only to Feedback Form  
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view feedback form   
+  But the user should not be able to add or delete feedback form 
+
+  Scenario: User with View and Add access for Feedback Form
+  Given I log in as admin
+  When I create a new user with email "testuser5_static@mailinator.com"
+  And I create a profile with View and Add access to Feedback Form
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view feedback form
+  And the user should be able to add feedback form    
+  Then the system should prevent the user from deleting the feedback form   
+
+  Scenario: User with View, Add, and Delete access for Feedback Form
+  Given I log in as admin
+  When I create a new user with email "testuser6_static@mailinator.com"
+  And I create a profile with View, Add, and Delete access to Feedback Form   
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view feedback form
+  And the user should be able to add feedback form
+  And the user should be able to delete feedback form   
+
+  Scenario: User with Add only access for Patient Vitals
+  Given I log in as admin
+  When I create a new user with email "testuser7_static@mailinator.com"
+  And I create a profile with Add access only to Patient Vitals  
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to add patient vitals     
+  But the user should not be able to edit or delete patient vitals  
+
+  Scenario: User with Add and Edit access for Patient Vitals
+  Given I log in as admin
+  When I create a new user with email "testuser8_static@mailinator.com"
+  And I create a profile with Add and Edit access to Patient Vitals  
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to add patient vitals
+  And the user should be able to edit patient vitals    
+  But the user should not be able to delete patient vitals   
+
+  Scenario: User with Add, Edit, and Delete access for Patient Vitals
+  Given I log in as admin
+  When I create a new user with email "testuser9_static@mailinator.com"
+  And I create a profile with Add, Edit, and Delete access to Patient Vitals   
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to add patient vitals
+  And the user should be able to edit patient vitals
+  And the user should be able to delete patient vitals    
+
+  Scenario: User with Add only access for Patient Appointment
+  Given I log in as admin
+  When I create a new user with email "testuser7_static@mailinator.com"
+  And I create a profile with Add access only to Patient Appointment   
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to add patient appointment   
+  But the user should not be able to edit or delete patient appointment  
+
+  @Patient
+  Scenario: User with Add and Edit access for Patient Appointment
+  Given I log in as admin
+  When I create a new user with email "testuser8_static@mailinator.com"
+  And I create a profile with Add and Edit access to Patient Appointment
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to add patient appointment
+  And the user should be able to edit patient appointment    
+  But the user should not be able to delete patient appointment   
+
+  @Patient
+  Scenario: User with Add, Edit, and Delete access for Patient Appointment
+  Given I log in as admin
+  When I create a new user with email "testuser9_static@mailinator.com"
+  And I create a profile with Add, Edit, and Delete access to Patient Appointment    
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to add patient appointment
+  And the user should be able to edit patient appointment
+  And the user should be able to delete patient appointment   
+
+ 
+  
+  
 
 
 

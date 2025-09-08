@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>1/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Fri Sep 05 17:34:50 IST 2025</td>
+<td>Started on:</td><td>Mon Sep 08 14:49:17 IST 2025</td>
 </tr>
-<tr><td>Total time:</td><td>33 seconds (33004 ms)</td>
+<tr><td>Total time:</td><td>164 seconds (164392 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -76,59 +76,18 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.pharmcrm.pharmcrm_product.runner.TestNGRunner.runScenario()'><b>runScenario</b><br>Test class: com.pharmcrm.pharmcrm_product.runner.TestNGRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "User with Delete access can repeatedly delete profile entries", "Full User Management Flow"</td>
-<td><div><pre>org.openqa.selenium.NoSuchSessionException: invalid session id: session deleted as the browser has closed the connection
-from disconnected: unable to send message to renderer
-  (Session info: chrome=139.0.7258.157)
-Build info: version: &apos;4.34.0&apos;, revision: &apos;707dcb4246*&apos;
-System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.12&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [d073e1ac0ee3f30f90f2c1d1991ceeeb, findElement {value=//tbody/tr[1]/td[8]/div[1]/div[1]/button[1]/i[1], using=xpath}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 139.0.7258.157, chrome: {chromedriverVersion: 139.0.7258.154 (9e0d6b2b47f..., userDataDir: C:\Users\MAYURC~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59842}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59842/devtoo..., se:cdpVersion: 139.0.7258.157, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: d073e1ac0ee3f30f90f2c1d1991ceeeb
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:544)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:367)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:361)
-	at com.pharmcrm.pharmcrm_product.steps.UserManagementSteps.repeatedlyDeleteAvailableProfileEntries(UserManagementSteps.java:10632)
-	at ✽.I repeatedly delete available profile entries(file:///C:/Users/MayurChauhan/eclipse-workspace/pharmcrm-product/src/test/resources/Features/UserManagement.feature:1308)
-... Removed 5 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace185114844", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace185114844'><pre>org.openqa.selenium.NoSuchSessionException: invalid session id: session deleted as the browser has closed the connection
-from disconnected: unable to send message to renderer
-  (Session info: chrome=139.0.7258.157)
-Build info: version: &apos;4.34.0&apos;, revision: &apos;707dcb4246*&apos;
-System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.12&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [d073e1ac0ee3f30f90f2c1d1991ceeeb, findElement {value=//tbody/tr[1]/td[8]/div[1]/div[1]/button[1]/i[1], using=xpath}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 139.0.7258.157, chrome: {chromedriverVersion: 139.0.7258.154 (9e0d6b2b47f..., userDataDir: C:\Users\MAYURC~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59842}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59842/devtoo..., se:cdpVersion: 139.0.7258.157, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: d073e1ac0ee3f30f90f2c1d1991ceeeb
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:544)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:367)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:361)
-	at com.pharmcrm.pharmcrm_product.steps.UserManagementSteps.repeatedlyDeleteAvailableProfileEntries(UserManagementSteps.java:10632)
-	at ✽.I repeatedly delete available profile entries(file:///C:/Users/MayurChauhan/eclipse-workspace/pharmcrm-product/src/test/resources/Features/UserManagement.feature:1308)
+<td title='com.pharmcrm.pharmcrm_product.runner.TestNGRunner.runScenario()'><b>runScenario</b><br>Test class: com.pharmcrm.pharmcrm_product.runner.TestNGRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "User with Add, Edit, and Delete access for Patient Appointment", "Full User Management Flow"</td>
+<td><div><pre>java.lang.AssertionError: Internet connection not available. Please check your connection.
+	at org.junit.Assert.fail(Assert.java:89)
+	at com.pharmcrm.pharmcrm_product.steps.UserManagementSteps.loginAsAdmin(UserManagementSteps.java:31)
+	at ✽.I log in as admin(file:///C:/Users/MayurChauhan/eclipse-workspace/pharmcrm-product/src/test/resources/Features/UserManagement.feature:2392)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1423330778", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1423330778'><pre>java.lang.AssertionError: Internet connection not available. Please check your connection.
+	at org.junit.Assert.fail(Assert.java:89)
+	at com.pharmcrm.pharmcrm_product.steps.UserManagementSteps.loginAsAdmin(UserManagementSteps.java:31)
+	at ✽.I log in as admin(file:///C:/Users/MayurChauhan/eclipse-workspace/pharmcrm-product/src/test/resources/Features/UserManagement.feature:2392)
 </pre></div></td>
-<td>32</td>
+<td>2</td>
 <td>com.pharmcrm.pharmcrm_product.runner.TestNGRunner@6d4e5011</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-passed'>
@@ -140,9 +99,9 @@ Session ID: d073e1ac0ee3f30f90f2c1d1991ceeeb
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.pharmcrm.pharmcrm_product.runner.TestNGRunner.runScenario()'><b>runScenario</b><br>Test class: com.pharmcrm.pharmcrm_product.runner.TestNGRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "User with Delete access can repeatedly delete user entries", "Full User Management Flow"</td>
+<td title='com.pharmcrm.pharmcrm_product.runner.TestNGRunner.runScenario()'><b>runScenario</b><br>Test class: com.pharmcrm.pharmcrm_product.runner.TestNGRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "User with Add and Edit access for Patient Appointment", "Full User Management Flow"</td>
 <td></td>
-<td>31</td>
+<td>163</td>
 <td>com.pharmcrm.pharmcrm_product.runner.TestNGRunner@6d4e5011</td></tr>
 </table><p>
 </body>

@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.InetAddress;
 import java.time.Duration;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -4855,6 +4856,326 @@ public class UserManagementSteps {
 		clickWhenClickable(By.id("btnSave"));
 	}
 
+	@And("I create a profile with Add access only to Medical Health Card")
+	public void createProfileWithAddAccessOnlyToMedicalHealthCard() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Patient Module']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg24MedicalHealthCardEdit']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg24MedicalHealthCardDelete']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with Add and Edit access to Medical Health Card")
+	public void createProfileWithAddAndEditAccessToMedicalHealthCard() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Patient Module']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg24MedicalHealthCardDelete']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with Add, Edit, and Delete access to Medical Health Card")
+	public void createProfileWithAddEditAndDeleteAccessToMedicalHealthCard() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Patient Module']"));
+		sleep(3000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View access only to Feedback Form")
+	public void createProfileWithViewAccessOnlyToFeedbackForm() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Patient Module']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg36PatientFeedbackFormAdd']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg36PatientFeedbackFormDelete']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Add access to Feedback Form")
+	public void createProfileWithViewAndAddAccessToFeedbackForm() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Patient Module']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg36PatientFeedbackFormDelete']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View, Add, and Delete access to Feedback Form")
+	public void createProfileWithViewAddAndDeleteAccessToFeedbackForm() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Patient Module']"));
+		sleep(3000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with Add access only to Patient Vitals")
+	public void createProfileWithAddAccessOnlyToPatientVitals() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Patient Module']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg46PatientVitalsEdit']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg46PatientVitalsDelete']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with Add and Edit access to Patient Vitals")
+	public void createProfileWithAddAndEditAccessToPatientVitals() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Patient Module']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg46PatientVitalsDelete']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with Add, Edit, and Delete access to Patient Vitals")
+	public void createProfileWithAddEditAndDeleteAccessToPatientVitals() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Patient Module']"));
+		sleep(3000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with Add access only to Patient Appointment")
+	public void createProfileWithAddAccessOnlyToPatientAppointment() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Patient Module']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg46PatientAppointmentEdit']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg46PatientAppointmentDelete']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with Add, Edit, and Delete access to Patient Appointment")
+	public void createProfileWithAddEditAndDeleteAccessToPatientAppointment() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Patient Module']"));
+		sleep(3000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with Add and Edit access to Patient Appointment")
+	public void createProfileWithAddAndEditAccessToPatientAppointment() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Patient Module']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg46PatientAppointmentDelete']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
 	@And("I create a profile with Add, Edit, and Delete access to Patient Module Patient Physician")
 	public void createProfileWithAddEditAndDeleteAccessForPatientPhysician() {
 		driver.get(baseUrl + "/Setup/Home/Profiles");
@@ -8012,6 +8333,165 @@ public class UserManagementSteps {
 
 	}
 
+	@Then("the user should be able to add medical health card")
+	public void userShouldBeAbleToAddMedicalHealthCard() {
+		sleep(3000);
+		driver.get(baseUrl + "/Patient/Home/Patients");
+		wait.until(ExpectedConditions.urlContains("/Patient/Home/Patients"));
+		clickWhenClickable(By.xpath("(//a[@class='gridLinkButton'])[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='Medical Health Card']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='Add Medical Health Card']"));
+		sleep(2000);
+		waitAndSendKeys(By.xpath("//input[@id='PatientMedicalHealthCard_HealthPlanName']"), "UnitedHealthcare");
+		waitAndSendKeys(By.xpath("//input[@id='PatientMedicalHealthCard_PlanNumber']"), "UH987654321");
+		waitAndSendKeys(By.xpath("//input[@id='PatientMedicalHealthCard_PlanCardHolder']"), "Jane Smith");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//button[@id='btnSaveMedicalHealthCard']"));
+
+	}
+
+	@Then("the user should be able to view feedback form")
+	public void userShouldBeAbleToViewFeedbackForm() {
+		sleep(3000);
+		driver.get(baseUrl + "/Patient/Home/Patients");
+		wait.until(ExpectedConditions.urlContains("/Patient/Home/Patients"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//tbody/tr/td[4]/div[1]/div[1]/button[1]/i[1]"));
+		sleep(1000);
+		assertElementPresent(By.xpath("//span[normalize-space()='View']"));
+		clickWhenClickable(By.xpath("//span[normalize-space()='View']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@onclick='return CloseFeedbackFormPopup()']//i[@class='fa fa-times']"));
+
+	}
+
+	@Then("the user should be able to add feedback form")
+	public void userShouldBeAbleToAddFeedbackForm() {
+		sleep(3000);
+		driver.get(baseUrl + "/Patient/Home/Patients");
+		wait.until(ExpectedConditions.urlContains("/Patient/Home/Patients"));
+		clickWhenClickable(By.xpath("(//a[@class='gridLinkButton'])[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='Feedback Form']"));
+		sleep(1000);
+		selectDropdownByIndexWhenReady(By.id("FeedbackForm_Id"), 3);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Text']"));
+		clickWhenClickable(By.xpath("//label[normalize-space()='Email']"));
+		clickWhenClickable(By.xpath("//button[@id='btnFeedbackFollowUpQueueStatus']"));
+
+	}
+
+	@Then("the user should be able to add patient vitals")
+	public void userCanAddPatientVitals() {
+		sleep(3000);
+		driver.get(baseUrl + "/Patient/Home/Patients");
+		wait.until(ExpectedConditions.urlContains("/Patient/Home/Patients"));
+		clickWhenClickable(By.xpath("(//a[@class='gridLinkButton'])[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='Vitals']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='Add Vitals']"));
+		sleep(2000);
+		waitAndSendKeys(By.xpath("//input[@id='PatientVital_BP']"), "110");
+		clickWhenClickable(By.xpath("//button[@id='btnSaveVital']"));
+
+	}
+
+	@Then("the user should be able to add patient appointment")
+	public void userShouldBeAbleToAddPatientAppointment() {
+		sleep(3000);
+		driver.get(baseUrl + "/Patient/Home/Patients");
+		wait.until(ExpectedConditions.urlContains("/Patient/Home/Patients"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("(//a[@class='gridLinkButton'])[1]"));
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[normalize-space()='Upcoming Appointment']")));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='Upcoming Appointment']"));
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[normalize-space()='New Appointment']")));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Appointment']"));
+		sleep(2000);
+		WebElement appointmentDateInput = driver.findElement(By.id("PatientAppointment_AppointmentDate"));
+		appointmentDateInput.click();
+		sleep(1000);
+		LocalDate today = LocalDate.now();
+		int day = today.getDayOfMonth();
+		int year = today.getYear();
+		sleep(1000);
+		String month = today.getMonth().name().substring(0, 1).toUpperCase()
+				+ today.getMonth().name().substring(1, 3).toLowerCase();
+
+		WebDriverWait waitDate = new WebDriverWait(driver, Duration.ofSeconds(10));
+		sleep(1000);
+		WebElement yearDropdown = waitDate.until(ExpectedConditions
+				.visibilityOfElementLocated(By.xpath("//select[contains(@class,'ui-datepicker-year')]")));
+		Select yearSelect = new Select(yearDropdown);
+		yearSelect.selectByVisibleText(String.valueOf(year));
+		sleep(1000);
+		WebElement monthDropdown = waitDate.until(ExpectedConditions
+				.visibilityOfElementLocated(By.xpath("//select[contains(@class,'ui-datepicker-month')]")));
+		Select monthSelect = new Select(monthDropdown);
+		monthSelect.selectByVisibleText(month);
+		sleep(1000);
+		WebElement dateToSelect = waitDate.until(ExpectedConditions.elementToBeClickable(
+				By.xpath("//td[not(contains(@class,'ui-datepicker-other-month'))]/a[text()='" + day + "']")));
+		dateToSelect.click();
+		sleep(1000);
+		WebElement startTimeInput = driver.findElement(By.xpath("//input[@id='startTime']"));
+		startTimeInput.click();
+		sleep(1000);
+		WebElement startHour = waitDate.until(ExpectedConditions.elementToBeClickable(By.xpath(
+				"//td[@class='ui-timepicker-hour-cell' and @data-timepicker-instance-id='#startTime' and @data-hour='10']")));
+		startHour.click();
+		sleep(1000);
+		WebElement startMinute = waitDate.until(ExpectedConditions.elementToBeClickable(By.xpath(
+				"//td[@class='ui-timepicker-minute-cell' and @data-timepicker-instance-id='#startTime' and @data-minute='30']")));
+		startMinute.click();
+		sleep(1000);
+		WebElement endTimeInput = driver.findElement(By.xpath("//input[@id='endTime']"));
+		endTimeInput.click();
+		sleep(1000);
+		WebElement endHour = waitDate.until(ExpectedConditions.elementToBeClickable(By.xpath(
+				"//td[@class='ui-timepicker-hour-cell' and @data-timepicker-instance-id='#endTime' and @data-hour='23']")));
+		endHour.click();
+		sleep(1000);
+		WebElement endMinute = waitDate.until(ExpectedConditions.elementToBeClickable(By.xpath(
+				"//td[@class='ui-timepicker-minute-cell' and @data-timepicker-instance-id='#endTime' and @data-minute='30']")));
+		endMinute.click();
+		sleep(1000);
+		clickWhenClickable(By.xpath("//button[@id='btnSaveAppointment']"));
+	}
+
+	@Then("the user should be able to edit patient appointment")
+	public void userShouldBeAbleToEditPatientAppointment() {
+		sleep(2000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='Upcoming Appointment']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//tbody/tr/td[8]/div[1]/div[1]/div[1]/button[1]/i[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		sleep(2000);
+		waitAndSendKeys(By.xpath("//textarea[@id='PatientAppointment_Notes']"), "Note");
+		clickWhenClickable(By.xpath("//button[@id='btnSaveAppointment']"));
+
+	}
+
+	@Then("the user should be able to delete patient appointment")
+	public void userShouldBeAbleToDeletePatientAppointment() {
+		sleep(2000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='Upcoming Appointment']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//tbody/tr/td[8]/div[1]/div[1]/div[1]/button[1]/i[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//a[@id='btnDeleteAppointment']//span[contains(text(),'Delete')]"));
+		clickWhenClickable(By.xpath("//button[@id='btnDeleteAppointmentConfirm']"));
+
+	}
+
 	@Then("the user should be able to edit caregiver name")
 	public void userShouldBeAbleToEditCaregiverName() {
 		sleep(3000);
@@ -8030,6 +8510,68 @@ public class UserManagementSteps {
 		clickWhenClickable(By.xpath("//button[@id='btnSaveCareGiverNamePopup']"));
 		sleep(1000);
 		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+
+	}
+
+	@Then("the user should be able to edit patient vitals")
+	public void userShouldBeAbleToEditPatientVitals() {
+		sleep(2000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='Vitals']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//div[@class='gridRecordIconside']//i[@class='fa-solid fa-ellipsis-vertical']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//a[@title='Edit']//span[contains(text(),'Edit')]"));
+		sleep(2000);
+		waitAndSendKeys(By.xpath("//input[@id='PatientVital_Temprature']"), "110");
+		clickWhenClickable(By.xpath("//button[@id='btnSaveVital']"));
+
+	}
+
+	@Then("the user should be able to delete patient vitals")
+	public void userShouldBeAbleToDeletePatientVitals() {
+		sleep(2000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='Vitals']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//div[@class='gridRecordIconside']//i[@class='fa-solid fa-ellipsis-vertical']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//a[@id='btnDeleteVital']//span[contains(text(),'Delete')]"));
+		clickWhenClickable(By.xpath("//button[@id='btnDeleteVitalConfirm']"));
+
+	}
+
+	@Then("the user should be able to edit medical health card")
+	public void userShouldBeAbleToEditMedicalHealthCard() {
+		sleep(2000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='Medical Health Card']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//tbody/tr/td[8]/div[1]/div[1]/button[1]/i[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		clickWhenClickable(By.xpath("//div[@class='row']//div[@class='col-12 col-md-4 mt-4']//label[@id='chk2text']"));
+		clickWhenClickable(By.xpath("//button[@id='btnSaveMedicalHealthCard']"));
+
+	}
+
+	@Then("the user should be able to delete medical health card")
+	public void userShouldBeAbleToDeleteMedicalHealthCard() {
+		sleep(2000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='Medical Health Card']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//tbody/tr/td[8]/div[1]/div[1]/button[1]/i[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//a[@id='btnDeleteMedicalHealthCardConfirm']//span[contains(text(),'Delete')]"));
+		clickWhenClickable(By.xpath("//button[@id='deletepatientMedicalHealthCard']"));
+
+	}
+
+	@Then("the user should be able to delete feedback form")
+	public void checkUserCanDeleteFeedbackForm() {
+		sleep(2000);
+		clickWhenClickable(By.xpath("//tbody/tr/td[4]/div[1]/div[1]/button[1]/i[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//a[@id='btnDeletePatientFeedbackForm']//span[contains(text(),'Delete')]"));
+		clickWhenClickable(By.xpath("//button[@id='deletepatientFeedbackForm']"));
 
 	}
 
@@ -8228,6 +8770,99 @@ public class UserManagementSteps {
 
 	}
 
+	@Then("the user should not be able to edit or delete medical health card")
+	public void userShouldNotBeAbleToEditOrDeleteMedicalHealthCard() {
+		sleep(2000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='Medical Health Card']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//tbody/tr/td[8]/div[1]/div[1]/button[1]/i[1]"));
+		sleep(2000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		assertElementNotPresent(
+				By.xpath("//a[@id='btnDeleteMedicalHealthCardConfirm']//span[contains(text(),'Delete')]"));
+
+	}
+
+	@Then("the user should not be able to delete medical health card")
+	public void userShouldNotBeAbleToDeleteMedicalHealthCard() {
+		sleep(2000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='Medical Health Card']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//tbody/tr/td[8]/div[1]/div[1]/button[1]/i[1]"));
+		sleep(2000);
+		assertElementNotPresent(
+				By.xpath("//a[@id='btnDeleteMedicalHealthCardConfirm']//span[contains(text(),'Delete')]"));
+
+	}
+
+	@Then("the user should not be able to add or delete feedback form")
+	public void userShouldNotBeAbleToAddOrDeleteFeedbackForm() {
+		sleep(2000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Feedback Form']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//tbody/tr/td[4]/div[1]/div[1]/button[1]/i[1]"));
+		sleep(2000);
+		assertElementNotPresent(By.xpath("//a[@id='btnDeletePatientFeedbackForm']//span[contains(text(),'Delete')]"));
+
+	}
+
+	@Then("the user should not be able to edit or delete patient vitals")
+	public void verifyUserCannotEditOrDeletePatientVitals() {
+		sleep(2000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='Vitals']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//div[@class='gridRecordIconside']//i[@class='fa-solid fa-ellipsis-vertical']"));
+		sleep(2000);
+		assertElementNotPresent(By.xpath("//a[@title='Edit']//span[contains(text(),'Edit')]"));
+		assertElementNotPresent(By.xpath("//a[@id='btnDeleteVital']//span[contains(text(),'Delete')]"));
+
+	}
+
+	@Then("the user should not be able to delete patient vitals")
+	public void userShouldNotBeAbleToDeletePatientVitals() {
+		sleep(2000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='Vitals']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//div[@class='gridRecordIconside']//i[@class='fa-solid fa-ellipsis-vertical']"));
+		sleep(2000);
+		assertElementNotPresent(By.xpath("//a[@id='btnDeleteVital']//span[contains(text(),'Delete')]"));
+
+	}
+
+	@Then("the user should not be able to edit or delete patient appointment")
+	public void verifyUserCannotEditOrDeletePatientAppointment() {
+		sleep(2000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='Upcoming Appointment']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//tbody/tr/td[8]/div[1]/div[1]/div[1]/button[1]/i[1]"));
+		sleep(2000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		assertElementNotPresent(By.xpath("//a[@id='btnDeleteAppointment']//span[contains(text(),'Delete')]"));
+
+	}
+
+	@Then("the user should not be able to delete patient appointment")
+	public void userShouldNotBeAbleToDeletePatientAppointment() {
+		sleep(2000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='Upcoming Appointment']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//tbody/tr/td[8]/div[1]/div[1]/div[1]/button[1]/i[1]"));
+		sleep(2000);
+		assertElementNotPresent(By.xpath("//a[@id='btnDeleteAppointment']//span[contains(text(),'Delete')]"));
+
+	}
+
+	@Then("the system should prevent the user from deleting the feedback form")
+	public void checkUserCannotDeleteFeedbackForm() {
+		sleep(2000);
+		clickWhenClickable(By.xpath("//tbody/tr/td[4]/div[1]/div[1]/button[1]/i[1]"));
+		sleep(2000);
+		assertElementNotPresent(By.xpath("//a[@id='btnDeletePatientFeedbackForm']//span[contains(text(),'Delete')]"));
+
+	}
+
 	@Then("the user should not be able to use Quick Text, Reply, Add To Patient, or Send VCard")
 	public void userShouldNotBeAbleToUseQuickTextReplyAddToPatientOrSendVCard() {
 		sleep(3000);
@@ -8319,8 +8954,8 @@ public class UserManagementSteps {
 		sleep(3000);
 		clickWhenClickable(By.xpath("//a[normalize-space()='Meds On Chart']"));
 		sleep(2000);
-		clickWhenClickable(
-				By.xpath("//body[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[2]/table[1]/tbody[1]/tr[2]/td[10]/div[1]/div[1]/button[1]/i[1]"));
+		clickWhenClickable(By.xpath(
+				"//body[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[2]/table[1]/tbody[1]/tr[2]/td[10]/div[1]/div[1]/button[1]/i[1]"));
 		sleep(2000);
 		clickWhenClickable(By.xpath(
 				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
