@@ -5414,6 +5414,575 @@ public class UserManagementSteps {
 		clickWhenClickable(By.id("btnSave"));
 	}
 
+	@And("I create a profile with View access only to Drug Module General Audit View")
+	public void createProfileWithViewAccessForDrugGeneralAuditView() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Drug Module']"));
+		sleep(3000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with No access to Drug Module General Audit View")
+	public void createProfileWithNoAccessForDrugGeneralAuditView() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Drug Module']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg37DrugAuditView']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View access only to Drug")
+	public void createProfileWithViewAccessOnlyToDrug() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Drug Module']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg02DrugAll']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg02DrugView']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Add access to Drug")
+	public void createProfileWithViewAndAddAccessToDrug() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Drug Module']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg02DrugAll']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg02DrugView']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg02DrugAdd']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Edit access to Drug")
+	public void createProfileWithViewAndEditAccessToDrug() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Drug Module']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg02DrugAll']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg02DrugView']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg02DrugEdit']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Delete access to Drug")
+	public void createProfileWithViewAndDeleteAccessToDrug() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Drug Module']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg02DrugAll']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg02DrugView']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg02DrugDelete']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Upload Excel access to Drug")
+	public void createProfileWithViewAndUploadExcelAccessToDrug() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Drug Module']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg02DrugAll']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg02DrugView']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg28DrugsUploadExcel']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Export Excel access to Drug")
+	public void createProfileWithViewAndExportExcelAccessToDrug() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Drug Module']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg02DrugAll']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg02DrugView']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg28DrugsDownloadExcel']"));
+		sleep(3000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View access only to Star 1 Drug")
+	public void createProfileWithViewAccessOnlyToStar1Drug() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Drug Module']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg02Star1DrugEdit']"));
+		sleep(3000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Edit access to Star 1 Drug")
+	public void createProfileWithViewAndEditAccessToStar1Drug() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Drug Module']"));
+		sleep(3000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View access only to Star 2 Drug")
+	public void createProfileWithViewAccessOnlyToStar2Drug() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Drug Module']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg02Star2DrugEdit']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Edit access to Star 2 Drug")
+	public void createProfileWithViewAndEditAccessToStar2Drug() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Drug Module']"));
+		sleep(3000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View access only to Allergy")
+	public void createProfileWithViewAccessOnlyToAllergy() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Drug Module']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg02AllergyAll']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg02AllergyView']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Add access to Allergy")
+	public void createProfileWithViewAndAddAccessToAllergy() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Drug Module']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg02AllergyAll']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg02AllergyView']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg02AllergyAdd']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Edit access to Allergy")
+	public void createProfileWithViewAndEditAccessToAllergy() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Drug Module']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg02AllergyAll']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg02AllergyView']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg02AllergyEdit']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Delete access to Allergy")
+	public void createProfileWithViewAndDeleteAccessToAllergy() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Drug Module']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg02AllergyAll']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg02AllergyView']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg02AllergyDelete']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Download Template access to Allergy")
+	public void createProfileWithViewAndDownloadTemplateAccessToAllergy() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Drug Module']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg02AllergyAll']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg02AllergyView']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg29AllergiesDownloadTemplate']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Download Template access to Drug")
+	public void createProfileWithViewAndDownloadTemplateAccessToDrug() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Drug Module']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg02DrugAll']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg02DrugView']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg28DrugsDownloadTemplate']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Upload Excel access to Allergy")
+	public void createProfileWithViewAndUploadExcelAccessToAllergy() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Drug Module']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg02AllergyAll']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg02AllergyView']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg29AllergiesUploadExcel']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Export Excel access to Allergy")
+	public void createProfileWithViewAndExportExcelAccessToAllergy() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Drug Module']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg02AllergyAll']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg02AllergyView']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg29AllergiesDownloadExcel']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
 	@And("I create a profile with Add and Edit access to Patient Appointment")
 	public void createProfileWithAddAndEditAccessToPatientAppointment() {
 		driver.get(baseUrl + "/Setup/Home/Profiles");
@@ -8774,6 +9343,315 @@ public class UserManagementSteps {
 		sleep(3000);
 		driver.get(baseUrl + "/Setup/Home/OutgoingCalls");
 		wait.until(ExpectedConditions.urlContains("/Setup/Home/OutgoingCalls"));
+
+	}
+
+	@Then("the user should be able to view Drug General Audit View settings")
+	public void verifyUserCanViewDrugGeneralAuditViewSettings() {
+		sleep(3000);
+		driver.get(baseUrl + "/Drug/Home/Drugs");
+		wait.until(ExpectedConditions.urlContains("/Drug/Home/Drugs"));
+		assertElementPresent(By.xpath("//div[normalize-space()='Updated By']"));
+		assertElementPresent(By.xpath("//a[normalize-space()='Updated Date']"));
+
+	}
+
+	@Then("the user should be able to view Drug")
+	public void verifyUserCanViewDrug() {
+		sleep(3000);
+		driver.get(baseUrl + "/Drug/Home/Drugs");
+		wait.until(ExpectedConditions.urlContains("/Drug/Home/Drugs"));
+
+	}
+
+	@Then("the user should be able to view and add in Drug")
+	public void verifyUserCanViewAndAddDrug() {
+		sleep(3000);
+		driver.get(baseUrl + "/Drug/Home/Drugs");
+		wait.until(ExpectedConditions.urlContains("/Drug/Home/Drugs"));
+
+	}
+
+	@Then("the user should be able to view and edit in Drug")
+	public void verifyUserCanViewAndEditDrug() {
+		sleep(3000);
+		driver.get(baseUrl + "/Drug/Home/Drugs");
+		wait.until(ExpectedConditions.urlContains("/Drug/Home/Drugs"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/div[1]/a[1]/i[1]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		sleep(3000);
+		waitAndSendKeys(By.xpath("//input[@id='Drug_NDCPackageCode']"), "31133-2113-21");
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+
+	}
+
+	@Then("the user should be able to view and delete in Drug")
+	public void verifyUserCanViewAndDeleteDrug() {
+		sleep(3000);
+		driver.get(baseUrl + "/Drug/Home/Drugs");
+		wait.until(ExpectedConditions.urlContains("/Drug/Home/Drugs"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/div[1]/a[1]/i[1]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//div[@id='deleteDrugsModal']//button[@id='btnDeleteConfirm']"));
+
+	}
+
+	@Then("the user should be able to view and download template in Drug")
+	public void verifyUserCanViewAndDownloadTemplateDrug() {
+		sleep(3000);
+		driver.get(baseUrl + "/Drug/Home/Drugs");
+		wait.until(ExpectedConditions.urlContains("/Drug/Home/Drugs"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='Download Template']"));
+
+	}
+
+	@Then("the user should be able to view and upload excel in Drug")
+	public void verifyUserCanViewAndUploadExcelDrug() {
+		sleep(3000);
+		driver.get(baseUrl + "/Drug/Home/Drugs");
+		wait.until(ExpectedConditions.urlContains("/Drug/Home/Drugs"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='Upload Excel file']"));
+		WebElement uploadInput = driver.findElement(By.xpath("//input[@type='file']"));
+		String filePath = "C:\\Users\\MayurChauhan\\Downloads\\DrugTemplate.xlsx";
+		uploadInput.sendKeys(filePath);
+		sleep(3000);
+	}
+
+	@Then("the user should be able to view and export excel in Drug")
+	public void verifyUserCanViewAndExportExcelDrug() {
+		sleep(3000);
+		driver.get(baseUrl + "/Drug/Home/Drugs");
+		wait.until(ExpectedConditions.urlContains("/Drug/Home/Drugs"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='Export Excel']"));
+
+	}
+
+	@Then("the user should be able to view Star 1 Drug")
+	public void verifyUserCanViewStar1Drug() {
+		sleep(3000);
+		driver.get(baseUrl + "/Drug/Home/Star1Drugs");
+		wait.until(ExpectedConditions.urlContains("/Drug/Home/Star1Drugs"));
+
+	}
+
+	@Then("the user should be able to view and edit Star 1 Drug")
+	public void verifyUserCanViewAndEditStar1Drug() {
+		sleep(3000);
+		driver.get(baseUrl + "/Drug/Home/Star1Drugs");
+		wait.until(ExpectedConditions.urlContains("/Drug/Home/Star1Drugs"));
+		sleep(3000);
+		clickWhenClickable(By.xpath(
+				"//label[normalize-space(text())='ACCU-CHEK GUIDE STRP [65702-0711-10]']/preceding-sibling::input[@type='checkbox']"));
+		clickWhenClickable(By.xpath("//button[@id='select-one']//*[name()='svg']"));
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+
+	}
+
+	@Then("the user should be able to view Star 2 Drug")
+	public void verifyUserCanViewStar2Drug() {
+		sleep(3000);
+		driver.get(baseUrl + "/Drug/Home/Star2Drugs");
+		wait.until(ExpectedConditions.urlContains("/Drug/Home/Star2Drugs"));
+
+	}
+
+	@Then("the user should be able to view and edit Star 2 Drug")
+	public void verifyUserCanViewAndEditStar2Drug() {
+		sleep(3000);
+		driver.get(baseUrl + "/Drug/Home/Star2Drugs");
+		wait.until(ExpectedConditions.urlContains("/Drug/Home/Star2Drugs"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+
+	}
+
+	@Then("the user should be able to view Allergy")
+	public void verifyUserCanViewAllergy() {
+		sleep(3000);
+		driver.get(baseUrl + "/Drug/Home/Allergies");
+		wait.until(ExpectedConditions.urlContains("/Drug/Home/Allergies"));
+
+	}
+
+	@Then("the user should be able to view and add Allergy")
+	public void verifyUserCanViewAndAddAllergy() {
+		sleep(3000);
+		driver.get(baseUrl + "/Drug/Home/Allergies");
+		wait.until(ExpectedConditions.urlContains("/Drug/Home/Allergies"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='Add Allergy']"));
+		sleep(1000);
+		waitAndSendKeys(By.xpath("//input[@id='Allergy_Name']"), "Allergy");
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+
+	}
+
+	@Then("the user should be able to view and edit Allergy")
+	public void verifyUserCanViewAndEditAllergy() {
+		sleep(3000);
+		driver.get(baseUrl + "/Drug/Home/Allergies");
+		wait.until(ExpectedConditions.urlContains("/Drug/Home/Allergies"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[4]/div[1]/div[1]/button[1]/i[1]"));
+		sleep(1000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		sleep(1000);
+		waitAndSendKeys(By.xpath("//input[@id='Allergy_Name']"), "Allergy");
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+	}
+
+	@Then("the user should be able to view and delete Allergy")
+	public void verifyUserCanViewAndDeleteAllergy() {
+		sleep(3000);
+		driver.get(baseUrl + "/Drug/Home/Allergies");
+		wait.until(ExpectedConditions.urlContains("/Drug/Home/Allergies"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[4]/div[1]/div[1]/button[1]/i[1]"));
+		sleep(1000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//div[@id='genericmodal']//button[@id='btnDeleteConfirm']"));
+
+	}
+
+	@Then("the user should be able to view and upload excel in Allergy")
+	public void verifyUserCanViewAndUploadExcelAllergy() {
+		sleep(3000);
+		driver.get(baseUrl + "/Drug/Home/Allergies");
+		wait.until(ExpectedConditions.urlContains("/Drug/Home/Allergies"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='Upload Excel file']"));
+		WebElement uploadInput = driver.findElement(By.xpath("//input[@type='file']"));
+		String filePath = "C:\\Users\\MayurChauhan\\Downloads\\DrugTemplate.xlsx";
+		uploadInput.sendKeys(filePath);
+		sleep(3000);
+	}
+
+	@Then("the user should be able to view and export excel in Allergy")
+	public void verifyUserCanViewAndExportExcelAllergy() {
+		sleep(3000);
+		driver.get(baseUrl + "/Drug/Home/Allergies");
+		wait.until(ExpectedConditions.urlContains("/Drug/Home/Allergies"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='Export Excel']"));
+
+	}
+
+	@Then("the user should be able to view and download template in Allergy")
+	public void verifyUserCanViewAndDownloadTemplateAllergy() {
+		sleep(3000);
+		driver.get(baseUrl + "/Drug/Home/Allergies");
+		wait.until(ExpectedConditions.urlContains("/Drug/Home/Allergies"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='Download Template']"));
+
+	}
+
+	@Then("the user should not be able to add, delete, download template, upload excel, or export excel")
+	public void verifyUserCannotAddDeleteDownloadUploadExportDrug() {
+		sleep(2000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New Drug']"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Upload Excel file']"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Export Excel']"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Download Template']"));
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/div[1]/a[1]/i[1]"));
+		sleep(3000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+
+	}
+
+	@Then("the user should not be able to add, edit, download template, upload excel, or export excel")
+	public void verifyUserCannotAddEditDownloadUploadExportDrug() {
+		sleep(2000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New Drug']"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Upload Excel file']"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Export Excel']"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Download Template']"));
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/div[1]/a[1]/i[1]"));
+		sleep(3000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+
+	}
+
+	@Then("the user should not be able to add, edit, delete, upload excel, or export excel")
+	public void verifyUserCannotAddEditDeleteUploadExportDrug() {
+		sleep(2000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New Drug']"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Upload Excel file']"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Export Excel']"));
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/div[1]/a[1]/i[1]"));
+		sleep(3000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+
+	}
+
+	@Then("the user should not be able to add, edit, delete, download template, or export excel")
+	public void verifyUserCannotAddEditDeleteDownloadExportDrug() {
+		sleep(2000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New Drug']"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Export Excel']"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Download Template']"));
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/div[1]/a[1]/i[1]"));
+		sleep(3000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+
+	}
+
+	@Then("the user should not be able to add, edit, delete, download template, or upload excel")
+	public void verifyUserCannotAddEditDeleteDownloadUpload() {
+		sleep(2000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New Drug']"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Download Template']"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Upload Excel file']"));
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/div[1]/a[1]/i[1]"));
+		sleep(3000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+
+	}
+
+	@Then("the user should not be able to edit Star 1 Drug")
+	public void verifyUserCannotEditStar1Drug() {
+		sleep(3000);
+		assertElementNotPresent(By.xpath("//button[@id='btnSave']"));
+
+	}
+
+	@Then("the user should not be able to edit Star 2 Drug")
+	public void verifyUserCannotEditStar2Drug() {
+		sleep(3000);
+		assertElementNotPresent(By.xpath("//button[@id='btnSave']"));
+
+	}
+
+	@Then("the user should be able to access call records")
+	public void verifyUserCanAccessCallRecords() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/CallActivities");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/CallActivities"));
+		assertElementPresent(By.xpath("//div[@title='Recording URL']"));
 
 	}
 
@@ -12314,12 +13192,140 @@ public class UserManagementSteps {
 			System.out.println("No error. Page loaded successfully.");
 		}
 	}
-	
+
 	@Then("the user should not be able to access call records")
 	public void verifyUserCannotAccessCallRecords() {
 		sleep(2000);
 		driver.get(baseUrl + "/Setup/Home/CallActivities");
-		
+		sleep(2000);
+		assertElementNotPresent(By.xpath("//div[@title='Recording URL']"));
+	}
+
+	@Then("the user should not be able to view Drug General Audit View settings")
+	public void verifyUserCannotViewDrugGeneralAuditViewSettings() {
+		sleep(3000);
+		driver.get(baseUrl + "/Drug/Home/Drugs");
+		wait.until(ExpectedConditions.urlContains("/Drug/Home/Drugs"));
+		sleep(3000);
+		assertElementNotPresent(By.xpath("//div[normalize-space()='Updated By']"));
+		assertElementNotPresent(By.xpath("//a[normalize-space()='Updated Date']"));
+
+	}
+
+	@Then("the user should not be able to add, edit, delete, download template, upload excel, or export excel")
+	public void verifyUserCannotPerformAnyActionsOnDrug() {
+		sleep(2000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New Drug']"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Upload Excel file']"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Export Excel']"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Download Template']"));
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/div[1]/a[1]/i[1]"));
+		sleep(3000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+
+	}
+
+	@Then("the user should not be able to add, edit, delete, download template, upload excel, or export excel for Allergy")
+	public void verifyUserCannotAddEditDeleteDownloadUploadExportAllergy() {
+		sleep(2000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Add Allergy']"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Upload Excel file']"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Export Excel']"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Download Template']"));
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[4]/div[1]/div[1]/button[1]/i[1]"));
+		sleep(3000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+
+	}
+
+	@Then("the user should not be able to delete, download template, upload excel, or export excel for Allergy")
+	public void verifyUserCannotDeleteDownloadUploadExportAllergy() {
+		sleep(2000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Upload Excel file']"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Export Excel']"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Download Template']"));
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[4]/div[1]/div[1]/button[1]/i[1]"));
+		sleep(3000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+	}
+
+	@Then("the user should not be able to add, edit, download template, upload excel, or export excel for Allergy")
+	public void verifyUserCannotAddEditDownloadUploadExportAllergy() {
+		sleep(2000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Add Allergy']"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Upload Excel file']"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Export Excel']"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Download Template']"));
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[4]/div[1]/div[1]/button[1]/i[1]"));
+		sleep(3000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+
+	}
+
+	@Then("the user should not be able to add, edit, delete, upload excel, or export excel for Allergy")
+	public void verifyUserCannotAddEditDeleteUploadExportAllergy() {
+		sleep(2000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Add Allergy']"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Upload Excel file']"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Export Excel']"));
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[4]/div[1]/div[1]/button[1]/i[1]"));
+		sleep(3000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+
+	}
+
+	@Then("the user should not be able to add, edit, delete, download template, or upload excel for Allergy")
+	public void verifyUserCannotAddEditDeleteDownloadUploadAllergy() {
+		sleep(2000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Add Allergy']"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Upload Excel file']"));
+		assertElementNotPresent(By.xpath("//label[@for='chkg29AllergiesDownloadTemplate']"));
+		clickWhenClickable(
+				By.xpath("//div[@class='gridRecordContextMain show']//i[@class='fa-solid fa-ellipsis-vertical']"));
+		sleep(3000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+
+	}
+
+	@Then("the user should not be able to add, edit, delete, download template, or export excel for Allergy")
+	public void verifyUserCannotAddEditDeleteDownloadExportAllergy() {
+		sleep(2000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Add Allergy']"));
+		assertElementNotPresent(By.xpath("//label[@for='chkg29AllergiesDownloadTemplate']"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Export Excel']"));
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[4]/div[1]/div[1]/button[1]/i[1]"));
+		sleep(3000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+
+	}
+
+	@Then("the user should not be able to delete, download template, upload excel, or export excel")
+	public void verifyUserCannotDeleteDownloadUploadExportDrug() {
+		sleep(2000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Upload Excel file']"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Export Excel']"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Download Template']"));
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/div[1]/a[1]/i[1]"));
+		sleep(3000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
 	}
 
 	@Then("the user should have no Central PA Setting access via UI or direct URL")
