@@ -2526,30 +2526,29 @@ Feature: Full User Management Flow
   Then the user should be able to view Drug 
   And the user should not be able to add, edit, delete, download template, upload excel, or export excel 
 
-  @Drug
   Scenario: User with Add access for Drug
   Given I log in as admin
-  When I create a new user with email "testuser2_static@mailinator.com"
+  When I create a new user with email "testuser1_static@mailinator.com"
   And I create a profile with View and Add access to Drug 
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user
   Then the user should be able to view and add in Drug   
-  And the user should not be able to delete, download template, upload excel, or export excel   
+  And the user should not be able to delete, download template, upload excel, or export excel     
 
   Scenario: User with Edit access for Drug
   Given I log in as admin
-  When I create a new user with email "testuser1_static@mailinator.com"
+  When I create a new user with email "testuser2_static@mailinator.com"
   And I create a profile with View and Edit access to Drug  
   And I assign the profile and workspace to the user
   And I reset the user's password
   And I log in using the new user
   Then the user should be able to view and edit in Drug  
-  And the user should not be able to add, delete, download template, upload excel, or export excel 
+  And the user should not be able to delete, download template, upload excel, or export excel for Drug  
 
   Scenario: User with Delete access for Drug
   Given I log in as admin
-  When I create a new user with email "testuser1_static@mailinator.com"
+  When I create a new user with email "testuser3_static@mailinator.com"
   And I create a profile with View and Delete access to Drug 
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -2559,7 +2558,7 @@ Feature: Full User Management Flow
 
   Scenario: User with Download Template access for Drug
   Given I log in as admin
-  When I create a new user with email "testuser1_static@mailinator.com"
+  When I create a new user with email "testuser4_static@mailinator.com"
   And I create a profile with View and Download Template access to Drug     
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -2569,7 +2568,7 @@ Feature: Full User Management Flow
 
   Scenario: User with Upload Excel access for Drug
   Given I log in as admin
-  When I create a new user with email "testuser1_static@mailinator.com"
+  When I create a new user with email "testuser5_static@mailinator.com"
   And I create a profile with View and Upload Excel access to Drug  
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -2579,7 +2578,7 @@ Feature: Full User Management Flow
 
   Scenario: User with Export Excel access for Drug
   Given I log in as admin
-  When I create a new user with email "testuser1_static@mailinator.com"
+  When I create a new user with email "testuser6_static@mailinator.com"
   And I create a profile with View and Export Excel access to Drug 
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -2589,7 +2588,7 @@ Feature: Full User Management Flow
 
   Scenario: User with View only access for Star 1 Drug
   Given I log in as admin
-  When I create a new user with email "testuser1_static@mailinator.com"
+  When I create a new user with email "testuser7_static@mailinator.com"
   And I create a profile with View access only to Star 1 Drug   
   And I assign the profile and workspace to the user
   And I reset the user's password
@@ -2597,9 +2596,10 @@ Feature: Full User Management Flow
   Then the user should be able to view Star 1 Drug  
   And the user should not be able to edit Star 1 Drug 
 
+  @Drug
   Scenario: User with Edit access for Star 1 Drug
   Given I log in as admin
-  When I create a new user with email "testuser1_static@mailinator.com"
+  When I create a new user with email "testuser9_static@mailinator.com"
   And I create a profile with View and Edit access to Star 1 Drug 
   And I assign the profile and workspace to the user
   And I reset the user's password

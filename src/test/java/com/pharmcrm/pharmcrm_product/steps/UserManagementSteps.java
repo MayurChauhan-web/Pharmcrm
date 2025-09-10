@@ -9369,6 +9369,15 @@ public class UserManagementSteps {
 		sleep(3000);
 		driver.get(baseUrl + "/Drug/Home/Drugs");
 		wait.until(ExpectedConditions.urlContains("/Drug/Home/Drugs"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Drug']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='Filter']"));
+		waitAndSendKeys(By.xpath("//input[@id='Filter_DrugName']"), "Amoxilin500");
+		waitAndSendKeys(By.xpath("//input[@id='Filter_NDC']"), "31133-2113-25");
+		clickWhenClickable(By.xpath("//button[normalize-space()='Add New Drug']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
 
 	}
 
@@ -9379,11 +9388,11 @@ public class UserManagementSteps {
 		wait.until(ExpectedConditions.urlContains("/Drug/Home/Drugs"));
 		sleep(3000);
 		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/div[1]/a[1]/i[1]"));
-		sleep(3000);
+		sleep(2000);
 		clickWhenClickable(By.xpath(
 				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
-		sleep(3000);
-		waitAndSendKeys(By.xpath("//input[@id='Drug_NDCPackageCode']"), "31133-2113-21");
+		sleep(2000);
+		waitAndSendKeys(By.xpath("//input[@id='Drug_ManufacturerName']"), "Medicine");
 		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
 
 	}
@@ -9450,8 +9459,7 @@ public class UserManagementSteps {
 		driver.get(baseUrl + "/Drug/Home/Star1Drugs");
 		wait.until(ExpectedConditions.urlContains("/Drug/Home/Star1Drugs"));
 		sleep(3000);
-		clickWhenClickable(By.xpath(
-				"//label[normalize-space(text())='ACCU-CHEK GUIDE STRP [65702-0711-10]']/preceding-sibling::input[@type='checkbox']"));
+		clickWhenClickable(By.xpath("//label[@for='chkSelectAllLeft']"));
 		clickWhenClickable(By.xpath("//button[@id='select-one']//*[name()='svg']"));
 		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
 
@@ -9559,10 +9567,22 @@ public class UserManagementSteps {
 
 	}
 
-	@Then("the user should not be able to add, delete, download template, upload excel, or export excel")
-	public void verifyUserCannotAddDeleteDownloadUploadExportDrug() {
+	@Then("the user should not be able to delete, download template, upload excel, or export excel")
+	public void verifyUserRestrictedFromDeleteDownloadUploadExport() {
 		sleep(2000);
-		assertElementNotPresent(By.xpath("//span[normalize-space()='New Drug']"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Upload Excel file']"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Export Excel']"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Download Template']"));
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/div[1]/a[1]/i[1]"));
+		sleep(3000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+
+	}
+
+	@Then("the user should not be able to delete, download template, upload excel, or export excel for Drug")
+	public void verifyUserCannotPerformDeleteDownloadUploadExportForModule() {
+		sleep(2000);
 		assertElementNotPresent(By.xpath("//span[normalize-space()='Upload Excel file']"));
 		assertElementNotPresent(By.xpath("//span[normalize-space()='Export Excel']"));
 		assertElementNotPresent(By.xpath("//span[normalize-space()='Download Template']"));
@@ -13314,18 +13334,6 @@ public class UserManagementSteps {
 		assertElementNotPresent(By.xpath(
 				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
 
-	}
-
-	@Then("the user should not be able to delete, download template, upload excel, or export excel")
-	public void verifyUserCannotDeleteDownloadUploadExportDrug() {
-		sleep(2000);
-		assertElementNotPresent(By.xpath("//span[normalize-space()='Upload Excel file']"));
-		assertElementNotPresent(By.xpath("//span[normalize-space()='Export Excel']"));
-		assertElementNotPresent(By.xpath("//span[normalize-space()='Download Template']"));
-		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/div[1]/a[1]/i[1]"));
-		sleep(3000);
-		assertElementNotPresent(By.xpath(
-				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
 	}
 
 	@Then("the user should have no Central PA Setting access via UI or direct URL")
