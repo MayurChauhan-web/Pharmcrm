@@ -3,7 +3,7 @@ Feature: Full User Management Flow
   @Drug
   Scenario: User with View only access for Drug (Audit View)
   Given I log in as admin 
-  When I create a new user with email "testuser1_static@mailinator.com"   
+  When I create a new user with email "testuser3_static@mailinator.com"   
   And I create a profile with View access only to Drug Module General Audit View  
   And I assign the profile and workspace to the user
   And I reset the user's password

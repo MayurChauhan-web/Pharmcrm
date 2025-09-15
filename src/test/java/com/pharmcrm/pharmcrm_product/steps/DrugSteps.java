@@ -14,11 +14,12 @@ import driver.DriverFactory;
 
 public class DrugSteps {
 
-	WebDriver driver;
-	WebDriverWait wait;
-	String createdEmail;
 	String baseUrl = "http://qa01.pharmcrm.com";
 	String profileName;
+
+	public static String createdEmail;
+	public static WebDriver driver;
+	public static WebDriverWait wait;
 
 	@Given("I log in as admin")
 	public void loginAsAdmin() {
@@ -36,7 +37,7 @@ public class DrugSteps {
 
 	@When("I create a new user with email {string}")
 	public void createNewUser(String email) {
-		this.createdEmail = email;
+		DrugSteps.createdEmail = email;
 		clickWhenClickable(By.xpath("//a[@href='#']//span[@class='userTopIcon']//*[name()='svg']"));
 		clickWhenClickable(By.xpath("//a[@id='liUsers']//span[@class='userTopIcon']//*[name()='svg']"));
 		clickWhenClickable(By.xpath("//span[normalize-space()='New User']"));
@@ -980,6 +981,7 @@ public class DrugSteps {
 
 	@And("I log in using the new user")
 	public void userLogin() {
+		sleep(2000);
 		waitAndSendKeys(By.id("UserName"), createdEmail);
 		waitAndSendKeys(By.id("Password"), "Admin@123");
 		clickWhenClickable(By.id("btnSubmit"));
