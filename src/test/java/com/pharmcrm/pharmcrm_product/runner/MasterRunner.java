@@ -4,17 +4,10 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 import org.testng.annotations.DataProvider;
 
-@CucumberOptions(
-		// all feature files
-		features = { "src/test/resources/Features/Drug.feature", // Drug.feature
-				"src/test/resources/Features/Patient.feature", // Patient.feature
-				"src/test/resources/Features/Setup.feature" // Setup.feature
-		},
-		// all step definitions
-		glue = "com.pharmcrm.pharmcrm_product.steps", // contains DrugSteps.java, PatientSteps.java, SetupSteps.java
-		plugin = { "pretty", "html:target/cucumber-report.html",
-				"json:target/cucumber.json" }, monochrome = true, tags = "@Setup" // run specific modules by tags
-)
+@CucumberOptions(features = { "src/test/resources/Features/Drug.feature", "src/test/resources/Features/Patient.feature",
+		"src/test/resources/Features/Setup.feature" }, glue = "com.pharmcrm.pharmcrm_product.steps", plugin = {
+				"pretty", "html:target/cucumber-report.html",
+				"json:target/cucumber.json" }, monochrome = true, tags = "@Setup")
 public class MasterRunner extends AbstractTestNGCucumberTests {
 
 	@Override
@@ -23,4 +16,3 @@ public class MasterRunner extends AbstractTestNGCucumberTests {
 		return super.scenarios();
 	}
 }
-
