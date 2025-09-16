@@ -1,6 +1,6 @@
-Feature: Full User Management Flow
+@Drug
+Feature: Drug Module scenarios
 
-  @Drug
   Scenario: User with View only access for Drug (Audit View)
   Given I log in as admin 
   When I create a new user with email "testuser3_static@mailinator.com"   

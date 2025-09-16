@@ -1,4 +1,5 @@
-Feature: Full User Management Flow
+@Patient
+Feature: Patient Module scenarios
 
   Scenario: User with View only access for Patient Module (General Audit View)
   Given I log in as admin for Patient module 

@@ -44,7 +44,7 @@ public class PatientSteps {
 
 	@When("I create a new user with email for Patient Module {string}")
 	public void createNewUserWithEmailForPatientModule(String email) {
-		this.createdEmail = email; // FIX: assign to local variable
+		this.createdEmail = email;
 		DrugSteps.createdEmail = email;
 		clickWhenClickable(By.xpath("//a[@href='#']//span[@class='userTopIcon']//*[name()='svg']"));
 		clickWhenClickable(By.xpath("//a[@id='liUsers']//span[@class='userTopIcon']//*[name()='svg']"));

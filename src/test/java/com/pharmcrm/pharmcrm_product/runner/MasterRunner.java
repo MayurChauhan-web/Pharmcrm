@@ -4,10 +4,8 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 import org.testng.annotations.DataProvider;
 
-@CucumberOptions(features = { "src/test/resources/Features/Drug.feature", "src/test/resources/Features/Patient.feature",
-		"src/test/resources/Features/Setup.feature" }, glue = "com.pharmcrm.pharmcrm_product.steps", plugin = {
-				"pretty", "html:target/cucumber-report.html",
-				"json:target/cucumber.json" }, monochrome = true, tags = "@Setup")
+@CucumberOptions(features = { "src/test/resources/Features" }, glue = "com.pharmcrm.pharmcrm_product.steps", plugin = {
+		"pretty", "html:target/cucumber-report.html", "json:target/cucumber.json" }, monochrome = true, tags = "@Setup")
 public class MasterRunner extends AbstractTestNGCucumberTests {
 
 	@Override

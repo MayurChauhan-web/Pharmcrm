@@ -1,6 +1,6 @@
-Feature: Full User Management Flow
+@Setup
+Feature: Setup Module scenarios
 
-  @Setup
   Scenario: Create user with log-only access and check login
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser4_static@mailinator.com"
