@@ -197,6 +197,178 @@ Feature: Drug Module scenarios
   Then the user should be able to view and export excel in Allergy 
   And the user should not be able to add, edit, delete, download template, or upload excel for Allergy
   
+  Scenario: User with View only access for ICD10
+  Given I log in as admin
+  When I create a new user with email "testuser2_static@mailinator.com"
+  And I create a profile with View access only to ICD10 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view ICD10 
+  And the user should not be able to add, edit, or delete ICD10 
+
+  Scenario: User with Add access for ICD10
+  Given I log in as admin
+  When I create a new user with email "testuser5_static@mailinator.com"
+  And I create a profile with View and Add access to ICD10  
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view and add ICD10 
+  And the user should not be able to edit or delete ICD10 
+  
+  Scenario: User with Edit access for ICD10
+  Given I log in as admin
+  When I create a new user with email "testuser6_static@mailinator.com"
+  And I create a profile with View and Edit access to ICD10 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view and edit ICD10  
+  And the user should not be able to add or delete ICD10 
+
+  Scenario: User with Delete access for ICD10
+  Given I log in as admin
+  When I create a new user with email "testuser7_static@mailinator.com"
+  And I create a profile with View and Delete access to ICD10 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view and delete ICD10  
+  And the user should not be able to add or edit ICD10 
+  
+  Scenario: User with Add access for Drug Therapeutic
+  Given I log in as admin
+  When I create a new user with email "testuser10_static@mailinator.com"
+  And I create a profile with View and Add access to Drug Therapeutic  
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view and add Drug Therapeutic 
+  And the user should not be able to edit or delete Drug Therapeutic 
+
+  Scenario: User with Edit access for Drug Therapeutic
+  Given I log in as admin
+  When I create a new user with email "testuser11_static@mailinator.com"
+  And I create a profile with View and Edit access to Drug Therapeutic 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view and edit Drug Therapeutic 
+  And the user should not be able to add or delete Drug Therapeutic 
+
+  Scenario: User with Delete access for Drug Therapeutic
+  Given I log in as admin
+  When I create a new user with email "testuser13_static@mailinator.com"
+  And I create a profile with View and Delete access to Drug Therapeutic 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view and delete Drug Therapeutic 
+  And the user should not be able to add or edit Drug Therapeutic 
+  
+  Scenario: User with Add access for Drug Family
+  Given I log in as admin
+  When I create a new user with email "testuser1_static@mailinator.com"
+  And I create a profile with View and Add access to Drug Family 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view and add Drug Family 
+  And the user should not be able to edit or delete Drug Family 
+
+  Scenario: User with Edit access for Drug Family
+  Given I log in as admin
+  When I create a new user with email "testuser2_static@mailinator.com"
+  And I create a profile with View and Edit access to Drug Family 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view and edit Drug Family 
+  And the user should not be able to add or delete Drug Family 
+
+  Scenario: User with Delete access for Drug Family
+  Given I log in as admin
+  When I create a new user with email "testuser3_static@mailinator.com"
+  And I create a profile with View and Delete access to Drug Family 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view and delete Drug Family  
+  And the user should not be able to add or edit Drug Family  
+  
+  Scenario: User with Add access for Drug Approved Indication
+  Given I log in as admin
+  When I create a new user with email "testuser4_static@mailinator.com"
+  And I create a profile with View and Add access to Drug Approved Indication 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view and add Drug Approved Indication 
+  And the user should not be able to edit or delete Drug Approved Indication 
+
+  Scenario: User with Edit access for Drug Approved Indication
+  Given I log in as admin
+  When I create a new user with email "testuser5_static@mailinator.com"
+  And I create a profile with View and Edit access to Drug Approved Indication 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view and edit Drug Approved Indication 
+  And the user should not be able to add or delete Drug Approved Indication 
+
+  Scenario: User with Delete access for Drug Approved Indication
+  Given I log in as admin
+  When I create a new user with email "testuser6_static@mailinator.com"
+  And I create a profile with View and Delete access to Drug Approved Indication 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view and delete Drug Approved Indication 
+  And the user should not be able to add or edit Drug Approved Indication  
+  
+  Scenario: User with Add access for Disease State
+  Given I log in as admin
+  When I create a new user with email "testuser8_static@mailinator.com"
+  And I create a profile with View and Add access to Disease State 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view and add Disease State 
+  And the user should not be able to delete Disease State 
+  
+  Scenario: User with Delete access for Disease State
+  Given I log in as admin
+  When I create a new user with email "testuser10_static@mailinator.com"
+  And I create a profile with View and Delete access to Disease State  
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view and delete Disease State 
+  And the user should not be able to add Disease State 
+  
+  Scenario: User with Add access for Program
+  Given I log in as admin
+  When I create a new user with email "testuser11_static@mailinator.com"
+  And I create a profile with View and Add access to Program 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view and add Program 
+  And the user should not be able to delete Program 
+
+  Scenario: User with Delete access for Program
+  Given I log in as admin
+  When I create a new user with email "testuser12_static@mailinator.com"
+  And I create a profile with View and Delete access to Program 
+  And I assign the profile and workspace to the user
+  And I reset the user's password
+  And I log in using the new user
+  Then the user should be able to view and delete Program 
+  And the user should not be able to add Program  
+  
+  
+  
   
    
   
