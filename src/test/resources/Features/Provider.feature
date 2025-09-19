@@ -278,8 +278,153 @@ And the user should be able to delete Executives
 And the user should not be able to add Executives
 And the user should not be able to edit Executives
 
+Scenario: User with View and Add access but no Edit or Delete for Referral Enrollment
+Given I log in as admin for Provider Module
+When I create a new user with email for Provider Module "testuser1_static@mailinator.com"
+And I create a profile with View and Add access but no Edit or Delete access to Referral Enrollment
+And I assign the profile and workspace to the user for Provider Module
+And I reset the user's password for Provider Module
+And I log in using the new user for Provider Module
+Then the user should be able to view Referral Enrollment 
+And the user should be able to add Referral Enrollment 
+And the user should not be able to edit Referral Enrollment  
+And the user should not be able to delete Referral Enrollment 
+
+Scenario: User with View and Edit access but no Add or Delete for Referral Enrollment
+Given I log in as admin for Provider Module
+When I create a new user with email for Provider Module "testuser2_static@mailinator.com"
+And I create a profile with View and Edit access but no Add or Delete access to Referral Enrollment 
+And I assign the profile and workspace to the user for Provider Module
+And I reset the user's password for Provider Module
+And I log in using the new user for Provider Module
+Then the user should be able to view Referral Enrollment
+And the user should be able to edit Referral Enrollment 
+And the user should not be able to add Referral Enrollment 
+And the user should not be able to delete Referral Enrollment
+
+Scenario: User with View and Delete access but no Add or Edit for Referral Enrollment
+Given I log in as admin for Provider Module
+When I create a new user with email for Provider Module "testuser3_static@mailinator.com"
+And I create a profile with View and Delete access but no Add or Edit access to Referral Enrollment 
+And I assign the profile and workspace to the user for Provider Module
+And I reset the user's password for Provider Module
+And I log in using the new user for Provider Module
+Then the user should be able to view Referral Enrollment
+And the user should be able to delete Referral Enrollment 
+And the user should not be able to add Referral Enrollment
+And the user should not be able to edit Referral Enrollment
+
+Scenario: User with all Folder permissions but no File permissions in Bucket
+Given I log in as admin for Provider Module
+When I create a new user with email for Provider Module "testuser4_static@mailinator.com"
+And I create a profile with full Folder permissions but no File permissions for Bucket 
+And I assign the profile and workspace to the user for Provider Module
+And I reset the user's password for Provider Module
+And I log in using the new user for Provider Module
+Then the user should be able to view Folder in Bucket 
+And the user should be able to add Folder in Bucket 
+And the user should be able to edit Folder in Bucket 
+And the user should be able to delete Folder in Bucket 
+And the user should be able to favourite Folder in Bucket 
+And the user should not be able to add File in Bucket 
+And the user should not be able to edit File in Bucket 
+And the user should not be able to delete File in Bucket 
+And the user should not be able to favourite File in Bucket 
+And the user should not be able to download File in Bucket 
+And the user should not be able to view File in Bucket 
+
+Scenario: User with all File permissions but no Folder permissions in Bucket
+Given I log in as admin for Provider Module
+When I create a new user with email for Provider Module "testuser5_static@mailinator.com"
+And I create a profile with full File permissions but no Folder permissions for Bucket 
+And I assign the profile and workspace to the user for Provider Module
+And I reset the user's password for Provider Module
+And I log in using the new user for Provider Module
+Then the user should be able to view File in Bucket 
+And the user should be able to add File in Bucket 
+And the user should be able to edit File in Bucket 
+And the user should be able to delete File in Bucket 
+And the user should be able to favourite File in Bucket 
+And the user should be able to download File in Bucket 
+And the user should not be able to view Folder in Bucket 
+And the user should not be able to add Folder in Bucket 
+And the user should not be able to edit Folder in Bucket 
+And the user should not be able to delete Folder in Bucket 
+And the user should not be able to favourite Folder in Bucket
+
+Scenario: User with Download File permission in Referral Patient History
+Given I log in as admin for Provider Module
+When I create a new user with email for Provider Module "testuser6_static@mailinator.com"
+And I create a profile with Download File permission for Referral Patient History 
+And I assign the profile and workspace to the user for Provider Module
+And I reset the user's password for Provider Module
+And I log in using the new user for Provider Module
+Then the user should be able to view Referral Patient History 
+And the user should be able to download File in Referral Patient History 
+
+Scenario: User without Download File permission in Referral Patient History
+Given I log in as admin for Provider Module
+When I create a new user with email for Provider Module "testuser8_static@mailinator.com"
+And I create a profile without Download File permission for Referral Patient History 
+And I assign the profile and workspace to the user for Provider Module
+And I reset the user's password for Provider Module
+And I log in using the new user for Provider Module
+Then the user should be able to view Referral Patient History
+And the user should not be able to download File in Referral Patient History 
+
+@Provider
+Scenario: Create user with Update access to DeDupe and check permissions
+Given I log in as admin for Provider Module
+When I create a new user with email for Provider Module "testuser8_static@mailinator.com"
+And I create a profile with Update access to Provider Module DeDupe 
+And I assign the profile and workspace to the user for Provider Module
+And I reset the user's password for Provider Module
+And I log in using the new user for Provider Module
+Then the user should be able to update DeDupe records for Provider Module 
+
+Scenario: Create user without Update access to DeDupe and check restrictions
+Given I log in as admin for Provider Module
+When I create a new user with email for Provider Module "testuser8_static@mailinator.com"
+And I create a profile without Update access to Provider Module DeDupe 
+And I assign the profile and workspace to the user for Provider Module
+And I reset the user's password for Provider Module
+And I log in using the new user for Provider Module
+Then the user should not be able to update DeDupe records via UI or direct URL for Provider Module
 
 
+
+
+
+  
+  
+  
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+
+
+
+
+ 
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
 
 
     
