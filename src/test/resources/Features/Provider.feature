@@ -372,10 +372,9 @@ And I log in using the new user for Provider Module
 Then the user should be able to view Referral Patient History
 And the user should not be able to download File in Referral Patient History 
 
-@Provider
 Scenario: Create user with Update access to DeDupe and check permissions
 Given I log in as admin for Provider Module
-When I create a new user with email for Provider Module "testuser8_static@mailinator.com"
+When I create a new user with email for Provider Module "testuser9_static@mailinator.com"
 And I create a profile with Update access to Provider Module DeDupe 
 And I assign the profile and workspace to the user for Provider Module
 And I reset the user's password for Provider Module
@@ -384,12 +383,15 @@ Then the user should be able to update DeDupe records for Provider Module
 
 Scenario: Create user without Update access to DeDupe and check restrictions
 Given I log in as admin for Provider Module
-When I create a new user with email for Provider Module "testuser8_static@mailinator.com"
+When I create a new user with email for Provider Module "testuser10_static@mailinator.com"
 And I create a profile without Update access to Provider Module DeDupe 
 And I assign the profile and workspace to the user for Provider Module
 And I reset the user's password for Provider Module
 And I log in using the new user for Provider Module
 Then the user should not be able to update DeDupe records via UI or direct URL for Provider Module
+
+
+
 
 
 

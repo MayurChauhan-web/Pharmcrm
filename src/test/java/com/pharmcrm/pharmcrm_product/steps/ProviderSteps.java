@@ -1415,7 +1415,7 @@ public class ProviderSteps {
 		sleep(2000);
 		clickWhenClickable(By.xpath("(//label[starts-with(@for,'ckhg_')])[1]"));
 		clickWhenClickable(By.xpath("(//label[starts-with(@for,'ckhg_')])[2]"));
-		clickWhenClickable(By.xpath("//table[1]//thead[1]//tr[1]//th[8]//a[1]"));
+		clickWhenClickable(By.xpath("//table[1]//thead[1]//tr[1]//th[9]//a[1]"));
 		sleep(2000);
 		clickWhenClickable(By.xpath("(//input[starts-with(@id,'chkg_')])[1]"));
 		sleep(1000);
