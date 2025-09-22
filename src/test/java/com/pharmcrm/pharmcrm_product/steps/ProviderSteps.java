@@ -978,6 +978,626 @@ public class ProviderSteps {
 		clickWhenClickable(By.id("btnSave"));
 	}
 
+	@And("I create a profile with View access but without Reset Password access to Provider Executive")
+	public void createProviderExecutiveProfileWithViewOnly() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Provider Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg45ProviderExecutiveResetPassword']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with both View and Reset Password access to Provider Executive")
+	public void createProviderExecutiveProfileWithViewAndResetPassword() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Provider Module']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Add access but no Edit, Delete to Provider Service in Provider Module")
+	public void createProviderServiceProfileWithViewAndAddOnly() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Provider Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg39ProviderServiceEdit']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg37ProviderServiceDelete']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Edit access but no Add, Delete to Provider Service in Provider Module")
+	public void createProviderServiceProfileWithViewAndEditOnly() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Provider Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg36ProviderServiceAdd']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg37ProviderServiceDelete']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Delete access but no Add, Edit to Provider Service in Provider Module")
+	public void createProviderServiceProfileWithViewAndDeleteOnly() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Provider Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg36ProviderServiceAdd']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg39ProviderServiceEdit']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with Add access but no Edit or Delete access to Provider EHR in Provider Module")
+	public void createProviderEHRProfileWithAddOnly() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Provider Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg39ProviderEHREdit']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg39ProviderEHRDelete']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with Edit access but no Add or Delete access to Provider EHR in Provider Module")
+	public void createProviderEHRProfileWithEditOnly() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Provider Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg39ProviderEHRAdd']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg39ProviderEHRDelete']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with Delete access but no Add or Edit access to Provider EHR in Provider Module")
+	public void createProviderEHRProfileWithDeleteOnly() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Provider Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg39ProviderEHRAdd']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg39ProviderEHREdit']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Add access but no Edit, Delete or Make Partner access to Business Group in Provider Module")
+	public void createBusinessGroupProfileWithViewAndAddOnly() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Provider Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg42BusinessGroupEdit']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg42BusinessGroupDelete']"));
+		clickWhenClickable(By.xpath("//label[normalize-space()='Make Partner']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Edit access but no Add, Delete or Make Partner access to Business Group in Provider Module")
+	public void createBusinessGroupProfileWithViewAndEditOnly() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Provider Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg42BusinessGroupAdd']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg42BusinessGroupDelete']"));
+		clickWhenClickable(By.xpath("//label[normalize-space()='Make Partner']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Delete access but no Add, Edit or Make Partner access to Business Group in Provider Module")
+	public void createBusinessGroupProfileWithViewAndDeleteOnly() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Provider Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg42BusinessGroupAdd']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg42BusinessGroupEdit']"));
+		clickWhenClickable(By.xpath("//label[normalize-space()='Make Partner']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Make Partner access but no Add, Edit or Delete access to Business Group in Provider Module")
+	public void createBusinessGroupProfileWithViewAndMakePartnerOnly() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Provider Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg42BusinessGroupAdd']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg42BusinessGroupEdit']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg42BusinessGroupDelete']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Add access but no Edit or Delete access to Business Group Address in Provider Module")
+	public void createBusinessGroupAddressProfileWithViewAndAddOnly() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Provider Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg42BusinessGroupAddressEdit']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg42BusinessGroupAddressDelete']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Edit access but no Add or Delete access to Business Group Address in Provider Module")
+	public void createBusinessGroupAddressProfileWithViewAndEditOnly() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Provider Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg42BusinessGroupAddressAdd']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg42BusinessGroupAddressDelete']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Delete access but no Add or Edit access to Business Group Address in Provider Module")
+	public void createBusinessGroupAddressProfileWithViewAndDeleteOnly() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Provider Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg42BusinessGroupAddressAdd']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg42BusinessGroupAddressEdit']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile without Export Excel permission for Provider PA Details")
+	public void createProfileWithoutExportExcelPermissionForPADetails() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Provider Module']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with Download File permission for Provider Remote Monitoring Details")
+	public void createProfileWithDownloadFilePermissionForRemoteMonitoringDetails() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Provider Module']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile without Download File permission for Provider Remote Monitoring Details")
+	public void createProfileWithoutDownloadFilePermissionForRemoteMonitoringDetails() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Provider Module']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with Export Excel permission for Provider PA Details")
+	public void createProfileWithExportExcelPermissionForPADetails() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Provider Module']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile without Download File permission for Provider Referral Outgoing Details")
+	public void createProfileWithoutDownloadFilePermissionForReferralOutgoingDetails() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Provider Module']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with Download File permission for Provider Referral Outgoing Details")
+	public void createProfileWithDownloadFilePermissionForReferralOutgoingDetails() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Provider Module']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile without Download File permission for Provider Referral Incoming Details")
+	public void createProfileWithoutDownloadFilePermissionForReferralIncomingDetails() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Provider Module']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with Download File permission for Provider Referral Incoming Details")
+	public void createProfileWithDownloadFilePermissionForReferralIncoming() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Provider Module']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
 	@And("I create a profile without Update access to Provider Module DeDupe")
 	public void createProfileWithoutUpdateAccessToProviderModuleDeDupe() {
 		driver.get(baseUrl + "/Setup/Home/Profiles");
@@ -1391,6 +2011,14 @@ public class ProviderSteps {
 
 	}
 
+	@And("the user should not be able to reset passwords for Provider Executive")
+	public void verifyUserCannotResetProviderExecutivePasswords() {
+		sleep(2000);
+		clickWhenClickable(By.xpath("//tbody/tr/td[9]/div[1]/div[1]/button[1]/i[1]"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Reset Password']"));
+
+	}
+
 	@And("the user should be able to view Referral Patient History")
 	public void userShouldBeAbleToViewReferralPatientHistory() {
 		sleep(3000);
@@ -1400,6 +2028,498 @@ public class ProviderSteps {
 		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/a[1]/img[1]"));
 		sleep(3000);
 		clickWhenClickable(By.xpath("//a[normalize-space()='History']"));
+
+	}
+
+	@And("the user should be able to view Provider Executive records")
+	public void verifyUserCanViewProviderExecutiveRecords() {
+		sleep(3000);
+		driver.get(baseUrl + "/Prescriber/Home/Providers");
+		wait.until(ExpectedConditions.urlContains("/Prescriber/Home/Providers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/a[1]/img[1]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='Executives']"));
+		sleep(2000);
+		assertElementPresent(By.xpath("//tbody/tr/td[9]/div[1]/div[1]/button[1]/i[1]"));
+
+	}
+
+	@And("the user should be able to view Provider Service in Provider Module")
+	public void verifyUserCanViewProviderService() {
+		sleep(3000);
+		driver.get(baseUrl + "/Prescriber/Home/Providers");
+		wait.until(ExpectedConditions.urlContains("/Prescriber/Home/Providers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/a[1]/img[1]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='Service']"));
+		sleep(2000);
+		assertElementPresent(By.xpath("//th[@scope='col']//i[@class='fa-solid fa-ellipsis-vertical']"));
+
+	}
+
+	@And("the user should be able to delete Provider Service in Provider Module")
+	public void verifyUserCanDeleteProviderService() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//th[@scope='col']//i[@class='fa-solid fa-ellipsis-vertical']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//a[@id='btnDeleteProviderService']//div[@class='gridRecordContextInner']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//button[@id='deleteProviderService']"));
+
+	}
+
+	@And("the user should be able to edit Provider Service in Provider Module")
+	public void verifyUserCanEditProviderService() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//th[@scope='col']//i[@class='fa-solid fa-ellipsis-vertical']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//a[@class='tooltiped txt-decor-none user-access']//div[@class='gridRecordContextInner']"));
+		sleep(1000);
+		waitAndSendKeys(By.id("Service_Notes"), "note");
+		clickWhenClickable(By.xpath("//button[@id='btnSaveProviderService']"));
+
+	}
+
+	@And("the user should not be able to add Provider Service in Provider Module")
+	public void verifyUserCannotAddProviderService() {
+		sleep(3000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New Service']"));
+
+	}
+
+	@And("the user should be able to add Provider EHR in Provider Module")
+	public void verifyUserCanAddProviderEHR() {
+		sleep(3000);
+		driver.get(baseUrl + "/Prescriber/Home/Providers");
+		wait.until(ExpectedConditions.urlContains("/Prescriber/Home/Providers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/a[1]/img[1]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='EHR']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New EHR']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//select[@id='ddEHR']"));
+		sleep(1000);
+		selectDropdownByIndexWhenReady(By.id("ddEHR"), 1);
+		sleep(3000);
+		clickWhenClickable(By.xpath("//button[@id='btnSaveProviderEHR']"));
+
+	}
+
+	@And("the user should be able to edit Provider EHR in Provider Module")
+	public void verifyUserCanEditProviderEHR() {
+		sleep(3000);
+		driver.get(baseUrl + "/Prescriber/Home/Providers");
+		wait.until(ExpectedConditions.urlContains("/Prescriber/Home/Providers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/a[1]/img[1]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='EHR']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[7]/div[1]/div[1]/button[1]/i[1]"));
+		sleep(1000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		sleep(1000);
+		waitAndSendKeys(By.id("ProviderEHR_Notes"), "Note");
+		clickWhenClickable(By.xpath("//button[@id='btnSaveProviderEHR']"));
+
+	}
+
+	@And("the user should be able to delete Provider EHR in Provider Module")
+	public void verifyUserCanDeleteProviderEHR() {
+		sleep(3000);
+		driver.get(baseUrl + "/Prescriber/Home/Providers");
+		wait.until(ExpectedConditions.urlContains("/Prescriber/Home/Providers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/a[1]/img[1]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='EHR']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[7]/div[1]/div[1]/button[1]/i[1]"));
+		sleep(1000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		clickWhenClickable(By.xpath("//button[@id='deleteProviderEHR']"));
+
+	}
+
+	@And("the user should be able to add Business Group in Provider Module")
+	public void verifyUserCanAddBusinessGroup() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Business Group']"));
+		sleep(2000);
+		waitAndSendKeys(By.id("BusinessGroup_Name"), "Sunrise Pharmacy Group");
+		waitAndSendKeys(By.id("BusinessGroup_PhoneNumber"), "2125557845");
+		waitAndSendKeys(By.id("BusinessGroup_PhoneNumberExt"), "203");
+		waitAndSendKeys(By.id("BusinessGroup_Email"), "contact@mailinator.com");
+		waitAndSendKeys(By.id("BusinessGroup_Zone"), "200");
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+
+	}
+
+	@And("the user should not be able to edit Business Group in Provider Module")
+	public void verifyUserCannotEditBusinessGroup() {
+		sleep(1000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[4]/div[1]/div[1]/button[1]/i[1]"));
+		sleep(1000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+
+	}
+
+	@And("the user should be able to edit Business Group in Provider Module")
+	public void verifyUserCanEditBusinessGroup() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[4]/div[1]/div[1]/button[1]/i[1]"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='Edit']"));
+		sleep(2000);
+		waitAndSendKeys(By.id("BusinessGroup_PrivateNotes"), "note");
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+
+	}
+
+	@And("the user should not be able to add Business Group in Provider Module")
+	public void verifyUserCannotAddBusinessGroup() {
+		sleep(2000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New Business Group']"));
+
+	}
+
+	@And("the user should be able to view Business Group Address in Provider Module")
+	public void verifyUserCanViewBusinessGroupAddress() {
+		sleep(3000);
+		driver.get(baseUrl + "/Prescriber/Home/BusinessGroups");
+		wait.until(ExpectedConditions.urlContains("/Prescriber/Home/BusinessGroups"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[4]/div[1]/a[2]/img[1]"));
+		sleep(3000);
+		assertElementPresent(By.xpath("//a[normalize-space()='Details']"));
+
+	}
+
+	@And("the user should not be able to download files from Provider Remote Monitoring Details")
+	public void userShouldNotBeAbleToDownloadFilesFromRemoteMonitoringDetails() {
+		sleep(3000);
+		driver.get(baseUrl + "/Prescriber/Home/Providers");
+		wait.until(ExpectedConditions.urlContains("/Prescriber/Home/Providers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/a[1]/img[1]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='History']"));
+
+	}
+
+	@And("the user should not be able to export Provider PA Details to Excel")
+	public void userShouldNotBeAbleToExportPADetailsToExcel() {
+		sleep(3000);
+		driver.get(baseUrl + "/Prescriber/Home/Providers");
+		wait.until(ExpectedConditions.urlContains("/Prescriber/Home/Providers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/a[1]/img[1]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='History']"));
+
+	}
+
+	@And("the user should be able to export Provider PA Details to Excel")
+	public void userShouldBeAbleToExportPADetailsToExcel() {
+		sleep(3000);
+		driver.get(baseUrl + "/Prescriber/Home/Providers");
+		wait.until(ExpectedConditions.urlContains("/Prescriber/Home/Providers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/a[1]/img[1]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='History']"));
+
+	}
+
+	@And("the user should be able to view Provider PA Details")
+	public void userShouldBeAbleToViewProviderPADetails() {
+		sleep(3000);
+		driver.get(baseUrl + "/Prescriber/Home/Providers");
+		wait.until(ExpectedConditions.urlContains("/Prescriber/Home/Providers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/a[1]/img[1]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='History']"));
+
+	}
+
+	@And("the user should be able to download files from Provider Remote Monitoring Details")
+	public void userShouldBeAbleToDownloadFilesFromRemoteMonitoringDetails() {
+		sleep(3000);
+		driver.get(baseUrl + "/Prescriber/Home/Providers");
+		wait.until(ExpectedConditions.urlContains("/Prescriber/Home/Providers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/a[1]/img[1]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='History']"));
+
+	}
+
+	@And("the user should be able to view Provider Remote Monitoring Details")
+	public void userShouldBeAbleToViewProviderRemoteMonitoringDetails() {
+		sleep(3000);
+		driver.get(baseUrl + "/Prescriber/Home/Providers");
+		wait.until(ExpectedConditions.urlContains("/Prescriber/Home/Providers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/a[1]/img[1]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='History']"));
+
+	}
+
+	@And("the user should not be able to download files from Provider Referral Outgoing Details")
+	public void userShouldNotBeAbleToDownloadFilesFromReferralOutgoingDetails() {
+		sleep(3000);
+		driver.get(baseUrl + "/Prescriber/Home/Providers");
+		wait.until(ExpectedConditions.urlContains("/Prescriber/Home/Providers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/a[1]/img[1]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='History']"));
+
+	}
+
+	@And("the user should be able to download files from Provider Referral Outgoing Details")
+	public void userShouldBeAbleToDownloadFilesFromReferralOutgoingDetails() {
+		sleep(3000);
+		driver.get(baseUrl + "/Prescriber/Home/Providers");
+		wait.until(ExpectedConditions.urlContains("/Prescriber/Home/Providers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/a[1]/img[1]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='History']"));
+
+	}
+
+	@And("the user should be able to view Provider Referral Outgoing Details")
+	public void userShouldBeAbleToViewProviderReferralOutgoingDetails() {
+		sleep(3000);
+		driver.get(baseUrl + "/Prescriber/Home/Providers");
+		wait.until(ExpectedConditions.urlContains("/Prescriber/Home/Providers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/a[1]/img[1]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='History']"));
+
+	}
+
+	@And("the user should not be able to download files from Provider Referral Incoming Details")
+	public void userShouldNotBeAbleToDownloadFilesFromReferralIncomingDetails() {
+		sleep(3000);
+		driver.get(baseUrl + "/Prescriber/Home/Providers");
+		wait.until(ExpectedConditions.urlContains("/Prescriber/Home/Providers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/a[1]/img[1]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='History']"));
+
+	}
+
+	@And("the user should be able to download files from Provider Referral Incoming Details")
+	public void userShouldBeAbleToDownloadFilesFromReferralIncomingDetails() {
+		sleep(3000);
+		driver.get(baseUrl + "/Prescriber/Home/Providers");
+		wait.until(ExpectedConditions.urlContains("/Prescriber/Home/Providers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/a[1]/img[1]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='History']"));
+
+	}
+
+	@And("the user should be able to view Provider Referral Incoming Details")
+	public void userShouldBeAbleToViewReferralIncomingDetails() {
+		sleep(3000);
+		driver.get(baseUrl + "/Prescriber/Home/Providers");
+		wait.until(ExpectedConditions.urlContains("/Prescriber/Home/Providers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/a[1]/img[1]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='History']"));
+
+	}
+
+	@And("the user should not be able to delete Business Group Address in Provider Module")
+	public void verifyUserCannotDeleteBusinessGroupAddress() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']"));
+		sleep(1000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Delete']"));
+
+	}
+
+	@And("the user should not be able to edit Business Group Address in Provider Module")
+	public void verifyUserCannotEditBusinessGroupAddress() {
+		sleep(1000);
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']"));
+		sleep(1000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Edit']"));
+
+	}
+
+	@And("the user should not be able to add Business Group Address in Provider Module")
+	public void verifyUserCannotAddBusinessGroupAddress() {
+		sleep(3000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New Address']"));
+
+	}
+
+	@And("the user should be able to delete Business Group Address in Provider Module")
+	public void deleteBusinessGroupAddressInProviderModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Prescriber/Home/Providers");
+		wait.until(ExpectedConditions.urlContains("/Prescriber/Home/Providers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/a[1]/img[1]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='History']"));
+
+	}
+
+	@And("the user should be able to add Business Group Address in Provider Module")
+	public void verifyUserCanAddBusinessGroupAddress() {
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Address']"));
+		sleep(1000);
+		waitAndSendKeys(By.id("BusinessGroup_Street"), "123 Main Street, Suite 200");
+		waitAndSendKeys(By.id("BusinessGroup_City"), "New York");
+		waitAndSendKeys(By.id("BusinessGroup_State"), "NY");
+		waitAndSendKeys(By.id("BusinessGroup_ZipCode"), "10001");
+		clickWhenClickable(By.xpath("//button[@id='btnSaveAddress']"));
+
+	}
+
+	@And("the user should be able to edit Business Group Address in Provider Module")
+	public void verifyUserCanEditBusinessGroupAddress() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='Edit']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Shipping Address']"));
+		clickWhenClickable(By.xpath("//button[@id='btnSaveAddress']"));
+
+	}
+
+	@And("the user should be able to make Business Group a Partner in Provider Module")
+	public void verifyUserCanMakeBusinessGroupPartner() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[@id='btnMakePartner']//*[name()='svg']"));
+
+	}
+
+	@And("the user should be able to delete Business Group in Provider Module")
+	public void verifyUserCanDeleteBusinessGroup() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[4]/div[1]/div[1]/button[1]/i[1]"));
+		sleep(1000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//div[@id='genericmodal']//button[@id='btnDeleteConfirm']"));
+
+	}
+
+	@And("the user should not be able to make Business Group a Partner in Provider Module")
+	public void verifyUserCannotMakeBusinessGroupPartner() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[4]/div[1]/div[1]/button[1]/i[1]"));
+		sleep(1000);
+		assertElementNotPresent(
+				By.xpath("//tbody/tr[1]/td[4]/div[1]/a[1]//*[name()='svg']//*[name()='path' and @id='Union_28']"));
+
+	}
+
+	@And("the user should not be able to delete Business Group in Provider Module")
+	public void verifyUserCannotDeleteBusinessGroup() {
+		sleep(1000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+
+	}
+
+	@And("the user should be able to view Business Group in Provider Module")
+	public void verifyUserCanViewBusinessGroup() {
+		sleep(3000);
+		driver.get(baseUrl + "/Prescriber/Home/BusinessGroups");
+		wait.until(ExpectedConditions.urlContains("/Prescriber/Home/BusinessGroups"));
+		sleep(3000);
+
+	}
+
+	@And("the user should not be able to add Provider EHR in Provider Module")
+	public void verifyUserCannotAddProviderEHR() {
+		sleep(3000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New EHR']"));
+
+	}
+
+	@And("the user should not be able to delete Provider EHR in Provider Module")
+	public void verifyUserCannotDeleteProviderEHR() {
+		sleep(1000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+
+	}
+
+	@And("the user should not be able to edit Provider EHR in Provider Module")
+	public void verifyUserCannotEditProviderEHR() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[7]/div[1]/div[1]/button[1]/i[1]"));
+		sleep(1000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+
+	}
+
+	@And("the user should not be able to edit Provider Service in Provider Module")
+	public void verifyUserCannotEditProviderService() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//th[@scope='col']//i[@class='fa-solid fa-ellipsis-vertical']"));
+		sleep(1000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//a[@class='tooltiped txt-decor-none user-access']//div[@class='gridRecordContextInner']"));
+
+	}
+
+	@And("the user should not be able to delete Provider Service in Provider Module")
+	public void verifyUserCannotDeleteProviderService() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//th[@scope='col']//i[@class='fa-solid fa-ellipsis-vertical']"));
+		sleep(1000);
+		assertElementNotPresent(By.xpath("//a[@id='btnDeleteProviderService']//div[@class='gridRecordContextInner']"));
+
+	}
+
+	@And("the user should be able to add Provider Service in Provider Module")
+	public void verifyUserCanAddProviderService() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Service']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//div[@class='model-inp select-city-dd dropdowncheckbox']//input[@type='text']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//div[@class='model-inp select-city-dd dropdowncheckbox']//ul/li[2]"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//button[@id='btnSaveProviderService']"));
+	}
+
+	@And("the user should be able to reset passwords for Provider Executive users")
+	public void verifyUserCanResetProviderExecutivePasswords() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//tbody/tr/td[9]/div[1]/div[1]/button[1]/i[1]"));
+		clickWhenClickable(By.xpath("//span[normalize-space()='Reset Password']"));
+		sleep(3000);
+		waitAndSendKeys(By.id("newPassword"), "Admin@1234");
+		waitAndSendKeys(By.id("confirmPassword"), "Admin@1234");
+		clickWhenClickable(By.xpath("//button[@id='btnResetPassword']"));
 
 	}
 
