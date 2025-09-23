@@ -543,7 +543,6 @@ And the user should be able to add Business Group Address in Provider Module
 And the user should not be able to edit Business Group Address in Provider Module
 And the user should not be able to delete Business Group Address in Provider Module
 
-@Provider
 Scenario: User with View and Edit access but no Add or Delete for Business Group Address
 Given I log in as admin for Provider Module
 When I create a new user with email for Provider Module "testuser7_static@mailinator.com"
@@ -558,7 +557,7 @@ And the user should not be able to delete Business Group Address in Provider Mod
 
 Scenario: User with View and Delete access but no Add or Edit for Business Group Address
 Given I log in as admin for Provider Module
-When I create a new user with email for Provider Module "testuser8_static@mailinator.com"
+When I create a new user with email for Provider Module "testuser1_static@mailinator.com"
 And I create a profile with View and Delete access but no Add or Edit access to Business Group Address in Provider Module 
 And I assign the profile and workspace to the user for Provider Module
 And I reset the user's password for Provider Module
@@ -570,7 +569,7 @@ And the user should not be able to edit Business Group Address in Provider Modul
 
 Scenario: User with Download File permission for Provider Referral Incoming Details
 Given I log in as admin for Provider Module
-When I create a new user with email for Provider Module "testuser38_static@mailinator.com"
+When I create a new user with email for Provider Module "testuser2_static@mailinator.com"
 And I create a profile with Download File permission for Provider Referral Incoming Details
 And I assign the profile and workspace to the user for Provider Module
 And I reset the user's password for Provider Module
@@ -580,7 +579,7 @@ And the user should be able to download files from Provider Referral Incoming De
 
 Scenario: User without Download File permission for Provider Referral Incoming Details
 Given I log in as admin for Provider Module
-When I create a new user with email for Provider Module "testuser39_static@mailinator.com"
+When I create a new user with email for Provider Module "testuser3_static@mailinator.com"
 And I create a profile without Download File permission for Provider Referral Incoming Details
 And I assign the profile and workspace to the user for Provider Module
 And I reset the user's password for Provider Module
@@ -590,7 +589,7 @@ And the user should not be able to download files from Provider Referral Incomin
 
 Scenario: User with Download File permission for Provider Referral Outgoing Details
 Given I log in as admin for Provider Module
-When I create a new user with email for Provider Module "testuser40_static@mailinator.com"
+When I create a new user with email for Provider Module "testuser6_static@mailinator.com"
 And I create a profile with Download File permission for Provider Referral Outgoing Details
 And I assign the profile and workspace to the user for Provider Module
 And I reset the user's password for Provider Module
@@ -600,7 +599,7 @@ And the user should be able to download files from Provider Referral Outgoing De
 
 Scenario: User without Download File permission for Provider Referral Outgoing Details
 Given I log in as admin for Provider Module
-When I create a new user with email for Provider Module "testuser41_static@mailinator.com"
+When I create a new user with email for Provider Module "testuser8_static@mailinator.com"
 And I create a profile without Download File permission for Provider Referral Outgoing Details
 And I assign the profile and workspace to the user for Provider Module
 And I reset the user's password for Provider Module
@@ -610,7 +609,7 @@ And the user should not be able to download files from Provider Referral Outgoin
 
 Scenario: User with Download File permission for Provider Remote Monitoring Details
 Given I log in as admin for Provider Module
-When I create a new user with email for Provider Module "testuser42_static@mailinator.com"
+When I create a new user with email for Provider Module "testuser9_static@mailinator.com"
 And I create a profile with Download File permission for Provider Remote Monitoring Details
 And I assign the profile and workspace to the user for Provider Module
 And I reset the user's password for Provider Module
@@ -620,7 +619,7 @@ And the user should be able to download files from Provider Remote Monitoring De
 
 Scenario: User without Download File permission for Provider Remote Monitoring Details
 Given I log in as admin for Provider Module
-When I create a new user with email for Provider Module "testuser43_static@mailinator.com"
+When I create a new user with email for Provider Module "testuser1_static@mailinator.com"
 And I create a profile without Download File permission for Provider Remote Monitoring Details
 And I assign the profile and workspace to the user for Provider Module
 And I reset the user's password for Provider Module
@@ -630,7 +629,7 @@ And the user should not be able to download files from Provider Remote Monitorin
 
 Scenario: User with Export Excel permission for Provider PA Details
 Given I log in as admin for Provider Module
-When I create a new user with email for Provider Module "testuser44_static@mailinator.com"
+When I create a new user with email for Provider Module "testuser2_static@mailinator.com"
 And I create a profile with Export Excel permission for Provider PA Details
 And I assign the profile and workspace to the user for Provider Module
 And I reset the user's password for Provider Module
@@ -640,13 +639,210 @@ And the user should be able to export Provider PA Details to Excel
 
 Scenario: User without Export Excel permission for Provider PA Details
 Given I log in as admin for Provider Module
-When I create a new user with email for Provider Module "testuser45_static@mailinator.com"
+When I create a new user with email for Provider Module "testuser3_static@mailinator.com"
 And I create a profile without Export Excel permission for Provider PA Details
 And I assign the profile and workspace to the user for Provider Module
 And I reset the user's password for Provider Module
 And I log in using the new user for Provider Module
 Then the user should be able to view Provider PA Details
 And the user should not be able to export Provider PA Details to Excel
+
+Scenario: User with View and Add access but no Edit or Delete for Provider Type
+Given I log in as admin for Provider Module
+When I create a new user with email for Provider Module "testuser3_static@mailinator.com"
+And I create a profile with View and Add access but no Edit or Delete access to Provider Type in Provider Module
+And I assign the profile and workspace to the user for Provider Module
+And I reset the user's password for Provider Module
+And I log in using the new user for Provider Module
+Then the user should be able to view Provider Type in Provider Module
+And the user should be able to add Provider Type in Provider Module
+And the user should not be able to edit Provider Type in Provider Module
+And the user should not be able to delete Provider Type in Provider Module
+
+Scenario: User with View and Edit access but no Add or Delete for Provider Type
+Given I log in as admin for Provider Module
+When I create a new user with email for Provider Module "testuser4_static@mailinator.com"
+And I create a profile with View and Edit access but no Add or Delete access to Provider Type in Provider Module
+And I assign the profile and workspace to the user for Provider Module
+And I reset the user's password for Provider Module
+And I log in using the new user for Provider Module
+Then the user should be able to view Provider Type in Provider Module
+And the user should be able to edit Provider Type in Provider Module
+And the user should not be able to add Provider Type in Provider Module
+And the user should not be able to delete Provider Type in Provider Module
+
+Scenario: User with View and Delete access but no Add or Edit for Provider Type
+Given I log in as admin for Provider Module
+When I create a new user with email for Provider Module "testuser5_static@mailinator.com"
+And I create a profile with View and Delete access but no Add or Edit access to Provider Type in Provider Module
+And I assign the profile and workspace to the user for Provider Module
+And I reset the user's password for Provider Module
+And I log in using the new user for Provider Module
+Then the user should be able to view Provider Type in Provider Module
+And the user should be able to delete Provider Type in Provider Module
+And the user should not be able to add Provider Type in Provider Module
+And the user should not be able to edit Provider Type in Provider Module
+
+Scenario: User with View and Add access but no Edit or Delete for Category
+Given I log in as admin for Provider Module
+When I create a new user with email for Provider Module "testuser6_static@mailinator.com"
+And I create a profile with View and Add access but no Edit or Delete access to Category in Provider Module
+And I assign the profile and workspace to the user for Provider Module
+And I reset the user's password for Provider Module
+And I log in using the new user for Provider Module
+Then the user should be able to view Category in Provider Module
+And the user should be able to add Category in Provider Module
+And the user should not be able to edit Category in Provider Module
+And the user should not be able to delete Category in Provider Module
+
+@Provider
+Scenario: User with View and Edit access but no Add or Delete for Category
+Given I log in as admin for Provider Module
+When I create a new user with email for Provider Module "testuser7_static@mailinator.com"
+And I create a profile with View and Edit access but no Add or Delete access to Category in Provider Module
+And I assign the profile and workspace to the user for Provider Module
+And I reset the user's password for Provider Module
+And I log in using the new user for Provider Module
+Then the user should be able to view Category in Provider Module
+And the user should be able to edit Category in Provider Module
+And the user should not be able to add Category in Provider Module
+And the user should not be able to delete Category in Provider Module
+
+Scenario: User with View and Delete access but no Add or Edit for Category
+Given I log in as admin for Provider Module
+When I create a new user with email for Provider Module "testuser5_static@mailinator.com"
+And I create a profile with View and Delete access but no Add or Edit access to Category in Provider Module
+And I assign the profile and workspace to the user for Provider Module
+And I reset the user's password for Provider Module
+And I log in using the new user for Provider Module
+Then the user should be able to view Category in Provider Module
+And the user should be able to delete Category in Provider Module
+And the user should not be able to add Category in Provider Module
+And the user should not be able to edit Category in Provider Module
+
+Scenario: User with View and Add access but no Edit or Delete for Specialty
+Given I log in as admin for Provider Module
+When I create a new user with email for Provider Module "testuser5_static@mailinator.com"
+And I create a profile with View and Add access but no Edit or Delete access to Specialty in Provider Module
+And I assign the profile and workspace to the user for Provider Module
+And I reset the user's password for Provider Module
+And I log in using the new user for Provider Module
+Then the user should be able to view Specialty in Provider Module
+And the user should be able to add Specialty in Provider Module
+And the user should not be able to edit Specialty in Provider Module
+And the user should not be able to delete Specialty in Provider Module
+
+Scenario: User with View and Edit access but no Add or Delete for Specialty
+Given I log in as admin for Provider Module
+When I create a new user with email for Provider Module "testuser5_static@mailinator.com"
+And I create a profile with View and Edit access but no Add or Delete access to Specialty in Provider Module
+And I assign the profile and workspace to the user for Provider Module
+And I reset the user's password for Provider Module
+And I log in using the new user for Provider Module
+Then the user should be able to view Specialty in Provider Module
+And the user should be able to edit Specialty in Provider Module
+And the user should not be able to add Specialty in Provider Module
+And the user should not be able to delete Specialty in Provider Module
+
+Scenario: User with View and Delete access but no Add or Edit for Specialty
+Given I log in as admin for Provider Module
+When I create a new user with email for Provider Module "testuser5_static@mailinator.com"
+And I create a profile with View and Delete access but no Add or Edit access to Specialty in Provider Module
+And I assign the profile and workspace to the user for Provider Module
+And I reset the user's password for Provider Module
+And I log in using the new user for Provider Module
+Then the user should be able to view Specialty in Provider Module
+And the user should be able to delete Specialty in Provider Module
+And the user should not be able to add Specialty in Provider Module
+And the user should not be able to edit Specialty in Provider Module
+
+Scenario: User with View and Add access but no Edit or Delete for Service
+Given I log in as admin for Provider Module
+When I create a new user with email for Provider Module "testuser5_static@mailinator.com"
+And I create a profile with View and Add access but no Edit or Delete access to Service in Provider Module
+And I assign the profile and workspace to the user for Provider Module
+And I reset the user's password for Provider Module
+And I log in using the new user for Provider Module
+Then the user should be able to view Service in Provider Module
+And the user should be able to add Service in Provider Module
+And the user should not be able to edit Service in Provider Module
+And the user should not be able to delete Service in Provider Module
+
+Scenario: User with View and Edit access but no Add or Delete for Service
+Given I log in as admin for Provider Module
+When I create a new user with email for Provider Module "testuser5_static@mailinator.com"
+And I create a profile with View and Edit access but no Add or Delete access to Service in Provider Module
+And I assign the profile and workspace to the user for Provider Module
+And I reset the user's password for Provider Module
+And I log in using the new user for Provider Module
+Then the user should be able to view Service in Provider Module
+And the user should be able to edit Service in Provider Module
+And the user should not be able to add Service in Provider Module
+And the user should not be able to delete Service in Provider Module
+
+Scenario: User with View and Delete access but no Add or Edit for Service
+Given I log in as admin for Provider Module
+When I create a new user with email for Provider Module "testuser5_static@mailinator.com"
+And I create a profile with View and Delete access but no Add or Edit access to Service in Provider Module
+And I assign the profile and workspace to the user for Provider Module
+And I reset the user's password for Provider Module
+And I log in using the new user for Provider Module
+Then the user should be able to view Service in Provider Module
+And the user should be able to delete Service in Provider Module
+And the user should not be able to add Service in Provider Module
+And the user should not be able to edit Service in Provider Module
+
+Scenario: User with View and Add access but no Edit or Delete for Provider Template
+Given I log in as admin for Provider Module
+When I create a new user with email for Provider Module "testuser5_static@mailinator.com"
+And I create a profile with View and Add access but no Edit or Delete access to Provider Template in Provider Module
+And I assign the profile and workspace to the user for Provider Module
+And I reset the user's password for Provider Module
+And I log in using the new user for Provider Module
+Then the user should be able to view Provider Template in Provider Module
+And the user should be able to add Provider Template in Provider Module
+And the user should not be able to edit Provider Template in Provider Module
+And the user should not be able to delete Provider Template in Provider Module
+
+Scenario: User with View and Edit access but no Add or Delete for Provider Template
+Given I log in as admin for Provider Module
+When I create a new user with email for Provider Module "testuser5_static@mailinator.com"
+And I create a profile with View and Edit access but no Add or Delete access to Provider Template in Provider Module
+And I assign the profile and workspace to the user for Provider Module
+And I reset the user's password for Provider Module
+And I log in using the new user for Provider Module
+Then the user should be able to view Provider Template in Provider Module
+And the user should be able to edit Provider Template in Provider Module
+And the user should not be able to add Provider Template in Provider Module
+And the user should not be able to delete Provider Template in Provider Module
+
+Scenario: User with View and Delete access but no Add or Edit for Provider Template
+Given I log in as admin for Provider Module
+When I create a new user with email for Provider Module "testuser5_static@mailinator.com"
+And I create a profile with View and Delete access but no Add or Edit access to Provider Template in Provider Module
+And I assign the profile and workspace to the user for Provider Module
+And I reset the user's password for Provider Module
+And I log in using the new user for Provider Module
+Then the user should be able to view Provider Template in Provider Module
+And the user should be able to delete Provider Template in Provider Module
+And the user should not be able to add Provider Template in Provider Module
+And the user should not be able to edit Provider Template in Provider Module
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
