@@ -1,3 +1,4 @@
+@Provider
 Feature: Provider Module scenarios
 
 Scenario: User with View only access for General (Audit View)
@@ -695,10 +696,9 @@ And the user should be able to add Category in Provider Module
 And the user should not be able to edit Category in Provider Module
 And the user should not be able to delete Category in Provider Module
 
-@Provider
 Scenario: User with View and Edit access but no Add or Delete for Category
 Given I log in as admin for Provider Module
-When I create a new user with email for Provider Module "testuser7_static@mailinator.com"
+When I create a new user with email for Provider Module "testuser11_static@mailinator.com"
 And I create a profile with View and Edit access but no Add or Delete access to Category in Provider Module
 And I assign the profile and workspace to the user for Provider Module
 And I reset the user's password for Provider Module
@@ -710,7 +710,7 @@ And the user should not be able to delete Category in Provider Module
 
 Scenario: User with View and Delete access but no Add or Edit for Category
 Given I log in as admin for Provider Module
-When I create a new user with email for Provider Module "testuser5_static@mailinator.com"
+When I create a new user with email for Provider Module "testuser10_static@mailinator.com"
 And I create a profile with View and Delete access but no Add or Edit access to Category in Provider Module
 And I assign the profile and workspace to the user for Provider Module
 And I reset the user's password for Provider Module
@@ -722,7 +722,7 @@ And the user should not be able to edit Category in Provider Module
 
 Scenario: User with View and Add access but no Edit or Delete for Specialty
 Given I log in as admin for Provider Module
-When I create a new user with email for Provider Module "testuser5_static@mailinator.com"
+When I create a new user with email for Provider Module "testuser1_static@mailinator.com"
 And I create a profile with View and Add access but no Edit or Delete access to Specialty in Provider Module
 And I assign the profile and workspace to the user for Provider Module
 And I reset the user's password for Provider Module
@@ -734,7 +734,7 @@ And the user should not be able to delete Specialty in Provider Module
 
 Scenario: User with View and Edit access but no Add or Delete for Specialty
 Given I log in as admin for Provider Module
-When I create a new user with email for Provider Module "testuser5_static@mailinator.com"
+When I create a new user with email for Provider Module "testuser2_static@mailinator.com"
 And I create a profile with View and Edit access but no Add or Delete access to Specialty in Provider Module
 And I assign the profile and workspace to the user for Provider Module
 And I reset the user's password for Provider Module
@@ -746,7 +746,7 @@ And the user should not be able to delete Specialty in Provider Module
 
 Scenario: User with View and Delete access but no Add or Edit for Specialty
 Given I log in as admin for Provider Module
-When I create a new user with email for Provider Module "testuser5_static@mailinator.com"
+When I create a new user with email for Provider Module "testuser4_static@mailinator.com"
 And I create a profile with View and Delete access but no Add or Edit access to Specialty in Provider Module
 And I assign the profile and workspace to the user for Provider Module
 And I reset the user's password for Provider Module
@@ -770,7 +770,7 @@ And the user should not be able to delete Service in Provider Module
 
 Scenario: User with View and Edit access but no Add or Delete for Service
 Given I log in as admin for Provider Module
-When I create a new user with email for Provider Module "testuser5_static@mailinator.com"
+When I create a new user with email for Provider Module "testuser8_static@mailinator.com"
 And I create a profile with View and Edit access but no Add or Delete access to Service in Provider Module
 And I assign the profile and workspace to the user for Provider Module
 And I reset the user's password for Provider Module
@@ -782,7 +782,7 @@ And the user should not be able to delete Service in Provider Module
 
 Scenario: User with View and Delete access but no Add or Edit for Service
 Given I log in as admin for Provider Module
-When I create a new user with email for Provider Module "testuser5_static@mailinator.com"
+When I create a new user with email for Provider Module "testuser9_static@mailinator.com"
 And I create a profile with View and Delete access but no Add or Edit access to Service in Provider Module
 And I assign the profile and workspace to the user for Provider Module
 And I reset the user's password for Provider Module
@@ -794,7 +794,7 @@ And the user should not be able to edit Service in Provider Module
 
 Scenario: User with View and Add access but no Edit or Delete for Provider Template
 Given I log in as admin for Provider Module
-When I create a new user with email for Provider Module "testuser5_static@mailinator.com"
+When I create a new user with email for Provider Module "testuser10_static@mailinator.com"
 And I create a profile with View and Add access but no Edit or Delete access to Provider Template in Provider Module
 And I assign the profile and workspace to the user for Provider Module
 And I reset the user's password for Provider Module
@@ -806,7 +806,7 @@ And the user should not be able to delete Provider Template in Provider Module
 
 Scenario: User with View and Edit access but no Add or Delete for Provider Template
 Given I log in as admin for Provider Module
-When I create a new user with email for Provider Module "testuser5_static@mailinator.com"
+When I create a new user with email for Provider Module "testuser11_static@mailinator.com"
 And I create a profile with View and Edit access but no Add or Delete access to Provider Template in Provider Module
 And I assign the profile and workspace to the user for Provider Module
 And I reset the user's password for Provider Module
@@ -818,7 +818,7 @@ And the user should not be able to delete Provider Template in Provider Module
 
 Scenario: User with View and Delete access but no Add or Edit for Provider Template
 Given I log in as admin for Provider Module
-When I create a new user with email for Provider Module "testuser5_static@mailinator.com"
+When I create a new user with email for Provider Module "testuser12_static@mailinator.com"
 And I create a profile with View and Delete access but no Add or Edit access to Provider Template in Provider Module
 And I assign the profile and workspace to the user for Provider Module
 And I reset the user's password for Provider Module

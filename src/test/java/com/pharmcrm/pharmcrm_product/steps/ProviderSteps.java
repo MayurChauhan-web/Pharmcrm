@@ -1476,10 +1476,13 @@ public class ProviderSteps {
 		clickWhenClickable(setupModuleCheckbox);
 		sleep(2000);
 		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(1000);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Provider Module']"));
 		sleep(1000);
-		clickWhenClickable(By.xpath("//label[@for='chkg24ProviderPADetailsExportExcel']"));
-		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg36ServiceAdd']"));
+		sleep(2000);
 		clickWhenClickable(By.id("btnSave"));
 	}
 
@@ -1503,9 +1506,12 @@ public class ProviderSteps {
 		clickWhenClickable(setupModuleCheckbox);
 		sleep(2000);
 		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(1000);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Provider Module']"));
 		sleep(1000);
-		clickWhenClickable(By.xpath("//label[@for='chkg24ProviderPADetailsExportExcel']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg39ProviderTemplateDelete']"));
 		sleep(1000);
 		clickWhenClickable(By.id("btnSave"));
 	}
@@ -1530,9 +1536,12 @@ public class ProviderSteps {
 		clickWhenClickable(setupModuleCheckbox);
 		sleep(2000);
 		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(1000);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Provider Module']"));
 		sleep(1000);
-		clickWhenClickable(By.xpath("//label[@for='chkg24ProviderPADetailsExportExcel']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg39ProviderTemplateEdit']"));
 		sleep(1000);
 		clickWhenClickable(By.id("btnSave"));
 	}
@@ -1557,10 +1566,13 @@ public class ProviderSteps {
 		clickWhenClickable(setupModuleCheckbox);
 		sleep(2000);
 		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(1000);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Provider Module']"));
 		sleep(1000);
-		clickWhenClickable(By.xpath("//label[@for='chkg24ProviderPADetailsExportExcel']"));
-		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg39ProviderTemplateAdd']"));
+		sleep(2000);
 		clickWhenClickable(By.id("btnSave"));
 	}
 
@@ -1584,9 +1596,12 @@ public class ProviderSteps {
 		clickWhenClickable(setupModuleCheckbox);
 		sleep(2000);
 		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(1000);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Provider Module']"));
 		sleep(1000);
-		clickWhenClickable(By.xpath("//label[@for='chkg24ProviderPADetailsExportExcel']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg36ServiceDelete']"));
 		sleep(1000);
 		clickWhenClickable(By.id("btnSave"));
 	}
@@ -1612,8 +1627,12 @@ public class ProviderSteps {
 		sleep(2000);
 		clickWhenClickable(setupModuleCheckbox);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Provider Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
 		sleep(1000);
-		clickWhenClickable(By.xpath("//label[@for='chkg24ProviderPADetailsExportExcel']"));
+		clickWhenClickable(By.xpath("//label[normalize-space()='Provider Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg36ServiceEdit']"));
 		sleep(1000);
 		clickWhenClickable(By.id("btnSave"));
 	}
@@ -1638,10 +1657,13 @@ public class ProviderSteps {
 		clickWhenClickable(setupModuleCheckbox);
 		sleep(2000);
 		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(1000);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Provider Module']"));
 		sleep(1000);
-		clickWhenClickable(By.xpath("//label[@for='chkg24ProviderPADetailsExportExcel']"));
-		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg6SpecialtyDelete']"));
+		sleep(2000);
 		clickWhenClickable(By.id("btnSave"));
 	}
 
@@ -1665,10 +1687,13 @@ public class ProviderSteps {
 		clickWhenClickable(setupModuleCheckbox);
 		sleep(2000);
 		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(1000);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Provider Module']"));
 		sleep(1000);
-		clickWhenClickable(By.xpath("//label[@for='chkg24ProviderPADetailsExportExcel']"));
-		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg6SpecialtyEdit']"));
+		sleep(2000);
 		clickWhenClickable(By.id("btnSave"));
 	}
 
@@ -1692,10 +1717,13 @@ public class ProviderSteps {
 		clickWhenClickable(setupModuleCheckbox);
 		sleep(2000);
 		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(1000);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Provider Module']"));
 		sleep(1000);
-		clickWhenClickable(By.xpath("//label[@for='chkg24ProviderPADetailsExportExcel']"));
-		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg6SpecialtyAdd']"));
+		sleep(2000);
 		clickWhenClickable(By.id("btnSave"));
 	}
 
@@ -1719,10 +1747,13 @@ public class ProviderSteps {
 		clickWhenClickable(setupModuleCheckbox);
 		sleep(2000);
 		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(1000);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Provider Module']"));
 		sleep(1000);
-		clickWhenClickable(By.xpath("//label[@for='chkg24ProviderPADetailsExportExcel']"));
-		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg01CategoryDelete']"));
+		sleep(2000);
 		clickWhenClickable(By.id("btnSave"));
 	}
 
@@ -1751,9 +1782,8 @@ public class ProviderSteps {
 		sleep(1000);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Provider Module']"));
 		sleep(1000);
-		clickWhenClickable(By.xpath("//label[@for='chkg01CategoryView']"));
 		clickWhenClickable(By.xpath("//label[@for='chkg01CategoryEdit']"));
-		sleep(1000);
+		sleep(2000);
 		clickWhenClickable(By.id("btnSave"));
 	}
 
@@ -2700,7 +2730,7 @@ public class ProviderSteps {
 	public void verifyUserCannotDeleteCategory() {
 		sleep(1000);
 		clickWhenClickable(By.xpath("//tbody/tr[1]/td[4]/div[1]/div[1]/button[1]/i[1]"));
-		sleep(1000);
+		sleep(2000);
 		assertElementNotPresent(By.xpath(
 				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
 
@@ -2709,358 +2739,225 @@ public class ProviderSteps {
 	@And("the user should be able to delete Specialty in Provider Module")
 	public void verifyUserCanDeleteSpecialty() {
 		sleep(3000);
-		driver.get(baseUrl + "/Prescriber/Home/Providers");
-		wait.until(ExpectedConditions.urlContains("/Prescriber/Home/Providers"));
-		sleep(3000);
-		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/a[1]/img[1]"));
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[4]/div[1]/div[1]/button[1]/i[1]"));
 		sleep(2000);
-		clickWhenClickable(By.xpath("//a[normalize-space()='History']"));
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
 		sleep(2000);
-		clickWhenClickable(By.xpath("//div[@id='tabs-7']//div[2]//div[1]//div[2]//a[1]//span[1]"));
-		sleep(1000);
-		assertElementPresent(By.xpath("//td[normalize-space()='0000008']"));
+		clickWhenClickable(By.xpath("//div[@id='genericmodal']//button[@id='btnDeleteConfirm']"));
 
 	}
 
 	@And("the user should be able to view Provider Template in Provider Module")
 	public void verifyUserCanViewProviderTemplate() {
 		sleep(3000);
-		driver.get(baseUrl + "/Prescriber/Home/Providers");
-		wait.until(ExpectedConditions.urlContains("/Prescriber/Home/Providers"));
+		driver.get(baseUrl + "/Setup/Home/Templates");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/Templates"));
 		sleep(3000);
-		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/a[1]/img[1]"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//a[normalize-space()='History']"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//div[@id='tabs-7']//div[2]//div[1]//div[2]//a[1]//span[1]"));
-		sleep(1000);
-		assertElementPresent(By.xpath("//td[normalize-space()='0000008']"));
 
 	}
 
 	@And("the user should not be able to add Provider Template in Provider Module")
 	public void verifyUserCannotAddProviderTemplate() {
 		sleep(3000);
-		driver.get(baseUrl + "/Prescriber/Home/Providers");
-		wait.until(ExpectedConditions.urlContains("/Prescriber/Home/Providers"));
-		sleep(3000);
-		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/a[1]/img[1]"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//a[normalize-space()='History']"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//div[@id='tabs-7']//div[2]//div[1]//div[2]//a[1]//span[1]"));
-		sleep(1000);
-		assertElementPresent(By.xpath("//td[normalize-space()='0000008']"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New Template']"));
 
 	}
 
 	@And("the user should be able to delete Provider Template in Provider Module")
 	public void verifyUserCanDeleteProviderTemplate() {
 		sleep(3000);
-		driver.get(baseUrl + "/Prescriber/Home/Providers");
-		wait.until(ExpectedConditions.urlContains("/Prescriber/Home/Providers"));
-		sleep(3000);
-		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/a[1]/img[1]"));
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
 		sleep(2000);
-		clickWhenClickable(By.xpath("//a[normalize-space()='History']"));
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
 		sleep(2000);
-		clickWhenClickable(By.xpath("//div[@id='tabs-7']//div[2]//div[1]//div[2]//a[1]//span[1]"));
-		sleep(1000);
-		assertElementPresent(By.xpath("//td[normalize-space()='0000008']"));
+		clickWhenClickable(By.xpath("//div[@id='genericmodal']//button[@id='btnDeleteConfirm']"));
 
 	}
 
 	@And("the user should be able to edit Provider Template in Provider Module")
 	public void verifyUserCanEditProviderTemplate() {
 		sleep(3000);
-		driver.get(baseUrl + "/Prescriber/Home/Providers");
-		wait.until(ExpectedConditions.urlContains("/Prescriber/Home/Providers"));
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
 		sleep(3000);
-		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/a[1]/img[1]"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//a[normalize-space()='History']"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//div[@id='tabs-7']//div[2]//div[1]//div[2]//a[1]//span[1]"));
-		sleep(1000);
-		assertElementPresent(By.xpath("//td[normalize-space()='0000008']"));
-
+		waitAndSendKeys(By.id("ProviderDocumentTemplate_Name"), "Provider Registration Template");
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
 	}
 
 	@And("the user should not be able to delete Provider Template in Provider Module")
 	public void verifyUserCannotDeleteProviderTemplate() {
 		sleep(3000);
-		driver.get(baseUrl + "/Prescriber/Home/Providers");
-		wait.until(ExpectedConditions.urlContains("/Prescriber/Home/Providers"));
-		sleep(3000);
-		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/a[1]/img[1]"));
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
 		sleep(2000);
-		clickWhenClickable(By.xpath("//a[normalize-space()='History']"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//div[@id='tabs-7']//div[2]//div[1]//div[2]//a[1]//span[1]"));
-		sleep(1000);
-		assertElementPresent(By.xpath("//td[normalize-space()='0000008']"));
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
 
 	}
 
 	@And("the user should not be able to edit Provider Template in Provider Module")
 	public void verifyUserCannotEditProviderTemplate() {
 		sleep(3000);
-		driver.get(baseUrl + "/Prescriber/Home/Providers");
-		wait.until(ExpectedConditions.urlContains("/Prescriber/Home/Providers"));
-		sleep(3000);
-		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/a[1]/img[1]"));
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
 		sleep(2000);
-		clickWhenClickable(By.xpath("//a[normalize-space()='History']"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//div[@id='tabs-7']//div[2]//div[1]//div[2]//a[1]//span[1]"));
-		sleep(1000);
-		assertElementPresent(By.xpath("//td[normalize-space()='0000008']"));
-
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
 	}
 
 	@And("the user should be able to add Provider Template in Provider Module")
 	public void verifyUserCanAddProviderTemplate() {
-		sleep(3000);
-		driver.get(baseUrl + "/Prescriber/Home/Providers");
-		wait.until(ExpectedConditions.urlContains("/Prescriber/Home/Providers"));
-		sleep(3000);
-		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/a[1]/img[1]"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//a[normalize-space()='History']"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//div[@id='tabs-7']//div[2]//div[1]//div[2]//a[1]//span[1]"));
 		sleep(1000);
-		assertElementPresent(By.xpath("//td[normalize-space()='0000008']"));
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Template']"));
+		sleep(1000);
+		waitAndSendKeys(By.id("ProviderDocumentTemplate_Name"), "Provider Registration Template");
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
 
 	}
 
 	@And("the user should be able to delete Service in Provider Module")
 	public void verifyUserCanDeleteService() {
 		sleep(3000);
-		driver.get(baseUrl + "/Prescriber/Home/Providers");
-		wait.until(ExpectedConditions.urlContains("/Prescriber/Home/Providers"));
-		sleep(3000);
-		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/a[1]/img[1]"));
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
 		sleep(2000);
-		clickWhenClickable(By.xpath("//a[normalize-space()='History']"));
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
 		sleep(2000);
-		clickWhenClickable(By.xpath("//div[@id='tabs-7']//div[2]//div[1]//div[2]//a[1]//span[1]"));
-		sleep(1000);
-		assertElementPresent(By.xpath("//td[normalize-space()='0000008']"));
+		clickWhenClickable(By.xpath("//div[@id='genericmodal']//button[@id='btnDeleteConfirm']"));
 
 	}
 
 	@And("the user should not be able to add Service in Provider Module")
 	public void verifyUserCannotAddService() {
 		sleep(3000);
-		driver.get(baseUrl + "/Prescriber/Home/Providers");
-		wait.until(ExpectedConditions.urlContains("/Prescriber/Home/Providers"));
-		sleep(3000);
-		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/a[1]/img[1]"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//a[normalize-space()='History']"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//div[@id='tabs-7']//div[2]//div[1]//div[2]//a[1]//span[1]"));
-		sleep(1000);
-		assertElementPresent(By.xpath("//td[normalize-space()='0000008']"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New Provider Service']"));
 
 	}
 
 	@And("the user should be able to edit Service in Provider Module")
 	public void verifyUserCanEditService() {
 		sleep(3000);
-		driver.get(baseUrl + "/Prescriber/Home/Providers");
-		wait.until(ExpectedConditions.urlContains("/Prescriber/Home/Providers"));
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
 		sleep(3000);
-		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/a[1]/img[1]"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//a[normalize-space()='History']"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//div[@id='tabs-7']//div[2]//div[1]//div[2]//a[1]//span[1]"));
-		sleep(1000);
-		assertElementPresent(By.xpath("//td[normalize-space()='0000008']"));
-
+		waitAndSendKeys(By.id("Service_Name"), "Chronic Disease Management");
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
 	}
 
 	@And("the user should not be able to delete Service in Provider Module")
 	public void verifyUserCannotDeleteService() {
-		sleep(3000);
-		driver.get(baseUrl + "/Prescriber/Home/Providers");
-		wait.until(ExpectedConditions.urlContains("/Prescriber/Home/Providers"));
-		sleep(3000);
-		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/a[1]/img[1]"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//a[normalize-space()='History']"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//div[@id='tabs-7']//div[2]//div[1]//div[2]//a[1]//span[1]"));
 		sleep(1000);
-		assertElementPresent(By.xpath("//td[normalize-space()='0000008']"));
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(1000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Delete']"));
 
 	}
 
 	@And("the user should not be able to edit Service in Provider Module")
 	public void verifyUserCannotEditService() {
 		sleep(3000);
-		driver.get(baseUrl + "/Prescriber/Home/Providers");
-		wait.until(ExpectedConditions.urlContains("/Prescriber/Home/Providers"));
-		sleep(3000);
-		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/a[1]/img[1]"));
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
 		sleep(2000);
-		clickWhenClickable(By.xpath("//a[normalize-space()='History']"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//div[@id='tabs-7']//div[2]//div[1]//div[2]//a[1]//span[1]"));
-		sleep(1000);
-		assertElementPresent(By.xpath("//td[normalize-space()='0000008']"));
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
 
 	}
 
 	@And("the user should be able to add Service in Provider Module")
 	public void verifyUserCanAddService() {
-		sleep(3000);
-		driver.get(baseUrl + "/Prescriber/Home/Providers");
-		wait.until(ExpectedConditions.urlContains("/Prescriber/Home/Providers"));
-		sleep(3000);
-		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/a[1]/img[1]"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//a[normalize-space()='History']"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//div[@id='tabs-7']//div[2]//div[1]//div[2]//a[1]//span[1]"));
 		sleep(1000);
-		assertElementPresent(By.xpath("//td[normalize-space()='0000008']"));
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Provider Service']"));
+		sleep(1000);
+		waitAndSendKeys(By.id("Service_Name"), "Chronic Disease Management");
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
 
 	}
 
 	@And("the user should be able to view Service in Provider Module")
 	public void verifyUserCanViewService() {
 		sleep(3000);
-		driver.get(baseUrl + "/Prescriber/Home/Providers");
-		wait.until(ExpectedConditions.urlContains("/Prescriber/Home/Providers"));
+		driver.get(baseUrl + "/Setup/Home/Services");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/Services"));
 		sleep(3000);
-		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/a[1]/img[1]"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//a[normalize-space()='History']"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//div[@id='tabs-7']//div[2]//div[1]//div[2]//a[1]//span[1]"));
-		sleep(1000);
-		assertElementPresent(By.xpath("//td[normalize-space()='0000008']"));
 
 	}
 
 	@And("the user should not be able to add Specialty in Provider Module")
 	public void verifyUserCannotAddSpecialty() {
 		sleep(3000);
-		driver.get(baseUrl + "/Prescriber/Home/Providers");
-		wait.until(ExpectedConditions.urlContains("/Prescriber/Home/Providers"));
-		sleep(3000);
-		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/a[1]/img[1]"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//a[normalize-space()='History']"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//div[@id='tabs-7']//div[2]//div[1]//div[2]//a[1]//span[1]"));
-		sleep(1000);
-		assertElementPresent(By.xpath("//td[normalize-space()='0000008']"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New Provider Specialty']"));
 
 	}
 
 	@And("the user should be able to edit Specialty in Provider Module")
 	public void verifyUserCanEditSpecialty() {
 		sleep(3000);
-		driver.get(baseUrl + "/Prescriber/Home/Providers");
-		wait.until(ExpectedConditions.urlContains("/Prescriber/Home/Providers"));
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[4]/div[1]/div[1]/button[1]/i[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
 		sleep(3000);
-		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/a[1]/img[1]"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//a[normalize-space()='History']"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//div[@id='tabs-7']//div[2]//div[1]//div[2]//a[1]//span[1]"));
-		sleep(1000);
-		assertElementPresent(By.xpath("//td[normalize-space()='0000008']"));
+		waitAndSendKeys(By.id("Specialty_Name"), "Oncology");
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
 
 	}
 
 	@And("the user should not be able to delete Specialty in Provider Module")
 	public void verifyUserCannotDeleteSpecialty() {
 		sleep(3000);
-		driver.get(baseUrl + "/Prescriber/Home/Providers");
-		wait.until(ExpectedConditions.urlContains("/Prescriber/Home/Providers"));
-		sleep(3000);
-		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/a[1]/img[1]"));
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[4]/div[1]/div[1]/button[1]/i[1]"));
 		sleep(2000);
-		clickWhenClickable(By.xpath("//a[normalize-space()='History']"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//div[@id='tabs-7']//div[2]//div[1]//div[2]//a[1]//span[1]"));
-		sleep(1000);
-		assertElementPresent(By.xpath("//td[normalize-space()='0000008']"));
-
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
 	}
 
 	@And("the user should not be able to edit Specialty in Provider Module")
 	public void verifyUserCannotEditSpecialty() {
 		sleep(3000);
-		driver.get(baseUrl + "/Prescriber/Home/Providers");
-		wait.until(ExpectedConditions.urlContains("/Prescriber/Home/Providers"));
-		sleep(3000);
-		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/a[1]/img[1]"));
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[4]/div[1]/div[1]/button[1]/i[1]"));
 		sleep(2000);
-		clickWhenClickable(By.xpath("//a[normalize-space()='History']"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//div[@id='tabs-7']//div[2]//div[1]//div[2]//a[1]//span[1]"));
-		sleep(1000);
-		assertElementPresent(By.xpath("//td[normalize-space()='0000008']"));
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
 
 	}
 
 	@And("the user should be able to add Specialty in Provider Module")
 	public void verifyUserCanAddSpecialty() {
-		sleep(3000);
-		driver.get(baseUrl + "/Prescriber/Home/Providers");
-		wait.until(ExpectedConditions.urlContains("/Prescriber/Home/Providers"));
-		sleep(3000);
-		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/a[1]/img[1]"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//a[normalize-space()='History']"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//div[@id='tabs-7']//div[2]//div[1]//div[2]//a[1]//span[1]"));
 		sleep(1000);
-		assertElementPresent(By.xpath("//td[normalize-space()='0000008']"));
-
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Provider Specialty']"));
+		sleep(1000);
+		waitAndSendKeys(By.id("Specialty_Name"), "Oncology");
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
 	}
 
 	@And("the user should be able to view Specialty in Provider Module")
 	public void verifyUserCanViewSpecialty() {
 		sleep(3000);
-		driver.get(baseUrl + "/Prescriber/Home/Providers");
-		wait.until(ExpectedConditions.urlContains("/Prescriber/Home/Providers"));
-		sleep(3000);
-		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/a[1]/img[1]"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//a[normalize-space()='History']"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//div[@id='tabs-7']//div[2]//div[1]//div[2]//a[1]//span[1]"));
+		driver.get(baseUrl + "/Setup/Home/Specialties");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/Specialties"));
 		sleep(1000);
-		assertElementPresent(By.xpath("//td[normalize-space()='0000008']"));
 
 	}
 
 	@And("the user should be able to delete Category in Provider Module")
 	public void verifyUserCanDeleteCategory() {
 		sleep(3000);
-		driver.get(baseUrl + "/Prescriber/Home/Providers");
-		wait.until(ExpectedConditions.urlContains("/Prescriber/Home/Providers"));
-		sleep(3000);
-		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/a[1]/img[1]"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//a[normalize-space()='History']"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//div[@id='tabs-7']//div[2]//div[1]//div[2]//a[1]//span[1]"));
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[4]/div[1]/div[1]/button[1]/i[1]"));
 		sleep(1000);
-		assertElementPresent(By.xpath("//td[normalize-space()='0000008']"));
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//div[@id='genericmodal']//button[@id='btnDeleteConfirm']"));
 
 	}
 
 	@And("the user should not be able to add Category in Provider Module")
 	public void verifyUserCannotAddCategory() {
-		sleep(1000);
+		sleep(3000);
 		assertElementNotPresent(By.xpath("//span[normalize-space()='New Provider Category']"));
 
 	}
@@ -3069,10 +2966,10 @@ public class ProviderSteps {
 	public void verifyUserCanEditCategory() {
 		sleep(3000);
 		clickWhenClickable(By.xpath("//tbody/tr[1]/td[4]/div[1]/div[1]/button[1]/i[1]"));
-		sleep(1000);
+		sleep(2000);
 		clickWhenClickable(By.xpath(
 				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
-		sleep(1000);
+		sleep(3000);
 		waitAndSendKeys(By.id("Category_Name"), "Orthopedics");
 		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
 
@@ -3082,7 +2979,7 @@ public class ProviderSteps {
 	public void verifyUserCannotEditCategory() {
 		sleep(3000);
 		clickWhenClickable(By.xpath("//tbody/tr[1]/td[4]/div[1]/div[1]/button[1]/i[1]"));
-		sleep(1000);
+		sleep(2000);
 		assertElementNotPresent(By.xpath(
 				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
 
