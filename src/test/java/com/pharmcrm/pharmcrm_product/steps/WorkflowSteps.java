@@ -190,6 +190,36 @@ public class WorkflowSteps {
 		clickWhenClickable(By.id("btnSave"));
 	}
 
+	@And("I create a profile with View and Add access but no Edit or Delete access to Reminder Result Action in Workflow Module")
+	public void iCreateAProfileWithViewAndAddAccessButNoEditOrDeleteAccessToReminderResultActionInWorkflowModule() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[@for='chkg19ReminderResultActionAdd']"));
+		sleep(2000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
 	@And("I create a profile with View and Edit access but no Add or Delete access to Medication Sync Reminder Color Code in Workflow Module")
 	public void iCreateAProfileWithViewAndEditAccessButNoAddOrDeleteAccessToMedicationSyncReminderColorCodeInWorkflowModule() {
 		driver.get(baseUrl + "/Setup/Home/Profiles");
@@ -404,6 +434,16 @@ public class WorkflowSteps {
 
 	}
 
+	@And("the user should not be able to edit Reminder Result Action in Workflow Module")
+	public void userShouldNotBeAbleToEditReminderResultActionInWorkflowModule() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+
+	}
+
 	@And("the user should not be able to add Sync Workflow Settings in Workflow Module")
 	public void userShouldNotBeAbleToAddSyncWorkflowSettingsInWorkflowModule() {
 		sleep(1000);
@@ -488,6 +528,14 @@ public class WorkflowSteps {
 
 	}
 
+	@And("the user should not be able to delete Reminder Result Action in Workflow Module")
+	public void userShouldNotBeAbleToDeleteReminderResultActionInWorkflowModule() {
+		sleep(1000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+
+	}
+
 	@And("the user should be able to add Sync Workflow Settings in Workflow Module")
 	public void userShouldBeAbleToAddSyncWorkflowSettingsInWorkflowModule() {
 		sleep(1000);
@@ -516,6 +564,16 @@ public class WorkflowSteps {
 
 	}
 
+	@And("the user should be able to add Reminder Result Action in Workflow Module")
+	public void userShouldBeAbleToAddReminderResultActionInWorkflowModule() {
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Reminder Result Action']"));
+		sleep(2000);
+		waitAndSendKeys(By.id("ReminderResultAction_Name"), "Call Patient");
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+
+	}
+
 	@And("the user should be able to view Sync Workflow Settings in Workflow Module")
 	public void userShouldBeAbleToViewSyncWorkflowSettingsInWorkflowModule() {
 		sleep(3000);
@@ -533,6 +591,16 @@ public class WorkflowSteps {
 		wait.until(ExpectedConditions.urlContains("/Setup/Home/MedicationSyncReminderColorCodes"));
 		sleep(3000);
 		assertElementPresent(By.xpath("//th[normalize-space()='Title']"));
+
+	}
+
+	@And("the user should be able to view Reminder Result Action in Workflow Module")
+	public void userShouldBeAbleToViewReminderResultActionInWorkflowModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/ReminderResultActions");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/ReminderResultActions"));
+		sleep(3000);
+		assertElementPresent(By.xpath("//a[normalize-space()='Name']"));
 
 	}
 

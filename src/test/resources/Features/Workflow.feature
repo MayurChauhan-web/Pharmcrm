@@ -78,7 +78,6 @@ And the user should be able to edit Medication Sync Reminder Color Code in Workf
 And the user should not be able to add Medication Sync Reminder Color Code in Workflow Module
 And the user should not be able to delete Medication Sync Reminder Color Code in Workflow Module
 
-@Workflow
 Scenario: User with View and Delete access but no Add or Edit for Medication Sync Reminder Color Code
 Given I log in as admin for Workflow Module
 When I create a new user with email for Workflow Module "testuser9_static@mailinator.com"
@@ -90,6 +89,48 @@ Then the user should be able to view Medication Sync Reminder Color Code in Work
 And the user should be able to delete Medication Sync Reminder Color Code in Workflow Module
 And the user should not be able to add Medication Sync Reminder Color Code in Workflow Module
 And the user should not be able to edit Medication Sync Reminder Color Code in Workflow Module
+
+@Workflow
+Scenario: User with View and Add access but no Edit or Delete for Reminder Result Action
+Given I log in as admin for Workflow Module
+When I create a new user with email for Workflow Module "testuser10_static@mailinator.com"
+And I create a profile with View and Add access but no Edit or Delete access to Reminder Result Action in Workflow Module
+And I assign the profile and workspace to the user for Workflow Module
+And I reset the user's password for Workflow Module
+And I log in using the new user for Workflow Module
+Then the user should be able to view Reminder Result Action in Workflow Module
+And the user should be able to add Reminder Result Action in Workflow Module
+And the user should not be able to edit Reminder Result Action in Workflow Module
+And the user should not be able to delete Reminder Result Action in Workflow Module
+
+Scenario: User with View and Edit access but no Add or Delete for Reminder Result Action
+Given I log in as admin for Workflow Module
+When I create a new user with email for Workflow Module "testuser11_static@mailinator.com"
+And I create a profile with View and Edit access but no Add or Delete access to Reminder Result Action in Workflow Module
+And I assign the profile and workspace to the user for Workflow Module
+And I reset the user's password for Workflow Module
+And I log in using the new user for Workflow Module
+Then the user should be able to view Reminder Result Action in Workflow Module
+And the user should be able to edit Reminder Result Action in Workflow Module
+And the user should not be able to add Reminder Result Action in Workflow Module
+And the user should not be able to delete Reminder Result Action in Workflow Module
+
+Scenario: User with View and Delete access but no Add or Edit for Reminder Result Action
+Given I log in as admin for Workflow Module
+When I create a new user with email for Workflow Module "testuser12_static@mailinator.com"
+And I create a profile with View and Delete access but no Add or Edit access to Reminder Result Action in Workflow Module
+And I assign the profile and workspace to the user for Workflow Module
+And I reset the user's password for Workflow Module
+And I log in using the new user for Workflow Module
+Then the user should be able to view Reminder Result Action in Workflow Module
+And the user should be able to delete Reminder Result Action in Workflow Module
+And the user should not be able to add Reminder Result Action in Workflow Module
+And the user should not be able to edit Reminder Result Action in Workflow Module
+
+
+
+
+
 
 
 
