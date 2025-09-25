@@ -402,7 +402,6 @@ And the user should be able to edit Runningline Level2 Status in Workflow Module
 And the user should not be able to add Runningline Level2 Status in Workflow Module
 And the user should not be able to delete Runningline Level2 Status in Workflow Module
 
-@Workflow
 Scenario: User with View and Delete access but no Add or Edit for Runningline Level2 Status
 Given I log in as admin for Workflow Module
 When I create a new user with email for Workflow Module "testuser4_static@mailinator.com"
@@ -415,6 +414,7 @@ And the user should be able to delete Runningline Level2 Status in Workflow Modu
 And the user should not be able to add Runningline Level2 Status in Workflow Module
 And the user should not be able to edit Runningline Level2 Status in Workflow Module
 
+@Workflow
 Scenario: User with View and Add access but no Edit or Delete for Incoming Call Types
 Given I log in as admin for Workflow Module
 When I create a new user with email for Workflow Module "testuser34_static@mailinator.com"
@@ -558,6 +558,12 @@ Then the user should be able to view Prescription Status in Workflow Module
 And the user should be able to delete Prescription Status in Workflow Module
 And the user should not be able to add Prescription Status in Workflow Module
 And the user should not be able to edit Prescription Status in Workflow Module
+
+
+
+
+
+
 
 
 

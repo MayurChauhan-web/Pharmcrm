@@ -2112,6 +2112,276 @@ public class WorkflowSteps {
 
 	}
 
+	@And("the user should be able to add Incoming Call Types in Workflow Module")
+	public void addIncomingCallTypesInWorkflowModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/RunninglineLevel2Statuses");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/RunninglineLevel2Statuses"));
+		sleep(3000);
+		assertElementPresent(By.xpath("//a[normalize-space()='Level 2']"));
+
+	}
+
+	@And("the user should not be able to delete Incoming Call Types in Workflow Module")
+	public void cannotDeleteIncomingCallTypesInWorkflowModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/RunninglineLevel2Statuses");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/RunninglineLevel2Statuses"));
+		sleep(3000);
+		assertElementPresent(By.xpath("//a[normalize-space()='Level 2']"));
+
+	}
+
+	@And("the user should be able to delete Incoming Call Types in Workflow Module")
+	public void deleteIncomingCallTypesInWorkflowModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/RunninglineLevel2Statuses");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/RunninglineLevel2Statuses"));
+		sleep(3000);
+		assertElementPresent(By.xpath("//a[normalize-space()='Level 2']"));
+
+	}
+
+	@And("the user should not be able to delete Outgoing Call Types in Workflow Module")
+	public void cannotDeleteOutgoingCallTypesInWorkflowModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/RunninglineLevel2Statuses");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/RunninglineLevel2Statuses"));
+		sleep(3000);
+		assertElementPresent(By.xpath("//a[normalize-space()='Level 2']"));
+
+	}
+
+	@And("the user should not be able to add Outgoing Call Types in Workflow Module")
+	public void cannotAddOutgoingCallTypesInWorkflowModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/RunninglineLevel2Statuses");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/RunninglineLevel2Statuses"));
+		sleep(3000);
+		assertElementPresent(By.xpath("//a[normalize-space()='Level 2']"));
+
+	}
+
+	@And("the user should not be able to delete Program 340B in Workflow Module")
+	public void cannotDeleteProgram340BInWorkflowModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/RunninglineLevel2Statuses");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/RunninglineLevel2Statuses"));
+		sleep(3000);
+		assertElementPresent(By.xpath("//a[normalize-space()='Level 2']"));
+
+	}
+
+	@And("the user should be able to delete Prescription Status in Workflow Module")
+	public void deletePrescriptionStatusInWorkflowModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/RunninglineLevel2Statuses");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/RunninglineLevel2Statuses"));
+		sleep(3000);
+		assertElementPresent(By.xpath("//a[normalize-space()='Level 2']"));
+
+	}
+
+	@And("the user should not be able to add Prescription Status in Workflow Module")
+	public void cannotAddPrescriptionStatusInWorkflowModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/RunninglineLevel2Statuses");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/RunninglineLevel2Statuses"));
+		sleep(3000);
+		assertElementPresent(By.xpath("//a[normalize-space()='Level 2']"));
+
+	}
+
+	@And("the user should be able to edit Prescription Status in Workflow Module")
+	public void editPrescriptionStatusInWorkflowModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/RunninglineLevel2Statuses");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/RunninglineLevel2Statuses"));
+		sleep(3000);
+		assertElementPresent(By.xpath("//a[normalize-space()='Level 2']"));
+
+	}
+
+	@And("the user should not be able to delete Prescription Status in Workflow Module")
+	public void cannotDeletePrescriptionStatusInWorkflowModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/RunninglineLevel2Statuses");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/RunninglineLevel2Statuses"));
+		sleep(3000);
+		assertElementPresent(By.xpath("//a[normalize-space()='Level 2']"));
+
+	}
+
+	@And("the user should not be able to edit Prescription Status in Workflow Module")
+	public void cannotEditPrescriptionStatusInWorkflowModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/RunninglineLevel2Statuses");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/RunninglineLevel2Statuses"));
+		sleep(3000);
+		assertElementPresent(By.xpath("//a[normalize-space()='Level 2']"));
+
+	}
+
+	@And("the user should be able to add Prescription Status in Workflow Module")
+	public void addPrescriptionStatusInWorkflowModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/RunninglineLevel2Statuses");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/RunninglineLevel2Statuses"));
+		sleep(3000);
+		assertElementPresent(By.xpath("//a[normalize-space()='Level 2']"));
+
+	}
+
+	@And("the user should be able to view Prescription Status in Workflow Module")
+	public void viewPrescriptionStatusInWorkflowModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/RunninglineLevel2Statuses");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/RunninglineLevel2Statuses"));
+		sleep(3000);
+		assertElementPresent(By.xpath("//a[normalize-space()='Level 2']"));
+
+	}
+
+	@And("the user should be able to delete Program 340B in Workflow Module")
+	public void deleteProgram340BInWorkflowModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/RunninglineLevel2Statuses");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/RunninglineLevel2Statuses"));
+		sleep(3000);
+		assertElementPresent(By.xpath("//a[normalize-space()='Level 2']"));
+
+	}
+
+	@And("the user should not be able to add Program 340B in Workflow Module")
+	public void cannotAddProgram340BInWorkflowModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/RunninglineLevel2Statuses");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/RunninglineLevel2Statuses"));
+		sleep(3000);
+		assertElementPresent(By.xpath("//a[normalize-space()='Level 2']"));
+
+	}
+
+	@And("the user should be able to edit Program 340B in Workflow Module")
+	public void editProgram340BInWorkflowModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/RunninglineLevel2Statuses");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/RunninglineLevel2Statuses"));
+		sleep(3000);
+		assertElementPresent(By.xpath("//a[normalize-space()='Level 2']"));
+
+	}
+
+	@And("the user should not be able to edit Program 340B in Workflow Module")
+	public void cannotEditProgram340BInWorkflowModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/RunninglineLevel2Statuses");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/RunninglineLevel2Statuses"));
+		sleep(3000);
+		assertElementPresent(By.xpath("//a[normalize-space()='Level 2']"));
+
+	}
+
+	@And("the user should be able to add Program 340B in Workflow Module")
+	public void addProgram340BInWorkflowModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/RunninglineLevel2Statuses");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/RunninglineLevel2Statuses"));
+		sleep(3000);
+		assertElementPresent(By.xpath("//a[normalize-space()='Level 2']"));
+
+	}
+
+	@And("the user should be able to view Program 340B in Workflow Module")
+	public void viewProgram340BInWorkflowModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/RunninglineLevel2Statuses");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/RunninglineLevel2Statuses"));
+		sleep(3000);
+		assertElementPresent(By.xpath("//a[normalize-space()='Level 2']"));
+
+	}
+
+	@And("the user should be able to delete Outgoing Call Types in Workflow Module")
+	public void deleteOutgoingCallTypesInWorkflowModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/RunninglineLevel2Statuses");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/RunninglineLevel2Statuses"));
+		sleep(3000);
+		assertElementPresent(By.xpath("//a[normalize-space()='Level 2']"));
+
+	}
+
+	@And("the user should be able to edit Outgoing Call Types in Workflow Module")
+	public void editOutgoingCallTypesInWorkflowModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/RunninglineLevel2Statuses");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/RunninglineLevel2Statuses"));
+		sleep(3000);
+		assertElementPresent(By.xpath("//a[normalize-space()='Level 2']"));
+
+	}
+
+	@And("the user should not be able to edit Outgoing Call Types in Workflow Module")
+	public void cannotEditOutgoingCallTypesInWorkflowModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/RunninglineLevel2Statuses");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/RunninglineLevel2Statuses"));
+		sleep(3000);
+		assertElementPresent(By.xpath("//a[normalize-space()='Level 2']"));
+
+	}
+
+	@And("the user should be able to add Outgoing Call Types in Workflow Module")
+	public void addOutgoingCallTypesInWorkflowModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/RunninglineLevel2Statuses");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/RunninglineLevel2Statuses"));
+		sleep(3000);
+		assertElementPresent(By.xpath("//a[normalize-space()='Level 2']"));
+
+	}
+
+	@And("the user should be able to view Outgoing Call Types in Workflow Module")
+	public void viewOutgoingCallTypesInWorkflowModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/RunninglineLevel2Statuses");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/RunninglineLevel2Statuses"));
+		sleep(3000);
+		assertElementPresent(By.xpath("//a[normalize-space()='Level 2']"));
+
+	}
+
+	@And("the user should not be able to add Incoming Call Types in Workflow Module")
+	public void cannotAddIncomingCallTypesInWorkflowModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/RunninglineLevel2Statuses");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/RunninglineLevel2Statuses"));
+		sleep(3000);
+		assertElementPresent(By.xpath("//a[normalize-space()='Level 2']"));
+
+	}
+
+	@And("the user should be able to edit Incoming Call Types in Workflow Module")
+	public void editIncomingCallTypesInWorkflowModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/RunninglineLevel2Statuses");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/RunninglineLevel2Statuses"));
+		sleep(3000);
+		assertElementPresent(By.xpath("//a[normalize-space()='Level 2']"));
+
+	}
+
+	@And("the user should not be able to edit Incoming Call Types in Workflow Module")
+	public void cannotEditIncomingCallTypesInWorkflowModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/RunninglineLevel2Statuses");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/RunninglineLevel2Statuses"));
+		sleep(3000);
+		assertElementPresent(By.xpath("//a[normalize-space()='Level 2']"));
+
+	}
+
 	@And("the user should be able to delete Followup Trail Script in Workflow Module")
 	public void userShouldBeAbleToDeleteFollowupTrailScript() {
 		sleep(3000);
