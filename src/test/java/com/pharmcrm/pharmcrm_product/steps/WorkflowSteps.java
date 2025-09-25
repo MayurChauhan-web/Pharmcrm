@@ -220,6 +220,1146 @@ public class WorkflowSteps {
 		clickWhenClickable(By.id("btnSave"));
 	}
 
+	@And("I create a profile with View and Edit access but no Add or Delete access to Reminder Result Action in Workflow Module")
+	public void iCreateAProfileWithViewAndEditAccessButNoAddOrDeleteAccessToReminderResultActionInWorkflowModule() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[@for='chkg19ReminderResultActionEdit']"));
+		sleep(2000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Delete access but no Add or Edit access to Reminder Result Action in Workflow Module")
+	public void iCreateAProfileWithViewAndDeleteAccessButNoAddOrEditAccessToReminderResultActionInWorkflowModule() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[@for='chkg19ReminderResultActionDelete']"));
+		sleep(2000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Add access but no Edit or Delete access to Followup Trail Script in Workflow Module")
+	public void createProfileWithViewAndAddButNoEditOrDeleteForFollowupTrailScript() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[@for='chkg35FollowupTrailScriptAdd']"));
+		sleep(2000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Delete access but no Add or Edit access to Queue in Workflow Module")
+	public void createProfileWithViewAndDeleteButNoAddOrEditForQueue() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[@for='chkg01QueueDelete']"));
+		sleep(2000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Add access but no Edit or Delete access to Incoming Call Types in Workflow Module")
+	public void userHasViewAndAddAccessButNoEditOrDeleteAccessToIncomingCallTypesInWorkflowModule() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[@for='chkg01QueueDelete']"));
+		sleep(2000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Delete access but no Add or Edit access to Prescription Status in Workflow Module")
+	public void userHasViewAndDeleteAccessButNoAddOrEditAccessToPrescriptionStatusInWorkflowModule() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[@for='chkg01QueueDelete']"));
+		sleep(2000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Edit access but no Add or Delete access to Prescription Status in Workflow Module")
+	public void userHasViewAndEditAccessButNoAddOrDeleteAccessToPrescriptionStatusInWorkflowModule() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[@for='chkg01QueueDelete']"));
+		sleep(2000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Add access but no Edit or Delete access to Prescription Status in Workflow Module")
+	public void userHasViewAndAddAccessButNoEditOrDeleteAccessToPrescriptionStatusInWorkflowModule() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[@for='chkg01QueueDelete']"));
+		sleep(2000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Delete access but no Add or Edit access to Program 340B in Workflow Module")
+	public void userHasViewAndDeleteAccessButNoAddOrEditAccessToProgram340BInWorkflowModule() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[@for='chkg01QueueDelete']"));
+		sleep(2000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Edit access but no Add or Delete access to Program 340B in Workflow Module")
+	public void userHasViewAndEditAccessButNoAddOrDeleteAccessToProgram340BInWorkflowModule() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[@for='chkg01QueueDelete']"));
+		sleep(2000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Add access but no Edit or Delete access to Program 340B in Workflow Module")
+	public void userHasViewAndAddAccessButNoEditOrDeleteAccessToProgram340BInWorkflowModule() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[@for='chkg01QueueDelete']"));
+		sleep(2000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Delete access but no Add or Edit access to Outgoing Call Types in Workflow Module")
+	public void userHasViewAndDeleteAccessButNoAddOrEditAccessToOutgoingCallTypesInWorkflowModule() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[@for='chkg01QueueDelete']"));
+		sleep(2000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Edit access but no Add or Delete access to Outgoing Call Types in Workflow Module")
+	public void userHasViewAndEditAccessButNoAddOrDeleteAccessToOutgoingCallTypesInWorkflowModule() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[@for='chkg01QueueDelete']"));
+		sleep(2000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Add access but no Edit or Delete access to Outgoing Call Types in Workflow Module")
+	public void userHasViewAndAddAccessButNoEditOrDeleteAccessToOutgoingCallTypesInWorkflowModule() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[@for='chkg01QueueDelete']"));
+		sleep(2000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Delete access but no Add or Edit access to Incoming Call Types in Workflow Module")
+	public void userHasViewAndDeleteAccessButNoAddOrEditAccessToIncomingCallTypesInWorkflowModule() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[@for='chkg01QueueDelete']"));
+		sleep(2000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Edit access but no Add or Delete access to Incoming Call Types in Workflow Module")
+	public void userHasViewAndEditAccessButNoAddOrDeleteAccessToIncomingCallTypesInWorkflowModule() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[@for='chkg01QueueDelete']"));
+		sleep(2000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Delete access but no Add or Edit access to Runningline Level2 Status in Workflow Module")
+	public void userHasViewAndDeleteAccessButNoAddOrEditAccessToRunninglineLevel2StatusInWorkflowModule() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[@for='chkg02RunninglineLevel2StatusDelete']"));
+		sleep(2000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Edit access but no Add or Delete access to Runningline Level2 Status in Workflow Module")
+	public void userHasViewAndEditAccessButNoAddOrDeleteAccessToRunninglineLevel2StatusInWorkflowModule() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[@for='chkg02RunninglineLevel2StatusEdit']"));
+		sleep(2000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Add access but no Edit or Delete access to Runningline Level2 Status in Workflow Module")
+	public void userHasViewAndAddAccessButNoEditOrDeleteAccessToRunninglineLevel2StatusInWorkflowModule() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[@for='chkg02RunninglineLevel2StatusAdd']"));
+		sleep(2000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Delete access but no Add or Edit access to Runningline Level1 Status in Workflow Module")
+	public void userHasViewAndDeleteAccessButNoAddOrEditAccessToRunninglineLevel1StatusInWorkflowModule() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[@for='chkg02RunninglineLevel1StatusDelete']"));
+		sleep(2000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Edit access but no Add or Delete access to Runningline Level1 Status in Workflow Module")
+	public void userHasViewAndEditAccessButNoAddOrDeleteAccessToRunninglineLevel1StatusInWorkflowModule() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[@for='chkg02RunninglineLevel1StatusEdit']"));
+		sleep(2000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Add access but no Edit or Delete access to Runningline Level1 Status in Workflow Module")
+	public void userHasViewAndAddAccessButNoEditOrDeleteAccessToRunninglineLevel1StatusInWorkflowModule() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[@for='chkg02RunninglineLevel1StatusAdd']"));
+		sleep(2000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Delete access but no Add or Edit access to Runningline Status in Workflow Module")
+	public void userHasViewAndDeleteAccessButNoAddOrEditAccessToRunninglineStatusInWorkflowModule() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[@for='chkg01RunningLineStatusDelete']"));
+		sleep(2000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Edit access but no Add or Delete access to Runningline Status in Workflow Module")
+	public void createProfileWithViewAndEditNoAddDeleteAccessRunninglineStatus() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[@for='chkg01RunningLineStatusEdit']"));
+		sleep(2000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Add access but no Edit or Delete access to Runningline Status in Workflow Module")
+	public void createProfileWithViewAndAddNoEditDeleteAccessRunninglineStatus() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[@for='chkg01RunningLineStatusAdd']"));
+		sleep(2000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Edit access but no Add or Delete access to Queue in Workflow Module")
+	public void createProfileWithViewAndEditButNoAddOrDeleteForQueue() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[@for='chkg01QueueEdit']"));
+		sleep(2000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Add access but no Edit or Delete access to Queue in Workflow Module")
+	public void createProfileWithViewAndAddButNoEditOrDeleteForQueue() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[@for='chkg01QueueAdd']"));
+		sleep(2000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Delete access but no Add or Edit access to Followup Trail Script in Workflow Module")
+	public void createProfileWithViewAndDeleteButNoAddOrEditForFollowupTrailScript() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[@for='chkg35FollowupTrailScriptDelete']"));
+		sleep(2000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Edit access but no Add or Delete access to Followup Trail Script in Workflow Module")
+	public void createProfileWithViewAndEditButNoAddOrDeleteForFollowupTrailScript() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[@for='chkg35FollowupTrailScriptEdit']"));
+		sleep(2000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Delete access but no Add or Edit access to Transfer Result Action in Workflow Module")
+	public void createProfileWithViewAndDeleteButNoAddOrEditForTransferResultAction() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[@for='chkg20TransferResultActionDelete']"));
+		sleep(2000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Edit access but no Add or Delete access to Transfer Result Action in Workflow Module")
+	public void createProfileWithViewAndEditButNoAddOrDeleteForTransferResultAction() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[@for='chkg20TransferResultActionEdit']"));
+		sleep(2000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Add access but no Edit or Delete access to Transfer Result Action in Workflow Module")
+	public void createProfileWithViewAndAddButNoEditOrDeleteForTransferResultAction() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[@for='chkg20TransferResultActionAdd']"));
+		sleep(2000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Delete access but no Add or Edit access to Failure Result Action in Workflow Module")
+	public void createProfileWithViewAndDeleteButNoAddOrEditForFailureResultAction() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[@for='chkg19FailureResultActionDelete']"));
+		sleep(2000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Edit access but no Add or Delete access to Failure Result Action in Workflow Module")
+	public void createProfileWithViewAndEditButNoAddOrDeleteForFailureResultAction() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[@for='chkg19FailureResultActionEdit']"));
+		sleep(2000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Add access but no Edit or Delete access to Failure Result Action in Workflow Module")
+	public void createProfileWithViewAndAddButNoEditOrDeleteForFailureResultAction() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[@for='chkg19FailureResultActionAdd']"));
+		sleep(2000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Delete access but no Add or Edit access to Success Result Action in Workflow Module")
+	public void createProfileWithViewAndDeleteButNoAddOrEditForSuccessResultAction() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[@for='chkg19SuccessResultActionDelete']"));
+		sleep(2000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Edit access but no Add or Delete access to Success Result Action in Workflow Module")
+	public void createProfileWithViewAndEditButNoAddOrDeleteForSuccessResultAction() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[@for='chkg19SuccessResultActionEdit']"));
+		sleep(2000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Add access but no Edit or Delete access to Success Result Action in Workflow Module")
+	public void createProfileWithViewAndAddButNoEditOrDeleteForSuccessResultAction() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[@for='chkg19SuccessResultActionAdd']"));
+		sleep(2000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
 	@And("I create a profile with View and Edit access but no Add or Delete access to Medication Sync Reminder Color Code in Workflow Module")
 	public void iCreateAProfileWithViewAndEditAccessButNoAddOrDeleteAccessToMedicationSyncReminderColorCodeInWorkflowModule() {
 		driver.get(baseUrl + "/Setup/Home/Profiles");
@@ -482,6 +1622,25 @@ public class WorkflowSteps {
 
 	}
 
+	@And("the user should be able to delete Reminder Result Action in Workflow Module")
+	public void userShouldBeAbleToDeleteReminderResultActionInWorkflowModule() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//div[@id='genericmodal']//button[@id='btnDeleteConfirm']"));
+
+	}
+
+	@And("the user should not be able to add Reminder Result Action in Workflow Module")
+	public void userShouldNotBeAbleToAddReminderResultActionInWorkflowModule() {
+		sleep(1000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New Reminder Result Action']"));
+
+	}
+
 	@And("the user should be able to edit Sync Workflow Settings in Workflow Module")
 	public void userShouldBeAbleToEditSyncWorkflowSettingsInWorkflowModule() {
 		sleep(3000);
@@ -508,6 +1667,19 @@ public class WorkflowSteps {
 
 	}
 
+	@And("the user should be able to edit Reminder Result Action in Workflow Module")
+	public void userShouldBeAbleToEditReminderResultActionInWorkflowModule() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		sleep(2000);
+		waitAndSendKeys(By.id("ReminderResultAction_Name"), "Call Patient");
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+
+	}
+
 	@And("the user should not be able to delete Sync Workflow Settings in Workflow Module")
 	public void userShouldNotBeAbleToDeleteSyncWorkflowSettingsInWorkflowModule() {
 		sleep(1000);
@@ -530,6 +1702,8 @@ public class WorkflowSteps {
 
 	@And("the user should not be able to delete Reminder Result Action in Workflow Module")
 	public void userShouldNotBeAbleToDeleteReminderResultActionInWorkflowModule() {
+		sleep(1000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
 		sleep(1000);
 		assertElementNotPresent(By.xpath(
 				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
@@ -599,6 +1773,611 @@ public class WorkflowSteps {
 		sleep(3000);
 		driver.get(baseUrl + "/Setup/Home/ReminderResultActions");
 		wait.until(ExpectedConditions.urlContains("/Setup/Home/ReminderResultActions"));
+		sleep(3000);
+		assertElementPresent(By.xpath("//a[normalize-space()='Name']"));
+
+	}
+
+	@And("the user should not be able to add Success Result Action in Workflow Module")
+	public void userShouldNotBeAbleToAddSuccessResultAction() {
+		sleep(1000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New Success Result Action']"));
+
+	}
+
+	@And("the user should not be able to add Transfer Result Action in Workflow Module")
+	public void userShouldNotBeAbleToAddTransferResultAction() {
+		sleep(1000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New Transfer Result Action']"));
+
+	}
+
+	@And("the user should not be able to add Followup Trail Script in Workflow Module")
+	public void userShouldNotBeAbleToAddFollowupTrailScript() {
+		sleep(1000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New Call Script']"));
+
+	}
+
+	@And("the user should be able to delete Queue in Workflow Module")
+	public void userShouldBeAbleToDeleteQueue() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//div[@class='gridRecordContextInner']//span[normalize-space()='Delete']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='btnDeleteConfirm']"));
+
+	}
+
+	@And("the user should not be able to add Queue in Workflow Module")
+	public void userShouldNotBeAbleToAddQueue() {
+		sleep(1000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New Queue']"));
+
+	}
+
+	@And("the user should be able to edit Queue in Workflow Module")
+	public void userShouldBeAbleToEditQueue() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		sleep(2000);
+		waitAndSendKeys(By.id("Queue_Name"), "Call Patient");
+		waitAndSendKeys(By.id("Queue_Label"), "Call Patient");
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+
+	}
+
+	@And("the user should not be able to delete Queue in Workflow Module")
+	public void userShouldNotBeAbleToDeleteQueue() {
+		sleep(1000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(1000);
+		assertElementNotPresent(By.xpath("//*[@id=\"btnDeleteQueue\"]"));
+
+	}
+
+	@And("the user should not be able to edit Queue in Workflow Module")
+	public void userShouldNotBeAbleToEditQueue() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+
+	}
+
+	@And("the user should be able to add Queue in Workflow Module")
+	public void userShouldBeAbleToAddQueue() {
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Queue']"));
+		sleep(2000);
+		waitAndSendKeys(By.id("Queue_Name"), "Call Patient");
+		waitAndSendKeys(By.id("Queue_Label"), "Call Patient");
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+
+	}
+
+	@And("the user should be able to view Queue in Workflow Module")
+	public void userShouldBeAbleToViewQueue() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/Queues");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/Queues"));
+		sleep(3000);
+		assertElementPresent(By.xpath("//a[normalize-space()='Name']"));
+
+	}
+
+	@And("the user should not be able to delete Runningline Status in Workflow Module")
+	public void userShouldNotBeAbleToDeleteRunninglineStatusInWorkflowModule() {
+		sleep(1000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(1000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+
+	}
+
+	@And("the user should be able to delete Runningline Status in Workflow Module")
+	public void userShouldBeAbleToDeleteRunninglineStatusInWorkflowModule() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//div[@class='gridRecordContextInner']//span[normalize-space()='Delete']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='btnDeleteConfirm']"));
+	}
+
+	@And("the user should not be able to add Runningline Status in Workflow Module")
+	public void userShouldNotBeAbleToAddRunninglineStatusInWorkflowModule() {
+		sleep(1000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New Runningline Status']"));
+
+	}
+
+	@And("the user should be able to edit Runningline Status in Workflow Module")
+	public void userShouldBeAbleToEditRunninglineStatusInWorkflowModule() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		sleep(2000);
+		waitAndSendKeys(By.id("RunninglineStatus_Name"), "Call Patient");
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+
+	}
+
+	@And("the user should not be able to edit Runningline Status in Workflow Module")
+	public void userShouldNotBeAbleToEditRunninglineStatusInWorkflowModule() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+	}
+
+	@And("the user should be able to add Runningline Status in Workflow Module")
+	public void userShouldBeAbleToAddRunninglineStatusInWorkflowModule() {
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Runningline Status']"));
+		sleep(2000);
+		waitAndSendKeys(By.id("RunninglineStatus_Name"), "Call Patient");
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+
+	}
+
+	@And("the user should be able to view Runningline Status in Workflow Module")
+	public void userShouldBeAbleToViewRunninglineStatusInWorkflowModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/RunninglineStatuses");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/RunninglineStatuses"));
+		sleep(3000);
+		assertElementPresent(By.xpath("//a[normalize-space()='Name']"));
+
+	}
+
+	@And("the user should not be able to add Runningline Level1 Status in Workflow Module")
+	public void userShouldNotBeAbleToAddRunninglineLevel1StatusInWorkflowModule() {
+		sleep(1000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New Runningline Level-1 Status']"));
+	}
+
+	@And("the user should be able to delete Runningline Level1 Status in Workflow Module")
+	public void userShouldBeAbleToDeleteRunninglineLevel1StatusInWorkflowModule() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//div[@id='genericmodal']//button[@id='btnDeleteConfirm']"));
+
+	}
+
+	@And("the user should be able to edit Runningline Level1 Status in Workflow Module")
+	public void userShouldBeAbleToEditRunninglineLevel1StatusInWorkflowModule() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		sleep(2000);
+		waitAndSendKeys(By.id("RunninglineLevel1Status_Level1"), "Call Patient");
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+
+	}
+
+	@And("the user should not be able to delete Runningline Level1 Status in Workflow Module")
+	public void userShouldNotBeAbleToDeleteRunninglineLevel1StatusInWorkflowModule() {
+		sleep(1000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(1000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+
+	}
+
+	@And("the user should not be able to edit Runningline Level1 Status in Workflow Module")
+	public void userShouldNotBeAbleToEditRunninglineLevel1StatusInWorkflowModule() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+
+	}
+
+	@And("the user should be able to add Runningline Level1 Status in Workflow Module")
+	public void userShouldBeAbleToAddRunninglineLevel1StatusInWorkflowModule() {
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Runningline Level-1 Status']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//select[@id='RunninglineLevel1Status_RunninglineStatus_Id']"));
+		sleep(1000);
+		selectDropdownByIndexWhenReady(By.id("RunninglineLevel1Status_RunninglineStatus_Id"), 1);
+		sleep(2000);
+		waitAndSendKeys(By.id("RunninglineLevel1Status_Level1"), "Call Patient");
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+
+	}
+
+	@And("the user should be able to view Runningline Level1 Status in Workflow Module")
+	public void userShouldBeAbleToViewRunninglineLevel1StatusInWorkflowModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/RunninglineLevel1Statuses");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/RunninglineLevel1Statuses"));
+		sleep(3000);
+		assertElementPresent(By.xpath("//a[normalize-space()='Level 1']"));
+
+	}
+
+	@And("the user should not be able to delete Runningline Level2 Status in Workflow Module")
+	public void userShouldNotBeAbleToDeleteRunninglineLevel2StatusInWorkflowModule() {
+		sleep(1000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(1000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+
+	}
+
+	@And("the user should be able to view Incoming Call Types in Workflow Module")
+	public void userShouldBeAbleToViewIncomingCallTypesInWorkflowModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/RunninglineLevel1Statuses");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/RunninglineLevel1Statuses"));
+		sleep(3000);
+		assertElementPresent(By.xpath("//a[normalize-space()='Level 1']"));
+
+	}
+
+	@And("the user should be able to delete Runningline Level2 Status in Workflow Module")
+	public void userShouldBeAbleToDeleteRunninglineLevel2StatusInWorkflowModule() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//div[@id='genericmodal']//button[@id='btnDeleteConfirm']"));
+
+	}
+
+	@And("the user should not be able to add Runningline Level2 Status in Workflow Module")
+	public void userShouldNotBeAbleToAddRunninglineLevel2StatusInWorkflowModule() {
+		sleep(1000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New Runningline Level-2 Status']"));
+	}
+
+	@And("the user should be able to edit Runningline Level2 Status in Workflow Module")
+	public void userShouldBeAbleToEditRunninglineLevel2StatusInWorkflowModule() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//select[@id='RunninglineLevel2Status_RunninglineStatus_Id']"));
+		sleep(1000);
+		selectDropdownByIndexWhenReady(By.id("RunninglineLevel2Status_RunninglineStatus_Id"), 1);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//select[@id='RunninglineLevel2Status_Level1_Id']"));
+		sleep(1000);
+		selectDropdownByIndexWhenReady(By.id("RunninglineLevel2Status_Level1_Id"), 1);
+		sleep(2000);
+		waitAndSendKeys(By.id("RunninglineLevel2Status_Level2"), "Call Patient");
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+
+	}
+
+	@And("the user should not be able to edit Runningline Level2 Status in Workflow Module")
+	public void userShouldNotBeAbleToEditRunninglineLevel2StatusInWorkflowModule() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+
+	}
+
+	@And("the user should be able to add Runningline Level2 Status in Workflow Module")
+	public void userShouldBeAbleToAddRunninglineLevel2StatusInWorkflowModule() {
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Runningline Level-2 Status']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//select[@id='RunninglineLevel2Status_RunninglineStatus_Id']"));
+		sleep(1000);
+		selectDropdownByIndexWhenReady(By.id("RunninglineLevel2Status_RunninglineStatus_Id"), 1);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//select[@id='RunninglineLevel2Status_Level1_Id']"));
+		sleep(1000);
+		selectDropdownByIndexWhenReady(By.id("RunninglineLevel2Status_Level1_Id"), 1);
+		sleep(2000);
+		waitAndSendKeys(By.id("RunninglineLevel2Status_Level2"), "Call Patient");
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+
+	}
+
+	@And("the user should be able to view Runningline Level2 Status in Workflow Module")
+	public void userShouldBeAbleToViewRunninglineLevel2StatusInWorkflowModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/RunninglineLevel2Statuses");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/RunninglineLevel2Statuses"));
+		sleep(3000);
+		assertElementPresent(By.xpath("//a[normalize-space()='Level 2']"));
+
+	}
+
+	@And("the user should be able to delete Followup Trail Script in Workflow Module")
+	public void userShouldBeAbleToDeleteFollowupTrailScript() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//div[@id='genericmodal']//button[@id='btnDeleteConfirm']"));
+
+	}
+
+	@And("the user should be able to edit Followup Trail Script in Workflow Module")
+	public void userShouldBeAbleToEditFollowupTrailScript() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		sleep(2000);
+		waitAndSendKeys(By.id("CallScript_Title"), "Call Patient");
+		waitAndSendKeys(By.id("CallScript_Description"), "Call Patient");
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+
+	}
+
+	@And("the user should not be able to delete Followup Trail Script in Workflow Module")
+	public void userShouldNotBeAbleToDeleteFollowupTrailScript() {
+		sleep(1000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(1000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+
+	}
+
+	@And("the user should not be able to edit Followup Trail Script in Workflow Module")
+	public void userShouldNotBeAbleToEditFollowupTrailScript() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+
+	}
+
+	@And("the user should be able to add Followup Trail Script in Workflow Module")
+	public void userShouldBeAbleToAddFollowupTrailScript() {
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Call Script']"));
+		sleep(2000);
+		waitAndSendKeys(By.id("CallScript_Title"), "Call Patient");
+		waitAndSendKeys(By.id("CallScript_Description"), "Call Patient");
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+
+	}
+
+	@And("the user should be able to view Followup Trail Script in Workflow Module")
+	public void userShouldBeAbleToViewFollowupTrailScript() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/CallScripts");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/CallScripts"));
+		sleep(3000);
+		assertElementPresent(By.xpath("//a[normalize-space()='Title']"));
+
+	}
+
+	@And("the user should be able to delete Transfer Result Action in Workflow Module")
+	public void userShouldBeAbleToDeleteTransferResultAction() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//div[@id='genericmodal']//button[@id='btnDeleteConfirm']"));
+
+	}
+
+	@And("the user should be able to edit Transfer Result Action in Workflow Module")
+	public void userShouldBeAbleToEditTransferResultAction() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		sleep(2000);
+		waitAndSendKeys(By.id("TransferResultAction_Name"), "Call Patient");
+		waitAndSendKeys(By.id("TransferResultAction_Notes"), "Call Patient");
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+	}
+
+	@And("the user should not be able to delete Transfer Result Action in Workflow Module")
+	public void userShouldNotBeAbleToDeleteTransferResultAction() {
+		sleep(1000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(1000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+
+	}
+
+	@And("the user should not be able to edit Transfer Result Action in Workflow Module")
+	public void userShouldNotBeAbleToEditTransferResultAction() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+
+	}
+
+	@And("the user should be able to add Transfer Result Action in Workflow Module")
+	public void userShouldBeAbleToAddTransferResultAction() {
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Transfer Result Action']"));
+		sleep(2000);
+		waitAndSendKeys(By.id("TransferResultAction_Name"), "Call Patient");
+		waitAndSendKeys(By.id("TransferResultAction_Notes"), "Call Patient");
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+
+	}
+
+	@And("the user should be able to view Transfer Result Action in Workflow Module")
+	public void userShouldBeAbleToViewTransferResultAction() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/TransferResultActions");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/TransferResultActions"));
+		sleep(3000);
+		assertElementPresent(By.xpath("//a[normalize-space()='Name']"));
+
+	}
+
+	@And("the user should be able to delete Failure Result Action in Workflow Module")
+	public void userShouldBeAbleToDeleteFailureResultAction() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//div[@id='genericmodal']//button[@id='btnDeleteConfirm']"));
+
+	}
+
+	@And("the user should not be able to add Failure Result Action in Workflow Module")
+	public void userShouldNotBeAbleToAddFailureResultAction() {
+		sleep(1000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New Failure Result Action']"));
+
+	}
+
+	@And("the user should be able to edit Failure Result Action in Workflow Module")
+	public void userShouldBeAbleToEditFailureResultAction() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		sleep(2000);
+		waitAndSendKeys(By.id("FailureResultAction_Notes"), "Call Patient");
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+
+	}
+
+	@And("the user should not be able to delete Failure Result Action in Workflow Module")
+	public void userShouldNotBeAbleToDeleteFailureResultAction() {
+		sleep(1000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(1000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+
+	}
+
+	@And("the user should not be able to edit Failure Result Action in Workflow Module")
+	public void userShouldNotBeAbleToEditFailureResultAction() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+
+	}
+
+	@And("the user should be able to add Failure Result Action in Workflow Module")
+	public void userShouldBeAbleToAddFailureResultAction() {
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Failure Result Action']"));
+		sleep(2000);
+		waitAndSendKeys(By.id("FailureResultAction_Name"), "Call Patient");
+		waitAndSendKeys(By.id("FailureResultAction_Notes"), "Call Patient");
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+
+	}
+
+	@And("the user should be able to view Failure Result Action in Workflow Module")
+	public void userShouldBeAbleToViewFailureResultAction() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/FailureResultActions");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/FailureResultActions"));
+		sleep(3000);
+		assertElementPresent(By.xpath("//a[normalize-space()='Name']"));
+
+	}
+
+	@And("the user should be able to delete Success Result Action in Workflow Module")
+	public void userShouldBeAbleToDeleteSuccessResultAction() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//div[@id='genericmodal']//button[@id='btnDeleteConfirm']"));
+
+	}
+
+	@And("the user should be able to edit Success Result Action in Workflow Module")
+	public void userShouldBeAbleToEditSuccessResultAction() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		sleep(2000);
+		waitAndSendKeys(By.id("SuccessResultAction_Notes"), "Call Patient");
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+
+	}
+
+	@And("the user should not be able to delete Success Result Action in Workflow Module")
+	public void userShouldNotBeAbleToDeleteSuccessResultAction() {
+		sleep(1000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(1000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+
+	}
+
+	@And("the user should not be able to edit Success Result Action in Workflow Module")
+	public void userShouldNotBeAbleToEditSuccessResultAction() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+
+	}
+
+	@And("the user should be able to add Success Result Action in Workflow Module")
+	public void userShouldBeAbleToAddSuccessResultAction() {
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Success Result Action']"));
+		sleep(2000);
+		waitAndSendKeys(By.id("SuccessResultAction_Name"), "Call Patient");
+		waitAndSendKeys(By.id("SuccessResultAction_Notes"), "Call Patient");
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+	}
+
+	@And("the user should be able to view Success Result Action in Workflow Module")
+	public void userShouldBeAbleToViewSuccessResultAction() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/SuccessResultActions");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/SuccessResultActions"));
 		sleep(3000);
 		assertElementPresent(By.xpath("//a[normalize-space()='Name']"));
 
