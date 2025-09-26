@@ -365,7 +365,7 @@ public class WorkflowSteps {
 		sleep(2000);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
 		sleep(2000);
-		clickWhenClickable(By.xpath("//label[@for='chkg01QueueDelete']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg03IncomingCallAdd']"));
 		sleep(2000);
 		clickWhenClickable(By.id("btnSave"));
 	}
@@ -395,7 +395,7 @@ public class WorkflowSteps {
 		sleep(2000);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
 		sleep(2000);
-		clickWhenClickable(By.xpath("//label[@for='chkg01QueueDelete']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg44PrescriptionStatusDelete']"));
 		sleep(2000);
 		clickWhenClickable(By.id("btnSave"));
 	}
@@ -425,7 +425,7 @@ public class WorkflowSteps {
 		sleep(2000);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
 		sleep(2000);
-		clickWhenClickable(By.xpath("//label[@for='chkg01QueueDelete']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg44PrescriptionStatusEdit']"));
 		sleep(2000);
 		clickWhenClickable(By.id("btnSave"));
 	}
@@ -455,7 +455,7 @@ public class WorkflowSteps {
 		sleep(2000);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
 		sleep(2000);
-		clickWhenClickable(By.xpath("//label[@for='chkg01QueueDelete']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg44PrescriptionStatusAdd']"));
 		sleep(2000);
 		clickWhenClickable(By.id("btnSave"));
 	}
@@ -485,7 +485,7 @@ public class WorkflowSteps {
 		sleep(2000);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
 		sleep(2000);
-		clickWhenClickable(By.xpath("//label[@for='chkg01QueueDelete']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg44Program340BDelete']"));
 		sleep(2000);
 		clickWhenClickable(By.id("btnSave"));
 	}
@@ -515,7 +515,7 @@ public class WorkflowSteps {
 		sleep(2000);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
 		sleep(2000);
-		clickWhenClickable(By.xpath("//label[@for='chkg01QueueDelete']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg44Program340BEdit']"));
 		sleep(2000);
 		clickWhenClickable(By.id("btnSave"));
 	}
@@ -545,7 +545,7 @@ public class WorkflowSteps {
 		sleep(2000);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
 		sleep(2000);
-		clickWhenClickable(By.xpath("//label[@for='chkg01QueueDelete']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg44Program340BAdd']"));
 		sleep(2000);
 		clickWhenClickable(By.id("btnSave"));
 	}
@@ -575,7 +575,7 @@ public class WorkflowSteps {
 		sleep(2000);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
 		sleep(2000);
-		clickWhenClickable(By.xpath("//label[@for='chkg01QueueDelete']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg03OutgoingCallDelete']"));
 		sleep(2000);
 		clickWhenClickable(By.id("btnSave"));
 	}
@@ -605,7 +605,7 @@ public class WorkflowSteps {
 		sleep(2000);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
 		sleep(2000);
-		clickWhenClickable(By.xpath("//label[@for='chkg01QueueDelete']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg03OutgoingCallEdit']"));
 		sleep(2000);
 		clickWhenClickable(By.id("btnSave"));
 	}
@@ -635,7 +635,7 @@ public class WorkflowSteps {
 		sleep(2000);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
 		sleep(2000);
-		clickWhenClickable(By.xpath("//label[@for='chkg01QueueDelete']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg03OutgoingCallAdd']"));
 		sleep(2000);
 		clickWhenClickable(By.id("btnSave"));
 	}
@@ -665,7 +665,7 @@ public class WorkflowSteps {
 		sleep(2000);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
 		sleep(2000);
-		clickWhenClickable(By.xpath("//label[@for='chkg01QueueDelete']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg03IncomingCallDelete']"));
 		sleep(2000);
 		clickWhenClickable(By.id("btnSave"));
 	}
@@ -695,7 +695,7 @@ public class WorkflowSteps {
 		sleep(2000);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
 		sleep(2000);
-		clickWhenClickable(By.xpath("//label[@for='chkg01QueueDelete']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg03IncomingCallEdit']"));
 		sleep(2000);
 		clickWhenClickable(By.id("btnSave"));
 	}
@@ -2028,10 +2028,10 @@ public class WorkflowSteps {
 	@And("the user should be able to view Incoming Call Types in Workflow Module")
 	public void userShouldBeAbleToViewIncomingCallTypesInWorkflowModule() {
 		sleep(3000);
-		driver.get(baseUrl + "/Setup/Home/RunninglineLevel1Statuses");
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/RunninglineLevel1Statuses"));
+		driver.get(baseUrl + "/Setup/Home/IncomingCalls");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/IncomingCalls"));
 		sleep(3000);
-		assertElementPresent(By.xpath("//a[normalize-space()='Level 1']"));
+		assertElementPresent(By.xpath("//a[normalize-space()='Incoming Call Type']"));
 
 	}
 
@@ -2114,271 +2114,299 @@ public class WorkflowSteps {
 
 	@And("the user should be able to add Incoming Call Types in Workflow Module")
 	public void addIncomingCallTypesInWorkflowModule() {
-		sleep(3000);
-		driver.get(baseUrl + "/Setup/Home/RunninglineLevel2Statuses");
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/RunninglineLevel2Statuses"));
-		sleep(3000);
-		assertElementPresent(By.xpath("//a[normalize-space()='Level 2']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New InComing Call Types']"));
+		sleep(2000);
+		waitAndSendKeys(By.id("IncomingCall_CallTypeText"), "Call Patient");
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
 
 	}
 
 	@And("the user should not be able to delete Incoming Call Types in Workflow Module")
 	public void cannotDeleteIncomingCallTypesInWorkflowModule() {
-		sleep(3000);
-		driver.get(baseUrl + "/Setup/Home/RunninglineLevel2Statuses");
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/RunninglineLevel2Statuses"));
-		sleep(3000);
-		assertElementPresent(By.xpath("//a[normalize-space()='Level 2']"));
+		sleep(1000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+
+	}
+
+	@And("the user should not be able to deletes Incoming Call Types in Workflow Module")
+	public void cannotDeletesIncomingCallTypesInWorkflowModule() {
+		sleep(1000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(1000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
 
 	}
 
 	@And("the user should be able to delete Incoming Call Types in Workflow Module")
 	public void deleteIncomingCallTypesInWorkflowModule() {
 		sleep(3000);
-		driver.get(baseUrl + "/Setup/Home/RunninglineLevel2Statuses");
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/RunninglineLevel2Statuses"));
-		sleep(3000);
-		assertElementPresent(By.xpath("//a[normalize-space()='Level 2']"));
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//div[@id='genericmodal']//button[@id='btnDeleteConfirm']"));
 
 	}
 
 	@And("the user should not be able to delete Outgoing Call Types in Workflow Module")
 	public void cannotDeleteOutgoingCallTypesInWorkflowModule() {
-		sleep(3000);
-		driver.get(baseUrl + "/Setup/Home/RunninglineLevel2Statuses");
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/RunninglineLevel2Statuses"));
-		sleep(3000);
-		assertElementPresent(By.xpath("//a[normalize-space()='Level 2']"));
+		sleep(1000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
 
+	}
+
+	@And("the user should not be able to deletes Outgoing Call Types in Workflow Module")
+	public void cannotDeletesOutgoingCallTypesInWorkflowModule() {
+		sleep(1000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(1000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
 	}
 
 	@And("the user should not be able to add Outgoing Call Types in Workflow Module")
 	public void cannotAddOutgoingCallTypesInWorkflowModule() {
-		sleep(3000);
-		driver.get(baseUrl + "/Setup/Home/RunninglineLevel2Statuses");
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/RunninglineLevel2Statuses"));
-		sleep(3000);
-		assertElementPresent(By.xpath("//a[normalize-space()='Level 2']"));
+		sleep(1000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New Outgoing Call Type']"));
 
 	}
 
 	@And("the user should not be able to delete Program 340B in Workflow Module")
 	public void cannotDeleteProgram340BInWorkflowModule() {
-		sleep(3000);
-		driver.get(baseUrl + "/Setup/Home/RunninglineLevel2Statuses");
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/RunninglineLevel2Statuses"));
-		sleep(3000);
-		assertElementPresent(By.xpath("//a[normalize-space()='Level 2']"));
+		sleep(1000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+
+	}
+
+	@And("the user should not be able to deletes Program 340B in Workflow Module")
+	public void cannotDeletesProgram340BInWorkflowModule() {
+		sleep(1000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(1000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
 
 	}
 
 	@And("the user should be able to delete Prescription Status in Workflow Module")
 	public void deletePrescriptionStatusInWorkflowModule() {
 		sleep(3000);
-		driver.get(baseUrl + "/Setup/Home/RunninglineLevel2Statuses");
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/RunninglineLevel2Statuses"));
-		sleep(3000);
-		assertElementPresent(By.xpath("//a[normalize-space()='Level 2']"));
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//div[@id='genericmodal']//button[@id='btnDeleteConfirm']"));
 
 	}
 
 	@And("the user should not be able to add Prescription Status in Workflow Module")
 	public void cannotAddPrescriptionStatusInWorkflowModule() {
-		sleep(3000);
-		driver.get(baseUrl + "/Setup/Home/RunninglineLevel2Statuses");
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/RunninglineLevel2Statuses"));
-		sleep(3000);
-		assertElementPresent(By.xpath("//a[normalize-space()='Level 2']"));
+		sleep(1000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New Prescription Status']"));
 
 	}
 
 	@And("the user should be able to edit Prescription Status in Workflow Module")
 	public void editPrescriptionStatusInWorkflowModule() {
 		sleep(3000);
-		driver.get(baseUrl + "/Setup/Home/RunninglineLevel2Statuses");
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/RunninglineLevel2Statuses"));
-		sleep(3000);
-		assertElementPresent(By.xpath("//a[normalize-space()='Level 2']"));
-
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		sleep(2000);
+		waitAndSendKeys(By.id("PrescriptionStatus_Title"), "Call Patient");
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
 	}
 
 	@And("the user should not be able to delete Prescription Status in Workflow Module")
 	public void cannotDeletePrescriptionStatusInWorkflowModule() {
-		sleep(3000);
-		driver.get(baseUrl + "/Setup/Home/RunninglineLevel2Statuses");
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/RunninglineLevel2Statuses"));
-		sleep(3000);
-		assertElementPresent(By.xpath("//a[normalize-space()='Level 2']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(1000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
 
 	}
 
 	@And("the user should not be able to edit Prescription Status in Workflow Module")
 	public void cannotEditPrescriptionStatusInWorkflowModule() {
 		sleep(3000);
-		driver.get(baseUrl + "/Setup/Home/RunninglineLevel2Statuses");
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/RunninglineLevel2Statuses"));
-		sleep(3000);
-		assertElementPresent(By.xpath("//a[normalize-space()='Level 2']"));
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
 
 	}
 
 	@And("the user should be able to add Prescription Status in Workflow Module")
 	public void addPrescriptionStatusInWorkflowModule() {
-		sleep(3000);
-		driver.get(baseUrl + "/Setup/Home/RunninglineLevel2Statuses");
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/RunninglineLevel2Statuses"));
-		sleep(3000);
-		assertElementPresent(By.xpath("//a[normalize-space()='Level 2']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Prescription Status']"));
+		sleep(2000);
+		waitAndSendKeys(By.id("PrescriptionStatus_Title"), "Call Patient");
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
 
 	}
 
 	@And("the user should be able to view Prescription Status in Workflow Module")
 	public void viewPrescriptionStatusInWorkflowModule() {
 		sleep(3000);
-		driver.get(baseUrl + "/Setup/Home/RunninglineLevel2Statuses");
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/RunninglineLevel2Statuses"));
+		driver.get(baseUrl + "/Setup/Home/PrescriptionStatuses");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/PrescriptionStatuses"));
 		sleep(3000);
-		assertElementPresent(By.xpath("//a[normalize-space()='Level 2']"));
+		assertElementPresent(By.xpath("//a[normalize-space()='Title']"));
 
 	}
 
 	@And("the user should be able to delete Program 340B in Workflow Module")
 	public void deleteProgram340BInWorkflowModule() {
 		sleep(3000);
-		driver.get(baseUrl + "/Setup/Home/RunninglineLevel2Statuses");
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/RunninglineLevel2Statuses"));
-		sleep(3000);
-		assertElementPresent(By.xpath("//a[normalize-space()='Level 2']"));
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//div[@id='genericmodal']//button[@id='btnDeleteConfirm']"));
 
 	}
 
 	@And("the user should not be able to add Program 340B in Workflow Module")
 	public void cannotAddProgram340BInWorkflowModule() {
-		sleep(3000);
-		driver.get(baseUrl + "/Setup/Home/RunninglineLevel2Statuses");
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/RunninglineLevel2Statuses"));
-		sleep(3000);
-		assertElementPresent(By.xpath("//a[normalize-space()='Level 2']"));
+		sleep(1000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New 340B']"));
 
 	}
 
 	@And("the user should be able to edit Program 340B in Workflow Module")
 	public void editProgram340BInWorkflowModule() {
 		sleep(3000);
-		driver.get(baseUrl + "/Setup/Home/RunninglineLevel2Statuses");
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/RunninglineLevel2Statuses"));
-		sleep(3000);
-		assertElementPresent(By.xpath("//a[normalize-space()='Level 2']"));
-
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		sleep(2000);
+		waitAndSendKeys(By.id("Program340B_Name"), "Call Patient");
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
 	}
 
 	@And("the user should not be able to edit Program 340B in Workflow Module")
 	public void cannotEditProgram340BInWorkflowModule() {
 		sleep(3000);
-		driver.get(baseUrl + "/Setup/Home/RunninglineLevel2Statuses");
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/RunninglineLevel2Statuses"));
-		sleep(3000);
-		assertElementPresent(By.xpath("//a[normalize-space()='Level 2']"));
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
 
 	}
 
 	@And("the user should be able to add Program 340B in Workflow Module")
 	public void addProgram340BInWorkflowModule() {
-		sleep(3000);
-		driver.get(baseUrl + "/Setup/Home/RunninglineLevel2Statuses");
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/RunninglineLevel2Statuses"));
-		sleep(3000);
-		assertElementPresent(By.xpath("//a[normalize-space()='Level 2']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New 340B']"));
+		sleep(2000);
+		waitAndSendKeys(By.id("Program340B_Name"), "Call Patient");
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
 
 	}
 
 	@And("the user should be able to view Program 340B in Workflow Module")
 	public void viewProgram340BInWorkflowModule() {
 		sleep(3000);
-		driver.get(baseUrl + "/Setup/Home/RunninglineLevel2Statuses");
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/RunninglineLevel2Statuses"));
+		driver.get(baseUrl + "/Setup/Home/Program340Bs");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/Program340Bs"));
 		sleep(3000);
-		assertElementPresent(By.xpath("//a[normalize-space()='Level 2']"));
+		assertElementPresent(By.xpath("//a[normalize-space()='Name']"));
 
 	}
 
 	@And("the user should be able to delete Outgoing Call Types in Workflow Module")
 	public void deleteOutgoingCallTypesInWorkflowModule() {
 		sleep(3000);
-		driver.get(baseUrl + "/Setup/Home/RunninglineLevel2Statuses");
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/RunninglineLevel2Statuses"));
-		sleep(3000);
-		assertElementPresent(By.xpath("//a[normalize-space()='Level 2']"));
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//div[@id='genericmodal']//button[@id='btnDeleteConfirm']"));
 
 	}
 
 	@And("the user should be able to edit Outgoing Call Types in Workflow Module")
 	public void editOutgoingCallTypesInWorkflowModule() {
 		sleep(3000);
-		driver.get(baseUrl + "/Setup/Home/RunninglineLevel2Statuses");
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/RunninglineLevel2Statuses"));
-		sleep(3000);
-		assertElementPresent(By.xpath("//a[normalize-space()='Level 2']"));
-
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		sleep(2000);
+		waitAndSendKeys(By.id("OutgoingCall_CallTypeText"), "Call Patient");
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
 	}
 
 	@And("the user should not be able to edit Outgoing Call Types in Workflow Module")
 	public void cannotEditOutgoingCallTypesInWorkflowModule() {
 		sleep(3000);
-		driver.get(baseUrl + "/Setup/Home/RunninglineLevel2Statuses");
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/RunninglineLevel2Statuses"));
-		sleep(3000);
-		assertElementPresent(By.xpath("//a[normalize-space()='Level 2']"));
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
 
 	}
 
 	@And("the user should be able to add Outgoing Call Types in Workflow Module")
 	public void addOutgoingCallTypesInWorkflowModule() {
-		sleep(3000);
-		driver.get(baseUrl + "/Setup/Home/RunninglineLevel2Statuses");
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/RunninglineLevel2Statuses"));
-		sleep(3000);
-		assertElementPresent(By.xpath("//a[normalize-space()='Level 2']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Outgoing Call Type']"));
+		sleep(2000);
+		waitAndSendKeys(By.id("OutgoingCall_CallTypeText"), "Call Patient");
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
 
 	}
 
 	@And("the user should be able to view Outgoing Call Types in Workflow Module")
 	public void viewOutgoingCallTypesInWorkflowModule() {
 		sleep(3000);
-		driver.get(baseUrl + "/Setup/Home/RunninglineLevel2Statuses");
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/RunninglineLevel2Statuses"));
+		driver.get(baseUrl + "/Setup/Home/OutgoingCalls");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/OutgoingCalls"));
 		sleep(3000);
-		assertElementPresent(By.xpath("//a[normalize-space()='Level 2']"));
+		assertElementPresent(By.xpath("//a[normalize-space()='Outgoing Call Type']"));
 
 	}
 
 	@And("the user should not be able to add Incoming Call Types in Workflow Module")
 	public void cannotAddIncomingCallTypesInWorkflowModule() {
-		sleep(3000);
-		driver.get(baseUrl + "/Setup/Home/RunninglineLevel2Statuses");
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/RunninglineLevel2Statuses"));
-		sleep(3000);
-		assertElementPresent(By.xpath("//a[normalize-space()='Level 2']"));
+		sleep(1000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New InComing Call Types']"));
 
 	}
 
 	@And("the user should be able to edit Incoming Call Types in Workflow Module")
 	public void editIncomingCallTypesInWorkflowModule() {
 		sleep(3000);
-		driver.get(baseUrl + "/Setup/Home/RunninglineLevel2Statuses");
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/RunninglineLevel2Statuses"));
-		sleep(3000);
-		assertElementPresent(By.xpath("//a[normalize-space()='Level 2']"));
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		sleep(2000);
+		waitAndSendKeys(By.id("IncomingCall_CallTypeText"), "Call Patient");
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
 
 	}
 
 	@And("the user should not be able to edit Incoming Call Types in Workflow Module")
 	public void cannotEditIncomingCallTypesInWorkflowModule() {
 		sleep(3000);
-		driver.get(baseUrl + "/Setup/Home/RunninglineLevel2Statuses");
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/RunninglineLevel2Statuses"));
-		sleep(3000);
-		assertElementPresent(By.xpath("//a[normalize-space()='Level 2']"));
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
 
 	}
 
