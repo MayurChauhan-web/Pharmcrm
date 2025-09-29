@@ -5,12 +5,16 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.InetAddress;
 import java.time.Duration;
+import java.time.LocalDate;
+import java.time.format.TextStyle;
 import java.util.List;
+import java.util.Locale;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -186,6 +190,794 @@ public class DeliverySteps {
 		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
 		sleep(1000);
 		clickWhenClickable(By.xpath("//label[@for='chkg44DeliveryMarkerDelete']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Add access only to Delivery Module Package")
+	public void createProfileWithViewAndAddAccessForPackage() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Delivery Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg04PackageAll']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg04PackageAdd']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Edit access only to Delivery Module Package")
+	public void createProfileWithViewAndEditAccessForPackage() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Delivery Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg04PackageAll']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg04PackageEdit']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Edit access only to Delivery Module Manifest")
+	public void createProfileWithViewAndEditAccessForManifest() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Delivery Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg44DeliveryMarkerDelete']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Delete access only to Delivery Module Manifest")
+	public void createProfileWithViewAndDeleteAccessForManifest() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Delivery Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg44DeliveryMarkerDelete']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with Print and Send for Signature access to Delivery Module Customer Attestation")
+	public void createProfileWithPrintAndSendForSignatureAccessForCustomerAttestation() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Delivery Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg44DeliveryMarkerDelete']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with Edit access only to Delivery Module Delivery Job Setting")
+	public void createProfileWithEditAccessForDeliveryJobSetting() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Delivery Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg44DeliveryMarkerDelete']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View-only access to Delivery Module Delivery Statistic Report")
+	public void createProfileWithViewOnlyAccessForDeliveryStatisticReport() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Delivery Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg44DeliveryMarkerDelete']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Export access to Delivery Module Delivery Statistic Report")
+	public void createProfileWithViewAndExportAccessForDeliveryStatisticReport() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Delivery Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg44DeliveryMarkerDelete']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View-only access to Delivery Module Manifest Summary Report")
+	public void createProfileWithViewOnlyAccessForManifestSummaryReport() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Delivery Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg44DeliveryMarkerDelete']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Export access to Delivery Module Manifest Summary Report")
+	public void createProfileWithViewAndExportAccessForManifestSummaryReport() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Delivery Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg44DeliveryMarkerDelete']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View-only access to Delivery Module Delivery Report")
+	public void createProfileWithViewOnlyAccessForDeliveryReport() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Delivery Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg44DeliveryMarkerDelete']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Export access to Delivery Module Delivery Report")
+	public void createProfileWithViewAndExportAccessForDeliveryReport() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Delivery Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg44DeliveryMarkerDelete']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with Run Trigger access only to Delivery Module Delivery Job Setting")
+	public void createProfileWithRunTriggerAccessForDeliveryJobSetting() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Delivery Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg44DeliveryMarkerDelete']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with Delete access only to Delivery Module Customer Attestation")
+	public void createProfileWithDeleteAccessForCustomerAttestation() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Delivery Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg44DeliveryMarkerDelete']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with Edit access only to Delivery Module Customer Attestation")
+	public void createProfileWithEditAccessForCustomerAttestation() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Delivery Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg44DeliveryMarkerDelete']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with Add access only to Delivery Module Customer Attestation")
+	public void createProfileWithAddAccessForCustomerAttestation() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Delivery Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg44DeliveryMarkerDelete']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with Full Access for Manifest to Delivery Module Manifest")
+	public void createProfileWithFullAccessForManifest() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Delivery Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg44DeliveryMarkerDelete']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Add access only to Delivery Module Manifest")
+	public void createProfileWithViewAndAddAccessForManifest() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Delivery Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg44DeliveryMarkerDelete']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile without access to Delivery Module Delivery Identifier")
+	public void createProfileWithoutAccessForDeliveryIdentifier() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Delivery Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg44DeliveryMarkerDelete']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View-only access to Delivery Module Delivery Identifier")
+	public void createProfileWithViewOnlyAccessForDeliveryIdentifier() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Delivery Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg44DeliveryMarkerDelete']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile without access to Delivery Module Package Plan Restriction")
+	public void createProfileWithoutAccessForPackagePlanRestriction() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Delivery Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg44DeliveryMarkerDelete']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Update access to Delivery Module Package Plan Restriction")
+	public void createProfileWithViewAndUpdateAccessForPackagePlanRestriction() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Delivery Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg44DeliveryMarkerDelete']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile without access to Delivery Module Delivery Setting")
+	public void createProfileWithoutAccessForDeliverySetting() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Delivery Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg44DeliveryMarkerDelete']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Update access to Delivery Module Delivery Setting")
+	public void createProfileWithViewAndUpdateAccessForDeliverySetting() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Delivery Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg44DeliveryMarkerDelete']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with Full Access for Package to Delivery Module Package")
+	public void createProfileWithFullAccessForPackage() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Delivery Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg04PackageAdd']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg04PackageEdit']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg04PackageDelete']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Delete access only to Delivery Module Package")
+	public void createProfileWithViewAndDeleteAccessForPackage() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Delivery Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg04PackageAll']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg04PackageDelete']"));
 		sleep(1000);
 		clickWhenClickable(By.id("btnSave"));
 	}
@@ -638,22 +1430,1016 @@ public class DeliverySteps {
 	@And("the user should be able to view and delete Delivery Marker in Delivery Module")
 	public void userShouldBeAbleToViewAndDeleteDeliveryMarker() {
 		sleep(3000);
-		driver.get(baseUrl + "/Setup/Home/LogisticCompanies");
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/LogisticCompanies"));
+		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
 		sleep(3000);
 		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
 		sleep(2000);
 		clickWhenClickable(By.xpath(
 				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
 		sleep(2000);
-		clickWhenClickable(By.xpath("//div[@id='genericmodal']//button[@id='btnDeleteConfirm']"));
+		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+
+	}
+
+	@And("the user should be able to download Attestation Documents in Delivery Module")
+	public void verifyUserCanDownloadAttestationDocuments() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='Add Customer Attestation']"));
+		sleep(2000);
+
+		waitAndSendKeys(By.id("PackageCustomerAttestation_RxNumber"), "RX7845123");
+		waitAndSendKeys(By.id("PackageCustomerAttestation_PatientName"), "John A. Smith");
+		waitAndSendKeys(By.id("PackageCustomerAttestation_Medication"), "Atorvastatin 20mg Tablet");
+		waitAndSendKeys(By.id("PackageCustomerAttestation_ReceivedFrom"), "CVS Pharmacy");
+
+		// --- Select Filled Date (future date +5 days) ---
+		clickWhenClickable(By.xpath(
+				"//div[@id='addPackageCustomerAttestationModal']//input[@id='PackageCustomerAttestation_FilledDate']"));
+
+		LocalDate filledFutureDate = LocalDate.now().plusDays(5);
+		int filledDay = filledFutureDate.getDayOfMonth();
+		int filledYear = filledFutureDate.getYear();
+		String filledMonth = filledFutureDate.getMonth().getDisplayName(TextStyle.SHORT, Locale.ENGLISH);
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		WebElement filledYearDropdown = wait.until(ExpectedConditions
+				.visibilityOfElementLocated(By.xpath("//select[contains(@class,'ui-datepicker-year')]")));
+		new Select(filledYearDropdown).selectByVisibleText(String.valueOf(filledYear));
+
+		WebElement filledMonthDropdown = wait.until(ExpectedConditions
+				.visibilityOfElementLocated(By.xpath("//select[contains(@class,'ui-datepicker-month')]")));
+		new Select(filledMonthDropdown).selectByVisibleText(filledMonth);
+
+		WebElement filledDateToSelect = wait.until(
+				ExpectedConditions.elementToBeClickable(By.xpath("//td[normalize-space()='" + filledDay + "']")));
+		filledDateToSelect.click();
+		sleep(2000);
+
+		// --- Select Received Date (future date +5 days) ---
+		clickWhenClickable(By.xpath(
+				"//div[@id='addPackageCustomerAttestationModal']//input[@id='PackageCustomerAttestation_ReceivedDate']"));
+
+		LocalDate receivedFutureDate = LocalDate.now().plusDays(5);
+		int receivedDay = receivedFutureDate.getDayOfMonth();
+		int receivedYear = receivedFutureDate.getYear();
+		String receivedMonth = receivedFutureDate.getMonth().getDisplayName(TextStyle.SHORT, Locale.ENGLISH);
+
+		WebElement receivedYearDropdown = wait.until(ExpectedConditions
+				.visibilityOfElementLocated(By.xpath("//select[contains(@class,'ui-datepicker-year')]")));
+		new Select(receivedYearDropdown).selectByVisibleText(String.valueOf(receivedYear));
+
+		WebElement receivedMonthDropdown = wait.until(ExpectedConditions
+				.visibilityOfElementLocated(By.xpath("//select[contains(@class,'ui-datepicker-month')]")));
+		new Select(receivedMonthDropdown).selectByVisibleText(receivedMonth);
+
+		WebElement receivedDateToSelect = wait.until(
+				ExpectedConditions.elementToBeClickable(By.xpath("//td[normalize-space()='" + receivedDay + "']")));
+		receivedDateToSelect.click();
+		sleep(2000);
+
+		// Fill remaining fields
+		waitAndSendKeys(By.id("PackageCustomerAttestation_AddressReceiver"),
+				"742 Evergreen Terrace, Springfield, IL 62704");
+		waitAndSendKeys(By.id("PackageCustomerAttestation_ReceiverName"), "Mary Smith");
+		waitAndSendKeys(By.id("PackageCustomerAttestation_PatientRelation"), "Spouse");
+		waitAndSendKeys(By.id("PackageCustomerAttestation_PhoneNumber"), "2175558945");
+
+		// Save
+		clickWhenClickable(By.xpath(
+				"//div[@id='addPackageCustomerAttestationModal']//button[@id='btnSavePackageCustomerAttestation']"));
+	}
+
+	@And("the user should be able to sync Logistic Tracking History in Delivery Module")
+	public void verifyUserCanSyncLogisticTrackingHistory() {
+		sleep(3000);
+		driver.get(baseUrl + "/Delivery/Home/Packages?category=2");
+		wait.until(ExpectedConditions.urlContains("/Delivery/Home/Packages?category=2"));
+
+	}
+
+	@And("the user should be able to print Pickup Package in Delivery Module")
+	public void verifyUserCanPrintPickupPackage() {
+		sleep(3000);
+		driver.get(baseUrl + "/Delivery/Home/Packages?category=2");
+		wait.until(ExpectedConditions.urlContains("/Delivery/Home/Packages?category=2"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='Print Pickup Packages']"));
+		sleep(3000);
+		((JavascriptExecutor) DriverFactory.getDriver()).executeScript("window.print();");
+		System.out.println("Patient signature PDF auto-saved in Downloads folder");
+	}
+
+	@And("the user should be able to share Package in Delivery Module")
+	public void verifyUserCanSharePackage() {
+		sleep(3000);
+		driver.get(baseUrl + "/Delivery/Home/Packages?category=1");
+		wait.until(ExpectedConditions.urlContains("/Delivery/Home/Packages?category=1"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//tbody/tr[2]/td[12]/div[1]/div[1]/button[1]/i[1]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Share To Harbour')]"));
+		sleep(3000);
+
+	}
+
+	@And("the user should be able to print Package in Delivery Module")
+	public void verifyUserCanPrintPackage() {
+		sleep(3000);
+		driver.get(baseUrl + "/Delivery/Home/Packages?category=1");
+		wait.until(ExpectedConditions.urlContains("/Delivery/Home/Packages?category=1"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[12]/div[1]/a[1]/img[1]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//div[@class='mb-5']//button[@type='button'][normalize-space()='Print']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Package Information']"));
+		sleep(3000);
+		((JavascriptExecutor) DriverFactory.getDriver()).executeScript("window.print();");
+		System.out.println("Patient signature PDF auto-saved in Downloads folder");
+	}
+
+	@And("the user should be able to generate Package Invoice in Delivery Module")
+	public void verifyUserCanGeneratePackageInvoice() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//button[normalize-space()='Generate Invoice']"));
+		sleep(3000);
+		waitAndSendKeys(By.id("Invoice_FirstName"), "Miguel");
+		waitAndSendKeys(By.id("Invoice_BillingEmail"), "miguel.smith@mailinator.com");
+		waitAndSendKeys(By.id("InvoiceDetail_PrescriptionNumber"), "RX1234567");
+		clickWhenClickable(By.xpath("//div[@class='model-inp select-city-dd dropdowncheckbox']//input[@type='text']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[span[normalize-space()='Rx']]"));
+		sleep(2000);
+		waitAndSendKeys(By.id("InvoiceDetail_Description"), "Atorvastatin 20mg Tablet");
+		waitAndSendKeys(By.id("InvoiceDetail_Quantity"), "30");
+		waitAndSendKeys(By.id("InvoiceDetail_CoPay"), "15.00");
+		clickWhenClickable(By.xpath("//img[@id='btnInvoiceDetail']"));
+		sleep(2000);
+		waitAndSendKeys(By.id("Invoice_PatientEmail"), "miguel.smith@mailinator.com");
+		clickWhenClickable(By.xpath("//label[@for='ChkInvoice_PatientEmail']"));
+		waitAndSendKeys(By.id("Invoice_InvoiceBillTo_BillToFirstName"), "Miguel");
+		clickWhenClickable(By.xpath("//button[@id='btnSaveAndSend']"));
+
+	}
+
+	@And("the user should be able to send Package for Signature in Delivery Module")
+	public void verifyUserCanSendPackageForSignature() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[@title='Send For Signature To Customer']//*[name()='svg']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='Email']"));
+
+	}
+
+	@And("the user should be able to print Signature in Delivery Module")
+	public void verifyUserCanPrintSignature() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//div[@class='gridRecordContextInner']//span[contains(text(),'Print')]"));
+		sleep(3000);
+		((JavascriptExecutor) DriverFactory.getDriver()).executeScript("window.print();");
+		System.out.println("Patient signature PDF auto-saved in Downloads folder");
+	}
+
+	@And("the user should be able to download Signature in Delivery Module")
+	public void verifyUserCanDownloadSignature() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[contains(text(),'.png')]"));
+
+	}
+
+	@And("the user should be able to upload Signature in Delivery Module")
+	public void verifyUserCanUploadSignature() {
+		sleep(3000);
+		driver.get(baseUrl + "/Delivery/Home/Packages?category=1");
+		wait.until(ExpectedConditions.urlContains("/Delivery/Home/Packages?category=1"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[12]/div[1]/a[1]/img[1]"));
+		sleep(3000);
+		sleep(3000);
+		String filePath = "C:\\Users\\MayurChauhan\\Downloads\\dummy.pdf";
+		WebElement fileInput = driver.findElement(By.xpath("//span[normalize-space()='Upload Signature']"));
+		fileInput.sendKeys(filePath);
+		sleep(3000);
+		clickWhenClickable(By.xpath("//button[@id='btnUploadSignature']"));
+		sleep(2000);
+
+	}
+
+	@And("the user should be able to download Reference Documents in Delivery Module")
+	public void verifyUserCanDownloadReferenceDocuments() {
+		sleep(3000);
+		String filePath = "C:\\Users\\MayurChauhan\\Downloads\\dummy.pdf";
+		WebElement fileInput = driver.findElement(By.xpath("//div[@class='model-inp']//input[@id='file-3']"));
+		fileInput.sendKeys(filePath);
+		sleep(3000);
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[12]/div[1]/a[1]/img[1]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[contains(text(),'.pdf')]"));
+
+	}
+
+	@And("the user should be able to update Delivery Status in Delivery Module")
+	public void verifyUserCanUpdateDeliveryStatus() {
+		sleep(3000);
+		driver.get(baseUrl + "/Delivery/Home/Packages?category=1");
+		wait.until(ExpectedConditions.urlContains("/Delivery/Home/Packages?category=1"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//select[@id='Package_Status']"));
+		selectDropdownByIndexWhenReady(By.id("Package_Status"), 2);
+		sleep(2000);
+	}
+
+	@And("the user should be able to generate Package Label in Delivery Module")
+	public void verifyUserCanGeneratePackageLabel() {
+		sleep(3000);
+		driver.get(baseUrl + "/Delivery/Home/Packages?category=1");
+		wait.until(ExpectedConditions.urlContains("/Delivery/Home/Packages?category=1"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(1000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Generate Label')]"));
+		sleep(3000);
+
+	}
+
+	@And("the user should be able to view and delete Manifest in Delivery Module")
+	public void verifyUserCanViewAndDeleteManifest() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+
+	}
+
+	@And("the user should not be able to add or edit Manifest in Delivery Module")
+	public void verifyUserCannotAddOrEditManifest() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+
+	}
+
+	@And("the user should be able to access Manifest Detail in Delivery Module")
+	public void verifyUserCanAccessManifestDetail() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+
+	}
+
+	@And("the user should be able to edit Delivery Job Setting in Delivery Module")
+	public void verifyUserCanEditDeliveryJobSetting() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+
+	}
+
+	@And("the user should be able to send Customer Attestation for signature in Delivery Module")
+	public void verifyUserCanSendCustomerAttestationForSignature() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+
+	}
+
+	@And("the user should be able to export Delivery Report in Delivery Module")
+	public void verifyUserCanExportDeliveryReport() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+
+	}
+
+	@And("the user should not be able to export Delivery Statistic Report in Delivery Module")
+	public void verifyUserCannotExportDeliveryStatisticReport() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+
+	}
+
+	@And("the user should be able to export Delivery Statistic Report in Delivery Module")
+	public void verifyUserCanExportDeliveryStatisticReport() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+
+	}
+
+	@And("the user should be able to view Delivery Statistic Report in Delivery Module")
+	public void verifyUserCanViewDeliveryStatisticReport() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+
+	}
+
+	@And("the user should not be able to export Manifest Summary Report in Delivery Module")
+	public void verifyUserCannotExportManifestSummaryReport() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+
+	}
+
+	@And("the user should be able to export Manifest Summary Report in Delivery Module")
+	public void verifyUserCanExportManifestSummaryReport() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+
+	}
+
+	@And("the user should be able to view Manifest Summary Report in Delivery Module")
+	public void verifyUserCanViewManifestSummaryReport() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+
+	}
+
+	@And("the user should not be able to export Delivery Report in Delivery Module")
+	public void verifyUserCannotExportDeliveryReport() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+
+	}
+
+	@And("the user should be able to view Delivery Report in Delivery Module")
+	public void verifyUserCanViewDeliveryReport() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+
+	}
+
+	@And("the user should not be able to edit Delivery Job Setting in Delivery Module")
+	public void verifyUserCannotEditDeliveryJobSetting() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+
+	}
+
+	@And("the user should be able to run triggers in Delivery Module")
+	public void verifyUserCanRunTriggers() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+
+	}
+
+	@And("the user should not be able to run triggers in Delivery Module")
+	public void verifyUserCannotRunTriggers() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+
+	}
+
+	@And("the user should be able to print Customer Attestation in Delivery Module")
+	public void verifyUserCanPrintCustomerAttestation() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+
+	}
+
+	@And("the user should not be able to add or edit Customer Attestation in Delivery Module")
+	public void verifyUserCannotAddOrEditCustomerAttestation() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+
+	}
+
+	@And("the user should be able to delete Customer Attestation in Delivery Module")
+	public void verifyUserCanDeleteCustomerAttestation() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+
+	}
+
+	@And("the user should not be able to add or delete Customer Attestation in Delivery Module")
+	public void verifyUserCannotAddOrDeleteCustomerAttestation() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+
+	}
+
+	@And("the user should be able to edit Customer Attestation in Delivery Module")
+	public void verifyUserCanEditCustomerAttestation() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+
+	}
+
+	@And("the user should not be able to edit or delete Customer Attestation in Delivery Module")
+	public void verifyUserCannotEditOrDeleteCustomerAttestation() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+
+	}
+
+	@And("the user should be able to add Customer Attestation in Delivery Module")
+	public void verifyUserCanAddCustomerAttestation() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+
+	}
+
+	@And("the user should be able to print Manifest in Delivery Module")
+	public void verifyUserCanPrintManifest() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+
+	}
+
+	@And("the user should be able to delete Manifest Bundle in Delivery Module")
+	public void verifyUserCanDeleteManifestBundle() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+
+	}
+
+	@And("the user should be able to add Manifest Bundle in Delivery Module")
+	public void verifyUserCanAddManifestBundle() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+
+	}
+
+	@And("the user should be able to skip Manifest Package in Delivery Module")
+	public void verifyUserCanSkipManifestPackage() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+
+	}
+
+	@And("the user should be able to delete Manifest Package in Delivery Module")
+	public void verifyUserCanDeleteManifestPackage() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+
+	}
+
+	@And("the user should be able to add Manifest Package in Delivery Module")
+	public void verifyUserCanAddManifestPackage() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+
+	}
+
+	@And("the user should be able to access Package Detail in Delivery Module")
+	public void verifyUserCanAccessPackageDetail() {
+		sleep(3000);
+		driver.get(baseUrl + "/Delivery/Home/Packages?category=1");
+		wait.until(ExpectedConditions.urlContains("/Delivery/Home/Packages?category=1"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[12]/div[1]/a[1]/img[1]"));
+		sleep(3000);
+
+	}
+
+	@And("the user should not be able to add or delete Manifest in Delivery Module")
+	public void verifyUserCannotAddOrDeleteManifest() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+
+	}
+
+	@And("the user should be able to view and edit Manifest in Delivery Module")
+	public void verifyUserCanViewAndEditManifest() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+
+	}
+
+	@And("the user should not be able to edit or delete Manifest in Delivery Module")
+	public void verifyUserCannotEditOrDeleteManifest() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+
+	}
+
+	@And("the user should be able to view and add Manifest in Delivery Module")
+	public void verifyUserCanViewAndAddManifest() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+
+	}
+
+	@And("the user should have no Delivery Identifier access via UI or direct URL")
+	public void verifyUserCannotAccessDeliveryIdentifier() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+
+	}
+
+	@And("the user should be able to view Delivery Identifier in Delivery Module")
+	public void verifyUserCanViewDeliveryIdentifier() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+
+	}
+
+	@And("the user should have no Package Plan Restriction access via UI or direct URL")
+	public void verifyUserCannotAccessPackagePlanRestriction() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+
+	}
+
+	@And("the user should be able to update Package Plan Restriction in Delivery Module")
+	public void verifyUserCanUpdatePackagePlanRestriction() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+
+	}
+
+	@And("the user should be able to view Package Plan Restriction in Delivery Module")
+	public void verifyUserCanViewPackagePlanRestriction() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+
+	}
+
+	@And("the user should have no Delivery Setting access via UI or direct URL")
+	public void verifyUserCannotAccessDeliverySetting() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+
+	}
+
+	@And("the user should be able to update Delivery Setting in Delivery Module")
+	public void verifyUserCanUpdateDeliverySetting() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+
+	}
+
+	@And("the user should be able to view Delivery Setting in Delivery Module")
+	public void verifyUserCanViewDeliverySetting() {
+		sleep(3000);
+		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+
+	}
+
+	@And("the user should not be able to add or edit Package in Delivery Module")
+	public void verifyUserCannotAddOrEditPackage() {
+		sleep(3000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New Package']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+
+	}
+
+	@And("the user should be able to view and delete Package in Delivery Module")
+	public void verifyUserCanViewAndDeletePackage() {
+		sleep(3000);
+		driver.get(baseUrl + "/Delivery/Home/Packages?category=1");
+		wait.until(ExpectedConditions.urlContains("/Delivery/Home/Packages?category=1"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(2000);
+		clickWhenClickable(
+				By.xpath("//div[@class='modal-dialog modal-dialog-centered']//button[@id='btnDeleteConfirm']"));
+
+	}
+
+	@And("the user should not be able to add or delete Package in Delivery Module")
+	public void verifyUserCannotAddOrDeletePackage() {
+		sleep(3000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New Package']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+
+	}
+
+	@And("the user should be able to view and edit Package in Delivery Module")
+	public void verifyUserCanViewAndEditPackage() {
+		sleep(3000);
+		driver.get(baseUrl + "/Delivery/Home/Packages?category=1");
+		wait.until(ExpectedConditions.urlContains("/Delivery/Home/Packages?category=1"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		sleep(2000);
+		waitAndSendKeys(By.id("Package_ShippingAddress_City"), "4646545767");
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+
+	}
+
+	@And("the user should not be able to edit or delete Package in Delivery Module")
+	public void verifyUserCannotEditOrDeletePackage() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+
+	}
+
+	@And("the user should be able to view and add Package in Delivery Module")
+	public void verifyUserCanViewAndAddPackage() {
+		sleep(3000);
+		driver.get(baseUrl + "/Delivery/Home/Packages?category=1");
+		wait.until(ExpectedConditions.urlContains("/Delivery/Home/Packages?category=1"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Package']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='btnNext']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//select[@id='Package_LogisticCompany_Id']"));
+		selectDropdownByIndexWhenReady(By.id("Package_LogisticCompany_Id"), 6);
+		sleep(2000);
+		waitAndSendKeys(By.id("Package_TrackingNumber"), "3477568");
+		clickWhenClickable(By.xpath("//input[@id='Package_ShippingDate']"));
+		LocalDate futureDate = LocalDate.now().plusDays(5);
+		int day = futureDate.getDayOfMonth();
+		int year = futureDate.getYear();
+		String month = futureDate.getMonth().getDisplayName(TextStyle.SHORT, Locale.ENGLISH);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		WebElement yearDropdown = wait.until(ExpectedConditions
+				.visibilityOfElementLocated(By.xpath("//select[contains(@class,'ui-datepicker-year')]")));
+		new Select(yearDropdown).selectByVisibleText(String.valueOf(year));
+		WebElement monthDropdown = wait.until(ExpectedConditions
+				.visibilityOfElementLocated(By.xpath("//select[contains(@class,'ui-datepicker-month')]")));
+		new Select(monthDropdown).selectByVisibleText(month);
+		WebElement dateToSelect = wait
+				.until(ExpectedConditions.elementToBeClickable(By.xpath("//td[normalize-space()='" + day + "']")));
+		dateToSelect.click();
+		sleep(2000);
+		waitAndSendKeys(By.id("Package_CustomerName"), "Miguel Frost");
+		waitAndSendKeys(By.id("Package_CustomerContactNumber1"), "4646545767");
+		waitAndSendKeys(By.id("Package_ShippingAddress_Street"), "4646545767");
+		waitAndSendKeys(By.id("Package_ShippingAddress_City"), "4646545767");
+		waitAndSendKeys(By.id("Package_ShippingAddress_ZipCode"), "4646545767");
+		sleep(2000);
+		clickWhenClickable(By.xpath("//select[@id='ddState']"));
+		selectDropdownByIndexWhenReady(By.id("ddState"), 1);
+		sleep(2000);
+		WebElement addressInput = driver.findElement(By.id("travelto"));
+		addressInput.clear();
+		addressInput.sendKeys("Prahlad Nagar, Ahmedabad, Gujarat, India");
+		WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait1.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".pac-item")));
+		addressInput.sendKeys(Keys.ARROW_DOWN);
+		addressInput.sendKeys(Keys.ENTER);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//a[@class='copyAddressMain']//*[name()='svg']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
 
 	}
 
 	@And("the user should not be able to add or delete Delivery Marker in Delivery Module")
 	public void userShouldNotBeAbleToAddOrDeleteDeliveryMarker() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//span[normalize-space()='New Logistic Company']"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New Delivery Marker']"));
 		sleep(1000);
 		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
 		sleep(2000);
@@ -665,18 +2451,18 @@ public class DeliverySteps {
 	@And("the user should be able to view and edit Delivery Marker in Delivery Module")
 	public void userShouldBeAbleToViewAndEditDeliveryMarker() {
 		sleep(3000);
-		driver.get(baseUrl + "/Setup/Home/LogisticCompanies");
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/LogisticCompanies"));
+		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
 		sleep(3000);
 		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
 		sleep(2000);
 		clickWhenClickable(By.xpath(
 				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
 		sleep(2000);
-		waitAndSendKeys(By.id("LogisticCompany_Name"), "Ryder Logistics");
-		clickWhenClickable(By.xpath("//input[@id='rbtnDelivery']"));
-		clickWhenClickable(
-				By.xpath("//button[@class='btn btn-primary waves-effect waves-light'][normalize-space()='Submit']"));
+		waitAndSendKeys(By.id("DeliveryMarker_Name"), "Pharmacy Main Store");
+		waitAndSendKeys(By.id("travelto"), "New York");
+		clickWhenClickable(By.xpath("//label[normalize-space()='Starting Point']"));
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
 	}
 
 	@And("the user should not be able to edit or delete Delivery Marker in Delivery Module")
@@ -699,8 +2485,9 @@ public class DeliverySteps {
 		sleep(3000);
 		clickWhenClickable(By.xpath("//span[normalize-space()='New Delivery Marker']"));
 		sleep(2000);
-		waitAndSendKeys(By.id("LogisticCompany_Name"), "Ryder Logistics");
-		clickWhenClickable(By.xpath("//input[@id='rbtnDelivery']"));
+		waitAndSendKeys(By.id("DeliveryMarker_Name"), "Pharmacy Main Store");
+		waitAndSendKeys(By.id("travelto"), "New York");
+		clickWhenClickable(By.xpath("//label[normalize-space()='Starting Point']"));
 		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
 
 	}
