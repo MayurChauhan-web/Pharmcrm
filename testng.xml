@@ -5,10 +5,13 @@
     <test name="Cucumber Tests">
         <classes>
             <class
-                name="com.pharmcrm.pharmcrm_product.runner.TestNGRunner" />
+                name="com.pharmcrm.pharmcrm_product.runner.MasterRunner" />
         </classes>
     </test>
 </suite>
+
+
+
 
 
 

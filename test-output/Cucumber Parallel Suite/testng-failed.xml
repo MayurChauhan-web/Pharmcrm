@@ -3,13 +3,13 @@
 <suite thread-count="3" parallel="methods" name="Failed suite [Cucumber Parallel Suite]" guice-stage="DEVELOPMENT">
   <test thread-count="3" parallel="methods" name="Cucumber Tests(failed)">
     <classes>
-      <class name="com.pharmcrm.pharmcrm_product.runner.TestNGRunner">
+      <class name="com.pharmcrm.pharmcrm_product.runner.MasterRunner">
         <methods>
           <include name="setUpClass"/>
-          <include name="runScenario" invocation-numbers="1"/>
+          <include name="runScenario" invocation-numbers="0"/>
           <include name="tearDownClass"/>
         </methods>
-      </class> <!-- com.pharmcrm.pharmcrm_product.runner.TestNGRunner -->
+      </class> <!-- com.pharmcrm.pharmcrm_product.runner.MasterRunner -->
     </classes>
   </test> <!-- Cucumber Tests(failed) -->
 </suite> <!-- Failed suite [Cucumber Parallel Suite] -->
