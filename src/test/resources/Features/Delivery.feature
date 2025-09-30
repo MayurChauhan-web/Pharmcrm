@@ -183,10 +183,9 @@ And I log in using the new user for Delivery Module
 Then the user should be able to view and delete Package in Delivery Module
 And the user should not be able to add or edit Package in Delivery Module
 
-@Delivery
 Scenario: User with Full Access for Package
 Given I log in as admin for Delivery Module
-When I create a new user with email for Delivery Module "testuser9_static@mailinator.com"
+When I create a new user with email for Delivery Module "testuser7_static@mailinator.com"
 And I create a profile with Full Access for Package to Delivery Module Package
 And I assign the profile and workspace to the user for Delivery Module
 And I reset the user's password for Delivery Module
@@ -208,7 +207,7 @@ Then the user should be able to sync Logistic Tracking History in Delivery Modul
 
 Scenario: User with View + Update access for Delivery Setting (restricted actions)
 Given I log in as admin for Delivery Module
-When I create a new user with email for Delivery Module "testuser1_static@mailinator.com"
+When I create a new user with email for Delivery Module "testuser3_static@mailinator.com"
 And I create a profile with View and Update access to Delivery Module Delivery Setting
 And I assign the profile and workspace to the user for Delivery Module
 And I reset the user's password for Delivery Module
@@ -218,7 +217,7 @@ Then the user should be able to update Delivery Setting in Delivery Module
 
 Scenario: Create user without Delivery Setting access and check restrictions
 Given I log in as admin for Delivery Module
-When I create a new user with email for Delivery Module "testuser1_static@mailinator.com"
+When I create a new user with email for Delivery Module "testuser4_static@mailinator.com"
 And I create a profile without access to Delivery Module Delivery Setting
 And I assign the profile and workspace to the user for Delivery Module
 And I reset the user's password for Delivery Module
@@ -227,7 +226,7 @@ Then the user should have no Delivery Setting access via UI or direct URL
 
 Scenario: User with View + Update access for Package Plan Restriction
 Given I log in as admin for Delivery Module
-When I create a new user with email for Delivery Module "testuser1_static@mailinator.com"
+When I create a new user with email for Delivery Module "testuser6_static@mailinator.com"
 And I create a profile with View and Update access to Delivery Module Package Plan Restriction
 And I assign the profile and workspace to the user for Delivery Module
 And I reset the user's password for Delivery Module
@@ -237,7 +236,7 @@ Then the user should be able to update Package Plan Restriction in Delivery Modu
 
 Scenario: Create user without Package Plan Restriction access and check restrictions
 Given I log in as admin for Delivery Module
-When I create a new user with email for Delivery Module "testuser1_static@mailinator.com"
+When I create a new user with email for Delivery Module "testuser7_static@mailinator.com"
 And I create a profile without access to Delivery Module Package Plan Restriction
 And I assign the profile and workspace to the user for Delivery Module
 And I reset the user's password for Delivery Module
@@ -264,7 +263,7 @@ Then the user should have no Delivery Identifier access via UI or direct URL
 
 Scenario: User with View + Add access for Manifest
 Given I log in as admin for Delivery Module
-When I create a new user with email for Delivery Module "testuser1_static@mailinator.com"
+When I create a new user with email for Delivery Module "testuser8_static@mailinator.com"
 And I create a profile with View and Add access only to Delivery Module Manifest
 And I assign the profile and workspace to the user for Delivery Module
 And I reset the user's password for Delivery Module
@@ -274,7 +273,7 @@ And the user should not be able to edit or delete Manifest in Delivery Module
 
 Scenario: User with View + Edit access for Manifest
 Given I log in as admin for Delivery Module
-When I create a new user with email for Delivery Module "testuser1_static@mailinator.com"
+When I create a new user with email for Delivery Module "testuser9_static@mailinator.com"
 And I create a profile with View and Edit access only to Delivery Module Manifest
 And I assign the profile and workspace to the user for Delivery Module
 And I reset the user's password for Delivery Module
@@ -284,7 +283,7 @@ And the user should not be able to add or delete Manifest in Delivery Module
 
 Scenario: User with View + Delete access for Manifest
 Given I log in as admin for Delivery Module
-When I create a new user with email for Delivery Module "testuser1_static@mailinator.com"
+When I create a new user with email for Delivery Module "testuser10_static@mailinator.com"
 And I create a profile with View and Delete access only to Delivery Module Manifest
 And I assign the profile and workspace to the user for Delivery Module
 And I reset the user's password for Delivery Module
@@ -294,7 +293,7 @@ And the user should not be able to add or edit Manifest in Delivery Module
 
 Scenario: User with Full Access for Manifest
 Given I log in as admin for Delivery Module
-When I create a new user with email for Delivery Module "testuser1_static@mailinator.com"
+When I create a new user with email for Delivery Module "testuser11_static@mailinator.com"
 And I create a profile with Full Access for Manifest to Delivery Module Manifest
 And I assign the profile and workspace to the user for Delivery Module
 And I reset the user's password for Delivery Module
@@ -319,7 +318,7 @@ And the user should not be able to edit or delete Customer Attestation in Delive
 
 Scenario: User with Edit access for Customer Attestation
 Given I log in as admin for Delivery Module
-When I create a new user with email for Delivery Module "testuser1_static@mailinator.com"
+When I create a new user with email for Delivery Module "testuser3_static@mailinator.com"
 And I create a profile with Edit access only to Delivery Module Customer Attestation
 And I assign the profile and workspace to the user for Delivery Module
 And I reset the user's password for Delivery Module
@@ -327,9 +326,10 @@ And I log in using the new user for Delivery Module
 Then the user should be able to edit Customer Attestation in Delivery Module
 And the user should not be able to add or delete Customer Attestation in Delivery Module
 
+@Delivery
 Scenario: User with Delete access for Customer Attestation
 Given I log in as admin for Delivery Module
-When I create a new user with email for Delivery Module "testuser1_static@mailinator.com"
+When I create a new user with email for Delivery Module "testuser4_static@mailinator.com"
 And I create a profile with Delete access only to Delivery Module Customer Attestation
 And I assign the profile and workspace to the user for Delivery Module
 And I reset the user's password for Delivery Module

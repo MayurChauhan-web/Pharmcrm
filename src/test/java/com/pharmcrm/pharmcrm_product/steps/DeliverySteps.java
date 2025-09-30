@@ -283,7 +283,9 @@ public class DeliverySteps {
 		sleep(1000);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
 		sleep(1000);
-		clickWhenClickable(By.xpath("//label[@for='chkg44DeliveryMarkerDelete']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg04ManifestAll']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg04ManifestEdit']"));
 		sleep(1000);
 		clickWhenClickable(By.id("btnSave"));
 	}
@@ -313,7 +315,9 @@ public class DeliverySteps {
 		sleep(1000);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
 		sleep(1000);
-		clickWhenClickable(By.xpath("//label[@for='chkg44DeliveryMarkerDelete']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg04ManifestAll']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg04ManifestDelete']"));
 		sleep(1000);
 		clickWhenClickable(By.id("btnSave"));
 	}
@@ -613,7 +617,9 @@ public class DeliverySteps {
 		sleep(1000);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
 		sleep(1000);
-		clickWhenClickable(By.xpath("//label[@for='chkg44DeliveryMarkerDelete']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg5CustomerAttestationAll']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg5CustomerAttestationDelete']"));
 		sleep(1000);
 		clickWhenClickable(By.id("btnSave"));
 	}
@@ -643,7 +649,9 @@ public class DeliverySteps {
 		sleep(1000);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
 		sleep(1000);
-		clickWhenClickable(By.xpath("//label[@for='chkg44DeliveryMarkerDelete']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg5CustomerAttestationAll']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg5CustomerAttestationEdit']"));
 		sleep(1000);
 		clickWhenClickable(By.id("btnSave"));
 	}
@@ -673,7 +681,9 @@ public class DeliverySteps {
 		sleep(1000);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
 		sleep(1000);
-		clickWhenClickable(By.xpath("//label[@for='chkg44DeliveryMarkerDelete']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg5CustomerAttestationAll']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg5CustomerAttestationAdd']"));
 		sleep(1000);
 		clickWhenClickable(By.id("btnSave"));
 	}
@@ -703,8 +713,6 @@ public class DeliverySteps {
 		sleep(1000);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
 		sleep(1000);
-		clickWhenClickable(By.xpath("//label[@for='chkg44DeliveryMarkerDelete']"));
-		sleep(1000);
 		clickWhenClickable(By.id("btnSave"));
 	}
 
@@ -733,7 +741,9 @@ public class DeliverySteps {
 		sleep(1000);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
 		sleep(1000);
-		clickWhenClickable(By.xpath("//label[@for='chkg44DeliveryMarkerDelete']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg04ManifestAll']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg04ManifestAdd']"));
 		sleep(1000);
 		clickWhenClickable(By.id("btnSave"));
 	}
@@ -763,7 +773,7 @@ public class DeliverySteps {
 		sleep(1000);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
 		sleep(1000);
-		clickWhenClickable(By.xpath("//label[@for='chkg44DeliveryMarkerDelete']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg04DeliveryIdentifierView']"));
 		sleep(1000);
 		clickWhenClickable(By.id("btnSave"));
 	}
@@ -793,8 +803,6 @@ public class DeliverySteps {
 		sleep(1000);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
 		sleep(1000);
-		clickWhenClickable(By.xpath("//label[@for='chkg44DeliveryMarkerDelete']"));
-		sleep(1000);
 		clickWhenClickable(By.id("btnSave"));
 	}
 
@@ -823,7 +831,7 @@ public class DeliverySteps {
 		sleep(1000);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
 		sleep(1000);
-		clickWhenClickable(By.xpath("//label[@for='chkg44DeliveryMarkerDelete']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg01PackagePlanRestriction']"));
 		sleep(1000);
 		clickWhenClickable(By.id("btnSave"));
 	}
@@ -853,8 +861,6 @@ public class DeliverySteps {
 		sleep(1000);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
 		sleep(1000);
-		clickWhenClickable(By.xpath("//label[@for='chkg44DeliveryMarkerDelete']"));
-		sleep(1000);
 		clickWhenClickable(By.id("btnSave"));
 	}
 
@@ -883,7 +889,12 @@ public class DeliverySteps {
 		sleep(1000);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
 		sleep(1000);
-		clickWhenClickable(By.xpath("//label[@for='chkg44DeliveryMarkerDelete']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg04DeliverySettingView']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg45PackageRestrictionView']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg04DeliveryDistancesView']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg04LogisticView']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg44DeliveryMarkerView']"));
 		sleep(1000);
 		clickWhenClickable(By.id("btnSave"));
 	}
@@ -913,7 +924,10 @@ public class DeliverySteps {
 		sleep(1000);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
 		sleep(1000);
-		clickWhenClickable(By.xpath("//label[@for='chkg44DeliveryMarkerDelete']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg45PackageRestrictionView']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg04DeliveryDistancesView']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg04LogisticView']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg44DeliveryMarkerView']"));
 		sleep(1000);
 		clickWhenClickable(By.id("btnSave"));
 	}
@@ -940,6 +954,8 @@ public class DeliverySteps {
 		clickWhenClickable(setupModuleCheckbox);
 		sleep(2000);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Billing Module']"));
 		sleep(1000);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Delivery Module']"));
 		sleep(1000);
@@ -1453,7 +1469,6 @@ public class DeliverySteps {
 		waitAndSendKeys(By.id("PackageCustomerAttestation_Medication"), "Atorvastatin 20mg Tablet");
 		waitAndSendKeys(By.id("PackageCustomerAttestation_ReceivedFrom"), "CVS Pharmacy");
 
-		// --- Select Filled Date (future date +5 days) ---
 		clickWhenClickable(By.xpath(
 				"//div[@id='addPackageCustomerAttestationModal']//input[@id='PackageCustomerAttestation_FilledDate']"));
 
@@ -1476,7 +1491,6 @@ public class DeliverySteps {
 		filledDateToSelect.click();
 		sleep(2000);
 
-		// --- Select Received Date (future date +5 days) ---
 		clickWhenClickable(By.xpath(
 				"//div[@id='addPackageCustomerAttestationModal']//input[@id='PackageCustomerAttestation_ReceivedDate']"));
 
@@ -1498,14 +1512,12 @@ public class DeliverySteps {
 		receivedDateToSelect.click();
 		sleep(2000);
 
-		// Fill remaining fields
 		waitAndSendKeys(By.id("PackageCustomerAttestation_AddressReceiver"),
 				"742 Evergreen Terrace, Springfield, IL 62704");
 		waitAndSendKeys(By.id("PackageCustomerAttestation_ReceiverName"), "Mary Smith");
 		waitAndSendKeys(By.id("PackageCustomerAttestation_PatientRelation"), "Spouse");
 		waitAndSendKeys(By.id("PackageCustomerAttestation_PhoneNumber"), "2175558945");
 
-		// Save
 		clickWhenClickable(By.xpath(
 				"//div[@id='addPackageCustomerAttestationModal']//button[@id='btnSavePackageCustomerAttestation']"));
 	}
@@ -1513,8 +1525,18 @@ public class DeliverySteps {
 	@And("the user should be able to sync Logistic Tracking History in Delivery Module")
 	public void verifyUserCanSyncLogisticTrackingHistory() {
 		sleep(3000);
-		driver.get(baseUrl + "/Delivery/Home/Packages?category=2");
-		wait.until(ExpectedConditions.urlContains("/Delivery/Home/Packages?category=2"));
+		driver.get(baseUrl + "/Delivery/Home/Packages?category=1");
+		wait.until(ExpectedConditions.urlContains("/Delivery/Home/Packages?category=1"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='Filter']"));
+		sleep(3000);
+		selectDropdownByIndexWhenReady(By.id("Filter_LogisticId"), 1);
+		sleep(3000);
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-magnifying-glass']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[12]/div[1]/a[1]/img[1]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//button[normalize-space()='Sync Logistic History']"));
 
 	}
 
@@ -1528,6 +1550,10 @@ public class DeliverySteps {
 		sleep(3000);
 		((JavascriptExecutor) DriverFactory.getDriver()).executeScript("window.print();");
 		System.out.println("Patient signature PDF auto-saved in Downloads folder");
+		sleep(3000);
+		clickWhenClickable(
+				By.xpath("//button[@onclick='return CloseGenerateCollectionLabel()']//i[@class='fa fa-times']"));
+
 	}
 
 	@And("the user should be able to share Package in Delivery Module")
@@ -1541,16 +1567,17 @@ public class DeliverySteps {
 		clickWhenClickable(By.xpath(
 				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Share To Harbour')]"));
 		sleep(3000);
+		clickWhenClickable(By.xpath("//button[@id='btnShareConfirm']"));
 
 	}
 
 	@And("the user should be able to print Package in Delivery Module")
 	public void verifyUserCanPrintPackage() {
-		sleep(3000);
+		sleep(5000);
 		driver.get(baseUrl + "/Delivery/Home/Packages?category=1");
 		wait.until(ExpectedConditions.urlContains("/Delivery/Home/Packages?category=1"));
 		sleep(3000);
-		clickWhenClickable(By.xpath("//tbody/tr[1]/td[12]/div[1]/a[1]/img[1]"));
+		clickWhenClickable(By.xpath("//tbody/tr[5]/td[12]/div[1]/a[1]/img[1]"));
 		sleep(3000);
 		clickWhenClickable(By.xpath("//div[@class='mb-5']//button[@type='button'][normalize-space()='Print']"));
 		sleep(3000);
@@ -1558,10 +1585,18 @@ public class DeliverySteps {
 		sleep(3000);
 		((JavascriptExecutor) DriverFactory.getDriver()).executeScript("window.print();");
 		System.out.println("Patient signature PDF auto-saved in Downloads folder");
+		sleep(3000);
+		clickWhenClickable(By.xpath("//button[@onclick='javascript: ClosePrintModal();']//i[@class='fa fa-times']"));
+
 	}
 
 	@And("the user should be able to generate Package Invoice in Delivery Module")
 	public void verifyUserCanGeneratePackageInvoice() {
+		sleep(3000);
+		driver.get(baseUrl + "/Delivery/Home/Packages?category=1");
+		wait.until(ExpectedConditions.urlContains("/Delivery/Home/Packages?category=1"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//tbody/tr[3]/td[12]/div[1]/a[1]/img[1]"));
 		sleep(3000);
 		clickWhenClickable(By.xpath("//button[normalize-space()='Generate Invoice']"));
 		sleep(3000);
@@ -1587,6 +1622,8 @@ public class DeliverySteps {
 	@And("the user should be able to send Package for Signature in Delivery Module")
 	public void verifyUserCanSendPackageForSignature() {
 		sleep(3000);
+		clickWhenClickable(By.xpath("//button[@onclick='ClosePrintLabel();']//i[@class='fa fa-times']"));
+		sleep(2000);
 		clickWhenClickable(By.xpath("//a[@title='Send For Signature To Customer']//*[name()='svg']"));
 		sleep(1000);
 		clickWhenClickable(By.xpath("//a[normalize-space()='Email']"));
@@ -1613,32 +1650,18 @@ public class DeliverySteps {
 
 	@And("the user should be able to upload Signature in Delivery Module")
 	public void verifyUserCanUploadSignature() {
-		sleep(3000);
-		driver.get(baseUrl + "/Delivery/Home/Packages?category=1");
-		wait.until(ExpectedConditions.urlContains("/Delivery/Home/Packages?category=1"));
-		sleep(3000);
-		clickWhenClickable(By.xpath("//tbody/tr[1]/td[12]/div[1]/a[1]/img[1]"));
-		sleep(3000);
-		sleep(3000);
 		String filePath = "C:\\Users\\MayurChauhan\\Downloads\\dummy.pdf";
-		WebElement fileInput = driver.findElement(By.xpath("//span[normalize-space()='Upload Signature']"));
+		sleep(2000);
+		WebElement fileInput = driver.findElement(By.id("flSignature"));
+		sleep(2000);
 		fileInput.sendKeys(filePath);
-		sleep(3000);
+		sleep(2000);
 		clickWhenClickable(By.xpath("//button[@id='btnUploadSignature']"));
 		sleep(2000);
-
 	}
 
 	@And("the user should be able to download Reference Documents in Delivery Module")
 	public void verifyUserCanDownloadReferenceDocuments() {
-		sleep(3000);
-		String filePath = "C:\\Users\\MayurChauhan\\Downloads\\dummy.pdf";
-		WebElement fileInput = driver.findElement(By.xpath("//div[@class='model-inp']//input[@id='file-3']"));
-		fileInput.sendKeys(filePath);
-		sleep(3000);
-		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
-		sleep(3000);
-		clickWhenClickable(By.xpath("//tbody/tr[1]/td[12]/div[1]/a[1]/img[1]"));
 		sleep(3000);
 		clickWhenClickable(By.xpath("//a[contains(text(),'.pdf')]"));
 
@@ -1650,13 +1673,11 @@ public class DeliverySteps {
 		driver.get(baseUrl + "/Delivery/Home/Packages?category=1");
 		wait.until(ExpectedConditions.urlContains("/Delivery/Home/Packages?category=1"));
 		sleep(3000);
-		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
-		sleep(2000);
-		clickWhenClickable(By.xpath(
-				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[12]/div[1]/a[1]/img[1]"));
 		sleep(3000);
-		clickWhenClickable(By.xpath("//select[@id='Package_Status']"));
-		selectDropdownByIndexWhenReady(By.id("Package_Status"), 2);
+		clickWhenClickable(By.xpath("//input[@id='DeliveryInitiated']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//button[@id='btnSaveStatusNotes']"));
 		sleep(2000);
 	}
 
@@ -1677,45 +1698,36 @@ public class DeliverySteps {
 	@And("the user should be able to view and delete Manifest in Delivery Module")
 	public void verifyUserCanViewAndDeleteManifest() {
 		sleep(3000);
-		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
+		driver.get(baseUrl + "/Delivery/Home/Manifests");
+		wait.until(ExpectedConditions.urlContains("/Delivery/Home/Manifests"));
 		sleep(3000);
 		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
 		sleep(2000);
 		clickWhenClickable(By.xpath(
 				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
 		sleep(2000);
-		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+		clickWhenClickable(By.xpath("//button[@id='btndeletemanifestconform']"));
 
 	}
 
 	@And("the user should not be able to add or edit Manifest in Delivery Module")
 	public void verifyUserCannotAddOrEditManifest() {
 		sleep(3000);
-		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
-		sleep(3000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New Manifest']"));
 		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
 		sleep(2000);
-		clickWhenClickable(By.xpath(
-				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
 
 	}
 
 	@And("the user should be able to access Manifest Detail in Delivery Module")
 	public void verifyUserCanAccessManifestDetail() {
 		sleep(3000);
-		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
+		driver.get(baseUrl + "/Delivery/Home/Manifests");
+		wait.until(ExpectedConditions.urlContains("/Delivery/Home/Manifests"));
 		sleep(3000);
-		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
-		sleep(2000);
-		clickWhenClickable(By.xpath(
-				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[7]/div[1]/a[1]/img[1]"));
 
 	}
 
@@ -1947,180 +1959,237 @@ public class DeliverySteps {
 	@And("the user should not be able to add or edit Customer Attestation in Delivery Module")
 	public void verifyUserCannotAddOrEditCustomerAttestation() {
 		sleep(3000);
-		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
-		sleep(3000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Add Customer Attestation']"));
 		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
 		sleep(2000);
-		clickWhenClickable(By.xpath(
-				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
 
 	}
 
 	@And("the user should be able to delete Customer Attestation in Delivery Module")
 	public void verifyUserCanDeleteCustomerAttestation() {
 		sleep(3000);
-		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
+		driver.get(baseUrl + "/Delivery/Home/Packages?category=1");
+		wait.until(ExpectedConditions.urlContains("/Delivery/Home/Packages?category=1"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[12]/div[1]/a[1]/img[1]"));
 		sleep(3000);
 		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
 		sleep(2000);
 		clickWhenClickable(By.xpath(
 				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
 		sleep(2000);
-		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+		clickWhenClickable(By.xpath("//button[@id='deletePackageCustomerAttestation']"));
 
 	}
 
 	@And("the user should not be able to add or delete Customer Attestation in Delivery Module")
 	public void verifyUserCannotAddOrDeleteCustomerAttestation() {
 		sleep(3000);
-		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
-		sleep(3000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Add Customer Attestation']"));
 		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
 		sleep(2000);
-		clickWhenClickable(By.xpath(
+		assertElementNotPresent(By.xpath(
 				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
 
 	}
 
 	@And("the user should be able to edit Customer Attestation in Delivery Module")
 	public void verifyUserCanEditCustomerAttestation() {
 		sleep(3000);
-		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
+		driver.get(baseUrl + "/Delivery/Home/Packages?category=1");
+		wait.until(ExpectedConditions.urlContains("/Delivery/Home/Packages?category=1"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[12]/div[1]/a[1]/img[1]"));
 		sleep(3000);
 		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
 		sleep(2000);
 		clickWhenClickable(By.xpath(
-				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
 		sleep(2000);
-		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+		waitAndSendKeys(By.id("PackageCustomerAttestation_AddressReceiver"), "Ahmedabad");
+		clickWhenClickable(By.xpath(
+				"//div[@id='addPackageCustomerAttestationModal']//button[@id='btnSavePackageCustomerAttestation']"));
 
 	}
 
 	@And("the user should not be able to edit or delete Customer Attestation in Delivery Module")
 	public void verifyUserCannotEditOrDeleteCustomerAttestation() {
 		sleep(3000);
-		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
-		sleep(3000);
 		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
 		sleep(2000);
-		clickWhenClickable(By.xpath(
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		assertElementNotPresent(By.xpath(
 				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
 
 	}
 
 	@And("the user should be able to add Customer Attestation in Delivery Module")
 	public void verifyUserCanAddCustomerAttestation() {
 		sleep(3000);
-		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
+		driver.get(baseUrl + "/Delivery/Home/Packages?category=1");
+		wait.until(ExpectedConditions.urlContains("/Delivery/Home/Packages?category=1"));
 		sleep(3000);
-		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[12]/div[1]/a[1]/img[1]"));
 		sleep(2000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='Add Customer Attestation']"));
+		sleep(2000);
+
+		waitAndSendKeys(By.id("PackageCustomerAttestation_RxNumber"), "RX7845123");
+		waitAndSendKeys(By.id("PackageCustomerAttestation_PatientName"), "John A. Smith");
+		waitAndSendKeys(By.id("PackageCustomerAttestation_Medication"), "Atorvastatin 20mg Tablet");
+		waitAndSendKeys(By.id("PackageCustomerAttestation_ReceivedFrom"), "CVS Pharmacy");
+
 		clickWhenClickable(By.xpath(
-				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+				"//div[@id='addPackageCustomerAttestationModal']//input[@id='PackageCustomerAttestation_FilledDate']"));
+
+		LocalDate filledFutureDate = LocalDate.now().plusDays(5);
+		int filledDay = filledFutureDate.getDayOfMonth();
+		int filledYear = filledFutureDate.getYear();
+		String filledMonth = filledFutureDate.getMonth().getDisplayName(TextStyle.SHORT, Locale.ENGLISH);
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		WebElement filledYearDropdown = wait.until(ExpectedConditions
+				.visibilityOfElementLocated(By.xpath("//select[contains(@class,'ui-datepicker-year')]")));
+		new Select(filledYearDropdown).selectByVisibleText(String.valueOf(filledYear));
+
+		WebElement filledMonthDropdown = wait.until(ExpectedConditions
+				.visibilityOfElementLocated(By.xpath("//select[contains(@class,'ui-datepicker-month')]")));
+		new Select(filledMonthDropdown).selectByVisibleText(filledMonth);
+
+		WebElement filledDateToSelect = wait.until(
+				ExpectedConditions.elementToBeClickable(By.xpath("//td[normalize-space()='" + filledDay + "']")));
+		filledDateToSelect.click();
 		sleep(2000);
-		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+
+		clickWhenClickable(By.xpath(
+				"//div[@id='addPackageCustomerAttestationModal']//input[@id='PackageCustomerAttestation_ReceivedDate']"));
+
+		LocalDate receivedFutureDate = LocalDate.now().plusDays(5);
+		int receivedDay = receivedFutureDate.getDayOfMonth();
+		int receivedYear = receivedFutureDate.getYear();
+		String receivedMonth = receivedFutureDate.getMonth().getDisplayName(TextStyle.SHORT, Locale.ENGLISH);
+
+		WebElement receivedYearDropdown = wait.until(ExpectedConditions
+				.visibilityOfElementLocated(By.xpath("//select[contains(@class,'ui-datepicker-year')]")));
+		new Select(receivedYearDropdown).selectByVisibleText(String.valueOf(receivedYear));
+
+		WebElement receivedMonthDropdown = wait.until(ExpectedConditions
+				.visibilityOfElementLocated(By.xpath("//select[contains(@class,'ui-datepicker-month')]")));
+		new Select(receivedMonthDropdown).selectByVisibleText(receivedMonth);
+
+		WebElement receivedDateToSelect = wait.until(
+				ExpectedConditions.elementToBeClickable(By.xpath("//td[normalize-space()='" + receivedDay + "']")));
+		receivedDateToSelect.click();
+		sleep(2000);
+
+		waitAndSendKeys(By.id("PackageCustomerAttestation_AddressReceiver"),
+				"742 Evergreen Terrace, Springfield, IL 62704");
+		waitAndSendKeys(By.id("PackageCustomerAttestation_ReceiverName"), "Mary Smith");
+		waitAndSendKeys(By.id("PackageCustomerAttestation_PatientRelation"), "Spouse");
+		waitAndSendKeys(By.id("PackageCustomerAttestation_PhoneNumber"), "2175558945");
+
+		clickWhenClickable(By.xpath(
+				"//div[@id='addPackageCustomerAttestationModal']//button[@id='btnSavePackageCustomerAttestation']"));
 
 	}
 
 	@And("the user should be able to print Manifest in Delivery Module")
 	public void verifyUserCanPrintManifest() {
 		sleep(3000);
-		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
+		driver.get(baseUrl + "/Delivery/Home/Manifests");
+		wait.until(ExpectedConditions.urlContains("/Delivery/Home/Manifests"));
 		sleep(3000);
-		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
-		sleep(2000);
-		clickWhenClickable(By.xpath(
-				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
-
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[7]/div[1]/a[1]/img[1]"));
 	}
 
 	@And("the user should be able to delete Manifest Bundle in Delivery Module")
 	public void verifyUserCanDeleteManifestBundle() {
 		sleep(3000);
-		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
+		driver.get(baseUrl + "/Delivery/Home/Manifests");
+		wait.until(ExpectedConditions.urlContains("/Delivery/Home/Manifests"));
 		sleep(3000);
-		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
-		sleep(2000);
-		clickWhenClickable(By.xpath(
-				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[7]/div[1]/a[1]/img[1]"));
 
 	}
 
 	@And("the user should be able to add Manifest Bundle in Delivery Module")
 	public void verifyUserCanAddManifestBundle() {
 		sleep(3000);
-		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
+		driver.get(baseUrl + "/Delivery/Home/Manifests");
+		wait.until(ExpectedConditions.urlContains("/Delivery/Home/Manifests"));
 		sleep(3000);
-		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
-		sleep(2000);
-		clickWhenClickable(By.xpath(
-				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[7]/div[1]/a[1]/img[1]"));
 
 	}
 
 	@And("the user should be able to skip Manifest Package in Delivery Module")
 	public void verifyUserCanSkipManifestPackage() {
 		sleep(3000);
-		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
+		driver.get(baseUrl + "/Delivery/Home/Manifests");
+		wait.until(ExpectedConditions.urlContains("/Delivery/Home/Manifests"));
 		sleep(3000);
-		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[7]/div[1]/div[1]/button[1]/i[1]"));
 		sleep(2000);
 		clickWhenClickable(By.xpath(
-				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
 		sleep(2000);
-		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+		selectDropdownByIndexWhenReady(By.id("Manifest_Status"), 2);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//button[@id='btnSkipManifestPackage']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='btnSkipConfirm']"));
 
 	}
 
 	@And("the user should be able to delete Manifest Package in Delivery Module")
 	public void verifyUserCanDeleteManifestPackage() {
 		sleep(3000);
-		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
-		sleep(3000);
-		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		clickWhenClickable(By.xpath("//button[@id='btnDeleteManifestPackage']"));
 		sleep(2000);
-		clickWhenClickable(By.xpath(
-				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+		clickWhenClickable(By.xpath("//div[@id='deleteManifestPackageModel']//button[@id='btnDeleteConfirm']"));
 
 	}
 
 	@And("the user should be able to add Manifest Package in Delivery Module")
 	public void verifyUserCanAddManifestPackage() {
 		sleep(3000);
-		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
+		clickWhenClickable(By.xpath("//button[@id='searchPackagePopup']"));
 		sleep(3000);
-		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		clickWhenClickable(By.xpath("//select[@id='Filter_LogisticId']"));
+		sleep(3000);
+		selectDropdownByIndexWhenReady(By.id("Filter_LogisticId"), 1);
+		sleep(3000);
+		clickWhenClickable(By.xpath("//input[@id='Filter_FromDate']"));
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+		// Pick year (current year)
+		int year = LocalDate.now().getYear();
+		WebElement yearDropdown = wait.until(ExpectedConditions
+				.visibilityOfElementLocated(By.xpath("//select[contains(@class,'ui-datepicker-year')]")));
+		new Select(yearDropdown).selectByVisibleText(String.valueOf(year));
+
+		// Pick month (current month)
+		String month = LocalDate.now().getMonth().getDisplayName(TextStyle.SHORT, Locale.ENGLISH);
+		WebElement monthDropdown = wait.until(ExpectedConditions
+				.visibilityOfElementLocated(By.xpath("//select[contains(@class,'ui-datepicker-month')]")));
+		new Select(monthDropdown).selectByVisibleText(month);
+
+		// Pick **day 1**
+		WebElement dateToSelect = wait
+				.until(ExpectedConditions.elementToBeClickable(By.xpath("//td[normalize-space()='1']")));
+		dateToSelect.click();
 		sleep(2000);
-		clickWhenClickable(By.xpath(
-				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		clickWhenClickable(By.xpath("//button[normalize-space()='Search']"));
 		sleep(2000);
-		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+		clickWhenClickable(By.xpath("//label[@for='b38063de-b375-4421-a2ee-0fb842cdb451']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//button[@class='btn btn-primary'][normalize-space()='Submit']"));
 
 	}
 
@@ -2138,180 +2207,161 @@ public class DeliverySteps {
 	@And("the user should not be able to add or delete Manifest in Delivery Module")
 	public void verifyUserCannotAddOrDeleteManifest() {
 		sleep(3000);
-		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
-		sleep(3000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New Manifest']"));
 		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
 		sleep(2000);
-		clickWhenClickable(By.xpath(
+		assertElementNotPresent(By.xpath(
 				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
-
 	}
 
 	@And("the user should be able to view and edit Manifest in Delivery Module")
 	public void verifyUserCanViewAndEditManifest() {
 		sleep(3000);
-		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
+		driver.get(baseUrl + "/Delivery/Home/Manifests");
+		wait.until(ExpectedConditions.urlContains("/Delivery/Home/Manifests"));
 		sleep(3000);
 		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
 		sleep(2000);
 		clickWhenClickable(By.xpath(
-				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
 		sleep(2000);
-		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+		clickWhenClickable(By.xpath("//select[@id='Manifest_Status']"));
+		selectDropdownByIndexWhenReady(By.id("Manifest_Status"), 2);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
 
 	}
 
 	@And("the user should not be able to edit or delete Manifest in Delivery Module")
 	public void verifyUserCannotEditOrDeleteManifest() {
 		sleep(3000);
-		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
-		sleep(3000);
 		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
 		sleep(2000);
-		clickWhenClickable(By.xpath(
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		assertElementNotPresent(By.xpath(
 				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
 
 	}
 
 	@And("the user should be able to view and add Manifest in Delivery Module")
 	public void verifyUserCanViewAndAddManifest() {
 		sleep(3000);
-		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
+		driver.get(baseUrl + "/Delivery/Home/Manifests");
+		wait.until(ExpectedConditions.urlContains("/Delivery/Home/Manifests"));
 		sleep(3000);
-		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Manifest']"));
 		sleep(2000);
-		clickWhenClickable(By.xpath(
-				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		clickWhenClickable(By.xpath("//input[@id='Manifest_DeliveryDate']"));
+		LocalDate filledFutureDate = LocalDate.now().plusDays(5);
+		int filledDay = filledFutureDate.getDayOfMonth();
+		int filledYear = filledFutureDate.getYear();
+		String filledMonth = filledFutureDate.getMonth().getDisplayName(TextStyle.SHORT, Locale.ENGLISH);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		WebElement filledYearDropdown = wait.until(ExpectedConditions
+				.visibilityOfElementLocated(By.xpath("//select[contains(@class,'ui-datepicker-year')]")));
+		new Select(filledYearDropdown).selectByVisibleText(String.valueOf(filledYear));
+		WebElement filledMonthDropdown = wait.until(ExpectedConditions
+				.visibilityOfElementLocated(By.xpath("//select[contains(@class,'ui-datepicker-month')]")));
+		new Select(filledMonthDropdown).selectByVisibleText(filledMonth);
+		WebElement filledDateToSelect = wait.until(
+				ExpectedConditions.elementToBeClickable(By.xpath("//td[normalize-space()='" + filledDay + "']")));
+		filledDateToSelect.click();
 		sleep(2000);
-		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+		clickWhenClickable(By.xpath("//select[@id='Manifest_Driver_Id']"));
+		selectDropdownByIndexWhenReady(By.id("Manifest_Driver_Id"), 1);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//select[@id='Manifest_StartingPoint']"));
+		selectDropdownByIndexWhenReady(By.id("Manifest_StartingPoint"), 1);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//select[@id='Manifest_EndPoint']"));
+		selectDropdownByIndexWhenReady(By.id("Manifest_EndPoint"), 1);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//select[@id='Manifest_Status']"));
+		selectDropdownByIndexWhenReady(By.id("Manifest_Status"), 1);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
 
 	}
 
 	@And("the user should have no Delivery Identifier access via UI or direct URL")
 	public void verifyUserCannotAccessDeliveryIdentifier() {
 		sleep(3000);
-		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
+		driver.get(baseUrl + "/Setup/Home/DeliveryDistances");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryDistances"));
 		sleep(3000);
-		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
-		sleep(2000);
-		clickWhenClickable(By.xpath(
-				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
 
 	}
 
 	@And("the user should be able to view Delivery Identifier in Delivery Module")
 	public void verifyUserCanViewDeliveryIdentifier() {
 		sleep(3000);
-		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
+		driver.get(baseUrl + "/Setup/Home/DeliveryDistances");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryDistances"));
 		sleep(3000);
-		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
-		sleep(2000);
-		clickWhenClickable(By.xpath(
-				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
 
 	}
 
 	@And("the user should have no Package Plan Restriction access via UI or direct URL")
 	public void verifyUserCannotAccessPackagePlanRestriction() {
 		sleep(3000);
-		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
+		driver.get(baseUrl + "/Delivery/Home/Packages?category=1");
+		wait.until(ExpectedConditions.urlContains("/Delivery/Home/Packages?category=1"));
 		sleep(3000);
-		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
-		sleep(2000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[12]/div[1]/div[1]/button[1]/i[1]"));
+		sleep(3000);
 		clickWhenClickable(By.xpath(
-				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//button[@id='btnNext']"));
+		sleep(3000);
+		assertElementNotPresent(By.xpath("//*[name()='path' and contains(@d,'m211 91v21')]"));
 
 	}
 
 	@And("the user should be able to update Package Plan Restriction in Delivery Module")
 	public void verifyUserCanUpdatePackagePlanRestriction() {
 		sleep(3000);
-		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
-		sleep(3000);
-		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
-		sleep(2000);
-		clickWhenClickable(By.xpath(
-				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+		assertElementPresent(By.xpath("//*[name()='path' and contains(@d,'m211 91v21')]"));
+		waitAndSendKeys(By.id("Package_Plan"), "100");
 
 	}
 
 	@And("the user should be able to view Package Plan Restriction in Delivery Module")
 	public void verifyUserCanViewPackagePlanRestriction() {
 		sleep(3000);
-		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
+		driver.get(baseUrl + "/Delivery/Home/Packages?category=1");
+		wait.until(ExpectedConditions.urlContains("/Delivery/Home/Packages?category=1"));
 		sleep(3000);
-		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
-		sleep(2000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[12]/div[1]/div[1]/button[1]/i[1]"));
+		sleep(3000);
 		clickWhenClickable(By.xpath(
-				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//button[@id='btnNext']"));
 
 	}
 
 	@And("the user should have no Delivery Setting access via UI or direct URL")
 	public void verifyUserCannotAccessDeliverySetting() {
 		sleep(3000);
-		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
-		sleep(3000);
-		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
-		sleep(2000);
-		clickWhenClickable(By.xpath(
-				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+		assertElementNotPresent(By.xpath("//h6[normalize-space()='Package Restriction']"));
 
 	}
 
 	@And("the user should be able to update Delivery Setting in Delivery Module")
 	public void verifyUserCanUpdateDeliverySetting() {
 		sleep(3000);
-		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
-		sleep(3000);
-		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
-		sleep(2000);
-		clickWhenClickable(By.xpath(
-				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+		assertElementPresent(By.xpath("//h6[normalize-space()='Package Restriction']"));
+		clickWhenClickable(By.xpath("//h6[normalize-space()='Package Restriction']"));
 
 	}
 
 	@And("the user should be able to view Delivery Setting in Delivery Module")
 	public void verifyUserCanViewDeliverySetting() {
 		sleep(3000);
-		driver.get(baseUrl + "/Setup/Home/DeliveryMarkers");
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
-		sleep(3000);
-		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
-		sleep(2000);
-		clickWhenClickable(By.xpath(
-				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//button[@id='submitDeleteDeliveryMarker']"));
+		driver.get(baseUrl + "/Setup/Home/Settings");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/Settings"));
 
 	}
 
