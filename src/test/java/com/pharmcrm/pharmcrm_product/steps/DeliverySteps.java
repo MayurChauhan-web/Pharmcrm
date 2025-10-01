@@ -381,6 +381,10 @@ public class DeliverySteps {
 		sleep(1000);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
 		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg38DeliveryJobSettingAll']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg38DeliveryJobSettingEdit']"));
+		sleep(1000);
 		clickWhenClickable(By.id("btnSave"));
 	}
 
@@ -582,6 +586,10 @@ public class DeliverySteps {
 		clickWhenClickable(By.xpath("//label[normalize-space()='Delivery Module']"));
 		sleep(1000);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg38DeliveryJobSettingAll']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg38DeliveryJobSettingRunTriggr']"));
 		sleep(1000);
 		clickWhenClickable(By.id("btnSave"));
 	}
@@ -1728,9 +1736,20 @@ public class DeliverySteps {
 	@And("the user should be able to edit Delivery Job Setting in Delivery Module")
 	public void verifyUserCanEditDeliveryJobSetting() {
 		sleep(3000);
-		driver.get(baseUrl + "/Delivery/Home/Manifests");
-		wait.until(ExpectedConditions.urlContains("/Delivery/Home/Manifests"));
+		driver.get(baseUrl + "/Setup/Home/JobSettings");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/JobSettings"));
 		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chk_Delivery']//img"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//tr[@module-data='data_Delivery']//i[@class='fa-solid fa-ellipsis-vertical']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		sleep(2000);
+		waitAndSendKeys(By.id("ReportSetting_FromEmail"), "delivery_admin@mailinator.com");
+		waitAndSendKeys(By.id("ReportSetting_ToEmail"), "notifications@mailinator.com");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
 
 	}
 
@@ -1820,27 +1839,43 @@ public class DeliverySteps {
 	@And("the user should not be able to edit Delivery Job Setting in Delivery Module")
 	public void verifyUserCannotEditDeliveryJobSetting() {
 		sleep(3000);
-		driver.get(baseUrl + "/Delivery/Home/Manifests");
-		wait.until(ExpectedConditions.urlContains("/Delivery/Home/Manifests"));
+		driver.get(baseUrl + "/Setup/Home/JobSettings");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/JobSettings"));
 		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chk_Delivery']//img"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//tr[@module-data='data_Delivery']//i[@class='fa-solid fa-ellipsis-vertical']"));
+		sleep(2000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		sleep(2000);
 
 	}
 
 	@And("the user should be able to run triggers in Delivery Module")
 	public void verifyUserCanRunTriggers() {
 		sleep(3000);
-		driver.get(baseUrl + "/Delivery/Home/Manifests");
-		wait.until(ExpectedConditions.urlContains("/Delivery/Home/Manifests"));
+		driver.get(baseUrl + "/Setup/Home/JobSettings");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/JobSettings"));
 		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chk_Delivery']//img"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//tr[@module-data='data_Delivery']//a[@class='gridTextButton triggerButton'][normalize-space()='Run Trigger']"));
+		sleep(2000);
 
 	}
 
 	@And("the user should not be able to run triggers in Delivery Module")
 	public void verifyUserCannotRunTriggers() {
 		sleep(3000);
-		driver.get(baseUrl + "/Delivery/Home/Manifests");
-		wait.until(ExpectedConditions.urlContains("/Delivery/Home/Manifests"));
+		driver.get(baseUrl + "/Setup/Home/JobSettings");
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/JobSettings"));
 		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chk_Delivery']//img"));
+		sleep(2000);
+		assertElementNotPresent(By.xpath(
+				"//tr[@module-data='data_Delivery']//a[@class='gridTextButton triggerButton'][normalize-space()='Run Trigger']"));
 
 	}
 

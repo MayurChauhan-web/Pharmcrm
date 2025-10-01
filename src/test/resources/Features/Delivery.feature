@@ -359,7 +359,7 @@ And the user should not be able to run triggers in Delivery Module
 
 Scenario: User with Run Trigger access for Delivery Job Setting
 Given I log in as admin for Delivery Module
-When I create a new user with email for Delivery Module "testuser1_static@mailinator.com"
+When I create a new user with email for Delivery Module "testuser2_static@mailinator.com"
 And I create a profile with Run Trigger access only to Delivery Module Delivery Job Setting
 And I assign the profile and workspace to the user for Delivery Module
 And I reset the user's password for Delivery Module
