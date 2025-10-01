@@ -1,3 +1,4 @@
+@Delivery
 Feature: Delivery Module scenarios
 
 Scenario: User with View only access for General (Audit View)
@@ -326,7 +327,6 @@ And I log in using the new user for Delivery Module
 Then the user should be able to edit Customer Attestation in Delivery Module
 And the user should not be able to add or delete Customer Attestation in Delivery Module
 
-@Delivery
 Scenario: User with Delete access for Customer Attestation
 Given I log in as admin for Delivery Module
 When I create a new user with email for Delivery Module "testuser4_static@mailinator.com"
@@ -339,7 +339,7 @@ And the user should not be able to add or edit Customer Attestation in Delivery 
 
 Scenario: User with Print and Send for Signature access for Customer Attestation
 Given I log in as admin for Delivery Module
-When I create a new user with email for Delivery Module "testuser1_static@mailinator.com"
+When I create a new user with email for Delivery Module "testuser6_static@mailinator.com"
 And I create a profile with Print and Send for Signature access to Delivery Module Customer Attestation
 And I assign the profile and workspace to the user for Delivery Module
 And I reset the user's password for Delivery Module
@@ -369,7 +369,7 @@ And the user should not be able to edit Delivery Job Setting in Delivery Module
 
 Scenario: User with View + Export access for Delivery Report
 Given I log in as admin for Delivery Module
-When I create a new user with email for Delivery Module "testuser1_static@mailinator.com"
+When I create a new user with email for Delivery Module "testuser7_static@mailinator.com"
 And I create a profile with View and Export access to Delivery Module Delivery Report
 And I assign the profile and workspace to the user for Delivery Module
 And I reset the user's password for Delivery Module
@@ -379,7 +379,7 @@ And the user should be able to export Delivery Report in Delivery Module
 
 Scenario: User with View-only access for Delivery Report (no Export)
 Given I log in as admin for Delivery Module
-When I create a new user with email for Delivery Module "testuser1_static@mailinator.com"
+When I create a new user with email for Delivery Module "testuser8_static@mailinator.com"
 And I create a profile with View-only access to Delivery Module Delivery Report
 And I assign the profile and workspace to the user for Delivery Module
 And I reset the user's password for Delivery Module
@@ -389,7 +389,7 @@ And the user should not be able to export Delivery Report in Delivery Module
 
 Scenario: User with View + Export access for Manifest Summary Report
 Given I log in as admin for Delivery Module
-When I create a new user with email for Delivery Module "testuser1_static@mailinator.com"
+When I create a new user with email for Delivery Module "testuser9_static@mailinator.com"
 And I create a profile with View and Export access to Delivery Module Manifest Summary Report
 And I assign the profile and workspace to the user for Delivery Module
 And I reset the user's password for Delivery Module
@@ -399,7 +399,7 @@ And the user should be able to export Manifest Summary Report in Delivery Module
 
 Scenario: User with View-only access for Manifest Summary Report (no Export)
 Given I log in as admin for Delivery Module
-When I create a new user with email for Delivery Module "testuser1_static@mailinator.com"
+When I create a new user with email for Delivery Module "testuser10_static@mailinator.com"
 And I create a profile with View-only access to Delivery Module Manifest Summary Report
 And I assign the profile and workspace to the user for Delivery Module
 And I reset the user's password for Delivery Module
@@ -409,7 +409,7 @@ And the user should not be able to export Manifest Summary Report in Delivery Mo
 
 Scenario: User with View + Export access for Delivery Statistic Report
 Given I log in as admin for Delivery Module
-When I create a new user with email for Delivery Module "testuser1_static@mailinator.com"
+When I create a new user with email for Delivery Module "testuser11_static@mailinator.com"
 And I create a profile with View and Export access to Delivery Module Delivery Statistic Report
 And I assign the profile and workspace to the user for Delivery Module
 And I reset the user's password for Delivery Module
@@ -419,13 +419,15 @@ And the user should be able to export Delivery Statistic Report in Delivery Modu
 
 Scenario: User with View-only access for Delivery Statistic Report (no Export)
 Given I log in as admin for Delivery Module
-When I create a new user with email for Delivery Module "testuser1_static@mailinator.com"
+When I create a new user with email for Delivery Module "testuser12_static@mailinator.com"
 And I create a profile with View-only access to Delivery Module Delivery Statistic Report
 And I assign the profile and workspace to the user for Delivery Module
 And I reset the user's password for Delivery Module
 And I log in using the new user for Delivery Module
 Then the user should be able to view Delivery Statistic Report in Delivery Module
 And the user should not be able to export Delivery Statistic Report in Delivery Module
+
+
 
 
 
