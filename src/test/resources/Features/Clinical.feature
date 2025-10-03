@@ -377,7 +377,6 @@ And I log in using the new user for Clinical Module
 Then the user should be able to edit Registered Device in Clinical Module
 And the user should not be able to add or delete Registered Device in Clinical Module
 
-@Clinical
 Scenario: User with Delete access for Registered Device
 Given I log in as admin for Clinical Module
 When I create a new user with email for Clinical Module "testuser6_static@mailinator.com"
@@ -390,7 +389,7 @@ And the user should not be able to add or edit Registered Device in Clinical Mod
 
 Scenario: User with Full Access for Registered Device
 Given I log in as admin for Clinical Module
-When I create a new user with email for Clinical Module "testuser_full_registereddevice@mailinator.com"
+When I create a new user with email for Clinical Module "testuser9_static@mailinator.com"
 And I create a profile with full access to Clinical Module Registered Device
 And I assign the profile and workspace to the user for Clinical Module
 And I reset the user's password for Clinical Module
@@ -409,7 +408,7 @@ And the user should be able to view Register Device Activity in Clinical Module
 
 Scenario: User with Add access for RPM Status
 Given I log in as admin for Clinical Module
-When I create a new user with email for Clinical Module "testuser1_rpmstatus@mailinator.com"
+When I create a new user with email for Clinical Module "testuser10_static@mailinator.com"
 And I create a profile with Add access only to Clinical Module RPM Status
 And I assign the profile and workspace to the user for Clinical Module
 And I reset the user's password for Clinical Module
@@ -419,7 +418,7 @@ And the user should not be able to edit or delete RPM Status in Clinical Module
 
 Scenario: User with Edit access for RPM Status
 Given I log in as admin for Clinical Module
-When I create a new user with email for Clinical Module "testuser2_rpmstatus@mailinator.com"
+When I create a new user with email for Clinical Module "testuser1_static@mailinator.com"
 And I create a profile with Edit access only to Clinical Module RPM Status
 And I assign the profile and workspace to the user for Clinical Module
 And I reset the user's password for Clinical Module
@@ -429,7 +428,7 @@ And the user should not be able to add or delete RPM Status in Clinical Module
 
 Scenario: User with Delete access for RPM Status
 Given I log in as admin for Clinical Module
-When I create a new user with email for Clinical Module "testuser3_rpmstatus@mailinator.com"
+When I create a new user with email for Clinical Module "testuser2_static@mailinator.com"
 And I create a profile with Delete access only to Clinical Module RPM Status
 And I assign the profile and workspace to the user for Clinical Module
 And I reset the user's password for Clinical Module
@@ -437,9 +436,10 @@ And I log in using the new user for Clinical Module
 Then the user should be able to delete RPM Status in Clinical Module
 And the user should not be able to add or edit RPM Status in Clinical Module
 
+@Clinical
 Scenario: User with Add access for CPT Code
 Given I log in as admin for Clinical Module
-When I create a new user with email for Clinical Module "testuser1_cptcode@mailinator.com"
+When I create a new user with email for Clinical Module "testuser3_static@mailinator.com"
 And I create a profile with Add access only to Clinical Module CPT Code
 And I assign the profile and workspace to the user for Clinical Module
 And I reset the user's password for Clinical Module
@@ -449,7 +449,7 @@ And the user should not be able to edit or delete CPT Code in Clinical Module
 
 Scenario: User with Edit access for CPT Code
 Given I log in as admin for Clinical Module
-When I create a new user with email for Clinical Module "testuser2_cptcode@mailinator.com"
+When I create a new user with email for Clinical Module "testuser4_static@mailinator.com"
 And I create a profile with Edit access only to Clinical Module CPT Code
 And I assign the profile and workspace to the user for Clinical Module
 And I reset the user's password for Clinical Module
@@ -459,13 +459,20 @@ And the user should not be able to add or delete CPT Code in Clinical Module
 
 Scenario: User with Delete access for CPT Code
 Given I log in as admin for Clinical Module
-When I create a new user with email for Clinical Module "testuser3_cptcode@mailinator.com"
+When I create a new user with email for Clinical Module "testuser5_static@mailinator.com"
 And I create a profile with Delete access only to Clinical Module CPT Code
 And I assign the profile and workspace to the user for Clinical Module
 And I reset the user's password for Clinical Module
 And I log in using the new user for Clinical Module
 Then the user should be able to delete CPT Code in Clinical Module
 And the user should not be able to add or edit CPT Code in Clinical Module
+
+
+
+
+
+
+
 
 
 
