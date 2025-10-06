@@ -389,7 +389,7 @@ And the user should not be able to add or edit Registered Device in Clinical Mod
 
 Scenario: User with Full Access for Registered Device
 Given I log in as admin for Clinical Module
-When I create a new user with email for Clinical Module "testuser9_static@mailinator.com"
+When I create a new user with email for Clinical Module "testuser4_static@mailinator.com"
 And I create a profile with full access to Clinical Module Registered Device
 And I assign the profile and workspace to the user for Clinical Module
 And I reset the user's password for Clinical Module
@@ -436,7 +436,6 @@ And I log in using the new user for Clinical Module
 Then the user should be able to delete RPM Status in Clinical Module
 And the user should not be able to add or edit RPM Status in Clinical Module
 
-@Clinical
 Scenario: User with Add access for CPT Code
 Given I log in as admin for Clinical Module
 When I create a new user with email for Clinical Module "testuser3_static@mailinator.com"
@@ -466,6 +465,200 @@ And I reset the user's password for Clinical Module
 And I log in using the new user for Clinical Module
 Then the user should be able to delete CPT Code in Clinical Module
 And the user should not be able to add or edit CPT Code in Clinical Module
+
+Scenario: User with Add access for Patients
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser6_static@mailinator.com"
+And I create a profile with Add access only to Patients Module
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to add Patients in Patients Module
+And the user should not be able to edit or delete Patients in Patients Module
+
+Scenario: User with Edit access for Patients
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser7_static@mailinator.com"
+And I create a profile with Edit access only to Patients Module
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to edit Patients in Patients Module
+And the user should not be able to add or delete Patients in Patients Module
+
+Scenario: User with Delete access for Patients
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser8_static@mailinator.com"
+And I create a profile with Delete access only to Patients Module
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to delete Patients in Patients Module
+And the user should not be able to add or edit Patients in Patients Module
+
+Scenario: User with full permissions in Clinical Module
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser9_static@mailinator.com"
+And I create a profile with All Access to Clinical Module
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+And the user should be able to View Link and Sync Link in Clinical Module
+
+Scenario: User with Add access for SOAP Components
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser9_static@mailinator.com"
+And I create a profile with Add access only to SOAP Components
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to add SOAP Components in Clinical Module 
+And the user should not be able to edit or delete SOAP Components in Clinical Module
+
+Scenario: User with Edit access for SOAP Components
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser10_static@mailinator.com"
+And I create a profile with Edit access only to SOAP Components
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to edit SOAP Components in Clinical Module
+And the user should not be able to add or delete SOAP Components in Clinical Module
+
+Scenario: User with Delete access for SOAP Components
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser9_static@mailinator.com"
+And I create a profile with Delete access only to SOAP Components
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to delete SOAP Components in Clinical Module
+And the user should not be able to add or edit SOAP Components in Clinical Module
+
+Scenario: User with Add access for Patients / Clinical Encounter
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser8_static@mailinator.com"
+And I create a profile with Add access only to Patients Clinical Encounter
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to add Patients Clinical Encounter in Clinical Module
+And the user should not be able to edit or delete Patients Clinical Encounter in Clinical Module
+
+Scenario: User with Edit access for Patients / Clinical Encounter
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser5_static@mailinator.com"
+And I create a profile with Edit access only to Patients Clinical Encounter
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to edit Patients Clinical Encounter in Clinical Module
+And the user should not be able to add or delete Patients Clinical Encounter in Clinical Module
+
+Scenario: User with Delete access for Patients / Clinical Encounter
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser4_static@mailinator.com"
+And I create a profile with Delete access only to Patients Clinical Encounter
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to delete Patients Clinical Encounter in Clinical Module
+And the user should not be able to add or edit Patients Clinical Encounter in Clinical Module
+
+Scenario: User with View and View Star1 Drug access for Patients / Clinical Encounter Review
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser3_static@mailinator.com"
+And I create a profile with View and View Star1 Drug access to Patients Clinical Encounter Review
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to view Patients Clinical Encounter Review in Clinical Module
+And the user should be able to view Star1 Drug in Patients Clinical Encounter Review in Clinical Module
+
+@Clinical
+Scenario: User with No Access for Patients / Clinical Encounter Review
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser1_static@mailinator.com"
+And I create a profile with No Access to Patients Clinical Encounter Review
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should not be able to access Patients Clinical Encounter Review in Clinical Module
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    
+
+
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
