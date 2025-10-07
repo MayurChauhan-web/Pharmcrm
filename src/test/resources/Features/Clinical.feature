@@ -575,7 +575,6 @@ And I log in using the new user for Clinical Module
 Then the user should be able to view Patients Clinical Encounter Review in Clinical Module
 And the user should be able to view Star1 Drug in Patients Clinical Encounter Review in Clinical Module
 
-@Clinical
 Scenario: User with No Access for Patients / Clinical Encounter Review
 Given I log in as admin for Clinical Module
 When I create a new user with email for Clinical Module "testuser1_static@mailinator.com"
@@ -584,6 +583,133 @@ And I assign the profile and workspace to the user for Clinical Module
 And I reset the user's password for Clinical Module
 And I log in using the new user for Clinical Module
 Then the user should not be able to access Patients Clinical Encounter Review in Clinical Module
+
+Scenario: User with View and Download File access for Reports / Status Log
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser1_static@mailinator.com"
+And I create a profile with View and Download File access to Reports Status Log
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to view Reports Status Log in Reports Module
+And the user should be able to download files from Reports Status Log in Reports Module
+
+Scenario: User with View but no Download File access for Reports / Status Log
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser2_static@mailinator.com"
+And I create a profile with View but no Download File access to Reports Status Log
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to view Reports Status Log in Reports Module
+But the user should not be able to download files from Reports Status Log in Reports Module
+
+Scenario: User with View and Download File access for Reports / Medication Recommendation And Suggestions
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser3_static@mailinator.com"
+And I create a profile with View and Download File access to Reports Medication Recommendation And Suggestions
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to view Reports Medication Recommendation And Suggestions in Reports Module
+And the user should be able to download files from Reports Medication Recommendation And Suggestions in Reports Module
+
+Scenario: User with View but no Download File access for Reports / Medication Recommendation And Suggestions
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser4_static@mailinator.com"
+And I create a profile with View but no Download File access to Reports Medication Recommendation And Suggestions
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to view Reports Medication Recommendation And Suggestions in Reports Module
+But the user should not be able to download files from Reports Medication Recommendation And Suggestions in Reports Module
+
+Scenario: User with View and Download File access for Reports / CCM Encounter Log
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser5_static@mailinator.com"
+And I create a profile with View and Download File access to Reports CCM Encounter Log
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to view Reports CCM Encounter Log in Reports Module
+And the user should be able to download files from Reports CCM Encounter Log in Reports Module
+
+Scenario: User with View but no Download File access for Reports / CCM Encounter Log
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser6_static@mailinator.com"
+And I create a profile with View but no Download File access to Reports CCM Encounter Log
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to view Reports CCM Encounter Log in Reports Module
+But the user should not be able to download files from Reports CCM Encounter Log in Reports Module
+
+Scenario: User with View and Download File access for Reports / Call Log
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser7_static@mailinator.com"
+And I create a profile with View and Download File access to Reports Call Log
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to view Reports Call Log in Reports Module
+And the user should be able to download files from Reports Call Log in Reports Module
+
+Scenario: User with View but no Download File access for Reports / Call Log
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser8_static@mailinator.com"
+And I create a profile with View but no Download File access to Reports Call Log
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to view Reports Call Log in Reports Module
+But the user should not be able to download files from Reports Call Log in Reports Module
+
+@Clinical
+Scenario: User with View and Referred To New Provider access for Patient / Provider Referral
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser9_static@mailinator.com"
+And I create a profile with View and Referred To New Provider access to Patient Provider Referral
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to view Patient Provider Referral in Clinical Module
+And the user should be able to refer to a new provider in Patient Provider Referral in Clinical Module
+
+Scenario: User with View but no Referred To New Provider access for Patient / Provider Referral
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser10_static@mailinator.com"
+And I create a profile with View but no Referred To New Provider access to Patient Provider Referral
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to view Patient Provider Referral in Clinical Module
+But the user should not be able to refer to a new provider in Patient Provider Referral in Clinical Module
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

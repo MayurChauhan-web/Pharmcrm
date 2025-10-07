@@ -1107,6 +1107,304 @@ public class ClinicalSteps {
 		clickWhenClickable(By.id("btnSave"));
 	}
 
+	@And("I create a profile with View and Download File access to Reports Status Log")
+	public void createProfileWithViewAndDownloadFileAccessToReportsStatusLog() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Clinical Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View but no Download File access to Reports Status Log")
+	public void createProfileWithViewButNoDownloadFileAccessToReportsStatusLog() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Clinical Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg19ClinicalStatusLogsDownload']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View but no Download File access to Reports Medication Recommendation And Suggestions")
+	public void createProfileWithViewButNoDownloadFileAccessToReportsMedicationRecommendationAndSuggestions() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Clinical Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg19ClinicalMedicationRecommandationDownload']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View but no Download File access to Reports CCM Encounter Log")
+	public void createProfileWithViewButNoDownloadFileAccessToReportsCCMEncounterLog() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Clinical Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg19ClinicalCCMLogDownload']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View but no Download File access to Reports Call Log")
+	public void createProfileWithViewButNoDownloadFileAccessToReportsCallLog() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Clinical Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg19ClinicalCallLogDownload']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Referred To New Provider access to Patient Provider Referral")
+	public void createProfileWithViewAndReferredToNewProviderAccessToPatientProviderReferral() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Clinical Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Patient Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Provider Module']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View but no Referred To New Provider access to Patient Provider Referral")
+	public void createProfileWithViewButNoReferredToNewProviderAccessToPatientProviderReferral() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Clinical Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Patient Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Provider Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Referred To New Provider']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Download File access to Reports Call Log")
+	public void createProfileWithViewAndDownloadFileAccessToReportsCallLog() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Clinical Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Download File access to Reports CCM Encounter Log")
+	public void createProfileWithViewAndDownloadFileAccessToReportsCCMEncounterLog() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Clinical Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View and Download File access to Reports Medication Recommendation And Suggestions")
+	public void createProfileWithViewAndDownloadFileAccessToReportsMedicationRecommendationAndSuggestions() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Clinical Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
 	@And("I create a profile with Add access only to Patients Module")
 	public void createProfileWithAddAccessForPatientsModule() {
 		driver.get(baseUrl + "/Setup/Home/Profiles");
@@ -3240,6 +3538,111 @@ public class ClinicalSteps {
 		sleep(2000);
 	}
 
+	@And("the user should be able to download files from Reports Status Log in Reports Module")
+	public void verifyUserCanDownloadFilesFromReportsStatusLogInReportsModule() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='Export to Excel']"));
+		sleep(2000);
+	}
+
+	@And("the user should be able to download files from Reports Medication Recommendation And Suggestions in Reports Module")
+	public void verifyUserCanDownloadFilesFromReportsMedicationRecommendationAndSuggestionsInReportsModule() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='Export to Excel']"));
+		sleep(2000);
+	}
+
+	@And("the user should be able to download files from Reports CCM Encounter Log in Reports Module")
+	public void verifyUserCanDownloadFilesFromReportsCCMEncounterLogInReportsModule() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='Export to Excel']"));
+		sleep(2000);
+	}
+
+	@And("the user should be able to download files from Reports Call Log in Reports Module")
+	public void verifyUserCanDownloadFilesFromReportsCallLogInReportsModule() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='Export to Excel']"));
+		sleep(2000);
+	}
+
+	@And("the user should be able to view Reports Status Log in Reports Module")
+	public void verifyUserCanViewReportsStatusLogInReportsModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Clinical/Home/StatusLogs");
+		wait.until(ExpectedConditions.urlContains("/Clinical/Home/StatusLogs"));
+
+	}
+
+	@And("the user should be able to view Reports Medication Recommendation And Suggestions in Reports Module")
+	public void verifyUserCanViewReportsMedicationRecommendationAndSuggestionsInReportsModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Clinical/Home/MedicationRecommendation");
+		wait.until(ExpectedConditions.urlContains("/Clinical/Home/MedicationRecommendation"));
+
+	}
+
+	@And("the user should be able to view Reports CCM Encounter Log in Reports Module")
+	public void verifyUserCanViewReportsCCMEncounterLogInReportsModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Clinical/Home/CCMEncounterLog");
+		wait.until(ExpectedConditions.urlContains("/Clinical/Home/CCMEncounterLog"));
+
+	}
+
+	@And("the user should be able to view Reports Call Log in Reports Module")
+	public void verifyUserCanViewReportsCallLogInReportsModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Clinical/Home/CallLogs");
+		wait.until(ExpectedConditions.urlContains("/Clinical/Home/CallLogs"));
+
+	}
+
+	@And("the user should be able to view Patient Provider Referral in Clinical Module")
+	public void verifyUserCanViewPatientProviderReferralInClinicalModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Clinical/Home/Patients");
+		wait.until(ExpectedConditions.urlContains("/Clinical/Home/Patients"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//button[normalize-space()='Clinical Encounters']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//button[normalize-space()='Add New Clinical Encounter']"));
+		sleep(2000);
+		selectDropdownByIndexWhenReady(By.id("ClinicalEncounter_ClinicalObjectiveComponentId"), 1);
+		sleep(2000);
+		selectDropdownByIndexWhenReady(By.id("ClinicalEncounter_EncounterStatus"), 2);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='btnEncounter']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//a[@id='addReferralProviderNamePopup']//img"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//li[@class='searchResult-li']//input[@type='radio'][1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='btnProvider']"));
+
+	}
+
+	@And("the user should be able to refer to a new provider in Patient Provider Referral in Clinical Module")
+	public void verifyUserCanReferToNewProviderInPatientProviderReferralInClinicalModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Clinical/Home/CallLogs");
+		wait.until(ExpectedConditions.urlContains("/Clinical/Home/CallLogs"));
+
+	}
+
+	@And("the user should not be able to refer to a new provider in Patient Provider Referral in Clinical Module")
+	public void verifyUserCannotReferToNewProviderInPatientProviderReferralInClinicalModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Clinical/Home/CallLogs");
+		wait.until(ExpectedConditions.urlContains("/Clinical/Home/CallLogs"));
+
+	}
+
 	@And("the user should be able to view Star1 Drug in Patients Clinical Encounter Review in Clinical Module")
 	public void userShouldBeAbleToViewStar1DrugInPatientsClinicalEncounterReviewInClinicalModule() {
 		sleep(3000);
@@ -3259,6 +3662,34 @@ public class ClinicalSteps {
 				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
 		sleep(3000);
 		assertElementNotPresent(By.xpath("//button[normalize-space()='Clinical Encounters']"));
+
+	}
+
+	@And("the user should not be able to download files from Reports Status Log in Reports Module")
+	public void verifyUserCannotDownloadFilesFromReportsStatusLogInReportsModule() {
+		sleep(3000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Export to Excel']"));
+
+	}
+
+	@And("the user should not be able to download files from Reports Medication Recommendation And Suggestions in Reports Module")
+	public void verifyUserCannotDownloadFilesFromReportsMedicationRecommendationAndSuggestionsInReportsModule() {
+		sleep(3000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Export to Excel']"));
+
+	}
+
+	@And("the user should not be able to download files from Reports CCM Encounter Log in Reports Module")
+	public void verifyUserCannotDownloadFilesFromReportsCCMEncounterLogInReportsModule() {
+		sleep(3000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Export to Excel']"));
+
+	}
+
+	@And("the user should not be able to download files from Reports Call Log in Reports Module")
+	public void verifyUserCannotDownloadFilesFromReportsCallLogInReportsModule() {
+		sleep(3000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Export to Excel']"));
 
 	}
 
