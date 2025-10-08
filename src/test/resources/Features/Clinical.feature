@@ -664,10 +664,9 @@ And I log in using the new user for Clinical Module
 Then the user should be able to view Reports Call Log in Reports Module
 But the user should not be able to download files from Reports Call Log in Reports Module
 
-@Clinical
 Scenario: User with View and Referred To New Provider access for Patient / Provider Referral
 Given I log in as admin for Clinical Module
-When I create a new user with email for Clinical Module "testuser9_static@mailinator.com"
+When I create a new user with email for Clinical Module "testuser2_static@mailinator.com"
 And I create a profile with View and Referred To New Provider access to Patient Provider Referral
 And I assign the profile and workspace to the user for Clinical Module
 And I reset the user's password for Clinical Module
@@ -677,13 +676,82 @@ And the user should be able to refer to a new provider in Patient Provider Refer
 
 Scenario: User with View but no Referred To New Provider access for Patient / Provider Referral
 Given I log in as admin for Clinical Module
-When I create a new user with email for Clinical Module "testuser10_static@mailinator.com"
+When I create a new user with email for Clinical Module "testuser3_static@mailinator.com"
 And I create a profile with View but no Referred To New Provider access to Patient Provider Referral
 And I assign the profile and workspace to the user for Clinical Module
 And I reset the user's password for Clinical Module
 And I log in using the new user for Clinical Module
 Then the user should be able to view Patient Provider Referral in Clinical Module
 But the user should not be able to refer to a new provider in Patient Provider Referral in Clinical Module
+
+Scenario: User with Add access for CareGiver Name
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser4_static@mailinator.com"
+And I create a profile with Add access only to CareGiver Name in Clinical Module
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to add CareGiver Name in Clinical Module
+And the user should not be able to edit or delete CareGiver Name in Clinical Module
+
+Scenario: User with Edit access for CareGiver Name
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser6_static@mailinator.com"
+And I create a profile with Edit access only to CareGiver Name in Clinical Module
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to edit CareGiver Name in Clinical Module
+And the user should not be able to add or delete CareGiver Name in Clinical Module
+
+@Clinical
+Scenario: User with Delete access for CareGiver Name
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser9_static@mailinator.com"
+And I create a profile with Delete access only to CareGiver Name in Clinical Module
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to delete CareGiver Name in Clinical Module
+And the user should not be able to add or edit CareGiver Name in Clinical Module
+
+Scenario: User with Add access for Prior Authorization
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser_add_priorauth@mailinator.com"
+And I create a profile with Add access only to Prior Authorization in Clinical Module
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to add Prior Authorization in Clinical Module
+And the user should not be able to edit or delete Prior Authorization in Clinical Module
+
+Scenario: User with Edit access for Prior Authorization
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser_edit_priorauth@mailinator.com"
+And I create a profile with Edit access only to Prior Authorization in Clinical Module
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to edit Prior Authorization in Clinical Module
+And the user should not be able to add or delete Prior Authorization in Clinical Module
+
+Scenario: User with Delete access for Prior Authorization
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser_delete_priorauth@mailinator.com"
+And I create a profile with Delete access only to Prior Authorization in Clinical Module
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to delete Prior Authorization in Clinical Module
+And the user should not be able to add or edit Prior Authorization in Clinical Module
+
+
+
+
+
+
+
+
 
 
 
