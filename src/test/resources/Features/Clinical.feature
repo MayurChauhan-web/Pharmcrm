@@ -704,7 +704,6 @@ And I log in using the new user for Clinical Module
 Then the user should be able to edit CareGiver Name in Clinical Module
 And the user should not be able to add or delete CareGiver Name in Clinical Module
 
-@Clinical
 Scenario: User with Delete access for CareGiver Name
 Given I log in as admin for Clinical Module
 When I create a new user with email for Clinical Module "testuser9_static@mailinator.com"
@@ -717,7 +716,7 @@ And the user should not be able to add or edit CareGiver Name in Clinical Module
 
 Scenario: User with Add access for Prior Authorization
 Given I log in as admin for Clinical Module
-When I create a new user with email for Clinical Module "testuser_add_priorauth@mailinator.com"
+When I create a new user with email for Clinical Module "testuser5_static@mailinator.com"
 And I create a profile with Add access only to Prior Authorization in Clinical Module
 And I assign the profile and workspace to the user for Clinical Module
 And I reset the user's password for Clinical Module
@@ -727,7 +726,7 @@ And the user should not be able to edit or delete Prior Authorization in Clinica
 
 Scenario: User with Edit access for Prior Authorization
 Given I log in as admin for Clinical Module
-When I create a new user with email for Clinical Module "testuser_edit_priorauth@mailinator.com"
+When I create a new user with email for Clinical Module "testuser6_static@mailinator.com"
 And I create a profile with Edit access only to Prior Authorization in Clinical Module
 And I assign the profile and workspace to the user for Clinical Module
 And I reset the user's password for Clinical Module
@@ -737,13 +736,250 @@ And the user should not be able to add or delete Prior Authorization in Clinical
 
 Scenario: User with Delete access for Prior Authorization
 Given I log in as admin for Clinical Module
-When I create a new user with email for Clinical Module "testuser_delete_priorauth@mailinator.com"
+When I create a new user with email for Clinical Module "testuser7_static@mailinator.com"
 And I create a profile with Delete access only to Prior Authorization in Clinical Module
 And I assign the profile and workspace to the user for Clinical Module
 And I reset the user's password for Clinical Module
 And I log in using the new user for Clinical Module
 Then the user should be able to delete Prior Authorization in Clinical Module
 And the user should not be able to add or edit Prior Authorization in Clinical Module
+
+Scenario: User with Full access for Prior Authorization
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser3_static@mailinator.com"
+And I create a profile with full Acess to Prior Authorization in Clinical Module
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to Export Excel in Clinical Module
+Then the user should be able to access Details in Clinical Module
+Then the user should be able to Archive in Clinical Module
+Then the user should be able to Unarchive in Clinical Module
+Then the user should be able to view Grid View in Clinical Module
+
+Scenario: User with Add access for Med Recons
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser9_static@mailinator.com"
+And I create a profile with Add access only to Med Recons in Clinical Module
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to add Med Recons in Clinical Module
+And the user should not be able to edit or delete Med Recons in Clinical Module
+
+Scenario: User with Delete access for Med Recons
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser11_static@mailinator.com"
+And I create a profile with Delete access only to Med Recons in Clinical Module
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to delete Med Recons in Clinical Module
+And the user should not be able to add or edit Med Recons in Clinical Module
+
+Scenario: User can access Download File
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser1_static@mailinator.com"
+And I create a profile with access only to Download File in Clinical Module
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to access Details in Clinical Module
+Then the user should be able to access Download File in Clinical Module
+
+@Clinical
+Scenario: User with Add access for Med Recons / Meds On Chart
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser4_static@mailinator.com"
+And I create a profile with Add access only to Med Recons Meds On Chart in Clinical Module
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to add Med Recons Meds On Chart in Clinical Module
+And the user should not be able to edit or delete Med Recons Meds On Chart in Clinical Module
+
+Scenario: User with Edit access for Med Recons / Meds On Chart
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser5_static@mailinator.com"
+And I create a profile with Edit access only to Med Recons Meds On Chart in Clinical Module
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to edit Med Recons Meds On Chart in Clinical Module
+And the user should not be able to add or delete Med Recons Meds On Chart in Clinical Module
+
+Scenario: User with Delete access for Med Recons / Meds On Chart
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser16_static@mailinator.com"
+And I create a profile with Delete access only to Med Recons Meds On Chart in Clinical Module
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to delete Med Recons Meds On Chart in Clinical Module
+And the user should not be able to add or edit Med Recons Meds On Chart in Clinical Module
+
+Scenario: User with Add access for Med Recons / Current Medication
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser17_static@mailinator.com"
+And I create a profile with Add access only to Med Recons Current Medication in Clinical Module
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to add Med Recons Current Medication in Clinical Module
+And the user should not be able to edit or delete Med Recons Current Medication in Clinical Module
+
+Scenario: User with Edit access for Med Recons / Current Medication
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser18_static@mailinator.com"
+And I create a profile with Edit access only to Med Recons Current Medication in Clinical Module
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to edit Med Recons Current Medication in Clinical Module
+And the user should not be able to add or delete Med Recons Current Medication in Clinical Module
+
+Scenario: User with Delete access for Med Recons / Current Medication
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser19_static@mailinator.com"
+And I create a profile with Delete access only to Med Recons Current Medication in Clinical Module
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to delete Med Recons Current Medication in Clinical Module
+And the user should not be able to add or edit Med Recons Current Medication in Clinical Module
+
+Scenario: User with View, Export Excel, and Details access for Reports / MTM Encounter Log
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser23_static@mailinator.com"
+And I create a profile with View, Export Excel, and Details access to Reports MTM Encounter Log in Clinical Module
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to view Reports MTM Encounter Log in Clinical Module
+And the user should be able to export Reports MTM Encounter Log to Excel in Clinical Module
+And the user should be able to view Details for Reports MTM Encounter Log in Clinical Module
+
+Scenario: User with View access only for Reports / MTM Encounter Log
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser24_static@mailinator.com"
+And I create a profile with View access only to Reports MTM Encounter Log in Clinical Module
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to view Reports MTM Encounter Log in Clinical Module
+And the user should not have access to Export Excel or Details for Reports MTM Encounter Log in Clinical Module
+
+Scenario: User with Add access for Remote Patient Monitoring (RPM)
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser25_static@mailinator.com"
+And I create a profile with Add access only to Remote Patient Monitoring RPM in Clinical Module
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to add Remote Patient Monitoring RPM in Clinical Module
+And the user should not be able to edit or delete Remote Patient Monitoring RPM in Clinical Module
+
+Scenario: User with Edit access for Remote Patient Monitoring (RPM)
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser26_static@mailinator.com"
+And I create a profile with Edit access only to Remote Patient Monitoring RPM in Clinical Module
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to edit Remote Patient Monitoring RPM in Clinical Module
+And the user should not be able to add or delete Remote Patient Monitoring RPM in Clinical Module
+
+Scenario: User with Delete access for Remote Patient Monitoring (RPM)
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser27_static@mailinator.com"
+And I create a profile with Delete access only to Remote Patient Monitoring RPM in Clinical Module
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to delete Remote Patient Monitoring RPM in Clinical Module
+And the user should not be able to add or edit Remote Patient Monitoring RPM in Clinical Module
+
+Scenario: User with Export Excel and Outgoing Call access
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser28_static@mailinator.com"
+And I create a profile with Export Excel and Outgoing Call access in Clinical Module
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to export data to Excel in Clinical Module
+And the user should be able to make Outgoing Calls in Clinical Module
+
+Scenario: User with Add access for RPM / Remote Monitoring Parameter
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser29_static@mailinator.com"
+And I create a profile with Add access only to RPM Remote Monitoring Parameter in Clinical Module
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to add RPM Remote Monitoring Parameter in Clinical Module
+And the user should not be able to edit or delete RPM Remote Monitoring Parameter in Clinical Module
+
+Scenario: User with Edit access for RPM / Remote Monitoring Parameter
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser30_static@mailinator.com"
+And I create a profile with Edit access only to RPM Remote Monitoring Parameter in Clinical Module
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to edit RPM Remote Monitoring Parameter in Clinical Module
+And the user should not be able to add or delete RPM Remote Monitoring Parameter in Clinical Module
+
+Scenario: User with Delete access for RPM / Remote Monitoring Parameter
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser31_static@mailinator.com"
+And I create a profile with Delete access only to RPM Remote Monitoring Parameter in Clinical Module
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to delete RPM Remote Monitoring Parameter in Clinical Module
+And the user should not be able to add or edit RPM Remote Monitoring Parameter in Clinical Module
+
+Scenario: User with Edit access for RPM / RMP Details
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser32_static@mailinator.com"
+And I create a profile with Edit access only to RPM RMP Details in Clinical Module
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to edit RPM RMP Details in Clinical Module
+And the user should not have access to Add or Delete RPM RMP Details in Clinical Module
+
+Scenario: User with no Edit access for RPM / RMP Details
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser34_static@mailinator.com"
+And I create a profile with no Edit access to RPM RMP Details in Clinical Module
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should not be able to edit RPM RMP Details in Clinical Module
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
