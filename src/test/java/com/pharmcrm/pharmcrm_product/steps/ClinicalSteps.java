@@ -1757,6 +1757,106 @@ public class ClinicalSteps {
 		clickWhenClickable(By.id("btnSave"));
 	}
 
+	@And("I create a profile with all access for Reports Remote Monitoring Report")
+	public void createProfileWithAllAccessForRemoteMonitoringReport() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Clinical Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Patient Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Provider Module']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with View access only to Reports Remote Monitoring Report in Clinical Module")
+	public void createProfileWithViewAccessToReportsRemoteMonitoringReportInClinicalModule() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Clinical Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Patient Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Provider Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg33ClinicalRemoteMonitorReportAll']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg33ClinicalRemoteMonitorReportView']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with all access for PA All PA")
+	public void userCreatesProfileWithAllAccessForPAAllPA() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Clinical Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Patient Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Provider Module']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
 	@And("I create a profile with Edit access only to RPM Trigger Alert for Time in Clinical Module")
 	public void createProfileWithEditAccessToRPMTriggerAlertForTime() {
 		driver.get(baseUrl + "/Setup/Home/Profiles");
@@ -5079,10 +5179,192 @@ public class ClinicalSteps {
 		sleep(2000);
 		clickWhenClickable(By.xpath("//i[@class='fa fa-plus']"));
 		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='model-inp']//select[@id='PatientRemoteMonitoringTriggerPoint_PatientRemoteMonitoringParameterId']"));
+		sleep(1000);
+		selectDropdownByIndexWhenReady(By.id("PatientRemoteMonitoringTriggerPoint_PatientRemoteMonitoringParameterId"),
+				1);
+		sleep(2000);
 		waitAndSendKeys(By.id("PatientRemoteMonitoringTriggerPoint_Minutes"), "10");
 		clickWhenClickable(By.xpath(
 				"//div[@class='modal-footer']//button[@id='btnSavePatientRemoteMonitoringTriggerPointDetailPopup']"));
 		sleep(3000);
+
+	}
+
+	@And("the user should be able to edit RPM Trigger Alert for Time in Clinical Module")
+	public void userShouldBeAbleToEditRPMTriggerAlertForTimeInClinicalModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Clinical/Home/PatientRemoteMonitorings");
+		wait.until(ExpectedConditions.urlContains("/Clinical/Home/PatientRemoteMonitorings"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='rmMain-data readingTable-main']//div[1]//div[1]//div[1]//div[1]//button[1]//*[name()='svg']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='tiggerAlert-dropdown show']//a[1]//*[name()='svg']//*[name()='path' and @id='Path_20']"));
+		sleep(2000);
+		waitAndSendKeys(By.id("PatientRemoteMonitoringTriggerPoint_Minutes"), "11");
+		clickWhenClickable(By.xpath(
+				"//div[@class='modal-footer']//button[@id='btnSavePatientRemoteMonitoringTriggerPointDetailPopup']"));
+		sleep(1000);
+
+	}
+
+	@And("the user should be able to delete RPM Trigger Alert for Time in Clinical Module")
+	public void userShouldBeAbleToDeleteRPMTriggerAlertForTimeInClinicalModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Clinical/Home/PatientRemoteMonitorings");
+		wait.until(ExpectedConditions.urlContains("/Clinical/Home/PatientRemoteMonitorings"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//button[@id='bucketDrop']/i)[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='rmMain-data readingTable-main']//div[1]//div[1]//div[1]//div[1]//button[1]//*[name()='svg']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu show']//a[@id='btnDeleteRemoteMonitoringTriggerPointDetail']//*[name()='svg']//*[name()='path' and @id='Path_21']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//button[@id='deletePatientRemoteMonitoringTriggerPointDetail']"));
+		sleep(1000);
+
+	}
+
+	@And("the user should be able to view Reports Remote Monitoring Report in Clinical Module")
+	public void createProfileWithViewAccessForRemoteMonitoringReport() {
+		sleep(3000);
+		driver.get(baseUrl + "/Clinical/Home/RemoteMonitoringReport");
+		wait.until(ExpectedConditions.urlContains("/Clinical/Home/RemoteMonitoringReport"));
+		sleep(3000);
+
+	}
+
+	@And("the user should not be able to download drilldown report for Reports Remote Monitoring Report in Clinical Module")
+	public void userShouldNotBeAbleToDownloadDrilldownReportForReportsRemoteMonitoringReportInClinicalModule() {
+		sleep(3000);
+		assertElementNotPresent(By.xpath("//tbody/tr[1]/td[10]/div[1]/a[2]//*[name()='svg']"));
+
+	}
+
+	@And("the user should not be able to export Reports Remote Monitoring Report to Excel in Clinical Module")
+	public void userShouldNotBeAbleToExportReportsRemoteMonitoringReportToExcelInClinicalModule() {
+		sleep(3000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Export to Excel']"));
+
+	}
+
+	@And("the user should not be able to send Reports Remote Monitoring Report for signature in Clinical Module")
+	public void userShouldNotBeAbleToSendReportsRemoteMonitoringReportForSignatureInClinicalModule() {
+		sleep(3000);
+		assertElementNotPresent(By.xpath("//tbody/tr[1]/td[10]/div[1]/a[1]/img[1]"));
+
+	}
+
+	@And("the user should not be able to download Reports Remote Monitoring Report file in Clinical Module")
+	public void userShouldNotBeAbleToDownloadReportsRemoteMonitoringReportFileInClinicalModule() {
+		sleep(3000);
+		assertElementNotPresent(By.xpath("//tbody/tr[1]/td[10]/div[1]/a[1]/img[1]"));
+
+	}
+
+	@And("the user should not be able to drill down Reports Remote Monitoring Report in Clinical Module")
+	public void userShouldNotBeAbleToDrillDownReportsRemoteMonitoringReportInClinicalModule() {
+		sleep(3000);
+		assertElementNotPresent(By.xpath("//tbody/tr[1]/td[10]/div[1]/a[2]//*[name()='svg']"));
+
+	}
+
+	@And("the user should be able to drill down Reports Remote Monitoring Report in Clinical Module")
+	public void createProfileWithDrillDownAccessForRemoteMonitoringReport() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[10]/div[1]/a[2]//*[name()='svg']"));
+		sleep(1000);
+
+	}
+
+	@And("the user should be able to download Reports Remote Monitoring Report file in Clinical Module")
+	public void createProfileWithDownloadAccessForRemoteMonitoringReport() {
+		sleep(3000);
+		driver.get(baseUrl + "/Clinical/Home/RemoteMonitoringReport");
+		wait.until(ExpectedConditions.urlContains("/Clinical/Home/RemoteMonitoringReport"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[10]/div[1]/a[1]/img[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//select[@id='ddMonth']"));
+		sleep(2000);
+		selectDropdownByIndexWhenReady(By.id("ddMonth"), 1);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//select[@id='ddYear']"));
+		sleep(2000);
+		selectDropdownByIndexWhenReady(By.id("ddYear"), 1);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[normalize-space()='Download']"));
+	}
+
+	@And("the user should be able to send Reports Remote Monitoring Report for signature in Clinical Module")
+	public void createProfileWithSendForSignatureAccessForRemoteMonitoringReport() {
+		sleep(3000);
+		driver.get(baseUrl + "/Clinical/Home/RemoteMonitoringReport");
+		wait.until(ExpectedConditions.urlContains("/Clinical/Home/RemoteMonitoringReport"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[10]/div[1]/a[1]/img[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//select[@id='ddMonth']"));
+		sleep(2000);
+		selectDropdownByIndexWhenReady(By.id("ddMonth"), 1);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//select[@id='ddYear']"));
+		sleep(2000);
+		selectDropdownByIndexWhenReady(By.id("ddYear"), 1);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[normalize-space()='Send for Signature']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//select[@id='ddSigner']"));
+		sleep(2000);
+		selectDropdownByIndexWhenReady(By.id("ddSigner"), 1);
+		sleep(2000);
+		waitAndSendKeys(By.id("DigitalSignatureSigner_FullName"), "Lisa Brooker");
+		waitAndSendKeys(By.id("DigitalSignatureSigner_EmailID"), "LisaJBrooker@mailinator.com");
+		clickWhenClickable(By.xpath("//a[@onclick='AddManualSigner()']//img[@class='v-align-middle']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='Next']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='Next']"));
+		waitAndSendKeys(By.id("DigitalSignature_Subject"), "Signature requested");
+		waitAndSendKeys(By.xpath("//div[@aria-label='Editor editing area: main. Press Alt+0 for help.']"),
+				"Signature requested");
+		clickWhenClickable(By.xpath("//a[normalize-space()='Finish']"));
+
+	}
+
+	@And("the user should be able to export Reports Remote Monitoring Report to Excel in Clinical Module")
+	public void createProfileWithExportToExcelAccessForRemoteMonitoringReport() {
+		sleep(3000);
+		driver.get(baseUrl + "/Clinical/Home/RemoteMonitoringReport");
+		wait.until(ExpectedConditions.urlContains("/Clinical/Home/RemoteMonitoringReport"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='Export to Excel']"));
+
+	}
+
+	@And("the user should be able to download drilldown report for Reports Remote Monitoring Report in Clinical Module")
+	public void createProfileWithDrillDownDownloadAccessForRemoteMonitoringReport() {
+		sleep(3000);
+		driver.get(baseUrl + "/Clinical/Home/RemoteMonitoringReport");
+		wait.until(ExpectedConditions.urlContains("/Clinical/Home/RemoteMonitoringReport"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[10]/div[1]/a[2]//*[name()='svg']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//button[normalize-space()='Download Report']"));
+		sleep(1000);
 
 	}
 
@@ -5152,8 +5434,37 @@ public class ClinicalSteps {
 	@And("the user should not be able to edit or delete RPM Trigger Alert for Time in Clinical Module")
 	public void verifyUserCannotEditOrDeleteRPMTriggerAlertForTime() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//a[@class='tooltiped txt-decor-none user-access']//img"));
-		assertElementNotPresent(By.xpath("//a[@id='btnDeleteRemoteMonitoringExternalEmailDetail']//img"));
+		clickWhenClickable(By.xpath(
+				"(//div[contains(@class,'readingTable-main')]//button//*[name()='svg']//*[name()='path' and contains(@id,'Path_')])[2]"));
+		sleep(2000);
+		assertElementNotPresent(By.xpath(
+				"//div[contains(@class,'tiggerAlert')]//a[contains(@onclick,'editRemoteMonitoringTriggerPointDetails')]"));
+		assertElementNotPresent(By
+				.xpath("//div[contains(@class,'tiggerAlert')]//a[@id='btnDeleteRemoteMonitoringTriggerPointDetail']"));
+	}
+
+	@And("the user should not be able to add or delete RPM Trigger Alert for Time in Clinical Module")
+	public void userShouldNotBeAbleToAddOrDeleteRPMTriggerAlertForTimeInClinicalModule() {
+		sleep(3000);
+		assertElementNotPresent(By.xpath("//i[@class='fa fa-plus']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='rmMain-data readingTable-main']//div[1]//div[1]//div[1]//div[1]//button[1]//*[name()='svg']"));
+		sleep(2000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu show']//a[@id='btnDeleteRemoteMonitoringTriggerPointDetail']//*[name()='svg']"));
+	}
+
+	@And("the user should not be able to add or edit RPM Trigger Alert for Time in Clinical Module")
+	public void userShouldNotBeAbleToAddOrEditRPMTriggerAlertForTimeInClinicalModule() {
+		sleep(3000);
+		assertElementNotPresent(By.xpath("//i[@class='fa fa-plus']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='rmMain-data readingTable-main']//div[1]//div[1]//div[1]//div[1]//button[1]//*[name()='svg']//*[name()='path' and @id='Path_19']"));
+		sleep(2000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='tiggerAlert-dropdown show']//a[1]//*[name()='svg']//*[name()='path' and @id='Path_20']"));
 	}
 
 	@And("the user should not have access to Add or Delete RPM RMP Details in Clinical Module")
