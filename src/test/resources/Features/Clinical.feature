@@ -1031,7 +1031,6 @@ And the user should be able to send Reports Remote Monitoring Report for signatu
 And the user should be able to export Reports Remote Monitoring Report to Excel in Clinical Module
 And the user should be able to download drilldown report for Reports Remote Monitoring Report in Clinical Module
 
-@Clinical
 Scenario: User with View access for Reports Remote Monitoring Report
 Given I log in as admin for Clinical Module
 When I create a new user with email for Clinical Module "testuser8_static@mailinator.com"
@@ -1066,6 +1065,7 @@ And the user should be able to delete generated incoming attachment in Clinical 
 And the user should be able to delete PA ChartNote attachment in Clinical Module
 And the user should be able to send Clinical PA Insurance in Clinical Module
 
+@Clinical
 Scenario: User with View access for PA All PA
 Given I log in as admin for Clinical Module
 When I create a new user with email for Clinical Module "testuser25_static@mailinator.com"
@@ -1085,6 +1085,240 @@ And the user should not be able to delete PA outcome status in Clinical Module
 And the user should not be able to delete generated incoming attachment in Clinical Module
 And the user should not be able to delete PA ChartNote attachment in Clinical Module
 And the user should not be able to send Clinical PA Insurance in Clinical Module
+
+Scenario: User with Add access for RPM Status
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser4_static@mailinator.com"
+And I create a profile with Add access only to RPM Status in Clinical Module
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to add RPM RPM Status in Clinical Module
+And the user should not be able to edit or delete RPM RPM Status in Clinical Module
+
+Scenario: User with Edit access for RPM Status
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser5_static@mailinator.com"
+And I create a profile with Edit access only to RPM Status in Clinical Module
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to edit RPM RPM Status in Clinical Module
+And the user should not be able to add or delete RPM RPM Status in Clinical Module
+
+Scenario: User with Delete access for RPM Status
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser1_static@mailinator.com"
+And I create a profile with Delete access only to RPM Status in Clinical Module
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to delete RPM RPM Status in Clinical Module
+And the user should not be able to add or edit RPM RPM Status in Clinical Module
+
+Scenario: User with Add access for RPM Progress Step
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser1_static@mailinator.com"
+And I create a profile with Add access only to RPM Progress Step in Clinical Module
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to add RPM Progress Step in Clinical Module
+And the user should not be able to edit or delete RPM Progress Step in Clinical Module
+
+Scenario: User with Edit access for RPM Progress Step
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser2_static@mailinator.com"
+And I create a profile with Edit access only to RPM Progress Step in Clinical Module
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to edit RPM Progress Step in Clinical Module
+And the user should not be able to add or delete RPM Progress Step in Clinical Module
+
+Scenario: User with Delete access for RPM Progress Step
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser3_static@mailinator.com"
+And I create a profile with Delete access only to RPM Progress Step in Clinical Module
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to delete RPM Progress Step in Clinical Module
+And the user should not be able to add or edit RPM Progress Step in Clinical Module
+
+Scenario: User with Add access for PA Progress Step
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser8_static@mailinator.com"
+And I create a profile with Add access only to PA Progress Step in Clinical Module
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to add PA Progress Step in Clinical Module
+And the user should not be able to edit or delete PA Progress Step in Clinical Module
+
+Scenario: User with Edit access for PA Progress Step
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser10_static@mailinator.com"
+And I create a profile with Edit access only to PA Progress Step in Clinical Module
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to edit PA Progress Step in Clinical Module
+And the user should not be able to add or delete PA Progress Step in Clinical Module
+
+Scenario: User with Delete access for PA Progress Step
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser1_static@mailinator.com"
+And I create a profile with Delete access only to PA Progress Step in Clinical Module
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to delete PA Progress Step in Clinical Module
+And the user should not be able to add or edit PA Progress Step in Clinical Module
+
+Scenario: User with Edit access for Digital Signature
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser6_static@mailinator.com"
+And I create a profile with Edit access only to Digital Signature in Clinical Module
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to edit Digital Signature in Clinical Module
+And the user should not be able to delete or download Digital Signature in Clinical Module
+
+Scenario: User with Delete access for Digital Signature
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser7_static@mailinator.com"
+And I create a profile with Delete access only to Digital Signature in Clinical Module
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to delete Digital Signature in Clinical Module
+And the user should not be able to edit or download Digital Signature in Clinical Module
+
+Scenario: User with Download access for Digital Signature
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser8_static@mailinator.com"
+And I create a profile with Download access only to Digital Signature in Clinical Module
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to download Digital Signature in Clinical Module
+And the user should not be able to edit or delete Digital Signature in Clinical Module
+
+Scenario: User with Add access for CPT Code
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser3_static@mailinator.com"
+And I create a profile with Add access only to CPT Code in Clinical Module
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to add RPM CPT Code in Clinical Module
+And the user should not be able to edit or delete RPM CPT Code in Clinical Module
+
+Scenario: User with Edit access for CPT Code
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser4_static@mailinator.com"
+And I create a profile with Edit access only to CPT Code in Clinical Module
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to edit RPM CPT Code in Clinical Module
+And the user should not be able to add or delete RPM CPT Code in Clinical Module
+
+Scenario: User with Delete access for CPT Code
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser5_static@mailinator.com"
+And I create a profile with Delete access only to CPT Code in Clinical Module
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to delete RPM CPT Code in Clinical Module
+And the user should not be able to add or edit RPM CPT Code in Clinical Module
+
+Scenario: User with View and Export access for Device Usage Statistic Report
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser1_static@mailinator.com"
+And I create a profile with View and Export access to Device Usage Statistic Report in Clinical Module
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to view Device Usage Statistic Report in Clinical Module
+And the user should be able to export Device Usage Statistic Report in Clinical Module
+
+Scenario: User with View-only access for Device Usage Statistic Report
+Given I log in as admin for Clinical Module
+When I create a new user with email for Clinical Module "testuser2_static@mailinator.com"
+And I create a profile with View access only to Device Usage Statistic Report in Clinical Module
+And I assign the profile and workspace to the user for Clinical Module
+And I reset the user's password for Clinical Module
+And I log in using the new user for Clinical Module
+Then the user should be able to view Device Usage Statistic Report in Clinical Module
+And the user should not be able to export Device Usage Statistic Report in Clinical Module
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
