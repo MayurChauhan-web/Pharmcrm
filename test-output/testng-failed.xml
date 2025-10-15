@@ -6,8 +6,8 @@
       <class name="com.pharmcrm.pharmcrm_product.runner.MasterRunner">
         <methods>
           <include name="setUpClass"/>
-          <include name="runScenario" invocation-numbers="0"/>
           <include name="tearDownClass"/>
+          <include name="runScenario" invocation-numbers="0"/>
         </methods>
       </class> <!-- com.pharmcrm.pharmcrm_product.runner.MasterRunner -->
     </classes>

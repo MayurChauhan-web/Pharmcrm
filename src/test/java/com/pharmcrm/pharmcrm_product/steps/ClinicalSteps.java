@@ -1854,6 +1854,8 @@ public class ClinicalSteps {
 		sleep(1000);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Provider Module']"));
 		sleep(1000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Partner Module']"));
+		sleep(1000);
 		clickWhenClickable(By.id("btnSave"));
 	}
 
@@ -2239,6 +2241,12 @@ public class ClinicalSteps {
 		clickWhenClickable(By.xpath("//label[normalize-space()='Patient Module']"));
 		sleep(1000);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Provider Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Partner Module']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg38AllPAAll']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg38AllPAView']"));
 		sleep(1000);
 		clickWhenClickable(By.id("btnSave"));
 	}
@@ -5888,8 +5896,8 @@ public class ClinicalSteps {
 	@And("the user should be able to view PA All PA in Clinical Module")
 	public void userShouldBeAbleToViewAllPAInClinicalModule() {
 		sleep(3000);
-		driver.get(baseUrl + "/Clinical/Home/RemoteMonitoringReport");
-		wait.until(ExpectedConditions.urlContains("/Clinical/Home/RemoteMonitoringReport"));
+		driver.get(baseUrl + "/Clinical/Home/ClinicalPriorAuthorizations");
+		wait.until(ExpectedConditions.urlContains("/Clinical/Home/ClinicalPriorAuthorizations"));
 		sleep(3000);
 
 	}
@@ -5897,108 +5905,673 @@ public class ClinicalSteps {
 	@And("the user should be able to send Clinical PA Insurance in Clinical Module")
 	public void userShouldBeAbleToSendClinicalPAInsuranceInClinicalModule() {
 		sleep(3000);
-		driver.get(baseUrl + "/Clinical/Home/RemoteMonitoringReport");
-		wait.until(ExpectedConditions.urlContains("/Clinical/Home/RemoteMonitoringReport"));
+		driver.get(baseUrl + "/Clinical/Home/ClinicalPriorAuthorizations");
+		wait.until(ExpectedConditions.urlContains("/Clinical/Home/ClinicalPriorAuthorizations"));
 		sleep(3000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Clinical Prior Authorization']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//a[@id='addPatientNamePopup']//img"));
+		sleep(2000);
+		waitAndSendKeys(By.id("Filter_PatientId"), "0004406");
+		clickWhenClickable(By.xpath("//button[normalize-space()='Search']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("(//input[@type='radio'])[1]"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//div[@class='modal-footer text-right d-block']//button[@id='btnPatient']"));
+		sleep(5000);
+		clickWhenClickable(By.xpath("//a[@id='addDrugNamePopup']//img"));
+		sleep(3000);
+		waitAndSendKeys(By.id("Filter_DrugName"), "amoxilin");
+		clickWhenClickable(By.xpath("//button[normalize-space()='Search']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//input[@name='groupOfDrugRadios' and @data-name='amoxilin']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//div[@id='divSearchDrugInfo']//button[@id='btnDrug']"));
+		sleep(5000);
+		clickWhenClickable(By.xpath("//a[@id='addProviderNamePopup']//img"));
+		sleep(4000);
+		clickWhenClickable(By.xpath("//input[@type='radio' and @name='groupOfProviderRadios']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//button[@id='btnProvider']"));
+		sleep(4000);
+		clickWhenClickable(By.xpath("//a[@id='addPartnerNamePopup']//img"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//input[@id='rdoFullSearch']"));
+		sleep(3000);
+		waitAndSendKeys(By.id("Filter_BusinessName"), "Attorney");
+		clickWhenClickable(By.xpath("//button[normalize-space()='Search']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//input[@type='radio' and @name='groupOfPartnerRadios']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//button[@id='btnPartner']"));
+		sleep(3000);
+		WebElement dateInput = driver.findElement(By.name("ClinicalPriorAuthorization.ReceivedDate"));
+		dateInput.clear();
+		dateInput.sendKeys("10/09/2025");
+		dateInput.sendKeys(Keys.TAB);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Patient Details']"));
+		clickWhenClickable(By.xpath("//label[normalize-space()='Pharmacy Detail']"));
+		clickWhenClickable(By.xpath("//label[normalize-space()='Provider Detail']"));
+		clickWhenClickable(By.xpath("//label[normalize-space()='Drug Detail']"));
+		clickWhenClickable(By.xpath("//button[@id='btnVerify']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='btnPendingSave']"));
+		sleep(2000);
+		WebElement dateInput1 = driver.findElement(By.name("ClinicalPriorAuthorization.SubmissionDate"));
+		dateInput1.clear();
+		dateInput1.sendKeys("10/09/2025");
+		dateInput1.sendKeys(Keys.TAB);
+		sleep(2000);
+		waitAndSendKeys(By.id("ClinicalPriorAuthorization_SubmissionNote"), "Submission");
+		clickWhenClickable(By.xpath("//button[@id='btnSaveSubmission']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//a[@id='sendClinicalPAInsurancePending']"));
+		sleep(1000);
+		waitAndSendKeys(By.id("toEmail"), "MarioLKlein@mailinator.com");
+		waitAndSendKeys(By.id("subject"), " Insurance");
+		waitAndSendKeys(By.xpath("//div[@aria-label='Editor editing area: main. Press Alt+0 for help.']"), "Insurance");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//button[@class='btn btn-primary']"));
 
 	}
 
 	@And("the user should be able to delete PA ChartNote attachment in Clinical Module")
 	public void userShouldBeAbleToDeletePAChartNoteAttachmentInClinicalModule() {
 		sleep(3000);
-		driver.get(baseUrl + "/Clinical/Home/RemoteMonitoringReport");
-		wait.until(ExpectedConditions.urlContains("/Clinical/Home/RemoteMonitoringReport"));
+		driver.get(baseUrl + "/Clinical/Home/ClinicalPriorAuthorizations");
+		wait.until(ExpectedConditions.urlContains("/Clinical/Home/ClinicalPriorAuthorizations"));
 		sleep(3000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Clinical Prior Authorization']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//a[@id='addPatientNamePopup']//img"));
+		sleep(2000);
+		waitAndSendKeys(By.id("Filter_PatientId"), "0004406");
+		clickWhenClickable(By.xpath("//button[normalize-space()='Search']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("(//input[@type='radio'])[1]"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//div[@class='modal-footer text-right d-block']//button[@id='btnPatient']"));
+		sleep(5000);
+		clickWhenClickable(By.xpath("//a[@id='addDrugNamePopup']//img"));
+		sleep(3000);
+		waitAndSendKeys(By.id("Filter_DrugName"), "amoxilin");
+		clickWhenClickable(By.xpath("//button[normalize-space()='Search']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//input[@name='groupOfDrugRadios' and @data-name='amoxilin']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//div[@id='divSearchDrugInfo']//button[@id='btnDrug']"));
+		sleep(5000);
+		clickWhenClickable(By.xpath("//a[@id='addProviderNamePopup']//img"));
+		sleep(4000);
+		clickWhenClickable(By.xpath("//input[@type='radio' and @name='groupOfProviderRadios']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//button[@id='btnProvider']"));
+		sleep(4000);
+		clickWhenClickable(By.xpath("//a[@id='addPartnerNamePopup']//img"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//input[@id='rdoFullSearch']"));
+		sleep(3000);
+		waitAndSendKeys(By.id("Filter_BusinessName"), "Attorney");
+		clickWhenClickable(By.xpath("//button[normalize-space()='Search']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//input[@type='radio' and @name='groupOfPartnerRadios']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//button[@id='btnPartner']"));
+		sleep(3000);
+		WebElement dateInput = driver.findElement(By.name("ClinicalPriorAuthorization.ReceivedDate"));
+		dateInput.clear();
+		dateInput.sendKeys("10/09/2025");
+		dateInput.sendKeys(Keys.TAB);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Patient Details']"));
+		clickWhenClickable(By.xpath("//label[normalize-space()='Pharmacy Detail']"));
+		clickWhenClickable(By.xpath("//label[normalize-space()='Provider Detail']"));
+		clickWhenClickable(By.xpath("//label[normalize-space()='Drug Detail']"));
+		clickWhenClickable(By.xpath("//button[@id='btnVerify']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='btnPendingSave']"));
+		sleep(2000);
+		WebElement dateInput1 = driver.findElement(By.name("ClinicalPriorAuthorization.SubmissionDate"));
+		dateInput1.clear();
+		dateInput1.sendKeys("10/09/2025");
+		dateInput1.sendKeys(Keys.TAB);
+		sleep(2000);
+		waitAndSendKeys(By.id("ClinicalPriorAuthorization_SubmissionNote"), "Submission");
+		clickWhenClickable(By.xpath("//button[@id='btnSaveSubmission']"));
+		sleep(2000);
+		clickWhenClickable(By
+				.xpath("//a[@id='btnDeletePriorAuthorizationChartNoteAttachment']//img[@class='ml-1 v-align-txttop']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//button[@id='btnDeletePriorAuthorizationChartNoteAttachment']"));
 
 	}
 
 	@And("the user should be able to delete generated incoming attachment in Clinical Module")
 	public void userShouldBeAbleToDeleteGeneratedIncomingAttachmentInClinicalModule() {
 		sleep(3000);
-		driver.get(baseUrl + "/Clinical/Home/RemoteMonitoringReport");
-		wait.until(ExpectedConditions.urlContains("/Clinical/Home/RemoteMonitoringReport"));
+		driver.get(baseUrl + "/Clinical/Home/ClinicalPriorAuthorizations");
+		wait.until(ExpectedConditions.urlContains("/Clinical/Home/ClinicalPriorAuthorizations"));
 		sleep(3000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Clinical Prior Authorization']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//a[@id='addPatientNamePopup']//img"));
+		sleep(2000);
+		waitAndSendKeys(By.id("Filter_PatientId"), "0004406");
+		clickWhenClickable(By.xpath("//button[normalize-space()='Search']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("(//input[@type='radio'])[1]"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//div[@class='modal-footer text-right d-block']//button[@id='btnPatient']"));
+		sleep(5000);
+		clickWhenClickable(By.xpath("//a[@id='addDrugNamePopup']//img"));
+		sleep(3000);
+		waitAndSendKeys(By.id("Filter_DrugName"), "amoxilin");
+		clickWhenClickable(By.xpath("//button[normalize-space()='Search']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//input[@name='groupOfDrugRadios' and @data-name='amoxilin']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//div[@id='divSearchDrugInfo']//button[@id='btnDrug']"));
+		sleep(5000);
+		clickWhenClickable(By.xpath("//a[@id='addProviderNamePopup']//img"));
+		sleep(4000);
+		clickWhenClickable(By.xpath("//input[@type='radio' and @name='groupOfProviderRadios']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//button[@id='btnProvider']"));
+		sleep(4000);
+		clickWhenClickable(By.xpath("//a[@id='addPartnerNamePopup']//img"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//input[@id='rdoFullSearch']"));
+		sleep(3000);
+		waitAndSendKeys(By.id("Filter_BusinessName"), "Attorney");
+		clickWhenClickable(By.xpath("//button[normalize-space()='Search']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//input[@type='radio' and @name='groupOfPartnerRadios']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//button[@id='btnPartner']"));
+		sleep(3000);
+		WebElement dateInput = driver.findElement(By.name("ClinicalPriorAuthorization.ReceivedDate"));
+		dateInput.clear();
+		dateInput.sendKeys("10/09/2025");
+		dateInput.sendKeys(Keys.TAB);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Patient Details']"));
+		clickWhenClickable(By.xpath("//label[normalize-space()='Pharmacy Detail']"));
+		clickWhenClickable(By.xpath("//label[normalize-space()='Provider Detail']"));
+		clickWhenClickable(By.xpath("//label[normalize-space()='Drug Detail']"));
+		clickWhenClickable(By.xpath("//button[@id='btnVerify']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='btnPendingSave']"));
+		sleep(2000);
+		WebElement dateInput1 = driver.findElement(By.name("ClinicalPriorAuthorization.SubmissionDate"));
+		dateInput1.clear();
+		dateInput1.sendKeys("10/09/2025");
+		dateInput1.sendKeys(Keys.TAB);
+		sleep(2000);
+		waitAndSendKeys(By.id("ClinicalPriorAuthorization_SubmissionNote"), "Submission");
+		clickWhenClickable(By.xpath("//button[@id='btnSaveSubmission']"));
+		sleep(2000);
+		clickWhenClickable(By
+				.xpath("//a[@id='btnDeletePriorAuthorizationGenerateAttachment']//img[@class='ml-1 v-align-txttop']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//button[@id='btnGenerateAttachmentDeleteConfirm']"));
 
 	}
 
 	@And("the user should be able to delete PA outcome status in Clinical Module")
 	public void userShouldBeAbleToDeletePAOutcomeStatusInClinicalModule() {
 		sleep(3000);
-		driver.get(baseUrl + "/Clinical/Home/RemoteMonitoringReport");
-		wait.until(ExpectedConditions.urlContains("/Clinical/Home/RemoteMonitoringReport"));
+		driver.get(baseUrl + "/Clinical/Home/ClinicalPriorAuthorizations");
+		wait.until(ExpectedConditions.urlContains("/Clinical/Home/ClinicalPriorAuthorizations"));
 		sleep(3000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Clinical Prior Authorization']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//a[@id='addPatientNamePopup']//img"));
+		sleep(2000);
+		waitAndSendKeys(By.id("Filter_PatientId"), "0004406");
+		clickWhenClickable(By.xpath("//button[normalize-space()='Search']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("(//input[@type='radio'])[1]"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//div[@class='modal-footer text-right d-block']//button[@id='btnPatient']"));
+		sleep(5000);
+		clickWhenClickable(By.xpath("//a[@id='addDrugNamePopup']//img"));
+		sleep(3000);
+		waitAndSendKeys(By.id("Filter_DrugName"), "amoxilin");
+		clickWhenClickable(By.xpath("//button[normalize-space()='Search']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//input[@name='groupOfDrugRadios' and @data-name='amoxilin']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//div[@id='divSearchDrugInfo']//button[@id='btnDrug']"));
+		sleep(5000);
+		clickWhenClickable(By.xpath("//a[@id='addProviderNamePopup']//img"));
+		sleep(4000);
+		clickWhenClickable(By.xpath("//input[@type='radio' and @name='groupOfProviderRadios']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//button[@id='btnProvider']"));
+		sleep(4000);
+		clickWhenClickable(By.xpath("//a[@id='addPartnerNamePopup']//img"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//input[@id='rdoFullSearch']"));
+		sleep(3000);
+		waitAndSendKeys(By.id("Filter_BusinessName"), "Attorney");
+		clickWhenClickable(By.xpath("//button[normalize-space()='Search']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//input[@type='radio' and @name='groupOfPartnerRadios']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//button[@id='btnPartner']"));
+		sleep(3000);
+		WebElement dateInput = driver.findElement(By.name("ClinicalPriorAuthorization.ReceivedDate"));
+		dateInput.clear();
+		dateInput.sendKeys("10/09/2025");
+		dateInput.sendKeys(Keys.TAB);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Patient Details']"));
+		clickWhenClickable(By.xpath("//label[normalize-space()='Pharmacy Detail']"));
+		clickWhenClickable(By.xpath("//label[normalize-space()='Provider Detail']"));
+		clickWhenClickable(By.xpath("//label[normalize-space()='Drug Detail']"));
+		clickWhenClickable(By.xpath("//button[@id='btnVerify']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='btnPendingSave']"));
+		sleep(2000);
+		WebElement dateInput1 = driver.findElement(By.name("ClinicalPriorAuthorization.SubmissionDate"));
+		dateInput1.clear();
+		dateInput1.sendKeys("10/09/2025");
+		dateInput1.sendKeys(Keys.TAB);
+		sleep(2000);
+		waitAndSendKeys(By.id("ClinicalPriorAuthorization_SubmissionNote"), "Submission");
+		clickWhenClickable(By.xpath("//button[@id='btnSaveSubmission']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//td[@scope='row']//i[@class='fa-solid fa-ellipsis-vertical']"));
+		sleep(1000);
+		clickWhenClickable(
+				By.xpath("//a[@id='btnDeletePriorAuthorizationOutcomeStatus']//span[contains(text(),'Delete')]"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//button[@id='btnOutcomeDeleteConfirm']"));
 
 	}
 
 	@And("the user should be able to delete PA status in Clinical Module")
 	public void userShouldBeAbleToDeletePAStatusInClinicalModule() {
 		sleep(3000);
-		driver.get(baseUrl + "/Clinical/Home/RemoteMonitoringReport");
-		wait.until(ExpectedConditions.urlContains("/Clinical/Home/RemoteMonitoringReport"));
+		driver.get(baseUrl + "/Clinical/Home/ClinicalPriorAuthorizations");
+		wait.until(ExpectedConditions.urlContains("/Clinical/Home/ClinicalPriorAuthorizations"));
 		sleep(3000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/div[1]/button[1]/i[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		clickWhenClickable(By.xpath("//div[@id='deletePriorAuthorizationModel']//button[@id='btnDeleteConfirm']"));
 
 	}
 
 	@And("the user should be able to show generated PA by all in Clinical Module")
 	public void userShouldBeAbleToShowGeneratedPABYAllInClinicalModule() {
 		sleep(3000);
-		driver.get(baseUrl + "/Clinical/Home/RemoteMonitoringReport");
-		wait.until(ExpectedConditions.urlContains("/Clinical/Home/RemoteMonitoringReport"));
+		driver.get(baseUrl + "/Clinical/Home/ClinicalPriorAuthorizations");
+		wait.until(ExpectedConditions.urlContains("/Clinical/Home/ClinicalPriorAuthorizations"));
 		sleep(3000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Clinical Prior Authorization']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//a[@id='addPatientNamePopup']//img"));
+		sleep(2000);
+		waitAndSendKeys(By.id("Filter_PatientId"), "0004406");
+		clickWhenClickable(By.xpath("//button[normalize-space()='Search']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("(//input[@type='radio'])[1]"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//div[@class='modal-footer text-right d-block']//button[@id='btnPatient']"));
+		sleep(5000);
+		clickWhenClickable(By.xpath("//a[@id='addDrugNamePopup']//img"));
+		sleep(3000);
+		waitAndSendKeys(By.id("Filter_DrugName"), "amoxilin");
+		clickWhenClickable(By.xpath("//button[normalize-space()='Search']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//input[@name='groupOfDrugRadios' and @data-name='amoxilin']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//div[@id='divSearchDrugInfo']//button[@id='btnDrug']"));
+		sleep(5000);
+		clickWhenClickable(By.xpath("//a[@id='addProviderNamePopup']//img"));
+		sleep(4000);
+		clickWhenClickable(By.xpath("//input[@type='radio' and @name='groupOfProviderRadios']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//button[@id='btnProvider']"));
+		sleep(4000);
+		clickWhenClickable(By.xpath("//a[@id='addPartnerNamePopup']//img"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//input[@id='rdoFullSearch']"));
+		sleep(3000);
+		waitAndSendKeys(By.id("Filter_BusinessName"), "Attorney");
+		clickWhenClickable(By.xpath("//button[normalize-space()='Search']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//input[@type='radio' and @name='groupOfPartnerRadios']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//button[@id='btnPartner']"));
+		sleep(3000);
+		WebElement dateInput = driver.findElement(By.name("ClinicalPriorAuthorization.ReceivedDate"));
+		dateInput.clear();
+		dateInput.sendKeys("10/09/2025");
+		dateInput.sendKeys(Keys.TAB);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Patient Details']"));
+		clickWhenClickable(By.xpath("//label[normalize-space()='Pharmacy Detail']"));
+		clickWhenClickable(By.xpath("//label[normalize-space()='Provider Detail']"));
+		clickWhenClickable(By.xpath("//label[normalize-space()='Drug Detail']"));
+		clickWhenClickable(By.xpath("//button[@id='btnVerify']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='btnPendingSave']"));
+		sleep(2000);
+		WebElement dateInput1 = driver.findElement(By.name("ClinicalPriorAuthorization.SubmissionDate"));
+		dateInput1.clear();
+		dateInput1.sendKeys("10/09/2025");
+		dateInput1.sendKeys(Keys.TAB);
+		sleep(2000);
+		waitAndSendKeys(By.id("ClinicalPriorAuthorization_SubmissionNote"), "Submission");
+		clickWhenClickable(By.xpath("//button[@id='btnSaveSubmission']"));
 
 	}
 
 	@And("the user should be able to export PA All PA to Excel in Clinical Module")
 	public void userShouldBeAbleToExportAllPAToExcelInClinicalModule() {
 		sleep(3000);
-		driver.get(baseUrl + "/Clinical/Home/RemoteMonitoringReport");
-		wait.until(ExpectedConditions.urlContains("/Clinical/Home/RemoteMonitoringReport"));
+		driver.get(baseUrl + "/Clinical/Home/ClinicalPriorAuthorizations");
+		wait.until(ExpectedConditions.urlContains("/Clinical/Home/ClinicalPriorAuthorizations"));
 		sleep(3000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='Export to Excel']"));
 
 	}
 
 	@And("the user should be able to view PA All PA outcome in Clinical Module")
 	public void userShouldBeAbleToViewAllPAOutcomeInClinicalModule() {
 		sleep(3000);
-		driver.get(baseUrl + "/Clinical/Home/RemoteMonitoringReport");
-		wait.until(ExpectedConditions.urlContains("/Clinical/Home/RemoteMonitoringReport"));
+		driver.get(baseUrl + "/Clinical/Home/ClinicalPriorAuthorizations");
+		wait.until(ExpectedConditions.urlContains("/Clinical/Home/ClinicalPriorAuthorizations"));
 		sleep(3000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Clinical Prior Authorization']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//a[@id='addPatientNamePopup']//img"));
+		sleep(2000);
+		waitAndSendKeys(By.id("Filter_PatientId"), "0004406");
+		clickWhenClickable(By.xpath("//button[normalize-space()='Search']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("(//input[@type='radio'])[1]"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//div[@class='modal-footer text-right d-block']//button[@id='btnPatient']"));
+		sleep(5000);
+		clickWhenClickable(By.xpath("//a[@id='addDrugNamePopup']//img"));
+		sleep(3000);
+		waitAndSendKeys(By.id("Filter_DrugName"), "amoxilin");
+		clickWhenClickable(By.xpath("//button[normalize-space()='Search']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//input[@name='groupOfDrugRadios' and @data-name='amoxilin']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//div[@id='divSearchDrugInfo']//button[@id='btnDrug']"));
+		sleep(5000);
+		clickWhenClickable(By.xpath("//a[@id='addProviderNamePopup']//img"));
+		sleep(4000);
+		clickWhenClickable(By.xpath("//input[@type='radio' and @name='groupOfProviderRadios']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//button[@id='btnProvider']"));
+		sleep(4000);
+		clickWhenClickable(By.xpath("//a[@id='addPartnerNamePopup']//img"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//input[@id='rdoFullSearch']"));
+		sleep(3000);
+		waitAndSendKeys(By.id("Filter_BusinessName"), "Attorney");
+		clickWhenClickable(By.xpath("//button[normalize-space()='Search']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//input[@type='radio' and @name='groupOfPartnerRadios']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//button[@id='btnPartner']"));
+		sleep(3000);
+		WebElement dateInput = driver.findElement(By.name("ClinicalPriorAuthorization.ReceivedDate"));
+		dateInput.clear();
+		dateInput.sendKeys("10/09/2025");
+		dateInput.sendKeys(Keys.TAB);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Patient Details']"));
+		clickWhenClickable(By.xpath("//label[normalize-space()='Pharmacy Detail']"));
+		clickWhenClickable(By.xpath("//label[normalize-space()='Provider Detail']"));
+		clickWhenClickable(By.xpath("//label[normalize-space()='Drug Detail']"));
+		clickWhenClickable(By.xpath("//button[@id='btnVerify']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='btnPendingSave']"));
+		sleep(2000);
+		WebElement dateInput1 = driver.findElement(By.name("ClinicalPriorAuthorization.SubmissionDate"));
+		dateInput1.clear();
+		dateInput1.sendKeys("10/09/2025");
+		dateInput1.sendKeys(Keys.TAB);
+		sleep(2000);
+		waitAndSendKeys(By.id("ClinicalPriorAuthorization_SubmissionNote"), "Submission");
+		clickWhenClickable(By.xpath("//button[@id='btnSaveSubmission']"));
 
 	}
 
 	@And("the user should be able to submit PA All PA in Clinical Module")
 	public void userShouldBeAbleToSubmitAllPAInClinicalModule() {
 		sleep(3000);
-		driver.get(baseUrl + "/Clinical/Home/RemoteMonitoringReport");
-		wait.until(ExpectedConditions.urlContains("/Clinical/Home/RemoteMonitoringReport"));
+		driver.get(baseUrl + "/Clinical/Home/ClinicalPriorAuthorizations");
+		wait.until(ExpectedConditions.urlContains("/Clinical/Home/ClinicalPriorAuthorizations"));
 		sleep(3000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Clinical Prior Authorization']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//a[@id='addPatientNamePopup']//img"));
+		sleep(2000);
+		waitAndSendKeys(By.id("Filter_PatientId"), "0004406");
+		clickWhenClickable(By.xpath("//button[normalize-space()='Search']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("(//input[@type='radio'])[1]"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//div[@class='modal-footer text-right d-block']//button[@id='btnPatient']"));
+		sleep(5000);
+		clickWhenClickable(By.xpath("//a[@id='addDrugNamePopup']//img"));
+		sleep(3000);
+		waitAndSendKeys(By.id("Filter_DrugName"), "amoxilin");
+		clickWhenClickable(By.xpath("//button[normalize-space()='Search']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//input[@name='groupOfDrugRadios' and @data-name='amoxilin']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//div[@id='divSearchDrugInfo']//button[@id='btnDrug']"));
+		sleep(5000);
+		clickWhenClickable(By.xpath("//a[@id='addProviderNamePopup']//img"));
+		sleep(4000);
+		clickWhenClickable(By.xpath("//input[@type='radio' and @name='groupOfProviderRadios']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//button[@id='btnProvider']"));
+		sleep(4000);
+		clickWhenClickable(By.xpath("//a[@id='addPartnerNamePopup']//img"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//input[@id='rdoFullSearch']"));
+		sleep(3000);
+		waitAndSendKeys(By.id("Filter_BusinessName"), "Attorney");
+		clickWhenClickable(By.xpath("//button[normalize-space()='Search']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//input[@type='radio' and @name='groupOfPartnerRadios']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//button[@id='btnPartner']"));
+		sleep(3000);
+		WebElement dateInput = driver.findElement(By.name("ClinicalPriorAuthorization.ReceivedDate"));
+		dateInput.clear();
+		dateInput.sendKeys("10/09/2025");
+		dateInput.sendKeys(Keys.TAB);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Patient Details']"));
+		clickWhenClickable(By.xpath("//label[normalize-space()='Pharmacy Detail']"));
+		clickWhenClickable(By.xpath("//label[normalize-space()='Provider Detail']"));
+		clickWhenClickable(By.xpath("//label[normalize-space()='Drug Detail']"));
+		clickWhenClickable(By.xpath("//button[@id='btnVerify']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='btnPendingSave']"));
+		sleep(2000);
+		WebElement dateInput1 = driver.findElement(By.name("ClinicalPriorAuthorization.SubmissionDate"));
+		dateInput1.clear();
+		dateInput1.sendKeys("10/09/2025");
+		dateInput1.sendKeys(Keys.TAB);
+		sleep(2000);
+		waitAndSendKeys(By.id("ClinicalPriorAuthorization_SubmissionNote"), "Submission");
+		clickWhenClickable(By.xpath("//button[@id='btnSaveSubmission']"));
 
 	}
 
 	@And("the user should be able to verify PA All PA in Clinical Module")
 	public void userShouldBeAbleToVerifyAllPAInClinicalModule() {
 		sleep(3000);
-		driver.get(baseUrl + "/Clinical/Home/RemoteMonitoringReport");
-		wait.until(ExpectedConditions.urlContains("/Clinical/Home/RemoteMonitoringReport"));
+		driver.get(baseUrl + "/Clinical/Home/ClinicalPriorAuthorizations");
+		wait.until(ExpectedConditions.urlContains("/Clinical/Home/ClinicalPriorAuthorizations"));
 		sleep(3000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Clinical Prior Authorization']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//a[@id='addPatientNamePopup']//img"));
+		sleep(2000);
+		waitAndSendKeys(By.id("Filter_PatientId"), "0004406");
+		clickWhenClickable(By.xpath("//button[normalize-space()='Search']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("(//input[@type='radio'])[1]"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//div[@class='modal-footer text-right d-block']//button[@id='btnPatient']"));
+		sleep(5000);
+		clickWhenClickable(By.xpath("//a[@id='addDrugNamePopup']//img"));
+		sleep(3000);
+		waitAndSendKeys(By.id("Filter_DrugName"), "amoxilin");
+		clickWhenClickable(By.xpath("//button[normalize-space()='Search']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//input[@name='groupOfDrugRadios' and @data-name='amoxilin']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//div[@id='divSearchDrugInfo']//button[@id='btnDrug']"));
+		sleep(5000);
+		clickWhenClickable(By.xpath("//a[@id='addProviderNamePopup']//img"));
+		sleep(4000);
+		clickWhenClickable(By.xpath("//input[@type='radio' and @name='groupOfProviderRadios']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//button[@id='btnProvider']"));
+		sleep(4000);
+		clickWhenClickable(By.xpath("//a[@id='addPartnerNamePopup']//img"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//input[@id='rdoFullSearch']"));
+		sleep(3000);
+		waitAndSendKeys(By.id("Filter_BusinessName"), "Attorney");
+		clickWhenClickable(By.xpath("//button[normalize-space()='Search']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//input[@type='radio' and @name='groupOfPartnerRadios']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//button[@id='btnPartner']"));
+		sleep(3000);
+		WebElement dateInput = driver.findElement(By.name("ClinicalPriorAuthorization.ReceivedDate"));
+		dateInput.clear();
+		dateInput.sendKeys("10/09/2025");
+		dateInput.sendKeys(Keys.TAB);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Patient Details']"));
+		clickWhenClickable(By.xpath("//label[normalize-space()='Pharmacy Detail']"));
+		clickWhenClickable(By.xpath("//label[normalize-space()='Provider Detail']"));
+		clickWhenClickable(By.xpath("//label[normalize-space()='Drug Detail']"));
+		clickWhenClickable(By.xpath("//button[@id='btnVerify']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='btnPendingSave']"));
+		sleep(2000);
+		WebElement dateInput1 = driver.findElement(By.name("ClinicalPriorAuthorization.SubmissionDate"));
+		dateInput1.clear();
+		dateInput1.sendKeys("10/09/2025");
+		dateInput1.sendKeys(Keys.TAB);
+		sleep(2000);
+		waitAndSendKeys(By.id("ClinicalPriorAuthorization_SubmissionNote"), "Submission");
+		clickWhenClickable(By.xpath("//button[@id='btnSaveSubmission']"));
 
 	}
 
 	@And("the user should be able to generate PA All PA in Clinical Module")
 	public void userShouldBeAbleToGenerateAllPAInClinicalModule() {
 		sleep(3000);
-		driver.get(baseUrl + "/Clinical/Home/RemoteMonitoringReport");
-		wait.until(ExpectedConditions.urlContains("/Clinical/Home/RemoteMonitoringReport"));
+		driver.get(baseUrl + "/Clinical/Home/ClinicalPriorAuthorizations");
+		wait.until(ExpectedConditions.urlContains("/Clinical/Home/ClinicalPriorAuthorizations"));
 		sleep(3000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Clinical Prior Authorization']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//a[@id='addPatientNamePopup']//img"));
+		sleep(2000);
+		waitAndSendKeys(By.id("Filter_PatientId"), "0004406");
+		clickWhenClickable(By.xpath("//button[normalize-space()='Search']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("(//input[@type='radio'])[1]"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//div[@class='modal-footer text-right d-block']//button[@id='btnPatient']"));
+		sleep(5000);
+		clickWhenClickable(By.xpath("//a[@id='addDrugNamePopup']//img"));
+		sleep(3000);
+		waitAndSendKeys(By.id("Filter_DrugName"), "amoxilin");
+		clickWhenClickable(By.xpath("//button[normalize-space()='Search']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//input[@name='groupOfDrugRadios' and @data-name='amoxilin']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//div[@id='divSearchDrugInfo']//button[@id='btnDrug']"));
+		sleep(5000);
+		clickWhenClickable(By.xpath("//a[@id='addProviderNamePopup']//img"));
+		sleep(4000);
+		clickWhenClickable(By.xpath("//input[@type='radio' and @name='groupOfProviderRadios']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//button[@id='btnProvider']"));
+		sleep(4000);
+		clickWhenClickable(By.xpath("//a[@id='addPartnerNamePopup']//img"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//input[@id='rdoFullSearch']"));
+		sleep(3000);
+		waitAndSendKeys(By.id("Filter_BusinessName"), "Attorney");
+		clickWhenClickable(By.xpath("//button[normalize-space()='Search']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//input[@type='radio' and @name='groupOfPartnerRadios']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//button[@id='btnPartner']"));
+		sleep(3000);
+		WebElement dateInput = driver.findElement(By.name("ClinicalPriorAuthorization.ReceivedDate"));
+		dateInput.clear();
+		dateInput.sendKeys("10/09/2025");
+		dateInput.sendKeys(Keys.TAB);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Patient Details']"));
+		clickWhenClickable(By.xpath("//label[normalize-space()='Pharmacy Detail']"));
+		clickWhenClickable(By.xpath("//label[normalize-space()='Provider Detail']"));
+		clickWhenClickable(By.xpath("//label[normalize-space()='Drug Detail']"));
+		clickWhenClickable(By.xpath("//button[@id='btnVerify']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='btnPendingSave']"));
+		sleep(2000);
+		WebElement dateInput1 = driver.findElement(By.name("ClinicalPriorAuthorization.SubmissionDate"));
+		dateInput1.clear();
+		dateInput1.sendKeys("10/09/2025");
+		dateInput1.sendKeys(Keys.TAB);
+		sleep(2000);
+		waitAndSendKeys(By.id("ClinicalPriorAuthorization_SubmissionNote"), "Submission");
+		clickWhenClickable(By.xpath("//button[@id='btnSaveSubmission']"));
 
 	}
 
 	@And("the user should not be able to send Clinical PA Insurance in Clinical Module")
 	public void userShouldNotBeAbleToSendClinicalPAInsuranceInClinicalModule() {
-		sleep(3000);
-		driver.get(baseUrl + "/Clinical/Home/RemoteMonitoringReport");
-		wait.until(ExpectedConditions.urlContains("/Clinical/Home/RemoteMonitoringReport"));
-		sleep(3000);
+		sleep(1000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/div[1]/button[1]/i[1]"));
+		sleep(1000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
 
 	}
 
@@ -6559,91 +7132,95 @@ public class ClinicalSteps {
 
 	@And("the user should not be able to delete PA ChartNote attachment in Clinical Module")
 	public void userShouldNotBeAbleToDeletePAChartNoteAttachmentInClinicalModule() {
-		sleep(3000);
-		driver.get(baseUrl + "/Clinical/Home/RemoteMonitoringReport");
-		wait.until(ExpectedConditions.urlContains("/Clinical/Home/RemoteMonitoringReport"));
-		sleep(3000);
+		sleep(1000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/div[1]/button[1]/i[1]"));
+		sleep(1000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
 
 	}
 
 	@And("the user should not be able to delete generated incoming attachment in Clinical Module")
 	public void userShouldNotBeAbleToDeleteGeneratedIncomingAttachmentInClinicalModule() {
-		sleep(3000);
-		driver.get(baseUrl + "/Clinical/Home/RemoteMonitoringReport");
-		wait.until(ExpectedConditions.urlContains("/Clinical/Home/RemoteMonitoringReport"));
-		sleep(3000);
+		sleep(1000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/div[1]/button[1]/i[1]"));
+		sleep(1000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
 
 	}
 
 	@And("the user should not be able to delete PA outcome status in Clinical Module")
 	public void userShouldNotBeAbleToDeletePAOutcomeStatusInClinicalModule() {
-		sleep(3000);
-		driver.get(baseUrl + "/Clinical/Home/RemoteMonitoringReport");
-		wait.until(ExpectedConditions.urlContains("/Clinical/Home/RemoteMonitoringReport"));
-		sleep(3000);
+		sleep(1000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/div[1]/button[1]/i[1]"));
+		sleep(1000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
 
 	}
 
 	@And("the user should not be able to delete PA status in Clinical Module")
 	public void userShouldNotBeAbleToDeletePAStatusInClinicalModule() {
-		sleep(3000);
-		driver.get(baseUrl + "/Clinical/Home/RemoteMonitoringReport");
-		wait.until(ExpectedConditions.urlContains("/Clinical/Home/RemoteMonitoringReport"));
-		sleep(3000);
+		sleep(1000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/div[1]/button[1]/i[1]"));
+		sleep(1000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
 
 	}
 
 	@And("the user should not be able to show generated PA by all in Clinical Module")
 	public void userShouldNotBeAbleToShowGeneratedPABYAllInClinicalModule() {
-		sleep(3000);
-		driver.get(baseUrl + "/Clinical/Home/RemoteMonitoringReport");
-		wait.until(ExpectedConditions.urlContains("/Clinical/Home/RemoteMonitoringReport"));
-		sleep(3000);
-
+		sleep(1000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[13]/div[1]/div[1]/button[1]/i[1]"));
+		sleep(1000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
 	}
 
 	@And("the user should not be able to export PA All PA to Excel in Clinical Module")
 	public void userShouldNotBeAbleToExportPAAllPAToExcelInClinicalModule() {
-		sleep(3000);
-		driver.get(baseUrl + "/Clinical/Home/RemoteMonitoringReport");
-		wait.until(ExpectedConditions.urlContains("/Clinical/Home/RemoteMonitoringReport"));
-		sleep(3000);
+		sleep(1000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Export to Excel']"));
 
 	}
 
 	@And("the user should not be able to view PA All PA outcome in Clinical Module")
 	public void userShouldNotBeAbleToViewPAAllPAOutcomeInClinicalModule() {
-		sleep(3000);
-		driver.get(baseUrl + "/Clinical/Home/RemoteMonitoringReport");
-		wait.until(ExpectedConditions.urlContains("/Clinical/Home/RemoteMonitoringReport"));
-		sleep(3000);
+		sleep(1000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New Clinical Prior Authorization']"));
 
 	}
 
 	@And("the user should not be able to submit PA All PA in Clinical Module")
 	public void userShouldNotBeAbleToSubmitPAAllPAInClinicalModule() {
-		sleep(3000);
-		driver.get(baseUrl + "/Clinical/Home/RemoteMonitoringReport");
-		wait.until(ExpectedConditions.urlContains("/Clinical/Home/RemoteMonitoringReport"));
-		sleep(3000);
+		sleep(1000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New Clinical Prior Authorization']"));
 
 	}
 
 	@And("the user should not be able to verify PA All PA in Clinical Module")
 	public void userShouldNotBeAbleToVerifyPAAllPAInClinicalModule() {
-		sleep(3000);
-		driver.get(baseUrl + "/Clinical/Home/RemoteMonitoringReport");
-		wait.until(ExpectedConditions.urlContains("/Clinical/Home/RemoteMonitoringReport"));
-		sleep(3000);
+		sleep(1000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New Clinical Prior Authorization']"));
 
 	}
 
 	@And("the user should not be able to generate PA All PA in Clinical Module")
 	public void userShouldNotBeAbleToGeneratePAAllPAInClinicalModule() {
 		sleep(3000);
-		driver.get(baseUrl + "/Clinical/Home/RemoteMonitoringReport");
-		wait.until(ExpectedConditions.urlContains("/Clinical/Home/RemoteMonitoringReport"));
-		sleep(3000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New Clinical Prior Authorization']"));
 
 	}
 

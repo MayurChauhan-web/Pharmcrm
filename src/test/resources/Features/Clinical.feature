@@ -1,4 +1,4 @@
-
+@Clinical
 Feature: Clinical Module scenarios
 
 Scenario: User with View only access for General (Audit View)
@@ -1047,7 +1047,7 @@ And the user should not be able to download drilldown report for Reports Remote 
 
 Scenario: User with all access for PA All PA
 Given I log in as admin for Clinical Module
-When I create a new user with email for Clinical Module "testuser7_static@mailinator.com"
+When I create a new user with email for Clinical Module "testuser1_static@mailinator.com"
 And I create a profile with all access for PA All PA
 And I assign the profile and workspace to the user for Clinical Module
 And I reset the user's password for Clinical Module
@@ -1065,10 +1065,9 @@ And the user should be able to delete generated incoming attachment in Clinical 
 And the user should be able to delete PA ChartNote attachment in Clinical Module
 And the user should be able to send Clinical PA Insurance in Clinical Module
 
-@Clinical
 Scenario: User with View access for PA All PA
 Given I log in as admin for Clinical Module
-When I create a new user with email for Clinical Module "testuser25_static@mailinator.com"
+When I create a new user with email for Clinical Module "testuser6_static@mailinator.com"
 And I create a profile with View access only to PA All PA in Clinical Module
 And I assign the profile and workspace to the user for Clinical Module
 And I reset the user's password for Clinical Module

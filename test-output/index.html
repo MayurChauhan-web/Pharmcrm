@@ -103,7 +103,7 @@
                     <div class="method-list-content failed suite-Cucumber_Parallel_Suite">
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Cucumber_Parallel_Suite" title="com.pharmcrm.pharmcrm_product.runner.MasterRunner" class="method navigator-link" hash-for-method="runScenario(&quot;User with Edit access for RPM Status&quot;, &quot;Clinical Module scenarios&quot;)">runScenario("User with Edit access for RPM Status", "Clinical Module scenarios")</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Cucumber_Parallel_Suite" title="com.pharmcrm.pharmcrm_product.runner.MasterRunner" class="method navigator-link" hash-for-method="runScenario(&quot;User with Delete access can repeatedly delete profile entries&quot;, &quot;Setup Module scenarios&quot;)">runScenario("User with Delete access can repeatedly delete profile entries", "Setup Module scenarios")</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Cucumber_Parallel_Suite -->
@@ -126,16 +126,64 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="runScenario(&quot;User with Edit access for RPM Status&quot;, &quot;Clinical Module scenarios&quot;)">
-                  </a> <!-- runScenario("User with Edit access for RPM Status", "Clinical Module scenarios") -->
+                  <a name="runScenario(&quot;User with Delete access can repeatedly delete profile entries&quot;, &quot;Setup Module scenarios&quot;)">
+                  </a> <!-- runScenario("User with Delete access can repeatedly delete profile entries", "Setup Module scenarios") -->
                   <span class="method-name">runScenario</span>
-                  <span class="parameters">("User with Edit access for RPM Status","Clinical Module scenarios")</span>
-                  <div class="stack-trace">java.lang.AssertionError: Element should not be present: By.xpath: //button[@id=&apos;btnSaveRemoteMonitoringStatus&apos;]//*[name()=&apos;svg&apos;]//*[name()=&apos;path&apos; and @id=&apos;Path_23&apos;]
-	at org.junit.Assert.fail(Assert.java:89)
-	at org.junit.Assert.assertTrue(Assert.java:42)
-	at com.pharmcrm.pharmcrm_product.steps.ClinicalSteps.assertElementNotPresent(ClinicalSteps.java:8042)
-	at com.pharmcrm.pharmcrm_product.steps.ClinicalSteps.theUserShouldNotBeAbleToAddOrDeleteRPMStatusInClinicalModule(ClinicalSteps.java:6488)
-	at ✽.the user should not be able to add or delete RPM RPM Status in Clinical Module(file:///C:/Users/MayurChauhan/eclipse-workspace/pharmcrm-product/src/test/resources/Features/Clinical.feature:1107)
+                  <span class="parameters">("User with Delete access can repeatedly delete profile entries","Setup Module scenarios")</span>
+                  <div class="stack-trace">org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
+Build info: version: &apos;4.34.0&apos;, revision: &apos;707dcb4246*&apos;
+System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.12&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [61937f2d274e786901c8c6b18719ae99, findElement [value, using]]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 141.0.7390.77, chrome: {chromedriverVersion: 141.0.7390.78 (2b53b0e231fc..., userDataDir: C:\Users\MAYURC~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:52716}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52716/devtoo..., se:cdpVersion: 141.0.7390.77, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 61937f2d274e786901c8c6b18719ae99
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:571)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:367)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:361)
+	at com.pharmcrm.pharmcrm_product.steps.SetupSteps.repeatedlyDeleteAvailableProfileEntries(SetupSteps.java:6550)
+	at ✽.I repeatedly delete available profile entries(file:///C:/Users/MayurChauhan/eclipse-workspace/pharmcrm-product/src/test/resources/Features/Setup.feature:1307)
+Caused by: java.io.UncheckedIOException: java.io.IOException: HTTP/1.1 header parser received no bytes
+	at org.openqa.selenium.remote.http.jdk.JdkHttpClient.execute0(JdkHttpClient.java:500)
+	at org.openqa.selenium.remote.http.AddSeleniumUserAgent.lambda$apply$0(AddSeleniumUserAgent.java:42)
+	at org.openqa.selenium.remote.http.Filter.lambda$andFinally$1(Filter.java:55)
+	at org.openqa.selenium.remote.http.jdk.JdkHttpClient.lambda$executeAsync$2(JdkHttpClient.java:387)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Caused by: java.io.IOException: HTTP/1.1 header parser received no bytes
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:589)
+	at java.net.http/jdk.internal.net.http.HttpClientFacade.send(HttpClientFacade.java:123)
+	at org.openqa.selenium.remote.http.jdk.JdkHttpClient.execute0(JdkHttpClient.java:459)
+	... 8 more
+Caused by: java.io.IOException: HTTP/1.1 header parser received no bytes
+	at java.net.http/jdk.internal.net.http.common.Utils.wrapWithExtraDetail(Utils.java:348)
+	at java.net.http/jdk.internal.net.http.Http1Response$HeadersReader.onReadError(Http1Response.java:675)
+	at java.net.http/jdk.internal.net.http.Http1AsyncReceiver.checkForErrors(Http1AsyncReceiver.java:302)
+	at java.net.http/jdk.internal.net.http.Http1AsyncReceiver.flush(Http1AsyncReceiver.java:268)
+	at java.net.http/jdk.internal.net.http.common.SequentialScheduler$LockingRestartableTask.run(SequentialScheduler.java:205)
+	at java.net.http/jdk.internal.net.http.common.SequentialScheduler$CompleteRestartableTask.run(SequentialScheduler.java:149)
+	at java.net.http/jdk.internal.net.http.common.SequentialScheduler$SchedulableTask.run(SequentialScheduler.java:230)
+	... 3 more
+Caused by: java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:394)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:426)
+	at java.net.http/jdk.internal.net.http.SocketTube.readAvailable(SocketTube.java:1170)
+	at java.net.http/jdk.internal.net.http.SocketTube$InternalReadPublisher$InternalReadSubscription.read(SocketTube.java:833)
+	at java.net.http/jdk.internal.net.http.SocketTube$SocketFlowTask.run(SocketTube.java:181)
+	at java.net.http/jdk.internal.net.http.common.SequentialScheduler$SchedulableTask.run(SequentialScheduler.java:230)
+	at java.net.http/jdk.internal.net.http.common.SequentialScheduler.runOrSchedule(SequentialScheduler.java:303)
+	at java.net.http/jdk.internal.net.http.common.SequentialScheduler.runOrSchedule(SequentialScheduler.java:256)
+	at java.net.http/jdk.internal.net.http.SocketTube$InternalReadPublisher$InternalReadSubscription.signalReadable(SocketTube.java:774)
+	at java.net.http/jdk.internal.net.http.SocketTube$InternalReadPublisher$ReadEvent.signalEvent(SocketTube.java:957)
+	at java.net.http/jdk.internal.net.http.SocketTube$SocketFlowEvent.handle(SocketTube.java:253)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl$SelectorManager.handleEvent(HttpClientImpl.java:982)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl$SelectorManager.lambda$run$3(HttpClientImpl.java:937)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl$SelectorManager.run(HttpClientImpl.java:937)
 
 </div> <!-- stack-trace -->
                   <em>
@@ -208,7 +256,7 @@ data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'runScenario')
 data.setCell(0, 2, 'com.pharmcrm.pharmcrm_product.runner.MasterRunner')
-data.setCell(0, 3, 105237);
+data.setCell(0, 3, 69618);
 window.suiteTableData['Cucumber_Parallel_Suite']= { tableData: data, tableDiv: 'times-div-Cucumber_Parallel_Suite'}
 return data;
 }
@@ -241,18 +289,18 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">com.pharmcrm.pharmcrm_product.runner.MasterRunner</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
-                <span class="method-name">setUpClass(org.testng.TestRunner@6be968ce)</span>
+                <span class="method-name">setUpClass(org.testng.TestRunner@4a003cbe)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">runScenario("User with Edit access for RPM Status", "Clinical Module scenarios")</span>
-                <span class="method-start">973 ms</span>
+                <span class="method-name">runScenario("User with Delete access can repeatedly delete profile entries", "Setup Module scenarios")</span>
+                <span class="method-start">957 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">tearDownClass</span>
-                <span class="method-start">106220 ms</span>
+                <span class="method-start">70591 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
