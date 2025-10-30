@@ -151,9 +151,14 @@ public class PartnerSteps {
 		clickWhenClickable(setupModuleCheckbox);
 		sleep(2000);
 		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(3000);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Partner Module']"));
 		sleep(3000);
-		clickWhenClickable(By.xpath("//label[@for='chkg37PartnerAuditView']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg21PartnerExecutiveAll']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg33ResetPartnerExecutivePassword']"));
 		sleep(1000);
 		clickWhenClickable(By.id("btnSave"));
 	}
@@ -178,9 +183,14 @@ public class PartnerSteps {
 		clickWhenClickable(setupModuleCheckbox);
 		sleep(2000);
 		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(3000);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Partner Module']"));
 		sleep(3000);
-		clickWhenClickable(By.xpath("//label[@for='chkg37PartnerAuditView']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg21PartnerExecutiveAll']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg21PartnerExecutiveDelete']"));
 		sleep(1000);
 		clickWhenClickable(By.id("btnSave"));
 	}
@@ -205,9 +215,14 @@ public class PartnerSteps {
 		clickWhenClickable(setupModuleCheckbox);
 		sleep(2000);
 		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(3000);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Partner Module']"));
 		sleep(3000);
-		clickWhenClickable(By.xpath("//label[@for='chkg37PartnerAuditView']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg21PartnerExecutiveAll']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg21PartnerExecutiveEdit']"));
 		sleep(1000);
 		clickWhenClickable(By.id("btnSave"));
 	}
@@ -232,9 +247,14 @@ public class PartnerSteps {
 		clickWhenClickable(setupModuleCheckbox);
 		sleep(2000);
 		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(3000);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Partner Module']"));
 		sleep(3000);
-		clickWhenClickable(By.xpath("//label[@for='chkg37PartnerAuditView']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg21PartnerExecutiveAll']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg21PartnerExecutiveAdd']"));
 		sleep(1000);
 		clickWhenClickable(By.id("btnSave"));
 	}
@@ -264,9 +284,9 @@ public class PartnerSteps {
 		sleep(3000);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Partner Module']"));
 		sleep(3000);
-		clickWhenClickable(By.xpath("//label[@for='chkg21BusinessAddressAll']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg21MailingAddressAll']"));
 		sleep(1000);
-		clickWhenClickable(By.xpath("//label[@for='chkg21BusinessAddressAdd']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg21MailingAddressDelete']"));
 		sleep(1000);
 		clickWhenClickable(By.id("btnSave"));
 	}
@@ -296,9 +316,9 @@ public class PartnerSteps {
 		sleep(3000);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Partner Module']"));
 		sleep(3000);
-		clickWhenClickable(By.xpath("//label[@for='chkg21BusinessAddressAll']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg21MailingAddressAll']"));
 		sleep(1000);
-		clickWhenClickable(By.xpath("//label[@for='chkg21BusinessAddressAdd']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg21MailingAddressEdit']"));
 		sleep(1000);
 		clickWhenClickable(By.id("btnSave"));
 	}
@@ -322,13 +342,15 @@ public class PartnerSteps {
 		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
 		clickWhenClickable(setupModuleCheckbox);
 		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
 		sleep(3000);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Partner Module']"));
 		sleep(3000);
-		clickWhenClickable(By.xpath("//label[@for='chkg21BusinessAddressAll']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg21MailingAddressAll']"));
 		sleep(1000);
-		clickWhenClickable(By.xpath("//label[@for='chkg21BusinessAddressAdd']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg21MailingAddressAdd']"));
 		sleep(1000);
 		clickWhenClickable(By.id("btnSave"));
 	}
@@ -847,48 +869,53 @@ public class PartnerSteps {
 	@And("the user should be able to delete Mailing Address in Partner Module")
 	public void verifyUserCanDeleteMailingAddressInPartnerModule() {
 		sleep(3000);
-		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=85a7a8a7-803c-4801-8bfa-ef64491be0fd");
+		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=6b73f9ca-5250-4d9c-8772-c2d33f5c5850");
 		wait.until(ExpectedConditions
-				.urlContains("/Partner/Home/Partners?partnerTypeId=85a7a8a7-803c-4801-8bfa-ef64491be0fd"));
+				.urlContains("/Partner/Home/Partners?partnerTypeId=6b73f9ca-5250-4d9c-8772-c2d33f5c5850"));
 		sleep(3000);
-		assertElementPresent(By.xpath("//a[normalize-space()='Created By']"));
-		assertElementPresent(By.xpath("//a[normalize-space()='Created Date']"));
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath(
+				"(//div[@id='partner-address-list-mailing']//a[@id='btnDeletePartnerAddress' and contains(@data-original-title,'Delete Partner Address')])[1]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//button[@id='deletePartnerAddress']"));
 
 	}
 
 	@And("the user should not be able to add or delete Mailing Address in Partner Module")
 	public void verifyUserCannotAddOrDeleteMailingAddressInPartnerModule() {
 		sleep(3000);
-		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=85a7a8a7-803c-4801-8bfa-ef64491be0fd");
-		wait.until(ExpectedConditions
-				.urlContains("/Partner/Home/Partners?partnerTypeId=85a7a8a7-803c-4801-8bfa-ef64491be0fd"));
-		sleep(3000);
-		assertElementPresent(By.xpath("//a[normalize-space()='Created By']"));
-		assertElementPresent(By.xpath("//a[normalize-space()='Created Date']"));
-
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New Mailing Address']"));
+		assertElementNotPresent(By.xpath(
+				"(//div[@id='partner-address-list-mailing']//a[@id='btnDeletePartnerAddress' and contains(@data-original-title,'Delete Partner Address')])[1]"));
 	}
 
 	@And("the user should be able to reset password for Executive in Partner Module")
 	public void verifyUserCanResetPasswordForExecutiveInPartnerModule() {
 		sleep(3000);
-		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=85a7a8a7-803c-4801-8bfa-ef64491be0fd");
+		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=6b73f9ca-5250-4d9c-8772-c2d33f5c5850");
 		wait.until(ExpectedConditions
-				.urlContains("/Partner/Home/Partners?partnerTypeId=85a7a8a7-803c-4801-8bfa-ef64491be0fd"));
+				.urlContains("/Partner/Home/Partners?partnerTypeId=6b73f9ca-5250-4d9c-8772-c2d33f5c5850"));
 		sleep(3000);
-		assertElementPresent(By.xpath("//a[normalize-space()='Created By']"));
-		assertElementPresent(By.xpath("//a[normalize-space()='Created Date']"));
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Mailing Address']"));
+		sleep(3000);
+		waitAndSendKeys(By.id("PartnerAddress_Street"), "789 Broadway Ave");
+		waitAndSendKeys(By.id("PartnerAddress_City"), "New York");
+		waitAndSendKeys(By.id("PartnerAddress_State"), "NY");
+		waitAndSendKeys(By.id("PartnerAddress_ZipCode"), "10003");
+		clickWhenClickable(By.xpath("//button[@id='btnSavePartnerAddressPopup']"));
 
 	}
 
 	@And("the user should not be able to add, edit, or delete Executive in Partner Module")
 	public void verifyUserCannotAddEditOrDeleteExecutiveInPartnerModule() {
 		sleep(3000);
-		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=85a7a8a7-803c-4801-8bfa-ef64491be0fd");
-		wait.until(ExpectedConditions
-				.urlContains("/Partner/Home/Partners?partnerTypeId=85a7a8a7-803c-4801-8bfa-ef64491be0fd"));
-		sleep(3000);
-		assertElementPresent(By.xpath("//a[normalize-space()='Created By']"));
-		assertElementPresent(By.xpath("//a[normalize-space()='Created Date']"));
+		assertElementNotPresent(By.xpath(
+				"(//div[@id='partner-address-list-mailing']//a[contains(@onclick,'editPartnerAddress') and contains(@data-original-title,'Edit Partner Care Giver Name')])[1]"));
+		assertElementNotPresent(By.xpath(
+				"(//div[@id='partner-address-list-mailing']//a[@id='btnDeletePartnerAddress' and contains(@data-original-title,'Delete Partner Address')])[1]"));
 
 	}
 
@@ -907,109 +934,114 @@ public class PartnerSteps {
 	@And("the user should not be able to add or edit Executive in Partner Module")
 	public void verifyUserCannotAddOrEditExecutiveInPartnerModule() {
 		sleep(3000);
-		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=85a7a8a7-803c-4801-8bfa-ef64491be0fd");
-		wait.until(ExpectedConditions
-				.urlContains("/Partner/Home/Partners?partnerTypeId=85a7a8a7-803c-4801-8bfa-ef64491be0fd"));
-		sleep(3000);
-		assertElementPresent(By.xpath("//a[normalize-space()='Created By']"));
-		assertElementPresent(By.xpath("//a[normalize-space()='Created Date']"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New Mailing Address']"));
+		assertElementNotPresent(By.xpath(
+				"(//div[@id='partner-address-list-mailing']//a[contains(@onclick,'editPartnerAddress') and contains(@data-original-title,'Edit Partner Care Giver Name')])[1]"));
 
 	}
 
 	@And("the user should be able to delete Executive in Partner Module")
 	public void verifyUserCanDeleteExecutiveInPartnerModule() {
 		sleep(3000);
-		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=85a7a8a7-803c-4801-8bfa-ef64491be0fd");
+		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=6b73f9ca-5250-4d9c-8772-c2d33f5c5850");
 		wait.until(ExpectedConditions
-				.urlContains("/Partner/Home/Partners?partnerTypeId=85a7a8a7-803c-4801-8bfa-ef64491be0fd"));
+				.urlContains("/Partner/Home/Partners?partnerTypeId=6b73f9ca-5250-4d9c-8772-c2d33f5c5850"));
 		sleep(3000);
-		assertElementPresent(By.xpath("//a[normalize-space()='Created By']"));
-		assertElementPresent(By.xpath("//a[normalize-space()='Created Date']"));
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath(
+				"(//div[@id='partner-address-list-mailing']//a[@id='btnDeletePartnerAddress' and contains(@data-original-title,'Delete Partner Address')])[1]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//button[@id='deletePartnerAddress']"));
 
 	}
 
 	@And("the user should not be able to add or delete Executive in Partner Module")
 	public void verifyUserCannotAddOrDeleteExecutiveInPartnerModule() {
 		sleep(3000);
-		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=85a7a8a7-803c-4801-8bfa-ef64491be0fd");
-		wait.until(ExpectedConditions
-				.urlContains("/Partner/Home/Partners?partnerTypeId=85a7a8a7-803c-4801-8bfa-ef64491be0fd"));
-		sleep(3000);
-		assertElementPresent(By.xpath("//a[normalize-space()='Created By']"));
-		assertElementPresent(By.xpath("//a[normalize-space()='Created Date']"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New Mailing Address']"));
+		assertElementNotPresent(By.xpath(
+				"(//div[@id='partner-address-list-mailing']//a[@id='btnDeletePartnerAddress' and contains(@data-original-title,'Delete Partner Address')])[1]"));
 
 	}
 
 	@And("the user should be able to edit Executive in Partner Module")
 	public void verifyUserCanEditExecutiveInPartnerModule() {
 		sleep(3000);
-		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=85a7a8a7-803c-4801-8bfa-ef64491be0fd");
+		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=6b73f9ca-5250-4d9c-8772-c2d33f5c5850");
 		wait.until(ExpectedConditions
-				.urlContains("/Partner/Home/Partners?partnerTypeId=85a7a8a7-803c-4801-8bfa-ef64491be0fd"));
+				.urlContains("/Partner/Home/Partners?partnerTypeId=6b73f9ca-5250-4d9c-8772-c2d33f5c5850"));
 		sleep(3000);
-		assertElementPresent(By.xpath("//a[normalize-space()='Created By']"));
-		assertElementPresent(By.xpath("//a[normalize-space()='Created Date']"));
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath(
+				"(//div[@id='partner-address-list-mailing']//a[contains(@onclick,'editPartnerAddress') and contains(@data-original-title,'Edit Partner Care Giver Name')])[1]"));
+		sleep(3000);
+		waitAndSendKeys(By.id("PartnerAddress_ZipCode"), "10003");
+		clickWhenClickable(By.xpath("//button[@id='btnSavePartnerAddressPopup']"));
 
 	}
 
 	@And("the user should not be able to edit or delete Executive in Partner Module")
 	public void verifyUserCannotEditOrDeleteExecutiveInPartnerModule() {
 		sleep(3000);
-		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=85a7a8a7-803c-4801-8bfa-ef64491be0fd");
-		wait.until(ExpectedConditions
-				.urlContains("/Partner/Home/Partners?partnerTypeId=85a7a8a7-803c-4801-8bfa-ef64491be0fd"));
-		sleep(3000);
-		assertElementPresent(By.xpath("//a[normalize-space()='Created By']"));
-		assertElementPresent(By.xpath("//a[normalize-space()='Created Date']"));
+		assertElementNotPresent(By.xpath(
+				"(//div[@id='partner-address-list-mailing']//a[contains(@onclick,'editPartnerAddress') and contains(@data-original-title,'Edit Partner Care Giver Name')])[1]"));
+		assertElementNotPresent(By.xpath(
+				"(//div[@id='partner-address-list-mailing']//a[@id='btnDeletePartnerAddress' and contains(@data-original-title,'Delete Partner Address')])[1]"));
 
 	}
 
 	@And("the user should be able to add Executive in Partner Module")
 	public void verifyUserCanAddExecutiveInPartnerModule() {
 		sleep(3000);
-		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=85a7a8a7-803c-4801-8bfa-ef64491be0fd");
+		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=6b73f9ca-5250-4d9c-8772-c2d33f5c5850");
 		wait.until(ExpectedConditions
-				.urlContains("/Partner/Home/Partners?partnerTypeId=85a7a8a7-803c-4801-8bfa-ef64491be0fd"));
+				.urlContains("/Partner/Home/Partners?partnerTypeId=6b73f9ca-5250-4d9c-8772-c2d33f5c5850"));
 		sleep(3000);
-		assertElementPresent(By.xpath("//a[normalize-space()='Created By']"));
-		assertElementPresent(By.xpath("//a[normalize-space()='Created Date']"));
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Executive']"));
+		sleep(3000);
+		waitAndSendKeys(By.id("PartnerExecutive_LastName"), "NY");
+		waitAndSendKeys(By.id("PartnerExecutive_FirstName"), "10003");
+		clickWhenClickable(By.xpath("//button[@id='btnSavePartnerAddressPopup']"));
 
 	}
 
 	@And("the user should not be able to add or edit Mailing Address in Partner Module")
 	public void verifyUserCannotAddOrEditMailingAddressInPartnerModule() {
 		sleep(3000);
-		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=85a7a8a7-803c-4801-8bfa-ef64491be0fd");
-		wait.until(ExpectedConditions
-				.urlContains("/Partner/Home/Partners?partnerTypeId=85a7a8a7-803c-4801-8bfa-ef64491be0fd"));
-		sleep(3000);
-		assertElementPresent(By.xpath("//a[normalize-space()='Created By']"));
-		assertElementPresent(By.xpath("//a[normalize-space()='Created Date']"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New Mailing Address']"));
+		assertElementNotPresent(By.xpath(
+				"(//div[@id='partner-address-list-mailing']//a[contains(@onclick,'editPartnerAddress') and contains(@data-original-title,'Edit Partner Care Giver Name')])[1]"));
 
 	}
 
 	@And("the user should be able to edit Mailing Address in Partner Module")
 	public void verifyUserCanEditMailingAddressInPartnerModule() {
 		sleep(3000);
-		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=85a7a8a7-803c-4801-8bfa-ef64491be0fd");
+		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=6b73f9ca-5250-4d9c-8772-c2d33f5c5850");
 		wait.until(ExpectedConditions
-				.urlContains("/Partner/Home/Partners?partnerTypeId=85a7a8a7-803c-4801-8bfa-ef64491be0fd"));
+				.urlContains("/Partner/Home/Partners?partnerTypeId=6b73f9ca-5250-4d9c-8772-c2d33f5c5850"));
 		sleep(3000);
-		assertElementPresent(By.xpath("//a[normalize-space()='Created By']"));
-		assertElementPresent(By.xpath("//a[normalize-space()='Created Date']"));
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath(
+				"(//div[@id='partner-address-list-mailing']//a[contains(@onclick,'editPartnerAddress') and contains(@data-original-title,'Edit Partner Care Giver Name')])[1]"));
+		sleep(3000);
+		waitAndSendKeys(By.id("PartnerAddress_ZipCode"), "10003");
+		clickWhenClickable(By.xpath("//button[@id='btnSavePartnerAddressPopup']"));
 
 	}
 
 	@And("the user should not be able to edit or delete Mailing Address in Partner Module")
 	public void verifyUserCannotEditOrDeleteMailingAddressInPartnerModule() {
 		sleep(3000);
-		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=85a7a8a7-803c-4801-8bfa-ef64491be0fd");
-		wait.until(ExpectedConditions
-				.urlContains("/Partner/Home/Partners?partnerTypeId=85a7a8a7-803c-4801-8bfa-ef64491be0fd"));
-		sleep(3000);
-		assertElementPresent(By.xpath("//a[normalize-space()='Created By']"));
-		assertElementPresent(By.xpath("//a[normalize-space()='Created Date']"));
-
+		assertElementNotPresent(By.xpath(
+				"(//div[@id='partner-address-list-mailing']//a[contains(@onclick,'editPartnerAddress') and contains(@data-original-title,'Edit Partner Care Giver Name')])[1]"));
+		assertElementNotPresent(By.xpath(
+				"(//div[@id='partner-address-list-mailing']//a[@id='btnDeletePartnerAddress' and contains(@data-original-title,'Delete Partner Address')])[1]"));
 	}
 
 	@And("the user should be able to add Mailing Address in Partner Module")
@@ -1021,7 +1053,7 @@ public class PartnerSteps {
 		sleep(3000);
 		clickWhenClickable(By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]"));
 		sleep(3000);
-		clickWhenClickable(By.xpath("//span[normalize-space()='New Business Addresses']"));
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Mailing Address']"));
 		sleep(3000);
 		waitAndSendKeys(By.id("PartnerAddress_Street"), "789 Broadway Ave");
 		waitAndSendKeys(By.id("PartnerAddress_City"), "New York");
