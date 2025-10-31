@@ -1395,6 +1395,10 @@ Feature: Setup Module scenarios
   And I log in using the new user for Setup Module
   Then the user should not see the Privacy Policy & Terms of Use section
   
+  
+  
+  
+  
     
 
   
