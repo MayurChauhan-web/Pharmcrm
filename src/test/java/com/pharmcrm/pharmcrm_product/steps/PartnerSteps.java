@@ -163,6 +163,202 @@ public class PartnerSteps {
 		clickWhenClickable(By.id("btnSave"));
 	}
 
+	@And("I create a profile with full Folder permissions but no File permissions for Bucket in Partner Module")
+	public void createProfileWithFullFolderPermissionsButNoFilePermissionsForBucketInPartnerModule() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Partner Module']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg21PartnerBucketFileAll']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg23PartnerBucketFolderAdd']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg23PartnerBucketFolderEdit']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg23PartnerBucketFolderDelete']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg23PartnerBucketFolderFavourite']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with full File permissions but no Folder permissions for Bucket in Partner Module")
+	public void createProfileWithFullFilePermissionsButNoFolderPermissionsForBucketInPartnerModule() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Partner Module']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg23PartnerBucketFolderAdd']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg23PartnerBucketFolderEdit']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg23PartnerBucketFolderDelete']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg23PartnerBucketFolderFavourite']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with Add access only to Attorney in Partner Module")
+	public void createProfileWithAddAccessOnlyToAttorneyInPartnerModule() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Partner Module']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg21AttorneyAll']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg21AttorneyAdd']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with Edit access only to Attorney in Partner Module")
+	public void createProfileWithEditAccessOnlyToAttorneyInPartnerModule() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Partner Module']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg21AttorneyAll']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg21AttorneyEdit']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with Delete access only to Attorney in Partner Module")
+	public void createProfileWithDeleteAccessOnlyToAttorneyInPartnerModule() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Partner Module']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg21AttorneyAll']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg22AttorneyDelete']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with Details access only to Attorney in Partner Module")
+	public void createProfileWithDetailsAccessOnlyToAttorneyInPartnerModule() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Partner Module']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg21AttorneyAll']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg22AttorneyDetails']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
 	@And("I create a profile with Delete access only to Executive in Partner Module")
 	public void createProfileWithDeleteAccessOnlyForPartnerModuleExecutive() {
 		driver.get(baseUrl + "/Setup/Home/Profiles");
@@ -899,23 +1095,453 @@ public class PartnerSteps {
 		sleep(3000);
 		clickWhenClickable(By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]"));
 		sleep(3000);
-		clickWhenClickable(By.xpath("//span[normalize-space()='New Mailing Address']"));
+		clickWhenClickable(By.xpath("//a[normalize-space()='Executives']"));
 		sleep(3000);
-		waitAndSendKeys(By.id("PartnerAddress_Street"), "789 Broadway Ave");
-		waitAndSendKeys(By.id("PartnerAddress_City"), "New York");
-		waitAndSendKeys(By.id("PartnerAddress_State"), "NY");
-		waitAndSendKeys(By.id("PartnerAddress_ZipCode"), "10003");
-		clickWhenClickable(By.xpath("//button[@id='btnSavePartnerAddressPopup']"));
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Enable Login')]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Reset Password')]"));
+		sleep(3000);
+		waitAndSendKeys(By.id("newPassword"), "Admin@123");
+		waitAndSendKeys(By.id("confirmPassword"), "Admin@123");
+		clickWhenClickable(By.xpath("//button[@id='btnResetPassword']"));
+
+	}
+
+	@And("the user should be able to edit Attorney in Partner Module")
+	public void userShouldBeAbleToEditAttorneyInPartnerModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=6b73f9ca-5250-4d9c-8772-c2d33f5c5850");
+		wait.until(ExpectedConditions
+				.urlContains("/Partner/Home/Partners?partnerTypeId=6b73f9ca-5250-4d9c-8772-c2d33f5c5850"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='Executives']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Enable Login')]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Reset Password')]"));
+		sleep(3000);
+		waitAndSendKeys(By.id("newPassword"), "Admin@123");
+		waitAndSendKeys(By.id("confirmPassword"), "Admin@123");
+		clickWhenClickable(By.xpath("//button[@id='btnResetPassword']"));
+
+	}
+
+	@And("the user should not be able to add or delete Attorney in Partner Module")
+	public void userShouldNotBeAbleToAddOrDeleteAttorneyInPartnerModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=6b73f9ca-5250-4d9c-8772-c2d33f5c5850");
+		wait.until(ExpectedConditions
+				.urlContains("/Partner/Home/Partners?partnerTypeId=6b73f9ca-5250-4d9c-8772-c2d33f5c5850"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='Executives']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Enable Login')]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Reset Password')]"));
+		sleep(3000);
+		waitAndSendKeys(By.id("newPassword"), "Admin@123");
+		waitAndSendKeys(By.id("confirmPassword"), "Admin@123");
+		clickWhenClickable(By.xpath("//button[@id='btnResetPassword']"));
+
+	}
+
+	@And("the user should not be able to edit or delete Attorney in Partner Module")
+	public void userShouldNotBeAbleToEditOrDeleteAttorneyInPartnerModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=6b73f9ca-5250-4d9c-8772-c2d33f5c5850");
+		wait.until(ExpectedConditions
+				.urlContains("/Partner/Home/Partners?partnerTypeId=6b73f9ca-5250-4d9c-8772-c2d33f5c5850"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='Executives']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Enable Login')]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Reset Password')]"));
+		sleep(3000);
+		waitAndSendKeys(By.id("newPassword"), "Admin@123");
+		waitAndSendKeys(By.id("confirmPassword"), "Admin@123");
+		clickWhenClickable(By.xpath("//button[@id='btnResetPassword']"));
+
+	}
+
+	@And("the user should not be able to view Attorney details in Partner Module")
+	public void userShouldNotBeAbleToViewAttorneyDetailsInPartnerModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=6b73f9ca-5250-4d9c-8772-c2d33f5c5850");
+		wait.until(ExpectedConditions
+				.urlContains("/Partner/Home/Partners?partnerTypeId=6b73f9ca-5250-4d9c-8772-c2d33f5c5850"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='Executives']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Enable Login')]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Reset Password')]"));
+		sleep(3000);
+		waitAndSendKeys(By.id("newPassword"), "Admin@123");
+		waitAndSendKeys(By.id("confirmPassword"), "Admin@123");
+		clickWhenClickable(By.xpath("//button[@id='btnResetPassword']"));
+
+	}
+
+	@And("the user should not be able to add, edit, or delete Attorney in Partner Module")
+	public void userShouldNotBeAbleToAddEditOrDeleteAttorneyInPartnerModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=6b73f9ca-5250-4d9c-8772-c2d33f5c5850");
+		wait.until(ExpectedConditions
+				.urlContains("/Partner/Home/Partners?partnerTypeId=6b73f9ca-5250-4d9c-8772-c2d33f5c5850"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='Executives']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Enable Login')]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Reset Password')]"));
+		sleep(3000);
+		waitAndSendKeys(By.id("newPassword"), "Admin@123");
+		waitAndSendKeys(By.id("confirmPassword"), "Admin@123");
+		clickWhenClickable(By.xpath("//button[@id='btnResetPassword']"));
+
+	}
+
+	@And("the user should be able to view Attorney details in Partner Module")
+	public void userShouldBeAbleToViewAttorneyDetailsInPartnerModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=6b73f9ca-5250-4d9c-8772-c2d33f5c5850");
+		wait.until(ExpectedConditions
+				.urlContains("/Partner/Home/Partners?partnerTypeId=6b73f9ca-5250-4d9c-8772-c2d33f5c5850"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='Executives']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Enable Login')]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Reset Password')]"));
+		sleep(3000);
+		waitAndSendKeys(By.id("newPassword"), "Admin@123");
+		waitAndSendKeys(By.id("confirmPassword"), "Admin@123");
+		clickWhenClickable(By.xpath("//button[@id='btnResetPassword']"));
+
+	}
+
+	@And("the user should not be able to add or edit Attorney in Partner Module")
+	public void userShouldNotBeAbleToAddOrEditAttorneyInPartnerModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=6b73f9ca-5250-4d9c-8772-c2d33f5c5850");
+		wait.until(ExpectedConditions
+				.urlContains("/Partner/Home/Partners?partnerTypeId=6b73f9ca-5250-4d9c-8772-c2d33f5c5850"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='Executives']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Enable Login')]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Reset Password')]"));
+		sleep(3000);
+		waitAndSendKeys(By.id("newPassword"), "Admin@123");
+		waitAndSendKeys(By.id("confirmPassword"), "Admin@123");
+		clickWhenClickable(By.xpath("//button[@id='btnResetPassword']"));
+
+	}
+
+	@And("the user should be able to delete Attorney in Partner Module")
+	public void userShouldBeAbleToDeleteAttorneyInPartnerModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=6b73f9ca-5250-4d9c-8772-c2d33f5c5850");
+		wait.until(ExpectedConditions
+				.urlContains("/Partner/Home/Partners?partnerTypeId=6b73f9ca-5250-4d9c-8772-c2d33f5c5850"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='Executives']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Enable Login')]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Reset Password')]"));
+		sleep(3000);
+		waitAndSendKeys(By.id("newPassword"), "Admin@123");
+		waitAndSendKeys(By.id("confirmPassword"), "Admin@123");
+		clickWhenClickable(By.xpath("//button[@id='btnResetPassword']"));
+
+	}
+
+	@And("the user should be able to add Attorney in Partner Module")
+	public void userShouldBeAbleToAddAttorneyInPartnerModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=85a7a8a7-803c-4801-8bfa-ef64491be0fd");
+		wait.until(ExpectedConditions
+				.urlContains("/Partner/Home/Partners?partnerTypeId=85a7a8a7-803c-4801-8bfa-ef64491be0fd"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Partner']"));
 
 	}
 
 	@And("the user should not be able to add, edit, or delete Executive in Partner Module")
 	public void verifyUserCannotAddEditOrDeleteExecutiveInPartnerModule() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath(
-				"(//div[@id='partner-address-list-mailing']//a[contains(@onclick,'editPartnerAddress') and contains(@data-original-title,'Edit Partner Care Giver Name')])[1]"));
-		assertElementNotPresent(By.xpath(
-				"(//div[@id='partner-address-list-mailing']//a[@id='btnDeletePartnerAddress' and contains(@data-original-title,'Delete Partner Address')])[1]"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New Executive']"));
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Edit']"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Delete']"));
+
+	}
+
+	@And("the user should be able to favourite Folder in Bucket for Partner Module")
+	public void userShouldBeAbleToFavouriteFolderInBucketForPartnerModule() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//img[@src='/Content/img/black-bookmark.png']"));
+
+	}
+
+	@And("the user should not be able to favourite Folder in Bucket for Partner Module")
+	public void userShouldNotBeAbleToFavouriteFolderInBucketForPartnerModule() {
+		sleep(3000);
+		assertElementNotPresent(By.xpath("//a//img[@class='pl-1']"));
+
+	}
+
+	@And("the user should not be able to delete Folder in Bucket for Partner Module")
+	public void userShouldNotBeAbleToDeleteFolderInBucketForPartnerModule() {
+		sleep(3000);
+		assertElementNotPresent(By.xpath("//a[@id='btnDeleteFolder']//img"));
+
+	}
+
+	@And("the user should not be able to edit Folder in Bucket for Partner Module")
+	public void userShouldNotBeAbleToEditFolderInBucketForPartnerModule() {
+		sleep(3000);
+		assertElementNotPresent(By.xpath("//img[@class='aaa']"));
+
+	}
+
+	@And("the user should not be able to add Folder in Bucket for Partner Module")
+	public void userShouldNotBeAbleToAddFolderInBucketForPartnerModule() {
+		sleep(3000);
+		assertElementNotPresent(By.xpath("//a[@id='btnAddFolder']"));
+
+	}
+
+	@And("the user should not be able to view Folder in Bucket for Partner Module")
+	public void userShouldNotBeAbleToViewFolderInBucketForPartnerModule() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//*[name()='path' and contains(@d,'M575.8 255')]"));
+		assertElementNotPresent(By.xpath("//img[@class='aaa']"));
+
+	}
+
+	@And("the user should be able to download File in Bucket for Partner Module")
+	public void userShouldBeAbleToDownloadFileInBucketForPartnerModule() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//img[@class='permitions']"));
+
+	}
+
+	@And("the user should be able to favourite File in Bucket for Partner Module")
+	public void userShouldBeAbleToFavouriteFileInBucketForPartnerModule() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//img[@src='/Content/img/black-bookmark.png']"));
+
+	}
+
+	@And("the user should be able to delete File in Bucket for Partner Module")
+	public void userShouldBeAbleToDeleteFileInBucketForPartnerModule() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[@id='btnDeleteFile']//img"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//button[@id='btnDeleteFileConfirm']"));
+
+	}
+
+	@And("the user should be able to edit File in Bucket for Partner Module")
+	public void userShouldBeAbleToEditFileInBucketForPartnerModule() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("(//img[@class='aaa'])[1]"));
+		sleep(3000);
+		waitAndSendKeys(By.id("fileNameTextBox"), "3.pdf");
+		sleep(3000);
+		clickWhenClickable(By.xpath("//button[@id='btnSaveFile']"));
+		sleep(7000);
+		clickWhenClickable(By.xpath("//button[contains(text(),'Close')]"));
+		sleep(7000);
+
+	}
+
+	@And("the user should be able to add File in Bucket for Partner Module")
+	public void userShouldBeAbleToAddFileInBucketForPartnerModule() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[@id='btnAddFile']"));
+		sleep(1000);
+		String filePath = "C:\\Users\\MayurChauhan\\Downloads\\dummy.pdf";
+		WebElement fileInput = driver.findElement(By.xpath("// div[@class='model-inp']//input[@id='file-3']"));
+		fileInput.sendKeys(filePath);
+		sleep(3000);
+		clickWhenClickable(By.xpath("//button[@id='btnSaveFile']"));
+	}
+
+	@And("the user should be able to view File in Bucket for Partner Module")
+	public void userShouldBeAbleToViewFileInBucketForPartnerModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=6b73f9ca-5250-4d9c-8772-c2d33f5c5850");
+		wait.until(ExpectedConditions
+				.urlContains("/Partner/Home/Partners?partnerTypeId=6b73f9ca-5250-4d9c-8772-c2d33f5c5850"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[@id='93d2dd6a-73cf-423d-815b-43a8ff5886c8']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//img[@class='edit']"));
+		sleep(4000);
+		clickWhenClickable(By.xpath("//button[@onclick='CloseDocViewer();']//i[@class='fa fa-times']"));
+
+	}
+
+	@And("the user should not be able to download File in Bucket for Partner Module")
+	public void userShouldNotBeAbleToDownloadFileInBucketForPartnerModule() {
+		sleep(3000);
+		assertElementNotPresent(By.xpath("//img[@class='permitions']"));
+
+	}
+
+	@And("the user should not be able to favourite File in Bucket for Partner Module")
+	public void userShouldNotBeAbleToFavouriteFileInBucketForPartnerModule() {
+		sleep(3000);
+		assertElementNotPresent(By.xpath("//img[@src='/Content/img/black-bookmark.png']"));
+
+	}
+
+	@And("the user should not be able to delete File in Bucket for Partner Module")
+	public void userShouldNotBeAbleToDeleteFileInBucketForPartnerModule() {
+		sleep(3000);
+		assertElementNotPresent(By.xpath("//a[@id='btnDeleteFile']//img"));
+
+	}
+
+	@And("the user should not be able to edit File in Bucket for Partner Module")
+	public void userShouldNotBeAbleToEditFileInBucketForPartnerModule() {
+		sleep(3000);
+		assertElementNotPresent(By.xpath("//img[@class='aaa']"));
+
+	}
+
+	@And("the user should not be able to add File in Bucket for Partner Module")
+	public void userShouldNotBeAbleToAddFileInBucketForPartnerModule() {
+		sleep(3000);
+		assertElementNotPresent(By.xpath("//a[@id='btnAddFile']"));
+
+	}
+
+	@And("the user should not be able to view File in Bucket for Partner Module")
+	public void userShouldNotBeAbleToViewFileInBucketForPartnerModule() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[@id='93d2dd6a-73cf-423d-815b-43a8ff5886c8']"));
+		assertElementNotPresent(By.xpath("//img[@class='edit']"));
+
+	}
+
+	@And("the user should be able to delete Folder in Bucket for Partner Module")
+	public void userShouldBeAbleToDeleteFolderInBucketForPartnerModule() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[@id='btnDeleteFolder']//img"));
+		clickWhenClickable(By.xpath("//div[@id='deleteFolderModel']//button[@id='btnDeleteConfirm']"));
+
+	}
+
+	@And("the user should be able to edit Folder in Bucket for Partner Module")
+	public void userShouldBeAbleToEditFolderInBucketForPartnerModule() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//img[@class='aaa']"));
+		waitAndSendKeys(By.id("BucketFolder_FolderName"), "Garrett");
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+
+	}
+
+	@And("the user should be able to add Folder in Bucket for Partner Module")
+	public void userShouldBeAbleToAddFolderInBucketForPartnerModule() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[@id='btnAddFolder']"));
+		sleep(1000);
+		waitAndSendKeys(By.id("BucketFolder_FolderName"), "Garrett");
+		clickWhenClickable(By.xpath("//select[@id='BucketFolder_Type']"));
+		sleep(1000);
+		selectDropdownByIndexWhenReady(By.id("BucketFolder_Type"), 1);
+		sleep(1000);
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+
+	}
+
+	@And("the user should be able to view Folder in Bucket for Partner Module")
+	public void userShouldBeAbleToViewFolderInBucketForPartnerModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=6b73f9ca-5250-4d9c-8772-c2d33f5c5850");
+		wait.until(ExpectedConditions
+				.urlContains("/Partner/Home/Partners?partnerTypeId=6b73f9ca-5250-4d9c-8772-c2d33f5c5850"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]"));
+		assertElementPresent(By.xpath("//a[@id='93d2dd6a-73cf-423d-815b-43a8ff5886c8']"));
 
 	}
 
@@ -934,10 +1560,9 @@ public class PartnerSteps {
 	@And("the user should not be able to add or edit Executive in Partner Module")
 	public void verifyUserCannotAddOrEditExecutiveInPartnerModule() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//span[normalize-space()='New Mailing Address']"));
-		assertElementNotPresent(By.xpath(
-				"(//div[@id='partner-address-list-mailing']//a[contains(@onclick,'editPartnerAddress') and contains(@data-original-title,'Edit Partner Care Giver Name')])[1]"));
-
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New Executive']"));
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Edit']"));
 	}
 
 	@And("the user should be able to delete Executive in Partner Module")
@@ -949,20 +1574,22 @@ public class PartnerSteps {
 		sleep(3000);
 		clickWhenClickable(By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]"));
 		sleep(3000);
-		clickWhenClickable(By.xpath(
-				"(//div[@id='partner-address-list-mailing']//a[@id='btnDeletePartnerAddress' and contains(@data-original-title,'Delete Partner Address')])[1]"));
+		clickWhenClickable(By.xpath("//a[normalize-space()='Executives']"));
 		sleep(3000);
-		clickWhenClickable(By.xpath("//button[@id='deletePartnerAddress']"));
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='Delete']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//button[@id='deletePartnerExecutive']"));
 
 	}
 
 	@And("the user should not be able to add or delete Executive in Partner Module")
 	public void verifyUserCannotAddOrDeleteExecutiveInPartnerModule() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//span[normalize-space()='New Mailing Address']"));
-		assertElementNotPresent(By.xpath(
-				"(//div[@id='partner-address-list-mailing']//a[@id='btnDeletePartnerAddress' and contains(@data-original-title,'Delete Partner Address')])[1]"));
-
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New Executive']"));
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Delete']"));
 	}
 
 	@And("the user should be able to edit Executive in Partner Module")
@@ -974,21 +1601,23 @@ public class PartnerSteps {
 		sleep(3000);
 		clickWhenClickable(By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]"));
 		sleep(3000);
-		clickWhenClickable(By.xpath(
-				"(//div[@id='partner-address-list-mailing']//a[contains(@onclick,'editPartnerAddress') and contains(@data-original-title,'Edit Partner Care Giver Name')])[1]"));
+		clickWhenClickable(By.xpath("//a[normalize-space()='Executives']"));
 		sleep(3000);
-		waitAndSendKeys(By.id("PartnerAddress_ZipCode"), "10003");
-		clickWhenClickable(By.xpath("//button[@id='btnSavePartnerAddressPopup']"));
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='Edit']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[normalize-space()='Contact Person']"));
+		clickWhenClickable(By.xpath("//button[@id='btnSavePartnerExecutivePopup']"));
 
 	}
 
 	@And("the user should not be able to edit or delete Executive in Partner Module")
 	public void verifyUserCannotEditOrDeleteExecutiveInPartnerModule() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath(
-				"(//div[@id='partner-address-list-mailing']//a[contains(@onclick,'editPartnerAddress') and contains(@data-original-title,'Edit Partner Care Giver Name')])[1]"));
-		assertElementNotPresent(By.xpath(
-				"(//div[@id='partner-address-list-mailing']//a[@id='btnDeletePartnerAddress' and contains(@data-original-title,'Delete Partner Address')])[1]"));
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Edit']"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Delete']"));
 
 	}
 
@@ -1001,11 +1630,14 @@ public class PartnerSteps {
 		sleep(3000);
 		clickWhenClickable(By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]"));
 		sleep(3000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='Executives']"));
+		sleep(3000);
 		clickWhenClickable(By.xpath("//span[normalize-space()='New Executive']"));
 		sleep(3000);
-		waitAndSendKeys(By.id("PartnerExecutive_LastName"), "NY");
-		waitAndSendKeys(By.id("PartnerExecutive_FirstName"), "10003");
-		clickWhenClickable(By.xpath("//button[@id='btnSavePartnerAddressPopup']"));
+		waitAndSendKeys(By.id("PartnerExecutive_LastName"), "Garrett");
+		waitAndSendKeys(By.id("PartnerExecutive_FirstName"), "Stephanie");
+		waitAndSendKeys(By.id("PartnerExecutive_EmailId"), "Stephanie@mailinator.com");
+		clickWhenClickable(By.xpath("//button[@id='btnSavePartnerExecutivePopup']"));
 
 	}
 
@@ -1269,6 +1901,7 @@ public class PartnerSteps {
 		clickWhenReadyAndVisible(By.xpath("//span[normalize-space()='Filter']"));
 		waitAndSendKeys(By.id("Filter_Email"), createdEmail);
 		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-magnifying-glass']"));
+		sleep(3000);
 		String email = createdEmail;
 		By actionMenu = By.xpath("//tr[td[normalize-space()='" + email + "']]//td[@class='text-right']//button");
 		clickWhenClickable(actionMenu);
@@ -1280,6 +1913,7 @@ public class PartnerSteps {
 		clickWhenClickable(By.xpath("//label[normalize-space()='Show Password']"));
 		sleep(500);
 		clickWhenClickable(By.id("btnResetPassword"));
+		sleep(2000);
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='toast toast-success']")));
 		// Logout
 		sleep(500);
