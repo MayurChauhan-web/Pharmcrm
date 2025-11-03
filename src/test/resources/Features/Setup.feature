@@ -1295,7 +1295,6 @@ Feature: Setup Module scenarios
   And I log in using the new user for Setup Module
   Then the user should not be able to view General Audit View settings 
   
-  @Delete
   Scenario: User with Delete access can repeatedly delete user entries
   Given I log in as admin for Setup Module 
   And I navigate to the User page   

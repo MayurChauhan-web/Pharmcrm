@@ -6509,17 +6509,14 @@ public class SetupSteps {
 						.findElement(By.xpath("//tbody/tr[4]/td[7]/div[1]/div[1]/button[1]/i[1]"));
 				deleteIcon.click();
 				sleep(500);
-
 				WebElement deleteOption = driver.findElement(By.xpath(
 						"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
 				deleteOption.click();
 				sleep(500);
-
 				WebElement confirmDelete = driver
 						.findElement(By.xpath("//div[@id='deleteUserModel']//button[@id='btnDeleteConfirm']"));
 				confirmDelete.click();
-				sleep(1000);
-
+				sleep(3000);
 			} catch (NoSuchElementException e) {
 				System.out.println("No more user entries to delete.");
 				break;
@@ -6537,32 +6534,24 @@ public class SetupSteps {
 		for (int i = 1; i <= 20; i++) {
 			try {
 				driver.findElement(By.xpath("//span[normalize-space()='Filter']")).click();
-				sleep(1000);
-
+				sleep(3000);
 				WebElement filterInput = driver.findElement(By.id("Filter_Name"));
 				filterInput.clear();
 				filterInput.sendKeys("Organization_Administrator");
 				sleep(500);
-
 				driver.findElement(By.xpath("//i[@class='fa-solid fa-magnifying-glass']")).click();
 				sleep(1500);
-
 				driver.findElement(By.xpath("//tbody/tr[1]/td[8]/div[1]/div[1]/button[1]/i[1]")).click();
-				sleep(500);
-
+				sleep(1000);
 				driver.findElement(By.xpath(
 						"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"))
 						.click();
-				sleep(500);
-
+				sleep(1000);
 				WebElement confirmDelete = driver
 						.findElement(By.xpath("//div[@id='profileModel']//button[@id='btnDeleteConfirm']"));
 				confirmDelete.click();
-
-				sleep(1500);
-
+				sleep(4000);
 				System.out.println("Deleted profile entry #" + i);
-
 			} catch (NoSuchElementException e) {
 				System.out.println("No more profile entries found at iteration " + i);
 				break;

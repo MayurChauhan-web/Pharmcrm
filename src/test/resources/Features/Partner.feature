@@ -228,10 +228,9 @@ And the user should not be able to delete File in Bucket for Partner Module
 And the user should not be able to favourite File in Bucket for Partner Module
 And the user should not be able to download File in Bucket for Partner Module
 
-@Partner
 Scenario: User with all File permissions but no Folder permissions in Bucket Partner Module
 Given I log in as admin for Partner Module
-When I create a new user with email for Partner Module "testuser9_static@mailinator.com"
+When I create a new user with email for Partner Module "testuser5_static@mailinator.com"
 And I create a profile with full File permissions but no Folder permissions for Bucket in Partner Module
 And I assign the profile and workspace to the user for Partner Module
 And I reset the user's password for Partner Module
@@ -261,7 +260,7 @@ And the user should not be able to view Attorney details in Partner Module
 
 Scenario: User with Edit access for Partner Module Attorney
 Given I log in as admin for Partner Module
-When I create a new user with email for Partner Module "testuser11_static@mailinator.com"
+When I create a new user with email for Partner Module "testuser1_static@mailinator.com"
 And I create a profile with Edit access only to Attorney in Partner Module
 And I assign the profile and workspace to the user for Partner Module
 And I reset the user's password for Partner Module
@@ -272,7 +271,7 @@ And the user should not be able to view Attorney details in Partner Module
 
 Scenario: User with Delete access for Partner Module Attorney
 Given I log in as admin for Partner Module
-When I create a new user with email for Partner Module "testuser12_static@mailinator.com"
+When I create a new user with email for Partner Module "testuser2_static@mailinator.com"
 And I create a profile with Delete access only to Attorney in Partner Module
 And I assign the profile and workspace to the user for Partner Module
 And I reset the user's password for Partner Module
@@ -283,7 +282,7 @@ And the user should not be able to view Attorney details in Partner Module
 
 Scenario: User with Details access for Partner Module Attorney
 Given I log in as admin for Partner Module
-When I create a new user with email for Partner Module "testuser13_static@mailinator.com"
+When I create a new user with email for Partner Module "testuser3_static@mailinator.com"
 And I create a profile with Details access only to Attorney in Partner Module
 And I assign the profile and workspace to the user for Partner Module
 And I reset the user's password for Partner Module
@@ -293,7 +292,7 @@ And the user should not be able to add, edit, or delete Attorney in Partner Modu
 
 Scenario: User with Add access for Partner Module Pharmacies
 Given I log in as admin for Partner Module
-When I create a new user with email for Partner Module "testuser14_static@mailinator.com"
+When I create a new user with email for Partner Module "testuser4_static@mailinator.com"
 And I create a profile with Add access only to Pharmacies in Partner Module
 And I assign the profile and workspace to the user for Partner Module
 And I reset the user's password for Partner Module
@@ -305,7 +304,7 @@ And the user should not be able to access Pharmacy Vetting in Partner Module
 
 Scenario: User with Edit access for Partner Module Pharmacies
 Given I log in as admin for Partner Module
-When I create a new user with email for Partner Module "testuser15_static@mailinator.com"
+When I create a new user with email for Partner Module "testuser6_static@mailinator.com"
 And I create a profile with Edit access only to Pharmacies in Partner Module
 And I assign the profile and workspace to the user for Partner Module
 And I reset the user's password for Partner Module
@@ -317,7 +316,7 @@ And the user should not be able to access Pharmacy Vetting in Partner Module
 
 Scenario: User with Delete access for Partner Module Pharmacies
 Given I log in as admin for Partner Module
-When I create a new user with email for Partner Module "testuser16_static@mailinator.com"
+When I create a new user with email for Partner Module "testuser7_static@mailinator.com"
 And I create a profile with Delete access only to Pharmacies in Partner Module
 And I assign the profile and workspace to the user for Partner Module
 And I reset the user's password for Partner Module
@@ -329,7 +328,7 @@ And the user should not be able to access Pharmacy Vetting in Partner Module
 
 Scenario: User with Details access for Partner Module Pharmacies
 Given I log in as admin for Partner Module
-When I create a new user with email for Partner Module "testuser17_static@mailinator.com"
+When I create a new user with email for Partner Module "testuser9_static@mailinator.com"
 And I create a profile with Details access only to Pharmacies in Partner Module
 And I assign the profile and workspace to the user for Partner Module
 And I reset the user's password for Partner Module
@@ -340,7 +339,7 @@ And the user should not be able to access Pharmacy Vetting in Partner Module
 
 Scenario: User with Pharmacy Vetting access for Partner Module Pharmacies
 Given I log in as admin for Partner Module
-When I create a new user with email for Partner Module "testuser18_static@mailinator.com"
+When I create a new user with email for Partner Module "testuser10_static@mailinator.com"
 And I create a profile with Pharmacy Vetting access only to Pharmacies in Partner Module
 And I assign the profile and workspace to the user for Partner Module
 And I reset the user's password for Partner Module
@@ -350,7 +349,7 @@ And the user should not be able to add, edit, delete, or view Pharmacies details
 
 Scenario: User with Add access for Partner Module DME Provider
 Given I log in as admin for Partner Module
-When I create a new user with email for Partner Module "testuser19_static@mailinator.com"
+When I create a new user with email for Partner Module "testuser1_static@mailinator.com"
 And I create a profile with Add access only to DME Provider in Partner Module
 And I assign the profile and workspace to the user for Partner Module
 And I reset the user's password for Partner Module
@@ -361,7 +360,7 @@ And the user should not be able to view DME Provider details in Partner Module
 
 Scenario: User with Edit access for Partner Module DME Provider
 Given I log in as admin for Partner Module
-When I create a new user with email for Partner Module "testuser20_static@mailinator.com"
+When I create a new user with email for Partner Module "testuser2_static@mailinator.com"
 And I create a profile with Edit access only to DME Provider in Partner Module
 And I assign the profile and workspace to the user for Partner Module
 And I reset the user's password for Partner Module
@@ -372,7 +371,7 @@ And the user should not be able to view DME Provider details in Partner Module
 
 Scenario: User with Delete access for Partner Module DME Provider
 Given I log in as admin for Partner Module
-When I create a new user with email for Partner Module "testuser21_static@mailinator.com"
+When I create a new user with email for Partner Module "testuser3_static@mailinator.com"
 And I create a profile with Delete access only to DME Provider in Partner Module
 And I assign the profile and workspace to the user for Partner Module
 And I reset the user's password for Partner Module
@@ -383,7 +382,7 @@ And the user should not be able to view DME Provider details in Partner Module
 
 Scenario: User with Details access for Partner Module DME Provider
 Given I log in as admin for Partner Module
-When I create a new user with email for Partner Module "testuser22_static@mailinator.com"
+When I create a new user with email for Partner Module "testuser4_static@mailinator.com"
 And I create a profile with Details access only to DME Provider in Partner Module
 And I assign the profile and workspace to the user for Partner Module
 And I reset the user's password for Partner Module
@@ -393,7 +392,7 @@ And the user should not be able to add, edit, or delete DME Provider in Partner 
 
 Scenario: User with Add access for Partner Module Rx HUB
 Given I log in as admin for Partner Module
-When I create a new user with email for Partner Module "testuser23_static@mailinator.com"
+When I create a new user with email for Partner Module "testuser5_static@mailinator.com"
 And I create a profile with Add access only to Rx HUB in Partner Module
 And I assign the profile and workspace to the user for Partner Module
 And I reset the user's password for Partner Module
@@ -404,7 +403,7 @@ And the user should not be able to view Rx HUB details in Partner Module
 
 Scenario: User with Edit access for Partner Module Rx HUB
 Given I log in as admin for Partner Module
-When I create a new user with email for Partner Module "testuser24_static@mailinator.com"
+When I create a new user with email for Partner Module "testuser6_static@mailinator.com"
 And I create a profile with Edit access only to Rx HUB in Partner Module
 And I assign the profile and workspace to the user for Partner Module
 And I reset the user's password for Partner Module
@@ -415,7 +414,7 @@ And the user should not be able to view Rx HUB details in Partner Module
 
 Scenario: User with Delete access for Partner Module Rx HUB
 Given I log in as admin for Partner Module
-When I create a new user with email for Partner Module "testuser25_static@mailinator.com"
+When I create a new user with email for Partner Module "testuser7_static@mailinator.com"
 And I create a profile with Delete access only to Rx HUB in Partner Module
 And I assign the profile and workspace to the user for Partner Module
 And I reset the user's password for Partner Module
@@ -426,13 +425,117 @@ And the user should not be able to view Rx HUB details in Partner Module
 
 Scenario: User with Details access for Partner Module Rx HUB
 Given I log in as admin for Partner Module
-When I create a new user with email for Partner Module "testuser26_static@mailinator.com"
+When I create a new user with email for Partner Module "testuser8_static@mailinator.com"
 And I create a profile with Details access only to Rx HUB in Partner Module
 And I assign the profile and workspace to the user for Partner Module
 And I reset the user's password for Partner Module
 And I log in using the new user for Partner Module
 Then the user should be able to view Rx HUB details in Partner Module
 And the user should not be able to add, edit, or delete Rx HUB in Partner Module
+
+Scenario: User with Add access for Partner Module Federal and State Government
+Given I log in as admin for Partner Module
+When I create a new user with email for Partner Module "testuser9_static@mailinator.com"
+And I create a profile with Add access only to Federal and State Government in Partner Module
+And I assign the profile and workspace to the user for Partner Module
+And I reset the user's password for Partner Module
+And I log in using the new user for Partner Module
+Then the user should be able to add Federal and State Government in Partner Module
+And the user should not be able to edit or delete Federal and State Government in Partner Module
+And the user should not be able to view Federal and State Government details in Partner Module
+
+Scenario: User with Edit access for Partner Module Federal and State Government
+Given I log in as admin for Partner Module
+When I create a new user with email for Partner Module "testuser1_static@mailinator.com"
+And I create a profile with Edit access only to Federal and State Government in Partner Module
+And I assign the profile and workspace to the user for Partner Module
+And I reset the user's password for Partner Module
+And I log in using the new user for Partner Module
+Then the user should be able to edit Federal and State Government in Partner Module
+And the user should not be able to add or delete Federal and State Government in Partner Module
+And the user should not be able to view Federal and State Government details in Partner Module
+
+Scenario: User with Delete access for Partner Module Federal and State Government
+Given I log in as admin for Partner Module
+When I create a new user with email for Partner Module "testuser2_static@mailinator.com"
+And I create a profile with Delete access only to Federal and State Government in Partner Module
+And I assign the profile and workspace to the user for Partner Module
+And I reset the user's password for Partner Module
+And I log in using the new user for Partner Module
+Then the user should be able to delete Federal and State Government in Partner Module
+And the user should not be able to add or edit Federal and State Government in Partner Module
+And the user should not be able to view Federal and State Government details in Partner Module
+
+Scenario: User with Details access for Partner Module Federal and State Government
+Given I log in as admin for Partner Module
+When I create a new user with email for Partner Module "testuser3_static@mailinator.com"
+And I create a profile with Details access only to Federal and State Government in Partner Module
+And I assign the profile and workspace to the user for Partner Module
+And I reset the user's password for Partner Module
+And I log in using the new user for Partner Module
+Then the user should be able to view Federal and State Government details in Partner Module
+And the user should not be able to add, edit, or delete Federal and State Government in Partner Module
+
+@Partner
+Scenario: User with Add access for Partner Module Employers
+Given I log in as admin for Partner Module
+When I create a new user with email for Partner Module "testuser4_static@mailinator.com"
+And I create a profile with Add access only to Employers in Partner Module
+And I assign the profile and workspace to the user for Partner Module
+And I reset the user's password for Partner Module
+And I log in using the new user for Partner Module
+Then the user should be able to add Employers in Partner Module
+And the user should not be able to edit or delete Employers in Partner Module
+And the user should not be able to view Employers details in Partner Module
+
+Scenario: User with Edit access for Partner Module Employers
+Given I log in as admin for Partner Module
+When I create a new user with email for Partner Module "testuser14_static@mailinator.com"
+And I create a profile with Edit access only to Employers in Partner Module
+And I assign the profile and workspace to the user for Partner Module
+And I reset the user's password for Partner Module
+And I log in using the new user for Partner Module
+Then the user should be able to edit Employers in Partner Module
+And the user should not be able to add or delete Employers in Partner Module
+And the user should not be able to view Employers details in Partner Module
+
+Scenario: User with Delete access for Partner Module Employers
+Given I log in as admin for Partner Module
+When I create a new user with email for Partner Module "testuser15_static@mailinator.com"
+And I create a profile with Delete access only to Employers in Partner Module
+And I assign the profile and workspace to the user for Partner Module
+And I reset the user's password for Partner Module
+And I log in using the new user for Partner Module
+Then the user should be able to delete Employers in Partner Module
+And the user should not be able to add or edit Employers in Partner Module
+And the user should not be able to view Employers details in Partner Module
+
+Scenario: User with Details access for Partner Module Employers
+Given I log in as admin for Partner Module
+When I create a new user with email for Partner Module "testuser16_static@mailinator.com"
+And I create a profile with Details access only to Employers in Partner Module
+And I assign the profile and workspace to the user for Partner Module
+And I reset the user's password for Partner Module
+And I log in using the new user for Partner Module
+Then the user should be able to view Employers details in Partner Module
+And the user should not be able to add, edit, or delete Employers in Partner Module
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
