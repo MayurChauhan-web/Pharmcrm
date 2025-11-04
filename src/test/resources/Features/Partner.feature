@@ -476,7 +476,6 @@ And I log in using the new user for Partner Module
 Then the user should be able to view Federal and State Government details in Partner Module
 And the user should not be able to add, edit, or delete Federal and State Government in Partner Module
 
-@Partner
 Scenario: User with Add access for Partner Module Employers
 Given I log in as admin for Partner Module
 When I create a new user with email for Partner Module "testuser4_static@mailinator.com"
@@ -490,7 +489,7 @@ And the user should not be able to view Employers details in Partner Module
 
 Scenario: User with Edit access for Partner Module Employers
 Given I log in as admin for Partner Module
-When I create a new user with email for Partner Module "testuser14_static@mailinator.com"
+When I create a new user with email for Partner Module "testuser5_static@mailinator.com"
 And I create a profile with Edit access only to Employers in Partner Module
 And I assign the profile and workspace to the user for Partner Module
 And I reset the user's password for Partner Module
@@ -501,7 +500,7 @@ And the user should not be able to view Employers details in Partner Module
 
 Scenario: User with Delete access for Partner Module Employers
 Given I log in as admin for Partner Module
-When I create a new user with email for Partner Module "testuser15_static@mailinator.com"
+When I create a new user with email for Partner Module "testuser6_static@mailinator.com"
 And I create a profile with Delete access only to Employers in Partner Module
 And I assign the profile and workspace to the user for Partner Module
 And I reset the user's password for Partner Module
@@ -512,13 +511,329 @@ And the user should not be able to view Employers details in Partner Module
 
 Scenario: User with Details access for Partner Module Employers
 Given I log in as admin for Partner Module
-When I create a new user with email for Partner Module "testuser16_static@mailinator.com"
+When I create a new user with email for Partner Module "testuser7_static@mailinator.com"
 And I create a profile with Details access only to Employers in Partner Module
 And I assign the profile and workspace to the user for Partner Module
 And I reset the user's password for Partner Module
 And I log in using the new user for Partner Module
 Then the user should be able to view Employers details in Partner Module
 And the user should not be able to add, edit, or delete Employers in Partner Module
+
+Scenario: User with Add access for Partner Module Referral Enrollment
+Given I log in as admin for Partner Module
+When I create a new user with email for Partner Module "testuser1_static@mailinator.com"
+And I create a profile with Add access only to Referral Enrollment in Partner Module
+And I assign the profile and workspace to the user for Partner Module
+And I reset the user's password for Partner Module
+And I log in using the new user for Partner Module
+Then the user should be able to add Referral Enrollment in Partner Module
+And the user should not be able to edit or delete Referral Enrollment in Partner Module
+
+Scenario: User with Edit access for Partner Module Referral Enrollment
+Given I log in as admin for Partner Module
+When I create a new user with email for Partner Module "testuser2_static@mailinator.com"
+And I create a profile with Edit access only to Referral Enrollment in Partner Module
+And I assign the profile and workspace to the user for Partner Module
+And I reset the user's password for Partner Module
+And I log in using the new user for Partner Module
+Then the user should be able to edit Referral Enrollment in Partner Module
+And the user should not be able to add or delete Referral Enrollment in Partner Module
+
+Scenario: User with Delete access for Partner Module Referral Enrollment
+Given I log in as admin for Partner Module
+When I create a new user with email for Partner Module "testuser3_static@mailinator.com"
+And I create a profile with Delete access only to Referral Enrollment in Partner Module
+And I assign the profile and workspace to the user for Partner Module
+And I reset the user's password for Partner Module
+And I log in using the new user for Partner Module
+Then the user should be able to delete Referral Enrollment in Partner Module
+And the user should not be able to add or edit Referral Enrollment in Partner Module
+
+Scenario: User with Download File access for Partner Module Referral Patient History
+Given I log in as admin for Partner Module
+When I create a new user with email for Partner Module "testuser4_static@mailinator.com"
+And I create a profile with Download File access only to Referral Patient History in Partner Module
+And I assign the profile and workspace to the user for Partner Module
+And I reset the user's password for Partner Module
+And I log in using the new user for Partner Module
+Then the user should be able to download files in Referral Patient History in Partner Module
+
+Scenario: User without Download File access for Partner Module Referral Patient History
+Given I log in as admin for Partner Module
+When I create a new user with email for Partner Module "testuser5_static@mailinator.com"
+And I create a profile without Download File access to Referral Patient History in Partner Module
+And I assign the profile and workspace to the user for Partner Module
+And I reset the user's password for Partner Module
+And I log in using the new user for Partner Module
+Then the user should not be able to download files in Referral Patient History in Partner Module
+
+Scenario: User with Download File access for Partner Module Referral Incoming Details
+Given I log in as admin for Partner Module
+When I create a new user with email for Partner Module "testuser6_static@mailinator.com"
+And I create a profile with Download File access only to Referral Incoming Details in Partner Module
+And I assign the profile and workspace to the user for Partner Module
+And I reset the user's password for Partner Module
+And I log in using the new user for Partner Module
+Then the user should be able to download files in Referral Incoming Details in Partner Module
+
+Scenario: User without Download File access for Partner Module Referral Incoming Details
+Given I log in as admin for Partner Module
+When I create a new user with email for Partner Module "testuser7_static@mailinator.com"
+And I create a profile without Download File access to Referral Incoming Details in Partner Module
+And I assign the profile and workspace to the user for Partner Module
+And I reset the user's password for Partner Module
+And I log in using the new user for Partner Module
+Then the user should not be able to download files in Referral Incoming Details in Partner Module
+
+Scenario: User with Download File access for Partner Module Referral Outgoing Details
+Given I log in as admin for Partner Module
+When I create a new user with email for Partner Module "testuser8_static@mailinator.com"
+And I create a profile with Download File access only to Referral Outgoing Details in Partner Module
+And I assign the profile and workspace to the user for Partner Module
+And I reset the user's password for Partner Module
+And I log in using the new user for Partner Module
+Then the user should be able to download files in Referral Outgoing Details in Partner Module
+
+Scenario: User without Download File access for Partner Module Referral Outgoing Details
+Given I log in as admin for Partner Module
+When I create a new user with email for Partner Module "testuser9_static@mailinator.com"
+And I create a profile without Download File access to Referral Outgoing Details in Partner Module
+And I assign the profile and workspace to the user for Partner Module
+And I reset the user's password for Partner Module
+And I log in using the new user for Partner Module
+Then the user should not be able to download files in Referral Outgoing Details in Partner Module
+
+Scenario: User with Export Excel access for Partner Module Partner PA Details
+Given I log in as admin for Partner Module
+When I create a new user with email for Partner Module "testuser1_static@mailinator.com"
+And I create a profile with Export Excel access only to Partner PA Details in Partner Module
+And I assign the profile and workspace to the user for Partner Module
+And I reset the user's password for Partner Module
+And I log in using the new user for Partner Module
+Then the user should be able to export Excel files in Partner PA Details in Partner Module
+
+Scenario: User without Export Excel access for Partner Module Partner PA Details
+Given I log in as admin for Partner Module
+When I create a new user with email for Partner Module "testuser2_static@mailinator.com"
+And I create a profile without Export Excel access to Partner PA Details in Partner Module
+And I assign the profile and workspace to the user for Partner Module
+And I reset the user's password for Partner Module
+And I log in using the new user for Partner Module
+Then the user should not be able to export Excel files in Partner PA Details in Partner Module
+
+Scenario: User with Add access for Partner Module Funding Company
+Given I log in as admin for Partner Module
+When I create a new user with email for Partner Module "testuser4_static@mailinator.com"
+And I create a profile with Add access only to Funding Company in Partner Module
+And I assign the profile and workspace to the user for Partner Module
+And I reset the user's password for Partner Module
+And I log in using the new user for Partner Module
+Then the user should be able to add Funding Company in Partner Module
+And the user should not be able to edit or delete Funding Company in Partner Module
+And the user should not be able to view Funding Company details in Partner Module
+
+Scenario: User with Edit access for Partner Module Funding Company
+Given I log in as admin for Partner Module
+When I create a new user with email for Partner Module "testuser5_static@mailinator.com"
+And I create a profile with Edit access only to Funding Company in Partner Module
+And I assign the profile and workspace to the user for Partner Module
+And I reset the user's password for Partner Module
+And I log in using the new user for Partner Module
+Then the user should be able to edit Funding Company in Partner Module
+And the user should not be able to add or delete Funding Company in Partner Module
+And the user should not be able to view Funding Company details in Partner Module
+
+Scenario: User with Delete access for Partner Module Funding Company
+Given I log in as admin for Partner Module
+When I create a new user with email for Partner Module "testuser6_static@mailinator.com"
+And I create a profile with Delete access only to Funding Company in Partner Module
+And I assign the profile and workspace to the user for Partner Module
+And I reset the user's password for Partner Module
+And I log in using the new user for Partner Module
+Then the user should be able to delete Funding Company in Partner Module
+And the user should not be able to add or edit Funding Company in Partner Module
+And the user should not be able to view Funding Company details in Partner Module
+
+Scenario: User with Details access for Partner Module Funding Company
+Given I log in as admin for Partner Module
+When I create a new user with email for Partner Module "testuser7_static@mailinator.com"
+And I create a profile with Details access only to Funding Company in Partner Module
+And I assign the profile and workspace to the user for Partner Module
+And I reset the user's password for Partner Module
+And I log in using the new user for Partner Module
+Then the user should be able to view Funding Company details in Partner Module
+And the user should not be able to add, edit, or delete Funding Company in Partner Module
+
+Scenario: User with Add access for Partner Module Partner License
+Given I log in as admin for Partner Module
+When I create a new user with email for Partner Module "testuser1_static@mailinator.com"
+And I create a profile with Add access only to Partner License in Partner Module
+And I assign the profile and workspace to the user for Partner Module
+And I reset the user's password for Partner Module
+And I log in using the new user for Partner Module
+Then the user should be able to add Partner License in Partner Module
+And the user should not be able to edit or delete Partner License in Partner Module
+And the user should not be able to view Partner License details in Partner Module
+And the user should not be able to download files in Partner License in Partner Module
+
+Scenario: User with Edit access for Partner Module Partner License
+Given I log in as admin for Partner Module
+When I create a new user with email for Partner Module "testuser4_static@mailinator.com"
+And I create a profile with Edit access only to Partner License in Partner Module
+And I assign the profile and workspace to the user for Partner Module
+And I reset the user's password for Partner Module
+And I log in using the new user for Partner Module
+Then the user should be able to edit Partner License in Partner Module
+And the user should not be able to add or delete Partner License in Partner Module
+And the user should not be able to view Partner License details in Partner Module
+And the user should not be able to download files in Partner License in Partner Module
+
+Scenario: User with Delete access for Partner Module Partner License
+Given I log in as admin for Partner Module
+When I create a new user with email for Partner Module "testuser5_static@mailinator.com"
+And I create a profile with Delete access only to Partner License in Partner Module
+And I assign the profile and workspace to the user for Partner Module
+And I reset the user's password for Partner Module
+And I log in using the new user for Partner Module
+Then the user should be able to delete Partner License in Partner Module
+And the user should not be able to add or edit Partner License in Partner Module
+And the user should not be able to view Partner License details in Partner Module
+And the user should not be able to download files in Partner License in Partner Module
+
+@Partner
+Scenario: User with Details access for Partner Module Partner License
+Given I log in as admin for Partner Module
+When I create a new user with email for Partner Module "testuser6_static@mailinator.com"
+And I create a profile with Details access only to Partner License in Partner Module
+And I assign the profile and workspace to the user for Partner Module
+And I reset the user's password for Partner Module
+And I log in using the new user for Partner Module
+Then the user should be able to view Partner License details in Partner Module
+And the user should not be able to add, edit, or delete Partner License in Partner Module
+And the user should not be able to download files in Partner License in Partner Module
+
+Scenario: User with Download File access for Partner Module Partner License
+Given I log in as admin for Partner Module
+When I create a new user with email for Partner Module "testuser7_static@mailinator.com"
+And I create a profile with Download File access only to Partner License in Partner Module
+And I assign the profile and workspace to the user for Partner Module
+And I reset the user's password for Partner Module
+And I log in using the new user for Partner Module
+Then the user should be able to download files in Partner License in Partner Module
+And the user should not be able to add, edit, or delete Partner License in Partner Module
+And the user should not be able to view Partner License details in Partner Module
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

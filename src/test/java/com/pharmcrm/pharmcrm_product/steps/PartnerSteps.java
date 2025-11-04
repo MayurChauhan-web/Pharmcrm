@@ -11,6 +11,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -824,7 +825,555 @@ public class PartnerSteps {
 		sleep(3000);
 		clickWhenClickable(By.xpath("//label[@for='chkg22EmployersAll']"));
 		sleep(1000);
-		clickWhenClickable(By.xpath("//label[@for='chkg22EmployersAdd']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg22EmployersEdit']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with Delete access only to Employers in Partner Module")
+	public void createProfileWithDeleteAccessOnlyToEmployersInPartnerModule() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg22EmployersAll']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg22EmployersDelete']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with Details access only to Employers in Partner Module")
+	public void verifyUserWithDetailsAccessCanViewEmployersOnly() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg22EmployersAll']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg22EmployersDetails']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with Add access only to Referral Enrollment in Partner Module")
+	public void createProfileWithAddAccessForReferralEnrollment() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg23PartnerReferralEnrollmentAll']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg23PartnerReferralEnrollmentAdd']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with Edit access only to Referral Enrollment in Partner Module")
+	public void createProfileWithEditAccessForReferralEnrollment() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg23PartnerReferralEnrollmentAll']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg23PartnerReferralEnrollmentEdit']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with Delete access only to Referral Enrollment in Partner Module")
+	public void createProfileWithDeleteAccessForReferralEnrollment() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg23PartnerReferralEnrollmentAll']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg23PartnerReferralEnrollmentDelete']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with Download File access only to Referral Patient History in Partner Module")
+	public void createProfileWithDownloadAccessForReferralPatientHistory() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(3000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile without Download File access to Referral Patient History in Partner Module")
+	public void createProfileWithoutDownloadAccessForReferralPatientHistory() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg23PartnerReferralPatientHistoryAll']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with Download File access only to Referral Incoming Details in Partner Module")
+	public void createProfileWithDownloadAccessForReferralIncomingDetails() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(3000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile without Download File access to Referral Incoming Details in Partner Module")
+	public void createProfileWithoutDownloadAccessForReferralIncomingDetails() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg23PartnerReferralInComingFileAll']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with Download File access only to Referral Outgoing Details in Partner Module")
+	public void createProfileWithDownloadAccessForReferralOutgoingDetails() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile without Download File access to Referral Outgoing Details in Partner Module")
+	public void createProfileWithoutDownloadAccessForReferralOutgoingDetails() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg23PartnerReferralOutGoingFileAll']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with Export Excel access only to Partner PA Details in Partner Module")
+	public void createProfileWithExportExcelAccessForPartnerPADetails() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(3000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile without Export Excel access to Partner PA Details in Partner Module")
+	public void createProfileWithoutExportExcelAccessForPartnerPADetails() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg24PartnerPADetailsAll']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with Add access only to Funding Company in Partner Module")
+	public void createProfileWithAddAccessForFundingCompany() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg32FundingCompanyAll']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg32FundingCompanyAdd']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with Edit access only to Funding Company in Partner Module")
+	public void createProfileWithEditAccessForFundingCompany() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg32FundingCompanyAll']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg32FundingCompanyEdit']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with Delete access only to Funding Company in Partner Module")
+	public void createProfileWithDeleteAccessForFundingCompany() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg32FundingCompanyAll']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg32FundingCompanyDelete']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with Details access only to Funding Company in Partner Module")
+	public void createProfileWithDetailsAccessForFundingCompany() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg32FundingCompanyAll']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg32FundingCompanyDetails']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with Add access only to Partner License in Partner Module")
+	public void createProfileWithAddAccessOnlyToPartnerLicenseInPartnerModule() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg32PartnerLicenseAll']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg32PartnerLicenseAdd']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with Download File access only to Partner License in Partner Module")
+	public void createProfileWithDownloadFileAccessOnlyToPartnerLicenseInPartnerModule() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg32PartnerLicenseAll']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg33PartnerLicenseDocumentDownload']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with Details access only to Partner License in Partner Module")
+	public void createProfileWithDetailsAccessOnlyToPartnerLicenseInPartnerModule() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg32PartnerLicenseAll']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg33PartnerLicenseDetails']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with Delete access only to Partner License in Partner Module")
+	public void createProfileWithDeleteAccessOnlyToPartnerLicenseInPartnerModule() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg32PartnerLicenseAll']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg32PartnerLicenseDelete']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile with Edit access only to Partner License in Partner Module")
+	public void createProfileWithEditAccessOnlyToPartnerLicenseInPartnerModule() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg32PartnerLicenseAll']"));
+		sleep(1000);
+		clickWhenClickable(By.xpath("//label[@for='chkg32PartnerLicenseEdit']"));
 		sleep(1000);
 		clickWhenClickable(By.id("btnSave"));
 	}
@@ -1903,9 +2452,9 @@ public class PartnerSteps {
 	@And("the user should not be able to add or delete Employers in Partner Module")
 	public void userShouldNotBeAbleToAddOrDeleteEmployersInPartnerModule() {
 		sleep(3000);
-		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=780319d7-d45a-40af-b6a7-c6ee68aa3125");
+		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=13a6a03f-50fa-4ddc-8893-48a77f74efc7");
 		wait.until(ExpectedConditions
-				.urlContains("/Partner/Home/Partners?partnerTypeId=780319d7-d45a-40af-b6a7-c6ee68aa3125"));
+				.urlContains("/Partner/Home/Partners?partnerTypeId=13a6a03f-50fa-4ddc-8893-48a77f74efc7"));
 		sleep(5000);
 		assertElementNotPresent(By.xpath("//span[normalize-space()='New Partner']"));
 		clickWhenClickable(By.xpath("//tbody/tr[1]/td[9]/div[1]/div[1]/button[1]/i[1]"));
@@ -1945,6 +2494,21 @@ public class PartnerSteps {
 
 	}
 
+	@And("the user should not be able to add or edit Employers in Partner Module")
+	public void userShouldNotBeAbleToAddOrEditEmployersInPartnerModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=13a6a03f-50fa-4ddc-8893-48a77f74efc7");
+		wait.until(ExpectedConditions
+				.urlContains("/Partner/Home/Partners?partnerTypeId=13a6a03f-50fa-4ddc-8893-48a77f74efc7"));
+		sleep(5000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New Partner']"));
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[9]/div[1]/div[1]/button[1]/i[1]"));
+		sleep(2000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+
+	}
+
 	@And("the user should not be able to add, edit, or delete Rx HUB in Partner Module")
 	public void userShouldNotBeAbleToAddEditOrDeleteRxHUBInPartnerModule() {
 		sleep(3000);
@@ -1968,6 +2532,23 @@ public class PartnerSteps {
 		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=780319d7-d45a-40af-b6a7-c6ee68aa3125");
 		wait.until(ExpectedConditions
 				.urlContains("/Partner/Home/Partners?partnerTypeId=780319d7-d45a-40af-b6a7-c6ee68aa3125"));
+		sleep(5000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New Partner']"));
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[9]/div[1]/div[1]/button[1]/i[1]"));
+		sleep(2000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+
+	}
+
+	@And("the user should not be able to add, edit, or delete Employers in Partner Module")
+	public void verifyUserCannotAddEditOrDeleteEmployersInPartnerModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=13a6a03f-50fa-4ddc-8893-48a77f74efc7");
+		wait.until(ExpectedConditions
+				.urlContains("/Partner/Home/Partners?partnerTypeId=13a6a03f-50fa-4ddc-8893-48a77f74efc7"));
 		sleep(5000);
 		assertElementNotPresent(By.xpath("//span[normalize-space()='New Partner']"));
 		clickWhenClickable(By.xpath("//tbody/tr[1]/td[9]/div[1]/div[1]/button[1]/i[1]"));
@@ -2105,6 +2686,509 @@ public class PartnerSteps {
 
 	}
 
+	@And("the user should be able to add Funding Company in Partner Module")
+	public void verifyUserCanAddFundingCompany() {
+		sleep(3000);
+		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=d4211063-cc31-48bd-a4bc-e856ff2ab7d8");
+		wait.until(ExpectedConditions
+				.urlContains("/Partner/Home/Partners?partnerTypeId=d4211063-cc31-48bd-a4bc-e856ff2ab7d8"));
+		sleep(5000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Partner']"));
+		sleep(3000);
+		waitAndSendKeys(By.id("Partner_BusinessName"), "Kim Bounds");
+		waitAndSendKeys(By.id("Partner_PhoneNumber"), "7798798798");
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+
+	}
+
+	@And("the user should be able to add Partner License in Partner Module")
+	public void verifyUserCanAddPartnerLicenseInPartnerModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=78a126b3-70ec-4a77-9551-33f01f1cf676");
+		wait.until(ExpectedConditions
+				.urlContains("/Partner/Home/Partners?partnerTypeId=78a126b3-70ec-4a77-9551-33f01f1cf676"));
+		sleep(5000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Partner']"));
+		sleep(3000);
+		waitAndSendKeys(By.id("Partner_BusinessName"), "Kim Bounds");
+		waitAndSendKeys(By.id("Partner_PhoneNumber"), "7798798798");
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+
+	}
+
+	@And("the user should not be able to download files in Partner License in Partner Module")
+	public void verifyUserCannotDownloadFilesInPartnerLicenseInPartnerModule() {
+		sleep(3000);
+		assertElementNotPresent(By.xpath("(//a[@id='btneditPartnerLicense'])[1]"));
+
+	}
+
+	@And("the user should not be able to add or delete Partner License in Partner Module")
+	public void verifyUserCannotAddOrDeletePartnerLicenseInPartnerModule() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='Partner License']"));
+		sleep(1000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New Partner License']"));
+		assertElementNotPresent(By.xpath("(//a[@id='btnDeletePartnerLicense'])[1]"));
+
+	}
+
+	@And("the user should not be able to add or edit Partner License in Partner Module")
+	public void verifyUserCannotAddOrEditPartnerLicenseInPartnerModule() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='Partner License']"));
+		sleep(1000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New Partner License']"));
+		assertElementNotPresent(By.xpath("(//a[@id='btneditPartnerLicense'])[1]"));
+	}
+
+	@And("the user should not be able to add, edit, or delete Partner License in Partner Module")
+	public void verifyUserCannotAddEditOrDeletePartnerLicenseInPartnerModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=d4211063-cc31-48bd-a4bc-e856ff2ab7d8");
+		wait.until(ExpectedConditions
+				.urlContains("/Partner/Home/Partners?partnerTypeId=d4211063-cc31-48bd-a4bc-e856ff2ab7d8"));
+		sleep(5000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Partner']"));
+		sleep(3000);
+		waitAndSendKeys(By.id("Partner_BusinessName"), "Kim Bounds");
+		waitAndSendKeys(By.id("Partner_PhoneNumber"), "7798798798");
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+
+	}
+
+	@And("the user should be able to download files in Partner License in Partner Module")
+	public void verifyUserCanDownloadFilesInPartnerLicenseInPartnerModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=d4211063-cc31-48bd-a4bc-e856ff2ab7d8");
+		wait.until(ExpectedConditions
+				.urlContains("/Partner/Home/Partners?partnerTypeId=d4211063-cc31-48bd-a4bc-e856ff2ab7d8"));
+		sleep(5000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Partner']"));
+		sleep(3000);
+		waitAndSendKeys(By.id("Partner_BusinessName"), "Kim Bounds");
+		waitAndSendKeys(By.id("Partner_PhoneNumber"), "7798798798");
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+
+	}
+
+	@And("the user should be able to view Partner License details in Partner Module")
+	public void verifyUserCanViewPartnerLicenseDetailsInPartnerModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=d4211063-cc31-48bd-a4bc-e856ff2ab7d8");
+		wait.until(ExpectedConditions
+				.urlContains("/Partner/Home/Partners?partnerTypeId=d4211063-cc31-48bd-a4bc-e856ff2ab7d8"));
+		sleep(5000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Partner']"));
+		sleep(3000);
+		waitAndSendKeys(By.id("Partner_BusinessName"), "Kim Bounds");
+		waitAndSendKeys(By.id("Partner_PhoneNumber"), "7798798798");
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+
+	}
+
+	@And("the user should be able to delete Partner License in Partner Module")
+	public void verifyUserCanDeletePartnerLicenseInPartnerModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=78a126b3-70ec-4a77-9551-33f01f1cf676");
+		wait.until(ExpectedConditions
+				.urlContains("/Partner/Home/Partners?partnerTypeId=78a126b3-70ec-4a77-9551-33f01f1cf676"));
+		sleep(5000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='Partner License']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("(//a[@id='btnDeletePartnerLicense'])[1]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//div[@id='genericmodal']//button[@id='btnDeleteConfirm']"));
+
+	}
+
+	@And("the user should be able to edit Partner License in Partner Module")
+	public void verifyUserCanEditPartnerLicenseInPartnerModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=78a126b3-70ec-4a77-9551-33f01f1cf676");
+		wait.until(ExpectedConditions
+				.urlContains("/Partner/Home/Partners?partnerTypeId=78a126b3-70ec-4a77-9551-33f01f1cf676"));
+		sleep(5000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='Partner License']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("(//a[@id='btneditPartnerLicense'])[1]"));
+		sleep(3000);
+		waitAndSendKeys(By.id("PartnerLicense_LicenseNumber"), "55");
+		clickWhenClickable(By
+				.xpath("//div[@class='modal-dialog modal-dialog-centered modalLaptopCenter']//button[@id='btnSave']"));
+
+	}
+
+	@And("the user should not be able to view Partner License details in Partner Module")
+	public void verifyUserCannotViewPartnerLicenseDetailsInPartnerModule() {
+		sleep(3000);
+		assertElementNotPresent(By.xpath("(//a[@id='btneditPartnerLicense'])[1]"));
+
+	}
+
+	@And("the user should not be able to edit or delete Partner License in Partner Module")
+	public void verifyUserCannotEditOrDeletePartnerLicenseInPartnerModule() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='Partner License']"));
+		sleep(1000);
+		assertElementNotPresent(By.xpath("(//a[@id='btneditPartnerLicense'])[1]"));
+		assertElementNotPresent(By.xpath("(//a[@id='btnDeletePartnerLicense'])[1]"));
+	}
+
+	@And("the user should not be able to edit or delete Funding Company in Partner Module")
+	public void verifyUserCannotEditOrDeleteFundingCompany() {
+		sleep(3000);
+		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=d4211063-cc31-48bd-a4bc-e856ff2ab7d8");
+		wait.until(ExpectedConditions
+				.urlContains("/Partner/Home/Partners?partnerTypeId=d4211063-cc31-48bd-a4bc-e856ff2ab7d8"));
+		sleep(5000);
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']"));
+		sleep(1000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Edit']"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Delete']"));
+
+	}
+
+	@And("the user should not be able to add or delete Funding Company in Partner Module")
+	public void verifyUserCannotAddOrDeleteFundingCompany() {
+		sleep(3000);
+		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=d4211063-cc31-48bd-a4bc-e856ff2ab7d8");
+		wait.until(ExpectedConditions
+				.urlContains("/Partner/Home/Partners?partnerTypeId=d4211063-cc31-48bd-a4bc-e856ff2ab7d8"));
+		sleep(5000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New Partner']"));
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']"));
+		sleep(1000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Delete']"));
+
+	}
+
+	@And("the user should not be able to add or edit Funding Company in Partner Module")
+	public void verifyUserCannotAddOrEditFundingCompany() {
+		sleep(3000);
+		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=d4211063-cc31-48bd-a4bc-e856ff2ab7d8");
+		wait.until(ExpectedConditions
+				.urlContains("/Partner/Home/Partners?partnerTypeId=d4211063-cc31-48bd-a4bc-e856ff2ab7d8"));
+		sleep(5000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New Partner']"));
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']"));
+		sleep(1000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+
+	}
+
+	@And("the user should be able to view Funding Company details in Partner Module")
+	public void verifyUserCanViewFundingCompanyDetails() {
+		sleep(3000);
+		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=d4211063-cc31-48bd-a4bc-e856ff2ab7d8");
+		wait.until(ExpectedConditions
+				.urlContains("/Partner/Home/Partners?partnerTypeId=d4211063-cc31-48bd-a4bc-e856ff2ab7d8"));
+		sleep(5000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]"));
+		sleep(3000);
+
+	}
+
+	@And("the user should not be able to add, edit, or delete Funding Company in Partner Module")
+	public void verifyUserCannotAddEditOrDeleteFundingCompany() {
+		sleep(3000);
+		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=d4211063-cc31-48bd-a4bc-e856ff2ab7d8");
+		wait.until(ExpectedConditions
+				.urlContains("/Partner/Home/Partners?partnerTypeId=d4211063-cc31-48bd-a4bc-e856ff2ab7d8"));
+		sleep(5000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New Partner']"));
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']"));
+		sleep(1000);
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]"));
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+
+	}
+
+	@And("the user should be able to delete Funding Company in Partner Module")
+	public void verifyUserCanDeleteFundingCompany() {
+		sleep(3000);
+		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=d4211063-cc31-48bd-a4bc-e856ff2ab7d8");
+		wait.until(ExpectedConditions
+				.urlContains("/Partner/Home/Partners?partnerTypeId=d4211063-cc31-48bd-a4bc-e856ff2ab7d8"));
+		sleep(5000);
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//div[@id='deletePartnerModel']//button[@id='btnDeleteConfirm']"));
+
+	}
+
+	@And("the user should be able to edit Funding Company in Partner Module")
+	public void verifyUserCanEditFundingCompany() {
+		sleep(3000);
+		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=d4211063-cc31-48bd-a4bc-e856ff2ab7d8");
+		wait.until(ExpectedConditions
+				.urlContains("/Partner/Home/Partners?partnerTypeId=d4211063-cc31-48bd-a4bc-e856ff2ab7d8"));
+		sleep(5000);
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='Edit']"));
+		sleep(3000);
+		waitAndSendKeys(By.id("Partner_BusinessName"), "Kim Bounds");
+		waitAndSendKeys(By.id("Partner_PhoneNumber"), "7798798798");
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+	}
+
+	@And("the user should not be able to view Funding Company details in Partner Module")
+	public void verifyUserCannotViewFundingCompanyDetails() {
+		sleep(3000);
+		driver.navigate().refresh();
+		assertElementNotPresent(By.xpath(
+				"//tbody/tr/td/div[@class='gridListIconsFlex justify-content-end']/a[@id='liPartners_d4211063-cc31-48bd-a4bc-e856ff2ab7d8']/img[1]"));
+
+	}
+
+	@And("the user should be able to add Referral Enrollment in Partner Module")
+	public void verifyUserCanAddReferralEnrollment() {
+		sleep(3000);
+		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=85a7a8a7-803c-4801-8bfa-ef64491be0fd");
+		wait.until(ExpectedConditions
+				.urlContains("/Partner/Home/Partners?partnerTypeId=85a7a8a7-803c-4801-8bfa-ef64491be0fd"));
+		sleep(5000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[@role='tab'][normalize-space()='Referral']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Referral Enrollment']"));
+		sleep(2000);
+		WebElement startDateInput = driver.findElement(By.id("PartnerReferralEnrollment_StartDate"));
+		startDateInput.clear();
+		startDateInput.sendKeys("11/03/2025");
+		startDateInput.sendKeys(Keys.TAB);
+		waitAndSendKeys(By.id("PartnerReferralEnrollment_EmailId"), "SarahDWillis@mailinator.com");
+		clickWhenClickable(By.xpath("//button[@id='btnSavePartnerReferralEnrollmentPopup']"));
+
+	}
+
+	@And("the user should not be able to edit or delete Referral Enrollment in Partner Module")
+	public void verifyUserCannotEditOrDeleteReferralEnrollment() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[@role='tab'][normalize-space()='Referral']"));
+		sleep(1000);
+		assertElementNotPresent(By.xpath(
+				"(//div[@class='gridListIconsFlex justify-content-end']//a[contains(@onclick,'editPartnerReferralEnrollment')])[1]"));
+		assertElementNotPresent(By.xpath(
+				"(//div[@class='gridListIconsFlex justify-content-end']//a[@id='btnDeletePartnerReferralEnrollment'])[1]"));
+
+	}
+
+	@And("the user should be able to edit Referral Enrollment in Partner Module")
+	public void verifyUserCanEditReferralEnrollment() {
+		sleep(3000);
+		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=85a7a8a7-803c-4801-8bfa-ef64491be0fd");
+		wait.until(ExpectedConditions
+				.urlContains("/Partner/Home/Partners?partnerTypeId=85a7a8a7-803c-4801-8bfa-ef64491be0fd"));
+		sleep(5000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[@role='tab'][normalize-space()='Referral']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"(//div[@class='gridListIconsFlex justify-content-end']//a[contains(@onclick,'editPartnerReferralEnrollment')])[1]"));
+		sleep(2000);
+		WebElement startDateInput = driver.findElement(By.id("PartnerReferralEnrollment_StartDate"));
+		startDateInput.clear();
+		startDateInput.sendKeys("11/03/2025");
+		startDateInput.sendKeys(Keys.TAB);
+		waitAndSendKeys(By.id("PartnerReferralEnrollment_EmailId"), "SarahDWillis@mailinator.com");
+		clickWhenClickable(By.xpath("//button[@id='btnSavePartnerReferralEnrollmentPopup']"));
+
+	}
+
+	@And("the user should be able to delete Referral Enrollment in Partner Module")
+	public void verifyUserCanDeleteReferralEnrollment() {
+		sleep(3000);
+		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=85a7a8a7-803c-4801-8bfa-ef64491be0fd");
+		wait.until(ExpectedConditions
+				.urlContains("/Partner/Home/Partners?partnerTypeId=85a7a8a7-803c-4801-8bfa-ef64491be0fd"));
+		sleep(5000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[@role='tab'][normalize-space()='Referral']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath(
+				"(//div[@class='gridListIconsFlex justify-content-end']//a[@id='btnDeletePartnerReferralEnrollment'])[1]"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='deletePartnerReferralEnrollment']"));
+
+	}
+
+	@And("the user should be able to download files in Referral Patient History in Partner Module")
+	public void verifyUserCanDownloadReferralPatientHistoryFile() {
+		sleep(3000);
+		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=78a126b3-70ec-4a77-9551-33f01f1cf676");
+		wait.until(ExpectedConditions
+				.urlContains("/Partner/Home/Partners?partnerTypeId=78a126b3-70ec-4a77-9551-33f01f1cf676"));
+		sleep(5000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[@role='tab'][normalize-space()='Referral']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//img[@class='mr-2']"));
+		sleep(2000);
+
+	}
+
+	@And("the user should be able to download files in Referral Incoming Details in Partner Module")
+	public void verifyUserCanDownloadReferralIncomingDetailsFile() {
+		sleep(3000);
+		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=78a126b3-70ec-4a77-9551-33f01f1cf676");
+		wait.until(ExpectedConditions
+				.urlContains("/Partner/Home/Partners?partnerTypeId=78a126b3-70ec-4a77-9551-33f01f1cf676"));
+		sleep(5000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[@role='tab'][normalize-space()='Referral']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='View All Referrals']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='Export to Excel']"));
+
+	}
+
+	@And("the user should be able to download files in Referral Outgoing Details in Partner Module")
+	public void verifyUserCanDownloadReferralOutgoingDetailsFile() {
+		sleep(3000);
+		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=78a126b3-70ec-4a77-9551-33f01f1cf676");
+		wait.until(ExpectedConditions
+				.urlContains("/Partner/Home/Partners?partnerTypeId=78a126b3-70ec-4a77-9551-33f01f1cf676"));
+		sleep(5000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[@role='tab'][normalize-space()='Referral']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='View All Referrals']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='Outgoing']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//img[@class='mr-2']"));
+
+	}
+
+	@And("the user should not be able to download files in Referral Outgoing Details in Partner Module")
+	public void verifyUserCannotDownloadReferralOutgoingDetailsFile() {
+		sleep(3000);
+		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=78a126b3-70ec-4a77-9551-33f01f1cf676");
+		wait.until(ExpectedConditions
+				.urlContains("/Partner/Home/Partners?partnerTypeId=78a126b3-70ec-4a77-9551-33f01f1cf676"));
+		sleep(5000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[@role='tab'][normalize-space()='Referral']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='View All Referrals']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='Outgoing']"));
+		sleep(3000);
+		assertElementNotPresent(By.xpath("//img[@class='mr-2']"));
+
+	}
+
+	@And("the user should be able to export Excel files in Partner PA Details in Partner Module")
+	public void verifyUserCanExportExcelInPartnerPADetails() {
+		sleep(3000);
+		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=78a126b3-70ec-4a77-9551-33f01f1cf676");
+		wait.until(ExpectedConditions
+				.urlContains("/Partner/Home/Partners?partnerTypeId=78a126b3-70ec-4a77-9551-33f01f1cf676"));
+		sleep(5000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='History']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='View All PA']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//button[normalize-space()='Export to Excel']"));
+		sleep(3000);
+
+	}
+
+	@And("the user should not be able to export Excel files in Partner PA Details in Partner Module")
+	public void verifyUserCannotExportExcelInPartnerPADetails() {
+		sleep(3000);
+		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=78a126b3-70ec-4a77-9551-33f01f1cf676");
+		wait.until(ExpectedConditions
+				.urlContains("/Partner/Home/Partners?partnerTypeId=78a126b3-70ec-4a77-9551-33f01f1cf676"));
+		sleep(5000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[normalize-space()='History']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='View All PA']"));
+		sleep(3000);
+		assertElementNotPresent(By.xpath("//button[normalize-space()='Export to Excel']"));
+		sleep(3000);
+
+	}
+
+	@And("the user should not be able to download files in Referral Incoming Details in Partner Module")
+	public void verifyUserCannotDownloadReferralIncomingDetailsFile() {
+		sleep(3000);
+		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=78a126b3-70ec-4a77-9551-33f01f1cf676");
+		wait.until(ExpectedConditions
+				.urlContains("/Partner/Home/Partners?partnerTypeId=78a126b3-70ec-4a77-9551-33f01f1cf676"));
+		sleep(5000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[@role='tab'][normalize-space()='Referral']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='View All Referrals']"));
+		sleep(2000);
+		assertElementNotPresent(By.xpath("//img[@class='mr-2']"));
+
+	}
+
+	@And("the user should not be able to download files in Referral Patient History in Partner Module")
+	public void verifyUserCannotDownloadReferralPatientHistoryFile() {
+		sleep(3000);
+		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=78a126b3-70ec-4a77-9551-33f01f1cf676");
+		wait.until(ExpectedConditions
+				.urlContains("/Partner/Home/Partners?partnerTypeId=78a126b3-70ec-4a77-9551-33f01f1cf676"));
+		sleep(5000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[@role='tab'][normalize-space()='Referral']"));
+		sleep(2000);
+		assertElementNotPresent(By.xpath("//img[@class='mr-2']"));
+		sleep(2000);
+
+	}
+
+	@And("the user should not be able to add or edit Referral Enrollment in Partner Module")
+	public void verifyUserCannotAddOrEditReferralEnrollment() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[@role='tab'][normalize-space()='Referral']"));
+		sleep(1000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New Referral Enrollment']"));
+		assertElementNotPresent(By.xpath(
+				"(//div[@class='gridListIconsFlex justify-content-end']//a[contains(@onclick,'editPartnerReferralEnrollment')])[1]"));
+
+	}
+
+	@And("the user should not be able to add or delete Referral Enrollment in Partner Module")
+	public void verifyUserCannotAddOrDeleteReferralEnrollment() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//a[@role='tab'][normalize-space()='Referral']"));
+		sleep(1000);
+		assertElementNotPresent(By.xpath("//span[normalize-space()='New Referral Enrollment']"));
+		assertElementNotPresent(By.xpath(
+				"(//div[@class='gridListIconsFlex justify-content-end']//a[@id='btnDeletePartnerReferralEnrollment'])[1]"));
+
+	}
+
 	@And("the user should be able to edit Rx HUB in Partner Module")
 	public void userShouldBeAbleToEditRxHUBInPartnerModule() {
 		sleep(3000);
@@ -2144,9 +3228,9 @@ public class PartnerSteps {
 	@And("the user should be able to edit Employers in Partner Module")
 	public void userShouldBeAbleToEditEmployersInPartnerModule() {
 		sleep(3000);
-		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=780319d7-d45a-40af-b6a7-c6ee68aa3125");
+		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=13a6a03f-50fa-4ddc-8893-48a77f74efc7");
 		wait.until(ExpectedConditions
-				.urlContains("/Partner/Home/Partners?partnerTypeId=780319d7-d45a-40af-b6a7-c6ee68aa3125"));
+				.urlContains("/Partner/Home/Partners?partnerTypeId=13a6a03f-50fa-4ddc-8893-48a77f74efc7"));
 		sleep(5000);
 		clickWhenClickable(By.xpath("//tbody/tr[1]/td[9]/div[1]/div[1]/button[1]/i[1]"));
 		sleep(3000);
@@ -2233,6 +3317,21 @@ public class PartnerSteps {
 
 	}
 
+	@And("the user should be able to delete Employers in Partner Module")
+	public void userShouldBeAbleToDeleteEmployersInPartnerModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=13a6a03f-50fa-4ddc-8893-48a77f74efc7");
+		wait.until(ExpectedConditions
+				.urlContains("/Partner/Home/Partners?partnerTypeId=13a6a03f-50fa-4ddc-8893-48a77f74efc7"));
+		sleep(5000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[9]/div[1]/div[1]/button[1]/i[1]"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='Delete']"));
+		sleep(3000);
+		clickWhenClickable(By.xpath("//div[@id='deletePartnerModel']//button[@id='btnDeleteConfirm']"));
+
+	}
+
 	@And("the user should be able to view Rx HUB details in Partner Module")
 	public void userShouldBeAbleToViewRxHUBDetailsInPartnerModule() {
 		sleep(3000);
@@ -2250,6 +3349,17 @@ public class PartnerSteps {
 		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=780319d7-d45a-40af-b6a7-c6ee68aa3125");
 		wait.until(ExpectedConditions
 				.urlContains("/Partner/Home/Partners?partnerTypeId=780319d7-d45a-40af-b6a7-c6ee68aa3125"));
+		sleep(5000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]"));
+
+	}
+
+	@And("the user should be able to view Employers details in Partner Module")
+	public void verifyUserCanViewEmployersDetailsInPartnerModule() {
+		sleep(3000);
+		driver.get(baseUrl + "/Partner/Home/Partners?partnerTypeId=13a6a03f-50fa-4ddc-8893-48a77f74efc7");
+		wait.until(ExpectedConditions
+				.urlContains("/Partner/Home/Partners?partnerTypeId=13a6a03f-50fa-4ddc-8893-48a77f74efc7"));
 		sleep(5000);
 		clickWhenClickable(By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]"));
 
