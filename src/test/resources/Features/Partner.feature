@@ -841,10 +841,9 @@ And I log in using the new user for Partner Module
 Then the user should be able to delete Partner Agreement in Partner Module
 And the user should not be able to add or edit Partner Agreement in Partner Module
 
-@Partner
 Scenario: Create user with Update access to DeDupe in Partners Module and check permissions
 Given I log in as admin for Partner Module
-When I create a new user with email for Partner Module "testuser3_static@mailinator.com"  
+When I create a new user with email for Partner Module "testuser5_static@mailinator.com"  
 And I create a profile with Update access to DeDupe in Partners Module
 And I assign the profile and workspace to the user for Partner Module
 And I reset the user's password for Partner Module
@@ -853,12 +852,17 @@ Then the user should be able to update DeDupe records in Partners Module
   
 Scenario: Create user without Update access to DeDupe in Partners Module and check restrictions
 Given I log in as admin for Partner Module
-When I create a new user with email for Partner Module "testuser3_static@mailinator.com"  
+When I create a new user with email for Partner Module "testuser4_static@mailinator.com"  
 And I create a profile without Update access to DeDupe in Partners Module
 And I assign the profile and workspace to the user for Partner Module
 And I reset the user's password for Partner Module
 And I log in using the new user for Partner Module
 Then the user should not be able to update DeDupe records in Partners Module via UI or direct URL
+
+
+
+
+
 
 
 

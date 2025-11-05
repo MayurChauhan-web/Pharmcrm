@@ -1482,6 +1482,52 @@ public class PartnerSteps {
 		clickWhenClickable(By.id("btnSave"));
 	}
 
+	@And("I create a profile with Update access to DeDupe in Partners Module")
+	public void createProfileWithUpdateAccessToDeDupeInPartnersModule() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(3000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
+	@And("I create a profile without Update access to DeDupe in Partners Module")
+	public void createProfileWithoutUpdateAccessToDeDupeInPartnersModule() {
+		driver.get(baseUrl + "/Setup/Home/Profiles");
+		sleep(1000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
+		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
+		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
+		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
+		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
+		String emailPrefix = createdEmail.split("@")[0];
+		emailPrefix = emailPrefix.replace("_static", "");
+		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
+		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
+		System.out.println("Final Profile Name: " + profileName);
+		waitAndSendKeys(By.id("profilename"), profileName);
+		clickWhenClickable(By.id("btnSaveProfile"));
+		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
+		clickWhenClickable(setupModuleCheckbox);
+		sleep(3000);
+		clickWhenClickable(By.xpath("//label[@for='chkg35PartnerDeDupeAll']"));
+		sleep(1000);
+		clickWhenClickable(By.id("btnSave"));
+	}
+
 	@And("I create a profile with Edit access only to Partner Agreement in Partner Module")
 	public void createProfileWithEditAccessForPartnerAgreement() {
 		driver.get(baseUrl + "/Setup/Home/Profiles");
@@ -3173,11 +3219,10 @@ public class PartnerSteps {
 	@Then("the user should be able to update DeDupe records in Partners Module")
 	public void userShouldBeAbleToUpdateDeDupeRecordsInPartnersModule() {
 		sleep(3000);
-		driver.get(baseUrl + "/Patient/Home/DeDupePatients");
-		wait.until(ExpectedConditions.urlContains("/Patient/Home/DeDupePatients"));
+		driver.get(baseUrl + "/Partner/Home/DeDupePartners");
+		wait.until(ExpectedConditions.urlContains("/Partner/Home/DeDupePartners"));
 		sleep(2000);
-		clickWhenClickable(By.xpath("//label[normalize-space()='Last Name']"));
-		clickWhenClickable(By.xpath("//label[normalize-space()='First Name']"));
+		clickWhenClickable(By.xpath("//label[normalize-space()='Phone Number']"));
 		clickWhenClickable(By.xpath("//span[normalize-space()='Find Duplicate']"));
 		sleep(2000);
 		clickWhenClickable(By.xpath("(//label[starts-with(@for,'ckhg_')])[1]"));
@@ -3197,7 +3242,7 @@ public class PartnerSteps {
 	@Then("the user should not be able to update DeDupe records in Partners Module via UI or direct URL")
 	public void userShouldNotBeAbleToUpdateDeDupeRecordsInPartnersModule() {
 		sleep(3000);
-		driver.get(baseUrl + "/Patient/Home/DeDupePatients");
+		driver.get(baseUrl + "/Partner/Home/DeDupePartners");
 		sleep(2000);
 		List<WebElement> errorHeaders = driver.findElements(By.xpath("//h2[normalize-space()='Error']"));
 		if (!errorHeaders.isEmpty()) {
