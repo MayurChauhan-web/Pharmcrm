@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Cucumber Tests</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>1/0/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Fri Oct 17 09:23:43 IST 2025</td>
+<td>Started on:</td><td>Fri Oct 31 18:10:03 IST 2025</td>
 </tr>
-<tr><td>Total time:</td><td>170 seconds (170582 ms)</td>
+<tr><td>Total time:</td><td>156 seconds (156635 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,8 +67,8 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
-<table width='100%' border='1' class='invocation-passed'>
-<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
 <td><b>Attribute(s)</b></td>
 <td width="30%"><b>Exception</b></td>
@@ -76,9 +76,57 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.pharmcrm.pharmcrm_product.runner.MasterRunner.runScenario()'><b>runScenario</b><br>Test class: com.pharmcrm.pharmcrm_product.runner.MasterRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "User with Delete access for Partner Module Mailing Address", "Partner Module scenarios"</td>
-<td></td>
-<td>169</td>
+<td title='com.pharmcrm.pharmcrm_product.runner.MasterRunner.runScenario()'><b>runScenario</b><br>Test class: com.pharmcrm.pharmcrm_product.runner.MasterRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "User with all File permissions but no Folder permissions in Bucket Partner Module", "Partner Module scenarios"</td>
+<td><div><pre>org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;img class=&quot;aaa&quot; width=&quot;21&quot; src=&quot;data:image/svg+xml,%3Csvg id=&apos;Group_106&apos; data-name=&apos;Group 106&apos; xmlns=&apos;http://www.w3.org/2000/svg&apos; width=&apos;24&apos; height=&apos;24&apos; viewBox=&apos;0 0 24 24&apos;%3E%3Cpath id=&apos;Path_126&apos; data-name=&apos;Path 126&apos; d=&apos;M0 0H24V24H0Z&apos; fill=&apos;none&apos;/%3E%3Cpath id=&apos;Path_127&apos; data-name=&apos;Path 127&apos; d=&apos;M9 7H6A2 2 0 0 0 4 9v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2V15&apos; fill=&apos;none&apos; stroke=&apos;%232c3e50&apos; stroke-linecap=&apos;round&apos; stroke-linejoin=&apos;round&apos; stroke-width=&apos;1.5&apos;/%3E%3Cpath id=&apos;Path_128&apos; data-name=&apos;Path 128&apos; d=&apos;M9 15h3l8.5-8.5a2.121 2.121 0 0 0-3-3L9 12v3&apos; fill=&apos;none&apos; stroke=&apos;%232c3e50&apos; stroke-linecap=&apos;round&apos; stroke-linejoin=&apos;round&apos; stroke-width=&apos;1.5&apos;/%3E%3Cline id=&apos;Line_57&apos; data-name=&apos;Line 57&apos; x2=&apos;3&apos; y2=&apos;3&apos; transform=&apos;translate(16 5)&apos; fill=&apos;none&apos; stroke=&apos;%232c3e50&apos; stroke-linecap=&apos;round&apos; stroke-linejoin=&apos;round&apos; stroke-width=&apos;1.5&apos;/%3E%3C/svg%3E&quot;&gt; is not clickable at point (1791, 408). Other element would receive the click: &lt;div class=&quot;modal fade genericmodal open&quot; id=&quot;closepartneradddocument&quot; tabindex=&quot;0&quot; role=&quot;dialog&quot; aria-labelledby=&quot;myModalLabel&quot; aria-hidden=&quot;true&quot; style=&quot;z-index: 1003; display: block; opacity: 1; top: 10%; transform: scaleX(1) scaleY(1);&quot;&gt;...&lt;/div&gt;
+  (Session info: chrome=141.0.7390.123)
+Build info: version: &apos;4.34.0&apos;, revision: &apos;707dcb4246*&apos;
+System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.12&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [e468236618d5a579381b117a3508b9da, clickElement {id=f.87EF09BCC6C55A06D2ECAC828DC2C153.d.CE83196868D56B569C1DFC625014AE61.e.3723}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 141.0.7390.123, chrome: {chromedriverVersion: 141.0.7390.122 (b477534e7e1..., userDataDir: C:\Users\MAYURC~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61869}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61869/devtoo..., se:cdpVersion: 141.0.7390.123, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (e468236618d5a579381b117a3508b9da)] -&gt; xpath: (//img[@class=&apos;aaa&apos;])[1]]
+Session ID: e468236618d5a579381b117a3508b9da
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:544)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
+	at com.pharmcrm.pharmcrm_product.steps.PartnerSteps.clickElement(PartnerSteps.java:2100)
+	at com.pharmcrm.pharmcrm_product.steps.PartnerSteps.userShouldBeAbleToEditFileInBucketForPartnerModule(PartnerSteps.java:1422)
+	at ✽.the user should be able to edit File in Bucket for Partner Module(file:///C:/Users/MayurChauhan/eclipse-workspace/pharmcrm-product/src/test/resources/Features/Partner.feature:241)
+... Removed 5 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace991770088", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace991770088'><pre>org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;img class=&quot;aaa&quot; width=&quot;21&quot; src=&quot;data:image/svg+xml,%3Csvg id=&apos;Group_106&apos; data-name=&apos;Group 106&apos; xmlns=&apos;http://www.w3.org/2000/svg&apos; width=&apos;24&apos; height=&apos;24&apos; viewBox=&apos;0 0 24 24&apos;%3E%3Cpath id=&apos;Path_126&apos; data-name=&apos;Path 126&apos; d=&apos;M0 0H24V24H0Z&apos; fill=&apos;none&apos;/%3E%3Cpath id=&apos;Path_127&apos; data-name=&apos;Path 127&apos; d=&apos;M9 7H6A2 2 0 0 0 4 9v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2V15&apos; fill=&apos;none&apos; stroke=&apos;%232c3e50&apos; stroke-linecap=&apos;round&apos; stroke-linejoin=&apos;round&apos; stroke-width=&apos;1.5&apos;/%3E%3Cpath id=&apos;Path_128&apos; data-name=&apos;Path 128&apos; d=&apos;M9 15h3l8.5-8.5a2.121 2.121 0 0 0-3-3L9 12v3&apos; fill=&apos;none&apos; stroke=&apos;%232c3e50&apos; stroke-linecap=&apos;round&apos; stroke-linejoin=&apos;round&apos; stroke-width=&apos;1.5&apos;/%3E%3Cline id=&apos;Line_57&apos; data-name=&apos;Line 57&apos; x2=&apos;3&apos; y2=&apos;3&apos; transform=&apos;translate(16 5)&apos; fill=&apos;none&apos; stroke=&apos;%232c3e50&apos; stroke-linecap=&apos;round&apos; stroke-linejoin=&apos;round&apos; stroke-width=&apos;1.5&apos;/%3E%3C/svg%3E&quot;&gt; is not clickable at point (1791, 408). Other element would receive the click: &lt;div class=&quot;modal fade genericmodal open&quot; id=&quot;closepartneradddocument&quot; tabindex=&quot;0&quot; role=&quot;dialog&quot; aria-labelledby=&quot;myModalLabel&quot; aria-hidden=&quot;true&quot; style=&quot;z-index: 1003; display: block; opacity: 1; top: 10%; transform: scaleX(1) scaleY(1);&quot;&gt;...&lt;/div&gt;
+  (Session info: chrome=141.0.7390.123)
+Build info: version: &apos;4.34.0&apos;, revision: &apos;707dcb4246*&apos;
+System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.12&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [e468236618d5a579381b117a3508b9da, clickElement {id=f.87EF09BCC6C55A06D2ECAC828DC2C153.d.CE83196868D56B569C1DFC625014AE61.e.3723}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 141.0.7390.123, chrome: {chromedriverVersion: 141.0.7390.122 (b477534e7e1..., userDataDir: C:\Users\MAYURC~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61869}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61869/devtoo..., se:cdpVersion: 141.0.7390.123, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (e468236618d5a579381b117a3508b9da)] -&gt; xpath: (//img[@class=&apos;aaa&apos;])[1]]
+Session ID: e468236618d5a579381b117a3508b9da
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:544)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
+	at com.pharmcrm.pharmcrm_product.steps.PartnerSteps.clickElement(PartnerSteps.java:2100)
+	at com.pharmcrm.pharmcrm_product.steps.PartnerSteps.userShouldBeAbleToEditFileInBucketForPartnerModule(PartnerSteps.java:1422)
+	at ✽.the user should be able to edit File in Bucket for Partner Module(file:///C:/Users/MayurChauhan/eclipse-workspace/pharmcrm-product/src/test/resources/Features/Partner.feature:241)
+</pre></div></td>
+<td>155</td>
 <td>com.pharmcrm.pharmcrm_product.runner.MasterRunner@6d4e5011</td></tr>
 </table><p>
 </body>
