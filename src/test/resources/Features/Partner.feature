@@ -1,3 +1,4 @@
+@Partner
 Feature: Partner Module scenarios
 
 Scenario: User with View only access for General Audit View

@@ -1,11 +1,11 @@
 package driver;
 
-import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import java.util.concurrent.TimeUnit;
 
 public class DriverFactory {
 
@@ -24,7 +24,7 @@ public class DriverFactory {
 		options.setExperimentalOption("prefs", prefs);
 		options.addArguments("--kiosk-printing");
 		WebDriver chromeDriver = new ChromeDriver(options);
-		chromeDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		chromeDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.set(chromeDriver);
 
 	}

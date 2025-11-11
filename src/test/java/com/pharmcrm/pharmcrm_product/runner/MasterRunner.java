@@ -6,7 +6,7 @@ import org.testng.annotations.DataProvider;
 
 @CucumberOptions(features = { "src/test/resources/Features" }, glue = "com.pharmcrm.pharmcrm_product.steps", plugin = {
 		"pretty", "html:target/cucumber-report.html",
-		"json:target/cucumber.json" }, monochrome = true, tags = "@Partner")
+		"json:target/cucumber.json" }, monochrome = true, tags = "@XFlow")
 public class MasterRunner extends AbstractTestNGCucumberTests {
 
 	@Override
@@ -15,5 +15,3 @@ public class MasterRunner extends AbstractTestNGCucumberTests {
 		return super.scenarios();
 	}
 }
-
-

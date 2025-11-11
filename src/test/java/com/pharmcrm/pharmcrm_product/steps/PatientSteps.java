@@ -7,7 +7,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.InetAddress;
-import java.time.Duration;
 import java.time.LocalDate;
 import java.util.List;
 import org.junit.Assert;
@@ -24,7 +23,7 @@ public class PatientSteps {
 
 	public PatientSteps() {
 		this.driver = DriverFactory.getDriver();
-		this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		this.wait = new WebDriverWait(driver, 10);
 
 	}
 
@@ -34,7 +33,7 @@ public class PatientSteps {
 			Assert.fail("Internet connection not available. Please check your connection.");
 		}
 		driver = DriverFactory.createDriver();
-		wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		wait = new WebDriverWait(driver, 15);
 		driver.get(baseUrl);
 		measurePageLoadTime(baseUrl, 5000);
 		waitAndSendKeys(By.id("UserName"), "support@pharmcrm.com");
@@ -2105,7 +2104,7 @@ public class PatientSteps {
 		waitAndSendKeys(By.xpath("//input[@id='PatientFamily_FirstName']"), "Howard");
 		WebElement birthDateInput = driver.findElement(By.id("Patient_BirthDate"));
 		birthDateInput.click();
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		WebDriverWait wait = new WebDriverWait(driver, 10);
 		WebElement yearDropdown = driver.findElement(By.xpath("//select[contains(@class,'ui-datepicker-year')]"));
 		Select yearSelect = new Select(yearDropdown);
 		yearSelect.selectByVisibleText("2025");
@@ -2877,7 +2876,7 @@ public class PatientSteps {
 		String month = today.getMonth().name().substring(0, 1).toUpperCase()
 				+ today.getMonth().name().substring(1, 3).toLowerCase();
 
-		WebDriverWait waitDate = new WebDriverWait(driver, Duration.ofSeconds(10));
+		WebDriverWait waitDate = new WebDriverWait(driver, 10);
 		sleep(1000);
 		WebElement yearDropdown = waitDate.until(ExpectedConditions
 				.visibilityOfElementLocated(By.xpath("//select[contains(@class,'ui-datepicker-year')]")));
@@ -4968,7 +4967,7 @@ public class PatientSteps {
 		waitAndSendKeys(By.id("Patient_FirstName"), "Doe");
 		WebElement birthDateInput = driver.findElement(By.id("Patient_BirthDate"));
 		birthDateInput.click();
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		WebDriverWait wait = new WebDriverWait(driver, 10);
 		WebElement yearDropdown = driver.findElement(By.xpath("//select[contains(@class,'ui-datepicker-year')]"));
 		Select yearSelect = new Select(yearDropdown);
 		yearSelect.selectByVisibleText("1993");
@@ -5384,7 +5383,7 @@ public class PatientSteps {
 	}
 
 	public void clickWhenReadyAndVisible(By locator) {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		WebDriverWait wait = new WebDriverWait(driver, 10);
 		wait.until(ExpectedConditions.elementToBeClickable(locator));
 
 		try {
@@ -5416,7 +5415,7 @@ public class PatientSteps {
 	public void scrollIntoViewAndClick(By locator) {
 		WebElement element = driver.findElement(locator);
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", element);
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		WebDriverWait wait = new WebDriverWait(driver, 10);
 		wait.until(ExpectedConditions.elementToBeClickable(locator)).click();
 	}
 
