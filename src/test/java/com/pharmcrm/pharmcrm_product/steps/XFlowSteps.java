@@ -101,11 +101,19 @@ public class XFlowSteps {
 
 	@And("I upload a valid RX Report Dispensed Excel file")
 	public void iUploadValidRXReportDispensedExcelFile() throws InterruptedException {
-		Thread.sleep(5000);
-		WebElement uploadInput = driver.findElementById("btnUpload");
+		WebElement uploadBtn = driver.findElement(By.id("btnUpload"));
+		uploadBtn.click();
+		Thread.sleep(2000);
+		WebElement openWindow = driver.findElement(By.name("Open"));
+		WebElement fileNameBox = openWindow.findElement(By.xpath(".//*[@ClassName='Edit']"));
 		String filePath = "C:\\Users\\MayurChauhan\\Downloads\\Despence Data.xlsx";
-		uploadInput.sendKeys(filePath);
-
+		fileNameBox.clear();
+		fileNameBox.sendKeys(filePath);
+		Thread.sleep(500);
+		WebElement openButton = openWindow
+				.findElement(By.xpath(".//*[@Name='Open' and @LocalizedControlType='button']"));
+		openButton.click();
+		Thread.sleep(2000);
 	}
 
 	@And("I click on Confirm and Process")
