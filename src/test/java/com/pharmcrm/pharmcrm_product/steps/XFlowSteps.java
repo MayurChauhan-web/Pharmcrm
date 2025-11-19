@@ -2,13 +2,17 @@ package com.pharmcrm.pharmcrm_product.steps;
 
 import io.cucumber.java.en.*;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.winium.DesktopOptions;
 import org.openqa.selenium.winium.WiniumDriver;
 import org.testng.Assert;
 
 import java.io.File;
 import java.net.URL;
+import java.util.List;
 
 public class XFlowSteps {
 
@@ -64,6 +68,67 @@ public class XFlowSteps {
 		Thread.sleep(2000);
 		WebElement titleBar = driver.findElementById("TitleBar");
 		titleBar.click();
+
+	}
+
+	@And("I select the EHR Source from the available options")
+	public void iSelectEHRSOurceFromAvailableOptions() throws InterruptedException {
+		WebElement combo = driver.findElement(By.id("1001"));
+		WebElement arrowButton = combo
+				.findElement(By.xpath("following-sibling::*[contains(@LocalizedControlType,'button')]"));
+		arrowButton.click();
+		WebDriverWait wait = new WebDriverWait(driver, 5);
+		wait.until(
+				ExpectedConditions.presenceOfElementLocated(By.xpath("//*[contains(@LocalizedControlType,'list')]")));
+		List<WebElement> items = driver.findElements(By.xpath("//*[contains(@LocalizedControlType,'list item')]"));
+		System.out.println("Items found: " + items.size());
+		int indexToSelect = 1;
+		if (indexToSelect >= items.size()) {
+			throw new RuntimeException("Index " + indexToSelect + " is out of range");
+		}
+		WebElement item = items.get(indexToSelect);
+		System.out.println("Fast select -> " + item.getAttribute("Name"));
+		item.click();
+	}
+
+	@And("I Select RX Report Dispensed")
+	public void iSelectRXReportDispensed() throws InterruptedException {
+		Thread.sleep(5000);
+		WebElement dispensedButton = driver.findElementById("btnDispensed");
+		dispensedButton.click();
+
+	}
+
+	@And("I upload a valid RX Report Dispensed Excel file")
+	public void iUploadValidRXReportDispensedExcelFile() throws InterruptedException {
+		Thread.sleep(5000);
+		WebElement uploadInput = driver.findElementById("btnUpload");
+		String filePath = "C:\\Users\\MayurChauhan\\Downloads\\Despence Data.xlsx";
+		uploadInput.sendKeys(filePath);
+
+	}
+
+	@And("I click on Confirm and Process")
+	public void iClickOnConfirmAndProcess() throws InterruptedException {
+		Thread.sleep(3000);
+		WebElement confirmButton = driver.findElementById("btnConfirm");
+		confirmButton.click();
+
+	}
+
+	@And("a success message should be displayed indicating that Data Upload Complated")
+	public void successMessageShouldBeDisplayedForDataUpload() throws InterruptedException {
+		Thread.sleep(9000);
+		WebElement completedMessage = driver.findElementByName("Data upload completed..");
+		Assert.assertTrue(completedMessage.isDisplayed(), "Completed message is not displayed.");
+
+	}
+
+	@And("I click on the Please Validate Excel format popup")
+	public void iClickOnPleaseValidateExcelFormatPopup() throws InterruptedException {
+		Thread.sleep(3000);
+		WebElement okButton = driver.findElementById("2");
+		okButton.click();
 
 	}
 
@@ -176,4 +241,5 @@ public class XFlowSteps {
 		System.out.println("XFlow launched successfully!");
 
 	}
+
 }
