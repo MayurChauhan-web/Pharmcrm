@@ -132,19 +132,15 @@ And I Select Clinical Report Appointment
 When I click on the Download Error Records button without selecting EHR Source
 Then the system should display a popup message indicating Error file not found.
 
-@XFlow
 Scenario: Verify Download Error Records functionality on Clinical Report Appointment screen
 Given the XFlow application is installed  
 And the application is open  
 And I enter username and password and click OK
 And I Select Clinical Report Appointment
 When I select the EHR Source from the available options 
-When I select the Template from the available options
 And I upload a valid Clinical Report Appointment Excel file
-And I click on the Please Validate Excel format popup
 And I click on Confirm and Process
 And a success message should be displayed indicating that Data Upload Complated
-And I click on Download Error Records
 
 Scenario: Verify Confirm and Process functionality on Clinical Report Appointment screen
 Given the XFlow application is installed  
@@ -152,11 +148,87 @@ And the application is open
 And I enter username and password and click OK
 And I Select Clinical Report Appointment
 When I select the EHR Source from the available options 
-When I select the Template from the available options
 And I upload a valid Clinical Report Appointment Excel file
-And I click on the Please Validate Excel format popup
 And I click on Confirm and Process
 Then a success message should be displayed indicating that Data Upload Complated
+
+Scenario: Verify update notification and Download button when a new version is available
+Given the XFlow application is installed
+And the application is open
+Then a text message should appear indicating New version is available for download
+And the Download button should be visible
+
+Scenario: Display validation message when uploading a file without selecting EHR Source in Demographic
+Given the XFlow application is installed
+And the application is open
+And I enter username and password and click OK
+And I Select Demographic
+When I click on the Upload File button without selecting EHR Source
+Then the system should display a popup message indicating Please select EHR Source.
+
+Scenario: Display validation message when clicking Confirm and Process without selecting EHR Source in Demographic
+Given the XFlow application is installed
+And the application is open
+And I enter username and password and click OK
+And I Select Demographic
+When I click on the Confirm and Process button without selecting EHR Source
+Then the system should display a popup message indicating Please upload a file.
+
+Scenario: Display validation message when clicking Download Error Records without selecting EHR Source in Demographic
+Given the XFlow application is installed
+And the application is open
+And I enter username and password and click OK
+And I Select Demographic
+When I click on the Download Error Records button without selecting EHR Source
+Then the system should display a popup message indicating Error file not found.
+
+Scenario: Verify Download Error Records functionality on Demographic screen
+Given the XFlow application is installed  
+And the application is open  
+And I enter username and password and click OK
+And I Select Demographic
+When I select the EHR Source from the available options 
+And I upload a valid Demographic Excel file
+And I click on Confirm and Process
+And a success message should be displayed indicating that Data Upload Complated
+And I click on Download Error Records
+
+@XFlow
+Scenario: Verify Confirm and Process functionality on Demographic screen
+Given the XFlow application is installed  
+And the application is open  
+And I enter username and password and click OK
+And I Select Demographic
+When I select the EHR Source from the available options 
+And I upload a valid Demographic Excel file
+And I click on Confirm and Process
+Then a success message should be displayed indicating that Data Upload Complated
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

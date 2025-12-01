@@ -133,6 +133,14 @@ public class XFlowSteps {
 
 	}
 
+	@And("I Select Demographic")
+	public void selectDemographic() throws InterruptedException {
+		Thread.sleep(5000);
+		WebElement dispensedButton = driver.findElementById("btnDemographic");
+		dispensedButton.click();
+
+	}
+
 	@And("I upload a valid RX Report Dispensed Excel file")
 	public void iUploadValidRXReportDispensedExcelFile() throws InterruptedException {
 		WebElement uploadBtn = driver.findElement(By.id("btnUpload"));
@@ -141,6 +149,40 @@ public class XFlowSteps {
 		WebElement openWindow = driver.findElement(By.name("Open"));
 		WebElement fileNameBox = openWindow.findElement(By.xpath(".//*[@ClassName='Edit']"));
 		String filePath = "C:\\Users\\MayurChauhan\\Downloads\\Despence Data.xlsx";
+		fileNameBox.clear();
+		fileNameBox.sendKeys(filePath);
+		Thread.sleep(500);
+		WebElement openButton = openWindow
+				.findElement(By.xpath(".//*[@Name='Open' and @LocalizedControlType='button']"));
+		openButton.click();
+		Thread.sleep(2000);
+	}
+
+	@And("I upload a valid Clinical Report Appointment Excel file")
+	public void uploadValidClinicalReportAppointmentExcelFile() throws InterruptedException {
+		WebElement uploadBtn = driver.findElement(By.id("btnUpload"));
+		uploadBtn.click();
+		Thread.sleep(2000);
+		WebElement openWindow = driver.findElement(By.name("Open"));
+		WebElement fileNameBox = openWindow.findElement(By.xpath(".//*[@ClassName='Edit']"));
+		String filePath = "C:\\Users\\MayurChauhan\\Downloads\\Appointment.xlsx";
+		fileNameBox.clear();
+		fileNameBox.sendKeys(filePath);
+		Thread.sleep(500);
+		WebElement openButton = openWindow
+				.findElement(By.xpath(".//*[@Name='Open' and @LocalizedControlType='button']"));
+		openButton.click();
+		Thread.sleep(2000);
+	}
+
+	@And("I upload a valid Demographic Excel file")
+	public void uploadValidDemographicExcelFile() throws InterruptedException {
+		WebElement uploadBtn = driver.findElement(By.id("btnUpload"));
+		uploadBtn.click();
+		Thread.sleep(2000);
+		WebElement openWindow = driver.findElement(By.name("Open"));
+		WebElement fileNameBox = openWindow.findElement(By.xpath(".//*[@ClassName='Edit']"));
+		String filePath = "C:\\Users\\MayurChauhan\\Downloads\\Demographic.xlsx";
 		fileNameBox.clear();
 		fileNameBox.sendKeys(filePath);
 		Thread.sleep(500);
@@ -301,6 +343,29 @@ public class XFlowSteps {
 		Runtime.getRuntime().exec("taskkill /F /IM PharmCRM.UploadWizard.exe");
 		System.out.println("XFlow application closed successfully.");
 
+	}
+
+	@Then("a text message should appear indicating New version is available for download")
+	public void verifyNewVersionAvailableMessage() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, 15);
+		WebElement message = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lblNote")));
+		String actualText = message.getAttribute("Name");
+		System.out.println("Displayed message: " + actualText);
+		Assert.assertTrue(actualText.contains("New version") && actualText.contains("is available for download"),
+				"Update message is incorrect or not visible.");
+		System.out.println("Update notification message is correctly displayed.");
+		Thread.sleep(1500);
+	}
+
+	@Then("the Download button should be visible")
+	public void verifyDownloadButtonIsVisible() throws InterruptedException, IOException {
+		WebDriverWait wait = new WebDriverWait(driver, 15);
+		WebElement downloadButton = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("btnDownload")));
+		Assert.assertTrue(downloadButton.isDisplayed(), "Download button is not visible.");
+		System.out.println("Download button is visible on the screen.");
+		Thread.sleep(1500);
+		Runtime.getRuntime().exec("taskkill /F /IM PharmCRM.UploadWizard.exe");
+		System.out.println("XFlow application closed successfully.");
 	}
 
 	@And("I click on the Confirm and Process button")
