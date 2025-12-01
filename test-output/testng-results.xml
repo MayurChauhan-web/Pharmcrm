@@ -2,26 +2,26 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-12-01T11:27:36 IST" name="Default suite" finished-at="2025-12-01T11:29:47 IST" duration-ms="131036">
+  <suite started-at="2025-12-01T15:02:27 IST" name="Default suite" finished-at="2025-12-01T15:05:13 IST" duration-ms="165701">
     <groups>
       <group name="cucumber">
         <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.pharmcrm.pharmcrm_product.runner.MasterRunner@101952da]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2025-12-01T11:27:36 IST" name="Default test" finished-at="2025-12-01T11:29:47 IST" duration-ms="131036">
+    <test started-at="2025-12-01T15:02:27 IST" name="Default test" finished-at="2025-12-01T15:05:13 IST" duration-ms="165701">
       <class name="com.pharmcrm.pharmcrm_product.runner.MasterRunner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.pharmcrm.pharmcrm_product.runner.MasterRunner@101952da]" started-at="2025-12-01T11:27:36 IST" name="setUpClass" finished-at="2025-12-01T11:27:37 IST" duration-ms="1143" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.pharmcrm.pharmcrm_product.runner.MasterRunner@101952da]" started-at="2025-12-01T15:02:27 IST" name="setUpClass" finished-at="2025-12-01T15:02:28 IST" duration-ms="1219" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@9d200de]]>
+                <![CDATA[org.testng.TestRunner@646811d6]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.pharmcrm.pharmcrm_product.runner.MasterRunner@101952da]" started-at="2025-12-01T11:27:37 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-12-01T11:29:47 IST" duration-ms="129783" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.pharmcrm.pharmcrm_product.runner.MasterRunner@101952da]" started-at="2025-12-01T15:02:28 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-12-01T15:05:13 IST" duration-ms="164366" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -37,7 +37,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.pharmcrm.pharmcrm_product.runner.MasterRunner@101952da]" started-at="2025-12-01T11:29:47 IST" name="tearDownClass" finished-at="2025-12-01T11:29:47 IST" duration-ms="50" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.pharmcrm.pharmcrm_product.runner.MasterRunner@101952da]" started-at="2025-12-01T15:05:13 IST" name="tearDownClass" finished-at="2025-12-01T15:05:13 IST" duration-ms="52" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->

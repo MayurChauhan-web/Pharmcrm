@@ -9,6 +9,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.winium.DesktopOptions;
 import org.openqa.selenium.winium.WiniumDriver;
 import org.testng.Assert;
+
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -121,6 +125,14 @@ public class XFlowSteps {
 
 	}
 
+	@And("I Select Clinical Report Appointment")
+	public void iSelectClinicalReportAppointment() throws InterruptedException {
+		Thread.sleep(5000);
+		WebElement dispensedButton = driver.findElementById("btnAppointment");
+		dispensedButton.click();
+
+	}
+
 	@And("I upload a valid RX Report Dispensed Excel file")
 	public void iUploadValidRXReportDispensedExcelFile() throws InterruptedException {
 		WebElement uploadBtn = driver.findElement(By.id("btnUpload"));
@@ -146,6 +158,25 @@ public class XFlowSteps {
 
 	}
 
+	@And("I click on Download Error Records")
+	public void clickDownloadErrorRecords() throws InterruptedException, AWTException, IOException {
+		Thread.sleep(2000);
+		WebElement downloadBtn = driver.findElementById("btnErrorData");
+		downloadBtn.click();
+		Thread.sleep(2000);
+		Robot robot = new Robot();
+		robot.setAutoDelay(200);
+		robot.keyPress(KeyEvent.VK_ENTER);
+		robot.keyRelease(KeyEvent.VK_ENTER);
+		System.out.println("File saved successfully from Windows Save dialog.");
+		Thread.sleep(2000);
+		WebElement okButton = driver.findElementById("2");
+		okButton.click();
+		Thread.sleep(2000);
+		Runtime.getRuntime().exec("taskkill /F /IM PharmCRM.UploadWizard.exe");
+		System.out.println("XFlow application closed successfully.");
+	}
+
 	@And("a success message should be displayed indicating that Data Upload Complated")
 	public void successMessageShouldBeDisplayedForDataUpload() throws Exception {
 		WebDriverWait wait = new WebDriverWait(driver, 120);
@@ -166,8 +197,7 @@ public class XFlowSteps {
 			System.err.println("Timeout waiting for success message. Last displayed: " + text);
 			Assert.fail("Success message not displayed within timeout!");
 		} finally {
-			Runtime.getRuntime().exec("taskkill /F /IM PharmCRM.UploadWizard.exe");
-			System.out.println("XFlow application closed successfully.");
+			System.out.println("XFlow");
 		}
 	}
 
@@ -199,87 +229,119 @@ public class XFlowSteps {
 	}
 
 	@And("the system should display a popup message indicating Please Select Template")
-	public void verifyPleaseSelectTemplateMessage() throws InterruptedException {
-		Thread.sleep(9000);
-		WebElement completedMessage = driver.findElementByName("Data upload completed..");
-		Assert.assertTrue(completedMessage.isDisplayed(), "Completed message is not displayed.");
-
-	}
-
-	@And("the file upload process should not proceed until a template is selected")
-	public void verifyUploadDoesNotProceedWithoutTemplate() throws InterruptedException {
-		Thread.sleep(9000);
-		WebElement completedMessage = driver.findElementByName("Data upload completed..");
-		Assert.assertTrue(completedMessage.isDisplayed(), "Completed message is not displayed.");
-
-	}
-
-	@And("I have selected the appropriate Template")
-	public void iHaveSelectedTheAppropriateTemplate() throws InterruptedException {
-		Thread.sleep(9000);
-		WebElement completedMessage = driver.findElementByName("Data upload completed..");
-		Assert.assertTrue(completedMessage.isDisplayed(), "Completed message is not displayed.");
-
-	}
-
-	@And("I have not uploaded any RX Report Excel file")
-	public void iHaveNotUploadedAnyRxReportFile() throws InterruptedException {
-		Thread.sleep(9000);
-		WebElement completedMessage = driver.findElementByName("Data upload completed..");
-		Assert.assertTrue(completedMessage.isDisplayed(), "Completed message is not displayed.");
+	public void verifyPleaseSelectTemplateMessage() throws InterruptedException, IOException {
+		WebDriverWait wait = new WebDriverWait(driver, 15);
+		WebElement errorMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("65535")));
+		Assert.assertTrue(errorMessage.isDisplayed(), "Error message is not visible.");
+		System.out.println("Error message is visible on screen.");
+		Thread.sleep(2000);
+		WebElement okButton = driver.findElementById("2");
+		okButton.click();
+		Thread.sleep(2000);
+		Runtime.getRuntime().exec("taskkill /F /IM PharmCRM.UploadWizard.exe");
+		System.out.println("XFlow application closed successfully.");
 
 	}
 
 	@And("the system should display a popup message indicating Please upload a file before processing")
-	public void verifyPopupMessage() throws InterruptedException {
-		Thread.sleep(9000);
-		WebElement completedMessage = driver.findElementByName("Data upload completed..");
-		Assert.assertTrue(completedMessage.isDisplayed(), "Completed message is not displayed.");
+	public void verifyPopupMessage() throws InterruptedException, IOException {
+		WebDriverWait wait = new WebDriverWait(driver, 15);
+		WebElement errorMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("65535")));
+		Assert.assertTrue(errorMessage.isDisplayed(), "Error message is not visible.");
+		System.out.println("Error message is visible on screen.");
+		Thread.sleep(2000);
+		WebElement okButton = driver.findElementById("2");
+		okButton.click();
+		Thread.sleep(2000);
+		Runtime.getRuntime().exec("taskkill /F /IM PharmCRM.UploadWizard.exe");
+		System.out.println("XFlow application closed successfully.");
 
 	}
 
-	@And("the processing should not be initiated until a valid file is uploaded")
-	public void verifyProcessingIsNotInitiatedWithoutValidFile() throws InterruptedException {
-		Thread.sleep(9000);
-		WebElement completedMessage = driver.findElementByName("Data upload completed..");
-		Assert.assertTrue(completedMessage.isDisplayed(), "Completed message is not displayed.");
+	@And("the system should display a popup message indicating Error file not found.")
+	public void verifyErrorFileNotFoundPopup() throws InterruptedException, IOException {
+		WebDriverWait wait = new WebDriverWait(driver, 15);
+		WebElement errorMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("65535")));
+		Assert.assertTrue(errorMessage.isDisplayed(), "Error message is not visible.");
+		System.out.println("Error message is visible on screen.");
+		Thread.sleep(2000);
+		WebElement okButton = driver.findElementById("2");
+		okButton.click();
+		Thread.sleep(2000);
+		Runtime.getRuntime().exec("taskkill /F /IM PharmCRM.UploadWizard.exe");
+		System.out.println("XFlow application closed successfully.");
+
+	}
+
+	@And("the system should display a popup message indicating Please select EHR Source.")
+	public void verifyPopupPleaseSelectEHRSource() throws InterruptedException, IOException {
+		WebDriverWait wait = new WebDriverWait(driver, 15);
+		WebElement errorMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("65535")));
+		Assert.assertTrue(errorMessage.isDisplayed(), "Error message is not visible.");
+		System.out.println("Error message is visible on screen.");
+		Thread.sleep(2000);
+		WebElement okButton = driver.findElementById("2");
+		okButton.click();
+		Thread.sleep(2000);
+		Runtime.getRuntime().exec("taskkill /F /IM PharmCRM.UploadWizard.exe");
+		System.out.println("XFlow application closed successfully.");
+
+	}
+
+	@And("the system should display a popup message indicating Please upload a file.")
+	public void verifyPopupPleaseUploadAFile() throws InterruptedException, IOException {
+		WebDriverWait wait = new WebDriverWait(driver, 15);
+		WebElement errorMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("65535")));
+		Assert.assertTrue(errorMessage.isDisplayed(), "Error message is not visible.");
+		System.out.println("Error message is visible on screen.");
+		Thread.sleep(2000);
+		WebElement okButton = driver.findElementById("2");
+		okButton.click();
+		Thread.sleep(2000);
+		Runtime.getRuntime().exec("taskkill /F /IM PharmCRM.UploadWizard.exe");
+		System.out.println("XFlow application closed successfully.");
 
 	}
 
 	@And("I click on the Confirm and Process button")
 	public void clickOnConfirmAndProcessButton() throws InterruptedException {
-		Thread.sleep(9000);
-		WebElement completedMessage = driver.findElementByName("Data upload completed..");
-		Assert.assertTrue(completedMessage.isDisplayed(), "Completed message is not displayed.");
-
-	}
-
-	@And("I have not selected any Template")
-	public void iHaveNotSelectedAnyTemplate() throws InterruptedException {
-		Thread.sleep(9000);
-		WebElement completedMessage = driver.findElementByName("Data upload completed..");
-		Assert.assertTrue(completedMessage.isDisplayed(), "Completed message is not displayed.");
+		Thread.sleep(3000);
+		WebElement okButton = driver.findElementById("btnConfirm");
+		okButton.click();
 
 	}
 
 	@And("I click on the Upload File button")
 	public void clickOnUploadFileButton() throws InterruptedException {
-		Thread.sleep(9000);
-		WebElement completedMessage = driver.findElementByName("Data upload completed..");
-		Assert.assertTrue(completedMessage.isDisplayed(), "Completed message is not displayed.");
-
-	}
-
-	@And("I have selected the EHR Source from the available options")
-	public void iHaveSelectedEhrSource() throws InterruptedException {
-		Thread.sleep(9000);
-		WebElement completedMessage = driver.findElementByName("Data upload completed..");
-		Assert.assertTrue(completedMessage.isDisplayed(), "Completed message is not displayed.");
+		Thread.sleep(3000);
+		WebElement okButton = driver.findElementById("btnUpload");
+		okButton.click();
 
 	}
 
 	@And("I click on the Download Error Records button")
 	public void clickOnDownloadErrorRecordsButton() throws InterruptedException {
+		Thread.sleep(3000);
+		WebElement downloadButton = driver.findElementById("btnErrorData");
+		downloadButton.click();
+	}
+
+	@And("I click on the Upload File button without selecting EHR Source")
+	public void selectClinicalReportAppointment() throws InterruptedException {
+		Thread.sleep(3000);
+		WebElement downloadButton = driver.findElementById("btnUpload");
+		downloadButton.click();
+	}
+
+	@And("I click on the Confirm and Process button without selecting EHR Source")
+	public void clickConfirmAndProcessWithoutSelectingEHRSource() throws InterruptedException {
+		Thread.sleep(3000);
+		WebElement downloadButton = driver.findElementById("btnConfirm");
+		downloadButton.click();
+	}
+
+	@And("I click on the Download Error Records button without selecting EHR Source")
+	public void clickDownloadErrorRecordsWithoutSelectingEHRSource() throws InterruptedException {
 		Thread.sleep(3000);
 		WebElement downloadButton = driver.findElementById("btnErrorData");
 		downloadButton.click();

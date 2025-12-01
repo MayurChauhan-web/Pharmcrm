@@ -71,7 +71,6 @@ And I Select RX Report Dispensed
 When I click on the Add+ button
 Then the Delete button should be visible for removing the newly added RX Report entry
 
-@XFlow
 Scenario: Verify Download Error Records functionality on RX Report Dispensed screen
 Given the XFlow application is installed  
 And the application is open  
@@ -83,40 +82,154 @@ And I upload a valid RX Report Dispensed Excel file
 And I click on the Please Validate Excel format popup  
 And I click on Confirm and Process  
 And a success message should be displayed indicating that Data Upload Complated
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+And I click on Download Error Records  
 
 Scenario: Display validation message when uploading file without selecting template
 Given the XFlow application is installed  
 And the application is open  
-And I have selected the EHR Source from the available options  
-But I have not selected any Template  
+And I enter username and password and click OK
+And I Select RX Report Dispensed
 When I click on the Upload File button  
 Then the system should display a popup message indicating Please Select Template 
-And the file upload process should not proceed until a template is selected
 
 Scenario: Display validation message when clicking Confirm and Process without uploading a file
 Given the XFlow application is installed  
 And the application is open  
-And I have selected the EHR Source from the available options  
-And I have selected the appropriate Template  
-But I have not uploaded any RX Report Excel file  
+And I enter username and password and click OK
+And I Select RX Report Dispensed
 When I click on the Confirm and Process button  
 Then the system should display a popup message indicating Please upload a file before processing 
-And the processing should not be initiated until a valid file is uploaded
+
+Scenario: Display validation message when clicking Download Error Records without uploading a file
+Given the XFlow application is installed
+And the application is open
+And I enter username and password and click OK
+And I Select RX Report Dispensed
+When I click on the Download Error Records button
+Then the system should display a popup message indicating Error file not found.
+
+Scenario: Display validation message when uploading a file without selecting EHR Source in Clinical Report Appointment
+Given the XFlow application is installed
+And the application is open
+And I enter username and password and click OK
+And I Select Clinical Report Appointment
+When I click on the Upload File button without selecting EHR Source
+Then the system should display a popup message indicating Please select EHR Source.
+
+Scenario: Display validation message when clicking Confirm and Process without selecting EHR Source in Clinical Report Appointment
+Given the XFlow application is installed
+And the application is open
+And I enter username and password and click OK
+And I Select Clinical Report Appointment
+When I click on the Confirm and Process button without selecting EHR Source
+Then the system should display a popup message indicating Please upload a file.
+
+Scenario: Display validation message when clicking Download Error Records without selecting EHR Source in Clinical Report Appointment
+Given the XFlow application is installed
+And the application is open
+And I enter username and password and click OK
+And I Select Clinical Report Appointment
+When I click on the Download Error Records button without selecting EHR Source
+Then the system should display a popup message indicating Error file not found.
+
+@XFlow
+Scenario: Verify Download Error Records functionality on Clinical Report Appointment screen
+Given the XFlow application is installed  
+And the application is open  
+And I enter username and password and click OK
+And I Select Clinical Report Appointment
+When I select the EHR Source from the available options 
+When I select the Template from the available options
+And I upload a valid Clinical Report Appointment Excel file
+And I click on the Please Validate Excel format popup
+And I click on Confirm and Process
+And a success message should be displayed indicating that Data Upload Complated
+And I click on Download Error Records
+
+Scenario: Verify Confirm and Process functionality on Clinical Report Appointment screen
+Given the XFlow application is installed  
+And the application is open  
+And I enter username and password and click OK
+And I Select Clinical Report Appointment
+When I select the EHR Source from the available options 
+When I select the Template from the available options
+And I upload a valid Clinical Report Appointment Excel file
+And I click on the Please Validate Excel format popup
+And I click on Confirm and Process
+Then a success message should be displayed indicating that Data Upload Complated
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
