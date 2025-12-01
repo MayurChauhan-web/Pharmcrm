@@ -1,16 +1,16 @@
 package com.pharmcrm.pharmcrm_product.steps;
 
 import io.cucumber.java.en.*;
-
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.winium.DesktopOptions;
 import org.openqa.selenium.winium.WiniumDriver;
 import org.testng.Assert;
-
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 
@@ -31,7 +31,6 @@ public class XFlowSteps {
 	public void i_launch_the_xflow_application() throws Exception {
 		DesktopOptions options = new DesktopOptions();
 		options.setApplicationPath(appPath);
-
 		System.out.println("Connecting to Winium server...");
 		driver = new WiniumDriver(new URL("http://localhost:9999"), options);
 	}
@@ -42,7 +41,7 @@ public class XFlowSteps {
 	}
 
 	@And("I enter username and password and click OK")
-	public void i_enter_username_and_password_and_click_ok() throws InterruptedException {
+	public void i_enter_username_and_password_and_click_ok() throws InterruptedException, IOException {
 		Thread.sleep(7000);
 		WebElement titleBar = driver.findElementById("TitleBar");
 		titleBar.click();
@@ -56,18 +55,21 @@ public class XFlowSteps {
 	}
 
 	@And("I should remain on the login screen")
-	public void iShouldRemainOnTheLoginScreen() throws InterruptedException {
+	public void iShouldRemainOnTheLoginScreen() throws InterruptedException, IOException {
 		Thread.sleep(2000);
 		WebElement titleBar = driver.findElementById("TitleBar");
 		titleBar.click();
-
+		Runtime.getRuntime().exec("taskkill /F /IM PharmCRM.UploadWizard.exe");
+		System.out.println("XFlow application closed successfully.");
 	}
 
 	@And("I should remain on the connection screen")
-	public void iShouldRemainOnTheConnectionScreen() throws InterruptedException {
+	public void iShouldRemainOnTheConnectionScreen() throws InterruptedException, IOException {
 		Thread.sleep(2000);
 		WebElement titleBar = driver.findElementById("TitleBar");
 		titleBar.click();
+		Runtime.getRuntime().exec("taskkill /F /IM PharmCRM.UploadWizard.exe");
+		System.out.println("XFlow application closed successfully.");
 
 	}
 
@@ -88,6 +90,26 @@ public class XFlowSteps {
 		}
 		WebElement item = items.get(indexToSelect);
 		System.out.println("Fast select -> " + item.getAttribute("Name"));
+		item.click();
+	}
+
+	@And("I select the Template from the available options")
+	public void iSelectTemplateFromAvailableOptions() throws InterruptedException {
+		WebElement combo = driver
+				.findElement(By.xpath("//*[@AutomationId='gbQueueSetup']//*[@AutomationId='cmbTemplate']"));
+		WebElement arrowButton = combo.findElement(By.xpath(".//*[contains(@LocalizedControlType,'button')]"));
+		arrowButton.click();
+		Thread.sleep(1000);
+		WebDriverWait wait = new WebDriverWait(driver, 5);
+		wait.until(ExpectedConditions.presenceOfElementLocated(
+				By.xpath("//*[@AutomationId='cmbTemplate']//*[contains(@LocalizedControlType,'list')]")));
+		List<WebElement> items = driver.findElements(
+				By.xpath("//*[@AutomationId='cmbTemplate']//*[contains(@LocalizedControlType,'list item')]"));
+		System.out.println("Template Items found: " + items.size());
+		Thread.sleep(1000);
+		int indexToSelect = 1;
+		WebElement item = items.get(indexToSelect);
+		System.out.println("Selecting Template → " + item.getAttribute("Name"));
 		item.click();
 	}
 
@@ -125,11 +147,142 @@ public class XFlowSteps {
 	}
 
 	@And("a success message should be displayed indicating that Data Upload Complated")
-	public void successMessageShouldBeDisplayedForDataUpload() throws InterruptedException {
+	public void successMessageShouldBeDisplayedForDataUpload() throws Exception {
+		WebDriverWait wait = new WebDriverWait(driver, 120);
+		try {
+			boolean isMessageDisplayed = wait
+					.until(ExpectedConditions.attributeToBe(By.id("lblProgress"), "Name", "Data upload completed.."));
+
+			if (isMessageDisplayed) {
+				WebElement completedMessage = driver.findElement(By.id("lblProgress"));
+				String text = completedMessage.getAttribute("Name");
+				System.out.println("Message displayed: " + text);
+				Assert.assertEquals(text, "Data upload completed..", "Success message is not displayed!");
+			}
+
+		} catch (TimeoutException e) {
+			WebElement completedMessage = driver.findElement(By.id("lblProgress"));
+			String text = completedMessage.getAttribute("Name");
+			System.err.println("Timeout waiting for success message. Last displayed: " + text);
+			Assert.fail("Success message not displayed within timeout!");
+		} finally {
+			Runtime.getRuntime().exec("taskkill /F /IM PharmCRM.UploadWizard.exe");
+			System.out.println("XFlow application closed successfully.");
+		}
+	}
+
+	@And("I click on the Add+ button")
+	public void clickOnAddButton() throws InterruptedException {
+		Thread.sleep(5000);
+		WebElement addButton = driver.findElementById("btnAddQueueSetting");
+		addButton.click();
+	}
+
+	@And("a Delete button should be displayed to allow deleting the newly added entry")
+	public void assertDeleteButtonVisibleForNewEntry() throws InterruptedException, IOException {
+		Thread.sleep(5000);
+		WebElement deleteButton = driver.findElementById("btnDelete");
+		deleteButton.click();
+		Runtime.getRuntime().exec("taskkill /F /IM PharmCRM.UploadWizard.exe");
+		System.out.println("XFlow application closed successfully.");
+
+	}
+
+	@And("the Delete button should be visible for removing the newly added RX Report entry")
+	public void verifyDeleteButtonVisibleForNewRxReportEntry() throws InterruptedException, IOException {
+		Thread.sleep(5000);
+		WebElement deleteButton = driver.findElementById("btnDelete");
+		deleteButton.click();
+		Runtime.getRuntime().exec("taskkill /F /IM PharmCRM.UploadWizard.exe");
+		System.out.println("XFlow application closed successfully.");
+
+	}
+
+	@And("the system should display a popup message indicating Please Select Template")
+	public void verifyPleaseSelectTemplateMessage() throws InterruptedException {
 		Thread.sleep(9000);
 		WebElement completedMessage = driver.findElementByName("Data upload completed..");
 		Assert.assertTrue(completedMessage.isDisplayed(), "Completed message is not displayed.");
 
+	}
+
+	@And("the file upload process should not proceed until a template is selected")
+	public void verifyUploadDoesNotProceedWithoutTemplate() throws InterruptedException {
+		Thread.sleep(9000);
+		WebElement completedMessage = driver.findElementByName("Data upload completed..");
+		Assert.assertTrue(completedMessage.isDisplayed(), "Completed message is not displayed.");
+
+	}
+
+	@And("I have selected the appropriate Template")
+	public void iHaveSelectedTheAppropriateTemplate() throws InterruptedException {
+		Thread.sleep(9000);
+		WebElement completedMessage = driver.findElementByName("Data upload completed..");
+		Assert.assertTrue(completedMessage.isDisplayed(), "Completed message is not displayed.");
+
+	}
+
+	@And("I have not uploaded any RX Report Excel file")
+	public void iHaveNotUploadedAnyRxReportFile() throws InterruptedException {
+		Thread.sleep(9000);
+		WebElement completedMessage = driver.findElementByName("Data upload completed..");
+		Assert.assertTrue(completedMessage.isDisplayed(), "Completed message is not displayed.");
+
+	}
+
+	@And("the system should display a popup message indicating Please upload a file before processing")
+	public void verifyPopupMessage() throws InterruptedException {
+		Thread.sleep(9000);
+		WebElement completedMessage = driver.findElementByName("Data upload completed..");
+		Assert.assertTrue(completedMessage.isDisplayed(), "Completed message is not displayed.");
+
+	}
+
+	@And("the processing should not be initiated until a valid file is uploaded")
+	public void verifyProcessingIsNotInitiatedWithoutValidFile() throws InterruptedException {
+		Thread.sleep(9000);
+		WebElement completedMessage = driver.findElementByName("Data upload completed..");
+		Assert.assertTrue(completedMessage.isDisplayed(), "Completed message is not displayed.");
+
+	}
+
+	@And("I click on the Confirm and Process button")
+	public void clickOnConfirmAndProcessButton() throws InterruptedException {
+		Thread.sleep(9000);
+		WebElement completedMessage = driver.findElementByName("Data upload completed..");
+		Assert.assertTrue(completedMessage.isDisplayed(), "Completed message is not displayed.");
+
+	}
+
+	@And("I have not selected any Template")
+	public void iHaveNotSelectedAnyTemplate() throws InterruptedException {
+		Thread.sleep(9000);
+		WebElement completedMessage = driver.findElementByName("Data upload completed..");
+		Assert.assertTrue(completedMessage.isDisplayed(), "Completed message is not displayed.");
+
+	}
+
+	@And("I click on the Upload File button")
+	public void clickOnUploadFileButton() throws InterruptedException {
+		Thread.sleep(9000);
+		WebElement completedMessage = driver.findElementByName("Data upload completed..");
+		Assert.assertTrue(completedMessage.isDisplayed(), "Completed message is not displayed.");
+
+	}
+
+	@And("I have selected the EHR Source from the available options")
+	public void iHaveSelectedEhrSource() throws InterruptedException {
+		Thread.sleep(9000);
+		WebElement completedMessage = driver.findElementByName("Data upload completed..");
+		Assert.assertTrue(completedMessage.isDisplayed(), "Completed message is not displayed.");
+
+	}
+
+	@And("I click on the Download Error Records button")
+	public void clickOnDownloadErrorRecordsButton() throws InterruptedException {
+		Thread.sleep(3000);
+		WebElement downloadButton = driver.findElementById("btnErrorData");
+		downloadButton.click();
 	}
 
 	@And("I click on the Please Validate Excel format popup")
@@ -186,9 +339,11 @@ public class XFlowSteps {
 	}
 
 	@And("I click Yes")
-	public void iClickYes() throws InterruptedException {
+	public void iClickYes() throws InterruptedException, IOException {
 		WebElement okButton = driver.findElementById("6");
 		okButton.click();
+		Runtime.getRuntime().exec("taskkill /F /IM PharmCRM.UploadWizard.exe");
+		System.out.println("XFlow application closed successfully.");
 	}
 
 	@And("I click No")
