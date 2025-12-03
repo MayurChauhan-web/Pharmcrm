@@ -9,7 +9,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.winium.DesktopOptions;
 import org.openqa.selenium.winium.WiniumDriver;
 import org.testng.Assert;
-
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
@@ -141,6 +140,14 @@ public class XFlowSteps {
 
 	}
 
+	@And("I Select Rx Report POS")
+	public void iSelectRxReportPOS() throws InterruptedException {
+		Thread.sleep(5000);
+		WebElement dispensedButton = driver.findElementById("btnPOS");
+		dispensedButton.click();
+
+	}
+
 	@And("I upload a valid RX Report Dispensed Excel file")
 	public void iUploadValidRXReportDispensedExcelFile() throws InterruptedException {
 		WebElement uploadBtn = driver.findElement(By.id("btnUpload"));
@@ -192,8 +199,33 @@ public class XFlowSteps {
 		Thread.sleep(2000);
 	}
 
+	@And("I upload a valid POS Excel file")
+	public void iUploadValidPOSExcelFile() throws InterruptedException {
+		WebElement uploadBtn = driver.findElement(By.id("btnUpload"));
+		uploadBtn.click();
+		Thread.sleep(2000);
+		WebElement openWindow = driver.findElement(By.name("Open"));
+		WebElement fileNameBox = openWindow.findElement(By.xpath(".//*[@ClassName='Edit']"));
+		String filePath = "C:\\Users\\MayurChauhan\\Downloads\\POSReportTemplate.xlsx";
+		fileNameBox.clear();
+		fileNameBox.sendKeys(filePath);
+		Thread.sleep(500);
+		WebElement openButton = openWindow
+				.findElement(By.xpath(".//*[@Name='Open' and @LocalizedControlType='button']"));
+		openButton.click();
+		Thread.sleep(2000);
+	}
+
 	@And("I click on Confirm and Process")
 	public void iClickOnConfirmAndProcess() throws InterruptedException {
+		Thread.sleep(3000);
+		WebElement confirmButton = driver.findElementById("btnConfirm");
+		confirmButton.click();
+
+	}
+
+	@And("I click on the Confirm and Process button without selecting POS Source")
+	public void iClickConfirmAndProcessWithoutPOSSource() throws InterruptedException {
 		Thread.sleep(3000);
 		WebElement confirmButton = driver.findElementById("btnConfirm");
 		confirmButton.click();
@@ -407,6 +439,13 @@ public class XFlowSteps {
 
 	@And("I click on the Download Error Records button without selecting EHR Source")
 	public void clickDownloadErrorRecordsWithoutSelectingEHRSource() throws InterruptedException {
+		Thread.sleep(3000);
+		WebElement downloadButton = driver.findElementById("btnErrorData");
+		downloadButton.click();
+	}
+
+	@And("I click on the Download Error Records button without selecting POS Source")
+	public void iClickDownloadErrorRecordsWithoutPOSSource() throws InterruptedException {
 		Thread.sleep(3000);
 		WebElement downloadButton = driver.findElementById("btnErrorData");
 		downloadButton.click();

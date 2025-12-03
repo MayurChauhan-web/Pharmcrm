@@ -193,7 +193,6 @@ And I click on Confirm and Process
 And a success message should be displayed indicating that Data Upload Complated
 And I click on Download Error Records
 
-@XFlow
 Scenario: Verify Confirm and Process functionality on Demographic screen
 Given the XFlow application is installed  
 And the application is open  
@@ -203,6 +202,58 @@ When I select the EHR Source from the available options
 And I upload a valid Demographic Excel file
 And I click on Confirm and Process
 Then a success message should be displayed indicating that Data Upload Complated
+
+Scenario: Display validation message when clicking Confirm and Process without selecting POS Template
+Given the XFlow application is installed
+And the application is open
+And I enter username and password and click OK
+And I Select Rx Report POS
+When I click on the Confirm and Process button without selecting POS Source
+Then the system should display a popup message indicating Please upload a file.
+
+Scenario: Display validation message when clicking Download Error Records without Uploading File 
+Given the XFlow application is installed
+And the application is open
+And I enter username and password and click OK
+And I Select Rx Report POS
+When I click on the Download Error Records button without selecting POS Source
+Then the system should display a popup message indicating Error file not found.
+
+Scenario: Verify Confirm and Process functionality on Rx Report for POS
+Given the XFlow application is installed
+And the application is open
+And I enter username and password and click OK
+And I Select Rx Report POS
+And I upload a valid POS Excel file
+And I click on Confirm and Process
+Then a success message should be displayed indicating that Data Upload Complated
+
+@XFlow
+Scenario: Verify Download Error Records functionality on Rx Report for POS
+Given the XFlow application is installed
+And the application is open
+And I enter username and password and click OK
+And I Select Rx Report POS
+And I upload a valid POS Excel file
+And I click on Confirm and Process
+Then a success message should be displayed indicating that Data Upload Complated
+And I click on Download Error Records
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
