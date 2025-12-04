@@ -228,7 +228,6 @@ And I upload a valid POS Excel file
 And I click on Confirm and Process
 Then a success message should be displayed indicating that Data Upload Complated
 
-@XFlow
 Scenario: Verify Download Error Records functionality on Rx Report for POS
 Given the XFlow application is installed
 And the application is open
@@ -238,6 +237,130 @@ And I upload a valid POS Excel file
 And I click on Confirm and Process
 Then a success message should be displayed indicating that Data Upload Complated
 And I click on Download Error Records
+
+Scenario: Display validation message when no file is uploaded
+Given the XFlow application is installed
+And the application is open
+And I enter username and password and click OK
+And I Select Data Lead
+When I click on the Confirm and Process button without selecting Upload File
+Then the system should display a popup message indicating Please upload a file.
+
+Scenario: Display validation message when no file is uploaded for Provider
+Given the XFlow application is installed
+And the application is open
+And I enter username and password and click OK
+And I Select Data Provider
+When I click on the Confirm and Process button without selecting Upload File
+Then the system should display a popup message indicating Please upload a file.
+
+Scenario: Verify successful database connection after login
+Given the XFlow application is installed
+And the application is open
+And I enter username and password and click OK
+When I click the Test Connection button  
+Then the system should display a message indicating Database Connection Verified Successfully
+
+Scenario: Verify successful login and logout functionality
+Given the XFlow application is installed
+And the application is open
+And I enter username and password and click OK
+When I click the Logout button  
+Then the system should log me out and display the login screen
+
+Scenario: Verify Confirm and Process functionality on Data Lead
+Given the XFlow application is installed
+And the application is open
+And I enter username and password and click OK
+And I Select Data Lead
+And I upload a valid Lead Excel file
+When I select the Audience Type from the available options
+And I click on Confirm and Process
+Then a success message should be displayed indicating that Data Upload Complated
+
+Scenario: Verify Confirm and Process functionality on Data Provider
+Given the XFlow application is installed
+And the application is open
+And I enter username and password and click OK
+And I Select Data Provider
+And I upload a valid Provider Excel file
+And I click on Confirm and Process
+Then a success message should be displayed indicating that Data Upload Complated
+
+Scenario: Display validation message when no Audience Type is selected for Provider
+Given the XFlow application is installed
+And the application is open
+And I enter username and password and click OK
+And I Select Data Lead
+And I upload a valid Lead Excel file
+When I click on the Confirm and Process button without selecting Audience Type
+Then the system should display a popup message indicating Please select an Audience Type.
+
+Scenario: Verify Download Template functionality on Data Lead
+Given the XFlow application is installed
+And the application is open
+And I enter username and password and click OK
+And I Select Data Lead
+When I click on Download Template
+Then the system should download the Lead Template file successfully
+
+@XFlow
+Scenario: Verify Download Template functionality on Data Provider
+Given the XFlow application is installed
+And the application is open
+And I enter username and password and click OK
+And I Select Data Provider
+When I click on Download Template
+Then the system should download the Provider Template file successfully
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

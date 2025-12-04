@@ -116,6 +116,26 @@ public class XFlowSteps {
 		item.click();
 	}
 
+	@And("I select the Audience Type from the available options")
+	public void selectAudienceType() throws InterruptedException {
+		WebElement combo = driver.findElement(By.id("1001"));
+		WebElement arrowButton = combo
+				.findElement(By.xpath("following-sibling::*[contains(@LocalizedControlType,'button')]"));
+		arrowButton.click();
+		WebDriverWait wait = new WebDriverWait(driver, 5);
+		wait.until(
+				ExpectedConditions.presenceOfElementLocated(By.xpath("//*[contains(@LocalizedControlType,'list')]")));
+		List<WebElement> items = driver.findElements(By.xpath("//*[contains(@LocalizedControlType,'list item')]"));
+		System.out.println("Items found: " + items.size());
+		int indexToSelect = 1;
+		if (indexToSelect >= items.size()) {
+			throw new RuntimeException("Index " + indexToSelect + " is out of range");
+		}
+		WebElement item = items.get(indexToSelect);
+		System.out.println("Fast select -> " + item.getAttribute("Name"));
+		item.click();
+	}
+
 	@And("I Select RX Report Dispensed")
 	public void iSelectRXReportDispensed() throws InterruptedException {
 		Thread.sleep(5000);
@@ -144,6 +164,30 @@ public class XFlowSteps {
 	public void iSelectRxReportPOS() throws InterruptedException {
 		Thread.sleep(5000);
 		WebElement dispensedButton = driver.findElementById("btnPOS");
+		dispensedButton.click();
+
+	}
+
+	@And("I Select Data Lead")
+	public void iSelectDataLead() throws InterruptedException {
+		Thread.sleep(5000);
+		WebElement dispensedButton = driver.findElementById("btnLead");
+		dispensedButton.click();
+
+	}
+
+	@And("I Select Data Provider")
+	public void SelectDataProvider() throws InterruptedException {
+		Thread.sleep(5000);
+		WebElement dispensedButton = driver.findElementById("btnProvider");
+		dispensedButton.click();
+
+	}
+
+	@And("I click the Logout button")
+	public void iClickTheLogoutButton() throws InterruptedException {
+		Thread.sleep(5000);
+		WebElement dispensedButton = driver.findElementById("btnLogOut");
 		dispensedButton.click();
 
 	}
@@ -216,8 +260,58 @@ public class XFlowSteps {
 		Thread.sleep(2000);
 	}
 
+	@And("I upload a valid Lead Excel file")
+	public void uploadValidLeadExcelFile() throws InterruptedException {
+		WebElement uploadBtn = driver.findElement(By.id("btnUpload"));
+		uploadBtn.click();
+		Thread.sleep(2000);
+		WebElement openWindow = driver.findElement(By.name("Open"));
+		WebElement fileNameBox = openWindow.findElement(By.xpath(".//*[@ClassName='Edit']"));
+		String filePath = "C:\\Users\\MayurChauhan\\Downloads\\POSReportTemplate.xlsx";
+		fileNameBox.clear();
+		fileNameBox.sendKeys(filePath);
+		Thread.sleep(500);
+		WebElement openButton = openWindow
+				.findElement(By.xpath(".//*[@Name='Open' and @LocalizedControlType='button']"));
+		openButton.click();
+		Thread.sleep(2000);
+	}
+
+	@And("I upload a valid Provider Excel file")
+	public void uploadValidProviderExcelFile() throws InterruptedException {
+		WebElement uploadBtn = driver.findElement(By.id("btnUpload"));
+		uploadBtn.click();
+		Thread.sleep(2000);
+		WebElement openWindow = driver.findElement(By.name("Open"));
+		WebElement fileNameBox = openWindow.findElement(By.xpath(".//*[@ClassName='Edit']"));
+		String filePath = "C:\\Users\\MayurChauhan\\Downloads\\POSReportTemplate.xlsx";
+		fileNameBox.clear();
+		fileNameBox.sendKeys(filePath);
+		Thread.sleep(500);
+		WebElement openButton = openWindow
+				.findElement(By.xpath(".//*[@Name='Open' and @LocalizedControlType='button']"));
+		openButton.click();
+		Thread.sleep(2000);
+	}
+
 	@And("I click on Confirm and Process")
 	public void iClickOnConfirmAndProcess() throws InterruptedException {
+		Thread.sleep(3000);
+		WebElement confirmButton = driver.findElementById("btnConfirm");
+		confirmButton.click();
+
+	}
+
+	@And("I click on the Confirm and Process button without selecting Audience Type")
+	public void clickConfirmAndProcessWithoutSelectingAudienceType() throws InterruptedException {
+		Thread.sleep(3000);
+		WebElement confirmButton = driver.findElementById("btnConfirm");
+		confirmButton.click();
+
+	}
+
+	@And("I click on the Confirm and Process button without selecting Upload File")
+	public void clickConfirmAndProcessWithoutUpload() throws InterruptedException {
 		Thread.sleep(3000);
 		WebElement confirmButton = driver.findElementById("btnConfirm");
 		confirmButton.click();
@@ -251,18 +345,60 @@ public class XFlowSteps {
 		System.out.println("XFlow application closed successfully.");
 	}
 
+	@And("the system should download the Lead Template file successfully")
+	public void clickOnDownloadLeadTemplate() throws InterruptedException, AWTException, IOException {
+		Thread.sleep(2000);
+		Robot robot = new Robot();
+		robot.setAutoDelay(200);
+		robot.keyPress(KeyEvent.VK_ENTER);
+		robot.keyRelease(KeyEvent.VK_ENTER);
+		System.out.println("File saved successfully from Windows Save dialog.");
+		Thread.sleep(2000);
+		WebElement continueButton = driver.findElement(By.name("Continue"));
+		continueButton.click();
+		System.out.println("Continue button clicked successfully.");
+		Thread.sleep(2000);
+		Runtime.getRuntime().exec("taskkill /F /IM PharmCRM.UploadWizard.exe");
+		System.out.println("XFlow application closed successfully.");
+	}
+
+	@And("the system should download the Provider Template file successfully")
+	public void clickOnDownloadTemplateForProvider() throws InterruptedException, AWTException, IOException {
+		Thread.sleep(2000);
+		Robot robot = new Robot();
+		robot.setAutoDelay(200);
+		robot.keyPress(KeyEvent.VK_ENTER);
+		robot.keyRelease(KeyEvent.VK_ENTER);
+		System.out.println("File saved successfully from Windows Save dialog.");
+		Thread.sleep(2000);
+		WebElement continueButton = driver.findElement(By.name("Continue"));
+		continueButton.click();
+		System.out.println("Continue button clicked successfully.");
+		Thread.sleep(2000);
+		Runtime.getRuntime().exec("taskkill /F /IM PharmCRM.UploadWizard.exe");
+		System.out.println("XFlow application closed successfully.");
+	}
+
+	@And("I click on Download Template")
+	public void clickDownloadTemplate() throws InterruptedException, AWTException, IOException {
+		Thread.sleep(2000);
+		WebElement downloadBtn = driver.findElementById("btnDownload");
+		downloadBtn.click();
+
+	}
+
 	@And("a success message should be displayed indicating that Data Upload Complated")
 	public void successMessageShouldBeDisplayedForDataUpload() throws Exception {
 		WebDriverWait wait = new WebDriverWait(driver, 120);
 		try {
-			boolean isMessageDisplayed = wait
-					.until(ExpectedConditions.attributeToBe(By.id("lblProgress"), "Name", "Data upload completed.."));
+			boolean isMessageDisplayed = wait.until(
+					ExpectedConditions.attributeToBe(By.id("lblProgress"), "Name", "Providers loaded in memory.."));
 
 			if (isMessageDisplayed) {
 				WebElement completedMessage = driver.findElement(By.id("lblProgress"));
 				String text = completedMessage.getAttribute("Name");
 				System.out.println("Message displayed: " + text);
-				Assert.assertEquals(text, "Data upload completed..", "Success message is not displayed!");
+				Assert.assertEquals(text, "Providers loaded in memory..", "Success message is not displayed!");
 			}
 
 		} catch (TimeoutException e) {
@@ -375,6 +511,32 @@ public class XFlowSteps {
 		Runtime.getRuntime().exec("taskkill /F /IM PharmCRM.UploadWizard.exe");
 		System.out.println("XFlow application closed successfully.");
 
+	}
+
+	@And("the system should display a popup message indicating Please select an Audience Type.")
+	public void verifyAudienceTypeValidationMessage() throws InterruptedException, IOException {
+		WebDriverWait wait = new WebDriverWait(driver, 15);
+		WebElement errorMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("65535")));
+		Assert.assertTrue(errorMessage.isDisplayed(), "Error message is not visible.");
+		System.out.println("Error message is visible on screen.");
+		Thread.sleep(2000);
+		WebElement okButton = driver.findElementById("2");
+		okButton.click();
+		Thread.sleep(2000);
+		Runtime.getRuntime().exec("taskkill /F /IM PharmCRM.UploadWizard.exe");
+		System.out.println("XFlow application closed successfully.");
+
+	}
+
+	@Then("the system should log me out and display the login screen")
+	public void systemShouldLogMeOutAndDisplayLoginScreen() throws InterruptedException, IOException {
+		WebDriverWait wait = new WebDriverWait(driver, 15);
+		WebElement usernameField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtUserName")));
+		Assert.assertTrue(usernameField.isDisplayed(), "Login screen is not visible after logout.");
+		System.out.println("User successfully logged out. Login screen is visible.");
+		Thread.sleep(2000);
+		Runtime.getRuntime().exec("taskkill /F /IM PharmCRM.UploadWizard.exe");
+		System.out.println("XFlow application closed successfully.");
 	}
 
 	@Then("a text message should appear indicating New version is available for download")
