@@ -558,7 +558,6 @@ And the user should be able to delete Prescription Status in Workflow Module
 And the user should not be able to add Prescription Status in Workflow Module
 And the user should not be able to edit Prescription Status in Workflow Module
 
-@Workflow
 Scenario: User with full access to Sync Workflow
 Given I log in as admin for Workflow Module
 When I create a new user with email for Workflow Module "testuser1_static@mailinator.com"
@@ -571,6 +570,7 @@ And the user should be able to comment in Sync Workflow
 And the user should be able to receive alerts in Sync Workflow
 And the user should be able to export Sync Workflow data to Excel
 
+@Workflow
 Scenario: User with View only access but no Comment, Alert, or Export Excel for Sync Workflow
 Given I log in as admin for Workflow Module
 When I create a new user with email for Workflow Module "testuser2_static@mailinator.com"
@@ -583,31 +583,9 @@ And the user should not be able to comment in Sync Workflow
 And the user should not be able to receive alerts in Sync Workflow
 And the user should not be able to export Sync Workflow data to Excel
 
-Scenario: User with View + Run Trigger access to Job Setting
-Given I log in as admin for Workflow Module
-When I create a new user with email for Workflow Module "testuser2_static@mailinator.com"
-And I create a profile with View and Run Trigger access to Workflow Module
-And I assign the profile and workspace to the user for Workflow Module
-And I reset the user's password for Workflow Module
-And I log in using the new user for Workflow Module
-Then the user should be able to view Job Setting data
-And the user should not be able to edit Job Setting data
-And the user should be able to run triggers in Job Setting
-
-Scenario: User with View + Edit access to Job Setting
-Given I log in as admin for Workflow Module
-When I create a new user with email for Workflow Module "testuser2_static@mailinator.com"
-And I create a profile with View and Edit access to Workflow Module
-And I assign the profile and workspace to the user for Workflow Module
-And I reset the user's password for Workflow Module
-And I log in using the new user for Workflow Module
-Then the user should be able to view Job Setting data
-And the user should be able to edit Job Setting data
-And the user should not be able to run triggers in Job Setting
-
 Scenario: User with all permissions in Display Workflow
 Given I log in as admin for Workflow Module
-When I create a new user with email for Workflow Module "testuser2_static@mailinator.com"
+When I create a new user with email for Workflow Module "testuser3_static@mailinator.com"
 And I create a profile with the all Additional Access permissions for Display Workflow Module:
 And I assign the profile and workspace to the user for Workflow Module
 And I reset the user's password for Workflow Module
@@ -925,22 +903,22 @@ And I reset the user's password for Workflow Module
 And I log in using the new user for Workflow Module
 Then the user should not be able to view Mail data
 
-Scenario: Workflow Dashboard – Add Template Validation on Blank Submission
+Scenario: Workflow Dashboard Add Template Validation on Blank Submission
 Given I log in as admin for Workflow Module
 When I navigate to the Workflow Dashboard
-And I click on "Add Template"
+And I click on Add Template
 And I leave all required fields blank
-And I click "Submit"
+And I click Submit
 Then I should see validation messages for all required fields
 And the template should not be created
 
-Scenario: Workflow Dashboard – Quick Text Send Validation on Blank Submission
+Scenario: Workflow Dashboard Quick Text Send Validation on Blank Submission
 Given I log in as admin for Workflow Module
 When I navigate to Workflow Dashboard
 And I go to Quick Text section
-And I click on "Send"
-And I leave the message/content field blank
-And I click "Send"
+And I click on Send
+And I leave the message content field blank
+And I click Send
 Then I should see a validation message indicating the content is required
 And the message should not be sent
 
@@ -948,18 +926,18 @@ Scenario: Workflow Dashboard – Quick Text Send VCard Validation on Blank Submi
 Given I log in as admin for Workflow Module
 When I navigate to Workflow Dashboard
 And I go to Quick Text section
-And I click on "Send VCard"
+And I click on Send VCard
 And I leave all required fields blank
-And I click "Send"
+And I click Send
 Then I should see a validation message indicating the required fields must be filled
 And the VCard should not be sent
 
 Scenario: Workflow Dashboard – Add Communication Validation on Blank Submission
 Given I log in as admin for Workflow Module
 When I navigate to Workflow Dashboard
-And I click on "Add Communication"
+And I click on Add Communication
 And I leave all required fields blank
-And I click "Submit"
+And I click Submit
 Then I should see validation messages for all required fields
 And the communication should not be created
 
@@ -967,36 +945,36 @@ Scenario: Workflow Dashboard – Quick Notes Validation on Blank Submission
 Given I log in as admin for Workflow Module
 When I navigate to Workflow Dashboard
 And I go to Quick Notes section
-And I click on "Add Note"
+And I click on Add Note
 And I leave all required fields blank
-And I click "Save"
+And I click Save
 Then I should see validation messages for all required fields
 And the note should not be created
 
 Scenario: Action Workflow Page – Add Template Validation on Blank Submission
 Given I log in as admin for Workflow Module
 When I navigate to the Action Workflow page
-And I click on "Add Template"
+And I click on Add Template
 And I leave all required fields blank
-And I click "Submit"
+And I click Submit
 Then I should see validation messages for all required fields
 And the Template should not be created
 
 Scenario: Action Workflow – Add Communication Validation on Blank Submission
 Given I log in as admin for Workflow Module
 When I navigate to the Action Workflow page
-And I click on "Add Communication"
+And I click on Add Communication
 And I leave all required fields blank
-And I click "Submit"
+And I click Submit
 Then I should see validation messages for all required fields
 And the Communication should not be created
 
 Scenario: Action Workflow – Quick Notes Validation on Blank Submission
 Given I log in as admin for Workflow Module
 When I navigate to the Action Workflow page
-And I click on "Add Quick"
+And I click on Add Quick
 And I clear all required fields
-And I click "Save"
+And I click Save
 Then I should see validation messages for all required fields
 And the action should not be updated
 
@@ -1009,9 +987,69 @@ And I reset the user's password for Workflow Module
 And I log in using the new user for Workflow Module
 When I navigate to Workflow Dashboard
 And I select one or more records using the check box
-And I click on "Mail to Selected"
+And I click on Mail to Selected
 Then I should see a validation message indicating no record selected please selecct one
 And the Mail action should not be performed
+
+Scenario: Action Workflow – Fax to Selected Validation for No Rx Number
+Given I log in as admin for Workflow Module
+When I create a new user with email "faxuser_static@mailinator.com"
+And I create a profile with no permissions for Fax Module
+And I assign the profile and workspace to the user for Workflow Module
+And I reset the user's password for Workflow Module
+And I log in using the new user for Workflow Module
+When I navigate to Workflow Dashboard
+And I select one or more records using the check box
+And I click on Fax to Selected
+Then I should see a validation message indicating no record selected please select one
+And the Fax action should not be performed
+
+Scenario: Action Workflow – Text to Selected Validation for No Record Selected
+Given I log in as admin for Workflow Module
+When I create a new user with email "textuser_static@mailinator.com"
+And I create a profile with no permissions for Text Module
+And I assign the profile and workspace to the user for Workflow Module
+And I reset the user's password for Workflow Module
+And I log in using the new user for Workflow Module
+When I navigate to Workflow Dashboard
+And I select one or more records using the check box
+And I click on Text to Selected
+Then I should see a validation message indicating no record selected please select one
+And the Text action should not be performed
+
+Scenario: Action Workflow – Callout to Selected Validation for No Record Selected
+Given I log in as admin for Workflow Module
+When I create a new user with email "calloutuser_static@mailinator.com"
+And I create a profile with no permissions for Callout Module
+And I assign the profile and workspace to the user for Workflow Module
+And I reset the user's password for Workflow Module
+And I log in using the new user for Workflow Module
+When I navigate to Workflow Dashboard
+And I select one or more records using the check box
+And I click on Callout to Selected
+Then I should see a validation message indicating no record selected please select one
+And the Callout action should not be performed
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
