@@ -1,4 +1,3 @@
-@Workflow
 Feature: Workflow Module scenarios
 
 Scenario: User with View only access for General (Audit View)
@@ -558,6 +557,580 @@ Then the user should be able to view Prescription Status in Workflow Module
 And the user should be able to delete Prescription Status in Workflow Module
 And the user should not be able to add Prescription Status in Workflow Module
 And the user should not be able to edit Prescription Status in Workflow Module
+
+@Workflow
+Scenario: User with full access to Sync Workflow
+Given I log in as admin for Workflow Module
+When I create a new user with email for Workflow Module "testuser1_static@mailinator.com"
+And I create a profile with View, Comment, Alert, and Export Excel access to Sync Workflow Module
+And I assign the profile and workspace to the user for Workflow Module
+And I reset the user's password for Workflow Module
+And I log in using the new user for Workflow Module
+Then the user should be able to view Sync Workflow data
+And the user should be able to comment in Sync Workflow
+And the user should be able to receive alerts in Sync Workflow
+And the user should be able to export Sync Workflow data to Excel
+
+Scenario: User with View only access but no Comment, Alert, or Export Excel for Sync Workflow
+Given I log in as admin for Workflow Module
+When I create a new user with email for Workflow Module "testuser2_static@mailinator.com"
+And I create a profile with only View access and no Comment, Alert, or Export Excel access to Sync Workflow Module
+And I assign the profile and workspace to the user for Workflow Module
+And I reset the user's password for Workflow Module
+And I log in using the new user for Workflow Module
+Then the user should be able to view Sync Workflow data
+And the user should not be able to comment in Sync Workflow
+And the user should not be able to receive alerts in Sync Workflow
+And the user should not be able to export Sync Workflow data to Excel
+
+Scenario: User with View + Run Trigger access to Job Setting
+Given I log in as admin for Workflow Module
+When I create a new user with email for Workflow Module "testuser2_static@mailinator.com"
+And I create a profile with View and Run Trigger access to Workflow Module
+And I assign the profile and workspace to the user for Workflow Module
+And I reset the user's password for Workflow Module
+And I log in using the new user for Workflow Module
+Then the user should be able to view Job Setting data
+And the user should not be able to edit Job Setting data
+And the user should be able to run triggers in Job Setting
+
+Scenario: User with View + Edit access to Job Setting
+Given I log in as admin for Workflow Module
+When I create a new user with email for Workflow Module "testuser2_static@mailinator.com"
+And I create a profile with View and Edit access to Workflow Module
+And I assign the profile and workspace to the user for Workflow Module
+And I reset the user's password for Workflow Module
+And I log in using the new user for Workflow Module
+Then the user should be able to view Job Setting data
+And the user should be able to edit Job Setting data
+And the user should not be able to run triggers in Job Setting
+
+Scenario: User with all permissions in Display Workflow
+Given I log in as admin for Workflow Module
+When I create a new user with email for Workflow Module "testuser2_static@mailinator.com"
+And I create a profile with the all Additional Access permissions for Display Workflow Module:
+And I assign the profile and workspace to the user for Workflow Module
+And I reset the user's password for Workflow Module
+And I log in using the new user for Workflow Module
+Then the user should be able to view Display Workflow data
+And the user should be able to see details in Display Workflow
+And the user should be able to perform advanced searches in Display Workflow
+And the user should be able to add Grid Templates in Display Workflow
+And the user should be able to edit Grid Templates in Display Workflow
+And the user should be able to delete Grid Templates in Display Workflow
+And the user should be able to toggle Show All Runninglines checkbox
+And the user should be able to toggle Show Past Runninglines checkbox
+And the user should be able to set Grid Template - Company Default checkbox
+And the user should have full program access in Display Workflow
+And the user should be able to perform Pharmacy NABP searches
+And the user should be able to export Display Workflow data to Excel
+
+Scenario: User with View only permission in Display Workflow
+Given I log in as admin for Workflow Module
+When I create a new user with email for Workflow Module "testuser3_static@mailinator.com"
+And I create a profile with only View permission for Display Workflow Module
+And I assign the profile and workspace to the user for Workflow Module
+And I reset the user's password for Workflow Module
+And I log in using the new user for Workflow Module
+Then the user should be able to view Display Workflow data
+And the user should not be able to see details in Display Workflow
+And the user should not be able to perform advanced searches in Display Workflow
+And the user should not be able to add Grid Templates in Display Workflow
+And the user should not be able to edit Grid Templates in Display Workflow
+And the user should not be able to delete Grid Templates in Display Workflow
+And the user should not be able to toggle Show All Runninglines checkbox
+And the user should not be able to toggle Show Past Runninglines checkbox
+And the user should not be able to set Grid Template - Company Default checkbox
+And the user should not have full program access in Display Workflow
+And the user should not be able to perform Pharmacy NABP searches
+And the user should not be able to export Display Workflow data to Excel
+
+Scenario: User with all permissions in Action Workflow
+Given I log in as admin for Workflow Module
+When I create a new user with email for Workflow Module "actionuser1_static@mailinator.com"
+And I create a profile with the following permissions for Action Workflow Module:
+And I assign the profile and workspace to the user for Workflow Module
+And I reset the user's password for Workflow Module
+And I log in using the new user for Workflow Module
+Then the user should be able to view Action Workflow data
+And the user should be able to see details in Action Workflow
+And the user should be able to send Text messages in Action Workflow
+And the user should be able to perform BOT Calls in Action Workflow
+And the user should be able to send Quick Text in Action Workflow
+And the user should be able to toggle Show All Runninglines checkbox
+And the user should be able to toggle Show Past Runninglines checkbox
+And the user should be able to perform advanced searches in Action Workflow
+And the user should be able to add Grid Templates in Action Workflow
+And the user should be able to edit Grid Templates in Action Workflow
+And the user should be able to delete Grid Templates in Action Workflow
+And the user should be able to set Grid Template - Company Default checkbox
+And the user should have full program access in Action Workflow
+And the user should be able to send VCards in Action Workflow
+And the user should be able to export Action Workflow data to Excel
+
+Scenario: User with View only permission in Action Workflow
+Given I log in as admin for Workflow Module
+When I create a new user with email for Workflow Module "actionuser2_static@mailinator.com"
+And I create a profile with only View permission for Action Workflow Module
+And I assign the profile and workspace to the user for Workflow Module
+And I reset the user's password for Workflow Module
+And I log in using the new user for Workflow Module
+Then the user should be able to view Action Workflow data
+And the user should not be able to see details in Action Workflow
+And the user should not be able to send Text messages in Action Workflow
+And the user should not be able to perform BOT Calls in Action Workflow
+And the user should not be able to send Quick Text in Action Workflow
+And the user should not be able to toggle Show All Runninglines checkbox
+And the user should not be able to toggle Show Past Runninglines checkbox
+And the user should not be able to perform advanced searches in Action Workflow
+And the user should not be able to add Grid Templates in Action Workflow
+And the user should not be able to edit Grid Templates in Action Workflow
+And the user should not be able to delete Grid Templates in Action Workflow
+And the user should not be able to set Grid Template - Company Default checkbox
+And the user should not have full program access in Action Workflow
+And the user should not be able to send VCards in Action Workflow
+And the user should not be able to export Action Workflow data to Excel
+
+Scenario: User with all permissions in Followup Workflow
+Given I log in as admin for Workflow Module
+When I create a new user with email for Workflow Module "followupuser1_static@mailinator.com"
+And I create a profile with the all permissions for Followup Workflow Module:
+And I assign the profile and workspace to the user for Workflow Module
+And I reset the user's password for Workflow Module
+And I log in using the new user for Workflow Module
+Then the user should be able to view Followup Workflow data
+And the user should be able to see details in Followup Workflow
+And the user should be able to perform Team Actions in Followup Workflow
+And the user should be able to toggle Show All Runninglines checkbox
+And the user should be able to toggle Show Past Runninglines checkbox
+And the user should be able to perform advanced searches in Followup Workflow
+And the user should be able to add Grid Templates in Followup Workflow
+And the user should be able to edit Grid Templates in Followup Workflow
+And the user should be able to delete Grid Templates in Followup Workflow
+And the user should be able to set Grid Template - Company Default checkbox
+And the user should have full program access in Followup Workflow
+And the user should be able to export Followup Workflow data to Excel
+
+Scenario: User with View only permission in Followup Workflow
+Given I log in as admin for Workflow Module
+When I create a new user with email for Workflow Module "followupuser2_static@mailinator.com"
+And I create a profile with only View permission for Followup Workflow Module
+And I assign the profile and workspace to the user for Workflow Module
+And I reset the user's password for Workflow Module
+And I log in using the new user for Workflow Module
+Then the user should be able to view Followup Workflow data
+And the user should not be able to see details in Followup Workflow
+And the user should not be able to perform Team Actions in Followup Workflow
+And the user should not be able to toggle Show All Runninglines checkbox
+And the user should not be able to toggle Show Past Runninglines checkbox
+And the user should not be able to perform advanced searches in Followup Workflow
+And the user should not be able to add Grid Templates in Followup Workflow
+And the user should not be able to edit Grid Templates in Followup Workflow
+And the user should not be able to delete Grid Templates in Followup Workflow
+And the user should not be able to set Grid Template - Company Default checkbox
+And the user should not have full program access in Followup Workflow
+And the user should not be able to export Followup Workflow data to Excel
+
+Scenario: User with all permissions in Audit Workflow
+Given I log in as admin for Workflow Module
+When I create a new user with email for Workflow Module "audituser1_static@mailinator.com"
+And I create a profile with the following permissions for Audit Workflow Module:
+And I assign the profile and workspace to the user for Workflow Module
+And I reset the user's password for Workflow Module
+And I log in using the new user for Workflow Module
+Then the user should be able to view Audit Workflow data
+And the user should be able to add and edit HardCopy in Audit Workflow
+And the user should be able to delete HardCopy in Audit Workflow
+And the user should be able to export Audit Workflow data
+
+Scenario: User with View only permission in Audit Workflow
+Given I log in as admin for Workflow Module
+When I create a new user with email for Workflow Module "audituser2_static@mailinator.com"
+And I create a profile with only View permission for Audit Workflow Module
+And I assign the profile and workspace to the user for Workflow Module
+And I reset the user's password for Workflow Module
+And I log in using the new user for Workflow Module
+Then the user should be able to view Audit Workflow data
+And the user should not be able to add or edit HardCopy in Audit Workflow
+And the user should not be able to delete HardCopy in Audit Workflow
+And the user should not be able to export Audit Workflow data
+
+Scenario: User with all permissions in Runningline Detail
+Given I log in as admin for Workflow Module
+When I create a new user with email for Workflow Module "runninglinedetailuser1_static@mailinator.com"
+And I create a profile with the following permissions for Runningline Detail Module:
+And I assign the profile and workspace to the user for Workflow Module
+And I reset the user's password for Workflow Module
+And I log in using the new user for Workflow Module
+Then the user should be able to edit Runningline Detail
+And the user should be able to update Runningline Detail
+And the user should be able to perform BOT Calls in Runningline Detail
+And the user should be able to send Text messages in Runningline Detail
+And the user should be able to send Emails in Runningline Detail
+And the user should be able to send Fax in Runningline Detail
+And the user should be able to perform Team Calls in Runningline Detail
+And the user should be able to send Quick Text in Runningline Detail
+And the user should be able to add Notes in Runningline Detail
+And the user should be able to view Notes Created Date in Runningline Detail
+And the user should be able to delete Notes in Runningline Detail
+And the user should be able to use Star2Fax in Runningline Detail
+And the user should be able to perform PA Edit in Runningline Detail
+And the user should be able to send VCards in Runningline Detail
+
+Scenario: User with Edit only permission in Runningline Detail
+Given I log in as admin for Workflow Module
+When I create a new user with email for Workflow Module "runninglinedetailuser2_static@mailinator.com"
+And I create a profile with only Edit permission for Runningline Detail Module
+And I assign the profile and workspace to the user for Workflow Module
+And I reset the user's password for Workflow Module
+And I log in using the new user for Workflow Module
+Then the user should be able to edit Runningline Detail
+And the user should not be able to update Runningline Detail
+And the user should not be able to perform BOT Calls in Runningline Detail
+And the user should not be able to send Text messages in Runningline Detail
+And the user should not be able to send Emails in Runningline Detail
+And the user should not be able to send Fax in Runningline Detail
+And the user should not be able to perform Team Calls in Runningline Detail
+And the user should not be able to send Quick Text in Runningline Detail
+And the user should not be able to add Notes in Runningline Detail
+And the user should not be able to view Notes Created Date in Runningline Detail
+And the user should not be able to delete Notes in Runningline Detail
+And the user should not be able to use Star2Fax in Runningline Detail
+And the user should not be able to perform PA Edit in Runningline Detail
+And the user should not be able to send VCards in Runningline Detail
+
+Scenario: User with all permissions in Runningline PA
+Given I log in as admin for Workflow Module
+When I create a new user with email for Workflow Module "runninglinepauser1_static@mailinator.com"
+And I create a profile with the following permissions for Runningline PA Module:
+And I assign the profile and workspace to the user for Workflow Module
+And I reset the user's password for Workflow Module
+And I log in using the new user for Workflow Module
+Then the user should be able to access Workflow in Runningline PA
+And the user should be able to perform Search in Runningline PA
+And the user should be able to Fill Form in Runningline PA
+And the user should be able to Send To Provider in Runningline PA
+And the user should be able to Send To Insurance in Runningline PA
+
+Scenario: User with no permissions in Runningline PA
+Given I log in as admin for Workflow Module
+When I create a new user with email for Workflow Module "runninglinepauser2_static@mailinator.com"
+And I create a profile with no permissions for Runningline PA Module
+And I assign the profile and workspace to the user for Workflow Module
+And I reset the user's password for Workflow Module
+And I log in using the new user for Workflow Module
+Then the user should not be able to access Workflow in Runningline PA
+And the user should not be able to perform Search in Runningline PA
+And the user should not be able to Fill Form in Runningline PA
+And the user should not be able to Send To Provider in Runningline PA
+And the user should not be able to Send To Insurance in Runningline PA
+
+Scenario: User with View only permission in Batch Processor
+Given I log in as admin for Workflow Module
+When I create a new user with email for Workflow Module "batchprocessoruser1_static@mailinator.com"
+And I create a profile with only View permission for Batch Processor Module
+And I assign the profile and workspace to the user for Workflow Module
+And I reset the user's password for Workflow Module
+And I log in using the new user for Workflow Module
+Then the user should be able to view Batch Processor data
+
+Scenario: User with no permissions in Batch Processor
+Given I log in as admin for Workflow Module
+When I create a new user with email for Workflow Module "batchprocessoruser2_static@mailinator.com"
+And I create a profile with no permissions for Batch Processor Module
+And I assign the profile and workspace to the user for Workflow Module
+And I reset the user's password for Workflow Module
+And I log in using the new user for Workflow Module
+Then the user should not be able to view Batch Processor data
+
+Scenario: User with all permissions in Text
+Given I log in as admin for Workflow Module
+When I create a new user with email for Workflow Module "textuser1_static@mailinator.com"
+And I create a profile with the following permissions for Text Module:
+And I assign the profile and workspace to the user for Workflow Module
+And I reset the user's password for Workflow Module
+And I log in using the new user for Workflow Module
+Then the user should be able to view Text messages
+And the user should be able to send Text messages
+And the user should be able to reply to Text messages
+And the user should be able to send VCards in Text
+
+Scenario: User with View only permission in Text
+Given I log in as admin for Workflow Module
+When I create a new user with email for Workflow Module "textuser2_static@mailinator.com"
+And I create a profile with only View permission for Text Module
+And I assign the profile and workspace to the user for Workflow Module
+And I reset the user's password for Workflow Module
+And I log in using the new user for Workflow Module
+Then the user should be able to view Text messages
+And the user should not be able to send Text messages
+And the user should not be able to reply to Text messages
+And the user should not be able to send VCards in Text
+
+Scenario: User with all permissions in BOT Call
+Given I log in as admin for Workflow Module
+When I create a new user with email for Workflow Module "botcalluser1_static@mailinator.com"
+And I create a profile with the following permissions for BOT Call Module:
+And I assign the profile and workspace to the user for Workflow Module
+And I reset the user's password for Workflow Module
+And I log in using the new user for Workflow Module
+Then the user should be able to view BOT Call data
+And the user should be able to send BOT Calls
+
+Scenario: User with View only permission in BOT Call
+Given I log in as admin for Workflow Module
+When I create a new user with email for Workflow Module "botcalluser2_static@mailinator.com"
+And I create a profile with only View permission for BOT Call Module
+And I assign the profile and workspace to the user for Workflow Module
+And I reset the user's password for Workflow Module
+And I log in using the new user for Workflow Module
+Then the user should be able to view BOT Call data
+And the user should not be able to send BOT Calls
+
+Scenario: User with all permissions in Fax
+Given I log in as admin for Workflow Module
+When I create a new user with email for Workflow Module "faxuser1_static@mailinator.com"
+And I create a profile with the following permissions for Fax Module:
+And I assign the profile and workspace to the user for Workflow Module
+And I reset the user's password for Workflow Module
+And I log in using the new user for Workflow Module
+Then the user should be able to view Fax data
+And the user should be able to perform Refax in Fax
+
+Scenario: User with View only permission in Fax
+Given I log in as admin for Workflow Module
+When I create a new user with email for Workflow Module "faxuser2_static@mailinator.com"
+And I create a profile with only View permission for Fax Module
+And I assign the profile and workspace to the user for Workflow Module
+And I reset the user's password for Workflow Module
+And I log in using the new user for Workflow Module
+Then the user should be able to view Fax data
+And the user should not be able to perform Refax in Fax
+
+Scenario: User with View only permission in Mail
+Given I log in as admin for Workflow Module
+When I create a new user with email for Workflow Module "mailuser1_static@mailinator.com"
+And I create a profile with only View permission for Mail Module
+And I assign the profile and workspace to the user for Workflow Module
+And I reset the user's password for Workflow Module
+And I log in using the new user for Workflow Module
+Then the user should be able to view Mail data
+
+Scenario: User with no permissions in Mail
+Given I log in as admin for Workflow Module
+When I create a new user with email for Workflow Module "mailuser2_static@mailinator.com"
+And I create a profile with no permissions for Mail Module
+And I assign the profile and workspace to the user for Workflow Module
+And I reset the user's password for Workflow Module
+And I log in using the new user for Workflow Module
+Then the user should not be able to view Mail data
+
+Scenario: Workflow Dashboard – Add Template Validation on Blank Submission
+Given I log in as admin for Workflow Module
+When I navigate to the Workflow Dashboard
+And I click on "Add Template"
+And I leave all required fields blank
+And I click "Submit"
+Then I should see validation messages for all required fields
+And the template should not be created
+
+Scenario: Workflow Dashboard – Quick Text Send Validation on Blank Submission
+Given I log in as admin for Workflow Module
+When I navigate to Workflow Dashboard
+And I go to Quick Text section
+And I click on "Send"
+And I leave the message/content field blank
+And I click "Send"
+Then I should see a validation message indicating the content is required
+And the message should not be sent
+
+Scenario: Workflow Dashboard – Quick Text Send VCard Validation on Blank Submission
+Given I log in as admin for Workflow Module
+When I navigate to Workflow Dashboard
+And I go to Quick Text section
+And I click on "Send VCard"
+And I leave all required fields blank
+And I click "Send"
+Then I should see a validation message indicating the required fields must be filled
+And the VCard should not be sent
+
+Scenario: Workflow Dashboard – Add Communication Validation on Blank Submission
+Given I log in as admin for Workflow Module
+When I navigate to Workflow Dashboard
+And I click on "Add Communication"
+And I leave all required fields blank
+And I click "Submit"
+Then I should see validation messages for all required fields
+And the communication should not be created
+
+Scenario: Workflow Dashboard – Quick Notes Validation on Blank Submission
+Given I log in as admin for Workflow Module
+When I navigate to Workflow Dashboard
+And I go to Quick Notes section
+And I click on "Add Note"
+And I leave all required fields blank
+And I click "Save"
+Then I should see validation messages for all required fields
+And the note should not be created
+
+Scenario: Action Workflow Page – Add Template Validation on Blank Submission
+Given I log in as admin for Workflow Module
+When I navigate to the Action Workflow page
+And I click on "Add Template"
+And I leave all required fields blank
+And I click "Submit"
+Then I should see validation messages for all required fields
+And the Template should not be created
+
+Scenario: Action Workflow – Add Communication Validation on Blank Submission
+Given I log in as admin for Workflow Module
+When I navigate to the Action Workflow page
+And I click on "Add Communication"
+And I leave all required fields blank
+And I click "Submit"
+Then I should see validation messages for all required fields
+And the Communication should not be created
+
+Scenario: Action Workflow – Quick Notes Validation on Blank Submission
+Given I log in as admin for Workflow Module
+When I navigate to the Action Workflow page
+And I click on "Add Quick"
+And I clear all required fields
+And I click "Save"
+Then I should see validation messages for all required fields
+And the action should not be updated
+
+Scenario: Action Workflow – Mail to Selected Validation for No Rx Number
+Given I log in as admin for Workflow Module
+When I create a new user with email "mailuser2_static@mailinator.com"
+And I create a profile with no permissions for Mail Module
+And I assign the profile and workspace to the user for Workflow Module
+And I reset the user's password for Workflow Module
+And I log in using the new user for Workflow Module
+When I navigate to Workflow Dashboard
+And I select one or more records using the check box
+And I click on "Mail to Selected"
+Then I should see a validation message indicating no record selected please selecct one
+And the Mail action should not be performed
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

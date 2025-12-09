@@ -1,3 +1,4 @@
+@XFlow
 Feature: XFlow Application
   
 Scenario: Open XFlow desktop application
@@ -304,7 +305,6 @@ And I Select Data Lead
 When I click on Download Template
 Then the system should download the Lead Template file successfully
 
-@XFlow
 Scenario: Verify Download Template functionality on Data Provider
 Given the XFlow application is installed
 And the application is open
@@ -312,6 +312,31 @@ And I enter username and password and click OK
 And I Select Data Provider
 When I click on Download Template
 Then the system should download the Provider Template file successfully
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
