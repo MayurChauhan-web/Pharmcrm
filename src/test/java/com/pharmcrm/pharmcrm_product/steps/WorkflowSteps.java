@@ -512,9 +512,9 @@ public class WorkflowSteps {
 		sleep(2000);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
 		sleep(2000);
-		clickWhenClickable(By.xpath("//label[normalize-space()='Comment']"));
-		clickWhenClickable(By.xpath("//label[normalize-space()='Alert']"));
-		clickWhenClickable(By.xpath("//label[@for='chkg6SyncWorkflowDownload']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg7RxWorkFlowAll']"));
+		sleep(2000);
+		clickWhenClickable(By.xpath("//label[@for='chkg7DisplayWorkFlowView']"));
 		sleep(2000);
 		clickWhenClickable(By.id("btnSave"));
 	}
@@ -544,10 +544,6 @@ public class WorkflowSteps {
 		sleep(2000);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
 		sleep(2000);
-		clickWhenClickable(By.xpath("//label[normalize-space()='Comment']"));
-		clickWhenClickable(By.xpath("//label[normalize-space()='Alert']"));
-		clickWhenClickable(By.xpath("//label[@for='chkg6SyncWorkflowDownload']"));
-		sleep(2000);
 		clickWhenClickable(By.id("btnSave"));
 	}
 
@@ -576,9 +572,8 @@ public class WorkflowSteps {
 		sleep(2000);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
 		sleep(2000);
-		clickWhenClickable(By.xpath("//label[normalize-space()='Comment']"));
-		clickWhenClickable(By.xpath("//label[normalize-space()='Alert']"));
-		clickWhenClickable(By.xpath("//label[@for='chkg6SyncWorkflowDownload']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg7ActionWorkFlowAll']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg7ActionWorkFlowView']"));
 		sleep(2000);
 		clickWhenClickable(By.id("btnSave"));
 	}
@@ -608,10 +603,6 @@ public class WorkflowSteps {
 		sleep(2000);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
 		sleep(2000);
-		clickWhenClickable(By.xpath("//label[normalize-space()='Comment']"));
-		clickWhenClickable(By.xpath("//label[normalize-space()='Alert']"));
-		clickWhenClickable(By.xpath("//label[@for='chkg6SyncWorkflowDownload']"));
-		sleep(2000);
 		clickWhenClickable(By.id("btnSave"));
 	}
 
@@ -640,10 +631,8 @@ public class WorkflowSteps {
 		sleep(2000);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
 		sleep(2000);
-		clickWhenClickable(By.xpath("//label[normalize-space()='Comment']"));
-		clickWhenClickable(By.xpath("//label[normalize-space()='Alert']"));
-		clickWhenClickable(By.xpath("//label[@for='chkg6SyncWorkflowDownload']"));
-		sleep(2000);
+		clickWhenClickable(By.xpath("//label[@for='chkg7FollowUpAll']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg7FollowUpView']"));
 		clickWhenClickable(By.id("btnSave"));
 	}
 
@@ -671,10 +660,6 @@ public class WorkflowSteps {
 		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
 		sleep(2000);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//label[normalize-space()='Comment']"));
-		clickWhenClickable(By.xpath("//label[normalize-space()='Alert']"));
-		clickWhenClickable(By.xpath("//label[@for='chkg6SyncWorkflowDownload']"));
 		sleep(2000);
 		clickWhenClickable(By.id("btnSave"));
 	}
@@ -704,457 +689,8 @@ public class WorkflowSteps {
 		sleep(2000);
 		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
 		sleep(2000);
-		clickWhenClickable(By.xpath("//label[normalize-space()='Comment']"));
-		clickWhenClickable(By.xpath("//label[normalize-space()='Alert']"));
-		clickWhenClickable(By.xpath("//label[@for='chkg6SyncWorkflowDownload']"));
-		sleep(2000);
-		clickWhenClickable(By.id("btnSave"));
-	}
-
-	@And("I create a profile with the following permissions for Runningline Detail Module:")
-	public void createProfileWithPermissionsForRunninglineDetail() {
-		driver.get(baseUrl + "/Setup/Home/Profiles");
-		sleep(1000);
-		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
-		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
-		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
-		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
-		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
-		String emailPrefix = createdEmail.split("@")[0];
-		emailPrefix = emailPrefix.replace("_static", "");
-		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
-		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
-		System.out.println("Final Profile Name: " + profileName);
-		waitAndSendKeys(By.id("profilename"), profileName);
-		clickWhenClickable(By.id("btnSaveProfile"));
-		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
-		clickWhenClickable(setupModuleCheckbox);
-		sleep(2000);
-		clickWhenClickable(setupModuleCheckbox);
-		sleep(2000);
-		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//label[normalize-space()='Comment']"));
-		clickWhenClickable(By.xpath("//label[normalize-space()='Alert']"));
-		clickWhenClickable(By.xpath("//label[@for='chkg6SyncWorkflowDownload']"));
-		sleep(2000);
-		clickWhenClickable(By.id("btnSave"));
-	}
-
-	@And("I create a profile with only Edit permission for Runningline Detail Module")
-	public void createProfileWithOnlyEditForRunninglineDetail() {
-		driver.get(baseUrl + "/Setup/Home/Profiles");
-		sleep(1000);
-		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
-		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
-		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
-		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
-		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
-		String emailPrefix = createdEmail.split("@")[0];
-		emailPrefix = emailPrefix.replace("_static", "");
-		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
-		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
-		System.out.println("Final Profile Name: " + profileName);
-		waitAndSendKeys(By.id("profilename"), profileName);
-		clickWhenClickable(By.id("btnSaveProfile"));
-		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
-		clickWhenClickable(setupModuleCheckbox);
-		sleep(2000);
-		clickWhenClickable(setupModuleCheckbox);
-		sleep(2000);
-		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//label[normalize-space()='Comment']"));
-		clickWhenClickable(By.xpath("//label[normalize-space()='Alert']"));
-		clickWhenClickable(By.xpath("//label[@for='chkg6SyncWorkflowDownload']"));
-		sleep(2000);
-		clickWhenClickable(By.id("btnSave"));
-	}
-
-	@And("I create a profile with the following permissions for Runningline PA Module:")
-	public void createProfileWithPermissionsForRunninglinePA() {
-		driver.get(baseUrl + "/Setup/Home/Profiles");
-		sleep(1000);
-		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
-		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
-		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
-		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
-		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
-		String emailPrefix = createdEmail.split("@")[0];
-		emailPrefix = emailPrefix.replace("_static", "");
-		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
-		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
-		System.out.println("Final Profile Name: " + profileName);
-		waitAndSendKeys(By.id("profilename"), profileName);
-		clickWhenClickable(By.id("btnSaveProfile"));
-		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
-		clickWhenClickable(setupModuleCheckbox);
-		sleep(2000);
-		clickWhenClickable(setupModuleCheckbox);
-		sleep(2000);
-		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//label[normalize-space()='Comment']"));
-		clickWhenClickable(By.xpath("//label[normalize-space()='Alert']"));
-		clickWhenClickable(By.xpath("//label[@for='chkg6SyncWorkflowDownload']"));
-		sleep(2000);
-		clickWhenClickable(By.id("btnSave"));
-	}
-
-	@And("I create a profile with no permissions for Runningline PA Module")
-	public void createProfileWithNoPermissionsForRunninglinePA() {
-		driver.get(baseUrl + "/Setup/Home/Profiles");
-		sleep(1000);
-		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
-		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
-		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
-		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
-		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
-		String emailPrefix = createdEmail.split("@")[0];
-		emailPrefix = emailPrefix.replace("_static", "");
-		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
-		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
-		System.out.println("Final Profile Name: " + profileName);
-		waitAndSendKeys(By.id("profilename"), profileName);
-		clickWhenClickable(By.id("btnSaveProfile"));
-		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
-		clickWhenClickable(setupModuleCheckbox);
-		sleep(2000);
-		clickWhenClickable(setupModuleCheckbox);
-		sleep(2000);
-		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//label[normalize-space()='Comment']"));
-		clickWhenClickable(By.xpath("//label[normalize-space()='Alert']"));
-		clickWhenClickable(By.xpath("//label[@for='chkg6SyncWorkflowDownload']"));
-		sleep(2000);
-		clickWhenClickable(By.id("btnSave"));
-	}
-
-	@And("I create a profile with only View permission for Batch Processor Module")
-	public void createProfileWithOnlyViewForBatchProcessor() {
-		driver.get(baseUrl + "/Setup/Home/Profiles");
-		sleep(1000);
-		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
-		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
-		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
-		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
-		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
-		String emailPrefix = createdEmail.split("@")[0];
-		emailPrefix = emailPrefix.replace("_static", "");
-		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
-		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
-		System.out.println("Final Profile Name: " + profileName);
-		waitAndSendKeys(By.id("profilename"), profileName);
-		clickWhenClickable(By.id("btnSaveProfile"));
-		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
-		clickWhenClickable(setupModuleCheckbox);
-		sleep(2000);
-		clickWhenClickable(setupModuleCheckbox);
-		sleep(2000);
-		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//label[normalize-space()='Comment']"));
-		clickWhenClickable(By.xpath("//label[normalize-space()='Alert']"));
-		clickWhenClickable(By.xpath("//label[@for='chkg6SyncWorkflowDownload']"));
-		sleep(2000);
-		clickWhenClickable(By.id("btnSave"));
-	}
-
-	@And("I create a profile with no permissions for Batch Processor Module")
-	public void createProfileWithNoPermissionsForBatchProcessor() {
-		driver.get(baseUrl + "/Setup/Home/Profiles");
-		sleep(1000);
-		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
-		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
-		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
-		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
-		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
-		String emailPrefix = createdEmail.split("@")[0];
-		emailPrefix = emailPrefix.replace("_static", "");
-		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
-		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
-		System.out.println("Final Profile Name: " + profileName);
-		waitAndSendKeys(By.id("profilename"), profileName);
-		clickWhenClickable(By.id("btnSaveProfile"));
-		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
-		clickWhenClickable(setupModuleCheckbox);
-		sleep(2000);
-		clickWhenClickable(setupModuleCheckbox);
-		sleep(2000);
-		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//label[normalize-space()='Comment']"));
-		clickWhenClickable(By.xpath("//label[normalize-space()='Alert']"));
-		clickWhenClickable(By.xpath("//label[@for='chkg6SyncWorkflowDownload']"));
-		sleep(2000);
-		clickWhenClickable(By.id("btnSave"));
-	}
-
-	@And("I create a profile with the following permissions for Text Module:")
-	public void createProfileWithPermissionsForText() {
-		driver.get(baseUrl + "/Setup/Home/Profiles");
-		sleep(1000);
-		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
-		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
-		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
-		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
-		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
-		String emailPrefix = createdEmail.split("@")[0];
-		emailPrefix = emailPrefix.replace("_static", "");
-		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
-		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
-		System.out.println("Final Profile Name: " + profileName);
-		waitAndSendKeys(By.id("profilename"), profileName);
-		clickWhenClickable(By.id("btnSaveProfile"));
-		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
-		clickWhenClickable(setupModuleCheckbox);
-		sleep(2000);
-		clickWhenClickable(setupModuleCheckbox);
-		sleep(2000);
-		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//label[normalize-space()='Comment']"));
-		clickWhenClickable(By.xpath("//label[normalize-space()='Alert']"));
-		clickWhenClickable(By.xpath("//label[@for='chkg6SyncWorkflowDownload']"));
-		sleep(2000);
-		clickWhenClickable(By.id("btnSave"));
-	}
-
-	@And("I create a profile with only View permission for Text Module")
-	public void createProfileWithOnlyViewForText() {
-		driver.get(baseUrl + "/Setup/Home/Profiles");
-		sleep(1000);
-		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
-		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
-		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
-		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
-		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
-		String emailPrefix = createdEmail.split("@")[0];
-		emailPrefix = emailPrefix.replace("_static", "");
-		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
-		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
-		System.out.println("Final Profile Name: " + profileName);
-		waitAndSendKeys(By.id("profilename"), profileName);
-		clickWhenClickable(By.id("btnSaveProfile"));
-		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
-		clickWhenClickable(setupModuleCheckbox);
-		sleep(2000);
-		clickWhenClickable(setupModuleCheckbox);
-		sleep(2000);
-		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//label[normalize-space()='Comment']"));
-		clickWhenClickable(By.xpath("//label[normalize-space()='Alert']"));
-		clickWhenClickable(By.xpath("//label[@for='chkg6SyncWorkflowDownload']"));
-		sleep(2000);
-		clickWhenClickable(By.id("btnSave"));
-	}
-
-	@And("I create a profile with the following permissions for BOT Call Module:")
-	public void createProfileWithPermissionsForBOTCall() {
-		driver.get(baseUrl + "/Setup/Home/Profiles");
-		sleep(1000);
-		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
-		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
-		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
-		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
-		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
-		String emailPrefix = createdEmail.split("@")[0];
-		emailPrefix = emailPrefix.replace("_static", "");
-		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
-		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
-		System.out.println("Final Profile Name: " + profileName);
-		waitAndSendKeys(By.id("profilename"), profileName);
-		clickWhenClickable(By.id("btnSaveProfile"));
-		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
-		clickWhenClickable(setupModuleCheckbox);
-		sleep(2000);
-		clickWhenClickable(setupModuleCheckbox);
-		sleep(2000);
-		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//label[normalize-space()='Comment']"));
-		clickWhenClickable(By.xpath("//label[normalize-space()='Alert']"));
-		clickWhenClickable(By.xpath("//label[@for='chkg6SyncWorkflowDownload']"));
-		sleep(2000);
-		clickWhenClickable(By.id("btnSave"));
-	}
-
-	@And("I create a profile with only View permission for BOT Call Module")
-	public void createProfileWithOnlyViewForBOTCall() {
-		driver.get(baseUrl + "/Setup/Home/Profiles");
-		sleep(1000);
-		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
-		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
-		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
-		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
-		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
-		String emailPrefix = createdEmail.split("@")[0];
-		emailPrefix = emailPrefix.replace("_static", "");
-		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
-		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
-		System.out.println("Final Profile Name: " + profileName);
-		waitAndSendKeys(By.id("profilename"), profileName);
-		clickWhenClickable(By.id("btnSaveProfile"));
-		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
-		clickWhenClickable(setupModuleCheckbox);
-		sleep(2000);
-		clickWhenClickable(setupModuleCheckbox);
-		sleep(2000);
-		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//label[normalize-space()='Comment']"));
-		clickWhenClickable(By.xpath("//label[normalize-space()='Alert']"));
-		clickWhenClickable(By.xpath("//label[@for='chkg6SyncWorkflowDownload']"));
-		sleep(2000);
-		clickWhenClickable(By.id("btnSave"));
-	}
-
-	@And("I create a profile with the following permissions for Fax Module:")
-	public void createProfileWithPermissionsForFax() {
-		driver.get(baseUrl + "/Setup/Home/Profiles");
-		sleep(1000);
-		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
-		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
-		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
-		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
-		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
-		String emailPrefix = createdEmail.split("@")[0];
-		emailPrefix = emailPrefix.replace("_static", "");
-		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
-		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
-		System.out.println("Final Profile Name: " + profileName);
-		waitAndSendKeys(By.id("profilename"), profileName);
-		clickWhenClickable(By.id("btnSaveProfile"));
-		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
-		clickWhenClickable(setupModuleCheckbox);
-		sleep(2000);
-		clickWhenClickable(setupModuleCheckbox);
-		sleep(2000);
-		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//label[normalize-space()='Comment']"));
-		clickWhenClickable(By.xpath("//label[normalize-space()='Alert']"));
-		clickWhenClickable(By.xpath("//label[@for='chkg6SyncWorkflowDownload']"));
-		sleep(2000);
-		clickWhenClickable(By.id("btnSave"));
-	}
-
-	@And("I create a profile with only View permission for Fax Module")
-	public void createProfileWithOnlyViewForFax() {
-		driver.get(baseUrl + "/Setup/Home/Profiles");
-		sleep(1000);
-		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
-		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
-		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
-		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
-		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
-		String emailPrefix = createdEmail.split("@")[0];
-		emailPrefix = emailPrefix.replace("_static", "");
-		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
-		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
-		System.out.println("Final Profile Name: " + profileName);
-		waitAndSendKeys(By.id("profilename"), profileName);
-		clickWhenClickable(By.id("btnSaveProfile"));
-		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
-		clickWhenClickable(setupModuleCheckbox);
-		sleep(2000);
-		clickWhenClickable(setupModuleCheckbox);
-		sleep(2000);
-		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//label[normalize-space()='Comment']"));
-		clickWhenClickable(By.xpath("//label[normalize-space()='Alert']"));
-		clickWhenClickable(By.xpath("//label[@for='chkg6SyncWorkflowDownload']"));
-		sleep(2000);
-		clickWhenClickable(By.id("btnSave"));
-	}
-
-	@And("I create a profile with only View permission for Mail Module")
-	public void createProfileWithOnlyViewForMail() {
-		driver.get(baseUrl + "/Setup/Home/Profiles");
-		sleep(1000);
-		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
-		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
-		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
-		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
-		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
-		String emailPrefix = createdEmail.split("@")[0];
-		emailPrefix = emailPrefix.replace("_static", "");
-		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
-		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
-		System.out.println("Final Profile Name: " + profileName);
-		waitAndSendKeys(By.id("profilename"), profileName);
-		clickWhenClickable(By.id("btnSaveProfile"));
-		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
-		clickWhenClickable(setupModuleCheckbox);
-		sleep(2000);
-		clickWhenClickable(setupModuleCheckbox);
-		sleep(2000);
-		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//label[normalize-space()='Comment']"));
-		clickWhenClickable(By.xpath("//label[normalize-space()='Alert']"));
-		clickWhenClickable(By.xpath("//label[@for='chkg6SyncWorkflowDownload']"));
-		sleep(2000);
-		clickWhenClickable(By.id("btnSave"));
-	}
-
-	@And("I create a profile with no permissions for Mail Module")
-	public void createProfileWithNoPermissionsForMail() {
-		driver.get(baseUrl + "/Setup/Home/Profiles");
-		sleep(1000);
-		clickWhenClickable(By.xpath("//span[normalize-space()='New Profile']"));
-		selectDropdownByIndexWhenReady(By.id("ddProfileType"), 1);
-		selectDropdownByIndexWhenReady(By.id("ddProfile"), 1);
-		Select profileDropdown = new Select(driver.findElement(By.id("ddProfile")));
-		String profileText = profileDropdown.getFirstSelectedOption().getText().trim();
-		String emailPrefix = createdEmail.split("@")[0];
-		emailPrefix = emailPrefix.replace("_static", "");
-		String shortProfile = profileText.split("\\s+")[0].replaceAll("[\\[\\]]", "");
-		this.profileName = shortProfile + "_Administrator_" + emailPrefix;
-		System.out.println("Final Profile Name: " + profileName);
-		waitAndSendKeys(By.id("profilename"), profileName);
-		clickWhenClickable(By.id("btnSaveProfile"));
-		By setupModuleCheckbox = By.xpath("//label[normalize-space()='Select All Module']");
-		clickWhenClickable(setupModuleCheckbox);
-		sleep(2000);
-		clickWhenClickable(setupModuleCheckbox);
-		sleep(2000);
-		clickWhenClickable(By.xpath("//label[normalize-space()='Setup Module']"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//label[normalize-space()='Workflow Module']"));
-		sleep(2000);
-		clickWhenClickable(By.xpath("//label[normalize-space()='Comment']"));
-		clickWhenClickable(By.xpath("//label[normalize-space()='Alert']"));
-		clickWhenClickable(By.xpath("//label[@for='chkg6SyncWorkflowDownload']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg43AuditWorkflowAll']"));
+		clickWhenClickable(By.xpath("//label[@for='chkg43AuditWorkflowView']"));
 		sleep(2000);
 		clickWhenClickable(By.id("btnSave"));
 	}
@@ -3040,13 +2576,6 @@ public class WorkflowSteps {
 
 	}
 
-	@And("the user should not be able to view Mail data")
-	public void verifyUserCannotViewMailData() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
 	@And("I leave all required fields blank")
 	public void leaveAllRequiredFieldsBlank() {
 		sleep(3000);
@@ -3341,13 +2870,6 @@ public class WorkflowSteps {
 
 	}
 
-	@And("the user should not be able to perform Refax in Fax")
-	public void verifyUserCannotPerformRefaxInFax() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
 	@And("the user should be able to view Display Workflow data")
 	public void verifyUserCanViewDisplayWorkflowData() {
 		sleep(3000);
@@ -3387,722 +2909,481 @@ public class WorkflowSteps {
 	@And("the user should be able to export Display Workflow data to Excel")
 	public void verifyUserCanExportDisplayWorkflowDataToExcel() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		clickWhenClickable(By.xpath("//span[normalize-space()='Export Excel']"));
 
 	}
 
 	@And("the user should not be able to export Display Workflow data to Excel")
 	public void verifyUserCannotExportDisplayWorkflowDataToExcel() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Export Excel']"));
 
 	}
 
 	@And("the user should not have full program access in Display Workflow")
 	public void verifyUserDoesNotHaveFullProgramAccessInDisplayWorkflow() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		assertElementNotPresent(By.xpath("//tbody/tr[1]/td[17]/div[1]/a[1]//*[name()='svg']"));
 
 	}
 
 	@And("the user should not be able to see details in Display Workflow")
 	public void verifyUserCannotSeeDetailsInDisplayWorkflow() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
+		assertElementNotPresent(
+				By.xpath("//div[@class='runningLineCheckboxinner']//label[@for='Filter_IsShowAllRunningline']"));
 	}
 
 	@And("the user should not be able to toggle Show Past Runninglines checkbox")
 	public void verifyUserCannotToggleShowPastRunninglinesCheckbox() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		assertElementNotPresent(
+				By.xpath("//div[@class='runningLineCheckboxinner']//label[@for='Filter_IsShowPastRunningline']"));
 
 	}
 
 	@And("the user should not be able to set Grid Template - Company Default checkbox")
 	public void verifyUserCannotSetGridTemplateCompanyDefaultCheckbox() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		assertElementNotPresent(By.xpath("//*[name()='path' and contains(@d,'M256 80c0-')]"));
 
 	}
 
 	@And("the user should not be able to perform Pharmacy NABP searches")
 	public void verifyUserCannotPerformPharmacyNabpSearches() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		clickWhenClickable(By.xpath("//a[@id='searchcollapse']//*[name()='svg']"));
+		assertElementNotPresent(
+				By.xpath("//a[@id='advancecollapse']//*[name()='svg']//*[name()='path' and @id='Union_73']"));
 
 	}
 
 	@And("the user should be able to delete Grid Templates in Action Workflow")
 	public void assertUserCanDeleteGridTemplatesInActionWorkflow() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		driver.get(baseUrl + "/Workflow/Home/Dashboard");
+		sleep(3000);
+		clickWhenClickable(By.xpath("//*[name()='path' and @id='Union_3']"));
+		clickWhenClickable(By.xpath("//div[@id='genericmodal']//button[@id='btnDeleteConfirm']"));
 
 	}
 
 	@And("the user should have full program access in Action Workflow")
 	public void assertUserCanAccessAllFeaturesInActionWorkflow() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		assertElementPresent(By.xpath("//th[@id='Code']"));
 
 	}
 
 	@And("the user should be able to send VCards in Action Workflow")
 	public void assertUserCanSendVCardsInActionWorkflow() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		clickWhenClickable(By.xpath("//*[name()='path' and @id='Union_48']"));
+		waitAndSendKeys(By.id("vCardPhoneNumber"), "1234567890");
+		clickWhenClickable(By.xpath("//button[@id='btnSendVCard']"));
 
 	}
 
 	@And("the user should be able to export Action Workflow data to Excel")
 	public void checkUserCanExportActionWorkflowToExcel() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		clickWhenClickable(By.xpath("//span[normalize-space()='Export Excel']"));
 
 	}
 
 	@And("the user should not be able to perform advanced searches in Action Workflow")
 	public void assertUserCannotPerformAdvancedSearchActionWorkflow() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		clickWhenClickable(By.xpath("//a[@id='searchcollapse']//*[name()='svg']"));
+		assertElementNotPresent(
+				By.xpath("//a[@id='advancecollapse']//*[name()='svg']//*[name()='path' and @id='Union_73']"));
 
 	}
 
 	@And("the user should not be able to add Grid Templates in Action Workflow")
 	public void assertUserCannotAddGridTemplatesInActionWorkflow() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		assertElementNotPresent(By.xpath("//*[name()='path' and contains(@d,'M256 80c0-')]"));
 
 	}
 
 	@And("the user should be able to edit Grid Templates in Followup Workflow")
 	public void verifyUserCanEditGridTemplatesInFollowupWorkflow() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		clickWhenClickable(By.xpath("//*[name()='path' and @id='Union_2']"));
+		sleep(3000);
+		WebElement field = driver.findElement(By.xpath("//li[@id='boxItem_Alert']"));
+		WebElement dropArea = driver.findElement(By.xpath("//nav[@id='fieldsidebar1']"));
+		Actions act = new Actions(driver);
+		act.clickAndHold(field).moveToElement(dropArea).release().build().perform();
 
 	}
 
 	@And("the user should not be able to edit Grid Templates in Followup Workflow")
 	public void verifyUserCannotEditGridTemplatesInFollowupWorkflow() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		assertElementNotPresent(By.xpath("//a[@id='editTemplate']//button[@type='button']//*[name()='svg']"));
 
 	}
 
 	@And("the user should not be able to export Followup Workflow data to Excel")
 	public void verifyUserCannotExportFollowupWorkflowDataToExcel() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Export Excel']"));
 
 	}
 
 	@And("the user should not be able to add or edit HardCopy in Audit Workflow")
 	public void verifyUserCannotAddOrEditHardCopyInAuditWorkflow() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		clickWhenClickable(By.xpath("(//*[contains(@class,'fa-ellipsis-vertical')])[1]"));
+		assertElementNotPresent(By.xpath("//div[@class='gridRecordContextMain show']//li[1]//a[1]//div[1]//img[1]"));
 
 	}
 
 	@And("the user should not be able to export Audit Workflow data")
 	public void verifyUserCannotExportAuditWorkflowData() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
-	@And("the user should not be able to access Workflow in Runningline PA")
-	public void thenUserShouldNotBeAbleToAccessWorkflowInRunninglinePA() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
-	@And("the user should not be able to perform Search in Runningline PA")
-	public void thenSearchFunctionShouldBeDisabledInRunninglinePA() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
-	@And("the user should be able to access Workflow in Runningline PA")
-	public void whenUserAccessesWorkflowInRunninglinePA() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
-	@And("the user should be able to perform Search in Runningline PA")
-	public void whenUserPerformsSearchInRunninglinePA() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
-	@And("the user should be able to Fill Form in Runningline PA")
-	public void whenUserFillsFormInRunninglinePA() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
-	@And("the user should be able to Send To Provider in Runningline PA")
-	public void whenUserSendsToProviderInRunninglinePA() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
-	@And("the user should not be able to use Star2Fax in Runningline Detail")
-	public void thenUserShouldNotBeAbleToUseStar2FaxInRunninglineDetail() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
-	@And("the user should not be able to send VCards in Runningline Detail")
-	public void thenUserShouldNotBeAbleToSendVCardInRunninglineDetail() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
-	@And("the user should be able to send VCards in Runningline Detail")
-	public void whenUserSendsVCardInRunninglineDetail() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
-	@And("the user should be able to perform PA Edit in Runningline Detail")
-	public void whenUserPerformsPAEditInRunninglineDetail() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
-	@And("the user should be able to use Star2Fax in Runningline Detail")
-	public void whenUserUsesStar2FaxInRunninglineDetail() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
-	@And("the user should be able to send Fax in Runningline Detail")
-	public void whenUserSendsFaxInRunninglineDetail() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
-	@And("the user should be able to delete Notes in Runningline Detail")
-	public void whenUserDeletesNotesInRunninglineDetail() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
-	@And("the user should be able to view Notes Created Date in Runningline Detail")
-	public void whenUserViewsNotesCreatedDateInRunninglineDetail() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
-	@And("the user should be able to add Notes in Runningline Detail")
-	public void whenUserAddsNotesInRunninglineDetail() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
-	@And("the user should be able to send Quick Text in Runningline Detail")
-	public void whenUserSendsQuickTextInRunninglineDetail() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
-	@And("the user should be able to perform Team Calls in Runningline Detail")
-	public void whenUserPerformsTeamCallsInRunninglineDetail() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
-	@And("the user should be able to send Emails in Runningline Detail")
-	public void whenUserSendsEmailInRunninglineDetail() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
-	@And("the user should be able to send Text messages in Runningline Detail")
-	public void whenUserSendsTextInRunninglineDetail() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
-	@And("the user should be able to perform BOT Calls in Runningline Detail")
-	public void whenUserPerformsBOTCallsInRunninglineDetail() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
-	@And("the user should be able to update Runningline Detail")
-	public void whenUserUpdatesRunninglineDetail() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
-	@And("the user should not be able to perform PA Edit in Runningline Detail")
-	public void thenUserShouldNotBeAbleToPerformPAEditInRunninglineDetail() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
-	@And("the user should not be able to delete Notes in Runningline Detail")
-	public void thenUserShouldNotBeAbleToDeleteNotesInRunninglineDetail() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
-	@And("the user should not be able to view Notes Created Date in Runningline Detail")
-	public void thenUserShouldNotBeAbleToViewNotesCreatedDateInRunninglineDetail() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
-	@And("the user should not be able to add Notes in Runningline Detail")
-	public void thenUserShouldNotBeAbleToAddNotesInRunninglineDetail() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
-	@And("the user should not be able to send Quick Text in Runningline Detail")
-	public void thenUserShouldNotBeAbleToSendQuickTextInRunninglineDetail() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
-	@And("the user should not be able to perform Team Calls in Runningline Detail")
-	public void thenUserShouldNotBeAbleToPerformTeamCallsInRunninglineDetail() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
-	@And("the user should not be able to send Fax in Runningline Detail")
-	public void thenUserShouldNotBeAbleToSendFaxInRunninglineDetail() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
-	@And("the user should not be able to send Emails in Runningline Detail")
-	public void thenUserShouldNotBeAbleToSendEmailInRunninglineDetail() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
-	@And("the user should not be able to send Text messages in Runningline Detail")
-	public void thenUserShouldNotBeAbleToSendTextInRunninglineDetail() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
-	@And("the user should not be able to perform BOT Calls in Runningline Detail")
-	public void thenUserShouldNotBeAbleToPerformBOTCallsInRunninglineDetail() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
-	@And("the user should not be able to update Runningline Detail")
-	public void thenUserShouldNotBeAbleToUpdateRunninglineDetail() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
-	@And("the user should be able to edit Runningline Detail")
-	public void whenAuthorizedUserEditsRunninglineDetail() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
-	@And("the user should be able to Send To Insurance in Runningline PA")
-	public void whenUserSendsToInsuranceInRunninglinePA() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
-	@And("the user should not be able to Fill Form in Runningline PA")
-	public void thenUserShouldNotBeAbleToFillFormInRunninglinePA() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
-	@And("the user should not be able to Send To Provider in Runningline PA")
-	public void thenUserShouldNotBeAbleToSendToProviderInRunninglinePA() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Export Excel']"));
 
 	}
 
 	@And("the user should not be able to delete HardCopy in Audit Workflow")
 	public void verifyUserCannotDeleteHardCopyInAuditWorkflow() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
-	@And("the user should be able to reply to Text messages")
-	public void whenUserRepliesToATextMessage() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
-	@And("the user should not be able to Send To Insurance in Runningline PA")
-	public void thenUserShouldNotBeAbleToSendToInsuranceInRunninglinePA() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
-	@And("the user should be able to view Batch Processor data")
-	public void whenUserViewsBatchProcessorData() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
-	@And("the user should not be able to view Batch Processor data")
-	public void thenUserShouldNotViewBatchProcessorData() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
-	@And("the user should be able to send VCards in Text")
-	public void whenUserSendsAVCard() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
-	@And("the user should be able to send Text messages")
-	public void whenUserSendsATextMessage() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		clickWhenClickable(By.xpath("(//*[contains(@class,'fa-ellipsis-vertical')])[1]"));
+		assertElementNotPresent(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//a[@id='btnDeleteAuditData']//img"));
 
 	}
 
 	@And("the user should be able to export Audit Workflow data")
 	public void verifyUserCanExportAuditWorkflowData() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		clickWhenClickable(By.xpath("//span[normalize-space()='Export Excel']"));
 
 	}
 
 	@And("the user should be able to delete HardCopy in Audit Workflow")
 	public void verifyUserCanDeleteHardCopyInAuditWorkflow() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
+		clickWhenClickable(By.xpath("(//*[contains(@class,'fa-ellipsis-vertical')])[1]"));
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//a[@id='btnDeleteAuditData']//img"));
+		clickWhenClickable(By.xpath("//div[@id='deleteAuditModel']//button[@id='btnDeleteConfirm']"));
 	}
 
 	@And("the user should be able to add and edit HardCopy in Audit Workflow")
 	public void verifyUserCanAddAndEditHardCopyInAuditWorkflow() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		clickWhenClickable(By.xpath("(//*[contains(@class,'fa-ellipsis-vertical')])[1]"));
+		clickWhenClickable(By.xpath("//div[@class='gridRecordContextMain show']//li[1]//a[1]//div[1]//img[1]"));
+		clickWhenClickable(By.xpath("//label[normalize-space()='Is Verified?']"));
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
 
 	}
 
 	@And("the user should be able to view Audit Workflow data")
 	public void checkUserCanAccessAuditWorkflowData() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		driver.get(baseUrl + "/Workflow/Home/AuditWorkflow");
 
 	}
 
 	@And("the user should not have full program access in Followup Workflow")
 	public void verifyUserDoesNotHaveFullProgramAccessInFollowupWorkflow() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		assertElementNotPresent(By.xpath("//*[name()='path' and contains(@d,'M256 80c0-')]"));
 
 	}
 
 	@And("the user should not be able to delete Grid Templates in Followup Workflow")
 	public void checkUserCannotDeleteGridTemplatesFollowupWorkflow() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		assertElementNotPresent(By.xpath("//a[@id='deleteTemplate']//button[@type='button']//*[name()='svg']"));
 
 	}
 
 	@And("the user should not be able to add Grid Templates in Followup Workflow")
 	public void verifyUserCannotAddGridTemplatesInFollowupWorkflow() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		assertElementNotPresent(By.xpath("//*[name()='path' and contains(@d,'M256 80c0-')]"));
 
 	}
 
 	@And("the user should not be able to perform advanced searches in Followup Workflow")
 	public void verifyUserCannotPerformAdvancedSearchesInFollowupWorkflow() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		clickWhenClickable(By.xpath("//a[@id='searchcollapse']//*[name()='svg']//*[name()='path' and @id='Union_73']"));
+		assertElementNotPresent(By.xpath("//a[@id='advancecollapse']//*[name()='svg']"));
 
 	}
 
 	@And("the user should not be able to perform Team Actions in Followup Workflow")
 	public void verifyUserCannotPerformTeamActionsInFollowupWorkflow() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		assertElementNotPresent(
+				By.xpath("//tbody/tr[1]/td[16]/a[1]/button[1]//*[name()='svg']//*[name()='path' and @id='Union_50']"));
 
 	}
 
 	@And("the user should not be able to see details in Followup Workflow")
 	public void verifyUserCannotSeeDetailsInFollowupWorkflow() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		assertElementNotPresent(
+				By.xpath("//div[@class='runningLineCheckboxinner']//label[@for='Filter_IsShowAllRunningline']"));
 
 	}
 
 	@And("the user should be able to export Followup Workflow data to Excel")
 	public void checkUserCanExportFollowupWorkflowToExcel() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		clickWhenClickable(By.xpath("//span[normalize-space()='Export Excel']"));
 
 	}
 
 	@And("the user should have full program access in Followup Workflow")
 	public void verifyUserHasFullProgramAccessInFollowupWorkflow() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		clickWhenClickable(
+				By.xpath("//div[@class='runningLineCheckboxinner']//label[@for='Filter_IsShowAllRunningline']"));
 
 	}
 
 	@And("the user should be able to delete Grid Templates in Followup Workflow")
 	public void assertUserCanDeleteGridTemplatesInFollowupWorkflow() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		driver.get(baseUrl + "/Workflow/Home/FollowUpWorkflow#");
+		sleep(3000);
+		clickWhenClickable(By.xpath("//*[name()='path' and @id='Union_3']"));
+		clickWhenClickable(By.xpath("//div[@id='genericmodal']//button[@id='btnDeleteConfirm']"));
 
 	}
 
 	@And("the user should be able to add Grid Templates in Followup Workflow")
 	public void assertUserCanAddGridTemplatesInFollowupWorkflow() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
+		clickWhenClickable(By.xpath("//a[@class='md-trigger']//button[@type='button']//*[name()='svg']"));
+		waitAndSendKeys(By.id("GridTemplate_Name"), "Template");
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
 	}
 
 	@And("the user should be able to perform advanced searches in Followup Workflow")
 	public void checkUserCanUseAdvancedSearchFollowupWorkflow() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
+		clickWhenClickable(By.xpath("//a[@id='searchcollapse']//*[name()='svg']//*[name()='path' and @id='Union_73']"));
+		clickWhenClickable(By.xpath("//a[@id='advancecollapse']//*[name()='svg']"));
+		waitAndSendKeys(By.id("Filter_RxNumber"), "149672-02");
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-magnifying-glass']"));
 	}
 
 	@And("the user should be able to perform Team Actions in Followup Workflow")
 	public void checkUserCanExecuteTeamActionsFollowupWorkflow() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[16]/a[1]/button[1]//*[name()='svg']"));
 	}
 
 	@And("the user should be able to see details in Followup Workflow")
 	public void checkUserCanViewFollowupWorkflowDetails() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		clickWhenClickable(
+				By.xpath("//div[@class='runningLineCheckboxinner']//label[@for='Filter_IsShowAllRunningline']"));
 
 	}
 
 	@And("the user should be able to view Followup Workflow data")
 	public void checkUserCanAccessFollowupWorkflowData() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		driver.get(baseUrl + "/Workflow/Home/FollowUpWorkflow");
 
 	}
 
 	@And("the user should not be able to export Action Workflow data to Excel")
 	public void checkUserCannotExportActionWorkflowToExcel() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Export Excel']"));
 
 	}
 
 	@And("the user should not be able to send VCards in Action Workflow")
 	public void checkUserCannotSendVCardsActionWorkflow() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		assertElementNotPresent(By.xpath("//button[@id='send-vcard']//*[name()='svg']"));
 
 	}
 
 	@And("the user should not have full program access in Action Workflow")
 	public void assertUserCannotAccessAllFeaturesInActionWorkflow() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		assertElementNotPresent(
+				By.xpath("//div[@class='runningLineCheckboxinner']//label[@for='Filter_IsShowAllRunningline']"));
 
 	}
 
 	@And("the user should not be able to delete Grid Templates in Action Workflow")
 	public void assertUserCannotDeleteGridTemplatesInActionWorkflow() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		assertElementNotPresent(By.xpath("//a[@id='deleteTemplate']//button[@type='button']//*[name()='svg']"));
 
 	}
 
 	@And("the user should not be able to edit Grid Templates in Action Workflow")
 	public void assertUserCannotEditGridTemplatesInActionWorkflow() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		assertElementNotPresent(By.xpath("//a[@id='editTemplate']//button[@type='button']//*[name()='svg']"));
 
 	}
 
 	@And("the user should not be able to send Quick Text in Action Workflow")
 	public void assertUserCannotSendQuickTextInActionWorkflow() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		assertElementNotPresent(By.xpath("//*[name()='path' and @id='Path_284']"));
 
 	}
 
 	@And("the user should not be able to perform BOT Calls in Action Workflow")
 	public void assertUserCannotMakeBOTCallsInActionWorkflow() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		assertElementNotPresent(By.xpath("//button[@id='btnCalloutToAll']//*[name()='svg']"));
 
 	}
 
 	@And("the user should not be able to send Text messages in Action Workflow")
 	public void checkUserCannotSendTextMessagesActionWorkflow() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		assertElementNotPresent(
+				By.xpath("//button[@id='btnSMSToAll']//*[name()='svg']//*[name()='path' and @id='Union_47']"));
 
 	}
 
 	@And("the user should not be able to see details in Action Workflow")
 	public void assertUserNoAccessToActionWorkflowDetails() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		assertElementNotPresent(
+				By.xpath("//div[@class='runningLineCheckboxinner']//label[@for='Filter_IsShowAllRunningline']"));
 
 	}
 
 	@And("the user should be able to perform advanced searches in Action Workflow")
 	public void verifyUserCanPerformAdvancedSearchesInActionWorkflow() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		clickWhenClickable(By.xpath("//a[@id='searchcollapse']//*[name()='svg']//*[name()='path' and @id='Union_73']"));
+		clickWhenClickable(By.xpath("//a[@id='advancecollapse']//*[name()='svg']"));
+		waitAndSendKeys(By.id("Filter_RxNumber"), "149672-02");
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-magnifying-glass']"));
 
 	}
 
 	@And("the user should be able to edit Grid Templates in Action Workflow")
 	public void assertUserCanEditGridTemplatesInActionWorkflow() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
+		clickWhenClickable(By.xpath("//*[name()='path' and @id='Union_2']"));
+		sleep(3000);
+		WebElement field = driver.findElement(By.xpath("//li[@id='boxItem_ActionSelectCheckbox']"));
+		WebElement dropArea = driver.findElement(By.xpath("//nav[@id='fieldsidebar1']"));
+		Actions act = new Actions(driver);
+		act.clickAndHold(field).moveToElement(dropArea).release().build().perform();
 	}
 
 	@And("the user should be able to add Grid Templates in Action Workflow")
 	public void assertUserCanAddGridTemplatesInActionWorkflow() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		clickWhenClickable(By.xpath("//a[@class='md-trigger']//button[@type='button']//*[name()='svg']"));
+		waitAndSendKeys(By.id("GridTemplate_Name"), "Template");
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
 
 	}
 
 	@And("the user should be able to send Quick Text in Action Workflow")
 	public void assertUserCanSendQuickTextInActionWorkflow() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		clickWhenClickable(By.xpath("//*[name()='path' and @id='Path_284']"));
+		waitAndSendKeys(By.id("quickTextPhoneNumber"), "1234567890");
+		waitAndSendKeys(By.id("quickTextBody"), "Quick Text");
+		clickWhenClickable(By.xpath("//button[@id='btnQuickSMSSend']"));
 
 	}
 
 	@And("the user should be able to perform BOT Calls in Action Workflow")
 	public void assertUserCanMakeBOTCallsInActionWorkflow() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
+		clickWhenClickable(
+				By.xpath("//button[@id='btnCalloutToAll']//*[name()='svg']//*[name()='path' and @id='Union_46']"));
+		clickWhenClickable(By.xpath("//div[@id='calloutToAllmodal']//button[@id='btnDeleteConfirm']"));
 	}
 
 	@And("the user should be able to send Text messages in Action Workflow")
 	public void assertUserCanSendTextInActionWorkflow() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		clickWhenClickable(By.xpath("//button[@id='btnSMSToAll']//*[name()='svg']"));
+		clickWhenClickable(By.xpath("//div[@id='smsToAllmodal']//button[@id='btnDeleteConfirm']"));
 
 	}
 
 	@And("the user should be able to see details in Action Workflow")
 	public void assertUserCanAccessActionWorkflowDetails() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		assertElementPresent(By.xpath("//label[normalize-space()='Total Count']"));
 
 	}
 
 	@And("the user should be able to view Action Workflow data")
 	public void assertUserCanSeeActionWorkflowData() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
+		driver.get(baseUrl + "/Workflow/Home/ActionWorkflow");
 	}
 
 	@And("the user should not be able to toggle Show All Runninglines checkbox")
 	public void ensureUserCannotChangeShowAllRunninglinesCheckbox() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		assertElementNotPresent(
+				By.xpath("//div[@class='runningLineCheckboxinner']//label[@for='Filter_IsShowAllRunningline']"));
 
 	}
 
 	@And("the user should not be able to delete Grid Templates in Display Workflow")
 	public void verifyUserCannotDeleteGridTemplatesInDisplayWorkflow() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		assertElementNotPresent(By.xpath("//a[@id='deleteTemplate']//button[@type='button']//*[name()='svg']"));
 
 	}
 
 	@And("the user should not be able to edit Grid Templates in Display Workflow")
 	public void verifyUserCannotEditGridTemplatesInDisplayWorkflow() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		assertElementNotPresent(By.xpath("//*[name()='path' and @id='Union_2']"));
 
 	}
 
 	@And("the user should not be able to add Grid Templates in Display Workflow")
 	public void verifyUserCannotAddGridTemplatesInDisplayWorkflow() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		assertElementNotPresent(By.xpath("//a[@class='md-trigger']//button[@type='button']//*[name()='svg']"));
 
 	}
 
 	@And("the user should not be able to perform advanced searches in Display Workflow")
 	public void verifyUserCannotPerformAdvancedSearchesInDisplayWorkflow() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		clickWhenClickable(By.xpath("//span[normalize-space()='Filter']"));
+		assertElementNotPresent(By.xpath("//span[normalize-space()='Advance Search']"));
 
 	}
 
 	@And("the user should be able to perform Pharmacy NABP searches")
 	public void verifyUserCanPerformPharmacyNabpSearches() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		clickWhenClickable(By.xpath("//a[@id='searchcollapse']"));
+		clickWhenClickable(By.xpath("//span[normalize-space()='Advance Search']"));
+		waitAndSendKeys(By.id("Filter_PharmacyNABP"), "7654321");
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-magnifying-glass']"));
 
 	}
 
 	@And("the user should have full program access in Display Workflow")
 	public void verifyUserHasFullProgramAccessInDisplayWorkflow() {
 		sleep(3000);
-		clickWhenClickable(
-				By.xpath("//div[@class='runningLineCheckboxinner']//label[@for='Filter_IsShowAllRunningline']"));
+		assertElementPresent(By.xpath("//span[normalize-space()='PA Queue']"));
 
 	}
 
@@ -4151,76 +3432,6 @@ public class WorkflowSteps {
 				By.xpath("//div[@class='runningLineCheckboxinner']//label[@for='Filter_IsShowAllRunningline']"));
 		sleep(3000);
 		assertElementPresent(By.xpath("//tbody/tr[1]/td[17]/div[1]/a[2]//*[name()='svg']"));
-
-	}
-
-	@And("the user should be able to view Text messages")
-	public void verifyUserCanViewTextMessages() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
-	@And("the user should not be able to send Text messages")
-	public void verifyUserCannotSendTextMessages() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
-	@And("the user should not be able to reply to Text messages")
-	public void verifyUserCannotReplyToTextMessages() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
-	@And("the user should not be able to send VCards in Text")
-	public void verifyUserCannotSendVCardsInText() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
-	@And("the user should be able to send BOT Calls")
-	public void verifyUserCanSendBOTCalls() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
-	@And("the user should be able to view BOT Call data")
-	public void verifyUserCanViewBOTCallData() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
-	@And("the user should not be able to send BOT Calls")
-	public void verifyUserCannotSendBOTCalls() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
-	@And("the user should be able to perform Refax in Fax")
-	public void verifyUserCanPerformRefaxInFax() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
-	@And("the user should be able to view Fax data")
-	public void verifyUserCanViewFaxData() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
-	@And("the user should be able to view Mail data")
-	public void verifyUserCanViewMailData() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
 
 	}
 
