@@ -2578,37 +2578,44 @@ public class WorkflowSteps {
 
 	@And("I leave all required fields blank")
 	public void leaveAllRequiredFieldsBlank() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
 
 	}
 
 	@And("the Template should not be created")
 	public void checkTemplateNotCreated() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		assertElementPresent(By.xpath("//button[@id='btnSave']"));
 
 	}
 
 	@And("I navigate to the Workflow Dashboard")
 	public void navigateToWorkflowDashboard() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		driver.get(baseUrl + "/Workflow/Home/Dashboard");
 
 	}
 
 	@And("I click on Add Template")
 	public void clickAddTemplateButton() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		clickWhenClickable(By.xpath("//a[@class='md-trigger']//button[@type='button']//*[name()='svg']"));
 
 	}
 
 	@And("I click Submit")
 	public void clickSubmitButton() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+	}
 
+	@And("I click Submit for Action workflow Add Communication")
+	public void iClickSubmitForActionWorkflowAddCommunication() {
+		clickWhenClickable(By.xpath("//button[@id='btnSaveCommunication']"));
+	}
+
+	@And("I click Submit for Add Communication")
+	public void iClickSubmitForAddCommunication() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//button[@id='btnSaveCommunication']"));
 	}
 
 	@And("I create a profile with no permissions for Text Module")
@@ -2618,59 +2625,72 @@ public class WorkflowSteps {
 
 	}
 
-	@And("I clear all required fields")
-	public void clearAllRequiredFields() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
 	@And("the Communication should not be created")
 	public void verifyCommunicationNotCreated() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		assertElementPresent(By.xpath("//button[@id='btnSaveCommunication']"));
 
 	}
 
 	@And("I navigate to the Action Workflow page")
 	public void navigateToActionWorkflowPage() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
+		driver.get(baseUrl + "/Workflow/Home/ActionWorkflow");
 	}
 
 	@And("I should see validation messages for all required fields")
 	public void ensureValidationMessagesDisplayedForRequiredFields() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		assertElementPresent(By.xpath("//div[@class='toast-message']"));
+
+	}
+
+	@And("I should see validation messages for all required fields for Quick Notes")
+	public void iShouldSeeValidationMessagesForAllRequiredFieldsForQuickNotes() {
+		assertElementPresent(By.xpath("//div[@class='toast-message']"));
 
 	}
 
 	@And("I click on Add Communication")
 	public void clickAddCommunication() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		clickWhenClickable(
+				By.xpath("//div[@class='runningLineCheckboxinner']//label[@for='Filter_IsShowAllRunningline']"));
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[17]/div[1]/a[1]//*[name()='svg']"));
 
 	}
 
 	@And("I click on Add Quick")
 	public void clickAddQuick() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		clickWhenClickable(
+				By.xpath("//div[@class='runningLineCheckboxinner']//label[@for='Filter_IsShowAllRunningline']"));
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[17]/div[1]/a[2]//*[name()='svg']"));
 
 	}
 
 	@And("I click Save")
 	public void iClickSave() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		clickWhenClickable(By.xpath("//i[@class='fa-solid fa-magnifying-glass']"));
+
+	}
+
+	@And("I click Send for Action Workflow Quick Notes")
+	public void iClickSendForActionWorkflowQuickNotes() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//button[@id='btnSendQuickText']"));
+
+	}
+
+	@And("I click Save for Quick Notes")
+	public void iClickSaveForQuickNotes() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//button[@id='btnSendQuickNotes']"));
 
 	}
 
 	@And("the action should not be updated")
 	public void verifyActionNotUpdated() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		assertElementPresent(By.xpath("//button[@id='btnSendQuickText']"));
 
 	}
 
@@ -2683,8 +2703,7 @@ public class WorkflowSteps {
 
 	@And("I should see a validation message indicating no record selected please selecct one")
 	public void verifyNoRecordSelectedMessage() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		assertElementPresent(By.xpath("//button[@id='btnSendQuickText']"));
 
 	}
 
@@ -2730,108 +2749,90 @@ public class WorkflowSteps {
 
 	}
 
-	@And("I navigate to Workflow Dashboard")
-	public void verifyTemplateIsNotCreated() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
 	@And("the note should not be created")
 	public void ensureNoteCreationDidNotHappen() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		assertElementPresent(By.xpath("//button[@id='btnSendQuickNotes']"));
 
 	}
 
 	@And("the communication should not be created")
 	public void assertCommunicationCreationDidNotOccur() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		assertElementPresent(By.xpath("//button[@id='btnSaveCommunication']"));
 
 	}
 
 	@And("I should see a validation message indicating the required fields must be filled")
 	public void verifyRequiredFieldsValidationMessage() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		assertElementPresent(By.xpath("//div[@class='toast-message']"));
 
 	}
 
 	@And("I go to Quick Text section")
 	public void navigateToQuickTextSection() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		clickWhenClickable(By.xpath("//span[normalize-space()='Quick Text']"));
 
 	}
 
 	@And("I click on Send VCard")
 	public void clickOnSendVCardButton() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		clickWhenClickable(By.xpath("//span[normalize-space()='Send VCard']"));
 
 	}
 
 	@And("I leave the message content field blank")
 	public void clearMessageContentField() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
 
 	}
 
 	@And("the template should not be created")
 	public void verifyTemplateWasNotCreated() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
-	@And("I click on Send")
-	public void clickOnSendButton() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		assertElementPresent(By.xpath("//button[@id='btnSave']"));
 
 	}
 
 	@And("I should see a validation message indicating the content is required")
 	public void verifyContentRequiredValidationMessage() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		assertElementPresent(By.xpath("//div[contains(text(),'Body should not be empty.')]"));
+		assertElementPresent(By.xpath("//div[contains(text(),'Please enter phone number.')]"));
 
 	}
 
 	@And("the message should not be sent")
 	public void verifyMessageNotSent() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		assertElementPresent(By.xpath("//button[@id='btnSendQuickText']"));
 
 	}
 
 	@And("I click Send")
 	public void clickSend() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		clickWhenClickable(By.xpath("//button[@id='btnSendQuickText']"));
+
+	}
+
+	@And("I click Send for Send VCard")
+	public void iClickSendForSendVCard() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//button[@id='btnSendVCard']"));
 
 	}
 
 	@And("the VCard should not be sent")
 	public void ensureVCardWasNotSent() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
-	@And("I go to Quick Notes section")
-	public void navigateToQuickNotesSection() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		assertElementPresent(By.xpath("//button[@id='btnSendVCard']"));
 
 	}
 
 	@And("I click on Add Note")
 	public void clickOnAddNoteButton() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		clickWhenClickable(
+				By.xpath("//div[@class='runningLineCheckboxinner']//label[@for='Filter_IsShowAllRunningline']"));
+		clickWhenClickable(
+				By.xpath("//tbody/tr[1]/td[17]/div[1]/a[2]//*[name()='svg']//*[name()='path' and @id='Union_53']"));
 
 	}
 

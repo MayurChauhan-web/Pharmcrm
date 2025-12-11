@@ -1,4 +1,4 @@
-Feature: Workflow Module scenarios
+Feature: Workflow Module Scenarios
 
 Scenario: User with View only access for General (Audit View)
 Given I log in as admin for Workflow Module 
@@ -720,7 +720,6 @@ And the user should be able to add and edit HardCopy in Audit Workflow
 And the user should be able to delete HardCopy in Audit Workflow
 And the user should be able to export Audit Workflow data
 
-@Workflow
 Scenario: User with View only permission in Audit Workflow
 Given I log in as admin for Workflow Module
 When I create a new user with email for Workflow Module "testuser5_static@mailinator.com"
@@ -744,44 +743,41 @@ And the template should not be created
 
 Scenario: Workflow Dashboard Quick Text Send Validation on Blank Submission
 Given I log in as admin for Workflow Module
-When I navigate to Workflow Dashboard
+When I navigate to the Workflow Dashboard
 And I go to Quick Text section
-And I click on Send
 And I leave the message content field blank
 And I click Send
 Then I should see a validation message indicating the content is required
 And the message should not be sent
 
-Scenario: Workflow Dashboard – Quick Text Send VCard Validation on Blank Submission
+Scenario: Workflow Dashboard Send VCard Validation on Blank Submission
 Given I log in as admin for Workflow Module
-When I navigate to Workflow Dashboard
-And I go to Quick Text section
+When I navigate to the Workflow Dashboard
 And I click on Send VCard
 And I leave all required fields blank
-And I click Send
+And I click Send for Send VCard
 Then I should see a validation message indicating the required fields must be filled
 And the VCard should not be sent
 
-Scenario: Workflow Dashboard – Add Communication Validation on Blank Submission
+Scenario: Workflow Dashboard Add Communication Validation on Blank Submission
 Given I log in as admin for Workflow Module
-When I navigate to Workflow Dashboard
+When I navigate to the Workflow Dashboard
 And I click on Add Communication
 And I leave all required fields blank
-And I click Submit
+And I click Submit for Add Communication
 Then I should see validation messages for all required fields
 And the communication should not be created
 
-Scenario: Workflow Dashboard – Quick Notes Validation on Blank Submission
+Scenario: Workflow Dashboard Quick Notes Validation on Blank Submission
 Given I log in as admin for Workflow Module
-When I navigate to Workflow Dashboard
-And I go to Quick Notes section
+When I navigate to the Workflow Dashboard
 And I click on Add Note
 And I leave all required fields blank
-And I click Save
-Then I should see validation messages for all required fields
+And I click Save for Quick Notes
+Then I should see validation messages for all required fields for Quick Notes
 And the note should not be created
 
-Scenario: Action Workflow Page – Add Template Validation on Blank Submission
+Scenario: Action Workflow Page Add Template Validation on Blank Submission
 Given I log in as admin for Workflow Module
 When I navigate to the Action Workflow page
 And I click on Add Template
@@ -790,24 +786,25 @@ And I click Submit
 Then I should see validation messages for all required fields
 And the Template should not be created
 
-Scenario: Action Workflow – Add Communication Validation on Blank Submission
+Scenario: Action Workflow Add Communication Validation on Blank Submission
 Given I log in as admin for Workflow Module
 When I navigate to the Action Workflow page
 And I click on Add Communication
 And I leave all required fields blank
-And I click Submit
+And I click Submit for Action workflow Add Communication
 Then I should see validation messages for all required fields
 And the Communication should not be created
 
-Scenario: Action Workflow – Quick Notes Validation on Blank Submission
+Scenario: Action Workflow Quick Notes Validation on Blank Submission
 Given I log in as admin for Workflow Module
 When I navigate to the Action Workflow page
 And I click on Add Quick
-And I clear all required fields
-And I click Save
+And I leave all required fields blank
+And I click Send for Action Workflow Quick Notes
 Then I should see validation messages for all required fields
 And the action should not be updated
 
+@Workflow
 Scenario: Action Workflow – Mail to Selected Validation for No Rx Number
 Given I log in as admin for Workflow Module
 When I create a new user with email "mailuser2_static@mailinator.com"
@@ -815,7 +812,7 @@ And I create a profile with no permissions for Mail Module
 And I assign the profile and workspace to the user for Workflow Module
 And I reset the user's password for Workflow Module
 And I log in using the new user for Workflow Module
-When I navigate to Workflow Dashboard
+When I navigate to the Workflow Dashboard
 And I select one or more records using the check box
 And I click on Mail to Selected
 Then I should see a validation message indicating no record selected please selecct one
@@ -828,7 +825,7 @@ And I create a profile with no permissions for Fax Module
 And I assign the profile and workspace to the user for Workflow Module
 And I reset the user's password for Workflow Module
 And I log in using the new user for Workflow Module
-When I navigate to Workflow Dashboard
+When I navigate to the Workflow Dashboard
 And I select one or more records using the check box
 And I click on Fax to Selected
 Then I should see a validation message indicating no record selected please select one
@@ -841,7 +838,7 @@ And I create a profile with no permissions for Text Module
 And I assign the profile and workspace to the user for Workflow Module
 And I reset the user's password for Workflow Module
 And I log in using the new user for Workflow Module
-When I navigate to Workflow Dashboard
+When I navigate to the Workflow Dashboard
 And I select one or more records using the check box
 And I click on Text to Selected
 Then I should see a validation message indicating no record selected please select one
@@ -854,11 +851,26 @@ And I create a profile with no permissions for Callout Module
 And I assign the profile and workspace to the user for Workflow Module
 And I reset the user's password for Workflow Module
 And I log in using the new user for Workflow Module
-When I navigate to Workflow Dashboard
+When I navigate to the Workflow Dashboard
 And I select one or more records using the check box
 And I click on Callout to Selected
 Then I should see a validation message indicating no record selected please select one
 And the Callout action should not be performed
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
