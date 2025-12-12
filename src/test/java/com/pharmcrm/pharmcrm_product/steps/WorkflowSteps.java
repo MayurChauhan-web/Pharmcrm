@@ -2618,13 +2618,6 @@ public class WorkflowSteps {
 		clickWhenClickable(By.xpath("//button[@id='btnSaveCommunication']"));
 	}
 
-	@And("I create a profile with no permissions for Text Module")
-	public void createProfileWithNoTextPermissions() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
 	@And("the Communication should not be created")
 	public void verifyCommunicationNotCreated() {
 		assertElementPresent(By.xpath("//button[@id='btnSaveCommunication']"));
@@ -2635,6 +2628,18 @@ public class WorkflowSteps {
 	public void navigateToActionWorkflowPage() {
 		sleep(3000);
 		driver.get(baseUrl + "/Workflow/Home/ActionWorkflow");
+	}
+
+	@And("I navigate to the Sync Workflow page")
+	public void navigateToSyncWorkflowPage() {
+		sleep(3000);
+		driver.get(baseUrl + "/Workflow/Home/MedicationSyncReminder");
+	}
+
+	@And("I navigate to the Followup Workflow page")
+	public void navigateToFollowupWorkflowPage() {
+		sleep(3000);
+		driver.get(baseUrl + "/Workflow/Home/FollowUpWorkflow");
 	}
 
 	@And("I should see validation messages for all required fields")
@@ -2697,55 +2702,51 @@ public class WorkflowSteps {
 	@And("I click on Mail to Selected")
 	public void clickMailToSelected() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		clickWhenClickable(By.xpath("//label[@for='chkAllRunninglines']"));
+		clickWhenClickable(By.xpath("//button[@id='btnMailToSelected']//*[name()='svg']"));
+		clickWhenClickable(By.xpath("//div[@id='mailToSelectedmodal']//button[@id='btnDeleteConfirm']"));
 
 	}
 
 	@And("I should see a validation message indicating no record selected please selecct one")
 	public void verifyNoRecordSelectedMessage() {
-		assertElementPresent(By.xpath("//button[@id='btnSendQuickText']"));
+		assertElementPresent(By.xpath("//div[@class='toast-message']"));
 
 	}
 
 	@And("the Mail action should not be performed")
 	public void verifyMailActionNotPerformed() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
-	@And("I create a profile with no permissions for Fax Module")
-	public void createProfileWithNoFaxPermissions() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		assertElementPresent(By.xpath("//div[@class='toast-message']"));
 
 	}
 
 	@And("I click on Fax to Selected")
 	public void clickFaxToSelected() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		clickWhenClickable(By.xpath("//label[@for='chkAllRunninglines']"));
+		clickWhenClickable(
+				By.xpath("//button[@id='btnFaxToSelected']//*[name()='svg']//*[name()='path' and @id='fax_to_all']"));
+		clickWhenClickable(By.xpath("//div[@id='faxToSelectedmodal']//button[@id='btnDeleteConfirm']"));
 
 	}
 
 	@And("the Fax action should not be performed")
 	public void verifyFaxActionNotPerformed() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		assertElementPresent(By.xpath("//div[@class='toast-message']"));
 
 	}
 
 	@And("I click on Text to Selected")
 	public void clickTextToSelected() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
+		clickWhenClickable(By.xpath("//label[@for='chkAllRunninglines']"));
+		clickWhenClickable(By.xpath("//button[@id='btnSMSToSelected']//*[name()='svg']"));
+		clickWhenClickable(By.xpath("//div[@id='smsToSelectedmodal']//button[@id='btnDeleteConfirm']"));
 	}
 
 	@And("the Text action should not be performed")
 	public void verifyTextActionNotPerformed() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		assertElementPresent(By.xpath("//div[@class='toast-message']"));
 
 	}
 
@@ -2836,38 +2837,83 @@ public class WorkflowSteps {
 
 	}
 
-	@And("I create a profile with no permissions for Callout Module")
-	public void createProfileWithNoCalloutPermissions() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
-
-	}
-
-	@And("I select one or more records using the check box")
+	@And("I select No records using the check box")
 	public void selectRecordsUsingCheckbox() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
 
 	}
 
 	@And("I click on Callout to Selected")
 	public void clickCalloutToSelected() {
 		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		clickWhenClickable(By.xpath("//label[@for='chkAllRunninglines']"));
+		clickWhenClickable(By.xpath("//button[@id='btnCalloutToSelected']//*[name()='svg']"));
+		clickWhenClickable(By.xpath("//div[@id='calloutToSelectedmodal']//button[@id='btnDeleteConfirm']"));
+
+	}
+
+	@And("I click on Quick Text")
+	public void iClickOnQuickText() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//*[name()='path' and @id='Path_284']"));
+		clickWhenClickable(By.xpath("//button[@id='btnQuickSMSSend']"));
+
+	}
+
+	@And("I click on Send VCard For Action Workflow")
+	public void iClickOnSendVCardForActionWorkflow() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//button[@id='send-vcard']//*[name()='svg']"));
+		clickWhenClickable(By.xpath("//button[@id='btnSendVCard']"));
+
+	}
+
+	@And("I click on Timeline Add Action")
+	public void selectTimelineAddAction() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		clickWhenClickable(By.xpath("//button[@id='btnAddActivity']"));
 
 	}
 
 	@And("I should see a validation message indicating no record selected please select one")
 	public void verifyNoRecordSelectedValidationMessage() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		assertElementPresent(By.xpath("//div[@class='toast-message']"));
+
+	}
+
+	@And("I should see a validation message indicating no record is selected, please select one")
+	public void iShouldSeeValidationMessageForNoRecordSelected() {
+		assertElementPresent(By.xpath("//div[@class='toast-message']"));
 
 	}
 
 	@And("the Callout action should not be performed")
 	public void verifyCalloutActionNotPerformed() {
-		sleep(3000);
-		assertElementNotPresent(By.xpath("//div[@class='row']//div[2]//div[6]//div[1]//div[8]//div[1]//a[2]//img[1]"));
+		assertElementPresent(By.xpath("//div[@class='toast-message']"));
+
+	}
+
+	@And("the Quick Text action should not be performed")
+	public void quickTextActionShouldNotBePerformed() {
+		assertElementPresent(By.xpath("//button[@id='btnQuickSMSSend']"));
+
+	}
+
+	@And("the Send VCard action should not be performed")
+	public void sendVCardActionShouldNotBePerformed() {
+		assertElementPresent(By.xpath("//button[@id='btnSendVCard']"));
+
+	}
+
+	@And("the Timeline Add action should not be performed")
+	public void assertTimelineAddActionNotPerformed() {
+		assertElementPresent(By.xpath("//button[@id='btnSaveMedicationSyncDetails']"));
+
+	}
+
+	@And("the Followup Workflow template should not be created")
+	public void verifyFollowupWorkflowTemplateNotCreated() {
+		assertElementPresent(By.xpath("//button[@id='btnSave']"));
 
 	}
 

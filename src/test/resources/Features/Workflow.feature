@@ -804,58 +804,133 @@ And I click Send for Action Workflow Quick Notes
 Then I should see validation messages for all required fields
 And the action should not be updated
 
-@Workflow
-Scenario: Action Workflow – Mail to Selected Validation for No Rx Number
+Scenario: Action Workflow Mail to Selected Validation for No Rx Number
 Given I log in as admin for Workflow Module
-When I create a new user with email "mailuser2_static@mailinator.com"
-And I create a profile with no permissions for Mail Module
-And I assign the profile and workspace to the user for Workflow Module
-And I reset the user's password for Workflow Module
-And I log in using the new user for Workflow Module
-When I navigate to the Workflow Dashboard
-And I select one or more records using the check box
+When I navigate to the Action Workflow page
+And I select No records using the check box
 And I click on Mail to Selected
 Then I should see a validation message indicating no record selected please selecct one
 And the Mail action should not be performed
 
-Scenario: Action Workflow – Fax to Selected Validation for No Rx Number
+Scenario: Action Workflow Fax to Selected Validation for No Rx Number
 Given I log in as admin for Workflow Module
-When I create a new user with email "faxuser_static@mailinator.com"
-And I create a profile with no permissions for Fax Module
-And I assign the profile and workspace to the user for Workflow Module
-And I reset the user's password for Workflow Module
-And I log in using the new user for Workflow Module
-When I navigate to the Workflow Dashboard
-And I select one or more records using the check box
+When I navigate to the Action Workflow page
+And I select No records using the check box
 And I click on Fax to Selected
 Then I should see a validation message indicating no record selected please select one
 And the Fax action should not be performed
 
-Scenario: Action Workflow – Text to Selected Validation for No Record Selected
+Scenario: Action Workflow Text to Selected Validation for No Record Selected
 Given I log in as admin for Workflow Module
-When I create a new user with email "textuser_static@mailinator.com"
-And I create a profile with no permissions for Text Module
-And I assign the profile and workspace to the user for Workflow Module
-And I reset the user's password for Workflow Module
-And I log in using the new user for Workflow Module
-When I navigate to the Workflow Dashboard
-And I select one or more records using the check box
+When I navigate to the Action Workflow page
+And I select No records using the check box
 And I click on Text to Selected
 Then I should see a validation message indicating no record selected please select one
 And the Text action should not be performed
 
-Scenario: Action Workflow – Callout to Selected Validation for No Record Selected
+Scenario: Action Workflow Callout to Selected Validation for No Record Selected
 Given I log in as admin for Workflow Module
-When I create a new user with email "calloutuser_static@mailinator.com"
-And I create a profile with no permissions for Callout Module
-And I assign the profile and workspace to the user for Workflow Module
-And I reset the user's password for Workflow Module
-And I log in using the new user for Workflow Module
-When I navigate to the Workflow Dashboard
-And I select one or more records using the check box
+When I navigate to the Action Workflow page
+And I select No records using the check box
 And I click on Callout to Selected
 Then I should see a validation message indicating no record selected please select one
 And the Callout action should not be performed
+
+Scenario: Quick Text Action Validation for No Record Selected
+Given I log in as admin for Workflow Module
+When I navigate to the Action Workflow page
+And I click on Quick Text
+Then I should see a validation message indicating no record is selected, please select one
+And the Quick Text action should not be performed
+
+Scenario: Send VCard Action Validation for No Record Selected
+Given I log in as admin for Workflow Module
+When I navigate to the Action Workflow page
+And I click on Send VCard For Action Workflow
+Then I should see a validation message indicating no record is selected, please select one
+And the Send VCard action should not be performed
+
+Scenario: Timeline Add Action Validation for No Record Selected
+Given I log in as admin for Workflow Module
+When I navigate to the Sync Workflow page
+And I click on Timeline Add Action
+Then I should see a validation message indicating no record is selected, please select one
+And the Timeline Add action should not be performed
+
+Scenario: Followup Workflow Add Template Validation on Blank Submission
+Given I log in as admin for Workflow Module
+When I navigate to the Followup Workflow page
+And I click on Add Template
+And I leave all required fields blank
+And I click Submit
+Then I should see validation messages for all required fields
+And the Followup Workflow template should not be created
+
+@Workflow
+Scenario: Followup Workflow Quick Notes Validation on Blank Submission
+Given I log in as admin for Workflow Module
+When I navigate to the Followup Workflow page
+And I click on Add Quick
+And I leave all required fields blank
+And I click Send for Followup Workflow Quick Notes
+Then I should see validation messages for all required fields
+And the followup workflow action should not be updated
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
