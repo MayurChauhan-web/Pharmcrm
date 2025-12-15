@@ -20,27 +20,28 @@
 
     <dependencies>
 
-<!-- https://mvnrepository.com/artifact/com.github.2gis.winium/winium-webdriver -->
+		<!-- https://mvnrepository.com/artifact/com.github.2gis.winium/winium-webdriver -->
 <dependency>
     <groupId>com.github.2gis.winium</groupId>
     <artifactId>winium-webdriver</artifactId>
     <version>0.1.0-1</version>
 </dependency>
 
-      <dependency>
+		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+<dependency>
     <groupId>org.seleniumhq.selenium</groupId>
     <artifactId>selenium-java</artifactId>
-    <version>3.141.59</version>
+    <version>4.38.0</version>
 </dependency>
 
-        <!-- WebDriverManager -->
+		<!-- WebDriverManager -->
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
             <version>6.1.0</version>
         </dependency>
 
-        <!-- TestNG -->
+		<!-- TestNG -->
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
@@ -48,21 +49,21 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- Java Faker -->
+		<!-- Java Faker -->
         <dependency>
             <groupId>com.github.javafaker</groupId>
             <artifactId>javafaker</artifactId>
             <version>1.0.2</version>
         </dependency>
 
-        <!-- Logback -->
+		<!-- Logback -->
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
             <version>1.4.14</version>
         </dependency>
 
-        <!-- SLF4J -->
+		<!-- SLF4J -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
@@ -70,7 +71,7 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- JUnit 4 -->
+		<!-- JUnit 4 -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -78,7 +79,7 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- Cucumber with TestNG -->
+		<!-- Cucumber with TestNG -->
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
@@ -91,7 +92,7 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- Cucumber with JUnit -->
+		<!-- Cucumber with JUnit -->
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-junit</artifactId>
@@ -99,7 +100,7 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- Optional: Auto-suggest and feature support -->
+		<!-- Optional: Auto-suggest and feature support -->
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-core</artifactId>
@@ -111,21 +112,21 @@
             <version>28.0.0</version>
         </dependency>
 
-        <!-- Extent Reports -->
+		<!-- Extent Reports -->
         <dependency>
             <groupId>com.aventstack</groupId>
             <artifactId>extentreports</artifactId>
             <version>5.1.1</version>
         </dependency>
 
-        <!-- JSON processing -->
+		<!-- JSON processing -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>2.13.5</version>
         </dependency>
 
-        <!-- Cucumber HTML Reporting (optional) -->
+		<!-- Cucumber HTML Reporting (optional) -->
         <dependency>
             <groupId>net.masterthought</groupId>
             <artifactId>cucumber-reporting</artifactId>
@@ -137,7 +138,7 @@
     <build>
         <plugins>
 
-            <!-- Compiler Plugin -->
+			<!-- Compiler Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -148,7 +149,7 @@
                 </configuration>
             </plugin>
 
-            <!-- Surefire Plugin (JUnit only) -->
+			<!-- Surefire Plugin (JUnit only) -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
