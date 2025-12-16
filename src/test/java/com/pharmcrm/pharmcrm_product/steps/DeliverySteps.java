@@ -8,7 +8,7 @@ import java.time.LocalDate;
 import java.time.format.TextStyle;
 import java.util.List;
 import java.util.Locale;
-
+import java.time.Duration;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
@@ -38,7 +38,7 @@ public class DeliverySteps {
 
 	public DeliverySteps() {
 		this.driver = DriverFactory.getDriver();
-		this.wait = new WebDriverWait(driver, 10);
+		this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
 	}
 
@@ -48,7 +48,7 @@ public class DeliverySteps {
 			Assert.fail("Internet connection not available. Please check your connection.");
 		}
 		driver = DriverFactory.createDriver();
-		wait = new WebDriverWait(driver, 15);
+		wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 		driver.get(baseUrl);
 		measurePageLoadTime(baseUrl, 5000);
 		waitAndSendKeys(By.id("UserName"), "support@pharmcrm.com");
@@ -1478,7 +1478,7 @@ public class DeliverySteps {
 		int filledYear = filledFutureDate.getYear();
 		String filledMonth = filledFutureDate.getMonth().getDisplayName(TextStyle.SHORT, Locale.ENGLISH);
 
-		WebDriverWait wait = new WebDriverWait(driver, 10);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		WebElement filledYearDropdown = wait.until(ExpectedConditions
 				.visibilityOfElementLocated(By.xpath("//select[contains(@class,'ui-datepicker-year')]")));
 		new Select(filledYearDropdown).selectByVisibleText(String.valueOf(filledYear));
@@ -1981,7 +1981,7 @@ public class DeliverySteps {
 		int filledDay = filledFutureDate.getDayOfMonth();
 		int filledYear = filledFutureDate.getYear();
 		String filledMonth = filledFutureDate.getMonth().getDisplayName(TextStyle.SHORT, Locale.ENGLISH);
-		WebDriverWait wait = new WebDriverWait(driver, 10);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		WebElement filledYearDropdown = wait.until(ExpectedConditions
 				.visibilityOfElementLocated(By.xpath("//select[contains(@class,'ui-datepicker-year')]")));
 		new Select(filledYearDropdown).selectByVisibleText(String.valueOf(filledYear));
@@ -2102,7 +2102,7 @@ public class DeliverySteps {
 		selectDropdownByIndexWhenReady(By.id("Filter_LogisticId"), 1);
 		sleep(3000);
 		clickWhenClickable(By.xpath("//input[@id='Filter_FromDate']"));
-		WebDriverWait wait = new WebDriverWait(driver, 10);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		int year = LocalDate.now().getYear();
 		WebElement yearDropdown = wait.until(ExpectedConditions
 				.visibilityOfElementLocated(By.xpath("//select[contains(@class,'ui-datepicker-year')]")));
@@ -2187,7 +2187,7 @@ public class DeliverySteps {
 		int filledDay = filledFutureDate.getDayOfMonth();
 		int filledYear = filledFutureDate.getYear();
 		String filledMonth = filledFutureDate.getMonth().getDisplayName(TextStyle.SHORT, Locale.ENGLISH);
-		WebDriverWait wait = new WebDriverWait(driver, 10);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		WebElement filledYearDropdown = wait.until(ExpectedConditions
 				.visibilityOfElementLocated(By.xpath("//select[contains(@class,'ui-datepicker-year')]")));
 		new Select(filledYearDropdown).selectByVisibleText(String.valueOf(filledYear));
@@ -2382,7 +2382,7 @@ public class DeliverySteps {
 		int day = futureDate.getDayOfMonth();
 		int year = futureDate.getYear();
 		String month = futureDate.getMonth().getDisplayName(TextStyle.SHORT, Locale.ENGLISH);
-		WebDriverWait wait = new WebDriverWait(driver, 10);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		WebElement yearDropdown = wait.until(ExpectedConditions
 				.visibilityOfElementLocated(By.xpath("//select[contains(@class,'ui-datepicker-year')]")));
 		new Select(yearDropdown).selectByVisibleText(String.valueOf(year));
@@ -2405,7 +2405,7 @@ public class DeliverySteps {
 		WebElement addressInput = driver.findElement(By.id("travelto"));
 		addressInput.clear();
 		addressInput.sendKeys("Prahlad Nagar, Ahmedabad, Gujarat, India");
-		WebDriverWait wait1 = new WebDriverWait(driver, 10);
+		WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait1.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".pac-item")));
 		addressInput.sendKeys(Keys.ARROW_DOWN);
 		addressInput.sendKeys(Keys.ENTER);
@@ -2772,7 +2772,7 @@ public class DeliverySteps {
 	}
 
 	public void clickWhenReadyAndVisible(By locator) {
-		WebDriverWait wait = new WebDriverWait(driver, 10);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.elementToBeClickable(locator));
 
 		try {
@@ -2804,7 +2804,7 @@ public class DeliverySteps {
 	public void scrollIntoViewAndClick(By locator) {
 		WebElement element = driver.findElement(locator);
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", element);
-		WebDriverWait wait = new WebDriverWait(driver, 10);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.elementToBeClickable(locator)).click();
 	}
 

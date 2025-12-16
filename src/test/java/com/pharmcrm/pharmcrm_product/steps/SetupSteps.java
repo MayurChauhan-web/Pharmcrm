@@ -12,6 +12,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
+import java.time.Duration;
 
 import org.junit.Assert;
 import driver.DriverFactory;
@@ -27,7 +28,7 @@ public class SetupSteps {
 
 	public SetupSteps() {
 		this.driver = DriverFactory.getDriver();
-		this.wait = new WebDriverWait(driver, 10);
+		this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
 	}
 
@@ -37,7 +38,7 @@ public class SetupSteps {
 			Assert.fail("Internet connection not available. Please check your connection.");
 		}
 		driver = DriverFactory.createDriver();
-		wait = new WebDriverWait(driver, 15);
+		wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 		driver.get(baseUrl);
 		measurePageLoadTime(baseUrl, 5000);
 		waitAndSendKeys(By.id("UserName"), "support@pharmcrm.com");
@@ -7385,7 +7386,7 @@ public class SetupSteps {
 	}
 
 	public void clickWhenReadyAndVisible(By locator) {
-		WebDriverWait wait = new WebDriverWait(driver, 10);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.elementToBeClickable(locator));
 
 		try {
@@ -7417,7 +7418,7 @@ public class SetupSteps {
 	public void scrollIntoViewAndClick(By locator) {
 		WebElement element = driver.findElement(locator);
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", element);
-		WebDriverWait wait = new WebDriverWait(driver, 10);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.elementToBeClickable(locator)).click();
 	}
 
