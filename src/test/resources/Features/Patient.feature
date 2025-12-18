@@ -1,4 +1,3 @@
-@Patient
 Feature: Patient Module scenarios
 
   Scenario: User with View only access for Patient Module (General Audit View)
@@ -1070,6 +1069,53 @@ Feature: Patient Module scenarios
   And I log in using the new user for Patient Module 
   Then the user should be able to view outgoing calls
   And the user should be able to access call records
+  
+  Scenario: Quick Text Validation on Blank Submission for Patient Module
+  Given I log in as admin for Patient module
+  When I navigate to the Patient page
+  And I click on Add Quick Text
+  And I leave all required fields blank Patient Module
+  And I click Send for Patient Quick Text
+  Then I should see validation messages for all required fields Patient Module
+  And the patient quick text should not be created or updated
+  
+  Scenario: Send VCard Validation on Blank Submission for Patient Module
+  Given I log in as admin for Patient module
+  When I navigate to the Patient page
+  And I click on Send VCard Patient Module
+  And I leave all required fields blank Patient Module
+  And I click Send for Patient VCard
+  Then I should see validation messages for all required fields Send VCard Patient Module
+  And the patient VCard should not be created or sent
+  
+  @Patient
+  Scenario: Cancel Delete Patient Validation for Patient Module
+  Given I log in as admin for Patient module
+  When I navigate to the Patient page
+  And I click on Delete Patient
+  And I click Cancel on Delete Patient confirmation
+  Then the patient should not be deleted
+  
+  
+	
+  
+  
+  
+  
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   

@@ -2607,6 +2607,12 @@ public class WorkflowSteps {
 		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
 	}
 
+	@And("I click Send for Followup Workflow Quick Notes")
+	public void clickSendForFollowUpWorkflowQuickNotes() {
+		sleep(3000);
+		clickWhenClickable(By.xpath("//button[@id='btnSendQuickNotes']"));
+	}
+
 	@And("I click Submit for Action workflow Add Communication")
 	public void iClickSubmitForActionWorkflowAddCommunication() {
 		clickWhenClickable(By.xpath("//button[@id='btnSaveCommunication']"));
@@ -2914,6 +2920,12 @@ public class WorkflowSteps {
 	@And("the Followup Workflow template should not be created")
 	public void verifyFollowupWorkflowTemplateNotCreated() {
 		assertElementPresent(By.xpath("//button[@id='btnSave']"));
+
+	}
+
+	@And("the followup workflow action should not be updated")
+	public void verifyFollowUpWorkflowActionIsNotUpdated() {
+		assertElementPresent(By.xpath("//button[@id='btnSendQuickNotes']"));
 
 	}
 

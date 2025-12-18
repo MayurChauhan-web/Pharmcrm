@@ -1,3 +1,4 @@
+@Workflow
 Feature: Workflow Module Scenarios
 
 Scenario: User with View only access for General (Audit View)
@@ -866,7 +867,6 @@ And I click Submit
 Then I should see validation messages for all required fields
 And the Followup Workflow template should not be created
 
-@Workflow
 Scenario: Followup Workflow Quick Notes Validation on Blank Submission
 Given I log in as admin for Workflow Module
 When I navigate to the Followup Workflow page
@@ -875,6 +875,13 @@ And I leave all required fields blank
 And I click Send for Followup Workflow Quick Notes
 Then I should see validation messages for all required fields
 And the followup workflow action should not be updated
+
+
+
+
+
+
+
 
 
 
