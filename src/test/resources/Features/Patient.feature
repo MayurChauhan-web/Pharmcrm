@@ -1088,7 +1088,6 @@ Feature: Patient Module scenarios
   Then I should see validation messages for all required fields Send VCard Patient Module
   And the patient VCard should not be created or sent
   
-  @Patient
   Scenario: Cancel Delete Patient Validation for Patient Module
   Given I log in as admin for Patient module
   When I navigate to the Patient page
@@ -1097,6 +1096,8 @@ Feature: Patient Module scenarios
   Then the patient should not be deleted
   
   
+	
+	
 	
   
   
