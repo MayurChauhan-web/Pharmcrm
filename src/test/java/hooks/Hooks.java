@@ -43,11 +43,10 @@ public class Hooks {
 		return DriverFactory.getDriver();
 	}
 
-	// UPDATED - Clean quit without unwanted waits
 	@After(order = 0)
 	public void quitBrowser() {
 		try {
-			Thread.sleep(2000); // optional wait for downloads to settle
+			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 		}
 
@@ -67,5 +66,3 @@ public class Hooks {
 		}
 	}
 }
-
-
