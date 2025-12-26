@@ -13,7 +13,7 @@ public class patientpage {
 	private WebDriver driver;
 	private WebDriverWait wait;
 
-	// Locator
+	// LocatorPatinetPage
 	private By quickTextButton = By.xpath("//span[normalize-space()='Quick Text']");
 	private By sendButton = By.id("btnSave");
 	private By bodyRequiredValidation = By.xpath("//div[contains(text(),'Body should not be empty.')]");
@@ -40,6 +40,170 @@ public class patientpage {
 	private By filterLastNameInput = By.xpath("//input[@id='Filter_LastName']");
 	private By filterCancelButton = By.xpath("//button[@type='button']//i[@class='fa-solid fa-xmark']");
 	private By patientListTable = By.xpath("//table");
+	private By editPatientOption = By.xpath(
+			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]");
+	private By nextOfKinLastNameInput = By.xpath("//input[@id='Patient_NextofKinLastName']");
+	private By editPatientCancelButton = By.xpath("//a[normalize-space()='Cancel']");
+	private By addToTrialOption = By.xpath(
+			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Add To Trail')]");
+	private By patientActionMenuButtonBlankEmail = By.xpath("//tbody/tr[2]/td[12]/div[1]/div[1]/button[1]/i[1]");
+	private By enableLoginOption = By.xpath(
+			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Enable Login')]");
+	private By validationToastMessage = By.xpath("//div[@class='toast-message']");
+	private By addTagButton = By.xpath("//span[normalize-space()='New Tag']");
+	private By saveTagButton = By.xpath("//button[@id='btnSave']");
+
+	// LocatorTagPage
+	private By tagNameInput = By.xpath("//input[@id='Tag_Name']");
+	private By cancelEditTagTypeButton = By
+			.xpath("//button[@onclick='javascript: CloseaddTagModal();']//i[@class='fa fa-times']");
+	private By tagTypeNameInList = By.xpath("//table//tbody/tr[1]/td[1]");
+	private By tagActionMenuButton = By.xpath(
+			"//tbody/tr[1]/td[last()]//button//i[contains(@class,'ellipsis') or contains(@class,'fa-ellipsis')]");
+	private By editTagTypeOption = By.xpath(
+			"//div[contains(@class,'bucket-dropdown-content') and contains(@class,'show')]//span[contains(text(),'Edit')]");
+	private By deleteTagOption = By.xpath(
+			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]");
+	private By cancelDeleteTagButton = By
+			.xpath("//button[@onclick='javascript: CloseDeletePopup();']//i[@class='fa fa-times']");
+
+	// LocatorReviewCategoriesPage
+	private By addReviewCategoryButton = By.xpath("//span[normalize-space()='New Review Categories']");
+	private By saveReviewCategoryButton = By.xpath("//button[@id='btnSave']");
+	private By addReviewCategoryModal = By.xpath("//div[@id='addReviewCategoryModal']//div[@class='modal-header']");
+	private By reviewCategoryActionMenuButton = By.xpath("//tbody/tr[1]/td[6]/div[1]/div[1]/button[1]/i[1]");
+	private By editReviewCategoryOption = By.xpath("//span[normalize-space()='Edit']");
+	private By reviewCategoryNameInput = By.xpath("//input[@id='ReviewCategory_Name']");
+	private By cancelEditReviewCategoryButton = By
+			.xpath("//button[@onclick='javascript: CloseaddReviewCategoryModal();']//i[@class='fa fa-times']");
+	private By reviewCategoryName = By.xpath("//tbody/tr[1]/td[2]");
+	private By deleteReviewCategoryButton = By.xpath("//span[normalize-space()='Delete']");
+	private By cancelDeleteReviewCategoryButton = By
+			.xpath("//button[@onclick='javascript: CloseDeletePopup();']//i[@class='fa fa-times']");
+
+	// LocatorReferralSourcesPage
+	private By addReferralSourceButton = By.xpath("//span[normalize-space()='New Referral Source']");
+	private By addReferralSourceSaveButton = By.xpath("//button[@id='btnSave']");
+	private By editReferralSourceOption = By.xpath(
+			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]");
+	private By referralSourceNameInput = By.xpath("//input[@id='ReferralSource_Name']");
+	private By cancelEditReferralSourceButton = By
+			.xpath("//button[@onclick='javascript: CloseaddReferralSourceModal();']//i[@class='fa fa-times']");
+	private By actionMenuForReferralSource = By.xpath("//tbody/tr[1]/td[5]/div[1]/div[1]/button[1]/i[1]");
+	private By deleteReferralSourceOption = By.xpath(
+			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]");
+	private By cancelDeleteReferralSourceButton = By
+			.xpath("//button[@onclick='javascript: CloseDeletePopup();']//i[@class='fa fa-times']");
+
+	// PatientPage
+	public boolean isOnAddTagForm() {
+		try {
+			wait.until(ExpectedConditions.visibilityOfElementLocated(saveTagButton));
+			return true;
+		} catch (TimeoutException e) {
+			return false;
+		}
+	}
+
+	public boolean isTagNameRequiredValidationDisplayed() {
+		try {
+			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(validationToastMessage));
+
+			return toast.getText().toLowerCase().contains("tag");
+		} catch (TimeoutException e) {
+			return false;
+		}
+	}
+
+	public void clickOnSaveTagButton() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		WebElement saveBtn = wait.until(ExpectedConditions.elementToBeClickable(saveTagButton));
+
+		saveBtn.click();
+	}
+
+	public void clickOnAddTagButton() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		WebElement tagBtn = wait.until(ExpectedConditions.elementToBeClickable(addTagButton));
+
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", tagBtn);
+
+		tagBtn.click();
+	}
+
+	public boolean isEmailRequiredValidationDisplayed() {
+		try {
+			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(validationToastMessage));
+
+			return toast.getText().toLowerCase().contains("email");
+		} catch (TimeoutException e) {
+			return false;
+		}
+	}
+
+	public void clickOnPatientActionMenuForBlankEmail() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		WebElement menuBtn = wait.until(ExpectedConditions.elementToBeClickable(patientActionMenuButtonBlankEmail));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", menuBtn);
+		menuBtn.click();
+	}
+
+	public void clickOnEnableLoginOption() {
+		WebElement enableLoginBtn = wait.until(ExpectedConditions.elementToBeClickable(enableLoginOption));
+		enableLoginBtn.click();
+	}
+
+	public boolean isOnAddToTrialForm() {
+		try {
+			wait.until(ExpectedConditions.visibilityOfElementLocated(nextButton));
+			return true;
+		} catch (TimeoutException e) {
+			return false;
+		}
+	}
+
+	public void clickOnAddToTrialOption() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		WebElement addToTrialBtn = wait.until(ExpectedConditions.elementToBeClickable(addToTrialOption));
+		addToTrialBtn.click();
+	}
+
+	public boolean isPatientDetailsNotUpdatedAndListUnchanged(String originalValue) {
+		try {
+			boolean isPatientListVisible = wait.until(ExpectedConditions.visibilityOfElementLocated(patientListTable))
+					.isDisplayed();
+			clickOnPatientActionMenu();
+			clickOnEditPatientOption();
+			WebElement kinLastName = wait.until(ExpectedConditions.visibilityOfElementLocated(nextOfKinLastNameInput));
+			boolean isValueUnchanged = kinLastName.getAttribute("value").equals(originalValue);
+			return isPatientListVisible && isValueUnchanged;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	public void clickOnEditPatientCancelButton() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		WebElement cancelBtn = wait.until(ExpectedConditions.elementToBeClickable(editPatientCancelButton));
+
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", cancelBtn);
+
+		cancelBtn.click();
+	}
+
+	public void updateNextOfKinLastName(String lastName) {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		WebElement kinLastName = wait.until(ExpectedConditions.visibilityOfElementLocated(nextOfKinLastNameInput));
+
+		kinLastName.clear();
+		kinLastName.sendKeys(lastName);
+	}
+
+	public void clickOnEditPatientOption() {
+		WebElement editBtn = wait.until(ExpectedConditions.elementToBeClickable(editPatientOption));
+
+		editBtn.click();
+	}
 
 	public boolean isFilterClearedAndPatientListVisible() {
 		try {
@@ -203,13 +367,17 @@ public class patientpage {
 		wait.until(ExpectedConditions.elementToBeClickable(sendVCardButton)).click();
 	}
 
-	public void openPatientsPage(String fullUrl) {
+	public void openPatientsPage(String fullUrl, String expectedUrlFragment) {
 		driver.get(fullUrl);
-		wait.until(ExpectedConditions.urlContains("/Patient/Home/Patients"));
+		wait.until(ExpectedConditions.urlContains(expectedUrlFragment));
 	}
 
 	public boolean isOnPatientsPage() {
 		return driver.getCurrentUrl().contains("/Patient/Home/Patients");
+	}
+
+	public boolean isOnTagsPage() {
+		return driver.getCurrentUrl().contains("/Patient/Home/Tags");
 	}
 
 	public void clickOnAddQuickText() {
@@ -235,6 +403,204 @@ public class patientpage {
 
 	public boolean isSaveButtonDisplayed() {
 		return wait.until(ExpectedConditions.visibilityOfElementLocated(saveButton)).isDisplayed();
+	}
+
+	// TagPage
+	public void clickOnEditTagType() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		WebElement actionMenu = wait.until(ExpectedConditions.elementToBeClickable(tagActionMenuButton));
+		actionMenu.click();
+		WebElement editBtn = wait.until(ExpectedConditions.visibilityOfElementLocated(editTagTypeOption));
+		editBtn.click();
+	}
+
+	public void updateTagTypeDetails(String newTagName) {
+		WebElement tagInput = wait.until(ExpectedConditions.visibilityOfElementLocated(tagNameInput));
+		tagInput.clear();
+		tagInput.sendKeys(newTagName);
+	}
+
+	public void clickOnCancelEditTagType() {
+		WebElement cancelBtn = wait.until(ExpectedConditions.elementToBeClickable(cancelEditTagTypeButton));
+		cancelBtn.click();
+	}
+
+	public String getTagTypeNameFromList() {
+		WebElement tagName = wait.until(ExpectedConditions.visibilityOfElementLocated(tagTypeNameInList));
+		return tagName.getText().trim();
+	}
+
+	public void clickOnTagActionMenu() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		WebElement actionMenu = wait.until(ExpectedConditions.elementToBeClickable(tagActionMenuButton));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", actionMenu);
+		actionMenu.click();
+	}
+
+	public void clickOnDeleteTag() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		WebElement deleteBtn = wait.until(ExpectedConditions.elementToBeClickable(deleteTagOption));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", deleteBtn);
+		deleteBtn.click();
+	}
+
+	public void clickOnCancelDeleteTag() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		WebElement cancelBtn = wait.until(ExpectedConditions.elementToBeClickable(cancelDeleteTagButton));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", cancelBtn);
+		cancelBtn.click();
+	}
+
+	public String getTagNameFromTagList() {
+		return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//tbody/tr[1]/td[1]"))).getText()
+				.trim();
+	}
+
+	// ReviewCategoriesPage
+	public boolean isOnReviewCategoriesPage() {
+		return driver.getCurrentUrl().contains("/Patient/Home/ReviewCategories");
+	}
+
+	public void clickOnAddReviewCategory() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		WebElement addBtn = wait.until(ExpectedConditions.elementToBeClickable(addReviewCategoryButton));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", addBtn);
+		addBtn.click();
+	}
+
+	public void clickOnSaveReviewCategory() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		WebElement saveBtn = wait.until(ExpectedConditions.elementToBeClickable(saveReviewCategoryButton));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", saveBtn);
+		saveBtn.click();
+	}
+
+	public boolean isAddReviewCategoryFormDisplayed() {
+		try {
+			return wait.until(ExpectedConditions.visibilityOfElementLocated(addReviewCategoryModal)).isDisplayed();
+		} catch (TimeoutException e) {
+			return false;
+		}
+	}
+
+	public void clickOnEditReviewCategory() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		WebElement actionMenu = wait.until(ExpectedConditions.elementToBeClickable(reviewCategoryActionMenuButton));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", actionMenu);
+		actionMenu.click();
+		WebElement editBtn = wait.until(ExpectedConditions.elementToBeClickable(editReviewCategoryOption));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", editBtn);
+		editBtn.click();
+	}
+
+	public void updateReviewCategoryDetails(String updatedName) {
+		WebElement nameInput = wait.until(ExpectedConditions.visibilityOfElementLocated(reviewCategoryNameInput));
+		nameInput.clear();
+		nameInput.sendKeys(updatedName);
+	}
+
+	public void clickOnCancelEditReviewCategory() {
+		WebElement cancelBtn = wait.until(ExpectedConditions.elementToBeClickable(cancelEditReviewCategoryButton));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", cancelBtn);
+		cancelBtn.click();
+	}
+
+	public String getReviewCategoryNameFromList() {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(reviewCategoryName));
+		return driver.findElement(reviewCategoryName).getText().trim();
+	}
+
+	public void clickOnReviewCategoryActionMenu() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		WebElement actionMenu = wait.until(ExpectedConditions.elementToBeClickable(reviewCategoryActionMenuButton));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", actionMenu);
+		actionMenu.click();
+	}
+
+	public void clickOnDeleteReviewCategory() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		WebElement deleteBtn = wait.until(ExpectedConditions.elementToBeClickable(deleteReviewCategoryButton));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", deleteBtn);
+		deleteBtn.click();
+	}
+
+	public void clickOnCancelDeleteReviewCategory() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		WebElement cancelBtn = wait.until(ExpectedConditions.elementToBeClickable(cancelDeleteReviewCategoryButton));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", cancelBtn);
+		cancelBtn.click();
+	}
+
+// ReferralSourcesPage
+	public boolean isOnReferralSourcesPage() {
+		return driver.getCurrentUrl().contains("/Patient/Home/ReferralSources");
+	}
+
+	public void clickOnAddReferralSource() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		WebElement addBtn = wait.until(ExpectedConditions.elementToBeClickable(addReferralSourceButton));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", addBtn);
+		addBtn.click();
+	}
+
+	public boolean isAddReferralSourceFormDisplayed() {
+		try {
+			return wait.until(ExpectedConditions.visibilityOfElementLocated(addReferralSourceSaveButton)).isDisplayed();
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	public void clickOnEditReferralSource() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		WebElement actionMenuBtn = wait.until(ExpectedConditions.elementToBeClickable(actionMenuForReferralSource));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", actionMenuBtn);
+		actionMenuBtn.click();
+		WebElement editBtn = wait.until(ExpectedConditions.elementToBeClickable(editReferralSourceOption));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", editBtn);
+		editBtn.click();
+	}
+
+	public void updateReferralSourceName(String name) {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		WebElement input = wait.until(ExpectedConditions.visibilityOfElementLocated(referralSourceNameInput));
+		input.clear();
+		input.sendKeys(name);
+	}
+
+	public void clickOnCancelEditReferralSource() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		WebElement cancelBtn = wait.until(ExpectedConditions.elementToBeClickable(cancelEditReferralSourceButton));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", cancelBtn);
+		cancelBtn.click();
+	}
+
+	public String getReferralSourceNameFromList() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		WebElement nameElement = wait
+				.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//tbody/tr[1]/td[1]")));
+		return nameElement.getText().trim();
+	}
+
+	public void clickOnActionMenuForReferralSource() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		WebElement actionMenuBtn = wait.until(ExpectedConditions.elementToBeClickable(actionMenuForReferralSource));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", actionMenuBtn);
+		actionMenuBtn.click();
+	}
+
+	public void clickOnDeleteReferralSource() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		WebElement deleteBtn = wait.until(ExpectedConditions.elementToBeClickable(deleteReferralSourceOption));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", deleteBtn);
+		deleteBtn.click();
+	}
+
+	public void clickOnCancelDeleteReferralSource() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		WebElement cancelBtn = wait.until(ExpectedConditions.elementToBeClickable(cancelDeleteReferralSourceButton));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", cancelBtn);
+		cancelBtn.click();
 	}
 
 }
