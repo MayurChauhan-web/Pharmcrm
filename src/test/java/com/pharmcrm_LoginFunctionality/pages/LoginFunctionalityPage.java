@@ -1,4 +1,4 @@
-package com.pharmcrm.LoginFunctionality.pages;
+package com.pharmcrm_LoginFunctionality.pages;
 
 import java.time.Duration;
 

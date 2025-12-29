@@ -7,7 +7,7 @@ import io.cucumber.junit.CucumberOptions;
 @RunWith(Cucumber.class)
 @CucumberOptions(features = { "src/test/resources/Features" },
 
-		glue = { "com.pharmcrm.LoginFunctionality.steps", "com.pharmcrm.PatientFunctionality.steps",
+		glue = { "com.pharmcrm_LoginFunctionality.steps", "com.pharmcrm_PatientModule.steps",
 				"hooks" }, tags = "@Patient", plugin = { "pretty", "html:target/cucumber-html-report.html",
 						"json:target/cucumber-report.json" }, monochrome = true)
 

@@ -253,7 +253,6 @@ And user updates the Referral Source details
 Then user clicks on Cancel button in Edit Referral Source
 Then the Referral Source details should not be updated and the referral source list should remain unchanged
 
-@Patient
 Scenario: Delete Referral Source – Cancel
 Given user launch browser
 Then user click on the user type dropdown
@@ -267,6 +266,232 @@ When user clicks on Action menu for a Referral Source
 And user clicks on Delete Referral Source button
 Then user clicks on Cancel button on Delete Referral Source confirmation message
 Then the Referral Source should not be deleted and the referral source list should remain unchanged
+
+# EnrollmentsPage
+Scenario: Add Enrollment – Blank Submit
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view enrollments
+When user clicks on Add Enrollment button
+And user clicks on Save button without entering any data
+Then the system should display a validation message indicating that required fields are blank
+Then the user should remain on the Add Enrollment form without saving the enrollment
+
+Scenario: Edit Enrollment – Cancel
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view enrollments
+And user stores the Enrollment details before edit
+When user clicks on Edit button for an Enrollment
+And user updates the Enrollment details
+Then user clicks on Cancel button in Edit Enrollment
+Then the Enrollment details should not be updated and the enrollment list should remain unchanged
+
+Scenario: Delete Enrollment – Cancel
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view enrollments
+And user stores the Enrollment details before delete
+When user clicks on Action menu for an Enrollment
+And user clicks on Delete Enrollment button
+Then user clicks on Cancel button on Delete Enrollment confirmation message
+Then the Enrollment should not be deleted and the enrollment list should remain unchanged
+
+# DeDupePage
+Scenario: Patient – De Dupe Find Duplicate Validation for Selecting Checkbox
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view DeDupe patients page
+When user clicks on De Dupe Find Duplicate option for a patient
+Then the system should display a validation message for selecting checkbox
+
+# General
+Scenario: User with View only access for Patient Module (General Audit View)
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with View access only to Patient Module General Audit View test
+Then the user should be able to view Patient Module General Audit View test
+
+Scenario: User with No access for Patient Module (General Audit View)
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with No access to Patient Module General Audit View test
+Then the user should not be able to view Patient Module General Audit View test
+
+Scenario: User with View only access for Patient test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with View access only to Patient Module Patient test
+Then the user should be able to view patients test   
+But the user should not be able to add, edit, or delete patients test 
+
+@Patient
+Scenario: User with View and Add access for Patient
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with View and Add access to Patient Module Patient test  
+And the user should be able to add a new patient test        
+But the user should not be able to edit or delete patients test
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

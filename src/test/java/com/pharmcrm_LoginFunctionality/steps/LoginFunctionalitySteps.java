@@ -1,8 +1,8 @@
-package com.pharmcrm.LoginFunctionality.steps;
+package com.pharmcrm_LoginFunctionality.steps;
 
 import org.junit.Assert;
 
-import com.pharmcrm.LoginFunctionality.pages.LoginFunctionalityPage;
+import com.pharmcrm_LoginFunctionality.pages.LoginFunctionalityPage;
 
 import driver.DriverFactory_01;
 import hooks.Hooks;

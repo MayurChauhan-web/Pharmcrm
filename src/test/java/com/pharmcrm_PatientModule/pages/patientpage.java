@@ -1,4 +1,4 @@
-package com.pharmcrm.PatientFunctionality.pages;
+package com.pharmcrm_PatientModule.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -7,7 +7,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
 import java.time.Duration;
+import java.util.List;
 
 public class patientpage {
 	private WebDriver driver;
@@ -52,6 +55,9 @@ public class patientpage {
 	private By validationToastMessage = By.xpath("//div[@class='toast-message']");
 	private By addTagButton = By.xpath("//span[normalize-space()='New Tag']");
 	private By saveTagButton = By.xpath("//button[@id='btnSave']");
+	private By updatedByColumn = By.xpath("//th[normalize-space()='Updated By']");
+	private By updatedDateColumn = By.xpath("//th[normalize-space()='Updated Date']");
+	private By patientActionMenuIcon = By.xpath("//tbody/tr[1]/td[12]/div[1]/div[1]/button[1]/i[1]");
 
 	// LocatorTagPage
 	private By tagNameInput = By.xpath("//input[@id='Tag_Name']");
@@ -95,7 +101,58 @@ public class patientpage {
 	private By cancelDeleteReferralSourceButton = By
 			.xpath("//button[@onclick='javascript: CloseDeletePopup();']//i[@class='fa fa-times']");
 
+	// LocatorEnrollmentsPage
+	private By addEnrollmentButton = By.xpath("//span[normalize-space()='New Enrollment']");
+	private By addEnrollmentForm = By.xpath("//div[@id='addEnrollmentModal']//div[@class='modal-header']");
+	private By editEnrollmentOption = By.xpath(
+			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]");
+	private By enrollmentNameField = By.id("Enrollment_Name");
+	private By cancelEditEnrollmentButton = By
+			.xpath("//button[@onclick='javascript: CloseaddEnrollmentModal();']//i[@class='fa fa-times']");
+	private By enrollmentNameFromList = By.xpath("//tbody/tr[1]/td[2]");
+	private By enrollmentActionMenuButton = By.xpath("//tbody/tr[1]/td[7]/div[1]/div[1]/button[1]/i[1]");
+	private By deleteEnrollmentOption = By.xpath(
+			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]");
+	private By cancelDeleteEnrollmentButton = By
+			.xpath("//button[@onclick='javascript: CloseDeletePopup();']//i[@class='fa fa-times']");
+
+	// LocatorDeDupePage
+	private By findDuplicateOption = By.xpath("//span[normalize-space()='Find Duplicate']");
+	private By dobLabel = By.xpath("//label[normalize-space()='Date of Birth']");
+	private By toastMessage = By.xpath("//div[@class='toast-message']");
+
+	// LocatorProfilesPage
+	private By profilefilterButton = By.xpath("//*[name()='path' and @id='Union_73']");
+	private By profileNameInput = By.xpath("//input[@id='Filter_Name']");
+	private By searchButton = By.xpath("//i[@class='fa-solid fa-magnifying-glass']");
+	private By actionMenu = By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']");
+	private By editButton = By.xpath("//span[normalize-space()='Edit']");
+	private By submitButton = By.xpath("//button[@id='btnSave']");
+	private By patientModuleGeneralAuditViewCheckbox = By.xpath("//label[@for='chkg37PatientAuditView']");
+	private By selectAllModuleLabel = By.xpath("//label[normalize-space()='Select All Module']");
+	private By patientModuleGeneralAuditViewLabel = By.xpath("//label[@for='chkg37SetupGeneralAll']");
+	private By patientModuleAllLabel = By.xpath("//label[@for='chkg9PatientAll']");
+	private By patientModuleViewLabel = By.xpath("//label[@for='chkg9PatientView']");
+	private By patientModuleAddLabel = By.xpath("//label[@for='chkg9PatientAdd']");
+
+
 	// PatientPage
+
+	public void verifyViewOnlyUserCannotAddEditDeletePatients() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+
+		Assert.assertTrue(driver.findElements(newPatientButton).isEmpty(), "New Patient button should NOT be visible");
+
+		List<WebElement> actionMenus = driver.findElements(patientActionMenuIcon);
+		if (!actionMenus.isEmpty() && actionMenus.get(0).isDisplayed()) {
+			actionMenus.get(0).click();
+		}
+
+		Assert.assertTrue(driver.findElements(editPatientOption).isEmpty(), "Edit option should NOT be visible");
+
+		Assert.assertTrue(driver.findElements(deletePatientOption).isEmpty(), "Delete option should NOT be visible");
+	}
+
 	public boolean isOnAddTagForm() {
 		try {
 			wait.until(ExpectedConditions.visibilityOfElementLocated(saveTagButton));
@@ -601,6 +658,198 @@ public class patientpage {
 		WebElement cancelBtn = wait.until(ExpectedConditions.elementToBeClickable(cancelDeleteReferralSourceButton));
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", cancelBtn);
 		cancelBtn.click();
+	}
+
+	// EnrollmentsPage
+	public void openPatientEnrollmentsPage(String fullUrl) {
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Patient/Home/Enrollments"));
+	}
+
+	public void verifyGeneralAuditViewColumns() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(updatedByColumn));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(updatedDateColumn));
+
+		Assert.assertTrue(driver.findElement(updatedByColumn).isDisplayed(), "Updated By column is not visible");
+		Assert.assertTrue(driver.findElement(updatedDateColumn).isDisplayed(), "Updated Date column is not visible");
+	}
+
+	public void verifyGeneralAuditViewColumnsNotVisible() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		boolean updatedByVisible = driver.findElements(updatedByColumn).stream().anyMatch(WebElement::isDisplayed);
+		boolean updatedDateVisible = driver.findElements(updatedDateColumn).stream().anyMatch(WebElement::isDisplayed);
+
+		Assert.assertFalse(updatedByVisible, "Updated By column is visible but should NOT be");
+		Assert.assertFalse(updatedDateVisible, "Updated Date column is visible but should NOT be");
+	}
+
+	public void clickOnAddEnrollmentButton() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		wait.until(ExpectedConditions.elementToBeClickable(addEnrollmentButton)).click();
+	}
+
+	public boolean isOnAddEnrollmentForm() {
+		try {
+			return wait.until(ExpectedConditions.visibilityOfElementLocated(addEnrollmentForm)).isDisplayed();
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	public void clickOnEditEnrollment() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		WebElement editBtn = wait.until(ExpectedConditions.elementToBeClickable(editEnrollmentOption));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", editBtn);
+		editBtn.click();
+	}
+
+	public void updateEnrollmentDetails(String newName) {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(enrollmentNameField));
+		WebElement nameField = driver.findElement(enrollmentNameField);
+		nameField.clear();
+		nameField.sendKeys(newName);
+	}
+
+	public void clickOnCancelEditEnrollment() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		WebElement cancelBtn = wait.until(ExpectedConditions.elementToBeClickable(cancelEditEnrollmentButton));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", cancelBtn);
+		cancelBtn.click();
+	}
+
+	public String getEnrollmentNameFromList() {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(enrollmentNameFromList));
+		return driver.findElement(enrollmentNameFromList).getText().trim();
+	}
+
+	public void clickOnActionMenuForEnrollment() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		WebElement menuBtn = wait.until(ExpectedConditions.elementToBeClickable(enrollmentActionMenuButton));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", menuBtn);
+		menuBtn.click();
+	}
+
+	public void clickOnEnrollmentActionMenu() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		wait.until(ExpectedConditions.elementToBeClickable(enrollmentActionMenuButton)).click();
+	}
+
+	public void clickOnDeleteEnrollment() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		WebElement deleteBtn = wait.until(ExpectedConditions.elementToBeClickable(deleteEnrollmentOption));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", deleteBtn);
+		deleteBtn.click();
+	}
+
+	public void clickOnCancelDeleteEnrollment() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		WebElement cancelBtn = wait.until(ExpectedConditions.elementToBeClickable(cancelDeleteEnrollmentButton));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", cancelBtn);
+		cancelBtn.click();
+	}
+
+	// DeDupePage
+	public boolean isOnDeDupePatientsPage() {
+		return driver.getCurrentUrl().contains("/Patient/Home/DeDupePatients");
+	}
+
+	public void clickOnDeDupeFindDuplicate() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(dobLabel));
+		WebElement findDuplicateBtn = wait.until(ExpectedConditions.elementToBeClickable(findDuplicateOption));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", findDuplicateBtn);
+		findDuplicateBtn.click();
+	}
+
+	public String getToastMessage() {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
+		return driver.findElement(toastMessage).getText().trim();
+	}
+
+	// ProfilePage
+	public void clickFilterButton() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		wait.until(ExpectedConditions.elementToBeClickable(profilefilterButton)).click();
+	}
+
+	public void enterProfileName(String profileName) {
+		WebElement input = wait.until(ExpectedConditions.visibilityOfElementLocated(profileNameInput));
+		input.clear();
+		input.sendKeys(profileName);
+	}
+
+	public void clickSearchButton() {
+		wait.until(ExpectedConditions.elementToBeClickable(searchButton)).click();
+	}
+
+	public void clickActionMenu() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		wait.until(ExpectedConditions.elementToBeClickable(actionMenu)).click();
+	}
+
+	public void clickEditButton() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		wait.until(ExpectedConditions.elementToBeClickable(editButton)).click();
+	}
+
+	public void clickSubmitButton() {
+		sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+	}
+
+	public void enablePatientModuleGeneralAuditViewOnly() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		WebElement checkbox = wait
+				.until(ExpectedConditions.elementToBeClickable(patientModuleGeneralAuditViewCheckbox));
+		if (!checkbox.isSelected()) {
+			checkbox.click();
+		}
+	}
+
+	public void disablePatientModuleGeneralAuditView() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		WebElement selectAllModule = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		selectAllModule.click();
+		sleep(2000);
+		WebElement generalAuditView = wait
+				.until(ExpectedConditions.elementToBeClickable(patientModuleGeneralAuditViewLabel));
+		generalAuditView.click();
+	}
+
+	public void verifyPatientViewOnlyUser() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		WebElement selectAllModule = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		selectAllModule.click();
+		sleep(2000);
+		WebElement patientAll = wait.until(ExpectedConditions.elementToBeClickable(patientModuleAllLabel));
+		patientAll.click();
+		sleep(2000);
+		WebElement patientView = wait.until(ExpectedConditions.elementToBeClickable(patientModuleViewLabel));
+		patientView.click();
+	}
+
+	public void verifyPatientViewAndAddUser() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		WebElement selectAllModule = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		selectAllModule.click();
+		sleep(2000);
+		WebElement patientAll = wait.until(ExpectedConditions.elementToBeClickable(patientModuleAllLabel));
+		patientAll.click();
+		sleep(2000);
+		WebElement patientView = wait.until(ExpectedConditions.elementToBeClickable(patientModuleViewLabel));
+		patientView.click();
+		WebElement patientAdd = wait.until(ExpectedConditions.elementToBeClickable(patientModuleAddLabel));
+		patientAdd.click();
+	}
+
+	private void sleep(long millis) {
+		try {
+			Thread.sleep(millis);
+		} catch (InterruptedException e) {
+			Thread.currentThread().interrupt();
+		}
 	}
 
 }

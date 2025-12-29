@@ -1,6 +1,5 @@
-package com.pharmcrm.PatientFunctionality.steps;
+package com.pharmcrm_PatientModule.steps;
 
-import com.pharmcrm.PatientFunctionality.pages.patientpage;
 import hooks.Hooks;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
@@ -8,7 +7,9 @@ import io.cucumber.java.en.When;
 
 import org.junit.Assert;
 
-public class patientfunctionalitystep {
+import com.pharmcrm_PatientModule.pages.patientpage;
+
+public class patientstep {
 
 	private patientpage patientPage;
 	private String tagTypeNameBeforeEdit;
@@ -17,8 +18,20 @@ public class patientfunctionalitystep {
 	private String reviewCategoryNameBeforeDelete;
 	private String reviewSourceNameBeforeEdit;
 	private String referralSourceNameBeforeDelete;
+	private String enrollmentNameBeforeEdit;
+	private String enrollmentNameBeforeDelete;
 
 	// PatientPage
+
+	@Then("the user should not be able to add, edit, or delete patients test")
+	public void userShouldNotBeAbleToAddEditOrDeletePatients() {
+
+		patientPage.verifyViewOnlyUserCannotAddEditDeletePatients();
+
+		System.out.println("View-only user cannot Add, Edit, or Delete patients");
+		Hooks.scenario.log("View-only user cannot Add, Edit, or Delete patients");
+	}
+
 	@Then("the user should remain on the Add Tag form without saving the tag")
 	public void verifyUserRemainsOnAddTagForm() {
 		boolean isOnForm = patientPage.isOnAddTagForm();
@@ -704,6 +717,317 @@ public class patientfunctionalitystep {
 				referralSourceNameAfterCancel);
 		System.out.println("Referral Source not deleted after Cancel. List remains unchanged.");
 		Hooks.scenario.log("Referral Source not deleted after Cancel. List remains unchanged.");
+	}
+
+	// EnrollmentsPage
+
+	@Then("the user should be able to view Patient Module General Audit View test")
+	public void userShouldBeAbleToViewPatientModuleGeneralAuditViewTest() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String enrollmentsUrl = Hooks.prop.getProperty("enrollmentsPageUrl");
+
+		patientPage.openPatientEnrollmentsPage(baseUrl + enrollmentsUrl);
+		patientPage.verifyGeneralAuditViewColumns();
+
+		System.out.println("Patient Enrollments General Audit View verified successfully");
+		Hooks.scenario.log("Patient Enrollments General Audit View verified successfully");
+	}
+
+	@Then("the user should not be able to view Patient Module General Audit View test")
+	public void userShouldNotBeAbleToViewPatientModuleGeneralAuditViewTest() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String enrollmentsUrl = Hooks.prop.getProperty("enrollmentsPageUrl");
+
+		patientPage.openPatientEnrollmentsPage(baseUrl + enrollmentsUrl);
+		patientPage.verifyGeneralAuditViewColumnsNotVisible();
+
+		System.out.println("Patient Enrollments General Audit View is not visible as expected");
+		Hooks.scenario.log("Patient Enrollments General Audit View is not visible as expected");
+
+	}
+
+	@Then("the patient user should be able to view enrollments")
+	public void patientUserCanViewEnrollments() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String enrollmentsPageUrl = Hooks.prop.getProperty("enrollmentsPageUrl");
+
+		String fullUrl = baseUrl + enrollmentsPageUrl;
+
+		patientPage = new patientpage(Hooks.driver);
+		patientPage.openPatientsPage(fullUrl, "/Patient/Home/Enrollments");
+
+		Assert.assertTrue("Enrollments page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Patient/Home/Enrollments"));
+
+		System.out.println("Patient user is on the Enrollments page");
+		Hooks.scenario.log("Patient user is on the Enrollments page");
+	}
+
+	@When("user clicks on Add Enrollment button")
+	public void userClicksOnAddEnrollmentButton() {
+		patientPage.clickOnAddEnrollmentButton();
+		System.out.println("Clicked on Add Enrollment button");
+		Hooks.scenario.log("Clicked on Add Enrollment button");
+	}
+
+	@Then("the user should remain on the Add Enrollment form without saving the enrollment")
+	public void userRemainsOnAddEnrollmentForm() {
+		Assert.assertTrue("User navigated away from Add Enrollment form unexpectedly",
+				patientPage.isOnAddEnrollmentForm());
+		System.out.println("User remains on Add Enrollment form without saving enrollment");
+		Hooks.scenario.log("User remains on Add Enrollment form without saving enrollment");
+	}
+
+	@When("user clicks on Edit button for an Enrollment")
+	public void userClicksOnEditButtonForEnrollment() {
+		patientPage.clickOnActionMenuForEnrollment();
+		patientPage.clickOnEditEnrollment();
+		System.out.println("Clicked on Edit button for Enrollment");
+		Hooks.scenario.log("Clicked on Edit button for Enrollment");
+	}
+
+	@And("user updates the Enrollment details")
+	public void userUpdatesTheEnrollmentDetails() {
+		String updatedEnrollmentName = "Updated Enrollment Test";
+		patientPage.updateEnrollmentDetails(updatedEnrollmentName);
+		System.out.println("Updated Enrollment details");
+		Hooks.scenario.log("Updated Enrollment details");
+	}
+
+	@Then("user clicks on Cancel button in Edit Enrollment")
+	public void userClicksOnCancelButtonInEditEnrollment() {
+		patientPage.clickOnCancelEditEnrollment();
+		System.out.println("Clicked on Cancel button in Edit Enrollment");
+		Hooks.scenario.log("Clicked on Cancel button in Edit Enrollment");
+	}
+
+	@Then("the Enrollment details should not be updated and the enrollment list should remain unchanged")
+	public void verifyEnrollmentNotUpdatedAfterCancel() {
+
+		String enrollmentNameAfterCancel = patientPage.getEnrollmentNameFromList();
+
+		Assert.assertNotNull("Enrollment name before edit is null", enrollmentNameBeforeEdit);
+
+		Assert.assertEquals("Enrollment was updated unexpectedly after Cancel", enrollmentNameBeforeEdit,
+				enrollmentNameAfterCancel);
+
+		System.out.println("Enrollment not updated after Cancel. List remains unchanged.");
+		Hooks.scenario.log("Enrollment not updated after Cancel. List remains unchanged.");
+	}
+
+	@And("user stores the Enrollment details before edit")
+	public void storeEnrollmentDetailsBeforeEdit() {
+		enrollmentNameBeforeEdit = patientPage.getEnrollmentNameFromList();
+		Assert.assertNotNull("Enrollment name is null before edit", enrollmentNameBeforeEdit);
+	}
+
+	@And("user stores the Enrollment details before delete")
+	public void storeEnrollmentDetailsBeforeDelete() {
+		enrollmentNameBeforeDelete = patientPage.getEnrollmentNameFromList();
+		Assert.assertNotNull("Enrollment name before delete is null", enrollmentNameBeforeDelete);
+		System.out.println("Stored Enrollment details before delete: " + enrollmentNameBeforeDelete);
+		Hooks.scenario.log("Stored Enrollment details before delete: " + enrollmentNameBeforeDelete);
+	}
+
+	@When("user clicks on Action menu for an Enrollment")
+	public void userClicksOnActionMenuForEnrollment() {
+		patientPage.clickOnEnrollmentActionMenu();
+		System.out.println("Clicked on Action menu for Enrollment");
+		Hooks.scenario.log("Clicked on Action menu for Enrollment");
+	}
+
+	@And("user clicks on Delete Enrollment button")
+	public void userClicksOnDeleteEnrollmentButton() {
+		patientPage.clickOnDeleteEnrollment();
+		System.out.println("Clicked on Delete Enrollment button");
+		Hooks.scenario.log("Clicked on Delete Enrollment button");
+	}
+
+	@Then("user clicks on Cancel button on Delete Enrollment confirmation message")
+	public void userClicksOnCancelButtonOnDeleteEnrollmentConfirmation() {
+		patientPage.clickOnCancelDeleteEnrollment();
+		System.out.println("Clicked on Cancel button on Delete Enrollment confirmation message");
+		Hooks.scenario.log("Clicked on Cancel button on Delete Enrollment confirmation message");
+	}
+
+	@Then("the Enrollment should not be deleted and the enrollment list should remain unchanged")
+	public void verifyEnrollmentNotDeletedAfterCancel() {
+		String enrollmentNameAfterCancel = patientPage.getEnrollmentNameFromList();
+
+		if (enrollmentNameBeforeDelete.equals(enrollmentNameAfterCancel)) {
+			System.out.println("Enrollment not deleted after Cancel. Enrollment list remains unchanged.");
+			Hooks.scenario.log("Enrollment not deleted after Cancel. Enrollment list remains unchanged.");
+		} else {
+			throw new AssertionError("Enrollment was deleted unexpectedly. Before: " + enrollmentNameBeforeDelete
+					+ " | After: " + enrollmentNameAfterCancel);
+		}
+	}
+
+	// DeDupePage
+	@And("the patient user should be able to view DeDupe patients page")
+	public void patientUserCanViewDeDupePatientsPage() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String dedupePageUrl = Hooks.prop.getProperty("dedupePatientsPageUrl");
+		if (dedupePageUrl == null || dedupePageUrl.isEmpty()) {
+			throw new RuntimeException("dedupePatientsPageUrl property is missing in config.properties");
+		}
+
+		String fullUrl = baseUrl + dedupePageUrl;
+
+		patientPage = new patientpage(Hooks.driver);
+		patientPage.openPatientsPage(fullUrl, "/Patient/Home/DeDupePatients");
+
+		Assert.assertTrue("DeDupe patients page is not displayed", patientPage.isOnDeDupePatientsPage());
+		System.out.println("Patient user is on the DeDupe patients page");
+		Hooks.scenario.log("Patient user is on the DeDupe patients page");
+	}
+
+	@When("user clicks on De Dupe Find Duplicate option for a patient")
+	public void userClicksOnDeDupeFindDuplicateForPatient() {
+		patientPage.clickOnDeDupeFindDuplicate();
+		System.out.println("Clicked on De Dupe Find Duplicate option for the patient");
+		Hooks.scenario.log("Clicked on De Dupe Find Duplicate option for the patient");
+	}
+
+	@Then("the system should display a validation message for selecting checkbox")
+	public void validateMergeRequiresSelection() {
+		String message = patientPage.getToastMessage();
+		Assert.assertEquals("Please select checkbox", message);
+		System.out.println("Validation message displayed: " + message);
+		Hooks.scenario.log("Validation message displayed: " + message);
+	}
+
+	// ProfilePage
+	@And("user clicks on Filter button in Profiles page")
+	public void userClicksOnFilterButton() {
+		patientPage.clickFilterButton();
+		Hooks.scenario.log("Clicked on Filter button");
+	}
+
+	@And("user enters Profile Name as {string}")
+	public void userEntersProfileName(String profileName) {
+		patientPage.enterProfileName(profileName);
+		Hooks.scenario.log("Entered profile name: " + profileName);
+	}
+
+	@And("user clicks on Search button in Profiles page")
+	public void userClicksOnSearchButton() {
+		patientPage.clickSearchButton();
+		Hooks.scenario.log("Clicked on Search button");
+	}
+
+	@And("user clicks on Action menu for Profile")
+	public void userClicksOnActionMenu() {
+		patientPage.clickActionMenu();
+		Hooks.scenario.log("Clicked on Action menu");
+	}
+
+	@And("user clicks on Edit button for Profile")
+	public void userClicksOnEditButton() {
+		patientPage.clickEditButton();
+		Hooks.scenario.log("Clicked on Edit button");
+	}
+
+	@And("user clicks on Submit button in Profile")
+	public void userClicksOnSubmitButton() {
+		patientPage.clickSubmitButton();
+		Hooks.scenario.log("Clicked on Submit button");
+	}
+
+	@And("I create a profile with View access only to Patient Module General Audit View test")
+	public void createProfileWithViewAccessOnlyToPatientModuleGeneralAuditView() {
+		patientPage.clickFilterButton();
+		patientPage.enterProfileName("Sunil");
+		patientPage.clickSearchButton();
+		patientPage.clickActionMenu();
+		patientPage.clickEditButton();
+		patientPage.enablePatientModuleGeneralAuditViewOnly();
+		patientPage.clickSubmitButton();
+		System.out.println("Profile updated with View access only to Patient Module General Audit View");
+		Hooks.scenario.log("Profile updated with View access only to Patient Module General Audit View");
+	}
+
+	@And("I create a profile with No access to Patient Module General Audit View test")
+	public void createProfileWithNoAccessToPatientModuleGeneralAuditViewTest() {
+		patientPage.clickFilterButton();
+		patientPage.enterProfileName("Sunil");
+		patientPage.clickSearchButton();
+		patientPage.clickActionMenu();
+		patientPage.clickEditButton();
+		patientPage.disablePatientModuleGeneralAuditView();
+		patientPage.clickSubmitButton();
+		System.out.println("Profile updated with NO access to Patient Module General Audit View");
+		Hooks.scenario.log("Profile updated with NO access to Patient Module General Audit View");
+
+	}
+
+	@And("I create a profile with View access only to Patient Module Patient test")
+	public void createProfileWithViewAccessOnlyToPatientModulePatient() {
+		patientPage.clickFilterButton();
+		patientPage.enterProfileName("Sunil");
+		patientPage.clickSearchButton();
+		patientPage.clickActionMenu();
+		patientPage.clickEditButton();
+		patientPage.verifyPatientViewOnlyUser();
+		patientPage.clickSubmitButton();
+		System.out.println("Profile updated with NO access to Patient Module General Audit View");
+		Hooks.scenario.log("Profile updated with NO access to Patient Module General Audit View");
+
+	}
+
+	@And("I create a profile with View and Add access to Patient Module Patient test")
+	public void createPatientModuleViewAndAddProfile() {
+		patientPage.clickFilterButton();
+		patientPage.enterProfileName("Sunil");
+		patientPage.clickSearchButton();
+		patientPage.clickActionMenu();
+		patientPage.clickEditButton();
+		patientPage.verifyPatientViewAndAddUser();
+		patientPage.clickSubmitButton();
+		System.out.println("Profile updated with NO access to Patient Module General Audit View");
+		Hooks.scenario.log("Profile updated with NO access to Patient Module General Audit View");
+
+	}
+
+	@Then("the patient user should be able to view Profiles")
+	public void patientUserCanViewProfiles() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String profilesPageUrl = Hooks.prop.getProperty("profilesPageUrl");
+		String fullUrl = baseUrl + profilesPageUrl;
+		patientPage = new patientpage(Hooks.driver);
+		patientPage.openPatientsPage(fullUrl, "/Setup/Home/Profiles");
+		Assert.assertTrue("Profiles page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/Profiles"));
+		System.out.println("Patient user is on the Profiles page");
+		Hooks.scenario.log("Patient user is on the Profiles page");
+	}
+
+	@Then("the user should be able to view patients test")
+	public void userShouldBeAbleToViewPatients() {
+		sleep(2000);
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String patientPageUrl = Hooks.prop.getProperty("patientPageUrl");
+
+		String fullUrl = baseUrl + patientPageUrl;
+
+		patientPage = new patientpage(Hooks.driver);
+		patientPage.openPatientsPage(fullUrl, "/Patient/Home/Patients");
+
+		Assert.assertTrue("Patients page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Patient/Home/Patients"));
+
+		System.out.println("User is able to view the Patients page");
+		Hooks.scenario.log("User is able to view the Patients page");
+	}
+
+	private void sleep(long millis) {
+		try {
+			Thread.sleep(millis);
+		} catch (InterruptedException e) {
+			Thread.currentThread().interrupt();
+		}
 	}
 
 }
