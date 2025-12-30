@@ -76,10 +76,10 @@ Feature: Patient Module scenarios
   And the user should be able to map a tag 
   And the user should be able to delete a mapped tag 
   And the user should be able to view patient prescriptions 
-  And the user should be able to add a referrals     
+  And the user should be able to add a referrals  
   And the user should be able to delete a referrals 
-  And the user should be able to add a referral source     
-  And the user should be able to delete a referral source    
+  And the user should be able to add a referral source   
+  And the user should be able to delete a referral source 
   And the user should be able to add a patient enrollment 
   And the user should be able to delete a patient enrollment 
   And the user should be able to update patient status 

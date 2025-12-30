@@ -4781,6 +4781,7 @@ public class PatientSteps {
 		clickWhenClickable(By.xpath("//span[normalize-space()='Delete']"));
 		clickWhenClickable(By.xpath("//div[@id='deleteClinicalMedReconModel']//button[@id='btnDeleteConfirm']"));
 		sleep(3000);
+
 		driver.get(baseUrl + "/Patient/Home/Patients");
 		wait.until(ExpectedConditions.urlContains("/Patient/Home/Patients"));
 		sleep(3000);
@@ -4971,6 +4972,7 @@ public class PatientSteps {
 		selectDropdownByIndexWhenReady(By.id("Priority"), 1);
 		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
 		sleep(3000);
+
 		driver.get(baseUrl + "/Patient/Home/Patients");
 		wait.until(ExpectedConditions.urlContains("/Patient/Home/Patients"));
 		sleep(3000);

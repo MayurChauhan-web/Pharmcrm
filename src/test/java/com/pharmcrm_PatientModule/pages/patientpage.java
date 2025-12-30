@@ -1,11 +1,14 @@
 package com.pharmcrm_PatientModule.pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
@@ -58,6 +61,93 @@ public class patientpage {
 	private By updatedByColumn = By.xpath("//th[normalize-space()='Updated By']");
 	private By updatedDateColumn = By.xpath("//th[normalize-space()='Updated Date']");
 	private By patientActionMenuIcon = By.xpath("//tbody/tr[1]/td[12]/div[1]/div[1]/button[1]/i[1]");
+	private By lastNameField = By.xpath("//input[@id='Patient_LastName']");
+	private By firstNameField = By.xpath("//input[@id='Patient_FirstName']");
+	private By birthDateField = By.xpath("//input[@id='Patient_BirthDate']");
+	private By phoneNumberField = By.xpath("//input[@id='Patient_PhoneNumber']");
+	private By editPatientButton = By.xpath(
+			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]");
+	private By deletePatientButton = By.xpath(
+			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]");
+	private By rowActionButton = By.xpath("//tbody/tr[1]/td[12]/div[1]/div[1]/button[1]/i[1]");
+	private By privateNotesTextArea = By.xpath("//textarea[@id='Patient_PrivateNotes']");
+	private By deleteConfirmButton = By.xpath("//div[@id='deletePatientModel']//button[@id='btnDeleteConfirm']");
+	private By firstPatientLink = By.xpath("(//a[@class='gridLinkButton'])[1]");
+	private By sendForReviewIcon = By.xpath("//*[name()='path' and contains(@d,'M9.0949 14')]");
+	private By tagsLabel = By.xpath("//label[normalize-space()='Tags']");
+	private By saveSendForReviewButton = By.xpath("//button[@id='savesendforreview']");
+	private By patientSignatureButton = By.xpath("//a[@id='btnpatientSignature']//*[name()='svg']");
+	private By emailOption = By.xpath("//a[normalize-space()='Email']");
+	private By mailTemplateDropdown = By.id("MailTemplate_Id");
+	private By editorTextArea = By.xpath("//div[@aria-label='Editor editing area: main. Press Alt+0 for help.']//p");
+	private By signatureCheckbox = By.xpath("//label[normalize-space()='Placeat esse ut cu']");
+	private By savePatientSignatureButton = By.id("btnPatientSignatureSave");
+	private By textOption = By.xpath("//a[normalize-space()='Text']");
+	private By smsTemplateDropdown = By.id("SMSTemplate_Id");
+	private By patientSignaturesTab = By.xpath("//a[normalize-space()='Patient Signatures']");
+	private By sixthPatientSignatureLink = By.xpath("(//tbody/tr/td[@scope='row']//a)[6]");
+	private By tagInputField = By.xpath("//div[@class='col-md-4']//input[@type='text']");
+	private By firstTagOption = By
+			.xpath("(//ul[contains(@class,'multiple-select-dropdown')]//li[not(@class='disabled')]//label)[1]");
+	private By patientTagButton = By.xpath("//div[@id='btnPatientTag']//*[name()='svg']");
+	private By firstMappedTagDropdown = By
+			.xpath("(//ul[@class='dropdownSelectedLabelMain']//li//a[@id='btnAddPatientTag'])[1]");
+	private By deleteMappedTagButton = By.xpath("//div[33]//div[1]//div[1]//div[1]//button[1]//i[1]");
+	private By prescriptionIcon = By.xpath("//*[name()='path' and @id='Path_2472']");
+	private By patientIdInput = By.id("Filter_PatientId");
+	private By searchIcon = By.xpath("//i[@class='fa-solid fa-magnifying-glass']");
+	private By referralsTab = By.xpath("//a[normalize-space()='Referrals']");
+	private By newAssignmentText = By.xpath("//td[normalize-space()='New Assignment']");
+	private By referralStatus = By.xpath("//td[normalize-space()='New Assignment']");
+	private By referralInput = By.xpath("//div[@class='col-md-4 px-0']//input[@type='text']");
+	private By firstReferralOption = By.xpath(
+			"(//h6[.='Referral Source']//following::ul[contains(@class,'multiple-select-dropdown')]//li[not(contains(@class,'disabled'))]//span)[1]");
+	private By addButton = By.xpath("//div[@id='btnPatientReferralSource']//*[name()='svg']");
+	private By firstRowActionButton = By.xpath("//tbody/tr[1]/td[5]/div[1]/div[1]/button[1]/i[1]");
+	private By enrollmentInput = By.xpath("//div[@class='col-md-4 pr-0']//input[@type='text']");
+	private By firstEnrollmentOption = By.xpath(
+			"(//h6[.='Enrollment']//following::ul[contains(@class,'multiple-select-dropdown')]//li[not(contains(@class,'disabled'))]//span)[1]");
+	private By firstEnrollmentActionButton = By
+			.xpath("(//ul[@class='dropdownSelectedLabelMain']/li//a[@id='btnAddPatientEnrollment'])[1]");
+	private By deleteEnrollmentButton = By
+			.xpath("//button[@onclick='javascript: CloseDeletePatientEnrollmentPopup();']//i[@class='fa fa-times']");
+	private By statusDropdown = By.id("Patient_Status");
+	private By updateButton = By.xpath("//a[@class='patientStatusBtn']//*[name()='svg']");
+	private By primaryDropdown = By.id("Patient_PrimaryDeliveryPreferenceType");
+	private By secondaryDropdown = By.id("Patient_SecondaryDeliveryPreferenceType");
+	private By outgoingCallButton = By.xpath("//div[@id='page-wrapper']//div[4]//div[2]//button[1]//*[name()='svg']");
+	private By closeDialerButton = By.xpath("//i[@onclick='closeDialerDialog();']");
+	private By exportToExcelButton = By.xpath("//div[@id='content']//div//div[5]//div[2]//button[1]//*[name()='svg']");
+	private By deviceDropdown = By.id("registeredDeviceId");
+	private By addDeviceButton = By.xpath(
+			"//div[@class='model-inp dropdownCaretAdd mb-0']//div[@class='usersearch plus-usersearch']//*[name()='svg']");
+	private By actionButton = By.xpath("//tbody/tr/td[4]/div[1]/div[1]/button[1]/i[1]");
+	private By editOption = By
+			.xpath("//a[@class='tooltiped txt-decor-none user-access']//span[contains(text(),'Edit')]");
+	private By activeCheckbox = By.xpath("//label[@id='chk2PatientRPMDevice_IsActive']");
+	private By resetPasswordOption = By.xpath(
+			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Reset Password')]");
+	private By newPasswordField = By.id("newPassword");
+	private By confirmPasswordField = By.id("confirmPassword");
+	private By resetButton = By.id("btnResetPassword");
+
+	// LocatorReferralpage
+	private By addPatientIcon = By.xpath("//a[@id='addPatientNamePopup']//img");
+	private By selectPatientRadio = By.id("d2666909-ed0d-49fd-9500-af849059511e");
+	private By selectPatientBtn = By.id("btnPatient");
+	private By referralEntityType = By.id("ReferralEntityType");
+	private By addProviderIcon = By.xpath("//a[@id='addCurrentProviderPopup']//img");
+	private By fullSearchRadio = By.id("rdoFullSearch");
+	private By providerLastNameInput = By.id("Filter_DoctorLastName");
+	private By selectProviderRadio = By.id("9759a37e-c5fa-4310-abfd-ecc9ab729697");
+	private By selectProviderBtn = By.id("btnProvider");
+	private By referralType = By.id("ReferralType");
+	private By referralCategory = By.id("ReferralCategoryId");
+	private By priority = By.id("Priority");
+	private By moreOptionsIcon = By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']");
+	private By deleteOption = By.xpath("//span[normalize-space()='Delete']");
+	private By confirmDeleteButton = By
+			.xpath("//div[@id='deleteClinicalMedReconModel']//button[@id='btnDeleteConfirm']");
 
 	// LocatorTagPage
 	private By tagNameInput = By.xpath("//input[@id='Tag_Name']");
@@ -134,9 +224,371 @@ public class patientpage {
 	private By patientModuleAllLabel = By.xpath("//label[@for='chkg9PatientAll']");
 	private By patientModuleViewLabel = By.xpath("//label[@for='chkg9PatientView']");
 	private By patientModuleAddLabel = By.xpath("//label[@for='chkg9PatientAdd']");
-
+	private By patientModuleEditLabel = By.xpath("//label[@for='chkg9PatientEdit']");
 
 	// PatientPage
+
+	public void resetPatientPassword(String password) {
+		sleep(3000);
+		clickWhenClickable(actionButton);
+		clickWhenClickable(resetPasswordOption);
+		waitAndSendKeys(newPasswordField, password);
+		waitAndSendKeys(confirmPasswordField, password);
+		clickWhenClickable(resetButton);
+	}
+
+	public void deleteRPMDevice() {
+		sleep(3000);
+		clickWhenClickable(actionButton);
+		clickWhenClickable(deleteOption);
+		sleep(1000);
+		clickWhenClickable(confirmDeleteButton);
+	}
+
+	public void editRPMDevice() {
+		sleep(3000);
+		clickWhenClickable(actionButton);
+		sleep(1000);
+		clickWhenClickable(editOption);
+		sleep(1000);
+		clickWhenClickable(activeCheckbox);
+		clickWhenClickable(saveButton);
+	}
+
+	public void addRPMDevice() {
+		sleep(3000);
+		wait.until(ExpectedConditions.elementToBeClickable(firstPatientLink)).click();
+		sleep(3000);
+		clickWhenClickable(deviceDropdown);
+		selectDropdownByIndexWhenReady(deviceDropdown, 1);
+		clickWhenClickable(addDeviceButton);
+	}
+
+	public void exportPatientDataToExcel() {
+		sleep(3000);
+		clickWhenClickable(exportToExcelButton);
+	}
+
+	public void makeOutgoingCall() {
+		sleep(3000);
+		clickWhenClickable(outgoingCallButton);
+		sleep(2000);
+		clickWhenClickable(closeDialerButton);
+	}
+
+	public void setDeliveryPreferences(int primaryIndex, int secondaryIndex) {
+		sleep(3000);
+		clickWhenClickable(primaryDropdown);
+		selectDropdownByIndexWhenReady(primaryDropdown, primaryIndex);
+
+		clickWhenClickable(secondaryDropdown);
+		selectDropdownByIndexWhenReady(secondaryDropdown, secondaryIndex);
+
+		clickWhenClickable(addButton);
+	}
+
+	public void updateStatusByIndex(int index) {
+		sleep(2000);
+		clickWhenClickable(statusDropdown);
+		selectDropdownByIndexWhenReady(statusDropdown, index);
+		clickWhenClickable(updateButton);
+	}
+
+	public void togglePatientStatus() {
+		sleep(3000);
+		updateStatusByIndex(0);
+		sleep(2000);
+		updateStatusByIndex(1);
+	}
+
+	public void deleteFirstEnrollment() {
+		sleep(3000);
+		clickWhenClickable(firstEnrollmentActionButton);
+		clickWhenClickable(deleteEnrollmentButton);
+	}
+
+	public void selectFirstPatient() {
+		clickWhenClickable(firstPatientLink);
+	}
+
+	public void addFirstEnrollment() {
+		clickWhenClickable(enrollmentInput);
+		WebElement option = driver.findElement(firstEnrollmentOption);
+		option.click();
+		clickWhenClickable(addEnrollmentButton);
+	}
+
+	public void addPatientEnrollment() {
+		sleep(3000);
+		selectFirstPatient();
+		sleep(3000);
+		addFirstEnrollment();
+		sleep(3000);
+	}
+
+	public void deleteFirstReferralSource() {
+		sleep(2000);
+		clickWhenClickable(firstRowActionButton);
+		clickWhenClickable(deleteOption);
+		clickWhenClickable(confirmDeleteButton);
+	}
+
+	public void clickReferralInput() {
+		clickWhenClickable(referralInput);
+	}
+
+	public void selectFirstReferralOption() {
+		WebElement option = driver.findElement(firstReferralOption);
+		option.click();
+	}
+
+	public void clickAddButton() {
+		clickWhenClickable(addButton);
+	}
+
+	public void addReferralSource() {
+		sleep(2000);
+		clickReferralInput();
+		sleep(2000);
+		selectFirstReferralOption();
+		clickAddButton();
+		sleep(3000);
+	}
+
+	public void verifyDeletedReferralEntry(String patientId) {
+		sleep(2000);
+		clickWhenClickable(filterButton);
+		waitAndSendKeys(patientIdInput, patientId);
+		clickWhenClickable(searchIcon);
+
+		clickWhenClickable(firstPatientLink);
+		clickWhenClickable(referralsTab);
+
+		Assert.assertFalse(isElementPresent(referralStatus), "Deleted referral entry is still displayed");
+	}
+
+	public void deleteReffral() {
+		sleep(2000);
+		clickWhenClickable(moreOptionsIcon);
+		clickWhenClickable(deleteOption);
+		clickWhenClickable(confirmDeleteButton);
+	}
+
+	public void generateReferral(String patientId, String providerLastName) {
+		sleep(2000);
+		clickWhenClickable(addPatientIcon);
+		waitAndSendKeys(patientIdInput, patientId);
+		clickWhenClickable(searchButton);
+		clickWhenClickable(selectPatientRadio);
+		clickWhenClickable(selectPatientBtn);
+
+		selectDropdownByIndexWhenReady(referralEntityType, 1);
+
+		clickWhenClickable(addProviderIcon);
+		clickWhenClickable(fullSearchRadio);
+		waitAndSendKeys(providerLastNameInput, providerLastName);
+		clickWhenClickable(searchButton);
+		clickWhenClickable(selectProviderRadio);
+		clickWhenClickable(selectProviderBtn);
+
+		selectDropdownByIndexWhenReady(referralType, 1);
+		selectDropdownByIndexWhenReady(referralCategory, 1);
+		selectDropdownByIndexWhenReady(priority, 1);
+
+		clickWhenClickable(saveButton);
+	}
+
+	public void filterPatientById(String patientId) {
+		clickWhenClickable(filterButton);
+		waitAndSendKeys(patientIdInput, patientId);
+		clickWhenClickable(searchIcon);
+	}
+
+	public void openFirstPatientRecord() {
+		clickWhenClickable(firstPatientLink);
+	}
+
+	public void openReferralsTab() {
+		clickWhenClickable(referralsTab);
+	}
+
+	public boolean isReferralDisplayed() {
+		return isElementPresent(newAssignmentText);
+	}
+
+	public void verifyReferralInPatient(String patientId) {
+		sleep(2000);
+		filterPatientById(patientId);
+		openFirstPatientRecord();
+		openReferralsTab();
+		Assert.assertTrue(isReferralDisplayed(), "Referral not found in patient record");
+	}
+
+	public boolean isElementPresent(By locator) {
+		try {
+			return driver.findElement(locator).isDisplayed();
+		} catch (NoSuchElementException e) {
+			return false;
+		}
+	}
+
+	public void clickWhenClickable(By locator) {
+		try {
+			wait.until(ExpectedConditions.elementToBeClickable(locator)).click();
+		} catch (ElementClickInterceptedException e) {
+			System.out.println("Click intercepted for element: " + locator.toString() + ". Retrying with JS click.");
+			try {
+				WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+				((JavascriptExecutor) driver).executeScript(
+						"var evt = new MouseEvent('click', {bubbles: true, cancelable: true, view: window}); arguments[0].dispatchEvent(evt);",
+						element);
+			} catch (Exception ex) {
+				System.out.println("JS click also failed for element: " + locator.toString());
+				throw ex;
+			}
+		}
+	}
+
+	public void viewPatientPrescriptions() {
+		sleep(2000);
+		wait.until(ExpectedConditions.presenceOfElementLocated(prescriptionIcon));
+		wait.until(ExpectedConditions.elementToBeClickable(prescriptionIcon)).click();
+		System.out.println("Patient prescriptions page opened");
+	}
+
+	public void deleteMappedTag() {
+		sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(firstMappedTagDropdown)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(deleteMappedTagButton)).click();
+		System.out.println("Mapped tag deleted successfully");
+	}
+
+	public void mapTagToPatient() {
+		sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(firstPatientLink)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(tagInputField)).click();
+		WebElement option = wait.until(ExpectedConditions.elementToBeClickable(firstTagOption));
+		option.click();
+		wait.until(ExpectedConditions.elementToBeClickable(patientTagButton)).click();
+		System.out.println("Patient tag mapped successfully");
+	}
+
+	public void printPatientSignature() {
+		sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(patientSignaturesTab)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(sixthPatientSignatureLink)).click();
+		((JavascriptExecutor) driver).executeScript("window.print();");
+		System.out.println("Patient signature PDF auto-saved in Downloads folder");
+	}
+
+	public void sendPatientForSignature() {
+		sleep(4000);
+		wait.until(ExpectedConditions.elementToBeClickable(patientSignatureButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(emailOption)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(mailTemplateDropdown));
+		selectDropdownByIndexWhenReady(mailTemplateDropdown, 1);
+		waitAndSendKeys(editorTextArea, "This is a test email for patient signature.");
+		wait.until(ExpectedConditions.elementToBeClickable(signatureCheckbox)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(savePatientSignatureButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(patientSignatureButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(textOption)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(smsTemplateDropdown));
+		selectDropdownByIndexWhenReady(smsTemplateDropdown, 1);
+		wait.until(ExpectedConditions.elementToBeClickable(signatureCheckbox)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(savePatientSignatureButton)).click();
+	}
+
+	private void waitAndSendKeys(By locator, String value) {
+		WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+		element.clear();
+		element.sendKeys(value);
+	}
+
+	private void selectDropdownByIndexWhenReady(By locator, int index) {
+		wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+		WebElement dropdownElement = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+		Select dropdown = new Select(dropdownElement);
+		waitUntilDropdownHasOptions(dropdown);
+		dropdown.selectByIndex(index);
+	}
+
+	private void waitUntilDropdownHasOptions(Select dropdown) {
+		for (int i = 0; i < 10; i++) {
+			List<WebElement> options = dropdown.getOptions();
+			if (options.size() > 1)
+				return;
+			sleep(1000);
+		}
+		throw new TimeoutException("Dropdown options not loaded in time.");
+	}
+
+	public void sendPatientForReview() {
+		sleep(3000);
+		wait.until(ExpectedConditions.elementToBeClickable(firstPatientLink)).click();
+		sleep(3000);
+		wait.until(ExpectedConditions.elementToBeClickable(sendForReviewIcon)).click();
+		sleep(3000);
+		wait.until(ExpectedConditions.elementToBeClickable(tagsLabel)).click();
+		sleep(3000);
+		wait.until(ExpectedConditions.elementToBeClickable(saveSendForReviewButton)).click();
+		System.out.println("Patient user has sent the patient for review");
+	}
+
+	public void deletePatient() {
+		sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(deletePatientButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(deleteConfirmButton)).click();
+	}
+
+	public void enterPatientPrivateNotes(String notes) {
+		sleep(2000);
+		WebElement notesField = wait.until(ExpectedConditions.visibilityOfElementLocated(privateNotesTextArea));
+		notesField.clear();
+		notesField.sendKeys(notes);
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+
+	}
+
+	public void clickPatientRowActionButton() {
+		sleep(2000);
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(rowActionButton)).click();
+		sleep(2000);
+
+	}
+
+	public void clickPatientEditButton() {
+		sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(editPatientOption)).click();
+	}
+
+	public boolean isEditOptionVisible() {
+		return !driver.findElements(editPatientButton).isEmpty();
+	}
+
+	public boolean isDeleteOptionVisible() {
+		return !driver.findElements(deletePatientButton).isEmpty();
+	}
+
+	public void addNewPatient(String lastName, String firstName, String birthDate, String phoneNumber) {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(lastNameField)).sendKeys(lastName);
+		driver.findElement(firstNameField).sendKeys(firstName);
+		driver.findElement(birthDateField).sendKeys(birthDate);
+		wait.until(ExpectedConditions.elementToBeClickable(addNewPatientButton)).click();
+		sleep(4000);
+		driver.findElement(phoneNumberField).sendKeys(phoneNumber);
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+		sleep(2000);
+	}
+
+	public void clickNewPatientButton() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(newPatientButton)).click();
+	}
 
 	public void verifyViewOnlyUserCannotAddEditDeletePatients() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
@@ -842,6 +1294,32 @@ public class patientpage {
 		patientView.click();
 		WebElement patientAdd = wait.until(ExpectedConditions.elementToBeClickable(patientModuleAddLabel));
 		patientAdd.click();
+	}
+
+	public void createUserWithPatientViewAddEditAccess() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		WebElement selectAllModule = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		selectAllModule.click();
+		sleep(2000);
+		WebElement patientAll = wait.until(ExpectedConditions.elementToBeClickable(patientModuleAllLabel));
+		patientAll.click();
+		sleep(2000);
+		WebElement patientView = wait.until(ExpectedConditions.elementToBeClickable(patientModuleViewLabel));
+		patientView.click();
+		sleep(2000);
+		WebElement patientAdd = wait.until(ExpectedConditions.elementToBeClickable(patientModuleAddLabel));
+		patientAdd.click();
+		sleep(2000);
+		WebElement patientEdit = wait.until(ExpectedConditions.elementToBeClickable(patientModuleEditLabel));
+		patientEdit.click();
+		sleep(2000);
+	}
+
+	public void createPatientModuleProfileWithFullAccess() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		WebElement selectAllModule = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		selectAllModule.click();
+		sleep(2000);
 	}
 
 	private void sleep(long millis) {

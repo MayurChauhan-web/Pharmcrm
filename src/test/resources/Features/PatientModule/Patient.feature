@@ -356,7 +356,7 @@ And I create a profile with View access only to Patient Module Patient test
 Then the user should be able to view patients test   
 But the user should not be able to add, edit, or delete patients test 
 
-@Patient
+## 12/30/2025
 Scenario: User with View and Add access for Patient
 Given user launch browser
 Then user click on the user type dropdown
@@ -367,7 +367,147 @@ When user click on the go button
 Then the patient user should be able to view Profiles
 And I create a profile with View and Add access to Patient Module Patient test  
 And the user should be able to add a new patient test        
-But the user should not be able to edit or delete patients test
+But the patient user should not be able to edit or delete patients test
+
+Scenario: User with View, Add, and Edit access for Patient
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with View, Add, and Edit access to Patient Module Patient test
+And the user should be able to add a new patient test        
+And the user should be able to edit an existing patient test
+But the user should not be able to delete patients test 
+
+Scenario: User with full access (View, Add, Edit, Delete) for Patient test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with full access to Patient Module Patient test
+And the user should be able to add a new patient test        
+And the user should be able to edit an existing patient test
+And the user should be able to delete a patient test  
+
+@Patient
+Scenario: User with all additional access enabled
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with full access to Patient Module Patient test
+Then the user should be able to send a patient for review test
+And the user should be able to send a patient for signature test
+And the user should be able to print a patient signature test
+And the user should be able to map a tag test
+And the user should be able to delete a mapped tag test
+And the user should be able to view patient prescriptions test
+And the user should be able to add a referrals test 
+And the user should be able to delete a referrals test
+And the user should be able to add a referral source test 
+And the user should be able to delete a referral source test 
+And the user should be able to add a patient enrollment test
+And the user should be able to delete a patient enrollment test
+And the user should be able to update patient status test
+And the user should be able to set delivery preference test
+And the user should be able to make an outgoing call test
+And the user should be able to export patient data to excel test
+And the user should be able to add an RPM device test
+And the user should be able to edit an RPM device test
+And the user should be able to delete an RPM device test
+And the user should be able to reset a patient password test
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
