@@ -344,6 +344,7 @@ Then the patient user should be able to view Profiles
 And I create a profile with No access to Patient Module General Audit View test
 Then the user should not be able to view Patient Module General Audit View test
 
+# Patinet
 Scenario: User with View only access for Patient test
 Given user launch browser
 Then user click on the user type dropdown
@@ -356,7 +357,6 @@ And I create a profile with View access only to Patient Module Patient test
 Then the user should be able to view patients test   
 But the user should not be able to add, edit, or delete patients test 
 
-## 12/30/2025
 Scenario: User with View and Add access for Patient
 Given user launch browser
 Then user click on the user type dropdown
@@ -395,7 +395,6 @@ And the user should be able to add a new patient test
 And the user should be able to edit an existing patient test
 And the user should be able to delete a patient test  
 
-@Patient
 Scenario: User with all additional access enabled
 Given user launch browser
 Then user click on the user type dropdown
@@ -425,6 +424,153 @@ And the user should be able to add an RPM device test
 And the user should be able to edit an RPM device test
 And the user should be able to delete an RPM device test
 And the user should be able to reset a patient password test
+
+Scenario: User with all additional access disabled
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with all additional access permissions disabled in Patient Module test 
+Then the user should not be able to send a patient for review test 
+And the user should not be able to send a patient for signature test  
+And the user should not be able to print a patient signature test 
+And the user should not be able to map a tag test  
+And the user should not be able to delete a mapped tag test
+And the user should not be able to view patient prescriptions test
+And the user should not be able to add a referral source test
+And the user should not be able to delete a referral source test
+And the user should not be able to add a patient enrollment test
+And the user should not be able to delete a patient enrollment test
+And the user should not be able to update patient status test
+And the user should not be able to set delivery preference test 
+And the user should not be able to make an outgoing call test
+And the user should not be able to export patient data to excel test
+And the user should not be able to add an RPM device test
+And the user should not be able to edit an RPM device test
+And the user should not be able to delete an RPM device test
+And the user should not be able to reset a patient password test 
+
+# DeDupe
+Scenario: Create user with Update access to DeDupe and check permissions test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with Update access to Partners Module DeDupe test 
+Then the user should be able to update DeDupe records test  
+
+Scenario: Create user without Update access to DeDupe and check restrictions test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile without Update access to Partners Module DeDupe test 
+Then the user should not be able to update DeDupe records via UI or direct URL test 
+
+# Tag
+@Patient
+Scenario: User with View only access for Tag test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with View access only to Patient Module Tag test  
+Then the user can view tags but cannot add, edit, or delete them
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -955,13 +1101,6 @@ And the user should be able to reset a patient password test
 
 
    
-
-
-
-
-
-
-
 
 
 

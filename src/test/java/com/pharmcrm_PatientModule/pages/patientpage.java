@@ -19,7 +19,39 @@ public class patientpage {
 	private WebDriver driver;
 	private WebDriverWait wait;
 
+	// LocatorTagPage
+	private By newTagButton = By.xpath("//span[normalize-space()='New Tag']");
+	private By firstTagActionMenu = By.xpath("//tbody/tr[1]/td[5]/div[1]/div[1]/button[1]/i[1]");
+	private By editTagOption = By.xpath(
+			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]");
+
+	// LocatorDedupePage
+	private By lastNameLabel = By.xpath("//label[normalize-space()='Last Name']");
+	private By firstNameLabel = By.xpath("//label[normalize-space()='First Name']");
+	private By findDuplicateButton = By.xpath("//span[normalize-space()='Find Duplicate']");
+	private By firstRecordCheckbox = By.xpath("(//label[starts-with(@for,'ckhg_')])[1]");
+	private By secondRecordCheckbox = By.xpath("(//label[starts-with(@for,'ckhg_')])[2]");
+	private By tableSortColumn8 = By.xpath("//table[1]//thead[1]//tr[1]//th[8]//a[1]");
+	private By firstCheckboxOnNextPage = By.xpath("(//input[starts-with(@id,'chkg_')])[1]");
+	private By finishButton = By.xpath("//a[normalize-space()='Finish']");
+	private By patientDeDupeAllCheckbox = By.xpath("//label[@for='chkg11PatientDeDupeAll']");
+	private By errorHeader = By.xpath("//h2[normalize-space()='Error']");
+
 	// LocatorPatinetPage
+	private By resetPatientPasswordButton = By.xpath("//tbody/tr[1]/td[12]/div[1]/div[1]/button[1]/i[1]");
+	private By resetPatientPasswordText = By.xpath(
+			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Reset Password')]");
+	private By deleteRPMDeviceIcon = By.xpath("//tbody/tr/td[4]/div[1]/div[1]/button[1]/i[1]");
+	private By deleteRPMDeviceText = By.xpath("//a[@id='btnDeleteRPMDeviceConfirm']//span[contains(text(),'Delete')]");
+	private By editRPMDeviceIcon = By.xpath("//tbody/tr/td[4]/div[1]/div[1]/button[1]/i[1]");
+	private By editRPMDeviceText = By
+			.xpath("//a[@class='tooltiped txt-decor-none user-access']//span[contains(text(),'Edit')]");
+	private By addRPMDeviceIcon = By.xpath(
+			"//div[@class='model-inp dropdownCaretAdd mb-0']//div[@class='usersearch plus-usersearch']//*[name()='svg']");
+	private By exportPatientDataToExcelButton = By.xpath("//span[normalize-space()='Export Excel']");
+	private By outgoingCallButtonIcon = By
+			.xpath("//div[@id='page-wrapper']//div[4]//div[2]//button[1]//*[name()='svg']");
+	private By addDeliveryPreferenceButton = By.xpath("//button[@id='btnAddDeliveryPreference']");
 	private By quickTextButton = By.xpath("//span[normalize-space()='Quick Text']");
 	private By sendButton = By.id("btnSave");
 	private By bodyRequiredValidation = By.xpath("//div[contains(text(),'Body should not be empty.')]");
@@ -85,7 +117,8 @@ public class patientpage {
 	private By textOption = By.xpath("//a[normalize-space()='Text']");
 	private By smsTemplateDropdown = By.id("SMSTemplate_Id");
 	private By patientSignaturesTab = By.xpath("//a[normalize-space()='Patient Signatures']");
-	private By sixthPatientSignatureLink = By.xpath("(//tbody/tr/td[@scope='row']//a)[6]");
+	private By sixthPatientSignatureLink = By
+			.xpath("//tbody/tr/td[@scope='row']//a[.//*[name()='path' and @id='Path_1']]");
 	private By tagInputField = By.xpath("//div[@class='col-md-4']//input[@type='text']");
 	private By firstTagOption = By
 			.xpath("(//ul[contains(@class,'multiple-select-dropdown')]//li[not(@class='disabled')]//label)[1]");
@@ -130,6 +163,16 @@ public class patientpage {
 	private By newPasswordField = By.id("newPassword");
 	private By confirmPasswordField = By.id("confirmPassword");
 	private By resetButton = By.id("btnResetPassword");
+	private By firstPatientViewButton = By.xpath("(//a[@class='gridLinkButton'])[1]");
+	private By addReferralSourceIcon = By.xpath(
+			"//div[@id='btnPatientReferralSource']//*[name()='svg']//*[name()='path' and contains(@d,'M256 80c0-')]");
+	private By deleteReferralSourceIcon = By.xpath(
+			"//a[@id='btnAddPatientReferralSource']//*[name()='svg']//*[name()='g' and @id='Group_466']//*[name()='circle' and @id='Ellipse_42']");
+	private By addPatientEnrollmentIcon = By.xpath(
+			"//div[@id='btnPatientEnrollmentApp']//*[name()='svg']//*[name()='path' and contains(@d,'M256 80c0-')]");
+	private By deletePatientEnrollmentIcon = By
+			.xpath("(//ul[@class='dropdownSelectedLabelMain']/li//a[@id='btnAddPatientEnrollment'])[1]");
+	private By updatePatientStatusIcon = By.xpath("//a[@class='patientStatusBtn']//*[name()='svg']");
 
 	// LocatorReferralpage
 	private By addPatientIcon = By.xpath("//a[@id='addPatientNamePopup']//img");
@@ -162,6 +205,8 @@ public class patientpage {
 			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]");
 	private By cancelDeleteTagButton = By
 			.xpath("//button[@onclick='javascript: CloseDeletePopup();']//i[@class='fa fa-times']");
+	private By patientTagAllPermissionCheckbox = By.xpath("//label[@for='chkg10PatientTagAll']");
+	private By patientTagViewPermissionCheckbox = By.xpath("//label[@for='chkg10PatientTagView']");
 
 	// LocatorReviewCategoriesPage
 	private By addReviewCategoryButton = By.xpath("//span[normalize-space()='New Review Categories']");
@@ -225,8 +270,103 @@ public class patientpage {
 	private By patientModuleViewLabel = By.xpath("//label[@for='chkg9PatientView']");
 	private By patientModuleAddLabel = By.xpath("//label[@for='chkg9PatientAdd']");
 	private By patientModuleEditLabel = By.xpath("//label[@for='chkg9PatientEdit']");
+	private By patientModuleDeleteLabel = By.xpath("//label[@for='chkg9PatientDelete']");
+
+	// TagPage
+	public void verifyAddEditDeleteRestricted() {
+		if (!driver.findElements(newTagButton).isEmpty()) {
+			throw new AssertionError("New Tag button should NOT be present");
+		}
+
+		clickWhenClickable(firstTagActionMenu);
+
+		if (!driver.findElements(editTagOption).isEmpty()) {
+			throw new AssertionError("Edit option should NOT be present");
+		}
+
+		if (!driver.findElements(deleteTagOption).isEmpty()) {
+			throw new AssertionError("Delete option should NOT be present");
+		}
+	}
+
+	// DeDupePage
+	public void verifyUserCannotUpdateDeDupeRecords() {
+		List<WebElement> errorHeaders = driver.findElements(errorHeader);
+		Assert.assertFalse(errorHeaders.isEmpty(), "User is able to access DeDupe page without update permission");
+		System.out.println("Access denied: User does not have permission to update DeDupe records");
+	}
+
+	public void verifyDeDupeAccessRestrictedViaUIOrDirectURL() {
+		verifyUserCannotUpdateDeDupeRecords();
+	}
+
+	public void updateDeDupeRecords() {
+		clickLastName();
+		clickFirstName();
+		clickFindDuplicate();
+		selectFirstRecord();
+		selectSecondRecord();
+		sortByColumn8();
+		selectFirstCheckboxOnNextPage();
+		clickNext();
+		clickNext();
+		clickFinish();
+	}
+
+	public void clickLastName() {
+		waitForLoaderIfPresent();
+		wait.until(ExpectedConditions.elementToBeClickable(lastNameLabel)).click();
+	}
+
+	public void clickFirstName() {
+		waitForLoaderIfPresent();
+		wait.until(ExpectedConditions.elementToBeClickable(firstNameLabel)).click();
+	}
+
+	public void clickFindDuplicate() {
+		waitForLoaderIfPresent();
+		wait.until(ExpectedConditions.elementToBeClickable(findDuplicateButton)).click();
+	}
+
+	public void selectFirstRecord() {
+		waitForLoaderIfPresent();
+		wait.until(ExpectedConditions.elementToBeClickable(firstRecordCheckbox)).click();
+	}
+
+	public void selectSecondRecord() {
+		waitForLoaderIfPresent();
+		wait.until(ExpectedConditions.elementToBeClickable(secondRecordCheckbox)).click();
+	}
+
+	public void sortByColumn8() {
+		waitForLoaderIfPresent();
+		wait.until(ExpectedConditions.elementToBeClickable(tableSortColumn8)).click();
+	}
+
+	public void selectFirstCheckboxOnNextPage() {
+		waitForLoaderIfPresent();
+		wait.until(ExpectedConditions.elementToBeClickable(firstCheckboxOnNextPage)).click();
+	}
+
+	public void clickNext() {
+		waitForLoaderIfPresent();
+		wait.until(ExpectedConditions.elementToBeClickable(nextButton)).click();
+	}
+
+	public void clickFinish() {
+		waitForLoaderIfPresent();
+		wait.until(ExpectedConditions.elementToBeClickable(finishButton)).click();
+	}
 
 	// PatientPage
+
+	public void openFirstPatientRecord() {
+		wait.until(ExpectedConditions.elementToBeClickable(firstPatientViewButton)).click();
+	}
+
+	public boolean isSendForReviewIconPresent() {
+		return driver.findElements(sendForReviewIcon).size() > 0;
+	}
 
 	public void resetPatientPassword(String password) {
 		sleep(3000);
@@ -404,10 +544,6 @@ public class patientpage {
 		clickWhenClickable(searchIcon);
 	}
 
-	public void openFirstPatientRecord() {
-		clickWhenClickable(firstPatientLink);
-	}
-
 	public void openReferralsTab() {
 		clickWhenClickable(referralsTab);
 	}
@@ -474,11 +610,11 @@ public class patientpage {
 	}
 
 	public void printPatientSignature() {
-		sleep(2000);
+		waitForLoaderIfPresent();
 		wait.until(ExpectedConditions.elementToBeClickable(patientSignaturesTab)).click();
+		waitForLoaderIfPresent();
 		wait.until(ExpectedConditions.elementToBeClickable(sixthPatientSignatureLink)).click();
 		((JavascriptExecutor) driver).executeScript("window.print();");
-		System.out.println("Patient signature PDF auto-saved in Downloads folder");
 	}
 
 	public void sendPatientForSignature() {
@@ -487,15 +623,22 @@ public class patientpage {
 		wait.until(ExpectedConditions.elementToBeClickable(emailOption)).click();
 		wait.until(ExpectedConditions.elementToBeClickable(mailTemplateDropdown));
 		selectDropdownByIndexWhenReady(mailTemplateDropdown, 1);
+		sleep(5000);
 		waitAndSendKeys(editorTextArea, "This is a test email for patient signature.");
 		wait.until(ExpectedConditions.elementToBeClickable(signatureCheckbox)).click();
 		wait.until(ExpectedConditions.elementToBeClickable(savePatientSignatureButton)).click();
+		sleep(5000);
 		wait.until(ExpectedConditions.elementToBeClickable(patientSignatureButton)).click();
 		wait.until(ExpectedConditions.elementToBeClickable(textOption)).click();
+		sleep(5000);
 		wait.until(ExpectedConditions.elementToBeClickable(smsTemplateDropdown));
 		selectDropdownByIndexWhenReady(smsTemplateDropdown, 1);
+		sleep(5000);
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		wait.until(ExpectedConditions.elementToBeClickable(signatureCheckbox)).click();
+		sleep(2000);
 		wait.until(ExpectedConditions.elementToBeClickable(savePatientSignatureButton)).click();
+		sleep(2000);
 	}
 
 	private void waitAndSendKeys(By locator, String value) {
@@ -532,6 +675,138 @@ public class patientpage {
 		sleep(3000);
 		wait.until(ExpectedConditions.elementToBeClickable(saveSendForReviewButton)).click();
 		System.out.println("Patient user has sent the patient for review");
+	}
+
+	public void verifyPatientReviewRestricted() {
+		sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(firstPatientLink)).click();
+		sleep(2000);
+		boolean isSendForReviewPresent = driver.findElements(sendForReviewIcon).size() > 0;
+		Assert.assertFalse(isSendForReviewPresent, "Send for Review option should NOT be visible for restricted user");
+	}
+
+	public void verifyPatientSignatureRestricted() {
+		sleep(2000);
+		boolean isPatientSignatureRestricted = driver.findElements(patientSignatureButton).size() > 0;
+		Assert.assertFalse(isPatientSignatureRestricted,
+				"Patient Signature option should NOT be visible for restricted user");
+	}
+
+	public void verifyMappedTagDeletionRestricted() {
+		sleep(2000);
+		boolean isMappedTagDeletionRestricted = driver.findElements(firstMappedTagDropdown).size() > 0;
+		Assert.assertFalse(isMappedTagDeletionRestricted,
+				"Mapped Tag deletion option should NOT be visible for restricted user");
+	}
+
+	public void verifyPatientPrescriptionViewRestricted() {
+		sleep(2000);
+		boolean isPatientPrescriptionViewRestricted = driver.findElements(prescriptionIcon).size() > 0;
+		Assert.assertFalse(isPatientPrescriptionViewRestricted,
+				"Patient Prescription view option should NOT be visible for restricted user");
+	}
+
+	public void verifyReferralSourceAddRestricted() {
+		sleep(2000);
+		boolean isReferralSourceAddRestricted = driver.findElements(addReferralSourceIcon).size() > 0;
+		Assert.assertFalse(isReferralSourceAddRestricted,
+				"Referral Source add option should NOT be visible for restricted user");
+	}
+
+	public void verifyReferralSourceDeletionRestricted() {
+		sleep(2000);
+		boolean isReferralSourceDeletionRestricted = driver.findElements(deleteReferralSourceIcon).size() > 0;
+		Assert.assertFalse(isReferralSourceDeletionRestricted,
+				"Referral Source deletion option should NOT be visible for restricted user");
+	}
+
+	public void verifyPatientEnrollmentAddRestricted() {
+		sleep(2000);
+		boolean isPatientEnrollmentAddRestricted = driver.findElements(addPatientEnrollmentIcon).size() > 0;
+		Assert.assertFalse(isPatientEnrollmentAddRestricted,
+				"Patient Enrollment add option should NOT be visible for restricted user");
+	}
+
+	public void verifyPatientEnrollmentDeletionRestricted() {
+		sleep(2000);
+		boolean isPatientEnrollmentDeletionRestricted = driver.findElements(deletePatientEnrollmentIcon).size() > 0;
+		Assert.assertFalse(isPatientEnrollmentDeletionRestricted,
+				"Patient Enrollment deletion option should NOT be visible for restricted user");
+	}
+
+	public void verifyPatientStatusUpdateRestricted() {
+		sleep(2000);
+		boolean isPatientStatusUpdateRestricted = driver.findElements(updatePatientStatusIcon).size() > 0;
+		Assert.assertFalse(isPatientStatusUpdateRestricted,
+				"Patient Status update option should NOT be visible for restricted user");
+	}
+
+	public void verifyDeliveryPreferenceSetRestricted() {
+		sleep(2000);
+		boolean isDeliveryPreferenceSetRestricted = driver.findElements(addDeliveryPreferenceButton).size() > 0;
+		Assert.assertFalse(isDeliveryPreferenceSetRestricted,
+				"Delivery Preference set option should NOT be visible for restricted user");
+	}
+
+	public void verifyOutgoingCallRestricted() {
+		sleep(2000);
+		boolean isOutgoingCallRestricted = driver.findElements(outgoingCallButtonIcon).size() > 0;
+		Assert.assertFalse(isOutgoingCallRestricted, "Outgoing Call option should NOT be visible for restricted user");
+	}
+
+	public void verifyPatientDataExportRestricted() {
+		sleep(2000);
+		boolean isPatientDataExportRestricted = driver.findElements(exportPatientDataToExcelButton).size() > 0;
+		Assert.assertFalse(isPatientDataExportRestricted,
+				"Patient Data export option should NOT be visible for restricted user");
+	}
+
+	public void verifyRPMDeviceAddRestricted() {
+		sleep(2000);
+		boolean isRPMDeviceAddRestricted = driver.findElements(addRPMDeviceIcon).size() > 0;
+		Assert.assertFalse(isRPMDeviceAddRestricted, "RPM Device add option should NOT be visible for restricted user");
+	}
+
+	public void verifyRPMDeviceDeletionRestricted() {
+		sleep(2000);
+		boolean isRPMDeviceDeletionRestricted = driver.findElements(deleteRPMDeviceIcon).size() > 0
+				|| driver.findElements(deleteRPMDeviceText).size() > 0;
+
+		Assert.assertFalse(isRPMDeviceDeletionRestricted,
+				"RPM Device deletion option should NOT be visible for restricted user");
+	}
+
+	public void verifyPatientPasswordResetRestricted() {
+		sleep(2000);
+		boolean isPatientPasswordResetRestricted = driver.findElements(resetPatientPasswordButton).size() > 0
+				|| driver.findElements(resetPatientPasswordText).size() > 0;
+		Assert.assertFalse(isPatientPasswordResetRestricted,
+				"Patient Password reset option should NOT be visible for restricted user");
+	}
+
+	public void verifyRPMDeviceEditRestricted() {
+		sleep(2000);
+		boolean isRPMDeviceEditRestricted = (driver.findElements(editRPMDeviceIcon).stream()
+				.anyMatch(WebElement::isDisplayed))
+				|| (driver.findElements(editRPMDeviceText).stream().anyMatch(WebElement::isDisplayed));
+
+		Assert.assertFalse(isRPMDeviceEditRestricted,
+				"RPM Device edit option should NOT be visible for restricted user");
+	}
+
+	public void verifyTagMappingRestricted() {
+		sleep(2000);
+		boolean isTagMappingRestricted = driver.findElements(tagInputField).size() > 0;
+		Assert.assertFalse(isTagMappingRestricted, "Tag Mapping option should NOT be visible for restricted user");
+	}
+
+	public void verifyPatientSignaturePrintRestricted() {
+		sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(patientSignaturesTab)).click();
+		sleep(2000);
+		boolean isPatientSignaturePrintRestricted = driver.findElements(sixthPatientSignatureLink).size() > 0;
+		Assert.assertFalse(isPatientSignaturePrintRestricted,
+				"Patient Signature Print option should NOT be visible for restricted user");
 	}
 
 	public void deletePatient() {
@@ -960,6 +1235,14 @@ public class patientpage {
 		cancelBtn.click();
 	}
 
+	public void waitForLoaderIfPresent() {
+		try {
+			WebDriverWait shortWait = new WebDriverWait(driver, Duration.ofSeconds(3));
+			shortWait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (TimeoutException e) {
+		}
+	}
+
 	public String getTagNameFromTagList() {
 		return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//tbody/tr[1]/td[1]"))).getText()
 				.trim();
@@ -1319,6 +1602,61 @@ public class patientpage {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		WebElement selectAllModule = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
 		selectAllModule.click();
+		sleep(2000);
+	}
+
+	public void createProfileUpdateDeDupe() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		WebElement selectAllModule = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		selectAllModule.click();
+		sleep(2000);
+	}
+
+	public void createProfileNoUpdateAccessDeDupe() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		WebElement selectAllModule = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		selectAllModule.click();
+		sleep(2000);
+		WebElement deDupeAllCheckbox = wait.until(ExpectedConditions.elementToBeClickable(patientDeDupeAllCheckbox));
+		deDupeAllCheckbox.click();
+
+	}
+
+	public void createProfileWithViewOnlyAccessForPatientTag() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		WebElement selectAllModulesLabel = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		selectAllModulesLabel.click();
+		sleep(2000);
+		WebElement patientTagAllPermissionCheckboxElement = wait
+				.until(ExpectedConditions.elementToBeClickable(patientTagAllPermissionCheckbox));
+		patientTagAllPermissionCheckboxElement.click();
+
+		WebElement patientTagViewPermissionCheckboxElement = wait
+				.until(ExpectedConditions.elementToBeClickable(patientTagViewPermissionCheckbox));
+		patientTagViewPermissionCheckboxElement.click();
+	}
+
+	public void userWithAllAdditionalAccessDisabledTest() {
+		waitForLoaderIfPresent();
+
+		WebElement selectAllModuleCheckbox = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		selectAllModuleCheckbox.click();
+		sleep(2000);
+		WebElement patientModuleAllCheckbox = wait
+				.until(ExpectedConditions.elementToBeClickable(patientModuleAllLabel));
+		patientModuleAllCheckbox.click();
+		sleep(2000);
+		WebElement patientModuleAddCheckbox = wait
+				.until(ExpectedConditions.elementToBeClickable(patientModuleAddLabel));
+		patientModuleAddCheckbox.click();
+		sleep(2000);
+		WebElement patientModuleEditCheckbox = wait
+				.until(ExpectedConditions.elementToBeClickable(patientModuleEditLabel));
+		patientModuleEditCheckbox.click();
+		sleep(2000);
+		WebElement patientModuleDeleteCheckbox = wait
+				.until(ExpectedConditions.elementToBeClickable(patientModuleDeleteLabel));
+		patientModuleDeleteCheckbox.click();
 		sleep(2000);
 	}
 

@@ -99,7 +99,7 @@ Feature: Patient Module scenarios
   And I reset the user's password for Patient Module 
   And I log in using the new user for Patient Module 
   Then the user should not be able to send a patient for review 
-  And the user should not be able to send a patient for signature    
+  And the user should not be able to send a patient for signature 
   And the user should not be able to print a patient signature 
   And the user should not be able to map a tag 
   And the user should not be able to delete a mapped tag 
@@ -135,6 +135,7 @@ Feature: Patient Module scenarios
   And I log in using the new user for Patient Module 
   Then the user should not be able to update DeDupe records via UI or direct URL  
 
+  # test
   Scenario: User with View only access for Tag
   Given I log in as admin for Patient module
   When I create a new user with email for Patient Module "testuser1_static@mailinator.com"

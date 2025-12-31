@@ -241,6 +241,168 @@ public class patientstep {
 		patientPage.sendPatientForReview();
 	}
 
+	@And("the user should not be able to send a patient for review test")
+	public void userShouldNotBeAbleToSendPatientForReviewTest() {
+		sleep(2000);
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String patientPageUrl = Hooks.prop.getProperty("patientPageUrl");
+		String fullUrl = baseUrl + patientPageUrl;
+		patientPage = new patientpage(Hooks.driver);
+		patientPage.openPatientsPage(fullUrl, "/Patient/Home/Patients");
+		Assert.assertTrue("Patients page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Patient/Home/Patients"));
+		System.out.println("User is able to view the Patients page");
+		Hooks.scenario.log("User is able to view the Patients page");
+
+		patientPage.verifyPatientReviewRestricted();
+	}
+
+	@And("the user should be able to update DeDupe records test")
+	public void verifyUserCanUpdateDeDupeRecords() {
+		sleep(2000);
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String deDupePageUrl = Hooks.prop.getProperty("dedupePatientsPageUrl");
+		String fullUrl = baseUrl + deDupePageUrl;
+		patientPage = new patientpage(Hooks.driver);
+		patientPage.openPatientsPage(fullUrl, "/Patient/Home/DeDupePatients");
+		Assert.assertTrue("DeDupe page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Patient/Home/DeDupePatients"));
+		System.out.println("User is able to view the DeDupe page");
+		Hooks.scenario.log("User is able to view the DeDupe page");
+
+		patientPage.updateDeDupeRecords();
+	}
+
+	@And("the user can view tags but cannot add, edit, or delete them")
+	public void userCanViewButCannotModifyTags() {
+		sleep(2000);
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String tagsPageUrl = Hooks.prop.getProperty("tagsPageUrl");
+		String fullUrl = baseUrl + tagsPageUrl;
+		patientPage = new patientpage(Hooks.driver);
+		patientPage.openPatientsPage(fullUrl, "/Patient/Home/Tags");
+		Assert.assertTrue("Tags page is not displayed", Hooks.driver.getCurrentUrl().contains("/Patient/Home/Tags"));
+		System.out.println("User is able to view the Tags page");
+		Hooks.scenario.log("User is able to view the Tags page");
+		patientPage.verifyAddEditDeleteRestricted();
+	}
+
+	@And("the user should not be able to update DeDupe records via UI or direct URL test")
+	public void verifyUserCannotUpdateDeDupeRecordsViaUIOrDirectURL() {
+		sleep(2000);
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String deDupePageUrl = Hooks.prop.getProperty("dedupePatientsPageUrl");
+		String fullUrl = baseUrl + deDupePageUrl;
+
+		patientPage = new patientpage(Hooks.driver);
+
+		Hooks.driver.get(fullUrl);
+
+		patientPage.verifyDeDupeAccessRestrictedViaUIOrDirectURL();
+	}
+
+	@And("the user should not be able to send a patient for signature test")
+	public void userShouldNotBeAbleToSendPatientForSignatureTest() {
+		sleep(2000);
+		patientPage.verifyPatientSignatureRestricted();
+	}
+
+	@And("the user should not be able to print a patient signature test")
+	public void userShouldNotBeAbleToPrintPatientSignatureTest() {
+		sleep(2000);
+		patientPage.verifyPatientSignaturePrintRestricted();
+	}
+
+	@And("the user should not be able to map a tag test")
+	public void userShouldNotBeAbleToMapTagTest() {
+		sleep(2000);
+		patientPage.verifyTagMappingRestricted();
+	}
+
+	@And("the user should not be able to delete a mapped tag test")
+	public void userShouldNotBeAbleToDeleteMappedTagTest() {
+		sleep(2000);
+		patientPage.verifyMappedTagDeletionRestricted();
+	}
+
+	@And("the user should not be able to view patient prescriptions test")
+	public void userShouldNotBeAbleToViewPatientPrescriptionsTest() {
+		sleep(2000);
+		patientPage.verifyPatientPrescriptionViewRestricted();
+	}
+
+	@And("the user should not be able to add a referral source test")
+	public void userShouldNotBeAbleToAddReferralSourceTest() {
+		sleep(2000);
+		patientPage.verifyReferralSourceAddRestricted();
+	}
+
+	@And("the user should not be able to delete a referral source test")
+	public void userShouldNotBeAbleToDeleteReferralSourceTest() {
+		sleep(2000);
+		patientPage.verifyReferralSourceDeletionRestricted();
+	}
+
+	@And("the user should not be able to add a patient enrollment test")
+	public void userShouldNotBeAbleToAddPatientEnrollmentTest() {
+		sleep(2000);
+		patientPage.verifyPatientEnrollmentAddRestricted();
+	}
+
+	@And("the user should not be able to delete a patient enrollment test")
+	public void userShouldNotBeAbleToDeletePatientEnrollmentTest() {
+		sleep(2000);
+		patientPage.verifyPatientEnrollmentDeletionRestricted();
+	}
+
+	@And("the user should not be able to update patient status test")
+	public void userShouldNotBeAbleToUpdatePatientStatusTest() {
+		sleep(2000);
+		patientPage.verifyPatientStatusUpdateRestricted();
+	}
+
+	@And("the user should not be able to set delivery preference test")
+	public void userShouldNotBeAbleToSetDeliveryPreferenceTest() {
+		sleep(2000);
+		patientPage.verifyDeliveryPreferenceSetRestricted();
+	}
+
+	@And("the user should not be able to make an outgoing call test")
+	public void userShouldNotBeAbleToMakeOutgoingCallTest() {
+		sleep(2000);
+		patientPage.verifyOutgoingCallRestricted();
+	}
+
+	@And("the user should not be able to export patient data to excel test")
+	public void userShouldNotBeAbleToExportPatientDataToExcelTest() {
+		sleep(2000);
+		patientPage.verifyPatientDataExportRestricted();
+	}
+
+	@And("the user should not be able to add an RPM device test")
+	public void userShouldNotBeAbleToAddRPMDeviceTest() {
+		sleep(2000);
+		patientPage.verifyRPMDeviceAddRestricted();
+	}
+
+	@And("the user should not be able to edit an RPM device test")
+	public void userShouldNotBeAbleToEditRPMDeviceTest() {
+		sleep(2000);
+		patientPage.verifyRPMDeviceEditRestricted();
+	}
+
+	@And("the user should not be able to delete an RPM device test")
+	public void userShouldNotBeAbleToDeleteRPMDeviceTest() {
+		sleep(2000);
+		patientPage.verifyRPMDeviceDeletionRestricted();
+	}
+
+	@And("the user should not be able to reset a patient password test")
+	public void userShouldNotBeAbleToResetPatientPasswordTest() {
+		sleep(2000);
+		patientPage.verifyPatientPasswordResetRestricted();
+	}
+
 	@Then("the patient user should not be able to edit or delete patients test")
 	public void patientUserShouldNotBeAbleToEditOrDeletePatientsTest() {
 		sleep(2000);
@@ -1323,6 +1485,62 @@ public class patientstep {
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
 		patientPage.createPatientModuleProfileWithFullAccess();
+		patientPage.clickSubmitButton();
+		System.out.println("Profile updated with NO access to Patient Module General Audit View");
+		Hooks.scenario.log("Profile updated with NO access to Patient Module General Audit View");
+
+	}
+
+	@And("I create a profile with Update access to Partners Module DeDupe test")
+	public void createProfileWithUpdateAccessForPartnersModuleDeDupe() {
+		patientPage.clickFilterButton();
+		patientPage.enterProfileName("Sunil");
+		patientPage.clickSearchButton();
+		patientPage.clickActionMenu();
+		patientPage.clickEditButton();
+		patientPage.createProfileUpdateDeDupe();
+		patientPage.clickSubmitButton();
+		System.out.println("Profile updated with NO access to Patient Module General Audit View");
+		Hooks.scenario.log("Profile updated with NO access to Patient Module General Audit View");
+
+	}
+
+	@And("I create a profile without Update access to Partners Module DeDupe test")
+	public void createProfileWithoutUpdateAccessForPartnersModuleDeDupe() {
+		patientPage.clickFilterButton();
+		patientPage.enterProfileName("Sunil");
+		patientPage.clickSearchButton();
+		patientPage.clickActionMenu();
+		patientPage.clickEditButton();
+		patientPage.createProfileNoUpdateAccessDeDupe();
+		patientPage.clickSubmitButton();
+		System.out.println("Profile updated with NO access to Patient Module General Audit View");
+		Hooks.scenario.log("Profile updated with NO access to Patient Module General Audit View");
+
+	}
+
+	@And("I create a profile with View access only to Patient Module Tag test")
+	public void createProfileWithViewOnlyAccessForPatientTag() {
+		patientPage.clickFilterButton();
+		patientPage.enterProfileName("Sunil");
+		patientPage.clickSearchButton();
+		patientPage.clickActionMenu();
+		patientPage.clickEditButton();
+		patientPage.createProfileWithViewOnlyAccessForPatientTag();
+		patientPage.clickSubmitButton();
+		System.out.println("Profile updated with View-only access to Patient Module Tag");
+		Hooks.scenario.log("Profile updated with View-only access to Patient Module Tag");
+
+	}
+
+	@And("I create a profile with all additional access permissions disabled in Patient Module test")
+	public void createProfileWithAdditionalAccessDisabledInPatientModuleTest() {
+		patientPage.clickFilterButton();
+		patientPage.enterProfileName("Sunil");
+		patientPage.clickSearchButton();
+		patientPage.clickActionMenu();
+		patientPage.clickEditButton();
+		patientPage.userWithAllAdditionalAccessDisabledTest();
 		patientPage.clickSubmitButton();
 		System.out.println("Profile updated with NO access to Patient Module General Audit View");
 		Hooks.scenario.log("Profile updated with NO access to Patient Module General Audit View");
