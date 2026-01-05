@@ -477,7 +477,6 @@ And I create a profile without Update access to Partners Module DeDupe test
 Then the user should not be able to update DeDupe records via UI or direct URL test 
 
 # Tag
-@Patient
 Scenario: User with View only access for Tag test
 Given user launch browser
 Then user click on the user type dropdown
@@ -488,6 +487,88 @@ When user click on the go button
 Then the patient user should be able to view Profiles
 And I create a profile with View access only to Patient Module Tag test  
 Then the user can view tags but cannot add, edit, or delete them
+
+Scenario: User with View and Add access for Tag test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with View and Add access to Patient Module Tag test  
+Then the user should be able to view tags and add a new tag test
+But the user should not be able to edit or delete tags test 
+
+@Patient
+Scenario: User with View, Add, and Edit access for Tag test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with View, Add, and Edit access to Patient Module Tag test 
+Then user should be able to view, add, and edit tags
+But the user should not be able to delete tags test
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
 
 
 

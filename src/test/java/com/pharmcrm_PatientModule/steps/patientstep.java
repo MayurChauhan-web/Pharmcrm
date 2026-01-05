@@ -287,6 +287,60 @@ public class patientstep {
 		patientPage.verifyAddEditDeleteRestricted();
 	}
 
+	@And("the user should be able to view tags and add a new tag test")
+	public void verifyUserCanViewAndAddTags() {
+		sleep(2000);
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String tagsPageUrl = Hooks.prop.getProperty("tagsPageUrl");
+		String fullUrl = baseUrl + tagsPageUrl;
+		patientPage = new patientpage(Hooks.driver);
+		patientPage.openPatientsPage(fullUrl, "/Patient/Home/Tags");
+		Assert.assertTrue("Tags page is not displayed", Hooks.driver.getCurrentUrl().contains("/Patient/Home/Tags"));
+		System.out.println("User is able to view tags and add a new tag");
+		Hooks.scenario.log("User is able to view tags and add a new tag");
+
+		patientPage.createNewTag("tagA");
+	}
+
+	@And("user should be able to view, add, and edit tags")
+	public void viewAddEditTags() {
+		sleep(2000);
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String tagsPageUrl = Hooks.prop.getProperty("tagsPageUrl");
+		String fullUrl = baseUrl + tagsPageUrl;
+		patientPage = new patientpage(Hooks.driver);
+		patientPage.openPatientsPage(fullUrl, "/Patient/Home/Tags");
+		Assert.assertTrue("Tags page is not displayed", Hooks.driver.getCurrentUrl().contains("/Patient/Home/Tags"));
+		System.out.println("User is able to view tags and add a new tag");
+		Hooks.scenario.log("User is able to view tags and add a new tag");
+
+		patientPage.createNewTag("Test Tag");
+		patientPage.editTag("Updated Test Tag");
+
+	}
+
+	@And("the user should not be able to edit or delete tags test")
+	public void verifyUserCannotEditOrDeleteTags() {
+		sleep(2000);
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String tagsPageUrl = Hooks.prop.getProperty("tagsPageUrl");
+		String fullUrl = baseUrl + tagsPageUrl;
+		patientPage = new patientpage(Hooks.driver);
+		patientPage.openPatientsPage(fullUrl, "/Patient/Home/Tags");
+		Assert.assertTrue("Tags page is not displayed", Hooks.driver.getCurrentUrl().contains("/Patient/Home/Tags"));
+		System.out.println("User is not able to edit or delete tags");
+		Hooks.scenario.log("User is not able to edit or delete tags");
+
+		patientPage.thenUserCannotEditOrDeleteTags();
+	}
+
+	@And("the user should not be able to delete tags test")
+	public void verifyUserCannotDeleteTags() {
+		sleep(2000);
+
+		patientPage.thenUserCannotDeleteTags();
+	}
+
 	@And("the user should not be able to update DeDupe records via UI or direct URL test")
 	public void verifyUserCannotUpdateDeDupeRecordsViaUIOrDirectURL() {
 		sleep(2000);
@@ -1530,6 +1584,33 @@ public class patientstep {
 		patientPage.clickSubmitButton();
 		System.out.println("Profile updated with View-only access to Patient Module Tag");
 		Hooks.scenario.log("Profile updated with View-only access to Patient Module Tag");
+
+	}
+
+	@And("I create a profile with View and Add access to Patient Module Tag test")
+	public void createPatientTagProfileWithViewAndAddAccess() {
+		patientPage.clickFilterButton();
+		patientPage.enterProfileName("Sunil");
+		patientPage.clickSearchButton();
+		patientPage.clickActionMenu();
+		patientPage.clickEditButton();
+		patientPage.createProfileWithViewAndAddAccessForPatientTag();
+		patientPage.clickSubmitButton();
+		System.out.println("Profile updated with View and Add access to Patient Module Tag");
+		Hooks.scenario.log("Profile updated with View and Add access to Patient Module Tag");
+	}
+
+	@And("I create a profile with View, Add, and Edit access to Patient Module Tag test")
+	public void createPatientModuleTagProfile() {
+		patientPage.clickFilterButton();
+		patientPage.enterProfileName("Sunil");
+		patientPage.clickSearchButton();
+		patientPage.clickActionMenu();
+		patientPage.clickEditButton();
+		patientPage.createPatientModuleTagViewAddEditProfile();
+		patientPage.clickSubmitButton();
+		System.out.println("Profile updated with View, Add, and Edit access to Patient Module Tag");
+		Hooks.scenario.log("Profile updated with View, Add, and Edit access to Patient Module Tag");
 
 	}
 

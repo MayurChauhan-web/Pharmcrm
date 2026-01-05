@@ -135,7 +135,6 @@ Feature: Patient Module scenarios
   And I log in using the new user for Patient Module 
   Then the user should not be able to update DeDupe records via UI or direct URL  
 
-  # test
   Scenario: User with View only access for Tag
   Given I log in as admin for Patient module
   When I create a new user with email for Patient Module "testuser1_static@mailinator.com"
@@ -157,6 +156,7 @@ Feature: Patient Module scenarios
   And the user should be able to add a new tag  
   But the user should not be able to edit or delete tags  
 
+  # test
   Scenario: User with View, Add, and Edit access for Tag
   Given I log in as admin for Patient module
   When I create a new user with email for Patient Module "testuser1_static@mailinator.com"
@@ -1095,6 +1095,7 @@ Feature: Patient Module scenarios
   And I click on Delete Patient
   And I click Cancel on Delete Patient confirmation
   Then the patient should not be deleted
+  
   
   
 	

@@ -24,6 +24,10 @@ public class patientpage {
 	private By firstTagActionMenu = By.xpath("//tbody/tr[1]/td[5]/div[1]/div[1]/button[1]/i[1]");
 	private By editTagOption = By.xpath(
 			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]");
+	private By patientTagAddLabel = By.xpath("//label[@for='chkg10PatientTagAdd']");
+	private By btnNewTag = By.xpath("//span[normalize-space()='New Tag']");
+	private By txtTagName = By.id("Tag_Name");
+	private By txtTagDescription = By.id("Tag_Description");
 
 	// LocatorDedupePage
 	private By lastNameLabel = By.xpath("//label[normalize-space()='Last Name']");
@@ -271,8 +275,43 @@ public class patientpage {
 	private By patientModuleAddLabel = By.xpath("//label[@for='chkg9PatientAdd']");
 	private By patientModuleEditLabel = By.xpath("//label[@for='chkg9PatientEdit']");
 	private By patientModuleDeleteLabel = By.xpath("//label[@for='chkg9PatientDelete']");
+	private By patientTagEditPermissionLabel = By.xpath("//label[@for='chkg10PatientTagEdit']");
 
 	// TagPage
+
+	public void clickNewTagButton() {
+		waitForLoaderIfPresent();
+		wait.until(ExpectedConditions.elementToBeClickable(btnNewTag)).click();
+	}
+
+	public void enterTagName(String tagName) {
+		waitForLoaderIfPresent();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(txtTagName)).sendKeys(tagName);
+	}
+
+	public void enterTagDescription(String description) {
+		waitForLoaderIfPresent();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(txtTagDescription)).sendKeys(description);
+	}
+
+	public void createNewTag(String tagName) {
+		clickNewTagButton();
+		enterTagName(tagName);
+		enterTagDescription(tagName);
+		clickOnSaveTagButton();
+		sleep(5000);
+		clickWhenClickable(firstTagActionMenu);
+
+	}
+
+	public void editTag(String updatedTagName) {
+		WebElement editTagButton = wait.until(ExpectedConditions.elementToBeClickable(editTagOption));
+		editTagButton.click();
+		sleep(3000);
+		enterTagName(updatedTagName);
+		clickOnSaveTagButton();
+	}
+
 	public void verifyAddEditDeleteRestricted() {
 		if (!driver.findElements(newTagButton).isEmpty()) {
 			throw new AssertionError("New Tag button should NOT be present");
@@ -284,6 +323,27 @@ public class patientpage {
 			throw new AssertionError("Edit option should NOT be present");
 		}
 
+		if (!driver.findElements(deleteTagOption).isEmpty()) {
+			throw new AssertionError("Delete option should NOT be present");
+		}
+	}
+
+	public void thenUserCannotEditOrDeleteTags() {
+
+		clickWhenClickable(firstTagActionMenu);
+
+		if (!driver.findElements(editTagOption).isEmpty()) {
+			throw new AssertionError("Edit option should NOT be present");
+		}
+
+		if (!driver.findElements(deleteTagOption).isEmpty()) {
+			throw new AssertionError("Delete option should NOT be present");
+		}
+	}
+
+	public void thenUserCannotDeleteTags() {
+		sleep(3000);
+		clickWhenClickable(firstTagActionMenu);
 		if (!driver.findElements(deleteTagOption).isEmpty()) {
 			throw new AssertionError("Delete option should NOT be present");
 		}
@@ -1634,6 +1694,49 @@ public class patientpage {
 		WebElement patientTagViewPermissionCheckboxElement = wait
 				.until(ExpectedConditions.elementToBeClickable(patientTagViewPermissionCheckbox));
 		patientTagViewPermissionCheckboxElement.click();
+	}
+
+	public void createProfileWithViewAndAddAccessForPatientTag() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		WebElement selectAllModulesLabel = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		selectAllModulesLabel.click();
+		sleep(2000);
+		WebElement patientTagAllPermissionCheckboxElement = wait
+				.until(ExpectedConditions.elementToBeClickable(patientTagAllPermissionCheckbox));
+		patientTagAllPermissionCheckboxElement.click();
+
+		WebElement patientTagViewPermissionCheckboxElement = wait
+				.until(ExpectedConditions.elementToBeClickable(patientTagViewPermissionCheckbox));
+		patientTagViewPermissionCheckboxElement.click();
+
+		WebElement patientTagAddPermissionLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(patientTagAddLabel));
+		patientTagAddPermissionLabelElement.click();
+
+	}
+
+	public void createPatientModuleTagViewAddEditProfile() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		WebElement selectAllModulesLabel = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		selectAllModulesLabel.click();
+		sleep(2000);
+		WebElement patientTagAllPermissionCheckboxElement = wait
+				.until(ExpectedConditions.elementToBeClickable(patientTagAllPermissionCheckbox));
+		patientTagAllPermissionCheckboxElement.click();
+		sleep(1000);
+		WebElement patientTagViewPermissionCheckboxElement = wait
+				.until(ExpectedConditions.elementToBeClickable(patientTagViewPermissionCheckbox));
+		patientTagViewPermissionCheckboxElement.click();
+		sleep(1000);
+		WebElement patientTagAddPermissionLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(patientTagAddLabel));
+		patientTagAddPermissionLabelElement.click();
+		sleep(1000);
+		WebElement patientTagEditPermissionLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(patientTagEditPermissionLabel));
+		patientTagEditPermissionLabelElement.click();
+		sleep(1000);
+
 	}
 
 	public void userWithAllAdditionalAccessDisabledTest() {
