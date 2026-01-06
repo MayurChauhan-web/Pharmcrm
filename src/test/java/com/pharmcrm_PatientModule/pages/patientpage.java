@@ -19,6 +19,27 @@ public class patientpage {
 	private WebDriver driver;
 	private WebDriverWait wait;
 
+	// ReferralSourcepage
+	private By patientReferralSourceAllCheckbox = By.xpath("//label[@for='chkg9PatientReferralSourceAll']");
+	private By patientReferralSourceViewCheckbox = By.xpath("//label[@for='chkg9PatientReferralSourceView']");
+	private By patientReferralSourceAddCheckbox = By.xpath("//label[@for='chkg9PatientReferralSourceAdd']");
+	private By newReferralSourceButton = By.xpath("//span[normalize-space()='New Referral Source']");
+	private By referralSourceDescriptionInput = By.xpath("//input[@id='ReferralSource_Description']");
+	private By referralSourceSaveButton = By.xpath("//button[@id='btnSave']");
+	private By referralSourceFirstRowActionMenu = By.xpath("//tbody/tr[1]/td[5]/div[1]/div[1]/button[1]/i[1]");
+	private By confirmDeleteReferralSourceButton = By
+			.xpath("//div[@id='genericmodal']//button[@id='btnDeleteConfirm']");
+	private By patientReferralSourceEditCheckbox = By.xpath("//label[@for='chkg10PatientReferralSourceEdit']");
+
+	// ReviewCategoryPage
+	private By patientReviewCategoryAllCheckbox = By.xpath("//label[@for='chkg13PatientReviewCategoryAll']");
+	private By patientReviewCategoryViewCheckbox = By.xpath("//label[@for='chkg13PatientReviewCategoryView']");
+	private By patientReviewCategoryAddCheckbox = By.xpath("//label[@for='chkg13PatientReviewCategoryAdd']");
+	private By newReviewCategoryButton = By.xpath("//span[normalize-space()='New Review Categories']");
+	private By reviewCategoryDescriptionInput = By.xpath("//input[@id='ReviewCategory_Description']");
+	private By addReviewCategorySaveButton = By.xpath("//button[@id='btnSave']");
+	private By patientReviewCategoryEditCheckbox = By.xpath("//label[@for='chkg13PatientReviewCategoryEdit']");
+
 	// LocatorTagPage
 	private By newTagButton = By.xpath("//span[normalize-space()='New Tag']");
 	private By firstTagActionMenu = By.xpath("//tbody/tr[1]/td[5]/div[1]/div[1]/button[1]/i[1]");
@@ -28,6 +49,7 @@ public class patientpage {
 	private By btnNewTag = By.xpath("//span[normalize-space()='New Tag']");
 	private By txtTagName = By.id("Tag_Name");
 	private By txtTagDescription = By.id("Tag_Description");
+	private By confirmDeleteButtontag = By.xpath("//div[@id='genericmodal']//button[@id='btnDeleteConfirm']");
 
 	// LocatorDedupePage
 	private By lastNameLabel = By.xpath("//label[normalize-space()='Last Name']");
@@ -254,6 +276,14 @@ public class patientpage {
 			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]");
 	private By cancelDeleteEnrollmentButton = By
 			.xpath("//button[@onclick='javascript: CloseDeletePopup();']//i[@class='fa fa-times']");
+	private By patientEnrollmentAllCheckbox = By.xpath("//label[@for='chkg10PatientEnrollmentAll']");
+	private By patientEnrollmentViewCheckbox = By.xpath("//label[@for='chkg10PatientEnrollmentView']");
+	private By patientEnrollmentAddCheckbox = By.xpath("//label[@for='chkg10PatientEnrollmentAdd']");
+	private By newEnrollmentButton = By.xpath("//span[normalize-space()='New Enrollment']");
+	private By enrollmentNameInput = By.xpath("//input[@id='Enrollment_Name']");
+	private By enrollmentSaveButton = By.xpath("//button[@id='btnSave']");
+	private By confirmDeleteEnrollmentButton = By.xpath("//div[@id='genericmodal']//button[@id='btnDeleteConfirm']");
+	private By patientEnrollmentEditCheckbox = By.xpath("//label[@for='chkg10PatientEnrollmentEdit']");
 
 	// LocatorDeDupePage
 	private By findDuplicateOption = By.xpath("//span[normalize-space()='Find Duplicate']");
@@ -277,7 +307,328 @@ public class patientpage {
 	private By patientModuleDeleteLabel = By.xpath("//label[@for='chkg9PatientDelete']");
 	private By patientTagEditPermissionLabel = By.xpath("//label[@for='chkg10PatientTagEdit']");
 
+	// Enrollmentspage
+	public void createEnrollmentProfileWithViewAccess() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		WebElement selectAllModulesLabel = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		selectAllModulesLabel.click();
+		sleep(2000);
+		WebElement patientEnrollmentAllLabel = wait
+				.until(ExpectedConditions.elementToBeClickable(patientEnrollmentAllCheckbox));
+		patientEnrollmentAllLabel.click();
+		sleep(2000);
+		WebElement patientEnrollmentViewLabel = wait
+				.until(ExpectedConditions.elementToBeClickable(patientEnrollmentViewCheckbox));
+		patientEnrollmentViewLabel.click();
+		sleep(2000);
+
+	}
+
+	public void editExistingEnrollment(String enrollmentName) {
+		sleep(4000);
+		wait.until(ExpectedConditions.elementToBeClickable(enrollmentActionMenuButton)).click();
+		sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(editEnrollmentOption)).click();
+		sleep(3000);
+		enterEnrollmentName(enrollmentName);
+		clickSaveEnrollmentButton();
+	}
+
+	// ===== Actions =====
+	public void clickNewEnrollmentButton() {
+		sleep(4000);
+		wait.until(ExpectedConditions.elementToBeClickable(newEnrollmentButton)).click();
+	}
+
+	public void enterEnrollmentName(String name) {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(enrollmentNameInput)).clear();
+		driver.findElement(enrollmentNameInput).sendKeys(name);
+	}
+
+	public void clickSaveEnrollmentButton() {
+		wait.until(ExpectedConditions.elementToBeClickable(enrollmentSaveButton)).click();
+	}
+
+	public void addNewEnrollment(String enrollmentName) {
+		clickNewEnrollmentButton();
+		enterEnrollmentName(enrollmentName);
+		clickSaveEnrollmentButton();
+	}
+
+	public void deleteEnrollment() {
+		sleep(4000);
+		wait.until(ExpectedConditions.elementToBeClickable(enrollmentActionMenuButton)).click();
+		sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(deleteEnrollmentOption)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(confirmDeleteEnrollmentButton)).click();
+	}
+
+	public void createSetupEnrollmentViewAddProfile() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		WebElement selectAllModulesLabel = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		selectAllModulesLabel.click();
+		sleep(2000);
+		WebElement patientEnrollmentAllLabel = wait
+				.until(ExpectedConditions.elementToBeClickable(patientEnrollmentAllCheckbox));
+		patientEnrollmentAllLabel.click();
+		sleep(2000);
+		WebElement patientEnrollmentViewLabel = wait
+				.until(ExpectedConditions.elementToBeClickable(patientEnrollmentViewCheckbox));
+		patientEnrollmentViewLabel.click();
+		sleep(2000);
+		WebElement patientEnrollmentAddLabel = wait
+				.until(ExpectedConditions.elementToBeClickable(patientEnrollmentAddCheckbox));
+		patientEnrollmentAddLabel.click();
+		sleep(2000);
+
+	}
+
+	public void createSetupEnrollmentViewAddEditProfile() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		WebElement selectAllModulesLabel = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		selectAllModulesLabel.click();
+		sleep(2000);
+		WebElement patientEnrollmentAllLabel = wait
+				.until(ExpectedConditions.elementToBeClickable(patientEnrollmentAllCheckbox));
+		patientEnrollmentAllLabel.click();
+		sleep(2000);
+		WebElement patientEnrollmentViewLabel = wait
+				.until(ExpectedConditions.elementToBeClickable(patientEnrollmentViewCheckbox));
+		patientEnrollmentViewLabel.click();
+		sleep(2000);
+		WebElement patientEnrollmentAddLabel = wait
+				.until(ExpectedConditions.elementToBeClickable(patientEnrollmentAddCheckbox));
+		patientEnrollmentAddLabel.click();
+		sleep(2000);
+		WebElement patientEnrollmentEditLabel = wait
+				.until(ExpectedConditions.elementToBeClickable(patientEnrollmentEditCheckbox));
+		patientEnrollmentEditLabel.click();
+		sleep(2000);
+
+	}
+
+	public void createSetupEnrollmentFullAccessProfile() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		WebElement selectAllModulesLabel = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		selectAllModulesLabel.click();
+
+	}
+
+	public void verifyUserCannotManageEnrollments() {
+		sleep(4000);
+		if (!driver.findElements(addReferralSourceButton).isEmpty()) {
+			throw new AssertionError("New Tag button should NOT be present");
+		}
+
+		clickWhenClickable(enrollmentActionMenuButton);
+
+		if (!driver.findElements(editTagOption).isEmpty()) {
+			throw new AssertionError("Edit option should NOT be present");
+		}
+
+		if (!driver.findElements(deleteTagOption).isEmpty()) {
+			throw new AssertionError("Delete option should NOT be present");
+		}
+	}
+
+	public void restrictEnrollmentEditDelete() {
+		sleep(4000);
+		clickWhenClickable(enrollmentActionMenuButton);
+
+		if (!driver.findElements(editTagOption).isEmpty()) {
+			throw new AssertionError("Edit option should NOT be present");
+		}
+
+		if (!driver.findElements(deleteTagOption).isEmpty()) {
+			throw new AssertionError("Delete option should NOT be present");
+		}
+	}
+
+	public void restrictEnrollmentDelete() {
+		sleep(4000);
+		clickWhenClickable(enrollmentActionMenuButton);
+
+		if (!driver.findElements(deleteTagOption).isEmpty()) {
+			throw new AssertionError("Delete option should NOT be present");
+		}
+	}
+
+	// ReferralSourcepage
+	public void restrictReferralSourceDelete() {
+
+		clickWhenClickable(referralSourceFirstRowActionMenu);
+
+		if (!driver.findElements(deleteReferralSourceOption).isEmpty()) {
+			throw new AssertionError("Delete option should NOT be present");
+		}
+	}
+
+	public void verifyEditDeleteReferralSourceRestricted() {
+
+		clickWhenClickable(referralSourceFirstRowActionMenu);
+
+		if (!driver.findElements(editReferralSourceOption).isEmpty()) {
+			throw new AssertionError("Edit option should NOT be present");
+		}
+
+		if (!driver.findElements(deleteReferralSourceOption).isEmpty()) {
+			throw new AssertionError("Delete option should NOT be present");
+		}
+	}
+
+	public void clickNewReferralSourceButton() {
+		sleep(5000);
+		wait.until(ExpectedConditions.elementToBeClickable(newReferralSourceButton)).click();
+	}
+
+	public void enterReferralSourceName(String name) {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(referralSourceNameInput)).clear();
+		driver.findElement(referralSourceNameInput).sendKeys(name);
+	}
+
+	public void enterReferralSourceDescription(String description) {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(referralSourceDescriptionInput)).clear();
+		driver.findElement(referralSourceDescriptionInput).sendKeys(description);
+	}
+
+	public void clickSaveReferralSourceButton() {
+		wait.until(ExpectedConditions.elementToBeClickable(referralSourceSaveButton)).click();
+	}
+
+	public void addNewReferralSource() {
+		clickNewReferralSourceButton();
+		enterReferralSourceName("Test Referral Source");
+		enterReferralSourceDescription("Referral source created for automation testing");
+		clickSaveReferralSourceButton();
+	}
+
+	public void openFirstReferralSourceActionMenu() {
+		wait.until(ExpectedConditions.elementToBeClickable(referralSourceFirstRowActionMenu)).click();
+	}
+
+	public void editReferralSource() {
+		openFirstReferralSourceActionMenu();
+		wait.until(ExpectedConditions.elementToBeClickable(editReferralSourceOption)).click();
+		sleep(5000);
+		enterReferralSourceName("Test Referral Source");
+		enterReferralSourceDescription("Referral source created for automation testing");
+		clickSaveReferralSourceButton();
+	}
+
+	public void deleteReferralSource() {
+		openFirstReferralSourceActionMenu();
+		wait.until(ExpectedConditions.elementToBeClickable(deleteReferralSourceOption)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(confirmDeleteReferralSourceButton)).click();
+	}
+
+	public void shouldRestrictUserFromAddEditDeleteReferralSources() {
+		if (!driver.findElements(addReferralSourceButton).isEmpty()) {
+			throw new AssertionError("New Tag button should NOT be present");
+		}
+
+		clickWhenClickable(actionMenuForReferralSource);
+
+		if (!driver.findElements(editTagOption).isEmpty()) {
+			throw new AssertionError("Edit option should NOT be present");
+		}
+
+		if (!driver.findElements(deleteTagOption).isEmpty()) {
+			throw new AssertionError("Delete option should NOT be present");
+		}
+	}
+
+	// ReviewCategoriespage
+
+	public void clickDeleteReviewCategoryButton() {
+		sleep(5000);
+		clickWhenClickable(reviewCategoryActionMenuButton);
+		wait.until(ExpectedConditions.elementToBeClickable(deleteReviewCategoryButton)).click();
+	}
+
+	public void clickConfirmDeleteButton() {
+		sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(confirmDeleteButtontag)).click();
+	}
+
+	public void deleteReviewCategory() {
+		clickDeleteReviewCategoryButton();
+		clickConfirmDeleteButton();
+	}
+
+	public void shouldRestrictUserFromEditingOrDeletingReviewCategories() {
+		sleep(5000);
+		clickWhenClickable(reviewCategoryActionMenuButton);
+		sleep(1000);
+		if (!driver.findElements(editTagOption).isEmpty()) {
+			throw new AssertionError("Edit option should NOT be present");
+		}
+
+		if (!driver.findElements(deleteTagOption).isEmpty()) {
+			throw new AssertionError("Delete option should NOT be present");
+		}
+
+	}
+
+	public void restrictReviewCategoryDelete() {
+		sleep(5000);
+		clickWhenClickable(reviewCategoryActionMenuButton);
+		sleep(1000);
+		if (!driver.findElements(deleteTagOption).isEmpty()) {
+			throw new AssertionError("Delete option should NOT be present");
+		}
+
+	}
+
+	public void addNewReviewCategory(String categoryName, String categoryDescription) {
+		clickNewReviewCategoryButton();
+		enterReviewCategoryName(categoryName);
+		enterReviewCategoryDescription(categoryDescription);
+		clickSaveReviewCategoryButton();
+	}
+
+	public void editReviewCategory(String categoryName, String categoryDescription) {
+		sleep(3000);
+		clickWhenClickable(reviewCategoryActionMenuButton);
+		sleep(1000);
+		clickWhenClickable(editTagOption);
+		sleep(3000);
+		enterReviewCategoryName(categoryName);
+		enterReviewCategoryDescription(categoryDescription);
+		clickSaveReviewCategoryButton();
+	}
+
+	public void clickNewReviewCategoryButton() {
+		sleep(1000);
+		waitForLoaderIfPresent();
+		wait.until(ExpectedConditions.elementToBeClickable(newReviewCategoryButton)).click();
+	}
+
+	public void enterReviewCategoryName(String name) {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(reviewCategoryNameInput)).clear();
+		driver.findElement(reviewCategoryNameInput).sendKeys(name);
+	}
+
+	public void enterReviewCategoryDescription(String description) {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(reviewCategoryDescriptionInput)).clear();
+		driver.findElement(reviewCategoryDescriptionInput).sendKeys(description);
+	}
+
+	public void clickSaveReviewCategoryButton() {
+		wait.until(ExpectedConditions.elementToBeClickable(addReviewCategorySaveButton)).click();
+	}
+
 	// TagPage
+	public void deleteTag() {
+		sleep(3000);
+		clickWhenClickable(firstTagActionMenu);
+		sleep(1000);
+		WebElement deleteTagButton = wait.until(ExpectedConditions.elementToBeClickable(deleteTagOption));
+		deleteTagButton.click();
+		sleep(1000);
+		WebElement confirmDeleteButton = wait.until(ExpectedConditions.elementToBeClickable(confirmDeleteButtontag));
+		confirmDeleteButton.click();
+
+	}
 
 	public void clickNewTagButton() {
 		waitForLoaderIfPresent();
@@ -313,11 +664,11 @@ public class patientpage {
 	}
 
 	public void verifyAddEditDeleteRestricted() {
-		if (!driver.findElements(newTagButton).isEmpty()) {
+		if (!driver.findElements(addReviewCategoryButton).isEmpty()) {
 			throw new AssertionError("New Tag button should NOT be present");
 		}
 
-		clickWhenClickable(firstTagActionMenu);
+		clickWhenClickable(reviewCategoryActionMenuButton);
 
 		if (!driver.findElements(editTagOption).isEmpty()) {
 			throw new AssertionError("Edit option should NOT be present");
@@ -530,7 +881,7 @@ public class patientpage {
 		sleep(2000);
 		clickWhenClickable(firstRowActionButton);
 		clickWhenClickable(deleteOption);
-		clickWhenClickable(confirmDeleteButton);
+		clickWhenClickable(confirmDeleteReferralSourceButton);
 	}
 
 	public void clickReferralInput() {
@@ -1736,6 +2087,165 @@ public class patientpage {
 				.until(ExpectedConditions.elementToBeClickable(patientTagEditPermissionLabel));
 		patientTagEditPermissionLabelElement.click();
 		sleep(1000);
+
+	}
+
+	public void createPatientTagProfileWithFullAccess() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		WebElement selectAllModulesLabel = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		selectAllModulesLabel.click();
+		sleep(2000);
+
+	}
+
+	public void createSetupReviewCategoryViewOnlyProfile() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		WebElement selectAllModulesLabel = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		selectAllModulesLabel.click();
+		sleep(2000);
+
+		WebElement patientReviewCategoryAllLabel = wait
+				.until(ExpectedConditions.elementToBeClickable(patientReviewCategoryAllCheckbox));
+		patientReviewCategoryAllLabel.click();
+		sleep(2000);
+
+		WebElement patientReviewCategoryViewLabel = wait
+				.until(ExpectedConditions.elementToBeClickable(patientReviewCategoryViewCheckbox));
+		patientReviewCategoryViewLabel.click();
+		sleep(2000);
+
+	}
+
+	public void createSetupReviewCategoryViewAddProfile() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		WebElement selectAllModulesLabel = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		selectAllModulesLabel.click();
+		sleep(2000);
+
+		WebElement patientReviewCategoryAllLabel = wait
+				.until(ExpectedConditions.elementToBeClickable(patientReviewCategoryAllCheckbox));
+		patientReviewCategoryAllLabel.click();
+		sleep(2000);
+
+		WebElement patientReviewCategoryViewLabel = wait
+				.until(ExpectedConditions.elementToBeClickable(patientReviewCategoryViewCheckbox));
+		patientReviewCategoryViewLabel.click();
+		sleep(2000);
+
+		WebElement patientReviewCategoryAddLabel = wait
+				.until(ExpectedConditions.elementToBeClickable(patientReviewCategoryAddCheckbox));
+		patientReviewCategoryAddLabel.click();
+		sleep(2000);
+
+	}
+
+	public void createSetupReviewCategoryViewAddEditProfile() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		WebElement selectAllModulesLabel = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		selectAllModulesLabel.click();
+		sleep(2000);
+
+		WebElement patientReviewCategoryAllLabel = wait
+				.until(ExpectedConditions.elementToBeClickable(patientReviewCategoryAllCheckbox));
+		patientReviewCategoryAllLabel.click();
+		sleep(2000);
+
+		WebElement patientReviewCategoryViewLabel = wait
+				.until(ExpectedConditions.elementToBeClickable(patientReviewCategoryViewCheckbox));
+		patientReviewCategoryViewLabel.click();
+		sleep(2000);
+
+		WebElement patientReviewCategoryAddLabel = wait
+				.until(ExpectedConditions.elementToBeClickable(patientReviewCategoryAddCheckbox));
+		patientReviewCategoryAddLabel.click();
+		sleep(2000);
+
+		WebElement patientReviewCategoryEditLabel = wait
+				.until(ExpectedConditions.elementToBeClickable(patientReviewCategoryEditCheckbox));
+		patientReviewCategoryEditLabel.click();
+		sleep(2000);
+
+	}
+
+	public void shouldCreateFullAccessProfileForReviewCategory() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		WebElement selectAllModulesLabel = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		selectAllModulesLabel.click();
+		sleep(2000);
+
+	}
+
+	public void createReferralSourceProfileWithViewAccess() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		WebElement selectAllModulesLabel = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		selectAllModulesLabel.click();
+		sleep(2000);
+		WebElement patientReferralSourceAllLabel = wait
+				.until(ExpectedConditions.elementToBeClickable(patientReferralSourceAllCheckbox));
+		patientReferralSourceAllLabel.click();
+		sleep(2000);
+
+		WebElement patientReferralSourceViewLabel = wait
+				.until(ExpectedConditions.elementToBeClickable(patientReferralSourceViewCheckbox));
+		patientReferralSourceViewLabel.click();
+		sleep(2000);
+
+	}
+
+	public void createSetupReferralSourceViewAddProfile() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		WebElement selectAllModulesLabel = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		selectAllModulesLabel.click();
+		sleep(2000);
+		WebElement patientReferralSourceAllLabel = wait
+				.until(ExpectedConditions.elementToBeClickable(patientReferralSourceAllCheckbox));
+		patientReferralSourceAllLabel.click();
+		sleep(2000);
+
+		WebElement patientReferralSourceViewLabel = wait
+				.until(ExpectedConditions.elementToBeClickable(patientReferralSourceViewCheckbox));
+		patientReferralSourceViewLabel.click();
+		sleep(2000);
+
+		WebElement patientReferralSourceAddLabel = wait
+				.until(ExpectedConditions.elementToBeClickable(patientReferralSourceAddCheckbox));
+		patientReferralSourceAddLabel.click();
+		sleep(2000);
+
+	}
+
+	public void createSetupReferralSourceViewAddEditProfile() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		WebElement selectAllModulesLabel = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		selectAllModulesLabel.click();
+		sleep(2000);
+		WebElement patientReferralSourceAllLabel = wait
+				.until(ExpectedConditions.elementToBeClickable(patientReferralSourceAllCheckbox));
+		patientReferralSourceAllLabel.click();
+		sleep(2000);
+
+		WebElement patientReferralSourceViewLabel = wait
+				.until(ExpectedConditions.elementToBeClickable(patientReferralSourceViewCheckbox));
+		patientReferralSourceViewLabel.click();
+		sleep(2000);
+
+		WebElement patientReferralSourceAddLabel = wait
+				.until(ExpectedConditions.elementToBeClickable(patientReferralSourceAddCheckbox));
+		patientReferralSourceAddLabel.click();
+		sleep(2000);
+
+		WebElement patientReferralSourceEditLabel = wait
+				.until(ExpectedConditions.elementToBeClickable(patientReferralSourceEditCheckbox));
+		patientReferralSourceEditLabel.click();
+		sleep(2000);
+
+	}
+
+	public void createSetupReferralSourceFullAccessProfile() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		WebElement selectAllModulesLabel = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		selectAllModulesLabel.click();
+		sleep(2000);
 
 	}
 

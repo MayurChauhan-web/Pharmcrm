@@ -156,7 +156,6 @@ Feature: Patient Module scenarios
   And the user should be able to add a new tag  
   But the user should not be able to edit or delete tags  
 
-  # test
   Scenario: User with View, Add, and Edit access for Tag
   Given I log in as admin for Patient module
   When I create a new user with email for Patient Module "testuser1_static@mailinator.com"
@@ -168,7 +167,7 @@ Feature: Patient Module scenarios
   And the user should be able to add a new tag
   And the user should be able to edit an existing tag 
   But the user should not be able to delete tags
-     
+  
   Scenario: User with View, Add, Edit, and Delete access for Tag
   Given I log in as admin for Patient module
   When I create a new user with email for Patient Module "testuser1_static@mailinator.com"
@@ -316,6 +315,7 @@ Feature: Patient Module scenarios
   And the user should be able to edit an existing enrollment
   And the user should be able to delete an enrollment    
      
+  # test
   Scenario: User with full Folder permissions for Bucket
   Given I log in as admin for Patient module
   When I create a new user with email for Patient Module "testuser1_static@mailinator.com"

@@ -500,7 +500,6 @@ And I create a profile with View and Add access to Patient Module Tag test
 Then the user should be able to view tags and add a new tag test
 But the user should not be able to edit or delete tags test 
 
-@Patient
 Scenario: User with View, Add, and Edit access for Tag test
 Given user launch browser
 Then user click on the user type dropdown
@@ -512,6 +511,378 @@ Then the patient user should be able to view Profiles
 And I create a profile with View, Add, and Edit access to Patient Module Tag test 
 Then user should be able to view, add, and edit tags
 But the user should not be able to delete tags test
+
+Scenario: User with View, Add, Edit, and Delete access for Tag
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with View, Add, Edit, and Delete access to Patient Module Tag test
+Then user should be able to view, add, edit, and delete tags   
+
+Scenario: User with View only access for Review Category test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with View access only to Setup Module Review Category test 
+Then the user should be able to view review categories test
+But the user should not be able to add, edit, or delete review categories test
+
+Scenario: User with View and Add access for Review Category test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with View and Add access to Setup Module Review Category test
+And the user should be able to add a new review category test 
+But the user should not be able to edit or delete review categories test  
+
+Scenario: User with View, Add, and Edit access for Review Category test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with View, Add, and Edit access to Setup Module Review Category test
+And the user should be able to add a new review category test 
+And the user should be able to edit an existing review category test 
+But the user should not be able to delete review categories test 
+
+Scenario: User with View, Add, Edit, and Delete access for Review Category test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with View, Add, Edit, and Delete access to Setup Module Review Category test 
+And the user should be able to add a new review category test 
+And the user should be able to edit an existing review category test 
+And the user should be able to delete a review category test    
+
+Scenario: User with View only access for Referral Source test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with View access only to Setup Module Referral Source test 
+Then the user should be able to view referral sources test      
+But the user should not be able to add, edit, or delete referral sources test  
+
+Scenario: User with View and Add access for Referral Source test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with View and Add access to Setup Module Referral Source test
+Then the user should be able to view referral sources test      
+And the user should be able to add a new referral source test
+But the user should not be able to edit or delete referral sources test
+
+Scenario: User with View, Add, and Edit access for Referral Source test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with View, Add, and Edit access to Setup Module Referral Source test
+Then the user should be able to view referral sources test      
+And the user should be able to add a new referral source test
+And the user should be able to edit an existing referral source test 
+But the user should not be able to delete referral sources test 
+
+Scenario: User with View, Add, Edit, and Delete access for Referral Source
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with View, Add, Edit, and Delete access to Setup Module Referral Source test  
+Then the user should be able to view referral sources test      
+And the user should be able to add a new referral source test
+And the user should be able to edit an existing referral source test 
+And the user should be able to delete a referral source test
+
+Scenario: User with View only access for Enrollment test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with View access only to Setup Module Enrollment test
+Then the user should be able to view enrollments test
+But the user should not be able to add, edit, or delete enrollments test
+
+Scenario: User with View and Add access for Enrollment test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with View and Add access to Setup Module Enrollment test
+Then the user should be able to view enrollments test
+And the user should be able to add a new enrollment test  
+But the user should not be able to edit or delete enrollments test  
+
+Scenario: User with View, Add, and Edit access for Enrollment test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with View, Add, and Edit access to Setup Module Enrollment test
+Then the user should be able to view enrollments test
+And the user should be able to add a new enrollment test  
+And the user should be able to edit an existing enrollment test  
+But the user should not be able to delete enrollments test
+
+@Patient
+Scenario: User with View, Add, Edit, and Delete access for Enrollment test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with View, Add, Edit, and Delete access to Setup Module Enrollment test
+Then the user should be able to view enrollments test
+And the user should be able to add a new enrollment test  
+And the user should be able to edit an existing enrollment test  
+And the user should be able to delete an enrollment test 
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

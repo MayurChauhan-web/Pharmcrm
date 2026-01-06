@@ -21,6 +21,241 @@ public class patientstep {
 	private String enrollmentNameBeforeEdit;
 	private String enrollmentNameBeforeDelete;
 
+	// Enrollmentspage
+	@And("I create a profile with View access only to Setup Module Enrollment test")
+	public void createSetupModuleEnrollmentProfileWithViewAccess() {
+		patientPage.clickFilterButton();
+		patientPage.enterProfileName("Sunil");
+		patientPage.clickSearchButton();
+		patientPage.clickActionMenu();
+		patientPage.clickEditButton();
+		patientPage.createEnrollmentProfileWithViewAccess();
+		patientPage.clickSubmitButton();
+		System.out.println("Profile updated with View, Add, Edit, and Delete access to Patient Module Tag");
+		Hooks.scenario.log("Profile updated with View, Add, Edit, and Delete access to Patient Module Tag");
+	}
+
+	@And("I create a profile with View and Add access to Setup Module Enrollment test")
+	public void createSetupModuleEnrollmentProfileWithViewAndAddAccess() {
+		patientPage.clickFilterButton();
+		patientPage.enterProfileName("Sunil");
+		patientPage.clickSearchButton();
+		patientPage.clickActionMenu();
+		patientPage.clickEditButton();
+		patientPage.createSetupEnrollmentViewAddProfile();
+		patientPage.clickSubmitButton();
+		System.out.println("Profile updated with View, Add, Edit, and Delete access to Patient Module Tag");
+		Hooks.scenario.log("Profile updated with View, Add, Edit, and Delete access to Patient Module Tag");
+	}
+
+	@And("I create a profile with View, Add, and Edit access to Setup Module Enrollment test")
+	public void createSetupModuleEnrollmentProfileWithViewAddEditAccess() {
+		patientPage.clickFilterButton();
+		patientPage.enterProfileName("Sunil");
+		patientPage.clickSearchButton();
+		patientPage.clickActionMenu();
+		patientPage.clickEditButton();
+		patientPage.createSetupEnrollmentViewAddEditProfile();
+		patientPage.clickSubmitButton();
+		System.out.println("Profile updated with View, Add, Edit, and Delete access to Patient Module Tag");
+		Hooks.scenario.log("Profile updated with View, Add, Edit, and Delete access to Patient Module Tag");
+	}
+
+	@And("I create a profile with View, Add, Edit, and Delete access to Setup Module Enrollment test")
+	public void createSetupModuleEnrollmentProfileWithFullAccess() {
+		patientPage.clickFilterButton();
+		patientPage.enterProfileName("Sunil");
+		patientPage.clickSearchButton();
+		patientPage.clickActionMenu();
+		patientPage.clickEditButton();
+		patientPage.createSetupEnrollmentFullAccessProfile();
+		patientPage.clickSubmitButton();
+		System.out.println("Profile updated with View, Add, Edit, and Delete access to Patient Module Tag");
+		Hooks.scenario.log("Profile updated with View, Add, Edit, and Delete access to Patient Module Tag");
+	}
+
+	@And("the user should not be able to add, edit, or delete enrollments test")
+	public void shouldRestrictUserFromManagingEnrollments() {
+		sleep(2000);
+		patientPage.verifyUserCannotManageEnrollments();
+	}
+
+	@And("the user should not be able to edit or delete enrollments test")
+	public void shouldRestrictUserFromEditingOrDeletingEnrollments() {
+		sleep(2000);
+		patientPage.restrictEnrollmentEditDelete();
+	}
+
+	@And("the user should not be able to delete enrollments test")
+	public void shouldRestrictUserFromDeletingEnrollments() {
+		sleep(2000);
+		patientPage.restrictEnrollmentDelete();
+	}
+
+	@And("the user should be able to view enrollments test")
+	public void shouldAllowUserToViewEnrollments() {
+		sleep(4000);
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String reviewCategoriesPageUrl = Hooks.prop.getProperty("enrollmentsPageUrl");
+		String fullUrl = baseUrl + reviewCategoriesPageUrl;
+		patientPage = new patientpage(Hooks.driver);
+		patientPage.openPatientsPage(fullUrl, "/Patient/Home/Enrollments");
+		Assert.assertTrue("Review Categories page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Patient/Home/Enrollments"));
+		System.out.println("User is able to view the Review Categories page");
+		Hooks.scenario.log("User is able to view the Review Categories page");
+
+	}
+
+	@And("the user should be able to add a new enrollment test")
+	public void shouldAllowUserToAddNewEnrollment() {
+		sleep(4000);
+		patientPage.addNewEnrollment("Test Enrollment");
+
+	}
+
+	@And("the user should be able to edit an existing enrollment test")
+	public void shouldAllowUserToEditExistingEnrollment() {
+		sleep(4000);
+		patientPage.editExistingEnrollment("Updated Enrollment Name");
+
+	}
+
+	@And("the user should be able to delete an enrollment test")
+	public void shouldAllowUserToDeleteEnrollment() {
+		sleep(4000);
+		patientPage.deleteEnrollment();
+
+	}
+
+	// ReferralSourcepage
+	@And("the user should be able to view referral sources test")
+	public void shouldAllowUserToViewReferralSources() {
+		sleep(4000);
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String reviewCategoriesPageUrl = Hooks.prop.getProperty("referralSourcesPageUrl");
+		String fullUrl = baseUrl + reviewCategoriesPageUrl;
+		patientPage = new patientpage(Hooks.driver);
+		patientPage.openPatientsPage(fullUrl, "/Patient/Home/ReferralSources");
+		Assert.assertTrue("Review Categories page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Patient/Home/ReferralSources"));
+		System.out.println("User is able to view the Review Categories page");
+		Hooks.scenario.log("User is able to view the Review Categories page");
+
+	}
+
+	@And("the user should be able to add a new referral source test")
+	public void shouldAllowUserToAddNewReferralSource() {
+		sleep(4000);
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String reviewCategoriesPageUrl = Hooks.prop.getProperty("referralSourcesPageUrl");
+		String fullUrl = baseUrl + reviewCategoriesPageUrl;
+		patientPage = new patientpage(Hooks.driver);
+		patientPage.openPatientsPage(fullUrl, "/Patient/Home/ReferralSources");
+		Assert.assertTrue("Review Categories page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Patient/Home/ReferralSources"));
+		System.out.println("User is able to view the Review Categories page");
+		Hooks.scenario.log("User is able to view the Review Categories page");
+
+		patientPage.addNewReferralSource();
+
+	}
+
+	@And("the user should be able to edit an existing referral source test")
+	public void shouldAllowUserToEditExistingReferralSource() {
+		sleep(4000);
+		patientPage.editReferralSource();
+
+	}
+
+	@And("the user should not be able to edit or delete referral sources test")
+	public void shouldRestrictUserFromEditingOrDeletingReferralSources() {
+		sleep(4000);
+		patientPage.verifyEditDeleteReferralSourceRestricted();
+
+	}
+
+	@And("the user should not be able to delete referral sources test")
+	public void shouldRestrictUserFromDeletingReferralSources() {
+		sleep(4000);
+		patientPage.restrictReferralSourceDelete();
+
+	}
+
+	@And("the user should not be able to add, edit, or delete referral sources test")
+	public void shouldRestrictUserFromManagingReferralSources() {
+		sleep(2000);
+		patientPage.shouldRestrictUserFromAddEditDeleteReferralSources();
+	}
+
+	// ReviewCategorypage
+
+	@And("the user should be able to view review categories test")
+	public void shouldAllowUserToViewReviewCategories() {
+		sleep(2000);
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String reviewCategoriesPageUrl = Hooks.prop.getProperty("reviewCategoriesPageUrl");
+		String fullUrl = baseUrl + reviewCategoriesPageUrl;
+		patientPage = new patientpage(Hooks.driver);
+		patientPage.openPatientsPage(fullUrl, "/Patient/Home/ReviewCategories");
+		Assert.assertTrue("Review Categories page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Patient/Home/ReviewCategories"));
+		System.out.println("User is able to view the Review Categories page");
+		Hooks.scenario.log("User is able to view the Review Categories page");
+
+	}
+
+	@And("the user should not be able to edit or delete review categories test")
+	public void shouldRestrictUserFromEditingOrDeletingReviewCategories() {
+		sleep(2000);
+		patientPage.shouldRestrictUserFromEditingOrDeletingReviewCategories();
+	}
+
+	@And("the user should not be able to delete review categories test")
+	public void shouldRestrictUserFromDeletingReviewCategories() {
+		sleep(2000);
+		patientPage.restrictReviewCategoryDelete();
+	}
+
+	@And("the user should be able to add a new review category test")
+	public void shouldAllowUserToAddNewReviewCategory() {
+		sleep(2000);
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String reviewCategoriesPageUrl = Hooks.prop.getProperty("reviewCategoriesPageUrl");
+		String fullUrl = baseUrl + reviewCategoriesPageUrl;
+		patientPage = new patientpage(Hooks.driver);
+		patientPage.openPatientsPage(fullUrl, "/Patient/Home/ReviewCategories");
+		Assert.assertTrue("Review Categories page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Patient/Home/ReviewCategories"));
+		System.out.println("User is able to view the Review Categories page");
+		Hooks.scenario.log("User is able to view the Review Categories page");
+
+		patientPage.addNewReviewCategory("Cardiology Review", "Review for cardiology patients");
+
+		patientPage.editReviewCategory("Cardiology Review", "Review for cardiology patients");
+
+	}
+
+	@And("the user should be able to edit an existing review category test")
+	public void shouldAllowUserToEditExistingReviewCategory() {
+		sleep(2000);
+		patientPage.editReviewCategory("Cardiology Review", "Review for cardiology patients");
+
+	}
+
+	@And("the user should be able to delete a review category test")
+	public void shouldAllowUserToDeleteReviewCategory() {
+		sleep(2000);
+		patientPage.deleteReviewCategory();
+
+	}
+
+	@And("the user should not be able to add, edit, or delete review categories test")
+	public void shouldRestrictUserFromManagingReviewCategories() {
+		sleep(2000);
+		patientPage.verifyAddEditDeleteRestricted();
+	}
+
 	// PatientPage
 
 	@And("the user should be able to reset a patient password test")
@@ -316,6 +551,24 @@ public class patientstep {
 
 		patientPage.createNewTag("Test Tag");
 		patientPage.editTag("Updated Test Tag");
+
+	}
+
+	@And("user should be able to view, add, edit, and delete tags")
+	public void viewAddEditDeleteTags() {
+		sleep(2000);
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String tagsPageUrl = Hooks.prop.getProperty("tagsPageUrl");
+		String fullUrl = baseUrl + tagsPageUrl;
+		patientPage = new patientpage(Hooks.driver);
+		patientPage.openPatientsPage(fullUrl, "/Patient/Home/Tags");
+		Assert.assertTrue("Tags page is not displayed", Hooks.driver.getCurrentUrl().contains("/Patient/Home/Tags"));
+		System.out.println("User is able to view tags and add a new tag");
+		Hooks.scenario.log("User is able to view tags and add a new tag");
+
+		patientPage.createNewTag("Test Tag");
+		patientPage.editTag("Updated Test Tag");
+		patientPage.deleteTag();
 
 	}
 
@@ -1612,6 +1865,123 @@ public class patientstep {
 		System.out.println("Profile updated with View, Add, and Edit access to Patient Module Tag");
 		Hooks.scenario.log("Profile updated with View, Add, and Edit access to Patient Module Tag");
 
+	}
+
+	@And("I create a profile with View, Add, Edit, and Delete access to Patient Module Tag test")
+	public void createPatientModuleTagProfileWithCRUDAccess() {
+		patientPage.clickFilterButton();
+		patientPage.enterProfileName("Sunil");
+		patientPage.clickSearchButton();
+		patientPage.clickActionMenu();
+		patientPage.clickEditButton();
+		patientPage.createPatientTagProfileWithFullAccess();
+		patientPage.clickSubmitButton();
+		System.out.println("Profile updated with View, Add, Edit, and Delete access to Patient Module Tag");
+		Hooks.scenario.log("Profile updated with View, Add, Edit, and Delete access to Patient Module Tag");
+	}
+
+	@And("I create a profile with View access only to Setup Module Review Category test")
+	public void createSetupModuleReviewCategoryProfileWithViewAccess() {
+		patientPage.clickFilterButton();
+		patientPage.enterProfileName("Sunil");
+		patientPage.clickSearchButton();
+		patientPage.clickActionMenu();
+		patientPage.clickEditButton();
+		patientPage.createSetupReviewCategoryViewOnlyProfile();
+		patientPage.clickSubmitButton();
+		System.out.println("Profile updated with View, Add, Edit, and Delete access to Patient Module Tag");
+		Hooks.scenario.log("Profile updated with View, Add, Edit, and Delete access to Patient Module Tag");
+	}
+
+	@And("I create a profile with View and Add access to Setup Module Review Category test")
+	public void createSetupModuleReviewCategoryProfileWithViewAndAddAccess() {
+		patientPage.clickFilterButton();
+		patientPage.enterProfileName("Sunil");
+		patientPage.clickSearchButton();
+		patientPage.clickActionMenu();
+		patientPage.clickEditButton();
+		patientPage.createSetupReviewCategoryViewAddProfile();
+		patientPage.clickSubmitButton();
+		System.out.println("Profile updated with View, Add, Edit, and Delete access to Patient Module Tag");
+		Hooks.scenario.log("Profile updated with View, Add, Edit, and Delete access to Patient Module Tag");
+	}
+
+	@And("I create a profile with View, Add, and Edit access to Setup Module Review Category test")
+	public void createSetupModuleReviewCategoryProfileWithViewAddEditAccess() {
+		patientPage.clickFilterButton();
+		patientPage.enterProfileName("Sunil");
+		patientPage.clickSearchButton();
+		patientPage.clickActionMenu();
+		patientPage.clickEditButton();
+		patientPage.createSetupReviewCategoryViewAddEditProfile();
+		patientPage.clickSubmitButton();
+		System.out.println("Profile updated with View, Add, Edit, and Delete access to Patient Module Tag");
+		Hooks.scenario.log("Profile updated with View, Add, Edit, and Delete access to Patient Module Tag");
+	}
+
+	@And("I create a profile with View, Add, Edit, and Delete access to Setup Module Review Category test")
+	public void createSetupModuleReviewCategoryProfileWithFullAccess() {
+		patientPage.clickFilterButton();
+		patientPage.enterProfileName("Sunil");
+		patientPage.clickSearchButton();
+		patientPage.clickActionMenu();
+		patientPage.clickEditButton();
+		patientPage.shouldCreateFullAccessProfileForReviewCategory();
+		patientPage.clickSubmitButton();
+		System.out.println("Profile updated with View, Add, Edit, and Delete access to Patient Module Tag");
+		Hooks.scenario.log("Profile updated with View, Add, Edit, and Delete access to Patient Module Tag");
+	}
+
+	@And("I create a profile with View access only to Setup Module Referral Source test")
+	public void createSetupModuleReferralSourceProfileWithViewAccess() {
+		patientPage.clickFilterButton();
+		patientPage.enterProfileName("Sunil");
+		patientPage.clickSearchButton();
+		patientPage.clickActionMenu();
+		patientPage.clickEditButton();
+		patientPage.createReferralSourceProfileWithViewAccess();
+		patientPage.clickSubmitButton();
+		System.out.println("Profile updated with View, Add, Edit, and Delete access to Patient Module Tag");
+		Hooks.scenario.log("Profile updated with View, Add, Edit, and Delete access to Patient Module Tag");
+	}
+
+	@And("I create a profile with View and Add access to Setup Module Referral Source test")
+	public void createSetupModuleReferralSourceProfileWithViewAndAddAccess() {
+		patientPage.clickFilterButton();
+		patientPage.enterProfileName("Sunil");
+		patientPage.clickSearchButton();
+		patientPage.clickActionMenu();
+		patientPage.clickEditButton();
+		patientPage.createSetupReferralSourceViewAddProfile();
+		patientPage.clickSubmitButton();
+		System.out.println("Profile updated with View, Add, Edit, and Delete access to Patient Module Tag");
+		Hooks.scenario.log("Profile updated with View, Add, Edit, and Delete access to Patient Module Tag");
+	}
+
+	@And("I create a profile with View, Add, and Edit access to Setup Module Referral Source test")
+	public void createSetupModuleReferralSourceProfileWithViewAddEditAccess() {
+		patientPage.clickFilterButton();
+		patientPage.enterProfileName("Sunil");
+		patientPage.clickSearchButton();
+		patientPage.clickActionMenu();
+		patientPage.clickEditButton();
+		patientPage.createSetupReferralSourceViewAddEditProfile();
+		patientPage.clickSubmitButton();
+		System.out.println("Profile updated with View, Add, Edit, and Delete access to Patient Module Tag");
+		Hooks.scenario.log("Profile updated with View, Add, Edit, and Delete access to Patient Module Tag");
+	}
+
+	@And("I create a profile with View, Add, Edit, and Delete access to Setup Module Referral Source test")
+	public void createSetupModuleReferralSourceProfileWithFullAccess() {
+		patientPage.clickFilterButton();
+		patientPage.enterProfileName("Sunil");
+		patientPage.clickSearchButton();
+		patientPage.clickActionMenu();
+		patientPage.clickEditButton();
+		patientPage.createSetupReferralSourceFullAccessProfile();
+		patientPage.clickSubmitButton();
+		System.out.println("Profile updated with View, Add, Edit, and Delete access to Patient Module Tag");
+		Hooks.scenario.log("Profile updated with View, Add, Edit, and Delete access to Patient Module Tag");
 	}
 
 	@And("I create a profile with all additional access permissions disabled in Patient Module test")
