@@ -315,7 +315,6 @@ Feature: Patient Module scenarios
   And the user should be able to edit an existing enrollment
   And the user should be able to delete an enrollment    
      
-  # test
   Scenario: User with full Folder permissions for Bucket
   Given I log in as admin for Patient module
   When I create a new user with email for Patient Module "testuser1_static@mailinator.com"
@@ -407,6 +406,7 @@ Feature: Patient Module scenarios
   And the user should be able to print patient intake forms   
   But the user should not be able to send for signature  
 
+  # test
   Scenario: User with Add, Edit, Print, and Send For Signature access for Patient Intake Form
   Given I log in as admin for Patient module
   When I create a new user with email for Patient Module "testuser1_static@mailinator.com"

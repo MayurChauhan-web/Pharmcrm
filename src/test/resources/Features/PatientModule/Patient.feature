@@ -665,7 +665,6 @@ And the user should be able to add a new enrollment test
 And the user should be able to edit an existing enrollment test  
 But the user should not be able to delete enrollments test
 
-@Patient
 Scenario: User with View, Add, Edit, and Delete access for Enrollment test
 Given user launch browser
 Then user click on the user type dropdown
@@ -679,6 +678,462 @@ Then the user should be able to view enrollments test
 And the user should be able to add a new enrollment test  
 And the user should be able to edit an existing enrollment test  
 And the user should be able to delete an enrollment test 
+
+Scenario: User with full Folder permissions for Bucket test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with View, Add Folder, Edit Folder, and Delete Folder access to Setup Module Bucket test  
+Then the user should be able to view buckets test
+And the user should be able to add new folders test
+And the user should be able to edit existing folders test
+And the user should be able to delete folders test
+
+Scenario: User with File management access for Bucket test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with View, Add File, Edit File, Delete File, and Download File access to Setup Module Bucket test  
+Then the user should be able to view buckets test
+And the user should be able to add new files to folders test
+And the user should be able to edit existing files test
+And the user should be able to delete files test 
+And the user should be able to download files test
+But the user should not be able to add, edit, or delete folders test
+
+Scenario: User with Add only access for Patient Health Card test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with Add access only to Patient Module Patient Health Card test
+Then the user should be able to add a patient health card test 
+But the user should not be able to edit or delete patient health cards test
+
+Scenario: User with Add and Edit access for Patient Health Card test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with Add and Edit access to Patient Module Patient Health Card test
+Then the user should be able to add a patient health card test 
+And the user should be able to edit patient health cards test
+But the user should not be able to delete patient health cards test
+
+Scenario: User with Add, Edit, and Delete access for Patient Health Card
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with Add, Edit, and Delete access to Patient Module Patient Health Card test  
+Then the user should be able to add a patient health card test 
+And the user should be able to edit patient health cards test
+And the user should be able to delete patient health cards test
+
+Scenario: User with Add only access for Patient Intake Form test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with Add access only to Patient Module Patient Intake Form test   
+Then the user should be able to add a patient intake form test  
+But the user should not be able to edit, print, or send for signature test
+
+Scenario: User with Add and Edit access for Patient Intake Form test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with Add and Edit access to Patient Module Patient Intake Form test     
+Then the user should be able to add a patient intake form test  
+And the user should be able to edit patient intake forms test  
+But the user should not be able to print or send for signature test 
+
+Scenario: User with Add and Edit access for Patient Intake Form test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with Add and Edit access to Patient Module Patient Intake Form test     
+Then the user should be able to add a patient intake form test  
+And the user should be able to edit patient intake forms test  
+But the user should not be able to print or send for signature test 
+
+Scenario: User with Add, Edit, and Print access for Patient Intake Form
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with Add, Edit, and Print access to Patient Module Patient Intake Form test 
+Then the user should be able to add a patient intake form test  
+And the user should be able to edit patient intake forms test  
+And the user should be able to print patient intake forms test 
+
+@Patient
+Scenario: User with Add, Edit, Print, and Send For Signature access for Patient Intake Form test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with Add, Edit, Print, and Send For Signature access to Patient Module Patient Intake Form test  
+Then the user should be able to add a patient intake form test  
+And the user should be able to edit patient intake forms test  
+And the user should be able to print patient intake forms test 
+And the user should be able to send patient intake forms for signature test
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

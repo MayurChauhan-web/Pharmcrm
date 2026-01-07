@@ -2,6 +2,7 @@ package com.pharmcrm_PatientModule.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
+import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.TimeoutException;
@@ -18,6 +19,80 @@ import java.util.List;
 public class patientpage {
 	private WebDriver driver;
 	private WebDriverWait wait;
+
+	// PatientIntakeForm
+	private By patientIntakeFormAllCheckbox = By.xpath("//label[@for='chkg13PatientIntakeFormAll']");
+	private By patientIntakeFormAddCheckbox = By.xpath("//label[@for='chkg13PatientIntakeFormAdd']");
+	private By intakeFormButton = By.xpath("//a[@id='btnIntakeForm']//*[name()='svg']");
+	private By saveIntakeFormButton = By.id("btnSave");
+	private By patientIntakeFormsTab = By.xpath("//a[normalize-space()='Patient Intake Forms']");
+	private By intakeFormActionMenu = By.xpath(
+			"//body[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[6]/div[2]/table[1]/tbody[1]/tr[1]/td[10]/div[1]/div[1]/button[1]/i[1]");
+	private By editIntakeFormOption = By.xpath(
+			"//div[contains(@class,'gridRecordContext') and contains(@class,'show')]//span[contains(text(),'Edit')]");
+	private By printIntakeFormOption = By.xpath(
+			"//div[contains(@class,'gridRecordContext') and contains(@class,'show')]//span[contains(text(),'Print')]");
+	private By sendMailIntakeFormOption = By.xpath(
+			"//div[contains(@class,'gridRecordContext') and contains(@class,'show')]//span[contains(text(),'Send Mail')]");
+	private By sendTextIntakeFormOption = By.xpath(
+			"//div[contains(@class,'gridRecordContext') and contains(@class,'show')]//span[contains(text(),'Send Text')]");
+	private By patientIntakeFormEditCheckbox = By.xpath("//label[@for='chkg13PatientIntakeFormEdit']");
+	private By cellNumberInput = By.id("Patient_PatientIntakeForm_CellNumber");
+	private By patientIntakeFormPrintCheckbox = By.xpath("//label[@for='chkg13PatientIntakeFormPrint']");
+	private By sendMailOption = By.xpath(
+			"//div[contains(@class,'gridRecordContext') and contains(@class,'show')]//span[contains(text(),'Send Mail')]");
+	private By sendTextOption = By.xpath(
+			"//div[contains(@class,'gridRecordContext') and contains(@class,'show')]//span[contains(text(),'Send Text')]");
+	private By printOption = By.xpath(
+			"//div[contains(@class,'gridRecordContext') and contains(@class,'show')]//span[contains(text(),'Print')]");
+
+	// PatientHealthCard
+	private By rxHealthCardTab = By.xpath("//a[normalize-space()='Rx Health Card']");
+	private By addRxHealthCardButton = By.xpath("//span[normalize-space()='Add Rx Health Card']");
+	private By saveHealthCardButton = By.id("btnSaveHealthCard");
+	private By healthCardActionMenu = By.xpath("//tbody/tr[1]/td[9]/div[1]/div[1]/button[1]/i[1]");
+	private By healthCardEditOption = By.xpath(
+			"//div[contains(@class,'gridRecordContext') and contains(@class,'show')]//span[contains(text(),'Edit')]");
+	private By healthCardDeleteOption = By.xpath(
+			"//div[contains(@class,'gridRecordContext') and contains(@class,'show')]//span[contains(text(),'Delete')]");
+	private By editHealthCardOption = By.xpath(
+			"//div[contains(@class,'gridRecordContext') and contains(@class,'show')]//span[contains(text(),'Edit')]");
+	private By healthCardTagInput = By.id("Tag_Name");
+	private By deleteHealthCardOption = By.xpath(
+			"//div[contains(@class,'gridRecordContext') and contains(@class,'show')]//span[contains(text(),'Delete')]");
+	private By patientHealthCardEditCheckbox = By.xpath("//label[@for='chkg14PatientHealthCardEdit']");
+	private By confirmDeleteHealthCardButton = By.id("deletepatientHealthCard");
+
+	// Bucketpage
+	private By firstGridLinkButton = By.xpath("(//a[@class='gridLinkButton'])[1]");
+	private By documentLibraryButton = By.xpath("//a[@id='btnDocumentLibrary']//*[name()='svg']");
+	private By newFolderButton = By.xpath("//a[@title='New Folder']//*[name()='svg']");
+	private By folderNameInput = By.id("BucketFolder_FolderName");
+	private By folderTypeDropdown = By.id("BucketFolder_Type");
+	private By editFolderButton = By.xpath("//div[10]//div[2]//a[1]//img[1]");
+	private By deleteFolderButton = By.xpath("//a[@id='btnDeleteFolder']//img");
+	private By bucketDeleteConfirmButton = By.xpath("//div[@id='deleteFolderModel']//button[@id='btnDeleteConfirm']");
+	private By folderRow = By.id("0e1ca86a-1861-472a-82ce-81d5b0ccddba");
+	private By addFileIcon = By.xpath("//*[name()='path' and @id='Path_707']");
+	private By fileUploadInput = By.xpath("//div[@id='fileUpload']//input[@id='file-3']");
+	private By saveFileButton = By.id("btnSaveFile");
+	private By editFileButton = By.xpath("//div[@class='documentLibraryContentMain']//div[1]//div[2]//a[1]//img[1]");
+	private By fileNameInput = By.id("fileNameTextBox");
+	private By deleteFileButton = By.xpath("//div[@class='documentLibraryContentMain']//div[1]//div[2]//a[2]//img[1]");
+	private By deleteFileConfirmButton = By.id("btnDeleteFileConfirm");
+	private By downloadFileIcon = By.xpath(
+			"//div[@class='documentLibraryContentMain']//div[1]//div[2]//a[4]//*[name()='svg']//*[name()='path' and @id='Path_2898']");
+	private By closeFileViewerButton = By.xpath("//button[@onclick='CloseDocViewer();']//i[@class='fa fa-times']");
+	private By homeButton = By.xpath("//a[@title='Home']//*[name()='svg']");
+	private By addFolderButton = By.xpath("//a[@title='New Folder']//*[name()='svg']");
+	private By patientBucketAllCheckbox = By.xpath("//label[@for='chkg14PatientBucketAll']");
+	private By patientBucketFolderAddCheckbox = By.xpath("//label[@for='chkg14PatientBucketFolderAdd']");
+	private By patientBucketFolderEditCheckbox = By.xpath("//label[@for='chkg14PatientBucketFolderEdit']");
+	private By patientBucketFolderDeleteCheckbox = By.xpath("//label[@for='chkg14PatientBucketFolderDelete']");
+	private By patientBucketFileDownloadCheckbox = By.xpath("//label[@for='chkg14PatientBucketFileDownload']");
+	private By patientBucketViewCheckbox = By.xpath("//label[@for='chkg14PatientBucketView']");
+	private By patientHealthCardAllCheckbox = By.xpath("//label[@for='chkg14PatientHealthCardAll']");
+	private By patientHealthCardAddCheckbox = By.xpath("//label[@for='chkg14PatientHealthCardAdd']");
 
 	// ReferralSourcepage
 	private By patientReferralSourceAllCheckbox = By.xpath("//label[@for='chkg9PatientReferralSourceAll']");
@@ -219,7 +294,7 @@ public class patientpage {
 			.xpath("//div[@id='deleteClinicalMedReconModel']//button[@id='btnDeleteConfirm']");
 
 	// LocatorTagPage
-	private By tagNameInput = By.xpath("//input[@id='Tag_Name']");
+	private By tagNameInput = By.xpath("//input[@id='PatientHealthCard_RxBin']");
 	private By cancelEditTagTypeButton = By
 			.xpath("//button[@onclick='javascript: CloseaddTagModal();']//i[@class='fa fa-times']");
 	private By tagTypeNameInList = By.xpath("//table//tbody/tr[1]/td[1]");
@@ -307,6 +382,364 @@ public class patientpage {
 	private By patientModuleDeleteLabel = By.xpath("//label[@for='chkg9PatientDelete']");
 	private By patientTagEditPermissionLabel = By.xpath("//label[@for='chkg10PatientTagEdit']");
 
+	// PatientIntakeForm
+
+	public void printPatientIntakeForm() {
+		sleep(2000);
+		clickWhenClickable(patientIntakeFormsTab);
+		sleep(2000);
+		clickWhenClickable(intakeFormActionMenu);
+		sleep(2000);
+		clickWhenClickable(printOption);
+		sleep(5000);
+		((JavascriptExecutor) driver).executeScript("window.print();");
+		System.out.println("Patient intake form PDF auto-saved in Downloads folder");
+		sleep(5000);
+	}
+
+	public void sendPatientIntakeFormForSignature() {
+		sleep(7000);
+	    driver.navigate().refresh();
+		clickWhenClickable(patientIntakeFormsTab);
+		sleep(2000);
+		clickWhenClickable(intakeFormActionMenu);
+		sleep(2000);
+		clickWhenClickable(sendMailOption);
+		sleep(2000);
+		clickWhenClickable(intakeFormActionMenu);
+		sleep(2000);
+		clickWhenClickable(sendTextOption);
+	}
+
+	public void verifyRestrictedSendForSignatureActions() {
+		sleep(2000);
+		clickWhenClickable(patientIntakeFormsTab);
+		sleep(2000);
+		clickWhenClickable(intakeFormActionMenu);
+		sleep(2000);
+		assertElementNotPresent(sendMailIntakeFormOption);
+		sleep(2000);
+		assertElementNotPresent(sendTextIntakeFormOption);
+	}
+
+	public void verifyRestrictedPrintAndSignatureActions() {
+		sleep(2000);
+		clickWhenClickable(patientIntakeFormsTab);
+		sleep(2000);
+		clickWhenClickable(intakeFormActionMenu);
+		sleep(2000);
+		assertElementNotPresent(printIntakeFormOption);
+		assertElementNotPresent(sendMailIntakeFormOption);
+		assertElementNotPresent(sendTextIntakeFormOption);
+	}
+
+	public void editPatientIntakeForm() {
+		sleep(3000);
+		clickWhenClickable(patientIntakeFormsTab);
+		sleep(2000);
+		clickWhenClickable(intakeFormActionMenu);
+		sleep(2000);
+		clickWhenClickable(editIntakeFormOption);
+		sleep(2000);
+		waitAndSendKeys(cellNumberInput, "1234567890");
+		clickWhenClickable(saveIntakeFormButton);
+	}
+
+	public void verifyRestrictedPatientIntakeFormActions() {
+		sleep(3000);
+		clickWhenClickable(patientIntakeFormsTab);
+		sleep(2000);
+		clickWhenClickable(intakeFormActionMenu);
+		sleep(2000);
+		assertElementNotPresent(editIntakeFormOption);
+		assertElementNotPresent(printIntakeFormOption);
+		assertElementNotPresent(sendMailIntakeFormOption);
+		assertElementNotPresent(sendTextIntakeFormOption);
+	}
+
+	public void addPatientIntakeForm() {
+		sleep(2000);
+		clickWhenClickable(firstPatientLink);
+		sleep(2000);
+		clickWhenClickable(intakeFormButton);
+		clickWhenClickable(saveIntakeFormButton);
+	}
+
+	public void selectPatientIntakeFormAddAccess() {
+		clickWhenClickable(patientIntakeFormAllCheckbox);
+		clickWhenClickable(patientIntakeFormAddCheckbox);
+	}
+
+	public void verifyIntakeFormAddEditPrint() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement intakeFormAll = wait.until(ExpectedConditions.elementToBeClickable(patientIntakeFormAllCheckbox));
+		intakeFormAll.click();
+		sleep(2000);
+		WebElement intakeFormAdd = wait.until(ExpectedConditions.elementToBeClickable(patientIntakeFormAddCheckbox));
+		intakeFormAdd.click();
+		sleep(2000);
+		WebElement intakeFormEdit = wait.until(ExpectedConditions.elementToBeClickable(patientIntakeFormEditCheckbox));
+		intakeFormEdit.click();
+
+	}
+
+	public void createProfileWithPatientIntakeFormAddEditAccess() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement intakeFormAll = wait.until(ExpectedConditions.elementToBeClickable(patientIntakeFormAllCheckbox));
+		intakeFormAll.click();
+		sleep(2000);
+		WebElement intakeFormAdd = wait.until(ExpectedConditions.elementToBeClickable(patientIntakeFormAddCheckbox));
+		intakeFormAdd.click();
+		sleep(2000);
+		WebElement intakeFormEdit = wait.until(ExpectedConditions.elementToBeClickable(patientIntakeFormEditCheckbox));
+		intakeFormEdit.click();
+		sleep(2000);
+		WebElement intakeFormPrint = wait
+				.until(ExpectedConditions.elementToBeClickable(patientIntakeFormPrintCheckbox));
+		intakeFormPrint.click();
+
+	}
+
+	public void testIntakeFormAddEditPrintSend() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	// PatientHealthCard
+
+	public void deletePatientHealthCard() {
+		sleep(2000);
+		clickWhenClickable(healthCardActionMenu);
+		sleep(2000);
+		clickWhenClickable(deleteHealthCardOption);
+		sleep(1000);
+		clickWhenClickable(confirmDeleteHealthCardButton);
+	}
+
+	public void createProfileWithHealthCardAddEditDeleteAccess() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement intakeFormAll = wait.until(ExpectedConditions.elementToBeClickable(patientIntakeFormAllCheckbox));
+		intakeFormAll.click();
+		sleep(2000);
+		WebElement intakeFormAdd = wait.until(ExpectedConditions.elementToBeClickable(patientIntakeFormAddCheckbox));
+		intakeFormAdd.click();
+
+	}
+
+	public void verifyPatientHealthCardDeleteRestricted() {
+		sleep(3000);
+		clickWhenClickable(healthCardActionMenu);
+		sleep(2000);
+		assertElementNotPresent(deleteHealthCardOption);
+	}
+
+	public void editPatientHealthCard() {
+		sleep(5000);
+		clickWhenClickable(healthCardActionMenu);
+		sleep(2000);
+		clickWhenClickable(editHealthCardOption);
+		sleep(3000);
+		waitAndSendKeys(tagNameInput, "11");
+		sleep(2000);
+		clickWhenClickable(saveHealthCardButton);
+	}
+
+	public void verifyPatientHealthCardEditDeleteRestricted() {
+		sleep(5000);
+		clickWhenClickable(healthCardActionMenu);
+		sleep(2000);
+		assertElementNotPresent(healthCardDeleteOption);
+	}
+
+	public void addPatientHealthCard() {
+		sleep(4000);
+		clickWhenClickable(firstPatientLink);
+		sleep(3000);
+		clickWhenClickable(rxHealthCardTab);
+		sleep(2000);
+		clickWhenClickable(addRxHealthCardButton);
+		sleep(2000);
+		waitAndSendKeys(tagNameInput, "1");
+		sleep(2000);
+		clickWhenClickable(saveHealthCardButton);
+	}
+
+	public void createProfileWithPatientHealthCardAddOnly() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement healthCardAll = wait.until(ExpectedConditions.elementToBeClickable(patientHealthCardAllCheckbox));
+		healthCardAll.click();
+		sleep(2000);
+		WebElement healthCardAdd = wait.until(ExpectedConditions.elementToBeClickable(patientHealthCardAddCheckbox));
+		healthCardAdd.click();
+	}
+
+	public void createProfileWithHealthCardAddEditAccess() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement healthCardAll = wait.until(ExpectedConditions.elementToBeClickable(patientHealthCardAllCheckbox));
+		healthCardAll.click();
+		sleep(2000);
+		WebElement healthCardAdd = wait.until(ExpectedConditions.elementToBeClickable(patientHealthCardAddCheckbox));
+		healthCardAdd.click();
+		WebElement healthCardEdit = wait.until(ExpectedConditions.elementToBeClickable(patientHealthCardEditCheckbox));
+		healthCardEdit.click();
+
+	}
+
+	// Bucketpage
+	public void createSetupBucketFullFolderAccessProfile() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		WebElement selectAllModulesLabel = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		selectAllModulesLabel.click();
+		sleep(2000);
+
+	}
+
+	public void verifyFolderModificationRestricted() {
+		sleep(2000);
+		clickWhenClickable(homeButton);
+		sleep(2000);
+		assertElementNotPresent(addFolderButton);
+		sleep(2000);
+		assertElementNotPresent(editFolderButton);
+		sleep(2000);
+		assertElementNotPresent(deleteFolderButton);
+	}
+
+	private void assertElementNotPresent(By locator) {
+		if (driver.findElements(locator).size() > 0) {
+			throw new AssertionError("Element should NOT be present: " + locator.toString());
+		}
+	}
+
+	public void downloadFile() {
+		sleep(2000);
+		clickWhenClickable(downloadFileIcon);
+		sleep(2000);
+		clickWhenClickable(closeFileViewerButton);
+	}
+
+	public void deleteFile() {
+		sleep(2000);
+		clickWhenClickable(deleteFileButton);
+		sleep(2000);
+		clickWhenClickable(deleteFileConfirmButton);
+	}
+
+	public void editExistingFile() {
+		sleep(2000);
+		clickWhenClickable(editFileButton);
+		sleep(2000);
+		waitAndSendKeys(fileNameInput, "Edited_Test_File");
+		sleep(2000);
+		clickWhenClickable(saveFileButton);
+	}
+
+	private WebElement waitForElement(By locator) {
+		return new WebDriverWait(driver, Duration.ofSeconds(10))
+				.until(ExpectedConditions.visibilityOfElementLocated(locator));
+	}
+
+	public void addNewFileToFolder() {
+		sleep(2000);
+		clickWhenClickable(folderRow);
+		sleep(2000);
+		clickWhenClickable(addFileIcon);
+		sleep(2000);
+		WebElement uploadElement = waitForElement(fileUploadInput);
+		uploadElement.sendKeys(System.getProperty("user.dir") + "/src/test/resources/Documents/blank.pdf");
+		sleep(2000);
+		clickWhenClickable(saveFileButton);
+	}
+
+	public void verifyProfileCreationWithBucketFileAccess() {
+		sleep(2000);
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement selectAllModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		selectAllModules.click();
+
+		WebElement bucketAll = wait.until(ExpectedConditions.elementToBeClickable(patientBucketAllCheckbox));
+		bucketAll.click();
+
+		WebElement bucketView = wait.until(ExpectedConditions.elementToBeClickable(patientBucketViewCheckbox));
+		bucketView.click();
+
+		WebElement bucketAdd = wait.until(ExpectedConditions.elementToBeClickable(patientBucketFolderAddCheckbox));
+		bucketAdd.click();
+
+		WebElement bucketEdit = wait.until(ExpectedConditions.elementToBeClickable(patientBucketFolderEditCheckbox));
+		bucketEdit.click();
+
+		WebElement bucketDelete = wait
+				.until(ExpectedConditions.elementToBeClickable(patientBucketFolderDeleteCheckbox));
+		bucketDelete.click();
+
+		WebElement bucketDownload = wait
+				.until(ExpectedConditions.elementToBeClickable(patientBucketFileDownloadCheckbox));
+		bucketDownload.click();
+	}
+
+	public void deleteFolder() {
+		sleep(2000);
+		clickWhenClickable(deleteFolderButton);
+		sleep(2000);
+		clickWhenClickable(bucketDeleteConfirmButton);
+	}
+
+	public void editExistingFolder() {
+		sleep(2000);
+		clickWhenClickable(editFolderButton);
+		sleep(2000);
+		waitAndSendKeys(folderNameInput, "Edited_Test_Folder");
+		sleep(2000);
+		selectDropdownByIndexWhenReady(folderTypeDropdown, 2);
+		sleep(2000);
+		clickWhenClickable(saveButton);
+	}
+
+	public void addNewFolder() {
+		sleep(2000);
+		clickWhenClickable(newFolderButton);
+		sleep(2000);
+		waitAndSendKeys(folderNameInput, "Test_Folder_01");
+		sleep(2000);
+		selectDropdownByIndexWhenReady(folderTypeDropdown, 1);
+		sleep(2000);
+		clickWhenClickable(saveButton);
+	}
+
+	public void viewBuckets() {
+		sleep(4000);
+		wait.until(ExpectedConditions.elementToBeClickable(firstGridLinkButton)).click();
+		sleep(4000);
+		wait.until(ExpectedConditions.elementToBeClickable(documentLibraryButton)).click();
+		sleep(1000);
+	}
+
 	// Enrollmentspage
 	public void createEnrollmentProfileWithViewAccess() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
@@ -334,7 +767,6 @@ public class patientpage {
 		clickSaveEnrollmentButton();
 	}
 
-	// ===== Actions =====
 	public void clickNewEnrollmentButton() {
 		sleep(4000);
 		wait.until(ExpectedConditions.elementToBeClickable(newEnrollmentButton)).click();
@@ -980,20 +1412,19 @@ public class patientpage {
 	}
 
 	public void clickWhenClickable(By locator) {
+		WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+
 		try {
-			wait.until(ExpectedConditions.elementToBeClickable(locator)).click();
-		} catch (ElementClickInterceptedException e) {
-			System.out.println("Click intercepted for element: " + locator.toString() + ". Retrying with JS click.");
-			try {
-				WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(locator));
-				((JavascriptExecutor) driver).executeScript(
-						"var evt = new MouseEvent('click', {bubbles: true, cancelable: true, view: window}); arguments[0].dispatchEvent(evt);",
-						element);
-			} catch (Exception ex) {
-				System.out.println("JS click also failed for element: " + locator.toString());
-				throw ex;
-			}
+			element.click();
+		} catch (ElementNotInteractableException e) {
+			System.out.println("Normal click failed for: " + locator + " → trying JS click");
+			jsClick(element);
 		}
+	}
+
+	private void jsClick(WebElement element) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();", element);
 	}
 
 	public void viewPatientPrescriptions() {
