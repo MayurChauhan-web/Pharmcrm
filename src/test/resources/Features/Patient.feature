@@ -406,7 +406,6 @@ Feature: Patient Module scenarios
   And the user should be able to print patient intake forms   
   But the user should not be able to send for signature  
 
-  # test
   Scenario: User with Add, Edit, Print, and Send For Signature access for Patient Intake Form
   Given I log in as admin for Patient module
   When I create a new user with email for Patient Module "testuser1_static@mailinator.com"
@@ -428,7 +427,7 @@ Feature: Patient Module scenarios
   And I log in using the new user for Patient Module 
   Then the user should be able to add a patient claim verification   
   But the user should not be able to edit, print, or send for signature for Patient Claim Verification 
-
+  
   Scenario: User with Add and Edit access for Patient Claim Verification
   Given I log in as admin for Patient module
   When I create a new user with email for Patient Module "testuser1_static@mailinator.com"
@@ -451,7 +450,7 @@ Feature: Patient Module scenarios
   And the user should be able to edit patient claim verifications
   And the user should be able to print patient claim verifications  
   But the user should not be able to send for signature for Patient Claim Verification  
-    
+  
   Scenario: User with Add, Edit, Print, and Send For Signature access for Patient Claim Verification
   Given I log in as admin for Patient module
   When I create a new user with email for Patient Module "testuser1_static@mailinator.com"
@@ -510,6 +509,7 @@ Feature: Patient Module scenarios
   And the user should be able to update patient medication sync
   And the user should be able to update patient medication gross margin  
 
+  # test
   Scenario: User with Add only access for Patient Meds On Chart
   Given I log in as admin for Patient module
   When I create a new user with email for Patient Module "testuser1_static@mailinator.com"

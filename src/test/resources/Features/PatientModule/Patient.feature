@@ -798,7 +798,6 @@ Then the user should be able to add a patient intake form test
 And the user should be able to edit patient intake forms test  
 And the user should be able to print patient intake forms test 
 
-@Patient
 Scenario: User with Add, Edit, Print, and Send For Signature access for Patient Intake Form test
 Given user launch browser
 Then user click on the user type dropdown
@@ -812,6 +811,541 @@ Then the user should be able to add a patient intake form test
 And the user should be able to edit patient intake forms test  
 And the user should be able to print patient intake forms test 
 And the user should be able to send patient intake forms for signature test
+
+Scenario: User with Add only access for Patient Claim Verification
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with Add access only to Patient Module Patient Claim Verification test
+Then the user should be able to add a patient claim verification test
+But the user should not be able to edit, print, or send for signature for Patient Claim Verification test
+
+Scenario: User with Add and Edit access for Patient Claim Verification
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with Add and Edit access to Patient Module Patient Claim Verification test
+Then the user should be able to add a patient claim verification test
+And the user should be able to edit patient claim verifications test
+But the user should not be able to print or send for signature for Patient Claim Verification test 
+
+Scenario: User with Add, Edit, and Print access for Patient Claim Verification test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with Add, Edit, and Print access to Patient Module Patient Claim Verification test
+Then the user should be able to add a patient claim verification test
+And the user should be able to edit patient claim verifications test
+And the user should be able to print patient claim verifications test
+But the user should not be able to send for signature for Patient Claim Verification test
+
+Scenario: User with Add, Edit, Print, and Send For Signature access for Patient Claim Verification test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with Add, Edit, Print, and Send For Signature access to Patient Module Patient Claim Verification test
+Then the user should be able to add a patient claim verification test
+And the user should be able to edit patient claim verifications test
+And the user should be able to print patient claim verifications test
+And the user should be able to send patient claim verifications for signature test 
+
+Scenario: User with Add only access for Patient Medication
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with Add access only to Patient Module Patient Medication test
+Then the user should be able to add patient medication test
+But the user should not be able to edit, delete Patient Medication test
+
+Scenario: User with Add and Edit access for Patient Medication test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with Add and Edit access to Patient Module Patient Medication test
+Then the user should be able to add patient medication test
+And the user should be able to edit patient medications test
+But the user should not be able to delete Patient Medication test
+
+Scenario: User with Add, Edit, and Delete access for Patient Medication test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with Add, Edit, and Delete access to Patient Module Patient Medication test
+Then the user should be able to add patient medication test
+And the user should be able to edit patient medications test
+And the user should be able to delete patient medications test
+
+Scenario: User with Add, Edit, Delete, View Gross Margin, Update Sync, and Update Gross Margin access for Patient Medication
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with Add, Edit, Delete, View Gross Margin, Update Sync, and Update Gross Margin access to Patient Module Patient Medication test 
+Then the user should be able to add patient medication test
+And the user should be able to edit patient medications test
+And the user should be able to delete patient medications test
+And the user should be able to view patient medication gross margin test
+And the user should be able to update patient medication sync test
+And the user should be able to update patient medication gross margin test
+
+Scenario: User with Add only access for Patient Meds On Chart test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with Add access only to Patient Module Patient Meds On Chart test
+Then the user should be able to add patient meds on chart test 
+But the user should not be able to edit, delete, Patient Meds On Chart test
+
+Scenario: User with Add and Edit access for Patient Meds On Chart
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with Add and Edit access to Patient Module Patient Meds On Chart test
+Then the user should be able to add patient meds on chart test 
+And the user should be able to edit patient meds on chart test
+But the user should not be able to delete meds on chart test
+
+Scenario: User with Add, Edit, and Delete access for Patient Meds On Chart test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with Add, Edit, and Delete access to Patient Module Patient Meds On Chart test
+Then the user should be able to add patient meds on chart test 
+And the user should be able to edit patient meds on chart test
+And the user should be able to delete patient meds on chart test 
+
+Scenario: User with Add, Edit, Delete, and Copied To Medication access for Patient Meds On Chart test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with Add, Edit, Delete, and Copied To Medication access to Patient Module Patient Meds On Chart test
+Then the user should be able to add patient meds on chart test 
+And the user should be able to edit patient meds on chart test
+And the user should be able to delete patient meds on chart test 
+And the user should be able to copy patient meds to medication test
+
+Scenario: User with Add only access for Patient Pharmacy test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with Add access only to Patient Module Patient Pharmacy test
+Then the user should be able to add patient pharmacy test
+But the user should not be able to edit or delete patient pharmacy test 
+
+Scenario: User with Add and Edit access for Patient Pharmacy test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with Add and Edit access to Patient Module Patient Pharmacy test
+Then the user should be able to add patient pharmacy test
+And the user should be able to edit patient pharmacy test 
+But the user should not be able to delete patient pharmacy test 
+
+Scenario: User with Add, Edit, and Delete access for Patient Pharmacy test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with Add, Edit, and Delete access to Patient Module Patient Pharmacy test
+Then the user should be able to add patient pharmacy test
+And the user should be able to edit patient pharmacy test 
+And the user should be able to delete patient pharmacy test
+
+Scenario: User with Add only access for Patient Physician test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with Add access only to Patient Module Patient Physician test 
+Then the user should be able to add patient physician test
+But the user should not be able to edit or delete patient physician test
+
+Scenario: User with Add and Edit access for Patient Physician test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with Add and Edit access to Patient Module Patient Physician test
+Then the user should be able to add patient physician test
+And the user should be able to edit patient physician test
+But the user should not be able to delete patient physician test
+
+Scenario: User with Add, Edit, and Delete access for Patient Physician test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with Add, Edit, and Delete access to Patient Module Patient Physician test
+Then the user should be able to add patient physician test
+And the user should be able to edit patient physician test
+And the user should be able to delete patient physician test
+
+@Patient
+Scenario: User with Add only access for Patient Communication
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with Add access only to Patient Module Patient Communication test
+Then the user should be able to add patient communication test
+But the user should not be able to edit or delete patient communication test
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

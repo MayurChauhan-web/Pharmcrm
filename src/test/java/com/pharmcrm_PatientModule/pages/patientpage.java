@@ -20,6 +20,119 @@ public class patientpage {
 	private WebDriver driver;
 	private WebDriverWait wait;
 
+	// PatientCommunication
+	public By patientCommunicationAll = By.xpath("//label[@for='chkg18PatientCommunicationAll']");
+	public By patientCommunicationAdd = By.xpath("//label[@for='chkg18PatientCommunicationAdd']");
+
+	public void enableAddAccessPatientCommunication() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement patientCommunicationAllElement = wait
+				.until(ExpectedConditions.elementToBeClickable(patientCommunicationAll));
+		patientCommunicationAllElement.click();
+		sleep(2000);
+		WebElement patientCommunicationAddElement = wait
+				.until(ExpectedConditions.elementToBeClickable(patientCommunicationAdd));
+		patientCommunicationAddElement.click();
+		sleep(2000);
+
+	}
+
+	// PatientPhysian
+	public By checkBox = By.xpath("//div[@class='col-md-4 col-lg-3 pt-2']//label[@id='chk2text']");
+	public By patientPhysicianAll = By.xpath("//label[@for='chkg18PatientPhysianAll']");
+	public By patientPhysicianAdd = By.xpath("//label[@for='chkg18PatientPhysianAdd']");
+	public By physicianTab = By.xpath("//a[normalize-space()='Physician']");
+	public By addPhysicianButton = By.xpath("//span[normalize-space()='Add Physician']");
+	public By lastNameInput = By.id("Filter_DoctorLastName");
+	public By firstPhysicianCheckbox = By.id("2b44bfab-9454-457a-822d-01eafa4e95de");
+	public By addProviderButton = By.id("btnProvider");
+	public By patientPhysicianEdit = By.xpath("//label[@for='chkg18PatientPhysianEdit']");
+
+	// PatientPharmacy
+
+	public By patientPharmacyAll = By.xpath("//label[@for='chkg18PatientPharmacyAll']");
+	public By patientPharmacyAdd = By.xpath("//label[@for='chkg18PatientPharmacyAdd']");
+	public By pharmacyTab = By.xpath("//a[normalize-space()='Pharmacy']");
+	public By addPharmacyButton = By.xpath("//span[normalize-space()='Add Pharmacy']");
+	public By businessNameInput = By.id("Filter_BusinessName");
+	public By firstPharmacyCheckbox = By.id("0f825af7-1a63-461a-a93d-7167461ea3ae");
+	public By addPartnerButton = By.id("btnPartner");
+	public By deletePharmacyIcon = By.xpath("//a[@id='btnDeletePharmacyConfirm']//img");
+	public By patientPharmacyDelete = By.xpath("//label[@for='chkg18PatientPharmacyDelete']");
+
+	// PatientMedsOnChart
+	public By medsOnChartTab = By.xpath("//a[normalize-space()='Meds On Chart']");
+	public By addMedicationsButton = By.xpath("//span[normalize-space()='Add Medications On Chart']");
+	public By selectMedicationIcon = By.xpath("//div[@class='model-inp requiredfield']//img");
+	public By filterDrugNameInput = By.id("Filter_DrugName");
+	public By firstDrugCheckbox = By.id("0");
+	public By addDrugButton = By.xpath("//div[@id='divSearchDrugInfo']//button[@id='btnDrug']");
+	public By confirmButton = By.xpath("//i[@class='fa-solid fa-circle-check']");
+	public By patientMedsOnChartAll = By.xpath("//label[@for='chkg20PatientMedsOnChartAll']");
+	public By patientMedsOnChartAdd = By.xpath("//label[@for='chkg20PatientMedsOnChartAdd']");
+	public By recordDropdownButton = By.xpath(
+			"//body[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[10]/div[1]/div[1]/button[1]/i[1]");
+	public By patientMedsOnChartEdit = By.xpath("//label[@for='chkg20PatientMedsOnChartEdit']");
+	public By directionInput = By.id("PatientMedicationsOnChart_Direction_0");
+	public By patientMedsOnChartDelete = By.xpath("//label[@for='chkg20PatientMedsOnChartDelete']");
+	public By copyToMedicationIcon = By.xpath("//img[@class='v-align-txttop']");
+
+	// PatientMedicationpage
+	private By patientMedicationAllLabel = By.xpath("//label[@for='chkg18PatientMedicationAll']");
+	private By patientMedicationAddLabel = By.xpath("//label[@for='chkg18PatientMedicationAdd']");
+	private By medicationTab = By.xpath("//a[normalize-space()='Medication']");
+	private By addMedicationBtn = By.xpath("//span[normalize-space()='Add Medication']");
+	private By addMedicationPopupIcon = By.xpath("//div[@id='AddMedicationModal']//div[4]//div[1]//a[1]//img[1]");
+	private By drugNameFilter = By.id("Filter_DrugName");
+	private By searchDrugBtn = By.xpath("//button[normalize-space()='Search']");
+	private By selectDrugCheckbox = By.id("0");
+	private By selectDrugBtn = By.id("btnDrug");
+	private By saveMedicationBtn = By.xpath("//button[@onclick='javascript: saveMedication();']");
+	private By patientMedicationEditLabel = By.xpath("//label[@for='chkg18PatientMedicationEdit']");
+	private By rxStatusInput = By.id("PatientMedication_RxStatus");
+	private By patientMedicationDeleteLabel = By.xpath("//label[@for='chkg18PatientMedicationDelete']");
+	private By confirmDeleteBtn = By.id("deletepatientmedical");
+	private By grossMarginLabel = By.id("totalGM");
+	private By totalGMLbl = By.xpath("//label[@id='totalGM']");
+	private By syncDayDropdown = By.id("PatientMed_SyncDay");
+	private By saveSyncButton = By.id("btnSaveMedicationSyncDays");
+	private By someCheckbox1 = By.xpath("//div[4]//label[1]//div[1]");
+	private By someCheckbox2 = By.xpath("//tbody/tr/td[5]/label[1]/div[1]");
+	private By grossMarginInput = By.id("PatientMedication_GrossMargin");
+
+	// PatientClaimVerification
+	private By patientClaimAll = By.xpath("//label[@for='chkg14PatientClaimVerificationAll']");
+	private By patientClaimAdd = By.xpath("//label[@for='chkg14PatientClaimVerificationAdd']");
+	private By patientClaimVerificationIcon = By.xpath("//*[name()='path' and @id='Union_79']");
+	private By adjusterName = By.id("Patient_PatientClaimVerification_Adjuster");
+	private By adjusterEmail = By.id("Patient_PatientClaimVerification_AdjusterEmail");
+	private By adjusterPhone = By.id("Patient_PatientClaimVerification_AdjusterPhoneNumber");
+	private By adjusterFax = By.id("Patient_PatientClaimVerification_AdjusterFax");
+	private By addAdjusterBtn = By.id("btnAddAdjuster");
+	private By addPayorPopup = By.xpath("//a[@id='addPayorNamePopup']//img");
+	private By payorBusinessName = By.id("Filter_BusinessName");
+	private By payorSearchBtn = By.id("btnpayorserach");
+	private By payorSelectCheckbox = By.id("84996e1c-2e81-4b80-81cf-7d1f1b095d1e");
+	private By payorSelectBtn = By.id("btnPayor");
+	private By claimNumber = By.id("Patient_PatientClaimVerification_ClaimNumber");
+	private By addPayorAddressPopup = By.xpath("//a[@id='addPayorAddressPopup']//img");
+	private By payorAddressCheckbox = By.id("9b8ba6bd-e587-487e-8788-8bde0c276d5b");
+	private By payorAddressSelectBtn = By
+			.xpath("//div[@class='modal-footer text-center d-block']//button[@id='btnPayorAddress']");
+	private By saveBtn = By.id("btnSave");
+	private By patientClaimVerificationTab = By.xpath("//a[normalize-space()='Patient Claim Verification']");
+	private By actionMenuIcon = By.xpath("//table/tbody/tr[1]/td[10]//button[1]/i[1]");
+	private By patientClaimVerificationEditLabel = By.xpath("//label[@for='chkg14PatientClaimVerificationEdit']");
+	private By cellNumber = By.id("Patient_PatientClaimVerification_CellNumber");
+	private By deleteAdjusterBtn = By.id("btnDeleteAdjuster");
+	private By patientClaimVerificationPrintLabel = By.xpath("//label[@for='chkg14PatientClaimVerificationPrint']");
+	private By closePrintDialogBtn = By
+			.xpath("//button[@onclick='CloseClaimVerificationSignature();']//i[@class='fa fa-times']");
+
 	// PatientIntakeForm
 	private By patientIntakeFormAllCheckbox = By.xpath("//label[@for='chkg13PatientIntakeFormAll']");
 	private By patientIntakeFormAddCheckbox = By.xpath("//label[@for='chkg13PatientIntakeFormAdd']");
@@ -382,6 +495,675 @@ public class patientpage {
 	private By patientModuleDeleteLabel = By.xpath("//label[@for='chkg9PatientDelete']");
 	private By patientTagEditPermissionLabel = By.xpath("//label[@for='chkg10PatientTagEdit']");
 
+	// PatientPhysian
+	public void deletePatientPhysician() {
+		wait.until(ExpectedConditions.elementToBeClickable(physicianTab)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(recordDropdownButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(deleteOption)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(confirmDeleteButton)).click();
+	}
+
+	public void verifyCannotDeletePatientPhysician() {
+		wait.until(ExpectedConditions.elementToBeClickable(physicianTab)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(recordDropdownButton)).click();
+		if (driver.findElements(deleteOption).size() > 0) {
+			throw new AssertionError("Delete option is visible but should not be available.");
+		}
+	}
+
+	public void editPatientPhysician() {
+		wait.until(ExpectedConditions.elementToBeClickable(physicianTab)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(recordDropdownButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(editOption)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(checkBox)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
+	}
+
+	public void verifyCannotEditOrDeletePatientPhysician() {
+		wait.until(ExpectedConditions.elementToBeClickable(physicianTab)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(recordDropdownButton)).click();
+
+		if (driver.findElements(editOption).size() > 0) {
+			throw new AssertionError("Edit option is visible but should not be available.");
+		}
+
+		if (driver.findElements(deleteOption).size() > 0) {
+			throw new AssertionError("Delete option is visible but should not be available.");
+		}
+	}
+
+	public void addPatientPhysician(String lastName) {
+		wait.until(ExpectedConditions.elementToBeClickable(firstPatientLink)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(physicianTab)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(addPhysicianButton)).click();
+		WebElement input = wait.until(ExpectedConditions.visibilityOfElementLocated(lastNameInput));
+		input.clear();
+		input.sendKeys(lastName);
+		wait.until(ExpectedConditions.elementToBeClickable(searchButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(firstPhysicianCheckbox)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(addProviderButton)).click();
+	}
+
+	public void enableAddAccessPatientPhysician() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement patientPhysicianAllElement = wait
+				.until(ExpectedConditions.elementToBeClickable(patientPhysicianAll));
+		patientPhysicianAllElement.click();
+		sleep(2000);
+		WebElement patientPhysicianAddElement = wait
+				.until(ExpectedConditions.elementToBeClickable(patientPhysicianAdd));
+		patientPhysicianAddElement.click();
+		sleep(2000);
+
+	}
+
+	public void enableAddEditPatientPhysicianAccess() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement patientPhysicianAllElement = wait
+				.until(ExpectedConditions.elementToBeClickable(patientPhysicianAll));
+		patientPhysicianAllElement.click();
+		sleep(2000);
+		WebElement patientPhysicianAddElement = wait
+				.until(ExpectedConditions.elementToBeClickable(patientPhysicianAdd));
+		patientPhysicianAddElement.click();
+		sleep(2000);
+		WebElement patientPhysicianEditElement = wait
+				.until(ExpectedConditions.elementToBeClickable(patientPhysicianEdit));
+		patientPhysicianEditElement.click();
+		sleep(2000);
+
+	}
+
+	public void enableFullAccessPatientPhysicianProfile() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	// PatientPharmacy
+
+	public void setupPatientPharmacyAddEditAccessProfile() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement patientPharmacyAllElement = wait.until(ExpectedConditions.elementToBeClickable(patientPharmacyAll));
+		patientPharmacyAllElement.click();
+		sleep(2000);
+		WebElement patientPharmacyAddElement = wait.until(ExpectedConditions.elementToBeClickable(patientPharmacyAdd));
+		patientPharmacyAddElement.click();
+		sleep(2000);
+		WebElement patientPharmacyDeleteElement = wait
+				.until(ExpectedConditions.elementToBeClickable(patientPharmacyDelete));
+		patientPharmacyDeleteElement.click();
+
+	}
+
+	public void enableFullAccessPatientPharmacyProfile() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+
+	}
+
+	public void setupPatientPharmacyAddAccessProfile() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement patientPharmacyAllElement = wait.until(ExpectedConditions.elementToBeClickable(patientPharmacyAll));
+		patientPharmacyAllElement.click();
+		sleep(2000);
+		WebElement patientPharmacyAddElement = wait.until(ExpectedConditions.elementToBeClickable(patientPharmacyAdd));
+		patientPharmacyAddElement.click();
+
+	}
+
+	public void addPatientPharmacy(String businessName) {
+		wait.until(ExpectedConditions.elementToBeClickable(firstPatientLink)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(pharmacyTab)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(addPharmacyButton)).click();
+		WebElement input = wait.until(ExpectedConditions.visibilityOfElementLocated(businessNameInput));
+		input.clear();
+		input.sendKeys(businessName);
+		wait.until(ExpectedConditions.elementToBeClickable(searchButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(firstPharmacyCheckbox)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(addPartnerButton)).click();
+	}
+
+	public void verifyCannotEditOrDeletePatientPharmacy() {
+		if (driver.findElements(deletePharmacyIcon).size() > 0) {
+			throw new AssertionError("Delete Pharmacy option is visible, but user should not have Edit/Delete access.");
+		}
+	}
+
+	public void editPatientPharmacy() {
+		wait.until(ExpectedConditions.elementToBeClickable(pharmacyTab)).click();
+	}
+
+	public void verifyCannotDeletePatientPharmacy() {
+		if (driver.findElements(deletePharmacyIcon).size() > 0) {
+			throw new AssertionError("Delete Pharmacy option is visible, but user should not have Delete access.");
+		}
+	}
+
+	public void deletePatientPharmacy() {
+		wait.until(ExpectedConditions.elementToBeClickable(deletePharmacyIcon)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(confirmDeleteButton)).click();
+	}
+
+	// PatientMedsOnChart
+
+	public void copyPatientMedsToMedication() {
+		wait.until(ExpectedConditions.elementToBeClickable(medsOnChartTab)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(copyToMedicationIcon)).click();
+	}
+
+	public void verifyCannotDeleteMedsOnChart() {
+		wait.until(ExpectedConditions.elementToBeClickable(medsOnChartTab)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(recordDropdownButton)).click();
+
+		if (driver.findElements(deleteOption).size() > 0) {
+			throw new AssertionError("Delete option is present, but user should not be able to delete.");
+		}
+	}
+
+	public void deletePatientMedsOnChart() {
+		wait.until(ExpectedConditions.elementToBeClickable(medsOnChartTab)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(recordDropdownButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(deleteOption)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(confirmDeleteButton)).click();
+	}
+
+	public void editPatientMedsOnChart(String direction) {
+		wait.until(ExpectedConditions.elementToBeClickable(medsOnChartTab)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(recordDropdownButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(editOption)).click();
+		WebElement input = wait.until(ExpectedConditions.visibilityOfElementLocated(directionInput));
+		input.clear();
+		input.sendKeys(direction);
+		wait.until(ExpectedConditions.elementToBeClickable(confirmButton)).click();
+	}
+
+	public void verifyCannotEditOrDelete() {
+		wait.until(ExpectedConditions.elementToBeClickable(medsOnChartTab)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(recordDropdownButton)).click();
+		if (driver.findElements(editOption).size() > 0) {
+			throw new AssertionError("Edit option is present, but should not be.");
+		}
+		if (driver.findElements(deleteOption).size() > 0) {
+			throw new AssertionError("Delete option is present, but should not be.");
+		}
+	}
+
+	public void addPatientMedsOnChart(String drugName) {
+		wait.until(ExpectedConditions.elementToBeClickable(firstPatientLink)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(medsOnChartTab)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(addMedicationsButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(selectMedicationIcon)).click();
+		WebElement input = wait.until(ExpectedConditions.visibilityOfElementLocated(filterDrugNameInput));
+		input.clear();
+		input.sendKeys(drugName);
+		wait.until(ExpectedConditions.elementToBeClickable(searchButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(firstDrugCheckbox)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(addDrugButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(confirmButton)).click();
+	}
+
+	public void addPatientMedsProfile() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement patientMedsOnChartAllElement = wait
+				.until(ExpectedConditions.elementToBeClickable(patientMedsOnChartAll));
+		patientMedsOnChartAllElement.click();
+		sleep(2000);
+		WebElement patientMedsOnChartAddElement = wait
+				.until(ExpectedConditions.elementToBeClickable(patientMedsOnChartAdd));
+		patientMedsOnChartAddElement.click();
+
+	}
+
+	public void setupPatientMedsAddEditProfile() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement patientMedsOnChartAllElement = wait
+				.until(ExpectedConditions.elementToBeClickable(patientMedsOnChartAll));
+		patientMedsOnChartAllElement.click();
+		sleep(2000);
+		WebElement patientMedsOnChartAddElement = wait
+				.until(ExpectedConditions.elementToBeClickable(patientMedsOnChartAdd));
+		patientMedsOnChartAddElement.click();
+		sleep(2000);
+		WebElement patientMedsOnChartEditElement = wait
+				.until(ExpectedConditions.elementToBeClickable(patientMedsOnChartEdit));
+		patientMedsOnChartEditElement.click();
+
+	}
+
+	public void setupPatientMedsFullAccessProfile() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement patientMedsOnChartAllElement = wait
+				.until(ExpectedConditions.elementToBeClickable(patientMedsOnChartAll));
+		patientMedsOnChartAllElement.click();
+		sleep(2000);
+		WebElement patientMedsOnChartAddElement = wait
+				.until(ExpectedConditions.elementToBeClickable(patientMedsOnChartAdd));
+		patientMedsOnChartAddElement.click();
+		sleep(2000);
+		WebElement patientMedsOnChartEditElement = wait
+				.until(ExpectedConditions.elementToBeClickable(patientMedsOnChartEdit));
+		patientMedsOnChartEditElement.click();
+		sleep(2000);
+		WebElement patientMedsOnChartDeleteElement = wait
+				.until(ExpectedConditions.elementToBeClickable(patientMedsOnChartDelete));
+		patientMedsOnChartDeleteElement.click();
+
+	}
+
+	public void assignFullAccessPatientMedsOnChart() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+
+	}
+
+	public void removePatientMedsOnChart() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+
+	}
+
+	// PatientMedicationpage
+	public void addPatientMedication() {
+		wait.until(ExpectedConditions.elementToBeClickable(firstPatientLink)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(medicationTab)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(addMedicationBtn)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(addMedicationPopupIcon)).click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(drugNameFilter)).sendKeys("amoxilin");
+		wait.until(ExpectedConditions.elementToBeClickable(searchDrugBtn)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(selectDrugCheckbox)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(selectDrugBtn)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(saveMedicationBtn)).click();
+	}
+
+	public void updatePatientMedicationGrossMargin(String marginValue) {
+		wait.until(ExpectedConditions.elementToBeClickable(medicationTab)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(editButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(editOption)).click();
+		WebElement input = wait.until(ExpectedConditions.visibilityOfElementLocated(grossMarginInput));
+		input.clear();
+		input.sendKeys(marginValue);
+		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
+	}
+
+	public void updatePatientMedicationSync() {
+		wait.until(ExpectedConditions.elementToBeClickable(medicationTab)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(syncDayDropdown));
+		Select select = new Select(driver.findElement(syncDayDropdown));
+		select.selectByIndex(1);
+
+		wait.until(ExpectedConditions.elementToBeClickable(saveSyncButton)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(someCheckbox1)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(editButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(someCheckbox2)).click();
+	}
+
+	public boolean clickMedicationAndVerifyGM() {
+		wait.until(ExpectedConditions.elementToBeClickable(medicationTab)).click();
+
+		return wait.until(ExpectedConditions.visibilityOfElementLocated(totalGMLbl)).isDisplayed();
+	}
+
+	public boolean verifyMedicationSync() {
+		wait.until(ExpectedConditions.elementToBeClickable(medicationTab)).click();
+
+		return wait.until(ExpectedConditions.visibilityOfElementLocated(totalGMLbl)).isDisplayed();
+	}
+
+	public boolean isGrossMarginVisible() {
+		return wait.until(ExpectedConditions.visibilityOfElementLocated(grossMarginLabel)).isDisplayed();
+	}
+
+	public void openMedicationTab() {
+		wait.until(ExpectedConditions.elementToBeClickable(medicationTab)).click();
+	}
+
+	public void openActionMenu() {
+		wait.until(ExpectedConditions.elementToBeClickable(actionMenu)).click();
+	}
+
+	public void deletePatientMedication() {
+		wait.until(ExpectedConditions.elementToBeClickable(deleteOption)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(confirmDeleteBtn)).click();
+	}
+
+	public void verifyDeleteNotAvailable() {
+
+		wait.until(ExpectedConditions.elementToBeClickable(medicationTab)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(actionMenuIcon)).click();
+
+		Assert.assertTrue(driver.findElements(deleteOption).isEmpty(), "Delete option should NOT be visible");
+	}
+
+	public void editPatientMedication() {
+		wait.until(ExpectedConditions.elementToBeClickable(medicationTab)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(actionMenuIcon)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(editOption)).click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(rxStatusInput)).clear();
+		driver.findElement(rxStatusInput).sendKeys("Active");
+		wait.until(ExpectedConditions.elementToBeClickable(saveMedicationBtn)).click();
+	}
+
+	public void verifyEditAndDeleteNotAvailable() {
+
+		wait.until(ExpectedConditions.elementToBeClickable(medicationTab)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(actionMenuIcon)).click();
+
+		Assert.assertTrue(driver.findElements(editOption).isEmpty(), "Edit option should NOT be visible");
+		Assert.assertTrue(driver.findElements(deleteOption).isEmpty(), "Delete option should NOT be visible");
+	}
+
+	public void addAccessPatientMedicationTest() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement patientMedicationAll = wait
+				.until(ExpectedConditions.elementToBeClickable(patientMedicationAllLabel));
+		patientMedicationAll.click();
+		sleep(2000);
+		WebElement patientMedicationAdd = wait
+				.until(ExpectedConditions.elementToBeClickable(patientMedicationAddLabel));
+		patientMedicationAdd.click();
+
+	}
+
+	public void addEditAccessPatientMedicationTest() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement patientMedicationAll = wait
+				.until(ExpectedConditions.elementToBeClickable(patientMedicationAllLabel));
+		patientMedicationAll.click();
+		sleep(2000);
+		WebElement patientMedicationAdd = wait
+				.until(ExpectedConditions.elementToBeClickable(patientMedicationAddLabel));
+		patientMedicationAdd.click();
+		sleep(2000);
+		WebElement patientMedicationEdit = wait
+				.until(ExpectedConditions.elementToBeClickable(patientMedicationEditLabel));
+		patientMedicationEdit.click();
+
+	}
+
+	public void testAddEditDeleteAccessPatientMedication() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement patientMedicationAll = wait
+				.until(ExpectedConditions.elementToBeClickable(patientMedicationAllLabel));
+		patientMedicationAll.click();
+		sleep(2000);
+		WebElement patientMedicationAdd = wait
+				.until(ExpectedConditions.elementToBeClickable(patientMedicationAddLabel));
+		patientMedicationAdd.click();
+		sleep(2000);
+		WebElement patientMedicationEdit = wait
+				.until(ExpectedConditions.elementToBeClickable(patientMedicationEditLabel));
+		patientMedicationEdit.click();
+		sleep(2000);
+		WebElement patientMedicationDelete = wait
+				.until(ExpectedConditions.elementToBeClickable(patientMedicationDeleteLabel));
+		patientMedicationDelete.click();
+
+	}
+
+	public void createPatientMedicationAllAccessTest() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+
+	}
+
+	// PatientClaimVerification
+	public void addAccessPatientClaimTest() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement patientClaimVerificationAll = wait.until(ExpectedConditions.elementToBeClickable(patientClaimAll));
+		patientClaimVerificationAll.click();
+		sleep(2000);
+		WebElement patientClaimVerificationAdd = wait.until(ExpectedConditions.elementToBeClickable(patientClaimAdd));
+		patientClaimVerificationAdd.click();
+
+	}
+
+	public void sendPatientClaimVerificationForSignature() {
+		wait.until(ExpectedConditions.elementToBeClickable(patientClaimVerificationTab)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(actionMenuIcon)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(sendMailOption)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(actionMenuIcon)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(sendTextOption)).click();
+	}
+
+	public void verifySendForSignatureNotAvailable() {
+		wait.until(ExpectedConditions.elementToBeClickable(patientClaimVerificationTab)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(actionMenuIcon)).click();
+		Assert.assertTrue(driver.findElements(sendMailOption).isEmpty(), "Send Mail option should NOT be visible");
+		Assert.assertTrue(driver.findElements(sendTextOption).isEmpty(), "Send Text option should NOT be visible");
+	}
+
+	public void printPatientClaimVerification() {
+		wait.until(ExpectedConditions.elementToBeClickable(patientClaimVerificationTab)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(actionMenuIcon)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(printOption)).click();
+		((JavascriptExecutor) driver).executeScript("window.print();");
+		System.out.println("Patient signature PDF auto-saved in Downloads folder");
+		wait.until(ExpectedConditions.elementToBeClickable(closePrintDialogBtn)).click();
+	}
+
+	public void verifyPrintAndSendOptionsAreNotAvailable() {
+
+		wait.until(ExpectedConditions.elementToBeClickable(patientClaimVerificationTab)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(actionMenuIcon)).click();
+
+		Assert.assertTrue(driver.findElements(printOption).isEmpty(), "Print option should NOT be visible");
+		Assert.assertTrue(driver.findElements(sendMailOption).isEmpty(), "Send Mail option should NOT be visible");
+		Assert.assertTrue(driver.findElements(sendTextOption).isEmpty(), "Send Text option should NOT be visible");
+	}
+
+	public void editPatientClaimVerificationTest() {
+
+		String profileName = "Test Profile Name";
+		String createdEmail = "testprofile@email.com";
+
+		wait.until(ExpectedConditions.elementToBeClickable(patientClaimVerificationTab)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(actionMenuIcon)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(editOption)).click();
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(cellNumber)).clear();
+		driver.findElement(cellNumber).sendKeys("1234567890");
+
+		wait.until(ExpectedConditions.elementToBeClickable(deleteAdjusterBtn)).click();
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(adjusterName)).sendKeys(profileName);
+		driver.findElement(adjusterEmail).sendKeys(createdEmail);
+		driver.findElement(adjusterPhone).sendKeys("1234567890");
+		driver.findElement(adjusterFax).sendKeys("1234567890");
+
+		driver.findElement(addAdjusterBtn).click();
+		wait.until(ExpectedConditions.elementToBeClickable(saveBtn)).click();
+	}
+
+	public void verifyEditPrintSendOptionsAreNotAvailable() {
+		sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(patientClaimVerificationTab)).click();
+		sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(actionMenuIcon)).click();
+		sleep(2000);
+		Assert.assertTrue(driver.findElements(editOption).isEmpty(), "Edit option should NOT be visible");
+		Assert.assertTrue(driver.findElements(printOption).isEmpty(), "Print option should NOT be visible");
+		Assert.assertTrue(driver.findElements(sendMailOption).isEmpty(), "Send Mail option should NOT be visible");
+		Assert.assertTrue(driver.findElements(sendTextOption).isEmpty(), "Send Text option should NOT be visible");
+	}
+
+	public void openPatientClaimVerification() {
+		sleep(3000);
+		wait.until(ExpectedConditions.elementToBeClickable(firstPatientLink)).click();
+		sleep(3000);
+		wait.until(ExpectedConditions.elementToBeClickable(patientClaimVerificationIcon)).click();
+	}
+
+	public void addAdjuster(String name, String email) {
+		sleep(3000);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(adjusterName)).sendKeys(name);
+		sleep(3000);
+		driver.findElement(adjusterEmail).sendKeys(email);
+		sleep(3000);
+		driver.findElement(adjusterPhone).sendKeys("1234567890");
+		sleep(3000);
+		driver.findElement(adjusterFax).sendKeys("1234567890");
+		sleep(3000);
+		driver.findElement(addAdjusterBtn).click();
+	}
+
+	public void selectPayor(String businessName) {
+		sleep(3000);
+		wait.until(ExpectedConditions.elementToBeClickable(addPayorPopup)).click();
+		sleep(3000);
+		wait.until(ExpectedConditions.elementToBeClickable(fullSearchRadio)).click();
+		sleep(3000);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(payorBusinessName)).sendKeys(businessName);
+		sleep(3000);
+		driver.findElement(payorSearchBtn).click();
+		sleep(3000);
+		wait.until(ExpectedConditions.elementToBeClickable(payorSelectCheckbox)).click();
+		sleep(3000);
+		driver.findElement(payorSelectBtn).click();
+	}
+
+	public void addPatientClaimVerificationTest() {
+
+		String profileName = "Test Profile Name";
+		String createdEmail = "testprofile@email.com";
+
+		openPatientClaimVerification();
+		addAdjuster(profileName, createdEmail);
+		selectPayor("Charlotte Baird");
+		enterClaimNumber("1234567890");
+		selectPayorAddress();
+		savePatientClaimVerification();
+	}
+
+	public void enterClaimNumber(String claimNo) {
+		sleep(3000);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(claimNumber)).sendKeys(claimNo);
+	}
+
+	public void selectPayorAddress() {
+		sleep(3000);
+		wait.until(ExpectedConditions.elementToBeClickable(addPayorAddressPopup)).click();
+		sleep(3000);
+		wait.until(ExpectedConditions.elementToBeClickable(payorAddressCheckbox)).click();
+		sleep(3000);
+		driver.findElement(payorAddressSelectBtn).click();
+	}
+
+	public void savePatientClaimVerification() {
+		sleep(3000);
+		wait.until(ExpectedConditions.elementToBeClickable(saveBtn)).click();
+	}
+
+	public void addEditAccessPatientClaimVerificationTest() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement patientClaimVerificationAll = wait.until(ExpectedConditions.elementToBeClickable(patientClaimAll));
+		patientClaimVerificationAll.click();
+		sleep(2000);
+		WebElement patientClaimVerificationAdd = wait.until(ExpectedConditions.elementToBeClickable(patientClaimAdd));
+		patientClaimVerificationAdd.click();
+		sleep(2000);
+		WebElement patientClaimVerificationEdit = wait
+				.until(ExpectedConditions.elementToBeClickable(patientClaimVerificationEditLabel));
+		patientClaimVerificationEdit.click();
+
+	}
+
+	public void addEditPrintAccessPatientClaimVerificationTest() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement patientClaimVerificationAll = wait.until(ExpectedConditions.elementToBeClickable(patientClaimAll));
+		patientClaimVerificationAll.click();
+		sleep(2000);
+		WebElement patientClaimVerificationAdd = wait.until(ExpectedConditions.elementToBeClickable(patientClaimAdd));
+		patientClaimVerificationAdd.click();
+		sleep(2000);
+		WebElement patientClaimVerificationEdit = wait
+				.until(ExpectedConditions.elementToBeClickable(patientClaimVerificationEditLabel));
+		patientClaimVerificationEdit.click();
+		sleep(2000);
+		WebElement patientClaimVerificationPrint = wait
+				.until(ExpectedConditions.elementToBeClickable(patientClaimVerificationPrintLabel));
+		patientClaimVerificationPrint.click();
+
+	}
+
+	public void addEditPrintSendAccessPatientClaimVerificationTest() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
 	// PatientIntakeForm
 
 	public void printPatientIntakeForm() {
@@ -399,7 +1181,7 @@ public class patientpage {
 
 	public void sendPatientIntakeFormForSignature() {
 		sleep(7000);
-	    driver.navigate().refresh();
+		driver.navigate().refresh();
 		clickWhenClickable(patientIntakeFormsTab);
 		sleep(2000);
 		clickWhenClickable(intakeFormActionMenu);
