@@ -1047,7 +1047,6 @@ Then the user should be able to add patient physician test
 And the user should be able to edit patient physician test
 And the user should be able to delete patient physician test
 
-@Patient
 Scenario: User with Add only access for Patient Communication
 Given user launch browser
 Then user click on the user type dropdown
@@ -1059,6 +1058,554 @@ Then the patient user should be able to view Profiles
 And I create a profile with Add access only to Patient Module Patient Communication test
 Then the user should be able to add patient communication test
 But the user should not be able to edit or delete patient communication test
+
+Scenario: User with Add and Edit access for Patient Communication test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with Add and Edit access to Patient Module Patient Communication test      
+Then the user should be able to add patient communication test
+And the user should be able to edit patient communication test
+But the user should not be able to delete patient communication test
+
+Scenario: User with Add, Edit, and Delete access for Patient Communication
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with Add, Edit, and Delete access to Patient Module Patient Communication test
+Then the user should be able to add patient communication test
+And the user should be able to edit patient communication test
+And the user should be able to delete patient communication test
+
+Scenario: User with Add only access for Patient Family test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with Add access only to Patient Module Patient Family test
+Then the user should be able to add patient family test  
+But the user should not be able to delete patient family test
+
+Scenario: User with Add and Delete access for Patient Family
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with Add and Delete access to Patient Module Patient Family test
+Then the user should be able to add patient family test  
+And the user should be able to delete patient family test
+
+Scenario: User with Add only access for Patient External Source test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with Add access only to Patient Module Patient External Source test
+Then the user should be able to add patient external source test
+But the user should not be able to edit or delete patient external source test
+
+Scenario: User with Add and Edit access for Patient External Source test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with Add and Edit access to Patient Module Patient External Source test  
+Then the user should be able to add patient external source test
+And the user should be able to edit patient external source test 
+
+Scenario: User with Add, Edit, and Delete access for Patient External Source test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with Add, Edit, and Delete access to Patient Module Patient External Source test
+Then the user should be able to add patient external source test
+And the user should be able to edit patient external source test 
+And the user should be able to delete patient external source test
+
+Scenario: User with Add only access for Generate New Access Code test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with Add access only to Generate New Access Code test
+Then the user should be able to add generate new access code test
+
+Scenario: User with no Add access cannot add Generate New Access Code test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with no Add access to Generate New Access Code test
+Then the user should not be able to add generate new access code test
+
+Scenario: User with View only access for Patient Text test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with View access only to Patient Text test
+Then the user should be able to view patient text test
+But the user should not be able to use Quick Text, Reply, or Send VCard test
+
+Scenario: User with full access for Patient Text test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with full access to Patient Text test
+Then the user should be able to view patient text test
+And the user should be able to use Quick Text test
+And the user should be able to Reply test
+And the user should be able to Send VCard test
+
+Scenario: User with View access for Text test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with view access to Text test
+And the user should be able to view Quick Text test
+But the user should not be able to Reply, Add To Patient, or Send VCard test
+
+Scenario: User with full access for Text test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with view access to Text test
+And the user should be able to view Quick Text test
+And the user should be able to Reply test
+And the user should be able to Add To Patient test
+And the user should be able to Send VCard test
+
+Scenario: User with Add, Edit, and Delete access for CareGiver Name test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with Add, Edit, and Delete access to CareGiver Name test
+Then the user should be able to add caregiver name test
+And the user should be able to edit caregiver name test
+And the user should be able to delete caregiver name test
+
+Scenario: User with Add, Edit, and Delete access for Medical Health Card test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with Add, Edit, and Delete access to Medical Health Card test
+Then the user should be able to add medical health card test
+And the user should be able to edit medical health card test
+And the user should be able to delete medical health card test
+
+Scenario: User with View, Add, and Delete access for Feedback Form test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with View, Add, and Delete access to Feedback Form test  
+Then the user should be able to view feedback form test
+And the user should be able to add feedback form test
+And the user should be able to delete feedback form test
+
+Scenario: User with Add, Edit, and Delete access for Patient Vitals
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with Add, Edit, and Delete access to Patient Vitals test  
+Then the user should be able to add patient vitals test
+And the user should be able to edit patient vitals test
+And the user should be able to delete patient vitals test
+
+@Patient
+Scenario: User with Add, Edit, and Delete access for Patient Appointment test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with Add, Edit, and Delete access to Patient Appointment test  
+Then the user should be able to add patient appointment test
+And the user should be able to edit patient appointment test
+And the user should be able to delete patient appointment test
+
+Scenario: User with full access for Patient Medication ColorCode Setting test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the patient user should be able to view Profiles
+And I create a profile with View, Add, Edit, and Delete access to Patient Medication ColorCode Setting test 
+Then the user should be able to view color codes test
+And the user should be able to add a color code test
+And the user should be able to edit a color code test
+And the user should be able to delete a color code test
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

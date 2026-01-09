@@ -14,32 +14,152 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import java.time.Duration;
+import java.time.LocalDate;
+import java.time.format.TextStyle;
 import java.util.List;
+import java.util.Locale;
 
 public class patientpage {
 	private WebDriver driver;
 	private WebDriverWait wait;
 
+	// PatientMedicationColorCodeSetting
+	private By medicationColorCodeTypeDropdown = By.id("PatientMedicationColorCodeSetting_MedicationColorCodeType");
+	private By columnNameDropdown = By.id("PatientMedicationColorCodeSetting_ColumnName");
+	private By saveColorCodeButton = By.id("btnSaveMedicationColorCode");
+	private By actionMenuButton = By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']");
+
+	// PatientAppointment
+
+	private By upcomingAppointmentTab = By.xpath("//a[normalize-space()='Upcoming Appointment']");
+	private By newAppointmentButton = By.xpath("//span[normalize-space()='New Appointment']");
+	private By appointmentDateInput = By.id("PatientAppointment_AppointmentDate");
+	private By startTimeInput = By.id("startTime");
+	private By endTimeInput = By.id("endTime");
+	private By saveAppointmentButton = By.id("btnSaveAppointment");
+	private By firstAppointmentActionButton = By.xpath("//tbody/tr/td[8]/div[1]/div[1]/div[1]/button[1]/i[1]");
+	private By notesField = By.xpath("//textarea[@id='PatientAppointment_Notes']");
+
+	// PatientVitals
+	private By deleteVitalsButton = By.xpath("//a[@id='btnDeleteVital']//span[contains(text(),'Delete')]");
+	private By confirmDeleteVitalsButton = By.xpath("//button[@id='btnDeleteVitalConfirm']");
+	private By vitalsOptionsButton = By
+			.xpath("//div[@class='gridRecordIconside']//i[@class='fa-solid fa-ellipsis-vertical']");
+	private By editVitalsButton = By.xpath("//a[@title='Edit']//span[contains(text(),'Edit')]");
+	private By temperatureInput = By.xpath("//input[@id='PatientVital_Temprature']");
+	private By vitalsTab = By.xpath("//a[normalize-space()='Vitals']");
+	private By addVitalsButton = By.xpath("//span[normalize-space()='Add Vitals']");
+	private By bpInputField = By.xpath("//input[@id='PatientVital_BP']");
+	private By saveVitalsButton = By.xpath("//button[@id='btnSaveVital']");
+
+	// FeedbackForm
+
+	By feedbackFormTab = By.xpath("//span[normalize-space()='Feedback Form']");
+	By feedbackFormDropdown = By.id("FeedbackForm_Id");
+	By textOptionLabel = By.xpath("//label[normalize-space()='Text']");
+	By emailOptionLabel = By.xpath("//label[normalize-space()='Email']");
+	By submitFeedbackFormButton = By.id("btnFeedbackFollowUpQueueStatus");
+	private By feedbackFormActionMenuIcon = By.xpath("//tbody/tr/td[4]/div[1]/div[1]/button[1]/i[1]");
+	private By feedbackFormDeleteOption = By
+			.xpath("//a[@id='btnDeletePatientFeedbackForm']//span[contains(text(),'Delete')]");
+	private By confirmDeleteFeedbackFormButton = By.xpath("//button[@id='deletepatientFeedbackForm']");
+
+	By deleteMedicalHealthCardOption = By
+			.xpath("//a[@id='btnDeleteMedicalHealthCardConfirm']//span[contains(text(),'Delete')]");
+	By confirmDeleteMedicalHealthCardButton = By.id("deletepatientMedicalHealthCard");
+
+	By medicalHealthCardTab = By.xpath("//a[normalize-space()='Medical Health Card']");
+	By addMedicalHealthCardButton = By.xpath("//span[normalize-space()='Add Medical Health Card']");
+
+	By healthPlanNameInput = By.id("PatientMedicalHealthCard_HealthPlanName");
+	By planNumberInput = By.id("PatientMedicalHealthCard_PlanNumber");
+	By planCardHolderInput = By.id("PatientMedicalHealthCard_PlanCardHolder");
+
+	By saveMedicalHealthCardButton = By.id("btnSaveMedicalHealthCard");
+
+	By medicalHealthCardActionMenu = By.xpath("//tbody/tr/td[8]/div[1]/div[1]/button[1]/i[1]");
+	By editMedicalHealthCardOption = By.xpath(
+			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]");
+
+	By medicalHealthCardCheckbox = By.xpath("//label[@id='chk2text']");
+
+	// CareGiverName
+	By addNewCareGiverButton = By.xpath("//span[normalize-space()='Add New Caregiver']");
+	By careGiverLastNameInput = By.id("PatientCareGiverName_LastName");
+	By careGiverFirstNameInput = By.id("PatientCareGiverName_FirstName");
+	By careGiverPhoneInput = By.id("PatientCareGiverName_PhoneNumber");
+	By careGiverRelationInput = By.id("PatientCareGiverName_RelationOFCaregivertoPatient");
+	By saveCareGiverPopupButton = By.id("btnSaveCareGiverNamePopup");
+	By savePatientButton = By.id("btnSave");
+	By optionsMenuButton = By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']");
+	By editCareGiverOption = By.xpath("//span[normalize-space()='Edit']");
+	By deleteCareGiverOption = By.xpath("//span[normalize-space()='Delete']");
+	By confirmDeleteCareGiverButton = By.id("deletePatientCareGiverName");
+
+	// Text
+	private By textAllCheckbox = By.xpath("//label[@for='chkg20TextAll']");
+	private By textViewCheckbox = By.xpath("//label[@for='chkg20TextView']");
+	private By quickTextPhoneInput = By.id("newPhoneNumber");
+	private By quickTextBodyTextarea = By.id("newBody");
+	private By quickTextSendButton = By.id("btnSave");
+	private By textQuickTextCheckbox = By.xpath("//label[@for='chkg20TextQuickText']");
+	private By addToPatientButton = By.xpath("//span[normalize-space()='Add To Patient']");
+
+	// PatientText
+	private By patientTextAllCheckbox = By.xpath("//label[@for='chkg20PatientTextAll']");
+	private By patientTextViewCheckbox = By.xpath("//label[@for='chkg20PatientTextView']");
+	private By viewTextButtonIcon = By.xpath("//a[@id='btnTextViewPatient']//*[name()='svg']");
+	private By viewPatientTextIcon = By.xpath("//a[@id='btnTextViewPatient']//*[name()='svg']");
+	private By quickTextOption = By.xpath("//span[normalize-space()='Quick Text']");
+	private By sendVCardOption = By.xpath("//span[normalize-space()='Send VCard']");
+	private By phoneNumberInput = By.id("newPhoneNumber");
+	private By messageBodyTextarea = By.id("newBody");
+	private By saveTextButton = By.id("btnSave");
+	private By replyButton = By.xpath("//span[normalize-space()='Reply']");
+	private By vCardPhoneInput = By.id("vCardPhoneNumber");
+	private By vCardBodyTextarea = By.id("vcardBody");
+
+	// GenerateNewAccessCode
+
+	private By accessCodeTab = By.xpath("//a[@class='active'][normalize-space()='Access Code']");
+	private By generateAccessCodeButton = By.xpath("//span[normalize-space()='Generate Access Code']");
+	private By generateNewAccessCodeAllCheckbox = By.xpath("//label[@for='chkg12GenerateNewAccessCodeAll']");
+
+	// PatientExternalSource
+	private By patientEHRAllCheckbox = By.xpath("//label[@for='chkg12PatientEHRAll']");
+	private By patientEHRAddCheckbox = By.xpath("//label[@for='chkg12PatientEHRAdd']");
+	private By patientEHREditCheckbox = By.xpath("//label[@for='chkg12PatientEHREdit']");
+	private By externalSourceTab = By.xpath("//a[normalize-space()='External Source']");
+	private By addExternalSourceButton = By.xpath("//span[normalize-space()='Add External Source']");
+	private By externalSourceDropdown = By.id("Patient_PatientExternalSource_ExternalSource_Id");
+	private By externalPatientIdField = By.id("PatientExternalSource_ExternalPatientId");
+	private By saveExternalSourceButton = By.id("btnSaveEHR");
+
+	// PatientFamily
+	public By patientFamilyAllCheckbox = By.xpath("//label[@for='chkg18PatientFamilyAll']");
+	public By patientFamilyAddCheckbox = By.xpath("//label[@for='chkg18PatientFamilyAdd']");
+	private By familyDetailsTab = By.xpath("//a[normalize-space()='Family Details']");
+	private By addFamilyButton = By.xpath("//span[normalize-space()='Add Family']");
+	private By birthDateInput = By.id("Patient_BirthDate");
+	private By yearDropdown = By.xpath("//select[contains(@class,'ui-datepicker-year')]");
+	private By monthDropdown = By.xpath("//select[contains(@class,'ui-datepicker-month')]");
+	private By dateToSelect = By.xpath("//td[normalize-space()='1']");
+	private By findPatientButton = By.id("btnFindPatient");
+	private By selectPatientCheckbox = By.xpath("//input[@id='c87acbbb-8d62-4aee-bc00-cff67e2700a2']");
+	private By deleteFamilyButton = By.xpath("//a[@id='btnDeleteFamilyConfirm']//img");
+
 	// PatientCommunication
 	public By patientCommunicationAll = By.xpath("//label[@for='chkg18PatientCommunicationAll']");
 	public By patientCommunicationAdd = By.xpath("//label[@for='chkg18PatientCommunicationAdd']");
-
-	public void enableAddAccessPatientCommunication() {
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-		sleep(2000);
-		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
-		allModules.click();
-		sleep(2000);
-		WebElement patientCommunicationAllElement = wait
-				.until(ExpectedConditions.elementToBeClickable(patientCommunicationAll));
-		patientCommunicationAllElement.click();
-		sleep(2000);
-		WebElement patientCommunicationAddElement = wait
-				.until(ExpectedConditions.elementToBeClickable(patientCommunicationAdd));
-		patientCommunicationAddElement.click();
-		sleep(2000);
-
-	}
+	public By communicationTab = By.xpath("//a[normalize-space()='Communication']");
+	public By addCommunicationButton = By.xpath("//span[normalize-space()='Add Communication']");
+	public By communicationNotesField = By.xpath("//textarea[@id='PatientCommunication_Notes']");
+	public By saveCommunicationButton = By.xpath("//button[@id='btnSaveCommunication']");
+	public By communicationSuccessMessage = By.xpath("//div[contains(text(),'Communication added successfully')]");
+	public By actionDropdownButton = By.xpath("//tbody/tr/td[11]/div[1]/div[1]/button[1]/i[1]");
+	public By patientCommunicationEditCheckbox = By.xpath("//label[@for='chkg18PatientCommunicationEdit']");
+	public By communicationDeleteCheckbox = By.xpath("//label[@for='chkg18PatientCommunicationDelete']");
+	public By deleteMenuOption = By.xpath("//a[@id='btnDeleteCommunicationConfirm']//span[normalize-space()='Delete']");
 
 	// PatientPhysian
 	public By checkBox = By.xpath("//div[@class='col-md-4 col-lg-3 pt-2']//label[@id='chk2text']");
@@ -495,6 +615,294 @@ public class patientpage {
 	private By patientModuleDeleteLabel = By.xpath("//label[@for='chkg9PatientDelete']");
 	private By patientTagEditPermissionLabel = By.xpath("//label[@for='chkg10PatientTagEdit']");
 
+	// GenerateNewAccessCode
+
+	public void canAddGenerateAccessCode() {
+		sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+	}
+
+	public void userShouldBeAbleToAddGenerateNewAccessCode() {
+		wait.until(ExpectedConditions.elementToBeClickable(firstPatientLink)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(accessCodeTab)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(generateAccessCodeButton)).click();
+	}
+
+	public void addGenerateAccessCode() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+
+	}
+
+	public void userShouldNotBeAbleToUseQuickTextReplyOrSendVCard() {
+
+		wait.until(ExpectedConditions.elementToBeClickable(firstPatientLink)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(viewPatientTextIcon)).click();
+
+		if (!driver.findElements(quickTextOption).isEmpty()) {
+			throw new AssertionError("Quick Text option should not be visible");
+		}
+
+		if (!driver.findElements(sendVCardOption).isEmpty()) {
+			throw new AssertionError("Send VCard option should not be visible");
+		}
+	}
+
+	public void userShouldNotBeAbleToAddGenerateNewAccessCode() {
+
+		wait.until(ExpectedConditions.elementToBeClickable(firstPatientLink)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(accessCodeTab)).click();
+
+		List<WebElement> generateElements = driver.findElements(generateAccessCodeButton);
+		if (!generateElements.isEmpty()) {
+			throw new AssertionError("Generate Access Code button should not be visible");
+		}
+	}
+
+	public void noAddGenerateAccessCode() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement generateAccessCodeAllElement = wait
+				.until(ExpectedConditions.elementToBeClickable(generateNewAccessCodeAllCheckbox));
+		generateAccessCodeAllElement.click();
+
+	}
+
+	// PatientExternalSource
+	public void userShouldBeAbleToDeletePatientExternalSource() {
+		wait.until(ExpectedConditions.elementToBeClickable(externalSourceTab)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(actionDropdownButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(deleteOption)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(confirmDeleteButton)).click();
+	}
+
+	public void userShouldBeAbleToEditPatientExternalSource() {
+		wait.until(ExpectedConditions.elementToBeClickable(externalSourceTab)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(actionDropdownButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(editOption)).click();
+		WebElement patientIdField = wait.until(ExpectedConditions.visibilityOfElementLocated(externalPatientIdField));
+		patientIdField.clear();
+		patientIdField.sendKeys("22");
+		wait.until(ExpectedConditions.elementToBeClickable(saveExternalSourceButton)).click();
+	}
+
+	public void userShouldNotBeAbleToDeletePatientExternalSource() {
+
+		wait.until(ExpectedConditions.elementToBeClickable(externalSourceTab)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(actionDropdownButton)).click();
+
+		List<WebElement> deleteElements = driver.findElements(deleteOption);
+		if (!deleteElements.isEmpty()) {
+			throw new AssertionError("Delete option should not be visible for Patient External Source");
+		}
+	}
+
+	public void userShouldNotBeAbleToEditOrDeletePatientExternalSource() {
+
+		wait.until(ExpectedConditions.elementToBeClickable(externalSourceTab)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(actionDropdownButton)).click();
+
+		List<WebElement> editElements = driver.findElements(editOption);
+		if (!editElements.isEmpty()) {
+			throw new AssertionError("Edit option should not be visible for Patient External Source");
+		}
+
+		List<WebElement> deleteElements = driver.findElements(deleteOption);
+		if (!deleteElements.isEmpty()) {
+			throw new AssertionError("Delete option should not be visible for Patient External Source");
+		}
+	}
+
+	public void userShouldBeAbleToAddPatientExternalSource() {
+
+		wait.until(ExpectedConditions.elementToBeClickable(firstPatientLink)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(externalSourceTab)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(addExternalSourceButton)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(externalSourceDropdown));
+		selectDropdownByIndexWhenReady(externalSourceDropdown, 1); // selects the second item
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(externalPatientIdField)).sendKeys("22");
+
+		wait.until(ExpectedConditions.elementToBeClickable(saveExternalSourceButton)).click();
+	}
+
+	public void addPatientExternalSource() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement patientEHRAllElement = wait.until(ExpectedConditions.elementToBeClickable(patientEHRAllCheckbox));
+		patientEHRAllElement.click();
+		sleep(2000);
+		WebElement patientEHRAddElement = wait.until(ExpectedConditions.elementToBeClickable(patientEHRAddCheckbox));
+		patientEHRAddElement.click();
+
+	}
+
+	public void addEditDeletePatientExternalSource() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+
+	}
+
+	public void addEditPatientExternalSource() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement patientEHRAllElement = wait.until(ExpectedConditions.elementToBeClickable(patientEHRAllCheckbox));
+		patientEHRAllElement.click();
+		sleep(2000);
+		WebElement patientEHRAddElement = wait.until(ExpectedConditions.elementToBeClickable(patientEHRAddCheckbox));
+		patientEHRAddElement.click();
+		sleep(2000);
+		WebElement patientEHREditElement = wait.until(ExpectedConditions.elementToBeClickable(patientEHREditCheckbox));
+		patientEHREditElement.click();
+
+	}
+
+	// PatientCommunication
+	public void userShouldNotBeAbleToDeletePatientCommunication() {
+
+		wait.until(ExpectedConditions.elementToBeClickable(communicationTab)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(actionDropdownButton)).click();
+
+		List<WebElement> deleteElements = driver.findElements(deleteOption);
+		if (!deleteElements.isEmpty()) {
+			throw new AssertionError("Delete option should not be visible for Patient Communication");
+		}
+	}
+
+	public void userShouldBeAbleToEditPatientCommunication() {
+
+		wait.until(ExpectedConditions.elementToBeClickable(communicationTab)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(actionDropdownButton)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(editOption)).click();
+
+		WebElement notesField = wait.until(ExpectedConditions.visibilityOfElementLocated(communicationNotesField));
+		notesField.clear();
+		notesField.sendKeys("edit");
+
+		wait.until(ExpectedConditions.elementToBeClickable(saveCommunicationButton)).click();
+	}
+
+	public void verifyUserCannotEditOrDeletePatientCommunication() {
+		wait.until(ExpectedConditions.elementToBeClickable(communicationTab)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(actionDropdownButton)).click();
+
+		List<WebElement> editElements = driver.findElements(editOption);
+		if (!editElements.isEmpty()) {
+			throw new AssertionError("Edit option should not be present, but it is visible");
+		}
+
+		List<WebElement> deleteElements = driver.findElements(deleteOption);
+		if (!deleteElements.isEmpty()) {
+			throw new AssertionError("Delete option should not be present, but it is visible");
+		}
+	}
+
+	public void verifyUserCanAddPatientCommunication() {
+		wait.until(ExpectedConditions.elementToBeClickable(firstPatientLink)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(communicationTab)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(addCommunicationButton)).click();
+		WebElement notesField = wait.until(ExpectedConditions.visibilityOfElementLocated(communicationNotesField));
+		notesField.clear();
+		notesField.sendKeys("communication note");
+		wait.until(ExpectedConditions.elementToBeClickable(saveCommunicationButton)).click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(communicationSuccessMessage));
+	}
+
+	public void enableAddAccessPatientCommunication() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement patientCommunicationAllElement = wait
+				.until(ExpectedConditions.elementToBeClickable(patientCommunicationAll));
+		patientCommunicationAllElement.click();
+		sleep(2000);
+		WebElement patientCommunicationAddElement = wait
+				.until(ExpectedConditions.elementToBeClickable(patientCommunicationAdd));
+		patientCommunicationAddElement.click();
+		sleep(2000);
+
+	}
+
+	public void deleteCommunication() {
+
+		wait.until(ExpectedConditions.elementToBeClickable(communicationTab)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(actionDropdownButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(deleteMenuOption)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(confirmDeleteButton)).click();
+	}
+
+	public void createPatientCommunicationProfile() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement patientCommunicationAllElement = wait
+				.until(ExpectedConditions.elementToBeClickable(patientCommunicationAll));
+		patientCommunicationAllElement.click();
+		sleep(2000);
+		WebElement patientCommunicationAddElement = wait
+				.until(ExpectedConditions.elementToBeClickable(patientCommunicationAdd));
+		patientCommunicationAddElement.click();
+		sleep(2000);
+		WebElement patientCommunicationEditElement = wait
+				.until(ExpectedConditions.elementToBeClickable(patientCommunicationEditCheckbox));
+		patientCommunicationEditElement.click();
+		sleep(2000);
+
+	}
+
+	public void createAddEditPatientCommunicationProfile() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement patientCommunicationAllElement = wait
+				.until(ExpectedConditions.elementToBeClickable(patientCommunicationAll));
+		patientCommunicationAllElement.click();
+		sleep(2000);
+		WebElement patientCommunicationAddElement = wait
+				.until(ExpectedConditions.elementToBeClickable(patientCommunicationAdd));
+		patientCommunicationAddElement.click();
+		sleep(2000);
+		WebElement patientCommunicationEditElement = wait
+				.until(ExpectedConditions.elementToBeClickable(patientCommunicationEditCheckbox));
+		patientCommunicationEditElement.click();
+		sleep(2000);
+		WebElement patientCommunicationDeleteElement = wait
+				.until(ExpectedConditions.elementToBeClickable(communicationDeleteCheckbox));
+		patientCommunicationDeleteElement.click();
+		sleep(2000);
+
+	}
+
 	// PatientPhysian
 	public void deletePatientPhysician() {
 		wait.until(ExpectedConditions.elementToBeClickable(physicianTab)).click();
@@ -866,15 +1274,6 @@ public class patientpage {
 	public void deletePatientMedication() {
 		wait.until(ExpectedConditions.elementToBeClickable(deleteOption)).click();
 		wait.until(ExpectedConditions.elementToBeClickable(confirmDeleteBtn)).click();
-	}
-
-	public void verifyDeleteNotAvailable() {
-
-		wait.until(ExpectedConditions.elementToBeClickable(medicationTab)).click();
-
-		wait.until(ExpectedConditions.elementToBeClickable(actionMenuIcon)).click();
-
-		Assert.assertTrue(driver.findElements(deleteOption).isEmpty(), "Delete option should NOT be visible");
 	}
 
 	public void editPatientMedication() {
@@ -3492,6 +3891,517 @@ public class patientpage {
 		} catch (InterruptedException e) {
 			Thread.currentThread().interrupt();
 		}
+	}
+
+	// PatientFamily
+
+	public void userShouldNotBeAbleToDeletePatientFamily() {
+
+		wait.until(ExpectedConditions.elementToBeClickable(familyDetailsTab)).click();
+
+		List<WebElement> deleteElements = driver.findElements(deleteFamilyButton);
+		if (!deleteElements.isEmpty()) {
+			throw new AssertionError("Delete button should not be visible for Patient Family");
+		}
+	}
+
+	public void removePatientFamily() {
+		wait.until(ExpectedConditions.elementToBeClickable(familyDetailsTab)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(deleteFamilyButton)).click();
+	}
+
+	public void userShouldBeAbleToAddPatientFamily() {
+
+		wait.until(ExpectedConditions.elementToBeClickable(firstPatientLink)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(familyDetailsTab)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(addFamilyButton)).click();
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(lastNameField)).sendKeys("Hinton");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(firstNameField)).sendKeys("Howard");
+
+		WebElement birthDate = wait.until(ExpectedConditions.elementToBeClickable(birthDateInput));
+		birthDate.click();
+
+		Select yearSelect = new Select(wait.until(ExpectedConditions.visibilityOfElementLocated(yearDropdown)));
+		yearSelect.selectByVisibleText("2025");
+
+		Select monthSelect = new Select(wait.until(ExpectedConditions.visibilityOfElementLocated(monthDropdown)));
+		monthSelect.selectByVisibleText("Apr");
+
+		wait.until(ExpectedConditions.elementToBeClickable(dateToSelect)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(findPatientButton)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(selectPatientCheckbox)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+	}
+
+	public void addPatientFamily() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement patientFamilyAllElement = wait
+				.until(ExpectedConditions.elementToBeClickable(patientFamilyAllCheckbox));
+		patientFamilyAllElement.click();
+		sleep(2000);
+		WebElement patientFamilyAddElement = wait
+				.until(ExpectedConditions.elementToBeClickable(patientFamilyAddCheckbox));
+		patientFamilyAddElement.click();
+		sleep(2000);
+
+	}
+
+	public void addDeletePatientFamily() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+
+	}
+
+	// PatientText
+	public void userShouldBeAbleToUseQuickText() {
+		wait.until(ExpectedConditions.elementToBeClickable(quickTextButton)).click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(phoneNumberInput)).sendKeys("1234567890");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(messageBodyTextarea)).sendKeys("text message");
+		wait.until(ExpectedConditions.elementToBeClickable(saveTextButton)).click();
+	}
+
+	public void userShouldBeAbleToSendVCard() {
+		sleep(3000);
+
+		clickWhenClickable(sendVCardButton);
+		sleep(1000);
+
+		waitAndSendKeys(vCardPhoneInput, "1234567890");
+		waitAndSendKeys(vCardBodyTextarea, "text message");
+
+		clickWhenClickable(sendVCardSubmitButton);
+	}
+
+	public void assertElementPresent(By locator) {
+		try {
+			wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+		} catch (TimeoutException e) {
+			Assert.fail("Element not present after wait: " + locator.toString());
+		}
+	}
+
+	public void userShouldBeAbleToReply() {
+		sleep(3000);
+		assertElementPresent(replyButton);
+	}
+
+	public void viewPatientText() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement patientTextAllElement = wait.until(ExpectedConditions.elementToBeClickable(patientTextAllCheckbox));
+		patientTextAllElement.click();
+		sleep(2000);
+		WebElement patientTextViewElement = wait
+				.until(ExpectedConditions.elementToBeClickable(patientTextViewCheckbox));
+		patientTextViewElement.click();
+
+	}
+
+	public void fullAccessPatientText() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+
+	}
+
+	public void userShouldBeAbleToViewPatientText() {
+
+		wait.until(ExpectedConditions.elementToBeClickable(firstPatientLink)).click();
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(viewTextButtonIcon));
+	}
+
+	// Text
+
+	public void userShouldBeAbleToAddToPatient() {
+		sleep(3000);
+		assertElementPresent(addToPatientButton);
+	}
+
+	public void userShouldNotBeAbleToReplyAddToPatientOrSendVCard() {
+		sleep(3000);
+		assertElementNotPresent(replyButton);
+		assertElementNotPresent(addToPatientButton);
+		assertElementNotPresent(sendVCardButton);
+	}
+
+	public void canUseQuickText() {
+		wait.until(ExpectedConditions.elementToBeClickable(quickTextButton)).click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(quickTextPhoneInput)).sendKeys("1234567890");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(quickTextBodyTextarea)).sendKeys("text message");
+		wait.until(ExpectedConditions.elementToBeClickable(quickTextSendButton)).click();
+	}
+
+	public void setTextViewAccess() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement textAllElement = wait.until(ExpectedConditions.elementToBeClickable(textAllCheckbox));
+		textAllElement.click();
+		sleep(2000);
+		WebElement textViewElement = wait.until(ExpectedConditions.elementToBeClickable(textViewCheckbox));
+		textViewElement.click();
+		sleep(2000);
+		WebElement textQuickTextElement = wait.until(ExpectedConditions.elementToBeClickable(textQuickTextCheckbox));
+		textQuickTextElement.click();
+
+	}
+	// CareGiverName
+
+	public void careGiverAddEditDeleteAccess() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void userShouldBeAbleToDeleteCaregiverName() {
+
+		clickWhenClickable(firstPatientLink);
+
+		clickWhenClickable(editPatientButton);
+
+		clickWhenClickable(optionsMenuButton);
+
+		clickWhenClickable(deleteCareGiverOption);
+
+		clickWhenClickable(confirmDeleteCareGiverButton);
+
+		clickWhenClickable(savePatientButton);
+	}
+
+	public void userShouldBeAbleToEditCaregiverName() {
+
+		clickWhenClickable(firstPatientLink);
+
+		clickWhenClickable(editPatientButton);
+
+		clickWhenClickable(optionsMenuButton);
+
+		clickWhenClickable(editCareGiverOption);
+
+		waitAndSendKeys(careGiverLastNameInput, "Batson");
+		waitAndSendKeys(careGiverFirstNameInput, "Kelli");
+
+		clickWhenClickable(saveCareGiverPopupButton);
+		clickWhenClickable(savePatientButton);
+	}
+
+	public void userShouldBeAbleToAddCareGiverName() {
+		clickWhenClickable(firstPatientLink);
+		clickWhenClickable(editPatientButton);
+		clickWhenClickable(addNewCareGiverButton);
+		waitAndSendKeys(careGiverLastNameInput, "Batson");
+		waitAndSendKeys(careGiverFirstNameInput, "Kelli");
+		waitAndSendKeys(careGiverPhoneInput, "5014324826");
+		waitAndSendKeys(careGiverRelationInput, "Mother");
+		clickWhenClickable(saveCareGiverPopupButton);
+		clickWhenClickable(savePatientButton);
+	}
+
+	// MedicalHealthCard
+
+	public void medicalHealthCardAddEditDeleteAccess() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void userShouldBeAbleToDeleteMedicalHealthCard() {
+
+		clickWhenClickable(medicalHealthCardTab);
+
+		clickWhenClickable(medicalHealthCardActionMenu);
+
+		clickWhenClickable(deleteMedicalHealthCardOption);
+
+		clickWhenClickable(confirmDeleteMedicalHealthCardButton);
+	}
+
+	public void userShouldBeAbleToEditMedicalHealthCard() {
+
+		clickWhenClickable(medicalHealthCardTab);
+		clickWhenClickable(medicalHealthCardActionMenu);
+		clickWhenClickable(editMedicalHealthCardOption);
+		clickWhenClickable(medicalHealthCardCheckbox);
+		clickWhenClickable(saveMedicalHealthCardButton);
+	}
+
+	public void userShouldBeAbleToAddMedicalHealthCard() {
+
+		clickWhenClickable(firstPatientLink);
+		clickWhenClickable(medicalHealthCardTab);
+		clickWhenClickable(addMedicalHealthCardButton);
+		waitAndSendKeys(healthPlanNameInput, "UnitedHealthcare");
+		waitAndSendKeys(planNumberInput, "UH987654321");
+		waitAndSendKeys(planCardHolderInput, "Jane Smith");
+		clickWhenClickable(saveMedicalHealthCardButton);
+	}
+
+	// FeedbackForm
+
+	public void userShouldBeAbleToDeleteFeedbackForm() {
+		sleep(3000);
+
+		sleep(2000);
+		clickWhenClickable(feedbackFormActionMenuIcon);
+
+		sleep(2000);
+		clickWhenClickable(feedbackFormDeleteOption);
+
+		sleep(1000);
+		clickWhenClickable(confirmDeleteFeedbackFormButton);
+	}
+
+	public void enableFeedbackFormViewAddDelete() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void userShouldBeAbleToViewFeedbackForm() {
+		sleep(3000);
+
+		sleep(2000);
+		clickWhenClickable(By.xpath("//tbody/tr/td[4]/div[1]/div[1]/button[1]/i[1]"));
+
+		sleep(1000);
+		assertElementPresent(By.xpath("//span[normalize-space()='View']"));
+
+		clickWhenClickable(By.xpath("//span[normalize-space()='View']"));
+
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@onclick='return CloseFeedbackFormPopup()']//i[@class='fa fa-times']"));
+	}
+
+	public void userShouldBeAbleToAddFeedbackForm() {
+
+		clickWhenClickable(firstPatientLink);
+
+		clickWhenClickable(feedbackFormTab);
+
+		selectDropdownByIndexWhenReady(feedbackFormDropdown, 3);
+
+		clickWhenClickable(textOptionLabel);
+		clickWhenClickable(emailOptionLabel);
+
+		clickWhenClickable(submitFeedbackFormButton);
+	}
+
+	public void createPatientVitalsProfileWithFullAccessTest() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void editPatientVitalsTest() {
+
+		clickWhenClickable(vitalsTab);
+
+		clickWhenClickable(vitalsOptionsButton);
+
+		clickWhenClickable(editVitalsButton);
+
+		waitAndSendKeys(temperatureInput, "110");
+
+		clickWhenClickable(saveVitalsButton);
+	}
+
+	public void addPatientVitalsTest() {
+
+		clickWhenClickable(firstPatientLink);
+
+		clickWhenClickable(vitalsTab);
+
+		clickWhenClickable(addVitalsButton);
+
+		waitAndSendKeys(bpInputField, "110");
+
+		clickWhenClickable(saveVitalsButton);
+	}
+
+	public void userShouldBeAbleToAddPatientVitals() {
+
+		clickWhenClickable(firstPatientLink);
+
+		clickWhenClickable(vitalsTab);
+
+		clickWhenClickable(addVitalsButton);
+
+		waitAndSendKeys(bpInputField, "110");
+
+		clickWhenClickable(saveVitalsButton);
+	}
+
+	public void deletePatientVitalsTest() {
+		clickWhenClickable(vitalsTab);
+
+		clickWhenClickable(vitalsOptionsButton);
+
+		clickWhenClickable(deleteVitalsButton);
+
+		clickWhenClickable(confirmDeleteVitalsButton);
+	}
+
+	public void deletePatientAppointment() {
+
+		wait.until(ExpectedConditions.elementToBeClickable(upcomingAppointmentTab)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(firstAppointmentActionButton)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(deleteOption)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(confirmDeleteButton)).click();
+	}
+
+	public void editPatientAppointment(String noteText) {
+
+		wait.until(ExpectedConditions.elementToBeClickable(upcomingAppointmentTab)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(firstAppointmentActionButton)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(editOption)).click();
+
+		WebElement notes = wait.until(ExpectedConditions.visibilityOfElementLocated(notesField));
+		notes.clear();
+		notes.sendKeys(noteText);
+
+		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
+	}
+
+	public void managePatientAppointmentTest() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void addPatientAppointment(LocalDate date, int startHour, int startMinute, int endHour, int endMinute) {
+
+		wait.until(ExpectedConditions.elementToBeClickable(firstPatientLink)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(upcomingAppointmentTab)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(newAppointmentButton)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(appointmentDateInput)).click();
+
+		String month = date.getMonth().getDisplayName(TextStyle.SHORT, Locale.ENGLISH);
+		int day = date.getDayOfMonth();
+		int year = date.getYear();
+
+		WebElement yearElement = wait.until(ExpectedConditions.visibilityOfElementLocated(yearDropdown));
+		new Select(yearElement).selectByVisibleText(String.valueOf(year));
+
+		WebElement monthElement = wait.until(ExpectedConditions.visibilityOfElementLocated(monthDropdown));
+		new Select(monthElement).selectByVisibleText(month);
+
+		WebElement dayElement = wait.until(ExpectedConditions.elementToBeClickable(
+				By.xpath("//td[not(contains(@class,'ui-datepicker-other-month'))]/a[text()='" + day + "']")));
+		dayElement.click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(startTimeInput)).click();
+		WebElement startHourElement = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
+				"//td[@class='ui-timepicker-hour-cell' and @data-timepicker-instance-id='#startTime' and @data-hour='"
+						+ startHour + "']")));
+		startHourElement.click();
+		WebElement startMinuteElement = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
+				"//td[@class='ui-timepicker-minute-cell' and @data-timepicker-instance-id='#startTime' and @data-minute='"
+						+ startMinute + "']")));
+		startMinuteElement.click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(endTimeInput)).click();
+		WebElement endHourElement = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
+				"//td[@class='ui-timepicker-hour-cell' and @data-timepicker-instance-id='#endTime' and @data-hour='"
+						+ endHour + "']")));
+		endHourElement.click();
+		WebElement endMinuteElement = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
+				"//td[@class='ui-timepicker-minute-cell' and @data-timepicker-instance-id='#endTime' and @data-minute='"
+						+ endMinute + "']")));
+		endMinuteElement.click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(saveAppointmentButton)).click();
+	}
+	// PatientMedicationColorCodeSetting
+
+	public void deleteColorCode() {
+
+		wait.until(ExpectedConditions.elementToBeClickable(actionMenuButton)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(deleteOption)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(confirmDeleteButton)).click();
+	}
+
+	public void verifyDeleteNotAvailable() {
+
+		wait.until(ExpectedConditions.elementToBeClickable(actionMenuButton)).click();
+
+		assertElementNotPresent(deleteOption);
+	}
+
+	public void editColorCode(int dropdownIndex) {
+
+		wait.until(ExpectedConditions.elementToBeClickable(actionMenuButton)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(editOption)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(medicationColorCodeTypeDropdown));
+		Select dropdown = new Select(driver.findElement(medicationColorCodeTypeDropdown));
+		dropdown.selectByIndex(dropdownIndex);
+
+		wait.until(ExpectedConditions.elementToBeClickable(saveColorCodeButton)).click();
+	}
+
+	public void createProfileWithColorCodeAccess() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void addColorCode() {
+
+		wait.until(ExpectedConditions.elementToBeClickable(saveAppointmentButton)).click();
+
+		selectDropdownByIndexWhenReady(medicationColorCodeTypeDropdown, 1);
+
+		selectDropdownByIndexWhenReady(columnNameDropdown, 1);
+
+		wait.until(ExpectedConditions.elementToBeClickable(saveColorCodeButton)).click();
 	}
 
 }
