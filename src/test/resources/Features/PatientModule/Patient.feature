@@ -919,6 +919,7 @@ And the user should be able to view patient medication gross margin test
 And the user should be able to update patient medication sync test
 And the user should be able to update patient medication gross margin test
 
+@Patient
 Scenario: User with Add only access for Patient Meds On Chart test
 Given user launch browser
 Then user click on the user type dropdown
@@ -1146,6 +1147,7 @@ Then the user should be able to add patient external source test
 And the user should be able to edit patient external source test 
 And the user should be able to delete patient external source test
 
+#
 Scenario: User with Add only access for Generate New Access Code test
 Given user launch browser
 Then user click on the user type dropdown
@@ -1272,7 +1274,6 @@ Then the user should be able to add patient vitals test
 And the user should be able to edit patient vitals test
 And the user should be able to delete patient vitals test
 
-@Patient
 Scenario: User with Add, Edit, and Delete access for Patient Appointment test
 Given user launch browser
 Then user click on the user type dropdown
@@ -1299,6 +1300,23 @@ Then the user should be able to view color codes test
 And the user should be able to add a color code test
 And the user should be able to edit a color code test
 And the user should be able to delete a color code test
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

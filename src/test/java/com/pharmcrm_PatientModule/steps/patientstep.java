@@ -33,22 +33,24 @@ public class patientstep {
 		patientPage.clickEditButton();
 		patientPage.createProfileWithColorCodeAccess();
 		patientPage.clickSubmitButton();
-		System.out.println("Profile updated with View, Add, Edit, and Delete access to Patient Module Tag");
-		Hooks.scenario.log("Profile updated with View, Add, Edit, and Delete access to Patient Module Tag");
+		System.out.println(
+				"Profile updated with View, Add, Edit, and Delete access to Patient Medication ColorCode Setting");
+		Hooks.scenario
+				.log("Profile updated with View, Add, Edit, and Delete access to Patient Medication ColorCode Setting");
 	}
 
 	@And("the user should be able to view color codes test")
 	public void userShouldBeAbleToViewColorCodes() {
 		sleep(2000);
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
-		String patientPageUrl = Hooks.prop.getProperty("patientMedicationColorCodeSettingUrl");
-		String fullUrl = baseUrl + patientPageUrl;
+		String colorCodeUrl = Hooks.prop.getProperty("patientMedicationColorCodeSettingUrl");
+		String fullUrl = baseUrl + colorCodeUrl;
 		patientPage = new patientpage(Hooks.driver);
 		patientPage.openPatientsPage(fullUrl, "/Setup/Home/PatientMedicationColorCodeSettings");
-		Assert.assertTrue("Patients page is not displayed",
+		Assert.assertTrue("Patient Medication Color Code Settings page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/PatientMedicationColorCodeSettings"));
-		System.out.println("User is able to view the Patients page");
-		Hooks.scenario.log("User is able to view the Patients page");
+		System.out.println("User is able to view Patient Medication Color Code Settings page");
+		Hooks.scenario.log("User is able to view Patient Medication Color Code Settings page");
 
 	}
 
@@ -83,22 +85,18 @@ public class patientstep {
 		patientPage.clickEditButton();
 		patientPage.managePatientAppointmentTest();
 		patientPage.clickSubmitButton();
-		System.out.println("Profile updated with View, Add, Edit, and Delete access to Patient Module Tag");
-		Hooks.scenario.log("Profile updated with View, Add, Edit, and Delete access to Patient Module Tag");
+		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Appointment");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Appointment");
 	}
 
 	@And("the user should be able to delete patient appointment test")
 	public void userShouldBeAbleToDeletePatientAppointment() {
-		sleep(4000);
-
 		patientPage.deletePatientAppointment();
 
 	}
 
 	@And("the user should be able to edit patient appointment test")
 	public void userShouldBeAbleToEditPatientAppointment() {
-		sleep(4000);
-
 		patientPage.editPatientAppointment("Note");
 
 	}
@@ -106,6 +104,15 @@ public class patientstep {
 	@And("the user should be able to add patient appointment test")
 	public void userCanAddPatientAppointment() {
 		sleep(4000);
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String reviewCategoriesPageUrl = Hooks.prop.getProperty("patientPageUrl");
+		String fullUrl = baseUrl + reviewCategoriesPageUrl;
+		patientPage = new patientpage(Hooks.driver);
+		patientPage.openPatientsPage(fullUrl, "/Patient/Home/Patients");
+		Assert.assertTrue("Review Categories page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Patient/Home/Patients"));
+		System.out.println("User is able to view the Review Categories page");
+		Hooks.scenario.log("User is able to view the Review Categories page");
 		LocalDate today = LocalDate.now();
 		patientPage.addPatientAppointment(today, 10, 30, 23, 30);
 
@@ -121,8 +128,8 @@ public class patientstep {
 		patientPage.clickEditButton();
 		patientPage.createPatientVitalsProfileWithFullAccessTest();
 		patientPage.clickSubmitButton();
-		System.out.println("Profile updated with View, Add, Edit, and Delete access to Patient Module Tag");
-		Hooks.scenario.log("Profile updated with View, Add, Edit, and Delete access to Patient Module Tag");
+		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
 	}
 
 	@And("the user should be able to delete patient vitals test")
@@ -142,6 +149,15 @@ public class patientstep {
 	@And("the user should be able to add patient vitals test")
 	public void userShouldBeAbleToAddPatientVitalsTest() {
 		sleep(4000);
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String reviewCategoriesPageUrl = Hooks.prop.getProperty("patientPageUrl");
+		String fullUrl = baseUrl + reviewCategoriesPageUrl;
+		patientPage = new patientpage(Hooks.driver);
+		patientPage.openPatientsPage(fullUrl, "/Patient/Home/Patients");
+		Assert.assertTrue("Review Categories page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Patient/Home/Patients"));
+		System.out.println("User is able to view the Review Categories page");
+		Hooks.scenario.log("User is able to view the Review Categories page");
 		patientPage.addPatientVitalsTest();
 
 	}
@@ -156,20 +172,18 @@ public class patientstep {
 		patientPage.clickEditButton();
 		patientPage.enableFeedbackFormViewAddDelete();
 		patientPage.clickSubmitButton();
-		System.out.println("Profile updated with View, Add, Edit, and Delete access to Patient Module Tag");
-		Hooks.scenario.log("Profile updated with View, Add, Edit, and Delete access to Patient Module Tag");
+		System.out.println("Profile updated with View, Add, and Delete access to Feedback Form");
+		Hooks.scenario.log("Profile updated with View, Add, and Delete access to Feedback Form");
 	}
 
 	@And("the user should be able to add feedback form test")
 	public void verifyAddFeedbackFormAccess() {
-		sleep(4000);
 		patientPage.userShouldBeAbleToAddFeedbackForm();
 
 	}
 
 	@And("the user should be able to delete feedback form test")
 	public void userShouldBeAbleToDeleteFeedbackFormTest() {
-		sleep(4000);
 		patientPage.userShouldBeAbleToDeleteFeedbackForm();
 
 	}
@@ -177,6 +191,15 @@ public class patientstep {
 	@And("the user should be able to view feedback form test")
 	public void userShouldBeAbleToViewFeedbackForm() {
 		sleep(4000);
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String reviewCategoriesPageUrl = Hooks.prop.getProperty("patientPageUrl");
+		String fullUrl = baseUrl + reviewCategoriesPageUrl;
+		patientPage = new patientpage(Hooks.driver);
+		patientPage.openPatientsPage(fullUrl, "/Patient/Home/Patients");
+		Assert.assertTrue("Review Categories page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Patient/Home/Patients"));
+		System.out.println("User is able to view the Review Categories page");
+		Hooks.scenario.log("User is able to view the Review Categories page");
 		patientPage.userShouldBeAbleToViewFeedbackForm();
 
 	}
@@ -191,50 +214,63 @@ public class patientstep {
 		patientPage.clickEditButton();
 		patientPage.medicalHealthCardAddEditDeleteAccess();
 		patientPage.clickSubmitButton();
-		System.out.println("Profile updated with View, Add, Edit, and Delete access to Patient Module Tag");
-		Hooks.scenario.log("Profile updated with View, Add, Edit, and Delete access to Patient Module Tag");
+		System.out.println("Profile updated with Add, Edit, and Delete access to Medical Health Card");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Medical Health Card");
 	}
 
 	@And("the user should be able to add medical health card test")
 	public void canAddMedicalHealthCard() {
 		sleep(4000);
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String reviewCategoriesPageUrl = Hooks.prop.getProperty("patientPageUrl");
+		String fullUrl = baseUrl + reviewCategoriesPageUrl;
+		patientPage = new patientpage(Hooks.driver);
+		patientPage.openPatientsPage(fullUrl, "/Patient/Home/Patients");
+		Assert.assertTrue("Review Categories page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Patient/Home/Patients"));
+		System.out.println("User is able to view the Review Categories page");
+		Hooks.scenario.log("User is able to view the Review Categories page");
 		patientPage.userShouldBeAbleToAddMedicalHealthCard();
 
 	}
 
 	@And("the user should be able to edit medical health card test")
 	public void canEditMedicalHealthCard() {
-		sleep(4000);
 		patientPage.userShouldBeAbleToEditMedicalHealthCard();
 
 	}
 
 	@And("the user should be able to delete medical health card test")
 	public void canDeleteMedicalHealthCard() {
-		sleep(4000);
 		patientPage.userShouldBeAbleToDeleteMedicalHealthCard();
 
 	}
 
 	// CareGiverName
-
 	@And("the user should be able to add caregiver name test")
 	public void canAddCareGiverName() {
 		sleep(4000);
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String reviewCategoriesPageUrl = Hooks.prop.getProperty("patientPageUrl");
+		String fullUrl = baseUrl + reviewCategoriesPageUrl;
+		patientPage = new patientpage(Hooks.driver);
+		patientPage.openPatientsPage(fullUrl, "/Patient/Home/Patients");
+		Assert.assertTrue("Review Categories page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Patient/Home/Patients"));
+		System.out.println("User is able to view the Review Categories page");
+		Hooks.scenario.log("User is able to view the Review Categories page");
 		patientPage.userShouldBeAbleToAddCareGiverName();
 
 	}
 
 	@And("the user should be able to delete caregiver name test")
 	public void canDeleteCareGiverName() {
-		sleep(4000);
 		patientPage.userShouldBeAbleToDeleteCaregiverName();
 
 	}
 
 	@And("the user should be able to edit caregiver name test")
 	public void canEditCareGiverName() {
-		sleep(4000);
 		patientPage.userShouldBeAbleToEditCaregiverName();
 
 	}
@@ -248,8 +284,8 @@ public class patientstep {
 		patientPage.clickEditButton();
 		patientPage.careGiverAddEditDeleteAccess();
 		patientPage.clickSubmitButton();
-		System.out.println("Profile updated with View, Add, Edit, and Delete access to Patient Module Tag");
-		Hooks.scenario.log("Profile updated with View, Add, Edit, and Delete access to Patient Module Tag");
+		System.out.println("Profile updated with Add, Edit, and Delete access to CareGiver Name");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to CareGiver Name");
 	}
 
 	// Text
@@ -262,13 +298,12 @@ public class patientstep {
 		patientPage.clickEditButton();
 		patientPage.setTextViewAccess();
 		patientPage.clickSubmitButton();
-		System.out.println("Profile updated with View, Add, Edit, and Delete access to Patient Module Tag");
-		Hooks.scenario.log("Profile updated with View, Add, Edit, and Delete access to Patient Module Tag");
+		System.out.println("Profile updated with View access to Text");
+		Hooks.scenario.log("Profile updated with View access to Text");
 	}
 
 	@And("the user should not be able to Reply, Add To Patient, or Send VCard test")
 	public void cannotUseReplyAddToPatientSendVCard() {
-		sleep(4000);
 		patientPage.userShouldNotBeAbleToReplyAddToPatientOrSendVCard();
 
 	}
@@ -276,6 +311,15 @@ public class patientstep {
 	@And("the user should be able to view Quick Text test")
 	public void canViewQuickText() {
 		sleep(4000);
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String reviewCategoriesPageUrl = Hooks.prop.getProperty("patientPageUrl");
+		String fullUrl = baseUrl + reviewCategoriesPageUrl;
+		patientPage = new patientpage(Hooks.driver);
+		patientPage.openPatientsPage(fullUrl, "/Patient/Home/Patients");
+		Assert.assertTrue("Review Categories page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Patient/Home/Patients"));
+		System.out.println("User is able to view the Review Categories page");
+		Hooks.scenario.log("User is able to view the Review Categories page");
 		patientPage.canUseQuickText();
 
 	}
@@ -288,24 +332,20 @@ public class patientstep {
 	}
 
 	// PatientText
-
 	@And("the user should be able to Send VCard test")
 	public void canSendVCard() {
-		sleep(4000);
 		patientPage.userShouldBeAbleToSendVCard();
 
 	}
 
 	@And("the user should be able to Reply test")
 	public void canReplyPatientText() {
-		sleep(4000);
 		patientPage.userShouldBeAbleToReply();
 
 	}
 
 	@And("the user should be able to use Quick Text test")
 	public void canUseQuickText() {
-		sleep(4000);
 		patientPage.userShouldBeAbleToUseQuickText();
 
 	}
@@ -313,6 +353,15 @@ public class patientstep {
 	@And("the user should be able to view patient text test")
 	public void viewPatientText() {
 		sleep(4000);
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String reviewCategoriesPageUrl = Hooks.prop.getProperty("patientPageUrl");
+		String fullUrl = baseUrl + reviewCategoriesPageUrl;
+		patientPage = new patientpage(Hooks.driver);
+		patientPage.openPatientsPage(fullUrl, "/Patient/Home/Patients");
+		Assert.assertTrue("Review Categories page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Patient/Home/Patients"));
+		System.out.println("User is able to view the Review Categories page");
+		Hooks.scenario.log("User is able to view the Review Categories page");
 		patientPage.userShouldBeAbleToViewPatientText();
 
 	}
@@ -326,8 +375,8 @@ public class patientstep {
 		patientPage.clickEditButton();
 		patientPage.fullAccessPatientText();
 		patientPage.clickSubmitButton();
-		System.out.println("Profile updated with View, Add, Edit, and Delete access to Patient Module Tag");
-		Hooks.scenario.log("Profile updated with View, Add, Edit, and Delete access to Patient Module Tag");
+		System.out.println("Profile updated with full access to Patient Text");
+		Hooks.scenario.log("Profile updated with full access to Patient Text");
 	}
 
 	@And("I create a profile with View access only to Patient Text test")
@@ -339,32 +388,35 @@ public class patientstep {
 		patientPage.clickEditButton();
 		patientPage.viewPatientText();
 		patientPage.clickSubmitButton();
-		System.out.println("Profile updated with View, Add, Edit, and Delete access to Patient Module Tag");
-		Hooks.scenario.log("Profile updated with View, Add, Edit, and Delete access to Patient Module Tag");
+		System.out.println("Profile updated with View access only to Patient Text");
+		Hooks.scenario.log("Profile updated with View access only to Patient Text");
 	}
 
 	// GenerateNewAccessCode
-
 	@And("the user should be able to add generate new access code test")
 	public void addGenerateAccessCode() {
 		sleep(4000);
-
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String reviewCategoriesPageUrl = Hooks.prop.getProperty("patientPageUrl");
+		String fullUrl = baseUrl + reviewCategoriesPageUrl;
+		patientPage = new patientpage(Hooks.driver);
+		patientPage.openPatientsPage(fullUrl, "/Patient/Home/Patients");
+		Assert.assertTrue("Review Categories page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Patient/Home/Patients"));
+		System.out.println("User is able to view the Review Categories page");
+		Hooks.scenario.log("User is able to view the Review Categories page");
 		patientPage.userShouldBeAbleToAddGenerateNewAccessCode();
 
 	}
 
 	@And("the user should not be able to add generate new access code test")
 	public void cannotUsePatientTextActions() {
-		sleep(4000);
-
 		patientPage.userShouldNotBeAbleToAddGenerateNewAccessCode();
 
 	}
 
 	@And("the user should not be able to use Quick Text, Reply, or Send VCard test")
 	public void cannotAddGenerateAccessCode() {
-		sleep(4000);
-
 		patientPage.userShouldNotBeAbleToUseQuickTextReplyOrSendVCard();
 
 	}
@@ -378,8 +430,8 @@ public class patientstep {
 		patientPage.clickEditButton();
 		patientPage.addGenerateAccessCode();
 		patientPage.clickSubmitButton();
-		System.out.println("Profile updated with View, Add, Edit, and Delete access to Patient Module Tag");
-		Hooks.scenario.log("Profile updated with View, Add, Edit, and Delete access to Patient Module Tag");
+		System.out.println("Profile updated with Add access only to Generate New Access Code");
+		Hooks.scenario.log("Profile updated with Add access only to Generate New Access Code");
 	}
 
 	@And("I create a profile with no Add access to Generate New Access Code test")
@@ -391,8 +443,8 @@ public class patientstep {
 		patientPage.clickEditButton();
 		patientPage.noAddGenerateAccessCode();
 		patientPage.clickSubmitButton();
-		System.out.println("Profile updated with View, Add, Edit, and Delete access to Patient Module Tag");
-		Hooks.scenario.log("Profile updated with View, Add, Edit, and Delete access to Patient Module Tag");
+		System.out.println("Profile updated with no Add access to Generate New Access Code");
+		Hooks.scenario.log("Profile updated with no Add access to Generate New Access Code");
 	}
 
 	// PatientExternalSource
@@ -437,16 +489,12 @@ public class patientstep {
 
 	@And("the user should not be able to edit or delete patient external source test")
 	public void cannotEditOrDeletePatientExternalSource() {
-		sleep(4000);
-
 		patientPage.userShouldNotBeAbleToEditOrDeletePatientExternalSource();
 
 	}
 
 	@And("the user should be able to add patient external source test")
 	public void addPatientExternalSource() {
-		sleep(4000);
-
 		patientPage.userShouldBeAbleToAddPatientExternalSource();
 
 	}
@@ -468,11 +516,8 @@ public class patientstep {
 	}
 
 	// PatientFamily
-
 	@And("the user should be able to add patient family test")
 	public void canAddPatientFamily() {
-		sleep(4000);
-
 		patientPage.userShouldBeAbleToAddPatientFamily();
 
 	}
@@ -500,8 +545,6 @@ public class patientstep {
 
 	@And("the user should not be able to delete patient family test")
 	public void cannotDeletePatientFamily() {
-		sleep(4000);
-
 		patientPage.userShouldNotBeAbleToDeletePatientFamily();
 
 	}
@@ -520,7 +563,6 @@ public class patientstep {
 	}
 
 	// PatientCommunication
-
 	@And("I create a profile with Add access only to Patient Module Patient Communication test")
 	public void createProfileWithAddAccessToPatientCommunication() {
 		patientPage.clickFilterButton();
@@ -572,7 +614,6 @@ public class patientstep {
 				Hooks.driver.getCurrentUrl().contains("/Patient/Home/Patients"));
 		System.out.println("User is able to view the Review Categories page");
 		Hooks.scenario.log("User is able to view the Review Categories page");
-
 		patientPage.verifyUserCanAddPatientCommunication();
 
 	}
@@ -580,7 +621,6 @@ public class patientstep {
 	@And("the user should be able to edit patient communication test")
 	public void editPatientCommunication() {
 		sleep(4000);
-
 		patientPage.userShouldBeAbleToEditPatientCommunication();
 
 	}
@@ -588,7 +628,6 @@ public class patientstep {
 	@And("the user should be able to delete patient communication test")
 	public void deletePatientCommunication() {
 		sleep(4000);
-
 		patientPage.deleteCommunication();
 
 	}
@@ -596,21 +635,17 @@ public class patientstep {
 	@And("the user should not be able to delete patient communication test")
 	public void cannotDeletePatientCommunication() {
 		sleep(4000);
-
 		patientPage.userShouldNotBeAbleToDeletePatientCommunication();
 
 	}
 
 	@And("the user should not be able to edit or delete patient communication test")
 	public void verifyUserCannotEditOrDeletePatientCommunication() {
-		sleep(4000);
-
 		patientPage.verifyUserCannotEditOrDeletePatientCommunication();
 
 	}
 
 	// PatientPhysian
-
 	@And("the user should be able to add patient physician test")
 	public void addPatientPhysician() {
 		sleep(4000);
@@ -623,7 +658,6 @@ public class patientstep {
 				Hooks.driver.getCurrentUrl().contains("/Patient/Home/Patients"));
 		System.out.println("User is able to view the Review Categories page");
 		Hooks.scenario.log("User is able to view the Review Categories page");
-
 		patientPage.addPatientPhysician("Chapman");
 
 	}
@@ -631,7 +665,6 @@ public class patientstep {
 	@And("the user should be able to edit patient physician test")
 	public void editPatientPhysician() {
 		sleep(4000);
-
 		patientPage.addPatientPhysician("Chapman");
 
 	}
@@ -639,7 +672,6 @@ public class patientstep {
 	@And("the user should be able to delete patient physician test")
 	public void deletePatientPhysician() {
 		sleep(4000);
-
 		patientPage.deletePatientPhysician();
 
 	}
@@ -647,15 +679,12 @@ public class patientstep {
 	@And("the user should not be able to delete patient physician test")
 	public void verifyCannotDeletePatientPhysician() {
 		sleep(4000);
-
 		patientPage.verifyCannotDeletePatientPhysician();
 
 	}
 
 	@And("the user should not be able to edit or delete patient physician test")
 	public void verifyCannotEditOrDeletePatientPhysician() {
-		sleep(4000);
-
 		patientPage.verifyCannotEditOrDeletePatientPhysician();
 
 	}
@@ -698,8 +727,8 @@ public class patientstep {
 		System.out.println("Profile updated with View, Add, Edit, and Delete access to Patient Module Tag");
 		Hooks.scenario.log("Profile updated with View, Add, Edit, and Delete access to Patient Module Tag");
 	}
-	// PatientPharmacy
 
+	// PatientPharmacy
 	@And("I create a profile with Add and Edit access to Patient Module Patient Pharmacy test")
 	public void createProfileWithAddAndEditAccessToPatientPharmacy() {
 		patientPage.clickFilterButton();
@@ -738,7 +767,6 @@ public class patientstep {
 				Hooks.driver.getCurrentUrl().contains("/Patient/Home/Patients"));
 		System.out.println("User is able to view the Review Categories page");
 		Hooks.scenario.log("User is able to view the Review Categories page");
-
 		patientPage.addPatientPharmacy("Attorney");
 
 	}
@@ -755,7 +783,6 @@ public class patientstep {
 				Hooks.driver.getCurrentUrl().contains("/Patient/Home/Patients"));
 		System.out.println("User is able to view the Review Categories page");
 		Hooks.scenario.log("User is able to view the Review Categories page");
-
 		patientPage.editPatientPharmacy();
 
 	}
@@ -763,7 +790,6 @@ public class patientstep {
 	@And("the user should not be able to delete patient pharmacy test")
 	public void verifyCannotDeletePatientPharmacy() {
 		sleep(4000);
-
 		patientPage.verifyCannotDeletePatientPharmacy();
 
 	}
@@ -771,7 +797,6 @@ public class patientstep {
 	@And("the user should be able to delete patient pharmacy test")
 	public void deletePatientPharmacy() {
 		sleep(4000);
-
 		patientPage.deletePatientPharmacy();
 
 	}
@@ -779,7 +804,6 @@ public class patientstep {
 	@And("the user should not be able to edit or delete patient pharmacy test")
 	public void verifyCannotEditOrDeletePatientPharmacy() {
 		sleep(4000);
-
 		patientPage.verifyCannotEditOrDeletePatientPharmacy();
 
 	}
@@ -863,7 +887,6 @@ public class patientstep {
 				Hooks.driver.getCurrentUrl().contains("/Patient/Home/Patients"));
 		System.out.println("User is able to view the Review Categories page");
 		Hooks.scenario.log("User is able to view the Review Categories page");
-
 		patientPage.addPatientMedsOnChart("amoxilin");
 
 	}
@@ -878,7 +901,6 @@ public class patientstep {
 	@And("the user should not be able to edit, delete, Patient Meds On Chart test")
 	public void verifyNoEditOrDeletePatientMedsOnChart() {
 		sleep(4000);
-
 		patientPage.verifyCannotEditOrDelete();
 
 	}
@@ -886,7 +908,6 @@ public class patientstep {
 	@And("the user should be able to delete patient meds on chart test")
 	public void deletePatientMedsOnChart() {
 		sleep(4000);
-
 		patientPage.deletePatientMedsOnChart();
 
 	}
@@ -894,7 +915,6 @@ public class patientstep {
 	@And("the user should be able to copy patient meds to medication test")
 	public void copyPatientMedsToMedication() {
 		sleep(4000);
-
 		patientPage.copyPatientMedsToMedication();
 
 	}
@@ -902,7 +922,6 @@ public class patientstep {
 	@And("the user should not be able to delete meds on chart test")
 	public void verifyCannotDeleteMedsOnChart() {
 		sleep(4000);
-
 		patientPage.verifyCannotDeleteMedsOnChart();
 
 	}
@@ -920,7 +939,6 @@ public class patientstep {
 				Hooks.driver.getCurrentUrl().contains("/Patient/Home/Patients"));
 		System.out.println("User is able to view the Review Categories page");
 		Hooks.scenario.log("User is able to view the Review Categories page");
-
 		patientPage.addPatientMedication();
 
 	}
@@ -928,7 +946,6 @@ public class patientstep {
 	@And("the user should be able to edit patient medications test")
 	public void shouldEditPatientMedication() {
 		sleep(4000);
-
 		patientPage.editPatientMedication();
 
 	}
@@ -936,7 +953,6 @@ public class patientstep {
 	@And("the user should be able to delete patient medications test")
 	public void shouldDeletePatientMedication() {
 		sleep(4000);
-
 		patientPage.deletePatientMedication();
 
 	}
@@ -944,7 +960,6 @@ public class patientstep {
 	@And("the user should be able to view patient medication gross margin test")
 	public void verifyUserCanViewPatientMedicationGrossMarginTest() {
 		sleep(4000);
-
 		patientPage.clickMedicationAndVerifyGM();
 
 	}
@@ -952,7 +967,6 @@ public class patientstep {
 	@And("the user should be able to update patient medication sync test")
 	public void updatePatientMedicationGrossMargin() {
 		sleep(4000);
-
 		patientPage.updatePatientMedicationGrossMargin("10");
 
 	}
@@ -960,30 +974,25 @@ public class patientstep {
 	@And("the user should be able to update patient medication gross margin test")
 	public void verifyUserCanUpdatePatientMedicationSyncTest() {
 		sleep(4000);
-
 		patientPage.updatePatientMedicationSync();
 
 	}
 
 	@And("the user should not be able to edit, delete Patient Medication test")
 	public void shouldNotEditOrDeletePatientMedication() {
-
 		patientPage.verifyEditAndDeleteNotAvailable();
 
 	}
 
 	@And("the user should not be able to delete Patient Medication test")
 	public void shouldNotDeletePatientMedication() {
-
 		patientPage.verifyDeleteNotAvailable();
 
 	}
 
 // PatientClaimVerification
-
 	@And("the user should be able to send patient claim verifications for signature test")
 	public void shouldSendPatientClaimVerificationForSignature() {
-
 		patientPage.sendPatientClaimVerificationForSignature();
 
 	}
@@ -1000,7 +1009,6 @@ public class patientstep {
 				Hooks.driver.getCurrentUrl().contains("/Patient/Home/Patients"));
 		System.out.println("User is able to view the Review Categories page");
 		Hooks.scenario.log("User is able to view the Review Categories page");
-
 		patientPage.addPatientClaimVerificationTest();
 
 	}
@@ -1017,7 +1025,6 @@ public class patientstep {
 				Hooks.driver.getCurrentUrl().contains("/Patient/Home/Patients"));
 		System.out.println("User is able to view the Review Categories page");
 		Hooks.scenario.log("User is able to view the Review Categories page");
-
 		patientPage.printPatientClaimVerification();
 
 	}
@@ -1025,7 +1032,6 @@ public class patientstep {
 	@And("the user should be able to edit patient claim verifications test")
 	public void shouldEditPatientClaimVerification() {
 		sleep(4000);
-
 		patientPage.editPatientClaimVerificationTest();
 
 	}
@@ -1259,7 +1265,6 @@ public class patientstep {
 				Hooks.driver.getCurrentUrl().contains("/Patient/Home/Patients"));
 		System.out.println("User is able to view the Review Categories page");
 		Hooks.scenario.log("User is able to view the Review Categories page");
-
 		patientPage.addPatientHealthCard();
 
 	}
@@ -1276,7 +1281,6 @@ public class patientstep {
 				Hooks.driver.getCurrentUrl().contains("/Patient/Home/Patients"));
 		System.out.println("User is able to view the Review Categories page");
 		Hooks.scenario.log("User is able to view the Review Categories page");
-
 		patientPage.addPatientIntakeForm();
 
 	}
@@ -1379,7 +1383,6 @@ public class patientstep {
 				Hooks.driver.getCurrentUrl().contains("/Patient/Home/Patients"));
 		System.out.println("User is able to view the Review Categories page");
 		Hooks.scenario.log("User is able to view the Review Categories page");
-
 		patientPage.viewBuckets();
 
 	}
@@ -1559,7 +1562,6 @@ public class patientstep {
 				Hooks.driver.getCurrentUrl().contains("/Patient/Home/ReferralSources"));
 		System.out.println("User is able to view the Review Categories page");
 		Hooks.scenario.log("User is able to view the Review Categories page");
-
 		patientPage.addNewReferralSource();
 
 	}
@@ -1592,7 +1594,6 @@ public class patientstep {
 	}
 
 	// ReviewCategorypage
-
 	@And("the user should be able to view review categories test")
 	public void shouldAllowUserToViewReviewCategories() {
 		sleep(2000);
@@ -1632,9 +1633,7 @@ public class patientstep {
 				Hooks.driver.getCurrentUrl().contains("/Patient/Home/ReviewCategories"));
 		System.out.println("User is able to view the Review Categories page");
 		Hooks.scenario.log("User is able to view the Review Categories page");
-
 		patientPage.addNewReviewCategory("Cardiology Review", "Review for cardiology patients");
-
 		patientPage.editReviewCategory("Cardiology Review", "Review for cardiology patients");
 
 	}
@@ -1660,7 +1659,6 @@ public class patientstep {
 	}
 
 	// PatientPage
-
 	@And("the user should be able to reset a patient password test")
 	public void testUserCanResetPatientPassword() {
 		sleep(2000);
@@ -1764,30 +1762,21 @@ public class patientstep {
 	public void addPatientReferral() {
 		sleep(2000);
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
-
-		// ---------------- Referral Page ----------------
 		String generateReferralUrl = Hooks.prop.getProperty("GenerateReferralsPageUrl");
 		String referralFullUrl = baseUrl + generateReferralUrl;
 		patientPage = new patientpage(Hooks.driver);
 		patientPage.openPatientsPage(referralFullUrl, "/Referral/Home/GenerateReferral");
-
 		patientPage.generateReferral("0004403", "Pate");
-
 		Assert.assertTrue(Hooks.driver.getCurrentUrl().contains("/Referral/Home/GenerateReferral"));
 
-		// ---------------- Patient Page ----------------
 		sleep(2000);
 		String patientsPageUrl = Hooks.prop.getProperty("patientsPageUrl");
 		String patientsFullUrl = baseUrl + patientsPageUrl;
-
 		patientPage = new patientpage(Hooks.driver);
 		patientPage.openPatientsPage(patientsFullUrl, "/Patient/Home/Patients");
-
 		Assert.assertTrue(Hooks.driver.getCurrentUrl().contains("/Patient/Home/Patients"));
-
 		System.out.println("Patient user is on the Patients page");
 		Hooks.scenario.log("Patient user is on the Patients page");
-
 		patientPage.verifyReferralInPatient("0004403");
 	}
 
@@ -1795,30 +1784,20 @@ public class patientstep {
 	public void deletePatientReferral() {
 		sleep(2000);
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
-
-		// ---------------- Referral Page ----------------
 		String generateReferralUrl = Hooks.prop.getProperty("GenerateReferralsPageUrl");
 		String referralFullUrl = baseUrl + generateReferralUrl;
 		patientPage = new patientpage(Hooks.driver);
 		patientPage.openPatientsPage(referralFullUrl, "/Referral/Home/GenerateReferral");
-
 		patientPage.deleteReffral();
-
 		Assert.assertTrue(Hooks.driver.getCurrentUrl().contains("/Referral/Home/GenerateReferral"));
-
-		// ---------------- Patient Page ----------------
 		sleep(2000);
 		String patientsPageUrl = Hooks.prop.getProperty("patientsPageUrl");
 		String patientsFullUrl = baseUrl + patientsPageUrl;
-
 		patientPage = new patientpage(Hooks.driver);
 		patientPage.openPatientsPage(patientsFullUrl, "/Patient/Home/Patients");
-
 		Assert.assertTrue(Hooks.driver.getCurrentUrl().contains("/Patient/Home/Patients"));
-
 		System.out.println("Patient user is on the Patients page");
 		Hooks.scenario.log("Patient user is on the Patients page");
-
 		patientPage.verifyDeletedReferralEntry("0004403");
 	}
 
@@ -1875,7 +1854,6 @@ public class patientstep {
 				Hooks.driver.getCurrentUrl().contains("/Patient/Home/Patients"));
 		System.out.println("User is able to view the Patients page");
 		Hooks.scenario.log("User is able to view the Patients page");
-
 		patientPage.sendPatientForReview();
 	}
 
@@ -1891,7 +1869,6 @@ public class patientstep {
 				Hooks.driver.getCurrentUrl().contains("/Patient/Home/Patients"));
 		System.out.println("User is able to view the Patients page");
 		Hooks.scenario.log("User is able to view the Patients page");
-
 		patientPage.verifyPatientReviewRestricted();
 	}
 
@@ -1907,7 +1884,6 @@ public class patientstep {
 				Hooks.driver.getCurrentUrl().contains("/Patient/Home/DeDupePatients"));
 		System.out.println("User is able to view the DeDupe page");
 		Hooks.scenario.log("User is able to view the DeDupe page");
-
 		patientPage.updateDeDupeRecords();
 	}
 
@@ -1936,7 +1912,6 @@ public class patientstep {
 		Assert.assertTrue("Tags page is not displayed", Hooks.driver.getCurrentUrl().contains("/Patient/Home/Tags"));
 		System.out.println("User is able to view tags and add a new tag");
 		Hooks.scenario.log("User is able to view tags and add a new tag");
-
 		patientPage.createNewTag("tagA");
 	}
 
@@ -1951,7 +1926,6 @@ public class patientstep {
 		Assert.assertTrue("Tags page is not displayed", Hooks.driver.getCurrentUrl().contains("/Patient/Home/Tags"));
 		System.out.println("User is able to view tags and add a new tag");
 		Hooks.scenario.log("User is able to view tags and add a new tag");
-
 		patientPage.createNewTag("Test Tag");
 		patientPage.editTag("Updated Test Tag");
 
@@ -1968,7 +1942,6 @@ public class patientstep {
 		Assert.assertTrue("Tags page is not displayed", Hooks.driver.getCurrentUrl().contains("/Patient/Home/Tags"));
 		System.out.println("User is able to view tags and add a new tag");
 		Hooks.scenario.log("User is able to view tags and add a new tag");
-
 		patientPage.createNewTag("Test Tag");
 		patientPage.editTag("Updated Test Tag");
 		patientPage.deleteTag();
@@ -1986,14 +1959,12 @@ public class patientstep {
 		Assert.assertTrue("Tags page is not displayed", Hooks.driver.getCurrentUrl().contains("/Patient/Home/Tags"));
 		System.out.println("User is not able to edit or delete tags");
 		Hooks.scenario.log("User is not able to edit or delete tags");
-
 		patientPage.thenUserCannotEditOrDeleteTags();
 	}
 
 	@And("the user should not be able to delete tags test")
 	public void verifyUserCannotDeleteTags() {
 		sleep(2000);
-
 		patientPage.thenUserCannotDeleteTags();
 	}
 
@@ -2003,11 +1974,8 @@ public class patientstep {
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String deDupePageUrl = Hooks.prop.getProperty("dedupePatientsPageUrl");
 		String fullUrl = baseUrl + deDupePageUrl;
-
 		patientPage = new patientpage(Hooks.driver);
-
 		Hooks.driver.get(fullUrl);
-
 		patientPage.verifyDeDupeAccessRestrictedViaUIOrDirectURL();
 	}
 
@@ -2125,7 +2093,6 @@ public class patientstep {
 				Hooks.driver.getCurrentUrl().contains("/Patient/Home/Patients"));
 		System.out.println("User is able to view the Patients page");
 		Hooks.scenario.log("User is able to view the Patients page");
-
 		patientPage.clickPatientRowActionButton();
 		Assert.assertFalse("Edit option is visible for patient user", patientPage.isEditOptionVisible());
 		Assert.assertFalse("Delete option is visible for patient user", patientPage.isDeleteOptionVisible());
@@ -2207,9 +2174,7 @@ public class patientstep {
 
 	@Then("the user should not be able to add, edit, or delete patients test")
 	public void userShouldNotBeAbleToAddEditOrDeletePatients() {
-
 		patientPage.verifyViewOnlyUserCannotAddEditDeletePatients();
-
 		System.out.println("View-only user cannot Add, Edit, or Delete patients");
 		Hooks.scenario.log("View-only user cannot Add, Edit, or Delete patients");
 	}
@@ -2217,7 +2182,6 @@ public class patientstep {
 	@Then("the user should remain on the Add Tag form without saving the tag")
 	public void verifyUserRemainsOnAddTagForm() {
 		boolean isOnForm = patientPage.isOnAddTagForm();
-
 		if (isOnForm) {
 			System.out.println("User remains on the Add Tag form without saving the tag");
 			Hooks.scenario.log("User remains on the Add Tag form without saving the tag");
@@ -2231,7 +2195,6 @@ public class patientstep {
 	@Then("the system should display a validation message indicating that Tag name is required")
 	public void verifyTagNameRequiredValidationMessage() {
 		boolean isValidationDisplayed = patientPage.isTagNameRequiredValidationDisplayed();
-
 		if (isValidationDisplayed) {
 			System.out.println("Tag name required validation message is displayed");
 			Hooks.scenario.log("Tag name required validation message is displayed");
@@ -2259,7 +2222,6 @@ public class patientstep {
 	@Then("the system should display a validation message indicating that Email is required")
 	public void verifyEmailRequiredValidationMessage() {
 		boolean isValidationDisplayed = patientPage.isEmailRequiredValidationDisplayed();
-
 		if (isValidationDisplayed) {
 			System.out.println("Email required validation message is displayed");
 			Hooks.scenario.log("Email required validation message is displayed");
@@ -2274,7 +2236,6 @@ public class patientstep {
 	public void userEnablesPatientLoginOption() {
 		patientPage.clickOnPatientActionMenuForBlankEmail();
 		patientPage.clickOnEnableLoginOption();
-
 		System.out.println("Clicked on Enable Login for patient with blank email");
 		Hooks.scenario.log("Clicked on Enable Login for patient with blank email");
 	}
@@ -2282,7 +2243,6 @@ public class patientstep {
 	@Then("the user should remain on the Add to Trial form without progressing to the next step")
 	public void verifyUserRemainsOnAddToTrialForm() {
 		boolean isOnForm = patientPage.isOnAddToTrialForm();
-
 		if (isOnForm) {
 			System.out.println("User remains on the Add to Trial form");
 			Hooks.scenario.log("User remains on the Add to Trial form");
@@ -2297,18 +2257,14 @@ public class patientstep {
 	public void userClicksOnAddToTrialButtonForPatient() {
 		patientPage.clickOnPatientActionMenu();
 		patientPage.clickOnAddToTrialOption();
-
 		System.out.println("Clicked on Add to Trial button for a patient");
 		Hooks.scenario.log("Clicked on Add to Trial button for a patient");
 	}
 
 	@Then("the patient details should not be updated and patient list should remain unchanged")
 	public void verifyPatientDetailsNotUpdatedAndListUnchanged() {
-
 		String originalValue = "";
-
 		boolean result = patientPage.isPatientDetailsNotUpdatedAndListUnchanged(originalValue);
-
 		if (result) {
 			System.out.println("Patient details not updated and patient list unchanged");
 			Hooks.scenario.log("Patient details not updated and patient list unchanged");
@@ -2337,7 +2293,6 @@ public class patientstep {
 	public void userClicksOnEditPatientButtonInPatientModule() {
 		patientPage.clickOnPatientActionMenu();
 		patientPage.clickOnEditPatientOption();
-
 		System.out.println("Clicked on Edit Patient button in Patient module");
 		Hooks.scenario.log("Clicked on Edit Patient button in Patient module");
 	}
@@ -2345,7 +2300,6 @@ public class patientstep {
 	@Then("the filter should be cleared and patient list should remain unchanged")
 	public void verifyFilterClearedAndPatientListUnchanged() {
 		boolean result = patientPage.isFilterClearedAndPatientListVisible();
-
 		if (result) {
 			System.out.println("Filter cleared and patient list remains unchanged");
 			Hooks.scenario.log("Filter cleared and patient list remains unchanged");
@@ -2380,7 +2334,6 @@ public class patientstep {
 	@Then("the user should remain on the Add New Patient form without progressing to the next step")
 	public void verifyUserRemainsOnAddNewPatientForm() {
 		boolean isOnForm = patientPage.isOnAddNewPatientForm();
-
 		if (isOnForm) {
 			System.out.println("User remains on the Add New Patient form");
 			Hooks.scenario.log("User remains on the Add New Patient form");
@@ -2401,7 +2354,6 @@ public class patientstep {
 	@Then("the user should remain on the Select Existing Patient form without progressing to the next step")
 	public void verifyUserRemainsOnSelectExistingPatientForm() {
 		boolean isOnForm = patientPage.isOnSelectExistingPatientForm();
-
 		if (isOnForm) {
 			System.out.println("User remains on the Select Existing Patient form");
 			Hooks.scenario.log("User remains on the Select Existing Patient form");
@@ -2422,7 +2374,6 @@ public class patientstep {
 	@Then("the user should remain on the Search Patient form without progressing to the next step")
 	public void verifyUserRemainsOnSearchPatientForm() {
 		boolean isOnSearchForm = patientPage.isOnSearchPatientForm();
-
 		if (isOnSearchForm) {
 			System.out.println("User remains on the Search Patient form");
 			Hooks.scenario.log("User remains on the Search Patient form");
@@ -2753,9 +2704,7 @@ public class patientstep {
 	@And("user stores the Review Category details before delete")
 	public void userStoresReviewCategoryDetailsBeforeDelete() {
 		reviewCategoryNameBeforeDelete = patientPage.getReviewCategoryNameFromList();
-
 		Assert.assertNotNull("Review Category name before delete is null", reviewCategoryNameBeforeDelete);
-
 		System.out.println("Stored Review Category before delete: " + reviewCategoryNameBeforeDelete);
 		Hooks.scenario.log("Stored Review Category before delete: " + reviewCategoryNameBeforeDelete);
 	}
@@ -2816,10 +2765,8 @@ public class patientstep {
 
 	@Then("the user should remain on the Add Referral Source form without saving the referral source")
 	public void verifyUserRemainsOnAddReferralSourceForm() {
-
 		Assert.assertTrue("Add Referral Source form is not displayed after blank submit",
 				patientPage.isAddReferralSourceFormDisplayed());
-
 		System.out.println("User remained on Add Referral Source form after blank submit");
 		Hooks.scenario.log("User remained on Add Referral Source form after blank submit");
 	}
@@ -2902,29 +2849,22 @@ public class patientstep {
 	}
 
 	// EnrollmentsPage
-
 	@Then("the user should be able to view Patient Module General Audit View test")
 	public void userShouldBeAbleToViewPatientModuleGeneralAuditViewTest() {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String enrollmentsUrl = Hooks.prop.getProperty("enrollmentsPageUrl");
-
 		patientPage.openPatientEnrollmentsPage(baseUrl + enrollmentsUrl);
 		patientPage.verifyGeneralAuditViewColumns();
-
 		System.out.println("Patient Enrollments General Audit View verified successfully");
 		Hooks.scenario.log("Patient Enrollments General Audit View verified successfully");
 	}
 
 	@Then("the user should not be able to view Patient Module General Audit View test")
 	public void userShouldNotBeAbleToViewPatientModuleGeneralAuditViewTest() {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String enrollmentsUrl = Hooks.prop.getProperty("enrollmentsPageUrl");
-
 		patientPage.openPatientEnrollmentsPage(baseUrl + enrollmentsUrl);
 		patientPage.verifyGeneralAuditViewColumnsNotVisible();
-
 		System.out.println("Patient Enrollments General Audit View is not visible as expected");
 		Hooks.scenario.log("Patient Enrollments General Audit View is not visible as expected");
 
@@ -2934,15 +2874,11 @@ public class patientstep {
 	public void patientUserCanViewEnrollments() {
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String enrollmentsPageUrl = Hooks.prop.getProperty("enrollmentsPageUrl");
-
 		String fullUrl = baseUrl + enrollmentsPageUrl;
-
 		patientPage = new patientpage(Hooks.driver);
 		patientPage.openPatientsPage(fullUrl, "/Patient/Home/Enrollments");
-
 		Assert.assertTrue("Enrollments page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Patient/Home/Enrollments"));
-
 		System.out.println("Patient user is on the Enrollments page");
 		Hooks.scenario.log("Patient user is on the Enrollments page");
 	}
@@ -2987,14 +2923,10 @@ public class patientstep {
 
 	@Then("the Enrollment details should not be updated and the enrollment list should remain unchanged")
 	public void verifyEnrollmentNotUpdatedAfterCancel() {
-
 		String enrollmentNameAfterCancel = patientPage.getEnrollmentNameFromList();
-
 		Assert.assertNotNull("Enrollment name before edit is null", enrollmentNameBeforeEdit);
-
 		Assert.assertEquals("Enrollment was updated unexpectedly after Cancel", enrollmentNameBeforeEdit,
 				enrollmentNameAfterCancel);
-
 		System.out.println("Enrollment not updated after Cancel. List remains unchanged.");
 		Hooks.scenario.log("Enrollment not updated after Cancel. List remains unchanged.");
 	}
@@ -3037,7 +2969,6 @@ public class patientstep {
 	@Then("the Enrollment should not be deleted and the enrollment list should remain unchanged")
 	public void verifyEnrollmentNotDeletedAfterCancel() {
 		String enrollmentNameAfterCancel = patientPage.getEnrollmentNameFromList();
-
 		if (enrollmentNameBeforeDelete.equals(enrollmentNameAfterCancel)) {
 			System.out.println("Enrollment not deleted after Cancel. Enrollment list remains unchanged.");
 			Hooks.scenario.log("Enrollment not deleted after Cancel. Enrollment list remains unchanged.");
@@ -3055,12 +2986,9 @@ public class patientstep {
 		if (dedupePageUrl == null || dedupePageUrl.isEmpty()) {
 			throw new RuntimeException("dedupePatientsPageUrl property is missing in config.properties");
 		}
-
 		String fullUrl = baseUrl + dedupePageUrl;
-
 		patientPage = new patientpage(Hooks.driver);
 		patientPage.openPatientsPage(fullUrl, "/Patient/Home/DeDupePatients");
-
 		Assert.assertTrue("DeDupe patients page is not displayed", patientPage.isOnDeDupePatientsPage());
 		System.out.println("Patient user is on the DeDupe patients page");
 		Hooks.scenario.log("Patient user is on the DeDupe patients page");
@@ -3419,15 +3347,11 @@ public class patientstep {
 		sleep(2000);
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String patientPageUrl = Hooks.prop.getProperty("patientPageUrl");
-
 		String fullUrl = baseUrl + patientPageUrl;
-
 		patientPage = new patientpage(Hooks.driver);
 		patientPage.openPatientsPage(fullUrl, "/Patient/Home/Patients");
-
 		Assert.assertTrue("Patients page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Patient/Home/Patients"));
-
 		System.out.println("User is able to view the Patients page");
 		Hooks.scenario.log("User is able to view the Patients page");
 	}

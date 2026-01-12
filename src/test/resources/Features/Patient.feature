@@ -509,7 +509,6 @@ Feature: Patient Module scenarios
   And the user should be able to update patient medication sync
   And the user should be able to update patient medication gross margin  
 
-  # test
   Scenario: User with Add only access for Patient Meds On Chart
   Given I log in as admin for Patient module
   When I create a new user with email for Patient Module "testuser1_static@mailinator.com"
@@ -809,7 +808,7 @@ Feature: Patient Module scenarios
   And the user should be able to Reply
   And the user should be able to Add To Patient   
   And the user should be able to Send VCard
-   #
+  
   Scenario: User with Add only access for CareGiver Name
   Given I log in as admin for Patient module
   When I create a new user with email for Patient Module "testuser1_static@mailinator.com"
@@ -1071,7 +1070,6 @@ Feature: Patient Module scenarios
   Then the user should be able to view outgoing calls
   And the user should be able to access call records
   
-  #
   Scenario: Quick Text Validation on Blank Submission for Patient Module
   Given I log in as admin for Patient module
   When I navigate to the Patient page
