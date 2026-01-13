@@ -10,16 +10,8 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
-import com.qa.factory.ConfigReader;
-
-import driver.DriverFactory;
+import driver.ConfigReader;
 import driver.DriverFactory_01;
-
-import java.time.Duration;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Hooks {
 	private DriverFactory_01 driverFactory;
@@ -47,7 +39,7 @@ public class Hooks {
 	}
 	
 	public static WebDriver getDriver() {
-		return DriverFactory.getDriver();
+		return DriverFactory_01.getDriver();
 	}
 	
 	// UPDATED - Clean quit without unwanted waits
