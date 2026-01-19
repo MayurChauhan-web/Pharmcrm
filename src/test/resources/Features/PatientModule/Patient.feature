@@ -1,3 +1,4 @@
+@Patient
 Feature: Entire Patient Module.
 
 #PatientPage
@@ -919,7 +920,6 @@ And the user should be able to view patient medication gross margin test
 And the user should be able to update patient medication sync test
 And the user should be able to update patient medication gross margin test
 
-@Patient
 Scenario: User with Add only access for Patient Meds On Chart test
 Given user launch browser
 Then user click on the user type dropdown

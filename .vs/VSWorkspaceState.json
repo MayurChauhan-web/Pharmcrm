@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\test",
+    "\\src\\test\\java",
+    "\\src\\test\\java\\com",
+    "\\src\\test\\java\\com\\pharmcrm",
+    "\\src\\test\\java\\com\\pharmcrm\\pharmcrm_product",
+    "\\src\\test\\java\\com\\pharmcrm\\pharmcrm_product\\runner"
+  ],
+  "PreviewInSolutionExplorer": false
+}

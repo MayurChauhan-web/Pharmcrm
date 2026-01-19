@@ -11,7 +11,6 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
 import driver.ConfigReader;
-import driver.DriverFactory;
 import driver.DriverFactory_01;
 
 public class Hooks {
@@ -20,35 +19,35 @@ public class Hooks {
 	private ConfigReader configReader;
 	public static Properties prop;
 	public static Scenario scenario;
-
+	
 	@Before(order = 0)
 	public void getProperty() {
 		configReader = new ConfigReader();
 		prop = configReader.initProperties();
 	}
-
+	
 	@Before
 	public void setup(Scenario sc) {
 		Hooks.scenario = sc;
 	}
-
+	
 	@Before(order = 1)
 	public void launchBrowser() {
 		String browserName = prop.getProperty("browser");
 		driverFactory = new DriverFactory_01();
 		driver = driverFactory.initDriver(browserName);
 	}
-
+	
 	public static WebDriver getDriver() {
-		return DriverFactory.getDriver();
+		return DriverFactory_01.getDriver();
 	}
-
+	
+	// UPDATED - Clean quit without unwanted waits
 	@After(order = 0)
 	public void quitBrowser() {
 		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-		}
+			Thread.sleep(2000); // optional wait for downloads to settle
+		} catch (InterruptedException e) {}
 
 		try {
 			driver.quit();
@@ -56,7 +55,7 @@ public class Hooks {
 			System.out.println("Browser already closed, ignoring...");
 		}
 	}
-
+	
 	@After(order = 1)
 	public void tearDown(Scenario scenario) {
 		if (scenario.isFailed()) {

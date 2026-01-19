@@ -1,12 +1,14 @@
+
 package com.pharmcrm.pharmcrm_product.runner;
 
+import org.testng.annotations.DataProvider;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
-import org.testng.annotations.DataProvider;
 
-@CucumberOptions(features = { "src/test/resources/Features" }, glue = "com.pharmcrm.pharmcrm_product.steps", plugin = {
-		"pretty", "html:target/cucumber-report.html",
-		"json:target/cucumber.json" }, monochrome = true, tags = "@Patient")
+@CucumberOptions(features = { "src/test/resources/Features/DeliveryModule/Delivery.feature" }, glue = {
+		"com.pharmcrm_LoginFunctionality.steps", "com.pharmcrm_PatientModule.steps",
+		"com.pharmcrm_DeliveryModule.steps", "hooks" }, plugin = { "pretty", "html:target/cucumber-report.html",
+				"json:target/cucumber.json" }, monochrome = true, tags = "@Delivery")
 public class MasterRunner extends AbstractTestNGCucumberTests {
 
 	@Override
@@ -15,3 +17,12 @@ public class MasterRunner extends AbstractTestNGCucumberTests {
 		return super.scenarios();
 	}
 }
+
+
+
+
+
+
+
+
+

@@ -203,6 +203,12 @@ public class patientpage {
 	public By directionInput = By.id("PatientMedicationsOnChart_Direction_0");
 	public By patientMedsOnChartDelete = By.xpath("//label[@for='chkg20PatientMedsOnChartDelete']");
 	public By copyToMedicationIcon = By.xpath("//img[@class='v-align-txttop']");
+	public By recordActionIcon = By
+			.xpath("//div[@class='gridListIconsFlex justify-content-end']//i[@class='fa-solid fa-ellipsis-vertical']");
+	public By medicationsOnChartEditOption = By.xpath(
+			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]");
+	public By medicationsOnChartDeleteOption = By.xpath(
+			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]");
 
 	// PatientMedicationpage
 	public By patientMedicationAllLabel = By.xpath("//label[@for='chkg18PatientMedicationAll']");
@@ -1135,11 +1141,11 @@ public class patientpage {
 		sleep(2000);
 		wait.until(ExpectedConditions.elementToBeClickable(medsOnChartTab)).click();
 		sleep(2000);
-		wait.until(ExpectedConditions.elementToBeClickable(recordDropdownButton)).click();
-		if (driver.findElements(editOption).size() > 0) {
+		wait.until(ExpectedConditions.elementToBeClickable(recordActionIcon)).click();
+		if (driver.findElements(medicationsOnChartEditOption).size() > 0) {
 			throw new AssertionError("Edit option is present, but should not be.");
 		}
-		if (driver.findElements(deleteOption).size() > 0) {
+		if (driver.findElements(medicationsOnChartDeleteOption).size() > 0) {
 			throw new AssertionError("Delete option is present, but should not be.");
 		}
 	}
@@ -1158,13 +1164,11 @@ public class patientpage {
 		input.clear();
 		input.sendKeys(drugName);
 		sleep(2000);
-		wait.until(ExpectedConditions.elementToBeClickable(searchButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(searchDrugBtn)).click();
 		sleep(2000);
 		wait.until(ExpectedConditions.elementToBeClickable(firstDrugCheckbox)).click();
 		sleep(2000);
 		wait.until(ExpectedConditions.elementToBeClickable(addDrugButton)).click();
-		sleep(2000);
-		wait.until(ExpectedConditions.elementToBeClickable(confirmButton)).click();
 	}
 
 	public void addPatientMedsProfile() {

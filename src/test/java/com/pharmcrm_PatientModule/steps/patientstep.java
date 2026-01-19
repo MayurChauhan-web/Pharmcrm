@@ -4,11 +4,8 @@ import hooks.Hooks;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-
 import java.time.LocalDate;
-
 import org.junit.Assert;
-
 import com.pharmcrm_PatientModule.pages.patientpage;
 
 public class patientstep {
