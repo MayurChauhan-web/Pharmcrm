@@ -14,6 +14,525 @@ public class deliverystep {
 
 	private deliverypage deliveryPage;
 
+	// Package Plan Restriction
+
+	@And("the user should be able to update Package Plan Restriction in Delivery Module test")
+	public void verifyUserCanUpdatePackagePlanRestriction() {
+
+		deliveryPage.verifyUserCanUpdatePackagePlanRestriction();
+
+	}
+
+	@And("the user should have no Package Plan Restriction access via UI or direct URL test")
+	public void verifyUserHasNoPackagePlanRestrictionAccess() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String packagesPagePath = Hooks.prop.getProperty("packagesPagePath");
+
+		Assert.assertNotNull("Packages page path is missing in config", packagesPagePath);
+
+		String fullPackagesPageUrl = baseUrl + packagesPagePath;
+
+		deliveryPage = new deliverypage(Hooks.driver);
+
+		deliveryPage.packagesPagePath(fullPackagesPageUrl);
+
+		Assert.assertTrue("Packages page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Delivery/Home/Packages?category=1"));
+
+		Hooks.scenario.log("Delivery user is on the Packages page");
+
+		deliveryPage.verifyUserCannotAccessPackagePlanRestriction();
+
+	}
+
+	@And("I create a profile without access to Delivery Module Package Plan Restriction test")
+	public void createProfileWithoutPackagePlanRestrictionAccess() {
+		deliveryPage.clickFilterButton();
+		deliveryPage.enterProfileName("Sunil");
+		deliveryPage.clickSearchButton();
+		deliveryPage.clickActionMenu();
+		deliveryPage.clickEditButton();
+		deliveryPage.createNoPackagePlanRestrictionAccessProfile();
+		deliveryPage.clickSubmitButton();
+		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+	}
+
+	@And("the user should be able to view Package Plan Restriction in Delivery Module test")
+	public void verifyUserCanViewPackagePlanRestriction() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String packagesPagePath = Hooks.prop.getProperty("packagesPagePath");
+
+		Assert.assertNotNull("Packages page path is missing in config", packagesPagePath);
+
+		String fullPackagesPageUrl = baseUrl + packagesPagePath;
+
+		deliveryPage = new deliverypage(Hooks.driver);
+
+		deliveryPage.packagesPagePath(fullPackagesPageUrl);
+
+		Assert.assertTrue("Packages page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Delivery/Home/Packages?category=1"));
+
+		Hooks.scenario.log("Delivery user is on the Packages page");
+
+		deliveryPage.verifyUserCanViewPackagePlanRestriction();
+
+	}
+
+	@And("I create a profile with View and Update access to Delivery Module Package Plan Restriction test")
+	public void createProfileWithViewAndUpdateAccessToPackagePlanRestriction() {
+		deliveryPage.clickFilterButton();
+		deliveryPage.enterProfileName("Sunil");
+		deliveryPage.clickSearchButton();
+		deliveryPage.clickActionMenu();
+		deliveryPage.clickEditButton();
+		deliveryPage.createPackagePlanRestrictionViewUpdateProfile();
+		deliveryPage.clickSubmitButton();
+		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+	}
+
+	// Delivery Setting
+	@And("I create a profile without access to Delivery Module Delivery Setting test")
+	public void createProfileWithoutDeliverySettingsAccess() {
+		deliveryPage.clickFilterButton();
+		deliveryPage.enterProfileName("Sunil");
+		deliveryPage.clickSearchButton();
+		deliveryPage.clickActionMenu();
+		deliveryPage.clickEditButton();
+		deliveryPage.createNoDeliverySettingsAccessProfile();
+		deliveryPage.clickSubmitButton();
+		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+	}
+
+	@And("I create a profile with View and Update access to Delivery Module Delivery Setting test")
+	public void createProfileWithViewAndUpdateAccessToDeliverySettings() {
+		deliveryPage.clickFilterButton();
+		deliveryPage.enterProfileName("Sunil");
+		deliveryPage.clickSearchButton();
+		deliveryPage.clickActionMenu();
+		deliveryPage.clickEditButton();
+		deliveryPage.createDeliverySettingsViewUpdateProfile();
+		deliveryPage.clickSubmitButton();
+		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+	}
+
+	@And("the user should be able to update Delivery Setting in Delivery Module test")
+	public void verifyUserCanUpdateDeliverySetting() {
+		deliveryPage.verifyUserCanUpdateDeliverySetting();
+
+	}
+
+	@And("the user should have no Delivery Setting access via UI or direct URL test")
+	public void verifyUserHasNoDeliverySettingAccess() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String deliverySettingsPath = Hooks.prop.getProperty("deliverySettingsPath");
+
+		Assert.assertNotNull("Delivery Settings path is missing in config", deliverySettingsPath);
+
+		String fullDeliverySettingsUrl = baseUrl + deliverySettingsPath;
+
+		deliveryPage = new deliverypage(Hooks.driver);
+
+		deliveryPage.openDeliverySettingsPage(fullDeliverySettingsUrl);
+
+		Assert.assertTrue("Delivery Settings page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/Settings"));
+
+		Hooks.scenario.log("Delivery user is on the Delivery Settings page");
+
+		deliveryPage.verifyUserCannotAccessDeliverySetting();
+
+	}
+
+	@And("the user should be able to view Delivery Setting in Delivery Module test")
+	public void verifyUserCanViewDeliverySetting() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String deliverySettingsPath = Hooks.prop.getProperty("deliverySettingsPath");
+
+		Assert.assertNotNull("Delivery Settings path is missing in config", deliverySettingsPath);
+
+		String fullDeliverySettingsUrl = baseUrl + deliverySettingsPath;
+
+		deliveryPage = new deliverypage(Hooks.driver);
+
+		deliveryPage.openDeliverySettingsPage(fullDeliverySettingsUrl);
+
+		Assert.assertTrue("Delivery Settings page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/Settings"));
+
+		Hooks.scenario.log("Delivery user is on the Delivery Settings page");
+
+	}
+	// Package
+
+	@And("the user should be able to sync Logistic Tracking History in Delivery Module test")
+	public void verifyUserCanSyncLogisticTrackingHistory() {
+
+		deliveryPage.verifyUserCanSyncLogisticTrackingHistory();
+	}
+
+	@And("the user should be able to print Pickup Package in Delivery Module test")
+	public void verifyUserCanPrintPickupPackage() {
+
+		deliveryPage.verifyUserCanPrintPickupPackage();
+	}
+
+	@And("the user should be able to share Package in Delivery Module test")
+	public void verifyUserCanSharePackage() {
+
+		deliveryPage.verifySharePackage();
+	}
+
+	@And("the user should be able to print Package in Delivery Module test")
+	public void verifyUserCanPrintPackage() {
+
+		deliveryPage.verifyUserCanPrintPackage();
+	}
+
+	@And("the user should be able to generate Package Invoice in Delivery Module test")
+	public void verifyUserCanGeneratePackageInvoice() {
+
+		deliveryPage.verifyGeneratePackageInvoice();
+	}
+
+	@And("the user should be able to download Attestation Documents in Delivery Module test")
+	public void verifyUserCanDownloadAttestationDocuments() {
+
+		deliveryPage.verifyDownloadAttestationDocuments();
+	}
+
+	@And("the user should be able to send Package for Signature in Delivery Module test")
+	public void verifyUserCanSendPackageForSignature() {
+
+		deliveryPage.verifySendPackageForSignature();
+	}
+
+	@And("the user should be able to print Signature in Delivery Module test")
+	public void verifyUserCanPrintSignature() {
+
+		deliveryPage.verifyPrintSignature();
+	}
+
+	@And("the user should be able to download Signature in Delivery Module test")
+	public void verifyUserCanDownloadSignature() {
+
+		deliveryPage.verifyDownloadSignature();
+	}
+
+	@And("the user should be able to upload Signature in Delivery Module test")
+	public void verifyUserCanUploadSignature() {
+
+		deliveryPage.verifyUploadSignature();
+	}
+
+	@And("the user should be able to download Reference Documents in Delivery Module test")
+	public void verifyUserCanDownloadReferenceDocuments() {
+
+		deliveryPage.verifyUserCanDownloadReferenceDocuments();
+	}
+
+	@And("the user should be able to update Delivery Status in Delivery Module test")
+	public void verifyUserCanUpdateDeliveryStatus() {
+
+		deliveryPage.verifyUserCanUpdateDeliveryStatus();
+	}
+
+	@And("the user should be able to generate Package Label in Delivery Module test")
+	public void verifyUserCanGeneratePackageLabel() {
+
+		deliveryPage.verifyUserCanGeneratePackageLabel();
+	}
+
+	@And("the user should be able to access Package Detail in Delivery Module test")
+	public void verifyUserCanAccessPackageDetail() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String packagesPagePath = Hooks.prop.getProperty("packagesPagePath");
+
+		Assert.assertNotNull("Packages page path is missing in config", packagesPagePath);
+
+		String fullPackagesPageUrl = baseUrl + packagesPagePath;
+
+		deliveryPage = new deliverypage(Hooks.driver);
+
+		deliveryPage.packagesPagePath(fullPackagesPageUrl);
+
+		Assert.assertTrue("Packages page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Delivery/Home/Packages?category=1"));
+
+		Hooks.scenario.log("Delivery user is on the Packages page");
+
+		deliveryPage.verifyUserCanAccessPackageDetail();
+	}
+
+	@And("I create a profile with Full Access for Package to Delivery Module Package test")
+	public void createProfileWithFullPackageAccess() {
+		deliveryPage.clickFilterButton();
+		deliveryPage.enterProfileName("Sunil");
+		deliveryPage.clickSearchButton();
+		deliveryPage.clickActionMenu();
+		deliveryPage.clickEditButton();
+		deliveryPage.createFullAccessProfileForDeliveryPackage();
+		deliveryPage.clickSubmitButton();
+		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+	}
+
+	@And("the user should not be able to edit or delete Package in Delivery Module test")
+	public void userCannotEditDeletePackage() {
+
+		deliveryPage.checkCannotEditDeletePackage();
+	}
+
+	@And("the user should not be able to add or delete Package in Delivery Module test")
+	public void verifyUserCannotAddOrDeletePackage() {
+
+		deliveryPage.verifyUserCannotAddOrDeletePackage();
+	}
+
+	@And("the user should not be able to add or edit Package in Delivery Module test")
+	public void verifyUserCannotAddOrEditPackage() {
+
+		deliveryPage.verifyUserCannotAddOrEditPackage();
+	}
+
+	@And("the user should be able to view and delete Package in Delivery Module test")
+	public void verifyUserCanViewAndDeletePackage() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String packagesPagePath = Hooks.prop.getProperty("packagesPagePath");
+
+		Assert.assertNotNull("Packages page path is missing in config", packagesPagePath);
+
+		String fullPackagesPageUrl = baseUrl + packagesPagePath;
+
+		deliveryPage = new deliverypage(Hooks.driver);
+
+		deliveryPage.packagesPagePath(fullPackagesPageUrl);
+
+		Assert.assertTrue("Packages page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Delivery/Home/Packages?category=1"));
+
+		Hooks.scenario.log("Delivery user is on the Packages page");
+
+		deliveryPage.verifyUserCanViewAndDeletePackage();
+	}
+
+	@And("the user should be able to view and edit Package in Delivery Module test")
+	public void verifyViewEditPackage() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String packagesPagePath = Hooks.prop.getProperty("packagesPagePath");
+
+		Assert.assertNotNull("Packages page path is missing in config", packagesPagePath);
+
+		String fullPackagesPageUrl = baseUrl + packagesPagePath;
+
+		deliveryPage = new deliverypage(Hooks.driver);
+
+		deliveryPage.packagesPagePath(fullPackagesPageUrl);
+
+		Assert.assertTrue("Packages page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Delivery/Home/Packages?category=1"));
+
+		Hooks.scenario.log("Delivery user is on the Packages page");
+
+		deliveryPage.verifyUserCanViewAndEditPackage();
+	}
+
+	@And("the user should be able to view and add Package in Delivery Module test")
+	public void verifyViewAddPackage() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String packagesPagePath = Hooks.prop.getProperty("packagesPagePath");
+
+		Assert.assertNotNull("Packages page path is missing in config", packagesPagePath);
+
+		String fullPackagesPageUrl = baseUrl + packagesPagePath;
+
+		deliveryPage = new deliverypage(Hooks.driver);
+
+		deliveryPage.packagesPagePath(fullPackagesPageUrl);
+
+		Assert.assertTrue("Packages page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Delivery/Home/Packages?category=1"));
+
+		Hooks.scenario.log("Delivery user is on the Packages page");
+
+		deliveryPage.checkViewAddPackage();
+	}
+
+	@And("I create a profile with View and Delete access only to Delivery Module Package test")
+	public void profileViewDelete() {
+		deliveryPage.clickFilterButton();
+		deliveryPage.enterProfileName("Sunil");
+		deliveryPage.clickSearchButton();
+		deliveryPage.clickActionMenu();
+		deliveryPage.clickEditButton();
+		deliveryPage.createDeliveryVD();
+		deliveryPage.clickSubmitButton();
+		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+	}
+
+	@And("I create a profile with View and Edit access only to Delivery Module Package test")
+	public void createDeliveryProfileViewEdit() {
+		deliveryPage.clickFilterButton();
+		deliveryPage.enterProfileName("Sunil");
+		deliveryPage.clickSearchButton();
+		deliveryPage.clickActionMenu();
+		deliveryPage.clickEditButton();
+		deliveryPage.createProfileVE();
+		deliveryPage.clickSubmitButton();
+		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+	}
+
+	@And("I create a profile with View and Add access only to Delivery Module Package test")
+	public void createProfileWithViewAndAddAccessForDeliveryModule() {
+		deliveryPage.clickFilterButton();
+		deliveryPage.enterProfileName("Sunil");
+		deliveryPage.clickSearchButton();
+		deliveryPage.clickActionMenu();
+		deliveryPage.clickEditButton();
+		deliveryPage.createDeliveryProfile();
+		deliveryPage.clickSubmitButton();
+		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+	}
+
+	// Delivery Marker
+	@And("the user should be able to view and delete Delivery Marker in Delivery Module test")
+	public void userCanViewAndDeleteDeliveryMarker() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String deliveryMarkerUrl = Hooks.prop.getProperty("deliveryMarkerUrl");
+
+		Assert.assertNotNull("deliveryMarkerUrl is missing in config", deliveryMarkerUrl);
+
+		String fullDeliveryMarkerUrl = baseUrl + deliveryMarkerUrl;
+
+		deliveryPage = new deliverypage(Hooks.driver);
+
+		deliveryPage.openDeliveryMarkerPage(fullDeliveryMarkerUrl);
+
+		Assert.assertTrue("Delivery Marker page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/DeliveryMarkers"));
+
+		Hooks.scenario.log("Delivery user is on the Delivery Marker page");
+
+		deliveryPage.validateViewDeleteDeliveryMarker();
+	}
+
+	@And("the user should not be able to add or delete Delivery Marker in Delivery Module test")
+	public void verifyAddDeleteDeliveryMarkerDisabled() {
+
+		deliveryPage.userCannotAddOrDeleteDeliveryMarker();
+	}
+
+	@And("the user should not be able to add or edit Delivery Marker in Delivery Module test")
+	public void verifyAddEditDeliveryMarkerDisabled() {
+
+		deliveryPage.validateNoAddEditDeliveryMarkerAccess();
+	}
+
+	@And("the user should be able to view and edit Delivery Marker in Delivery Module test")
+	public void userCanViewAndEditDeliveryMarker() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String deliveryMarkerUrl = Hooks.prop.getProperty("deliveryMarkerUrl");
+
+		Assert.assertNotNull("deliveryMarkerUrl is missing in config", deliveryMarkerUrl);
+
+		String fullDeliveryMarkerUrl = baseUrl + deliveryMarkerUrl;
+
+		deliveryPage = new deliverypage(Hooks.driver);
+
+		deliveryPage.openDeliveryMarkerPage(fullDeliveryMarkerUrl);
+
+		Assert.assertTrue("Delivery Marker page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/DeliveryMarkers"));
+
+		Hooks.scenario.log("Delivery user is on the Delivery Marker page");
+
+		deliveryPage.validateViewEditDeliveryMarker();
+	}
+
+	@And("the user should be able to view and add Delivery Marker in Delivery Module test")
+	public void verifyViewAndAddDeliveryMarker() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String deliveryMarkerUrl = Hooks.prop.getProperty("deliveryMarkerUrl");
+
+		Assert.assertNotNull("deliveryMarkerUrl is missing in config", deliveryMarkerUrl);
+
+		String fullDeliveryMarkerUrl = baseUrl + deliveryMarkerUrl;
+
+		deliveryPage = new deliverypage(Hooks.driver);
+
+		deliveryPage.openDeliveryMarkerPage(fullDeliveryMarkerUrl);
+
+		Assert.assertTrue("Delivery Marker page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/DeliveryMarkers"));
+
+		Hooks.scenario.log("Delivery user is on the Delivery Marker page");
+
+		deliveryPage.userCanViewAndAddDeliveryMarker();
+	}
+
+	@And("the user should not be able to edit or delete Delivery Marker in Delivery Module test")
+	public void verifyEditAndDeleteDeliveryMarkerDisabled() {
+
+		deliveryPage.userCannotEditOrDeleteDeliveryMarker();
+	}
+
+	@And("I create a profile with View and Add access only to Delivery Module Delivery Marker test")
+	public void createProfileWithViewAndAddAccess() {
+		deliveryPage.clickFilterButton();
+		deliveryPage.enterProfileName("Sunil");
+		deliveryPage.clickSearchButton();
+		deliveryPage.clickActionMenu();
+		deliveryPage.clickEditButton();
+		deliveryPage.createDMViewAddProfile();
+		deliveryPage.clickSubmitButton();
+		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+	}
+
+	@And("I create a profile with View and Edit access only to Delivery Module Delivery Marker test")
+	public void createProfileWithViewAndEditDeliveryMarker() {
+		deliveryPage.clickFilterButton();
+		deliveryPage.enterProfileName("Sunil");
+		deliveryPage.clickSearchButton();
+		deliveryPage.clickActionMenu();
+		deliveryPage.clickEditButton();
+		deliveryPage.createDeliveryMarkerViewAndEditAccess();
+		deliveryPage.clickSubmitButton();
+		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+	}
+
+	@And("I create a profile with View and Delete access only to Delivery Module Delivery Marker test")
+	public void createProfileWithViewAndDeleteDeliveryMarker() {
+		deliveryPage.clickFilterButton();
+		deliveryPage.enterProfileName("Sunil");
+		deliveryPage.clickSearchButton();
+		deliveryPage.clickActionMenu();
+		deliveryPage.clickEditButton();
+		deliveryPage.createDeliveryMarkerViewAndDeleteAccess();
+		deliveryPage.clickSubmitButton();
+		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+	}
+
 	// Logistic Company
 	@And("I create a profile with View and Edit access only to Delivery Module Logistic Company test")
 	public void createProfileWithViewAndEditAccessToLogisticCompany() {
