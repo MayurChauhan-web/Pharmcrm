@@ -229,7 +229,6 @@ And I create a profile with View and Delete access only to Delivery Module Packa
 Then the user should be able to view and delete Package in Delivery Module test
 And the user should not be able to add or edit Package in Delivery Module test
 
-@Delivery
 Scenario: User with Full Access for Package test
 Given user launch browser
 Then user click on the user type dropdown
@@ -301,6 +300,499 @@ When user click on the go button
 Then the Delivery user should be able to view Profiles
 And I create a profile without access to Delivery Module Package Plan Restriction test
 Then the user should have no Package Plan Restriction access via UI or direct URL test
+
+# Delivery Identifier
+Scenario: User with View-only access for Delivery Identifier test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Delivery user should be able to view Profiles
+And I create a profile with View-only access to Delivery Module Delivery Identifier test
+Then the user should be able to view Delivery Identifier in Delivery Module test
+
+Scenario: Create user without Delivery Identifier access and check restrictions test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Delivery user should be able to view Profiles
+And I create a profile without access to Delivery Module Delivery Identifier test
+Then the user should have no Delivery Identifier access via UI or direct URL test
+
+# Manifest
+Scenario: User with View + Add access for Manifest test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Delivery user should be able to view Profiles
+And I create a profile with View and Add access only to Delivery Module Manifest test
+Then the user should be able to view and add Manifest in Delivery Module test
+And the user should not be able to edit or delete Manifest in Delivery Module test
+
+Scenario: User with View + Edit access for Manifest test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Delivery user should be able to view Profiles
+And I create a profile with View and Edit access only to Delivery Module Manifest test
+Then the user should be able to view and edit Manifest in Delivery Module test
+And the user should not be able to add or delete Manifest in Delivery Module test
+
+Scenario: User with View + Delete access for Manifest test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Delivery user should be able to view Profiles
+And I create a profile with View and Delete access only to Delivery Module Manifest test
+Then the user should be able to view and delete Manifest in Delivery Module test
+And the user should not be able to add or edit Manifest in Delivery Module test
+
+Scenario: User with Full Access for Manifest test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Delivery user should be able to view Profiles
+And I create a profile with Full Access for Manifest to Delivery Module Manifest test
+Then the user should be able to access Manifest Detail in Delivery Module test
+Then the user should be able to add Manifest Package in Delivery Module test
+Then the user should be able to delete Manifest Package in Delivery Module test
+Then the user should be able to skip Manifest Package in Delivery Module test
+Then the user should be able to add Manifest Bundle in Delivery Module test
+Then the user should be able to delete Manifest Bundle in Delivery Module test
+Then the user should be able to print Manifest in Delivery Module test
+
+# Customer Attestation
+Scenario: User with Add access for Customer Attestation test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Delivery user should be able to view Profiles
+And I create a profile with Add access only to Delivery Module Customer Attestation test
+Then the user should be able to add Customer Attestation in Delivery Module test
+And the user should not be able to edit or delete Customer Attestation in Delivery Module test
+
+Scenario: User with Edit access for Customer Attestation test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Delivery user should be able to view Profiles
+And I create a profile with Edit access only to Delivery Module Customer Attestation test
+Then the user should be able to edit Customer Attestation in Delivery Module test
+And the user should not be able to add or delete Customer Attestation in Delivery Module test
+
+Scenario: User with Delete access for Customer Attestation test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Delivery user should be able to view Profiles
+And I create a profile with Delete access only to Delivery Module Customer Attestation test
+Then the user should be able to delete Customer Attestation in Delivery Module test
+And the user should not be able to add or edit Customer Attestation in Delivery Module test
+
+Scenario: User with Print and Send for Signature access for Customer Attestation test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Delivery user should be able to view Profiles
+And I create a profile with Print and Send for Signature access to Delivery Module Customer Attestation test
+Then the user should be able to print Customer Attestation in Delivery Module test
+And the user should be able to send Customer Attestation for signature in Delivery Module test
+
+# Delivery Job Setting
+Scenario: User with Edit access for Delivery Job Setting test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Delivery user should be able to view Profiles
+And I create a profile with Edit access only to Delivery Module Delivery Job Setting test
+Then the user should be able to edit Delivery Job Setting in Delivery Module test
+And the user should not be able to run triggers in Delivery Module test
+
+Scenario: User with Run Trigger access for Delivery Job Setting test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Delivery user should be able to view Profiles
+And I create a profile with Run Trigger access only to Delivery Module Delivery Job Setting test
+Then the user should be able to run triggers in Delivery Module test
+And the user should not be able to edit Delivery Job Setting in Delivery Module test
+
+# Delivery Report
+Scenario: User with View + Export access for Delivery Report test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Delivery user should be able to view Profiles
+And I create a profile with View and Export access to Delivery Module Delivery Report test
+Then the user should be able to view Delivery Report in Delivery Module test
+And the user should be able to export Delivery Report in Delivery Module test
+
+Scenario: User with View-only access for Delivery Report no Export test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Delivery user should be able to view Profiles
+And I create a profile with View-only access to Delivery Module Delivery Report test
+Then the user should be able to view Delivery Report in Delivery Module test
+And the user should not be able to export Delivery Report in Delivery Module test
+
+# Manifest Summary Report
+Scenario: User with View + Export access for Manifest Summary Report test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Delivery user should be able to view Profiles
+And I create a profile with View and Export access to Delivery Module Manifest Summary Report test
+Then the user should be able to view Manifest Summary Report in Delivery Module test
+And the user should be able to export Manifest Summary Report in Delivery Module test
+
+Scenario: User with View-only access for Manifest Summary Report no Export test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Delivery user should be able to view Profiles
+And I create a profile with View-only access to Delivery Module Manifest Summary Report test
+Then the user should be able to view Manifest Summary Report in Delivery Module test
+And the user should not be able to export Manifest Summary Report in Delivery Module test
+
+@Delivery
+# Delivery Statistic Report
+Scenario: User with View + Export access for Delivery Statistic Report test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Delivery user should be able to view Profiles
+And I create a profile with View and Export access to Delivery Module Delivery Statistic Report test
+Then the user should be able to view Delivery Statistic Report in Delivery Module test
+And the user should be able to export Delivery Statistic Report in Delivery Module test
+
+Scenario: User with View-only access for Delivery Statistic Report no Export test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Delivery user should be able to view Profiles
+And I create a profile with View-only access to Delivery Module Delivery Statistic Report test
+Then the user should be able to view Delivery Statistic Report in Delivery Module test
+And the user should not be able to export Delivery Statistic Report in Delivery Module test
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

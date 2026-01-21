@@ -23,181 +23,281 @@ import com.google.common.base.Function;
 
 public class deliverypage {
 
+	// Delivery Statistic Report
+	public By EXPORT_DELIVERY_STATISTIC_REPORT = By.xpath("//span[normalize-space()='Export Excel']");
+
+	// Manifest Summary Report
+	public By EXPORT_EXCEL_BUTTON_MANIFEST_SUMMARY = By.xpath("//span[normalize-space()='Export Excel']");
+	public By MANIFEST_SUMMARY_REPORT_EXPORT_BUTTON = By.xpath("//tbody/tr[1]/td[7]/a[1]//*[name()='svg']");
+
+	// Delivery Report
+	public By EXPORT_EXCEL_BUTTON = By.xpath("//span[normalize-space()='Export Excel']");
+
+	// Delivery Job Setting
+	public By DELIVERY_ACTION_MENU = By
+			.xpath("//tr[@module-data='data_Delivery']//i[@class='fa-solid fa-ellipsis-vertical']");
+	public By DELIVERY_EDIT_OPTION = By
+			.xpath("//div[contains(@class,'bucket-dropdown-content')]//span[normalize-space()='Edit']");
+	public By RUN_TRIGGER_BUTTON = By.xpath(
+			"//tr[@module-data='data_Delivery']//a[contains(@class,'triggerButton') and normalize-space()='Run Trigger']");
+	public By DELIVERY_JOB_SETTINGS_URL = By.xpath("//label[@for='chk_Delivery']//img");
+	public By DELIVERY_RUN_TRIGGER_BUTTON = By.xpath(
+			"//tr[@module-data='data_Delivery']//a[contains(@class,'triggerButton') and normalize-space()='Run Trigger']");
+	public By DELIVERY_MODULE_CHECKBOX = By.xpath("//label[@for='chk_Delivery']//img");
+	public By DELIVERY_MODULE_ACTION_MENU = By
+			.xpath("//tr[@module-data='data_Delivery']//i[contains(@class,'fa-ellipsis-vertical')]");
+	public By EDIT_JOB_SETTING_OPTION = By.xpath(
+			"//div[contains(@class,'bucket-dropdown-content') and contains(@class,'show')]//span[normalize-space()='Edit']");
+	public By FROM_EMAIL_INPUT = By.id("ReportSetting_FromEmail");
+	public By TO_EMAIL_INPUT = By.id("ReportSetting_ToEmail");
+	public By SAVE_JOB_SETTING_BUTTON = By.id("btnSave");
+
+	// Customer Attestation
+	public By CUSTOMER_ATTESTATION_ALL_ACCESS_CHECKBOX = By.xpath("//label[@for='chkg5CustomerAttestationAll']");
+	public By CUSTOMER_ATTESTATION_ADD_ACCESS_CHECKBOX = By.xpath("//label[@for='chkg5CustomerAttestationAdd']");
+	public By SEND_FOR_SIGNATURE_BUTTON = By.xpath("//span[normalize-space()='Send For Signature']");
+	public By SEND_SIGNATURE_DROPDOWN = By.id("sendsignaturelinkforpackageAttestation");
+	public By PRINT_CUSTOMER_ATTESTATION_OPTION = By.xpath(
+			"//div[contains(@class,'bucket-dropdown-content') and contains(@class,'show')]//span[normalize-space()='Print']");
+	public By CONFIRM_DELETE_CUSTOMER_ATTESTATION_BUTTON = By.id("deletePackageCustomerAttestation");
+
+	public By datepickerDay(int day) {
+		return By.xpath("//td[normalize-space()='" + day + "']");
+	}
+
+	public By FIRST_CUSTOMER_ATTESTATION_ACTION_MENU = By.xpath("(//button[@id='bucketDrop']/i)[1]");
+	public By CUSTOMER_ATTESTATION_ACTION_DROPDOWN = By.xpath("//div[contains(@class,'bucket-dropdown-content')]");
+	public By EDIT_CUSTOMER_ATTESTATION_OPTION = By.xpath(
+			"//div[contains(@class,'bucket-dropdown-content') and contains(@class,'show')]//span[normalize-space()='Edit']");
+	public By DELETE_CUSTOMER_ATTESTATION_OPTION = By.xpath(
+			"//div[contains(@class,'bucket-dropdown-content') and contains(@class,'show')]//span[normalize-space()='Delete']");
+	public By FIRST_PACKAGE_DETAIL_BUTTON = By.xpath("//tbody/tr[1]/td[12]/div[1]/a[1]/img[1]");
+	public By ADD_CUSTOMER_ATTESTATION_BUTTON = By.xpath("//span[normalize-space()='Add Customer Attestation']");
+	public By RX_NUMBER_INPUT = By.id("PackageCustomerAttestation_RxNumber");
+	public By PATIENT_NAME_INPUT = By.id("PackageCustomerAttestation_PatientName");
+	public By MEDICATION_INPUT = By.id("PackageCustomerAttestation_Medication");
+	public By RECEIVED_FROM_INPUT = By.id("PackageCustomerAttestation_ReceivedFrom");
+	public By FILLED_DATE_INPUT = By.id("PackageCustomerAttestation_FilledDate");
+	public By RECEIVED_DATE_INPUT = By.id("PackageCustomerAttestation_ReceivedDate");
+	public By ADDRESS_RECEIVER_INPUT = By.id("PackageCustomerAttestation_AddressReceiver");
+	public By RECEIVER_NAME_INPUT = By.id("PackageCustomerAttestation_ReceiverName");
+	public By PATIENT_RELATION_INPUT = By.id("PackageCustomerAttestation_PatientRelation");
+	public By PHONE_NUMBER_INPUT = By.id("PackageCustomerAttestation_PhoneNumber");
+	public By SAVE_CUSTOMER_ATTESTATION_BUTTON = By.id("btnSavePackageCustomerAttestation");
+
+	// Manifest
+	public By MANIFEST_ALL_ACCESS_CHECKBOX = By.xpath("//label[@for='chkg04ManifestAll']");
+	public By MANIFEST_ADD_ACCESS_CHECKBOX = By.xpath("//label[@for='chkg04ManifestAdd']");
+	public By PRINT_MANIFEST_BUTTON = By.id("manifestDetailPrintBtn");
+	public By CLOSE_PRINT_MODAL_BUTTON = By
+			.xpath("//button[@onclick='javascript: CloseManifestDetailPrintModal();']//i[@class='fa fa-times']");
+	public By DELETE_MANIFEST_BUNDLE_BUTTON = By.id("btnDeleteManifestBundle");
+	public By CONFIRM_DELETE_BUNDLE_BUTTON = By.id("btnDeleteBundleConfirm");
+	public By SAVE_MANIFEST_BUTTON = By.id("btnSave");
+	public By SKIP_MANIFEST_PACKAGE_BUTTON = By.id("btnSkipManifestPackage");
+	public By CONFIRM_SKIP_BUTTON = By.id("btnSkipConfirm");
+	public By DELETE_MANIFEST_PACKAGE_BUTTON = By.id("btnDeleteManifestPackage");
+	public By CONFIRM_DELETE_PACKAGE_BUTTON = By
+			.xpath("//div[@id='deleteManifestPackageModel']//button[@id='btnDeleteConfirm']");
+	public By SEARCH_PACKAGE_BUTTON = By.id("searchPackagePopup");
+	public By FILTER_LOGISTIC_DROPDOWN = By.id("Filter_LogisticId");
+	public By FILTER_FROM_DATE = By.id("Filter_FromDate");
+	public By DATEPICKER_DAY_1 = By.xpath("//td[normalize-space()='1']");
+	public By SEARCH_BUTTON = By.xpath("//button[normalize-space()='Search']");
+	public By PACKAGE_CHECKBOX = By.xpath("//label[@for='b38063de-b375-4421-a2ee-0fb842cdb451']");
+	public By SUBMIT_BUTTON = By.xpath("//button[@class='btn btn-primary'][normalize-space()='Submit']");
+	public By FIRST_MANIFEST_DETAIL_BUTTON = By.xpath("//tbody/tr[1]/td[7]/div[1]/a[1]/img[1]");
+	public By CONFIRM_DELETE_BUTTON = By.id("btndeletemanifestconform");
+	public By FIRST_MANIFEST_ACTION_MENU = By.xpath("(//button[@id='bucketDrop']/i)[1]");
+	public By MANIFEST_STATUS_DROPDOWN = By.id("Manifest_Status");
+	public By MANIFEST_ACTION_DROPDOWN = By.xpath("//div[contains(@class,'bucket-dropdown-content')]");
+	public By MANIFEST_ACTION_MENU = By.xpath("(//button[@id='bucketDrop']/i)[1]");
+	public By EDIT_MANIFEST_OPTION = By.xpath(
+			"//div[contains(@class,'bucket-dropdown-content') and contains(@class,'show')]//span[normalize-space()='Edit']");
+	public By DELETE_MANIFEST_OPTION = By.xpath(
+			"//div[contains(@class,'bucket-dropdown-content') and contains(@class,'show')]//span[normalize-space()='Delete']");
+	public By NEW_MANIFEST_BUTTON = By.xpath("//span[normalize-space()='New Manifest']");
+	public By DELIVERY_DATE_INPUT = By.id("Manifest_DeliveryDate");
+	public By DATEPICKER_YEAR_DROPDOWN = By.xpath("//select[contains(@class,'ui-datepicker-year')]");
+	public By DATEPICKER_MONTH_DROPDOWN = By.xpath("//select[contains(@class,'ui-datepicker-month')]");
+	public By DRIVER_DROPDOWN = By.id("Manifest_Driver_Id");
+	public By STARTING_POINT_DROPDOWN = By.id("Manifest_StartingPoint");
+	public By END_POINT_DROPDOWN = By.id("Manifest_EndPoint");
+	public By STATUS_DROPDOWN = By.id("Manifest_Status");
+	public By SAVE_BUTTON = By.id("btnSave");
+
 	// Package Plan Restriction
-	private By packagePlanRestrictionIcon = By.xpath("//*[name()='path' and contains(@d,'m211 91v21')]");
-	private By packagePlanIcon = By.xpath("//*[name()='path' and contains(@d,'m211 91v21')]");
-
-	private By packagePlanInput = By.id("Package_Plan");
-
-	private By packageActionDropdownRow1 = By.xpath("//tbody/tr[1]/td[12]/div[1]/div[1]/button[1]/i[1]");
-
-	private By editPackageOption = By
+	public By packagePlanRestrictionIcon = By.xpath("//*[name()='path' and contains(@d,'m211 91v21')]");
+	public By packagePlanIcon = By.xpath("//*[name()='path' and contains(@d,'m211 91v21')]");
+	public By packagePlanInput = By.id("Package_Plan");
+	public By packageActionDropdownRow1 = By.xpath("//tbody/tr[1]/td[12]/div[1]/div[1]/button[1]/i[1]");
+	public By editPackageOption = By
 			.xpath("//div[contains(@class,'gridRecordContext')]//span[contains(text(),'Edit')]");
 
 	// Delivery Setting
-	private By packageRestrictionHeader = By.xpath("//h6[normalize-space()='Package Restriction']");
+	public By packageRestrictionHeader = By.xpath("//h6[normalize-space()='Package Restriction']");
 
 	// Package
-	private By filterBtn = By.xpath("//span[normalize-space()='Filter']");
-	private By logisticDropdown = By.id("Filter_LogisticId");
-	private By searchBtn = By.xpath("//i[@class='fa-solid fa-magnifying-glass']");
-	private By syncLogisticHistoryBtn = By.xpath("//button[normalize-space()='Sync Logistic History']");
-	private By printPickupPackagesBtn = By.xpath("//span[normalize-space()='Print Pickup Packages']");
-	private By closePickupPrintModalBtn = By
+	public By filterBtn = By.xpath("//span[normalize-space()='Filter']");
+	public By logisticDropdown = By.id("Filter_LogisticId");
+	public By searchBtn = By.xpath("//i[@class='fa-solid fa-magnifying-glass']");
+	public By syncLogisticHistoryBtn = By.xpath("//button[normalize-space()='Sync Logistic History']");
+	public By printPickupPackagesBtn = By.xpath("//span[normalize-space()='Print Pickup Packages']");
+	public By closePickupPrintModalBtn = By
 			.xpath("//button[@onclick='return CloseGenerateCollectionLabel()']//i[@class='fa fa-times']");
-	private By packageActionDropdownRow2 = By.xpath("//tbody/tr[2]/td[12]/div[1]/div[1]/button[1]/i[1]");
-	private By shareToHarbourOption = By
+	public By packageActionDropdownRow2 = By.xpath("//tbody/tr[2]/td[12]/div[1]/div[1]/button[1]/i[1]");
+	public By shareToHarbourOption = By
 			.xpath("//div[contains(@class,'gridRecordContext')]//span[normalize-space()='Share To Harbour']");
-	private By shareConfirmBtn = By.id("btnShareConfirm");
-	private By packageDetailIconRow5 = By.xpath("//tbody/tr[5]/td[12]/div[1]/a[1]/img[1]");
-	private By printPackageBtn = By.xpath("//div[@class='mb-5']//button[normalize-space()='Print']");
-	private By packageInformationCheckbox = By.xpath("//label[normalize-space()='Package Information']");
-	private By closePrintModalBtn = By
+	public By shareConfirmBtn = By.id("btnShareConfirm");
+	public By packageDetailIconRow5 = By.xpath("//tbody/tr[5]/td[12]/div[1]/a[1]/img[1]");
+	public By printPackageBtn = By.xpath("//div[@class='mb-5']//button[normalize-space()='Print']");
+	public By packageInformationCheckbox = By.xpath("//label[normalize-space()='Package Information']");
+	public By closePrintModalBtn = By
 			.xpath("//button[@onclick='javascript: ClosePrintModal();']//i[@class='fa fa-times']");
-	private By packageDetailIcon = By.xpath("//tbody/tr[3]/td[12]/div[1]/a[1]/img[1]");
-	private By generateInvoiceBtn = By.xpath("//button[normalize-space()='Generate Invoice']");
-	private By invoiceFirstName = By.id("Invoice_FirstName");
-	private By invoiceBillingEmail = By.id("Invoice_BillingEmail");
-	private By prescriptionNumber = By.id("InvoiceDetail_PrescriptionNumber");
-	private By rxDropdownInput = By
+	public By packageDetailIcon = By.xpath("//tbody/tr[3]/td[12]/div[1]/a[1]/img[1]");
+	public By generateInvoiceBtn = By.xpath("//button[normalize-space()='Generate Invoice']");
+	public By invoiceFirstName = By.id("Invoice_FirstName");
+	public By invoiceBillingEmail = By.id("Invoice_BillingEmail");
+	public By prescriptionNumber = By.id("InvoiceDetail_PrescriptionNumber");
+	public By rxDropdownInput = By
 			.xpath("//div[@class='model-inp select-city-dd dropdowncheckbox']//input[@type='text']");
-	private By rxOption = By.xpath("//label[span[normalize-space()='Rx']]");
-	private By invoiceDescription = By.id("InvoiceDetail_Description");
-	private By invoiceQuantity = By.id("InvoiceDetail_Quantity");
-	private By invoiceCopay = By.id("InvoiceDetail_CoPay");
-	private By addInvoiceDetailBtn = By.id("btnInvoiceDetail");
-	private By patientEmail = By.id("Invoice_PatientEmail");
-	private By patientEmailCheckbox = By.xpath("//label[@for='ChkInvoice_PatientEmail']");
-	private By billToFirstName = By.id("Invoice_InvoiceBillTo_BillToFirstName");
-	private By saveAndSendBtn = By.id("btnSaveAndSend");
-	private By addCustomerAttestationBtn = By.xpath("//span[normalize-space()='Add Customer Attestation']");
-	private By saveAttestationBtn = By.id("btnSavePackageCustomerAttestation");
-	private By rxNumberInput = By.id("PackageCustomerAttestation_RxNumber");
-	private By patientNameInput = By.id("PackageCustomerAttestation_PatientName");
-	private By medicationInput = By.id("PackageCustomerAttestation_Medication");
-	private By receivedFromInput = By.id("PackageCustomerAttestation_ReceivedFrom");
-	private By filledDateInput = By.id("PackageCustomerAttestation_FilledDate");
-	private By receivedDateInput = By.id("PackageCustomerAttestation_ReceivedDate");
-	private By addressReceiverInput = By.id("PackageCustomerAttestation_AddressReceiver");
-	private By receiverNameInput = By.id("PackageCustomerAttestation_ReceiverName");
-	private By patientRelationInput = By.id("PackageCustomerAttestation_PatientRelation");
-	private By phoneNumberInput = By.id("PackageCustomerAttestation_PhoneNumber");
-	private By closePrintLabelBtn = By.xpath("//button[@onclick='ClosePrintLabel();']//i[@class='fa fa-times']");
-	private By sendForSignatureBtn = By.xpath("//a[@title='Send For Signature To Customer']//*[name()='svg']");
-	private By emailOption = By.xpath("//a[normalize-space()='Email']");
-	private By signatureOptionsMenu = By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']");
-	private By printOption = By.xpath("//div[contains(@class,'gridRecordContextInner')]//span[text()='Print']");
-	private By signatureDownloadLink = By.xpath("//a[contains(text(),'.png')]");
-	private By signatureFileInput = By.id("flSignature");
-	private By uploadSignatureButton = By.id("btnUploadSignature");
-	private By referenceDocumentLink = By.xpath("//a[contains(text(),'.pdf')]");
-	private By deliveryInitiatedCheckbox = By.id("DeliveryInitiated");
-	private By saveStatusNotesButton = By.id("btnSaveStatusNotes");
-	private By generateLabelOption = By.xpath(
+	public By rxOption = By.xpath("//label[span[normalize-space()='Rx']]");
+	public By invoiceDescription = By.id("InvoiceDetail_Description");
+	public By invoiceQuantity = By.id("InvoiceDetail_Quantity");
+	public By invoiceCopay = By.id("InvoiceDetail_CoPay");
+	public By addInvoiceDetailBtn = By.id("btnInvoiceDetail");
+	public By patientEmail = By.id("Invoice_PatientEmail");
+	public By patientEmailCheckbox = By.xpath("//label[@for='ChkInvoice_PatientEmail']");
+	public By billToFirstName = By.id("Invoice_InvoiceBillTo_BillToFirstName");
+	public By saveAndSendBtn = By.id("btnSaveAndSend");
+	public By addCustomerAttestationBtn = By.xpath("//span[normalize-space()='Add Customer Attestation']");
+	public By saveAttestationBtn = By.id("btnSavePackageCustomerAttestation");
+	public By rxNumberInput = By.id("PackageCustomerAttestation_RxNumber");
+	public By patientNameInput = By.id("PackageCustomerAttestation_PatientName");
+	public By medicationInput = By.id("PackageCustomerAttestation_Medication");
+	public By receivedFromInput = By.id("PackageCustomerAttestation_ReceivedFrom");
+	public By filledDateInput = By.id("PackageCustomerAttestation_FilledDate");
+	public By receivedDateInput = By.id("PackageCustomerAttestation_ReceivedDate");
+	public By addressReceiverInput = By.id("PackageCustomerAttestation_AddressReceiver");
+	public By receiverNameInput = By.id("PackageCustomerAttestation_ReceiverName");
+	public By patientRelationInput = By.id("PackageCustomerAttestation_PatientRelation");
+	public By phoneNumberInput = By.id("PackageCustomerAttestation_PhoneNumber");
+	public By closePrintLabelBtn = By.xpath("//button[@onclick='ClosePrintLabel();']//i[@class='fa fa-times']");
+	public By sendForSignatureBtn = By.xpath("//a[@title='Send For Signature To Customer']//*[name()='svg']");
+	public By emailOption = By.xpath("//a[normalize-space()='Email']");
+	public By signatureOptionsMenu = By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']");
+	public By printOption = By.xpath("//div[contains(@class,'gridRecordContextInner')]//span[text()='Print']");
+	public By signatureDownloadLink = By.xpath("//a[contains(text(),'.png')]");
+	public By signatureFileInput = By.id("flSignature");
+	public By uploadSignatureButton = By.id("btnUploadSignature");
+	public By referenceDocumentLink = By.xpath("//a[contains(text(),'.pdf')]");
+	public By deliveryInitiatedCheckbox = By.id("DeliveryInitiated");
+	public By saveStatusNotesButton = By.id("btnSaveStatusNotes");
+	public By generateLabelOption = By.xpath(
 			"//div[contains(@class,'bucket-dropdown-content') and contains(@class,'show')]//span[text()='Generate Label']");
-	private By firstPackageDetailIcon = By.xpath("//tbody/tr[1]/td[12]//a//img");
-	private By confirmDeleteButton = By.id("btnDeleteConfirm");
-	private By addOption = By
+	public By firstPackageDetailIcon = By.xpath("//tbody/tr[1]/td[12]//a//img");
+	public By confirmDeleteButton = By.id("btnDeleteConfirm");
+	public By addOption = By
 			.xpath("//div[contains(@class,'bucket-dropdown-content') and contains(@class,'show')]//span[text()='Add']");
-	private By packageDropdownBtn = By.xpath("(//button[@id='bucketDrop']/i)[1]");
-	private By packageeditOption = By.xpath(
+	public By packageDropdownBtn = By.xpath("(//button[@id='bucketDrop']/i)[1]");
+	public By packageeditOption = By.xpath(
 			"//div[contains(@class,'bucket-dropdown-content') and contains(@class,'show')]//span[text()='Edit']");
-	private By cityInputField = By.id("Package_ShippingAddress_City");
-	By packageDropdownButton = By.xpath("(//button[@id='bucketDrop']/i)[1]");
-	By newPackageButton = By.xpath("//span[normalize-space()='New Package']");
-	By nextButton = By.id("btnNext");
-	By copyAddressButton = By.xpath("//a[@class='copyAddressMain']//*[name()='svg']");
-	By logisticCompanyDropdown = By.id("Package_LogisticCompany_Id");
-	By stateDropdown = By.id("ddState");
-	By trackingNumberField = By.id("Package_TrackingNumber");
-	By customerNameField = By.id("Package_CustomerName");
-	By customerContactField = By.id("Package_CustomerContactNumber1");
-	By streetField = By.id("Package_ShippingAddress_Street");
-	By cityField = By.id("Package_ShippingAddress_City");
-	By zipCodeField = By.id("Package_ShippingAddress_ZipCode");
-	By addressInputField = By.id("travelto");
-	By shippingDateInput = By.id("Package_ShippingDate");
-	By datePickerYearDropdown = By.xpath("//select[contains(@class,'ui-datepicker-year')]");
-	By datePickerMonthDropdown = By.xpath("//select[contains(@class,'ui-datepicker-month')]");
-	Function<Integer, By> datePickerDay = day -> By.xpath("//td[normalize-space()='" + day + "']");
-	By addressSuggestion = By.cssSelector(".pac-item");
-	By packageAllCheckbox = By.xpath("//label[@for='chkg04PackageAll']");
-	By packageAddCheckbox = By.xpath("//label[@for='chkg04PackageAdd']");
-	By packageEditCheckbox = By.xpath("//label[@for='chkg04PackageEdit']");
-	By packageDeleteCheckbox = By.xpath("//label[@for='chkg04PackageDelete']");
+	public By cityInputField = By.id("Package_ShippingAddress_City");
+	public By packageDropdownButton = By.xpath("(//button[@id='bucketDrop']/i)[1]");
+	public By newPackageButton = By.xpath("//span[normalize-space()='New Package']");
+	public By nextButton = By.id("btnNext");
+	public By copyAddressButton = By.xpath("//a[@class='copyAddressMain']//*[name()='svg']");
+	public By logisticCompanyDropdown = By.id("Package_LogisticCompany_Id");
+	public By stateDropdown = By.id("ddState");
+	public By trackingNumberField = By.id("Package_TrackingNumber");
+	public By customerNameField = By.id("Package_CustomerName");
+	public By customerContactField = By.id("Package_CustomerContactNumber1");
+	public By streetField = By.id("Package_ShippingAddress_Street");
+	public By cityField = By.id("Package_ShippingAddress_City");
+	public By zipCodeField = By.id("Package_ShippingAddress_ZipCode");
+	public By addressInputField = By.id("travelto");
+	public By shippingDateInput = By.id("Package_ShippingDate");
+	public By datePickerYearDropdown = By.xpath("//select[contains(@class,'ui-datepicker-year')]");
+	public By datePickerMonthDropdown = By.xpath("//select[contains(@class,'ui-datepicker-month')]");
+	public Function<Integer, By> datePickerDay = day -> By.xpath("//td[normalize-space()='" + day + "']");
+	public By addressSuggestion = By.cssSelector(".pac-item");
+	public By packageAllCheckbox = By.xpath("//label[@for='chkg04PackageAll']");
+	public By packageAddCheckbox = By.xpath("//label[@for='chkg04PackageAdd']");
+	public By packageEditCheckbox = By.xpath("//label[@for='chkg04PackageEdit']");
+	public By packageDeleteCheckbox = By.xpath("//label[@for='chkg04PackageDelete']");
 
 	// Delivery Marker
-
-	By DeliveryMarkerconfirmDeleteButton = By.id("submitDeleteDeliveryMarker");
-	By DeliveryMarkerdeleteOption = By.xpath(
+	public By DeliveryMarkerconfirmDeleteButton = By.id("submitDeleteDeliveryMarker");
+	public By DeliveryMarkerdeleteOption = By.xpath(
 			"//div[contains(@class,'bucket-dropdown-content') and contains(@class,'show')]//span[normalize-space()='Delete']");
-	By DeliveryMarkeractionMenu = By.xpath("(//button[@id='bucketDrop']/i)[1]");
-	By DeliveryMarkereditOption = By.xpath(
+	public By DeliveryMarkeractionMenu = By.xpath("(//button[@id='bucketDrop']/i)[1]");
+	public By DeliveryMarkereditOption = By.xpath(
 			"//div[contains(@class,'bucket-dropdown-content') and contains(@class,'show')]//span[normalize-space()='Edit']");
-	By markerNameInput = By.id("DeliveryMarker_Name");
-	By travelToInput = By.id("travelto");
-	By DeliveryMarkersaveButton = By.id("btnSave");
-	By deliveryMarkerAll = By.xpath("//label[@for='chkg44DeliveryMarkerAll']");
-	By deliveryMarkerAdd = By.xpath("//label[@for='chkg44DeliveryMarkerAdd']");
-	By newDeliveryMarkerBtn = By.xpath("//span[normalize-space()='New Delivery Marker']");
-	By deliveryMarkerName = By.id("DeliveryMarker_Name");
-	By travelTo = By.id("travelto");
-	By startingPoint = By.xpath("//label[normalize-space()='Starting Point']");
-	By deliverysaveButton = By.id("btnSave");
-	By DeliveryactionMenu = By.xpath("(//button[@id='bucketDrop']/i)[1]");
-	By DeliveryeditOption = By.xpath(
+	public By markerNameInput = By.id("DeliveryMarker_Name");
+	public By travelToInput = By.id("travelto");
+	public By DeliveryMarkersaveButton = By.id("btnSave");
+	public By deliveryMarkerAll = By.xpath("//label[@for='chkg44DeliveryMarkerAll']");
+	public By deliveryMarkerAdd = By.xpath("//label[@for='chkg44DeliveryMarkerAdd']");
+	public By newDeliveryMarkerBtn = By.xpath("//span[normalize-space()='New Delivery Marker']");
+	public By deliveryMarkerName = By.id("DeliveryMarker_Name");
+	public By travelTo = By.id("travelto");
+	public By startingPoint = By.xpath("//label[normalize-space()='Starting Point']");
+	public By deliverysaveButton = By.id("btnSave");
+	public By DeliveryactionMenu = By.xpath("(//button[@id='bucketDrop']/i)[1]");
+	public By DeliveryeditOption = By.xpath(
 			"//div[contains(@class,'bucket-dropdown-content') and contains(@class,'show')]//span[normalize-space()='Edit']");
-	By DeliverydeleteOption = By.xpath(
+	public By DeliverydeleteOption = By.xpath(
 			"//div[contains(@class,'bucket-dropdown-content') and contains(@class,'show')]//span[normalize-space()='Delete']");
-	By deliveryMarkerEdit = By.xpath("//label[@for='chkg44DeliveryMarkerEdit']");
-	By deliveryMarkerDelete = By.xpath("//label[@for='chkg44DeliveryMarkerDelete']");
+	public By deliveryMarkerEdit = By.xpath("//label[@for='chkg44DeliveryMarkerEdit']");
+	public By deliveryMarkerDelete = By.xpath("//label[@for='chkg44DeliveryMarkerDelete']");
 
 	// Logistic Company
-	By logisticAllLabel = By.xpath("//label[@for='chkg04LogisticAll']");
-	By logisticAddLabel = By.xpath("//label[@for='chkg04LogisticAdd']");
-	private By newLogisticCompanyButton = By.xpath("//span[normalize-space()='New Logistic Company']");
-	private By logisticNameInput = By.id("LogisticCompany_Name");
-	private By deliveryRadioButton = By.id("rbtnDelivery");
-	private By logisticsubmitButton = By
+	public By logisticAllLabel = By.xpath("//label[@for='chkg04LogisticAll']");
+	public By logisticAddLabel = By.xpath("//label[@for='chkg04LogisticAdd']");
+	public By newLogisticCompanyButton = By.xpath("//span[normalize-space()='New Logistic Company']");
+	public By logisticNameInput = By.id("LogisticCompany_Name");
+	public By deliveryRadioButton = By.id("rbtnDelivery");
+	public By logisticsubmitButton = By
 			.xpath("//button[@class='btn btn-primary waves-effect waves-light' and normalize-space()='Submit']");
-	By logisticEditLabel = By.xpath("//label[@for='chkg04LogisticEdit']");
-	By logisticDeleteLabel = By.xpath("//label[@for='chkg04LogisticDelete']");
+	public By logisticEditLabel = By.xpath("//label[@for='chkg04LogisticEdit']");
+	public By logisticDeleteLabel = By.xpath("//label[@for='chkg04LogisticDelete']");
 
 	// Delivery Distances
-	By deliveryDistancesAllLabel = By.xpath("//label[@for='chkg04DeliveryDistancesAll']");
-	By deliveryDistancesAddLabel = By.xpath("//label[@for='chkg04DeliveryDistancesAdd']");
-	private By newDeliveryDistanceButton = By.xpath("//span[normalize-space()='New Delivery Distance']");
-	private By zipCodeInput = By.id("DeliveryDistance_ZipCode");
-	private By cityInput = By.id("DeliveryDistance_City");
-	private By countyInput = By.id("DeliveryDistance_County");
-	private By radiusInput = By.id("DeliveryDistance_Radius");
-	private By DeliveryDistancesaveButton = By.id("btnSave");
-	private By firstRowActionMenu = By.xpath("(//button[@id='bucketDrop']/i)[1]");
-	private By editOption = By
-			.xpath("//div[contains(@class,'bucket-dropdown-content')]//span[contains(text(),'Edit')]");
-	private By deleteOption = By
+	public By deliveryDistancesAllLabel = By.xpath("//label[@for='chkg04DeliveryDistancesAll']");
+	public By deliveryDistancesAddLabel = By.xpath("//label[@for='chkg04DeliveryDistancesAdd']");
+	public By newDeliveryDistanceButton = By.xpath("//span[normalize-space()='New Delivery Distance']");
+	public By zipCodeInput = By.id("DeliveryDistance_ZipCode");
+	public By cityInput = By.id("DeliveryDistance_City");
+	public By countyInput = By.id("DeliveryDistance_County");
+	public By radiusInput = By.id("DeliveryDistance_Radius");
+	public By DeliveryDistancesaveButton = By.id("btnSave");
+	public By firstRowActionMenu = By.xpath("(//button[@id='bucketDrop']/i)[1]");
+	public By editOption = By.xpath("//div[contains(@class,'bucket-dropdown-content')]//span[contains(text(),'Edit')]");
+	public By deleteOption = By
 			.xpath("//div[contains(@class,'bucket-dropdown-content')]//span[contains(text(),'Delete')]");
-	By deliveryDistancesEditLabel = By.xpath("//label[@for='chkg04DeliveryDistancesEdit']");
-	By deliveryDistancesDeleteLabel = By.xpath("//label[@for='chkg04DeliveryDistancesDelete']");
+	public By deliveryDistancesEditLabel = By.xpath("//label[@for='chkg04DeliveryDistancesEdit']");
+	public By deliveryDistancesDeleteLabel = By.xpath("//label[@for='chkg04DeliveryDistancesDelete']");
 
 	// Package Restriction
-	By packageRestrictionAllLabel = By.xpath("//label[@for='chkg45PackageRestrictionAll']");
-	By deletePackageRestrictionPlanLabel = By.xpath("//label[normalize-space()='Delete Package Restriction Plan']");
-	By deletePackageRestrictionStateLabel = By.xpath("//label[normalize-space()='Delete Package Restriction State']");
-	By packageRestrictionAddLabel = By.xpath("//label[@for='chkg45PackageRestrictionAdd']");
-	By packageSettingAllLabel = By.xpath("//label[@for='chkg18PackageSettingAll']");
-	private By errorHeader = By.xpath("//h2[normalize-space()='Error']");
-	private By planInput = By.id("Plan");
-	private By restrictionOption = By.xpath("//input[@value='2']");
-	private By planDropdownToggle = By.xpath("//a[@id='btnPlan']//*[name()='svg']");
-	private By packageRestrictionsaveButton = By.xpath("//button[@id='btnSave']");
-	private By firstPlanDeleteIcon = By.xpath("//tbody/tr[1]/td[3]/div[1]/a[1]/img[1]");
-	private By deleteConfirmButton = By.id("btnDeleteConfirmRestictedPlan");
-	private By firstStateDeleteIcon = By.xpath("//tbody/tr[1]/td[2]/div[1]/a[1]/img[1]");
-	private By deleteConfirmStateButton = By.id("btnDeleteConfirmRestictedState");
+	public By packageRestrictionAllLabel = By.xpath("//label[@for='chkg45PackageRestrictionAll']");
+	public By deletePackageRestrictionPlanLabel = By
+			.xpath("//label[normalize-space()='Delete Package Restriction Plan']");
+	public By deletePackageRestrictionStateLabel = By
+			.xpath("//label[normalize-space()='Delete Package Restriction State']");
+	public By packageRestrictionAddLabel = By.xpath("//label[@for='chkg45PackageRestrictionAdd']");
+	public By packageSettingAllLabel = By.xpath("//label[@for='chkg18PackageSettingAll']");
+	public By errorHeader = By.xpath("//h2[normalize-space()='Error']");
+	public By planInput = By.id("Plan");
+	public By restrictionOption = By.xpath("//input[@value='2']");
+	public By planDropdownToggle = By.xpath("//a[@id='btnPlan']//*[name()='svg']");
+	public By packageRestrictionsaveButton = By.xpath("//button[@id='btnSave']");
+	public By firstPlanDeleteIcon = By.xpath("//tbody/tr[1]/td[3]/div[1]/a[1]/img[1]");
+	public By deleteConfirmButton = By.id("btnDeleteConfirmRestictedPlan");
+	public By firstStateDeleteIcon = By.xpath("//tbody/tr[1]/td[2]/div[1]/a[1]/img[1]");
+	public By deleteConfirmStateButton = By.id("btnDeleteConfirmRestictedState");
 
 	// Package Setting
-	By saveButton = By.id("btnSave");
+	public By saveButton = By.id("btnSave");
 
 	// Profile
 	public By preloader = By.cssSelector("div.preloader");
@@ -225,13 +325,9 @@ public class deliverypage {
 	// Package Plan Restriction
 
 	public void verifyUserCannotAccessPackagePlanRestriction() {
-
 		wait.until(ExpectedConditions.elementToBeClickable(packageActionDropdownRow1)).click();
-
 		wait.until(ExpectedConditions.elementToBeClickable(editPackageOption)).click();
-
 		wait.until(ExpectedConditions.elementToBeClickable(nextButton)).click();
-
 		boolean isPresent = driver.findElements(packagePlanRestrictionIcon).size() > 0;
 		Assert.assertFalse("User should NOT have access to Package Plan Restriction", isPresent);
 	}
@@ -271,10 +367,9 @@ public class deliverypage {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 
 	}
+
 	// Delivery Setting
-
 	public void verifyUserCannotAccessDeliverySetting() {
-
 		boolean isPresent = driver.findElements(packageRestrictionHeader).size() > 0;
 		Assert.assertFalse("User should not have access to Delivery Setting", isPresent);
 	}
@@ -310,7 +405,6 @@ public class deliverypage {
 	}
 
 	// Package
-
 	public void openLogisticCompanyPage(String fullUrl) {
 		driver.get(fullUrl);
 		wait.until(ExpectedConditions.urlContains("/Setup/Home/LogisticCompanies"));
@@ -414,20 +508,15 @@ public class deliverypage {
 	}
 
 	private void selectFutureDate(By dateInput, int daysInFuture, WebDriverWait wait) {
-
 		LocalDate futureDate = LocalDate.now().plusDays(daysInFuture);
 		int day = futureDate.getDayOfMonth();
 		int year = futureDate.getYear();
 		String month = futureDate.getMonth().getDisplayName(TextStyle.SHORT, Locale.ENGLISH);
-
 		wait.until(ExpectedConditions.elementToBeClickable(dateInput)).click();
-
 		WebElement yearDropdown = wait.until(ExpectedConditions.visibilityOfElementLocated(datePickerYearDropdown));
 		new Select(yearDropdown).selectByVisibleText(String.valueOf(year));
-
 		WebElement monthDropdown = wait.until(ExpectedConditions.visibilityOfElementLocated(datePickerMonthDropdown));
 		new Select(monthDropdown).selectByVisibleText(month);
-
 		WebElement dayToSelect = wait
 				.until(ExpectedConditions.elementToBeClickable(By.xpath("//td[normalize-space()='" + day + "']")));
 		dayToSelect.click();
@@ -673,7 +762,6 @@ public class deliverypage {
 	}
 
 	// Delivery Marker
-
 	public void validateNoAddEditDeliveryMarkerAccess() {
 		sleep(2000);
 		Assert.assertTrue("New Delivery Marker button should not be visible",
@@ -789,8 +877,8 @@ public class deliverypage {
 		driver.get(url);
 		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
 	}
-	// Logistic Company
 
+	// Logistic Company
 	public void createProfileWithViewEditAccessLogisticCompany() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
@@ -902,8 +990,8 @@ public class deliverypage {
 		deletePackageRestrictionState.click();
 
 	}
-	// Delivery Distances
 
+	// Delivery Distances
 	public void viewAndDeleteDeliveryDistance() {
 		sleep(2000);
 		clickWhenClickable(firstRowActionMenu);
@@ -1023,8 +1111,8 @@ public class deliverypage {
 		driver.get(fullUrl);
 		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryDistances"));
 	}
-	// Package Restriction
 
+	// Package Restriction
 	public void openPackageRestrictionPage(String fullUrl) {
 		driver.get(fullUrl);
 		wait.until(ExpectedConditions.urlContains("/Setup/Home/PackageRestriction"));
@@ -1257,4 +1345,609 @@ public class deliverypage {
 		element.clear();
 		element.sendKeys(value);
 	}
+
+	// Delivery Identifier
+	public void testUserWithoutDeliveryAccessCannotViewDeliveryIdentifier() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+
+	}
+
+	public void testDeliveryModuleViewOnlyProfile() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+
+	}
+
+	// Manifest
+	public void testPrintManifestFunctionality() {
+		sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(FIRST_MANIFEST_ACTION_MENU));
+		clickWhenClickable(FIRST_MANIFEST_ACTION_MENU);
+		sleep(2000);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(EDIT_MANIFEST_OPTION));
+		clickWhenClickable(EDIT_MANIFEST_OPTION);
+		sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(MANIFEST_STATUS_DROPDOWN));
+		selectDropdownByIndexWhenReady(MANIFEST_STATUS_DROPDOWN, 10);
+		sleep(2000);
+		clickWhenClickable(SAVE_MANIFEST_BUTTON);
+		sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(PRINT_MANIFEST_BUTTON));
+		clickWhenClickable(PRINT_MANIFEST_BUTTON);
+		sleep(2000);
+		((JavascriptExecutor) driver).executeScript("window.print();");
+		System.out.println("Manifest PDF auto-saved in Downloads folder");
+		sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(CLOSE_PRINT_MODAL_BUTTON));
+		clickWhenClickable(CLOSE_PRINT_MODAL_BUTTON);
+	}
+
+	public void testDeleteManifestBundleFunctionality() {
+		sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(FIRST_MANIFEST_DETAIL_BUTTON));
+		clickWhenClickable(FIRST_MANIFEST_DETAIL_BUTTON);
+		sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(DELETE_MANIFEST_BUNDLE_BUTTON));
+		clickWhenClickable(DELETE_MANIFEST_BUNDLE_BUTTON);
+		sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(CONFIRM_DELETE_BUNDLE_BUTTON));
+		clickWhenClickable(CONFIRM_DELETE_BUNDLE_BUTTON);
+
+	}
+
+	public void testAddManifestBundleFunctionality() {
+		sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(FIRST_MANIFEST_DETAIL_BUTTON));
+		sleep(2000);
+		clickWhenClickable(FIRST_MANIFEST_DETAIL_BUTTON);
+
+	}
+
+	public void verifyUserCanSkipManifestPackage() {
+		sleep(2000);
+		clickWhenClickable(FIRST_MANIFEST_ACTION_MENU);
+		sleep(2000);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(EDIT_MANIFEST_OPTION));
+		sleep(2000);
+		clickWhenClickable(EDIT_MANIFEST_OPTION);
+		sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(MANIFEST_STATUS_DROPDOWN));
+		sleep(2000);
+		selectDropdownByIndexWhenReady(MANIFEST_STATUS_DROPDOWN, 2);
+		sleep(2000);
+		clickWhenClickable(SAVE_MANIFEST_BUTTON);
+		sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(SKIP_MANIFEST_PACKAGE_BUTTON));
+		sleep(2000);
+		clickWhenClickable(SKIP_MANIFEST_PACKAGE_BUTTON);
+		sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(CONFIRM_SKIP_BUTTON));
+		sleep(2000);
+		clickWhenClickable(CONFIRM_SKIP_BUTTON);
+
+	}
+
+	public void testDeleteManifestPackageAccessInDeliveryModule() {
+		sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(DELETE_MANIFEST_PACKAGE_BUTTON));
+		sleep(2000);
+		clickWhenClickable(DELETE_MANIFEST_PACKAGE_BUTTON);
+		sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(CONFIRM_DELETE_PACKAGE_BUTTON));
+		sleep(2000);
+		clickWhenClickable(CONFIRM_DELETE_PACKAGE_BUTTON);
+		sleep(2000);
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(CONFIRM_DELETE_PACKAGE_BUTTON));
+	}
+
+	public void verifyUserCanAddManifestPackage() {
+		sleep(2000);
+		clickWhenClickable(SEARCH_PACKAGE_BUTTON);
+		sleep(2000);
+		clickWhenClickable(FILTER_LOGISTIC_DROPDOWN);
+		sleep(2000);
+		selectDropdownByIndexWhenReady(FILTER_LOGISTIC_DROPDOWN, 1);
+		sleep(2000);
+		clickWhenClickable(FILTER_FROM_DATE);
+		sleep(2000);
+		int year = LocalDate.now().getYear();
+		String month = LocalDate.now().getMonth().getDisplayName(TextStyle.SHORT, Locale.ENGLISH);
+		sleep(2000);
+		WebElement yearDropdown = wait.until(ExpectedConditions.visibilityOfElementLocated(DATEPICKER_YEAR_DROPDOWN));
+		new Select(yearDropdown).selectByVisibleText(String.valueOf(year));
+		sleep(2000);
+		WebElement monthDropdown = wait.until(ExpectedConditions.visibilityOfElementLocated(DATEPICKER_MONTH_DROPDOWN));
+		sleep(2000);
+		new Select(monthDropdown).selectByVisibleText(month);
+		sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(DATEPICKER_DAY_1)).click();
+		sleep(2000);
+		clickWhenClickable(SEARCH_BUTTON);
+		sleep(2000);
+		clickWhenClickable(PACKAGE_CHECKBOX);
+		sleep(2000);
+		clickWhenClickable(SUBMIT_BUTTON);
+
+	}
+
+	public void testManifestDetailIsAccessibleByUser() {
+		sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(FIRST_MANIFEST_DETAIL_BUTTON));
+		sleep(2000);
+		clickWhenClickable(FIRST_MANIFEST_DETAIL_BUTTON);
+
+	}
+
+	public void verifyUserCannotAddOrEditManifest() {
+		assertElementNotPresent(NEW_MANIFEST_BUTTON);
+		clickWhenClickable(FIRST_MANIFEST_ACTION_MENU);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(MANIFEST_ACTION_DROPDOWN));
+		assertElementNotPresent(EDIT_MANIFEST_OPTION);
+	}
+
+	public void testViewAndDeleteManifestAccessInDeliveryModule() {
+		clickWhenClickable(FIRST_MANIFEST_ACTION_MENU);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(MANIFEST_ACTION_DROPDOWN));
+		clickWhenClickable(DELETE_MANIFEST_OPTION);
+		wait.until(ExpectedConditions.elementToBeClickable(CONFIRM_DELETE_BUTTON));
+		clickWhenClickable(CONFIRM_DELETE_BUTTON);
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(DELETE_MANIFEST_OPTION));
+	}
+
+	public void verifyUserCannotAddOrDeleteManifest() {
+		assertElementNotPresent(NEW_MANIFEST_BUTTON);
+		clickWhenClickable(MANIFEST_ACTION_MENU);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(MANIFEST_ACTION_DROPDOWN));
+		assertElementNotPresent(DELETE_MANIFEST_OPTION);
+	}
+
+	public void testViewAndEditManifestAccessInDeliveryModule() {
+		clickWhenClickable(MANIFEST_ACTION_MENU);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(MANIFEST_ACTION_DROPDOWN));
+		clickWhenClickable(EDIT_MANIFEST_OPTION);
+		wait.until(ExpectedConditions.elementToBeClickable(MANIFEST_STATUS_DROPDOWN));
+		selectDropdownByIndexWhenReady(MANIFEST_STATUS_DROPDOWN, 2);
+		clickWhenClickable(SAVE_BUTTON);
+
+	}
+
+	public void testProfileWithViewAndEditPermissionsForManifest() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+
+	}
+
+	public void verifyUserCanViewAndDeleteManifest() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+
+	}
+
+	public void testProfileWithFullPermissionsForManifest() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+
+	}
+
+	public void verifyUserCannotEditOrDeleteManifest() {
+		sleep(2000);
+		clickWhenClickable(MANIFEST_ACTION_MENU);
+		sleep(2000);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(MANIFEST_ACTION_DROPDOWN));
+		sleep(2000);
+		assertElementNotPresent(EDIT_MANIFEST_OPTION);
+		sleep(2000);
+		assertElementNotPresent(DELETE_MANIFEST_OPTION);
+	}
+
+	public void verifyUserCanViewAndAddManifest() {
+		sleep(2000);
+		clickWhenClickable(NEW_MANIFEST_BUTTON);
+		sleep(2000);
+		clickWhenClickable(DELIVERY_DATE_INPUT);
+		sleep(2000);
+		LocalDate futureDate = LocalDate.now().plusDays(5);
+		int day = futureDate.getDayOfMonth();
+		int year = futureDate.getYear();
+		String month = futureDate.getMonth().getDisplayName(TextStyle.SHORT, Locale.ENGLISH);
+		sleep(2000);
+		WebElement yearDropdown = wait.until(ExpectedConditions.visibilityOfElementLocated(DATEPICKER_YEAR_DROPDOWN));
+		new Select(yearDropdown).selectByVisibleText(String.valueOf(year));
+		sleep(2000);
+		WebElement monthDropdown = wait.until(ExpectedConditions.visibilityOfElementLocated(DATEPICKER_MONTH_DROPDOWN));
+		new Select(monthDropdown).selectByVisibleText(month);
+		sleep(2000);
+		By DATE_TO_SELECT = By.xpath("//td[normalize-space()='" + day + "']");
+		wait.until(ExpectedConditions.elementToBeClickable(DATE_TO_SELECT)).click();
+		sleep(2000);
+		clickWhenClickable(DRIVER_DROPDOWN);
+		sleep(2000);
+		selectDropdownByIndexWhenReady(DRIVER_DROPDOWN, 1);
+		sleep(2000);
+		clickWhenClickable(STARTING_POINT_DROPDOWN);
+		sleep(2000);
+		selectDropdownByIndexWhenReady(STARTING_POINT_DROPDOWN, 1);
+		sleep(2000);
+		clickWhenClickable(END_POINT_DROPDOWN);
+		sleep(2000);
+		selectDropdownByIndexWhenReady(END_POINT_DROPDOWN, 1);
+		sleep(2000);
+		clickWhenClickable(STATUS_DROPDOWN);
+		sleep(2000);
+		selectDropdownByIndexWhenReady(STATUS_DROPDOWN, 1);
+		sleep(2000);
+		clickWhenClickable(SAVE_BUTTON);
+	}
+
+	public void testProfileWithViewAndAddPermissionsForManifest() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement selectAllModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		selectAllModules.click();
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement manifestAllAccess = wait
+				.until(ExpectedConditions.elementToBeClickable(MANIFEST_ALL_ACCESS_CHECKBOX));
+		manifestAllAccess.click();
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement manifestAddAccess = wait
+				.until(ExpectedConditions.elementToBeClickable(MANIFEST_ADD_ACCESS_CHECKBOX));
+		manifestAddAccess.click();
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+
+	}
+
+	public void openDeliveryManifestPage(String fullUrl) {
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Delivery/Home/Manifests"));
+	}
+
+	// Customer Attestation
+	public void verifyUserCanSendCustomerAttestationForSignature() {
+		wait.until(ExpectedConditions.elementToBeClickable(SEND_FOR_SIGNATURE_BUTTON));
+		clickWhenClickable(SEND_FOR_SIGNATURE_BUTTON);
+		wait.until(ExpectedConditions.elementToBeClickable(SEND_SIGNATURE_DROPDOWN));
+		selectDropdownByIndexWhenReady(SEND_SIGNATURE_DROPDOWN, 1);
+	}
+
+	public void verifyUserCanPrintCustomerAttestation() {
+		wait.until(ExpectedConditions.elementToBeClickable(FIRST_PACKAGE_DETAIL_BUTTON));
+		clickWhenClickable(FIRST_PACKAGE_DETAIL_BUTTON);
+		wait.until(ExpectedConditions.elementToBeClickable(FIRST_CUSTOMER_ATTESTATION_ACTION_MENU));
+		clickWhenClickable(FIRST_CUSTOMER_ATTESTATION_ACTION_MENU);
+		wait.until(ExpectedConditions.elementToBeClickable(PRINT_CUSTOMER_ATTESTATION_OPTION));
+		clickWhenClickable(PRINT_CUSTOMER_ATTESTATION_OPTION);
+		((JavascriptExecutor) driver).executeScript("window.print();");
+		System.out.println("Customer Attestation PDF auto-saved in Downloads folder");
+		wait.until(ExpectedConditions.elementToBeClickable(CLOSE_PRINT_MODAL_BUTTON));
+		clickWhenClickable(CLOSE_PRINT_MODAL_BUTTON);
+	}
+
+	public void testPrintAndSendForSignatureAccessToCustomerAttestation() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+
+	}
+
+	public void testCustomerAttestationAddEditRestricted() {
+		assertElementNotPresent(ADD_CUSTOMER_ATTESTATION_BUTTON);
+		wait.until(ExpectedConditions.elementToBeClickable(FIRST_CUSTOMER_ATTESTATION_ACTION_MENU));
+		clickWhenClickable(FIRST_CUSTOMER_ATTESTATION_ACTION_MENU);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(CUSTOMER_ATTESTATION_ACTION_DROPDOWN));
+		assertElementNotPresent(EDIT_CUSTOMER_ATTESTATION_OPTION);
+	}
+
+	public void testCustomerAttestationDeleteAccess() {
+		wait.until(ExpectedConditions.elementToBeClickable(FIRST_PACKAGE_DETAIL_BUTTON));
+		clickWhenClickable(FIRST_PACKAGE_DETAIL_BUTTON);
+		wait.until(ExpectedConditions.elementToBeClickable(FIRST_CUSTOMER_ATTESTATION_ACTION_MENU));
+		clickWhenClickable(FIRST_CUSTOMER_ATTESTATION_ACTION_MENU);
+		wait.until(ExpectedConditions.elementToBeClickable(DELETE_CUSTOMER_ATTESTATION_OPTION));
+		clickWhenClickable(DELETE_CUSTOMER_ATTESTATION_OPTION);
+		wait.until(ExpectedConditions.elementToBeClickable(CONFIRM_DELETE_CUSTOMER_ATTESTATION_BUTTON));
+		clickWhenClickable(CONFIRM_DELETE_CUSTOMER_ATTESTATION_BUTTON);
+	}
+
+	public void testNoAddOrDeleteAccessForCustomerAttestation() {
+		assertElementNotPresent(ADD_CUSTOMER_ATTESTATION_BUTTON);
+		wait.until(ExpectedConditions.elementToBeClickable(FIRST_CUSTOMER_ATTESTATION_ACTION_MENU));
+		clickWhenClickable(FIRST_CUSTOMER_ATTESTATION_ACTION_MENU);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(CUSTOMER_ATTESTATION_ACTION_DROPDOWN));
+		assertElementNotPresent(DELETE_CUSTOMER_ATTESTATION_OPTION);
+	}
+
+	public void testCustomerAttestationEditAccess() {
+		wait.until(ExpectedConditions.elementToBeClickable(FIRST_PACKAGE_DETAIL_BUTTON));
+		clickWhenClickable(FIRST_PACKAGE_DETAIL_BUTTON);
+		wait.until(ExpectedConditions.elementToBeClickable(FIRST_CUSTOMER_ATTESTATION_ACTION_MENU));
+		clickWhenClickable(FIRST_CUSTOMER_ATTESTATION_ACTION_MENU);
+		wait.until(ExpectedConditions.elementToBeClickable(EDIT_CUSTOMER_ATTESTATION_OPTION));
+		clickWhenClickable(EDIT_CUSTOMER_ATTESTATION_OPTION);
+		waitAndSendKeys(ADDRESS_RECEIVER_INPUT, "Ahmedabad");
+		wait.until(ExpectedConditions.elementToBeClickable(SAVE_CUSTOMER_ATTESTATION_BUTTON));
+		clickWhenClickable(SAVE_CUSTOMER_ATTESTATION_BUTTON);
+	}
+
+	public void testEditAndDeleteAccessRestrictedForCustomerAttestation() {
+		sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(FIRST_CUSTOMER_ATTESTATION_ACTION_MENU));
+		clickWhenClickable(FIRST_CUSTOMER_ATTESTATION_ACTION_MENU);
+		sleep(2000);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(CUSTOMER_ATTESTATION_ACTION_DROPDOWN));
+		sleep(2000);
+		assertElementNotPresent(EDIT_CUSTOMER_ATTESTATION_OPTION);
+		sleep(2000);
+		assertElementNotPresent(DELETE_CUSTOMER_ATTESTATION_OPTION);
+	}
+
+	public void testCustomerAttestationDeleteAccessProfile() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+
+	}
+
+	public void testCustomerAttestationEditAccessProfile() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+
+	}
+
+	public void testProfileWithAddPermissionForCustomerAttestation() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement selectAllModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		selectAllModules.click();
+		sleep(2000);
+		WebElement customerAttestationAllAccess = wait
+				.until(ExpectedConditions.elementToBeClickable(CUSTOMER_ATTESTATION_ALL_ACCESS_CHECKBOX));
+		customerAttestationAllAccess.click();
+		sleep(2000);
+		WebElement customerAttestationAddAccess = wait
+				.until(ExpectedConditions.elementToBeClickable(CUSTOMER_ATTESTATION_ADD_ACCESS_CHECKBOX));
+		customerAttestationAddAccess.click();
+
+	}
+
+	public void testAddCustomerAttestationFunctionality() {
+		sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(FIRST_PACKAGE_DETAIL_BUTTON));
+		sleep(2000);
+		clickWhenClickable(FIRST_PACKAGE_DETAIL_BUTTON);
+		sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(ADD_CUSTOMER_ATTESTATION_BUTTON));
+		sleep(2000);
+		clickWhenClickable(ADD_CUSTOMER_ATTESTATION_BUTTON);
+		sleep(2000);
+		waitAndSendKeys(RX_NUMBER_INPUT, "RX7845123");
+		waitAndSendKeys(PATIENT_NAME_INPUT, "John A. Smith");
+		waitAndSendKeys(MEDICATION_INPUT, "Atorvastatin 20mg Tablet");
+		waitAndSendKeys(RECEIVED_FROM_INPUT, "CVS Pharmacy");
+		sleep(2000);
+		selectDate(FILLED_DATE_INPUT, 5);
+		sleep(2000);
+		selectDate(RECEIVED_DATE_INPUT, 5);
+		sleep(2000);
+		waitAndSendKeys(ADDRESS_RECEIVER_INPUT, "742 Evergreen Terrace, Springfield, IL 62704");
+		waitAndSendKeys(RECEIVER_NAME_INPUT, "Mary Smith");
+		waitAndSendKeys(PATIENT_RELATION_INPUT, "Spouse");
+		waitAndSendKeys(PHONE_NUMBER_INPUT, "2175558945");
+		sleep(2000);
+		clickWhenClickable(SAVE_CUSTOMER_ATTESTATION_BUTTON);
+	}
+
+	private void selectDate(By dateInputLocator, int daysFromToday) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		clickWhenClickable(dateInputLocator);
+		LocalDate futureDate = LocalDate.now().plusDays(daysFromToday);
+		int day = futureDate.getDayOfMonth();
+		int year = futureDate.getYear();
+		String month = futureDate.getMonth().getDisplayName(TextStyle.SHORT, Locale.ENGLISH);
+		WebElement yearDropdown = wait.until(ExpectedConditions.visibilityOfElementLocated(DATEPICKER_YEAR_DROPDOWN));
+		new Select(yearDropdown).selectByVisibleText(String.valueOf(year));
+		WebElement monthDropdown = wait.until(ExpectedConditions.visibilityOfElementLocated(DATEPICKER_MONTH_DROPDOWN));
+		new Select(monthDropdown).selectByVisibleText(month);
+		WebElement dayToSelect = wait.until(ExpectedConditions.elementToBeClickable(datepickerDay(day)));
+		dayToSelect.click();
+
+	}
+
+	// Delivery Job Setting
+	public void noEditDeliveryJobSettingTest() {
+		clickWhenClickable(DELIVERY_MODULE_CHECKBOX);
+		sleep(2000);
+		clickWhenClickable(DELIVERY_ACTION_MENU);
+		sleep(2000);
+		assertElementNotPresent(DELIVERY_EDIT_OPTION);
+	}
+
+	public void runTriggersDeliveryModuleTest() {
+		clickWhenClickable(DELIVERY_MODULE_CHECKBOX);
+		sleep(2000);
+		clickWhenClickable(RUN_TRIGGER_BUTTON);
+		sleep(2000);
+	}
+
+	public void runTriggerAccessProfileTest() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+
+	}
+
+	public void testDeliveryModuleRunTriggersNotAllowed() {
+		sleep(3000);
+		clickWhenClickable(DELIVERY_JOB_SETTINGS_URL);
+		sleep(2000);
+		assertElementNotPresent(DELIVERY_RUN_TRIGGER_BUTTON);
+	}
+
+	public void testDeliveryJobSettingEditAccessProfile() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+
+	}
+
+	public void openJobSettingsPage(String url) {
+		driver.get(url);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/JobSettings"));
+	}
+
+	public void verifyUserCanEditDeliveryJobSetting() {
+		sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(DELIVERY_MODULE_CHECKBOX));
+		clickWhenClickable(DELIVERY_MODULE_CHECKBOX);
+		sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(DELIVERY_MODULE_ACTION_MENU));
+		clickWhenClickable(DELIVERY_MODULE_ACTION_MENU);
+		sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(EDIT_JOB_SETTING_OPTION));
+		clickWhenClickable(EDIT_JOB_SETTING_OPTION);
+		sleep(2000);
+		waitAndSendKeys(FROM_EMAIL_INPUT, "delivery_admin@mailinator.com");
+		waitAndSendKeys(TO_EMAIL_INPUT, "notifications@mailinator.com");
+		sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(SAVE_JOB_SETTING_BUTTON));
+		clickWhenClickable(SAVE_JOB_SETTING_BUTTON);
+	}
+
+	// Delivery Report
+	public void verifyUserCannotExportDeliveryReport() {
+		assertElementNotPresent(EXPORT_EXCEL_BUTTON);
+	}
+
+	public void verifyUserCanExportDeliveryReport() {
+		sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(EXPORT_EXCEL_BUTTON));
+		sleep(2000);
+		clickWhenClickable(EXPORT_EXCEL_BUTTON);
+		sleep(2000);
+	}
+
+	public void viewOnlyDeliveryReportProfileTest() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+
+	}
+
+	public void deliveryReportViewExportTest() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+
+	}
+
+	public void openDeliveryReportPage(String url) {
+		driver.get(url);
+		wait.until(ExpectedConditions.urlContains("/Delivery/Home/DeliveryReports"));
+	}
+
+	// Manifest Summary Report
+	public void exportManifestSummaryReportTest() {
+		sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(MANIFEST_SUMMARY_REPORT_EXPORT_BUTTON));
+		sleep(2000);
+		clickWhenClickable(MANIFEST_SUMMARY_REPORT_EXPORT_BUTTON);
+		sleep(2000);
+	}
+
+	public void verifyUserCannotExportManifestSummaryReport() {
+		assertElementNotPresent(EXPORT_EXCEL_BUTTON_MANIFEST_SUMMARY);
+	}
+
+	public void manifestSummaryReportViewOnlyTest() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+
+	}
+
+	public void manifestSummaryReportViewExportTest() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+
+	}
+
+	public void openManifestSummaryReportPage(String url) {
+		driver.get(url);
+		wait.until(ExpectedConditions.urlContains("/Delivery/Home/ManifestSummaryReports"));
+	}
+
+	// Delivery Statistic Report
+	public void verifyUserCannotExportDeliveryStatisticReport() {
+		sleep(2000);
+		assertElementNotPresent(EXPORT_DELIVERY_STATISTIC_REPORT);
+	}
+
+	public void verifyUserCanExportDeliveryStatisticReport() {
+		sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(EXPORT_DELIVERY_STATISTIC_REPORT));
+		sleep(2000);
+		clickWhenClickable(EXPORT_DELIVERY_STATISTIC_REPORT);
+		sleep(2000);
+	}
+
+	public void deliveryStatisticReportViewOnlyTest() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+
+	}
+
+	public void deliveryStatisticReportViewExportTest() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+
+	}
+
+	public void openDeliveryStatisticReportPage(String url) {
+		driver.get(url);
+		wait.until(ExpectedConditions.urlContains("/Delivery/Home/DeliveryStatisticReports"));
+	}
+
 }
