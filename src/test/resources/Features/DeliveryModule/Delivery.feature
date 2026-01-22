@@ -1,4 +1,4 @@
-
+@Delivery
 Feature: Entire Delivery Module.
 
 #General
@@ -502,7 +502,6 @@ And I create a profile with View-only access to Delivery Module Manifest Summary
 Then the user should be able to view Manifest Summary Report in Delivery Module test
 And the user should not be able to export Manifest Summary Report in Delivery Module test
 
-@Delivery
 # Delivery Statistic Report
 Scenario: User with View + Export access for Delivery Statistic Report test
 Given user launch browser

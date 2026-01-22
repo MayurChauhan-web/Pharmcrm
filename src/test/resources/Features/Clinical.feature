@@ -19,6 +19,7 @@ And I reset the user's password for Clinical Module
 And I log in using the new user for Clinical Module 
 Then the user should not be able to view General Audit View settings in Clinical Module
 
+
 Scenario: User with Update access for Component Information
 Given I log in as admin for Clinical Module
 When I create a new user with email for Clinical Module "testuser5_static@mailinator.com"
@@ -147,6 +148,7 @@ And I log in using the new user for Clinical Module
 Then the user should be able to edit Community Resource in Clinical Module
 And the user should not be able to add or delete Community Resource in Clinical Module
 
+#
 Scenario: User with Delete access for Community Resource
 Given I log in as admin for Clinical Module
 When I create a new user with email for Clinical Module "testuser6_static@mailinator.com"

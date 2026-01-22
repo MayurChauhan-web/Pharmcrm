@@ -43,16 +43,6 @@ public class deliverystep {
 
 	@And("the user should be able to export Delivery Statistic Report in Delivery Module test")
 	public void verifyUserCanExportDeliveryStatisticReport() {
-		String baseUrl = Hooks.prop.getProperty("baseUrl");
-		String deliveryStatisticReportPagePath = Hooks.prop.getProperty("deliveryStatisticReportPagePath");
-		Assert.assertNotNull("Delivery Statistic Report page path is missing in config",
-				deliveryStatisticReportPagePath);
-		String fullDeliveryStatisticReportPageUrl = baseUrl + deliveryStatisticReportPagePath;
-		deliveryPage = new deliverypage(Hooks.driver);
-		deliveryPage.openDeliveryStatisticReportPage(fullDeliveryStatisticReportPageUrl);
-		Assert.assertTrue("Delivery Statistic Report page is not displayed",
-				Hooks.driver.getCurrentUrl().contains("/Delivery/Home/DeliveryStatisticReports"));
-		Hooks.scenario.log("Delivery user is on the Delivery Statistic Report page");
 		deliveryPage.verifyUserCanExportDeliveryStatisticReport();
 
 	}
@@ -73,16 +63,6 @@ public class deliverystep {
 
 	@And("the user should not be able to export Delivery Statistic Report in Delivery Module test")
 	public void verifyUserCannotExportDeliveryStatisticReport() {
-		String baseUrl = Hooks.prop.getProperty("baseUrl");
-		String deliveryStatisticReportPagePath = Hooks.prop.getProperty("deliveryStatisticReportPagePath");
-		Assert.assertNotNull("Delivery Statistic Report page path is missing in config",
-				deliveryStatisticReportPagePath);
-		String fullDeliveryStatisticReportPageUrl = baseUrl + deliveryStatisticReportPagePath;
-		deliveryPage = new deliverypage(Hooks.driver);
-		deliveryPage.openDeliveryStatisticReportPage(fullDeliveryStatisticReportPageUrl);
-		Assert.assertTrue("Delivery Statistic Report page is not displayed",
-				Hooks.driver.getCurrentUrl().contains("/Delivery/Home/DeliveryStatisticReports"));
-		Hooks.scenario.log("Delivery user is on the Delivery Statistic Report page");
 		deliveryPage.verifyUserCannotExportDeliveryStatisticReport();
 
 	}
@@ -129,15 +109,6 @@ public class deliverystep {
 
 	@And("the user should not be able to export Manifest Summary Report in Delivery Module test")
 	public void verifyUserCannotExportManifestSummaryReport() {
-		String baseUrl = Hooks.prop.getProperty("baseUrl");
-		String manifestSummaryReportPagePath = Hooks.prop.getProperty("manifestSummaryReportPagePath");
-		Assert.assertNotNull("Manifest Summary Report page path is missing in config", manifestSummaryReportPagePath);
-		String fullManifestSummaryReportPageUrl = baseUrl + manifestSummaryReportPagePath;
-		deliveryPage = new deliverypage(Hooks.driver);
-		deliveryPage.openManifestSummaryReportPage(fullManifestSummaryReportPageUrl);
-		Assert.assertTrue("Manifest Summary Report page is not displayed",
-				Hooks.driver.getCurrentUrl().contains("/Delivery/Home/ManifestSummaryReports"));
-		Hooks.scenario.log("Delivery user is on the Manifest Summary Report page");
 		deliveryPage.verifyUserCannotExportManifestSummaryReport();
 
 	}

@@ -25,6 +25,8 @@ public class deliverypage {
 
 	// Delivery Statistic Report
 	public By EXPORT_DELIVERY_STATISTIC_REPORT = By.xpath("//span[normalize-space()='Export Excel']");
+	public By DELIVERY_STATISTIC_REPORT_ALL = By.xpath("//label[@for='chkg47DeliveryStatisticReportAll']");
+	public By DELIVERY_STATISTIC_REPORT_VIEW = By.xpath("//label[@for='chkg47DeliveryStatisticReportView']");
 
 	// Manifest Summary Report
 	public By EXPORT_EXCEL_BUTTON_MANIFEST_SUMMARY = By.xpath("//span[normalize-space()='Export Excel']");
@@ -32,6 +34,8 @@ public class deliverypage {
 
 	// Delivery Report
 	public By EXPORT_EXCEL_BUTTON = By.xpath("//span[normalize-space()='Export Excel']");
+	public By DELIVERY_REPORT_ALL = By.xpath("//label[@for='chkg46DeliveryReportAll']");
+	public By DELIVERY_REPORT_VIEW = By.xpath("//label[@for='chkg46DeliveryReportView']");
 
 	// Delivery Job Setting
 	public By DELIVERY_ACTION_MENU = By
@@ -86,6 +90,8 @@ public class deliverypage {
 	public By SAVE_CUSTOMER_ATTESTATION_BUTTON = By.id("btnSavePackageCustomerAttestation");
 
 	// Manifest
+	public By MANIFEST_SUMMARY_REPORT_ALL = By.xpath("//label[@for='chkg47ManifestSummaryReportAll']");
+	public By MANIFEST_SUMMARY_REPORT_VIEW = By.xpath("//label[@for='chkg47ManifestSummaryReportView']");
 	public By MANIFEST_ALL_ACCESS_CHECKBOX = By.xpath("//label[@for='chkg04ManifestAll']");
 	public By MANIFEST_ADD_ACCESS_CHECKBOX = By.xpath("//label[@for='chkg04ManifestAdd']");
 	public By PRINT_MANIFEST_BUTTON = By.id("manifestDetailPrintBtn");
@@ -1859,7 +1865,13 @@ public class deliverypage {
 		sleep(2000);
 		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
 		allModules.click();
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement deliveryReportAllElement = wait.until(ExpectedConditions.elementToBeClickable(DELIVERY_REPORT_ALL));
+		deliveryReportAllElement.click();
+		sleep(2000);
+		WebElement deliveryReportViewElement = wait
+				.until(ExpectedConditions.elementToBeClickable(DELIVERY_REPORT_VIEW));
+		deliveryReportViewElement.click();
 
 	}
 
@@ -1895,7 +1907,14 @@ public class deliverypage {
 		sleep(2000);
 		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
 		allModules.click();
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement manifestSummaryReportAllElement = wait
+				.until(ExpectedConditions.elementToBeClickable(MANIFEST_SUMMARY_REPORT_ALL));
+		manifestSummaryReportAllElement.click();
+		sleep(2000);
+		WebElement manifestSummaryReportViewElement = wait
+				.until(ExpectedConditions.elementToBeClickable(MANIFEST_SUMMARY_REPORT_VIEW));
+		manifestSummaryReportViewElement.click();
 
 	}
 
@@ -1930,9 +1949,17 @@ public class deliverypage {
 	public void deliveryStatisticReportViewOnlyTest() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
-		allModules.click();
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		WebElement selectAllModulesLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		selectAllModulesLabelElement.click();
+		sleep(2000);
+		WebElement deliveryStatisticReportAllElement = wait
+				.until(ExpectedConditions.elementToBeClickable(DELIVERY_STATISTIC_REPORT_ALL));
+		deliveryStatisticReportAllElement.click();
+		sleep(2000);
+		WebElement deliveryStatisticReportViewElement = wait
+				.until(ExpectedConditions.elementToBeClickable(DELIVERY_STATISTIC_REPORT_VIEW));
+		deliveryStatisticReportViewElement.click();
 
 	}
 
