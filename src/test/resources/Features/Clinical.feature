@@ -148,7 +148,6 @@ And I log in using the new user for Clinical Module
 Then the user should be able to edit Community Resource in Clinical Module
 And the user should not be able to add or delete Community Resource in Clinical Module
 
-#
 Scenario: User with Delete access for Community Resource
 Given I log in as admin for Clinical Module
 When I create a new user with email for Clinical Module "testuser6_static@mailinator.com"
@@ -159,6 +158,7 @@ And I log in using the new user for Clinical Module
 Then the user should be able to delete Community Resource in Clinical Module
 And the user should not be able to add or edit Community Resource in Clinical Module
 
+#
 Scenario: User with Add access for Clinical Intervention
 Given I log in as admin for Clinical Module
 When I create a new user with email for Clinical Module "testuser7_static@mailinator.com"
@@ -339,6 +339,7 @@ And I log in using the new user for Clinical Module
 Then the user should be able to delete Encounter Status in Clinical Module
 And the user should not be able to add or edit Encounter Status in Clinical Module
 
+
 Scenario: User with View access for Device Master
 Given I log in as admin for Clinical Module
 When I create a new user with email for Clinical Module "testuser16_device@mailinator.com"
@@ -389,6 +390,7 @@ And I log in using the new user for Clinical Module
 Then the user should be able to delete Registered Device in Clinical Module
 And the user should not be able to add or edit Registered Device in Clinical Module
 
+
 Scenario: User with Full Access for Registered Device
 Given I log in as admin for Clinical Module
 When I create a new user with email for Clinical Module "testuser4_static@mailinator.com"
@@ -408,6 +410,7 @@ And the user should be able to allocate BusinessGroup RPM Device in Clinical Mod
 And the user should be able to deallocate BusinessGroup RPM Device in Clinical Module
 And the user should be able to view Register Device Activity in Clinical Module
 
+#
 Scenario: User with Add access for RPM Status
 Given I log in as admin for Clinical Module
 When I create a new user with email for Clinical Module "testuser10_static@mailinator.com"
