@@ -7,6 +7,7 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -19,6 +20,131 @@ public class clinicalpage {
 
 	private WebDriver driver;
 	private WebDriverWait wait;
+
+	// Reports / CCM Encounter Log
+	public By clinicalCCMLogAllLabel = By.xpath("//label[@for='chkg19ClinicalCCMLogAll']");
+	public By clinicalCCMLogViewLabel = By.xpath("//label[@for='chkg19ClinicalCCMLogView']");
+
+	// Reports / Call Log
+	public By clinicalCallLogAllLabel = By.xpath("//label[@for='chkg19ClinicalCallLogAll']");
+	public By clinicalCallLogViewLabel = By.xpath("//label[@for='chkg19ClinicalCallLogView']");
+
+	// Patient / Provider Referral
+	public By providerReferralAllLabel = By.xpath("//label[@for='chkg20ProviderReferralAll']");
+	public By providerReferralViewLabel = By.xpath("//label[@for='chkg20ProviderReferralView']");
+
+	private static final By REFER_TO_NEW_PROVIDER_BTN = By.xpath("//img[@src='/Content/img/svg/refer_float.svg']");
+
+	private static final By CLINICAL_OBJECTIVE_COMPONENT_DD = By.id("ClinicalEncounter_ClinicalObjectiveComponentId");
+
+	private static final By ENCOUNTER_STATUS_DD = By.id("ClinicalEncounter_EncounterStatus");
+
+	private static final By SAVE_ENCOUNTER_BTN = By.id("btnEncounter");
+
+	private static final By ADD_REFERRAL_PROVIDER_ICON = By.xpath("//a[@id='addReferralProviderNamePopup']//img");
+
+	private static final By PROVIDER_RADIO_BTN = By.xpath("//li[@class='searchResult-li']//input[@type='radio'][1]");
+
+	private static final By SELECT_PROVIDER_BTN = By.id("btnProvider");
+
+	private static final By REFERRAL_ISSUE_TXT = By.id("ClinicalEncounter_ClinicalReferral_Issue");
+
+	private static final By REFERRAL_CATEGORY_DD = By.id("ClinicalEncounter_ClinicalReferral_ReferralCategoryId");
+
+	private static final By REFER_BTN = By.xpath("//img[@src='/Content/img/svg/refer_float.svg']");
+
+	private static final By PATIENT_BUCKET_MENU = By.xpath("(//button[@id='bucketDrop']/i)[1]");
+
+	private static final By EDIT_PATIENT_OPTION = By.xpath(
+			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]");
+
+	private static final By CLINICAL_ENCOUNTERS_BTN = By.xpath("//button[normalize-space()='Clinical Encounters']");
+
+	private static final By ADD_NEW_CLINICAL_ENCOUNTER_BTN = By
+			.xpath("//button[normalize-space()='Add New Clinical Encounter']");
+
+	private static final By REFERRAL_HEADER = By.xpath("//h1[normalize-space()='Referral']");
+
+	// Reports / Medication Recommendation and Suggestions
+	private By exportToExcelBtn = By.xpath("//span[normalize-space()='Export to Excel']");
+	private static final By EXPORT_TO_EXCEL_BTN = By.xpath("//span[normalize-space()='Export to Excel']");
+	public By clinicalMedicationRecommendationAllLabel = By
+			.xpath("//label[@for='chkg19ClinicalMedicationRecommandationAll']");
+	public By clinicalMedicationRecommendationViewLabel = By
+			.xpath("//label[@for='chkg19ClinicalMedicationRecommandationView']");
+
+	// Reports / Status Log
+
+	private By exportToExcelButton = By.xpath("//span[normalize-space()='Export to Excel']");
+
+	// Patients / Clinical Encounter Review
+	private By star1DrugHeading = By.xpath("//h1[normalize-space()='Medications Suggestion']");
+
+	// Patients / Clinical Encounter
+	public By clinicalEncounterAllLabel = By.xpath("//label[@for='chkg14ClinicalEncounterAll']");
+	public By clinicalEncounterAddLabel = By.xpath("//label[@for='chkg15ClinicalEncounterAdd']");
+
+	private By firstEncounterReviewIcon = By.xpath("//tbody/tr[1]/td[7]/div[1]/a[1]/img[1]");
+
+	private By encounterDeleteOption = By.xpath(
+			"//div[contains(@class,'bucket-dropdown-content') and contains(@class,'show')]//span[contains(text(),'Delete')]");
+
+	private By encounterDropdownContainer = By
+			.xpath("//div[contains(@class,'bucket-dropdown-content') and contains(@class,'show')]");
+	private By clinicalEncountersButton = By.xpath("//button[normalize-space()='Clinical Encounters']");
+	private By addNewEncounterButton = By.xpath("//button[normalize-space()='Add New Clinical Encounter']");
+	private By componentDropdown = By.id("ClinicalEncounter_ClinicalObjectiveComponentId");
+	private By statusDropdown = By.id("ClinicalEncounter_EncounterStatus");
+	private By saveEncounterButton = By.id("btnEncounter");
+	private By patientActionMenuButton = By.xpath("(//button[@id='bucketDrop']/i)[1]");
+	private By patientEditOption = By.xpath(
+			"//div[contains(@class,'bucket-dropdown-content') and contains(@class,'show')]//span[contains(text(),'Edit')]");
+	private By encounterActionMenuButton = By.xpath("(//button[@id='bucketDrop']/i)[1]");
+	private By encounterEditOption = By.xpath(
+			"//div[contains(@class,'bucket-dropdown-content') and contains(@class,'show')]//span[contains(text(),'Edit')]");
+	private By encounterTypeDropdown = By.id("ClinicalEncounter_EncounterType");
+
+	// SOAP Components
+	private By newSoapComponentButton = By.xpath("//span[normalize-space()='New Clinical SOAP Components']");
+	private By nameField = By.id("ClinicalObjectiveComponent_Name");
+	private By typeDropdown = By.id("ClinicalObjectiveComponent_Type");
+	public By clinicalObjectiveAllLabel = By.xpath("//label[@for='chkg14ClinicalObjectiveAll']");
+	public By clinicalObjectiveAddLabel = By.xpath("//label[@for='chkg14ClinicalObjectiveAdd']");
+
+	// Patients
+	private By labelA = By.xpath("//label[normalize-space()='A']");
+	private By newPatientButton = By.xpath("//span[normalize-space()='New Patient']");
+	private By lastNameField = By.id("Patient_LastName");
+	private By firstNameField = By.id("Patient_FirstName");
+	private By birthDateField = By.id("Patient_BirthDate");
+	private By todayDateInCalendar = By.cssSelector(".ui-datepicker-calendar .ui-state-highlight");
+	private By addNewPatientButton = By.xpath("//button[normalize-space()='Add New Patient']");
+	private By phoneNumberField = By.id("Patient_PhoneNumber");
+	private By findPatientButton = By.id("btnFindPatient");
+	private By existingPatientRadio = By.xpath("//input[@type='radio']");
+	private By selectExistingPatientButton = By.xpath("//button[normalize-space()='Select Existing Patient']");
+	public By clinicalPatientAllLabel = By.xpath("//label[@for='chkg13ClinicalPatientAll']");
+	public By clinicalPatientAddLabel = By.xpath("//label[@for='chkg13ClinicalPatientAdd']");
+
+	// CPT Code
+	private By actionMenuButton = By.xpath("(//button[@id='bucketDrop']/i)[1]");
+	private By newCptCodeButton = By.xpath("//span[normalize-space()='New CPT Code']");
+	private By cptCodeField = By.id("RPMStatus_Name");
+	private By descriptionField = By.id("RPMStatus_Description");
+	private By dropdownContainer = By
+			.xpath("//div[contains(@class,'bucket-dropdown-content') and contains(@class,'show')]");
+	private static final By CPT_ALL_PERMISSION = By.xpath("//label[@for='chkg40CPTCodeAll']");
+	private static final By CPT_ADD_PERMISSION = By.xpath("//label[@for='chkg40CPTCodeAdd']");
+
+	private static final By CPT_CODE_NAME_INPUT = By.xpath("//input[@id='CPTCode_Name']");
+
+	private static final By NEW_CPT_CODE_BTN = By.xpath("//span[normalize-space()='New CPT Code']");
+
+	private static final By CPT_CODE_INPUT = By.id("CPTCode_Code");
+
+	private static final By CPT_DESCRIPTION_INPUT = By.id("CPTCode_Description");
+
+	private static final By SAVE_CPT_BTN = By.id("btnSave");
 
 	// RPM Status
 	public By rpmStatusAllLabel = By.xpath("//label[@for='chkg39RPMStatusAll']");
@@ -727,6 +853,32 @@ public class clinicalpage {
 	}
 
 	// ==== Utility Methods ====
+
+	private void selectDropdownByIndexWhenReady(By locator, int index) {
+		wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+		WebElement dropdownElement = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+		Select dropdown = new Select(dropdownElement);
+		waitUntilDropdownHasOptions(dropdown);
+		dropdown.selectByIndex(index);
+	}
+
+	private void waitUntilDropdownHasOptions(Select dropdown) {
+		for (int i = 0; i < 10; i++) {
+			List<WebElement> options = dropdown.getOptions();
+			if (options.size() > 1)
+				return;
+			sleep(1000);
+		}
+		throw new TimeoutException("Dropdown options not loaded in time.");
+	}
+
+	public void assertElementPresent(By locator) {
+		try {
+			wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+		} catch (TimeoutException e) {
+			Assert.fail("Element not present after wait: " + locator.toString());
+		}
+	}
 
 	private void waitAndSendKeys(By locator, String value) {
 		WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
@@ -1679,4 +1831,863 @@ public class clinicalpage {
 
 	}
 
+	// CPT Code
+
+	public void verifyAddAndEditAreNotAvailable() {
+
+		if (driver.findElements(newCptCodeButton).size() > 0) {
+			throw new AssertionError("New CPT Code button is visible but should NOT be available");
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(actionMenuButton)).click();
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(dropdownContainer));
+
+		if (driver.findElements(editOption).size() > 0) {
+			throw new AssertionError("Edit option is visible but should NOT be available");
+		}
+	}
+
+	public void deleteCptCode() {
+
+		wait.until(ExpectedConditions.elementToBeClickable(actionMenuButton)).click();
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(dropdownContainer));
+
+		wait.until(ExpectedConditions.elementToBeClickable(deleteOption)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(deleteConfirmButton)).click();
+	}
+
+	public void createProfileWithDeleteOnlyAccessForClinicalModuleCptCode() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void createProfileWithAddAccessOnlyToClinicalModuleCptCodeTest() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement selectAllModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		selectAllModules.click();
+		sleep(2000);
+		WebElement cptAllPermission = wait.until(ExpectedConditions.elementToBeClickable(CPT_ALL_PERMISSION));
+		cptAllPermission.click();
+		sleep(2000);
+		WebElement cptAddPermission = wait.until(ExpectedConditions.elementToBeClickable(CPT_ADD_PERMISSION));
+		cptAddPermission.click();
+		sleep(2000);
+
+	}
+
+	public void verifyAddAndDeleteAreNotAvailable() {
+
+		if (driver.findElements(newCptCodeButton).size() > 0) {
+			throw new AssertionError("New CPT Code button is visible but should NOT be available");
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(actionMenuButton)).click();
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(dropdownContainer));
+
+		if (driver.findElements(deleteOption).size() > 0) {
+			throw new AssertionError("Delete option is visible but should NOT be available");
+		}
+	}
+
+	public void editCptCode() {
+
+		wait.until(ExpectedConditions.elementToBeClickable(actionMenuButton)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(editOption)).click();
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(cptCodeField)).clear();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(cptCodeField)).sendKeys("99213");
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(descriptionField)).clear();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(descriptionField))
+				.sendKeys("Office Visit, Established Patient");
+
+		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
+	}
+
+	public void createProfileWithEditAccessOnlyToClinicalModuleCptCodeTest() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyEditAndDeleteAreNotAvailable() {
+		sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(actionMenuButton)).click();
+		sleep(2000);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(
+				By.xpath("//div[contains(@class,'bucket-dropdown-content') and contains(@class,'show')]")));
+		sleep(2000);
+		if (driver.findElements(editOption).size() > 0) {
+			throw new AssertionError("Edit option is visible but should NOT be available");
+		}
+		if (driver.findElements(deleteOption).size() > 0) {
+			throw new AssertionError("Delete option is visible but should NOT be available");
+		}
+	}
+
+	public void addCptCode() {
+		sleep(4000);
+		clickWhenClickable(NEW_CPT_CODE_BTN);
+		sleep(4000);
+		waitAndSendKeys(CPT_CODE_NAME_INPUT, "99213");
+		waitAndSendKeys(CPT_CODE_INPUT, "99213");
+		waitAndSendKeys(CPT_DESCRIPTION_INPUT, "Office Visit, Established Patient");
+		sleep(2000);
+		clickWhenClickable(SAVE_CPT_BTN);
+	}
+
+	// Patients
+
+	public void createProfileWithFullAccessForClinicalModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyAddAndEditNotAvailable() {
+
+		if (driver.findElements(newPatientButton).size() > 0) {
+			throw new AssertionError("New Patient button is visible but should NOT be available");
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(actionMenuButton)).click();
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(dropdownContainer));
+
+		if (driver.findElements(editOption).size() > 0) {
+			throw new AssertionError("Edit option is visible but should NOT be available");
+		}
+	}
+
+	public void deletePatient() {
+
+		wait.until(ExpectedConditions.elementToBeClickable(actionMenuButton)).click();
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(dropdownContainer));
+
+		wait.until(ExpectedConditions.elementToBeClickable(deleteOption)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(deleteConfirmButton)).click();
+	}
+
+	public void createProfileWithDeleteOnlyAccessForPatientsModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void createProfileWithEditOnlyAccessForPatientsModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyAddAndDeleteNotAvailable() {
+
+		if (driver.findElements(newPatientButton).size() > 0) {
+			throw new AssertionError("New Patient button is visible but should NOT be available");
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(actionMenuButton)).click();
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(dropdownContainer));
+
+		if (driver.findElements(deleteOption).size() > 0) {
+			throw new AssertionError("Delete option is visible but should NOT be available");
+		}
+	}
+
+	public void editPatient() {
+
+		wait.until(ExpectedConditions.elementToBeClickable(actionMenuButton)).click();
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(dropdownContainer));
+
+		wait.until(ExpectedConditions.elementToBeClickable(editOption)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(labelA)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
+	}
+
+	public void createProfileWithAddAccessOnlyToPatientsModuleTest() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement clinicalPatientAll = wait.until(ExpectedConditions.elementToBeClickable(clinicalPatientAllLabel));
+		clinicalPatientAll.click();
+		sleep(2000);
+		WebElement clinicalPatientAdd = wait.until(ExpectedConditions.elementToBeClickable(clinicalPatientAddLabel));
+		clinicalPatientAdd.click();
+		sleep(2000);
+
+	}
+
+	public void verifyEditAndDeleteNotAvailable() {
+		sleep(2000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(actionMenuButton)).click();
+		sleep(2000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(dropdownContainer));
+		sleep(2000);
+
+		if (driver.findElements(editOption).size() > 0) {
+			throw new AssertionError("Edit option is visible but should NOT be available");
+		}
+
+		if (driver.findElements(deleteOption).size() > 0) {
+			throw new AssertionError("Delete option is visible but should NOT be available");
+		}
+	}
+
+	public void addNewPatient() {
+		sleep(2000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(newPatientButton)).click();
+		sleep(2000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(lastNameField)).sendKeys("Riley");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(firstNameField)).sendKeys("Blanche");
+		sleep(2000);
+
+		WebElement birthDate = wait.until(ExpectedConditions.elementToBeClickable(birthDateField));
+		birthDate.click();
+		sleep(2000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(todayDateInCalendar)).click();
+		sleep(2000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(addNewPatientButton)).click();
+		sleep(2000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(phoneNumberField)).sendKeys("1234567890");
+		sleep(2000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
+	}
+
+	public void selectExistingPatient() {
+		sleep(2000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(newPatientButton)).click();
+		sleep(2000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(lastNameField)).sendKeys("Riley");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(firstNameField)).sendKeys("Blanche");
+		sleep(2000);
+
+		WebElement birthDate = wait.until(ExpectedConditions.elementToBeClickable(birthDateField));
+		birthDate.click();
+		sleep(2000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(todayDateInCalendar)).click();
+		sleep(2000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(findPatientButton)).click();
+		sleep(4000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(existingPatientRadio)).click();
+		sleep(3000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(selectExistingPatientButton)).click();
+	}
+
+	// SOAP Components
+
+	public void shouldNotAllowAddingOrEditingSoapComponentsInClinicalModule() {
+
+		if (driver.findElements(newSoapComponentButton).size() > 0) {
+			throw new AssertionError("New SOAP Component button is visible but should NOT be available");
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(actionMenuButton)).click();
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(dropdownContainer));
+
+		if (driver.findElements(editOption).size() > 0) {
+			throw new AssertionError("Edit option is visible but should NOT be available for SOAP Components");
+		}
+	}
+
+	public void verifyUserCanDeleteSoapComponentsInClinicalModule() {
+
+		wait.until(ExpectedConditions.elementToBeClickable(actionMenuButton)).click();
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(dropdownContainer));
+
+		wait.until(ExpectedConditions.elementToBeClickable(deleteOption)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(deleteConfirmButton)).click();
+	}
+
+	public void verifyUserCannotAddOrDeleteSoapComponentsInClinicalModule() {
+
+		if (driver.findElements(newSoapComponentButton).size() > 0) {
+			throw new AssertionError("New SOAP Component button is visible but should NOT be available");
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(actionMenuButton)).click();
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(dropdownContainer));
+
+		if (driver.findElements(deleteOption).size() > 0) {
+			throw new AssertionError("Delete option is visible but should NOT be available for SOAP Components");
+		}
+	}
+
+	public void verifyUserCanEditSoapComponentsInClinicalModule() {
+		String newName = "Allergies";
+		int newTypeIndex = 2;
+
+		wait.until(ExpectedConditions.elementToBeClickable(actionMenuButton)).click();
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(dropdownContainer));
+
+		wait.until(ExpectedConditions.elementToBeClickable(editOption)).click();
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(nameField)).clear();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(nameField)).sendKeys(newName);
+
+		WebElement dropdown = wait.until(ExpectedConditions.elementToBeClickable(typeDropdown));
+		Select select = new Select(dropdown);
+		select.selectByIndex(newTypeIndex);
+
+		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
+	}
+
+	public void createProfileWithDeleteOnlyAccessForSoapComponents() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void createProfileWithEditOnlyAccessForSoapComponents() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCannotEditOrDeleteSoapComponentsInClinicalModule() {
+		sleep(4000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(actionMenuButton)).click();
+		sleep(2000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(dropdownContainer));
+		sleep(2000);
+
+		if (driver.findElements(editOption).size() > 0) {
+			throw new AssertionError("Edit option is visible but should NOT be available for SOAP Components");
+		}
+
+		if (driver.findElements(deleteOption).size() > 0) {
+			throw new AssertionError("Delete option is visible but should NOT be available for SOAP Components");
+		}
+	}
+
+	public void addSoapComponent() {
+		String componentName = "Allergies";
+		int typeIndex = 1;
+		sleep(2000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(newSoapComponentButton)).click();
+		sleep(2000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(nameField)).sendKeys(componentName);
+		sleep(2000);
+
+		WebElement dropdown = wait.until(ExpectedConditions.elementToBeClickable(typeDropdown));
+		sleep(2000);
+
+		Select select = new Select(dropdown);
+		select.selectByIndex(typeIndex);
+		sleep(2000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
+	}
+
+	public void createProfileWithAddOnlyAccessForSoapComponents() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement clinicalObjectiveAll = wait
+				.until(ExpectedConditions.elementToBeClickable(clinicalObjectiveAllLabel));
+		clinicalObjectiveAll.click();
+		sleep(2000);
+		WebElement clinicalObjectiveAdd = wait
+				.until(ExpectedConditions.elementToBeClickable(clinicalObjectiveAddLabel));
+		clinicalObjectiveAdd.click();
+		sleep(2000);
+
+	}
+
+	// Patients / Clinical Encounter
+
+	public void verifyUserCannotAddOrEditPatientsClinicalEncounterInClinicalModule() {
+
+		wait.until(ExpectedConditions.elementToBeClickable(patientActionMenuButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(patientEditOption)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(clinicalEncountersButton)).click();
+
+		if (!driver.findElements(addNewEncounterButton).isEmpty()) {
+			throw new AssertionError("Add New Clinical Encounter button is visible but should NOT be available");
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(encounterActionMenuButton)).click();
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(encounterDropdownContainer));
+
+		if (!driver.findElements(encounterEditOption).isEmpty()) {
+			throw new AssertionError("Edit option is visible but should NOT be available for Clinical Encounters");
+		}
+	}
+
+	public void deleteClinicalEncounter() {
+
+		wait.until(ExpectedConditions.elementToBeClickable(patientActionMenuButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(patientEditOption)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(clinicalEncountersButton)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(encounterActionMenuButton)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(encounterDeleteOption)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(deleteConfirmButton)).click();
+	}
+
+	public void createProfileWithDeleteAccessRestrictedToPatientsClinicalEncounter() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void createProfileWithEditOnlyAccessForPatientsClinicalEncounter() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void userShouldNotBeAbleToAddOrDeletePatientsClinicalEncounterInClinicalModuleTest() {
+
+		wait.until(ExpectedConditions.elementToBeClickable(patientActionMenuButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(patientEditOption)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(clinicalEncountersButton)).click();
+
+		if (!driver.findElements(addNewEncounterButton).isEmpty()) {
+			throw new AssertionError("Add New Clinical Encounter button is visible but should NOT be available");
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(encounterActionMenuButton)).click();
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(encounterDropdownContainer));
+
+		if (!driver.findElements(deleteOption).isEmpty()) {
+			throw new AssertionError("Delete option is visible but should NOT be available for Clinical Encounters");
+		}
+	}
+
+	public void editClinicalEncounter() {
+
+		wait.until(ExpectedConditions.elementToBeClickable(patientActionMenuButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(patientEditOption)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(clinicalEncountersButton)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(encounterActionMenuButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(encounterEditOption)).click();
+
+		WebElement typeDropdown = wait.until(ExpectedConditions.elementToBeClickable(encounterTypeDropdown));
+		Select select = new Select(typeDropdown);
+		select.selectByIndex(1);
+
+		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
+	}
+
+	public void shouldNotAllowEditingOrDeletingPatientsClinicalEncounterInClinicalModule() {
+		sleep(4000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(actionMenuButton)).click();
+		sleep(2000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(editOption)).click();
+		sleep(2000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(clinicalEncountersButton)).click();
+		sleep(2000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(actionMenuButton)).click();
+		sleep(2000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(dropdownContainer));
+		sleep(2000);
+
+		if (driver.findElements(editOption).size() > 0) {
+			throw new AssertionError("Edit option is visible but should NOT be available for Clinical Encounters");
+		}
+
+		if (driver.findElements(deleteOption).size() > 0) {
+			throw new AssertionError("Delete option is visible but should NOT be available for Clinical Encounters");
+		}
+	}
+
+	public void createProfileWithAddOnlyAccessForPatientsClinicalEncounter() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement clinicalEncounterAll = wait
+				.until(ExpectedConditions.elementToBeClickable(clinicalEncounterAllLabel));
+		clinicalEncounterAll.click();
+		sleep(2000);
+		WebElement clinicalEncounterAdd = wait
+				.until(ExpectedConditions.elementToBeClickable(clinicalEncounterAddLabel));
+		clinicalEncounterAdd.click();
+		sleep(2000);
+
+	}
+
+	public void addClinicalEncounter() {
+		sleep(2000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(actionMenuButton)).click();
+		sleep(2000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(editOption)).click();
+		sleep(2000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(clinicalEncountersButton)).click();
+		sleep(2000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(addNewEncounterButton)).click();
+		sleep(2000);
+
+		WebElement componentDrop = wait.until(ExpectedConditions.elementToBeClickable(componentDropdown));
+		Select componentSelect = new Select(componentDrop);
+		componentSelect.selectByIndex(1);
+		sleep(2000);
+
+		WebElement statusDrop = wait.until(ExpectedConditions.elementToBeClickable(statusDropdown));
+		Select statusSelect = new Select(statusDrop);
+		statusSelect.selectByIndex(2);
+		sleep(2000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(saveEncounterButton)).click();
+	}
+
+	// Patients / Clinical Encounter Review
+
+	public void verifyUserCannotAccessPatientsClinicalEncounterReviewInClinicalModule() {
+
+		wait.until(ExpectedConditions.elementToBeClickable(patientActionMenuButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(patientEditOption)).click();
+
+		if (!driver.findElements(clinicalEncountersButton).isEmpty()) {
+			throw new AssertionError("Clinical Encounters button is visible but should NOT be accessible");
+		}
+	}
+
+	public void createProfileWithNoAccessForPatientsClinicalEncounterReview() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void createProfileWithViewAndStar1DrugAccessForPatientsClinicalEncounterReview() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyStar1DrugIsVisible() {
+		sleep(2000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(star1DrugHeading));
+		if (!driver.findElements(star1DrugHeading).isEmpty()) {
+			System.out.println("Star1 Drug section is visible");
+		} else {
+			throw new AssertionError("Star1 Drug section is NOT visible");
+		}
+	}
+
+	public void viewFirstClinicalEncounterReview() {
+		sleep(2000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(patientActionMenuButton)).click();
+		sleep(2000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(patientEditOption)).click();
+		sleep(2000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(clinicalEncountersButton)).click();
+		sleep(2000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(firstEncounterReviewIcon)).click();
+	}
+
+	// Reports / Status Log
+	public void createProfileWithViewOnlyAccessToReportsStatusLog() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyDownloadNotAvailable() {
+		assertElementNotPresent(exportToExcelButton);
+
+	}
+
+	public void createProfileWithViewAndDownloadAccessForReportsStatusLog() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void downloadReportFromStatusLog() {
+		sleep(3000);
+		wait.until(ExpectedConditions.elementToBeClickable(exportToExcelButton)).click();
+	}
+
+	// Reports / Medication Recommendation and Suggestions
+	public void iCreateAProfileWithViewButNoDownloadFileAccessToReportsMedicationRecommendationAndSuggestionsTest() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement clinicalMedicationRecommendationAll = wait
+				.until(ExpectedConditions.elementToBeClickable(clinicalMedicationRecommendationAllLabel));
+		clinicalMedicationRecommendationAll.click();
+		sleep(2000);
+		WebElement clinicalMedicationRecommendationView = wait
+				.until(ExpectedConditions.elementToBeClickable(clinicalMedicationRecommendationViewLabel));
+		clinicalMedicationRecommendationView.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCannotDownloadFilesFromReportsMedicationRecommendationAndSuggestionsInReportsModule() {
+		sleep(3000);
+		clickWhenClickable(EXPORT_TO_EXCEL_BTN);
+	}
+
+	public void createProfileWithViewAndDownloadAccessToReportsMedicationRecommendationAndSuggestionsTest() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCanDownloadFilesFromReportsMedicationRecommendationAndSuggestionsInReportsModule() {
+		sleep(3000);
+		clickWhenClickable(exportToExcelBtn);
+		sleep(2000);
+	}
+
+	// Reports / CCM Encounter Log
+	public void createProfileWithViewAndDownloadAccessToReportsCCMEncounterLogTest() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCannotDownloadFilesFromReportsCCMEncounterLogInReportsModule() {
+		sleep(3000);
+		assertElementNotPresent(EXPORT_TO_EXCEL_BTN);
+	}
+
+	public void createProfileWithViewOnlyAccessToReportsCCMEncounterLogTest() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement clinicalCCMLogAll = wait.until(ExpectedConditions.elementToBeClickable(clinicalCCMLogAllLabel));
+		clinicalCCMLogAll.click();
+		sleep(2000);
+		WebElement clinicalCCMLogView = wait.until(ExpectedConditions.elementToBeClickable(clinicalCCMLogViewLabel));
+		clinicalCCMLogView.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCanDownloadFilesFromReportsCCMEncounterLogInReportsModule() {
+		sleep(3000);
+		clickWhenClickable(EXPORT_TO_EXCEL_BTN);
+		sleep(2000);
+	}
+
+	// Reports / Call Log
+	public void verifyUserCannotDownloadFilesFromReportsCallLogInReportsModule() {
+		sleep(3000);
+		assertElementNotPresent(exportToExcelBtn);
+	}
+
+	public void createProfileWithViewOnlyAccessToReportsCallLogTest() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement clinicalCallLogAll = wait.until(ExpectedConditions.elementToBeClickable(clinicalCallLogAllLabel));
+		clinicalCallLogAll.click();
+		sleep(2000);
+		WebElement clinicalCallLogView = wait.until(ExpectedConditions.elementToBeClickable(clinicalCallLogViewLabel));
+		clinicalCallLogView.click();
+		sleep(2000);
+
+	}
+
+	public void createProfileWithViewAndDownloadAccessToReportsCallLogTest() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCanDownloadFilesFromReportsCallLogInReportsModule() {
+		sleep(3000);
+		clickWhenClickable(EXPORT_TO_EXCEL_BTN);
+		sleep(2000);
+	}
+	// Patient / Provider Referral
+
+	public void verifyUserCannotReferToNewProviderInPatientProviderReferralInClinicalModule() {
+		sleep(3000);
+		assertElementNotPresent(REFER_TO_NEW_PROVIDER_BTN);
+	}
+
+	public void createProfileWithViewOnlyAccessToPatientProviderReferralTest() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement providerReferralAll = wait.until(ExpectedConditions.elementToBeClickable(providerReferralAllLabel));
+		providerReferralAll.click();
+		sleep(2000);
+		WebElement providerReferralView = wait
+				.until(ExpectedConditions.elementToBeClickable(providerReferralViewLabel));
+		providerReferralView.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCanReferToNewProviderInPatientProviderReferralInClinicalModule() {
+
+		sleep(3000);
+		selectDropdownByIndexWhenReady(CLINICAL_OBJECTIVE_COMPONENT_DD, 1);
+
+		sleep(2000);
+		selectDropdownByIndexWhenReady(ENCOUNTER_STATUS_DD, 2);
+
+		sleep(2000);
+		clickWhenClickable(SAVE_ENCOUNTER_BTN);
+
+		sleep(2000);
+		clickWhenClickable(ADD_REFERRAL_PROVIDER_ICON);
+
+		sleep(2000);
+		clickWhenClickable(PROVIDER_RADIO_BTN);
+
+		sleep(2000);
+		clickWhenClickable(SELECT_PROVIDER_BTN);
+
+		sleep(2000);
+		waitAndSendKeys(REFERRAL_ISSUE_TXT, "Blood Pressure");
+
+		sleep(1000);
+		selectDropdownByIndexWhenReady(REFERRAL_CATEGORY_DD, 2);
+
+		sleep(2000);
+		clickWhenClickable(REFER_BTN);
+	}
+
+	public void createProfileWithViewAndReferredToNewProviderAccessForPatientProviderReferralTest() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCanViewPatientProviderReferralInClinicalModule() {
+
+		sleep(3000);
+		clickWhenClickable(PATIENT_BUCKET_MENU);
+
+		sleep(2000);
+		clickWhenClickable(EDIT_PATIENT_OPTION);
+
+		sleep(3000);
+		clickWhenClickable(CLINICAL_ENCOUNTERS_BTN);
+
+		sleep(3000);
+		clickWhenClickable(ADD_NEW_CLINICAL_ENCOUNTER_BTN);
+
+		sleep(2000);
+		assertElementPresent(REFERRAL_HEADER);
+	}
 }

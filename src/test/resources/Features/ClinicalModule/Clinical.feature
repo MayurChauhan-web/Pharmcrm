@@ -499,7 +499,6 @@ And the user should be able to allocate BusinessGroup RPM Device in Clinical Mod
 And the user should be able to deallocate BusinessGroup RPM Device in Clinical Module test
 And the user should be able to view Register Device Activity in Clinical Module test
 
-@Clinical
 # RPM Status
 Scenario: User with Add access for RPM Status test
 Given user launch browser
@@ -536,6 +535,565 @@ Then the Clinical user should be able to view Profiles test
 And I create a profile with Delete access only to Clinical Module RPM Status test
 Then the user should be able to delete RPM Status in Clinical Module test
 And the user should not be able to add or edit RPM Status in Clinical Module test
+
+# CPT Code
+Scenario: User with Add access for CPT Code test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with Add access only to Clinical Module CPT Code test
+Then the user should be able to add CPT Code in Clinical Module test
+And the user should not be able to edit or delete CPT Code in Clinical Module test
+
+Scenario: User with Edit access for CPT Code test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with Edit access only to Clinical Module CPT Code test
+Then the user should be able to edit CPT Code in Clinical Module test
+And the user should not be able to add or delete CPT Code in Clinical Module test
+
+Scenario: User with Delete access for CPT Code test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with Delete access only to Clinical Module CPT Code test
+Then the user should be able to delete CPT Code in Clinical Module test
+And the user should not be able to add or edit CPT Code in Clinical Module test
+
+# Patients
+Scenario: User with Add access for Patients test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with Add access only to Patients Module test
+Then the user should be able to add Patients in Patients Module test
+And the user should not be able to edit or delete Patients in Patients Module test
+
+Scenario: User with Edit access for Patients test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with Edit access only to Patients Module test
+Then the user should be able to edit Patients in Patients Module test
+And the user should not be able to add or delete Patients in Patients Module test
+
+Scenario: User with Delete access for Patients test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with Delete access only to Patients Module test
+Then the user should be able to delete Patients in Patients Module test
+And the user should not be able to add or edit Patients in Patients Module test
+
+Scenario: User with full permissions in Clinical Module test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with All Access to Clinical Module test
+And the user should be able to View Link and Sync Link in Clinical Module test
+
+# SOAP Components
+Scenario: User with Add access for SOAP Components test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with Add access only to SOAP Components test
+Then the user should be able to add SOAP Components in Clinical Module test
+And the user should not be able to edit or delete SOAP Components in Clinical Module test
+
+Scenario: User with Edit access for SOAP Components test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with Edit access only to SOAP Components test
+Then the user should be able to edit SOAP Components in Clinical Module test
+And the user should not be able to add or delete SOAP Components in Clinical Module test
+
+Scenario: User with Delete access for SOAP Components test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with Delete access only to SOAP Components test
+Then the user should be able to delete SOAP Components in Clinical Module test
+And the user should not be able to add or edit SOAP Components in Clinical Module test
+
+# Patients / Clinical Encounter
+Scenario: User with Add access for Patients / Clinical Encounter test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with Add access only to Patients Clinical Encounter test
+Then the user should be able to add Patients Clinical Encounter in Clinical Module test
+And the user should not be able to edit or delete Patients Clinical Encounter in Clinical Module test
+
+Scenario: User with Edit access for Patients / Clinical Encounter test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with Edit access only to Patients Clinical Encounter test
+Then the user should be able to edit Patients Clinical Encounter in Clinical Module test
+And the user should not be able to add or delete Patients Clinical Encounter in Clinical Module test
+
+Scenario: User with Delete access for Patients / Clinical Encounter test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with Delete access only to Patients Clinical Encounter test
+Then the user should be able to delete Patients Clinical Encounter in Clinical Module test
+And the user should not be able to add or edit Patients Clinical Encounter in Clinical Module test
+
+# Patients / Clinical Encounter Review
+Scenario: User with View and View Star1 Drug access for Patients / Clinical Encounter Review test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with View and View Star1 Drug access to Patients Clinical Encounter Review test
+Then the user should be able to view Patients Clinical Encounter Review in Clinical Module test
+And the user should be able to view Star1 Drug in Patients Clinical Encounter Review in Clinical Module test
+
+Scenario: User with No Access for Patients / Clinical Encounter Review test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with No Access to Patients Clinical Encounter Review test
+Then the user should not be able to access Patients Clinical Encounter Review in Clinical Module test
+
+# Reports / Status Log
+Scenario: User with View and Download File access for Reports / Status Log test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with View and Download File access to Reports Status Log test
+Then the user should be able to view Reports Status Log in Reports Module test
+And the user should be able to download files from Reports Status Log in Reports Module test
+
+Scenario: User with View but no Download File access for Reports / Status Log test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with View but no Download File access to Reports Status Log test
+Then the user should be able to view Reports Status Log in Reports Module test
+But the user should not be able to download files from Reports Status Log in Reports Module test
+
+# Reports / Medication Recommendation and Suggestions
+Scenario: User with View and Download File access for Reports / Medication Recommendation And Suggestions test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with View and Download File access to Reports Medication Recommendation And Suggestions test
+Then the user should be able to view Reports Medication Recommendation And Suggestions in Reports Module test
+And the user should be able to download files from Reports Medication Recommendation And Suggestions in Reports Module test
+
+Scenario: User with View but no Download File access for Reports / Medication Recommendation And Suggestions test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with View but no Download File access to Reports Medication Recommendation And Suggestions test
+Then the user should be able to view Reports Medication Recommendation And Suggestions in Reports Module test
+But the user should not be able to download files from Reports Medication Recommendation And Suggestions in Reports Module test
+
+# Reports / CCM Encounter Log
+Scenario: User with View and Download File access for Reports / CCM Encounter Log test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with View and Download File access to Reports CCM Encounter Log test
+Then the user should be able to view Reports CCM Encounter Log in Reports Module test
+And the user should be able to download files from Reports CCM Encounter Log in Reports Module test
+
+Scenario: User with View but no Download File access for Reports / CCM Encounter Log test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with View but no Download File access to Reports CCM Encounter Log test
+Then the user should be able to view Reports CCM Encounter Log in Reports Module test
+But the user should not be able to download files from Reports CCM Encounter Log in Reports Module test
+
+# Reports / Call Log
+Scenario: User with View and Download File access for Reports / Call Log test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with View and Download File access to Reports Call Log test
+Then the user should be able to view Reports Call Log in Reports Module test
+And the user should be able to download files from Reports Call Log in Reports Module test
+
+Scenario: User with View but no Download File access for Reports / Call Log test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with View but no Download File access to Reports Call Log test
+Then the user should be able to view Reports Call Log in Reports Module test
+But the user should not be able to download files from Reports Call Log in Reports Module test
+
+@Clinical
+# Patient / Provider Referral
+Scenario: User with View and Referred To New Provider access for Patient / Provider Referral test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with View and Referred To New Provider access to Patient Provider Referral test
+Then the user should be able to view Patient Provider Referral in Clinical Module test
+And the user should be able to refer to a new provider in Patient Provider Referral in Clinical Module test
+
+Scenario: User with View but no Referred To New Provider access for Patient / Provider Referral
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with View but no Referred To New Provider access to Patient Provider Referral test
+Then the user should be able to view Patient Provider Referral in Clinical Module test
+But the user should not be able to refer to a new provider in Patient Provider Referral in Clinical Module test
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

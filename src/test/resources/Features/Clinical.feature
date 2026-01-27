@@ -410,7 +410,6 @@ And the user should be able to allocate BusinessGroup RPM Device in Clinical Mod
 And the user should be able to deallocate BusinessGroup RPM Device in Clinical Module
 And the user should be able to view Register Device Activity in Clinical Module
 
-#
 Scenario: User with Add access for RPM Status
 Given I log in as admin for Clinical Module
 When I create a new user with email for Clinical Module "testuser10_static@mailinator.com"
@@ -481,6 +480,7 @@ And I log in using the new user for Clinical Module
 Then the user should be able to add Patients in Patients Module
 And the user should not be able to edit or delete Patients in Patients Module
 
+
 Scenario: User with Edit access for Patients
 Given I log in as admin for Clinical Module
 When I create a new user with email for Clinical Module "testuser7_static@mailinator.com"
@@ -490,6 +490,7 @@ And I reset the user's password for Clinical Module
 And I log in using the new user for Clinical Module
 Then the user should be able to edit Patients in Patients Module
 And the user should not be able to add or delete Patients in Patients Module
+
 
 Scenario: User with Delete access for Patients
 Given I log in as admin for Clinical Module
@@ -679,6 +680,7 @@ And I log in using the new user for Clinical Module
 Then the user should be able to view Patient Provider Referral in Clinical Module
 And the user should be able to refer to a new provider in Patient Provider Referral in Clinical Module
 
+#
 Scenario: User with View but no Referred To New Provider access for Patient / Provider Referral
 Given I log in as admin for Clinical Module
 When I create a new user with email for Clinical Module "testuser3_static@mailinator.com"

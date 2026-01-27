@@ -12,6 +12,964 @@ public class clinicalstep {
 
 	private clinicalpage clinicalPage;
 
+	// Patient / Provider Referral
+
+	@And("the user should be able to view Patient Provider Referral in Clinical Module test")
+	public void userShouldBeAbleToViewPatientProviderReferralInClinicalModuleTest() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String patientsUrl = Hooks.prop.getProperty("patientsUrl");
+		Assert.assertNotNull("patientsUrl is missing in config", patientsUrl);
+
+		String fullPatientsUrl = baseUrl + patientsUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+
+		Hooks.driver.get(fullPatientsUrl);
+
+		Assert.assertTrue("Patients page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/Patients"));
+
+		Hooks.scenario.log("User is on the Patients page");
+
+		clinicalPage.verifyUserCanViewPatientProviderReferralInClinicalModule();
+
+	}
+
+	@And("the user should not be able to refer to a new provider in Patient Provider Referral in Clinical Module test")
+	public void userShouldNotBeAbleToReferToNewProviderInPatientProviderReferralInClinicalModuleTest() {
+
+		clinicalPage.verifyUserCannotReferToNewProviderInPatientProviderReferralInClinicalModule();
+
+	}
+
+	@And("the user should be able to refer to a new provider in Patient Provider Referral in Clinical Module test")
+	public void userShouldBeAbleToReferToNewProviderInPatientProviderReferralInClinicalModuleTest() {
+		clinicalPage.verifyUserCanReferToNewProviderInPatientProviderReferralInClinicalModule();
+
+	}
+
+	@And("I create a profile with View but no Referred To New Provider access to Patient Provider Referral test")
+	public void iCreateAProfileWithViewButNoReferredToNewProviderAccessToPatientProviderReferralTest() {
+		clinicalPage.clickFilterButton();
+		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.clickSearchButton();
+		clinicalPage.clickActionMenu();
+		clinicalPage.clickEditButton();
+		clinicalPage.createProfileWithViewOnlyAccessToPatientProviderReferralTest();
+		clinicalPage.clickSubmitButton();
+		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+	}
+
+	@And("I create a profile with View and Referred To New Provider access to Patient Provider Referral test")
+	public void iCreateAProfileWithViewAndReferredToNewProviderAccessToPatientProviderReferralTest() {
+		clinicalPage.clickFilterButton();
+		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.clickSearchButton();
+		clinicalPage.clickActionMenu();
+		clinicalPage.clickEditButton();
+		clinicalPage.createProfileWithViewAndReferredToNewProviderAccessForPatientProviderReferralTest();
+		clinicalPage.clickSubmitButton();
+		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+	}
+	// Reports / Call Log
+
+	@And("I create a profile with View but no Download File access to Reports Call Log test")
+	public void iCreateAProfileWithViewButNoDownloadFileAccessToReportsCallLogTest() {
+		clinicalPage.clickFilterButton();
+		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.clickSearchButton();
+		clinicalPage.clickActionMenu();
+		clinicalPage.clickEditButton();
+		clinicalPage.createProfileWithViewOnlyAccessToReportsCallLogTest();
+		clinicalPage.clickSubmitButton();
+		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+	}
+
+	@And("I create a profile with View and Download File access to Reports Call Log test")
+	public void createProfileWithViewAndDownloadFileAccessToReportsCallLogTest() {
+		clinicalPage.clickFilterButton();
+		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.clickSearchButton();
+		clinicalPage.clickActionMenu();
+		clinicalPage.clickEditButton();
+		clinicalPage.createProfileWithViewAndDownloadAccessToReportsCallLogTest();
+		clinicalPage.clickSubmitButton();
+		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+	}
+
+	@And("the user should be able to view Reports Call Log in Reports Module test")
+	public void userShouldBeAbleToViewReportsCallLogInReportsModuleTest() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String callLogUrl = Hooks.prop.getProperty("callLogUrl");
+		Assert.assertNotNull("callLogUrl is missing in config", callLogUrl);
+
+		String fullCallLogUrl = baseUrl + callLogUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+
+		Hooks.driver.get(fullCallLogUrl);
+
+		Assert.assertTrue("Reports Call Log page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/CallLogs"));
+
+		Hooks.scenario.log("User is on the RPM Status page");
+
+	}
+
+	@And("the user should not be able to download files from Reports Call Log in Reports Module test")
+	public void verifyUserCannotDownloadFilesFromReportsCallLogInReportsModuleTest() {
+
+		clinicalPage.verifyUserCannotDownloadFilesFromReportsCallLogInReportsModule();
+
+	}
+
+	@And("the user should be able to download files from Reports Call Log in Reports Module test")
+	public void verifyUserCanDownloadFilesFromReportsCallLogInReportsModule() {
+		clinicalPage.verifyUserCanDownloadFilesFromReportsCallLogInReportsModule();
+
+	}
+	// Reports / CCM Encounter Log
+
+	@And("the user should not be able to download files from Reports CCM Encounter Log in Reports Module test")
+	public void userShouldNotBeAbleToDownloadFilesFromReportsCCMEncounterLogInReportsModuleTest() {
+
+		clinicalPage.verifyUserCannotDownloadFilesFromReportsCCMEncounterLogInReportsModule();
+
+	}
+
+	@And("I create a profile with View but no Download File access to Reports CCM Encounter Log test")
+	public void createProfileWithViewButNoDownloadFileAccessToReportsCCMEncounterLogTest() {
+		clinicalPage.clickFilterButton();
+		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.clickSearchButton();
+		clinicalPage.clickActionMenu();
+		clinicalPage.clickEditButton();
+		clinicalPage.createProfileWithViewOnlyAccessToReportsCCMEncounterLogTest();
+		clinicalPage.clickSubmitButton();
+		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+	}
+
+	@And("I create a profile with View and Download File access to Reports CCM Encounter Log test")
+	public void createProfileWithViewAndDownloadFileAccessToReportsCCMEncounterLogTest() {
+		clinicalPage.clickFilterButton();
+		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.clickSearchButton();
+		clinicalPage.clickActionMenu();
+		clinicalPage.clickEditButton();
+		clinicalPage.createProfileWithViewAndDownloadAccessToReportsCCMEncounterLogTest();
+		clinicalPage.clickSubmitButton();
+		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+	}
+
+	@And("the user should be able to download files from Reports CCM Encounter Log in Reports Module test")
+	public void verifyUserCanDownloadFilesFromReportsCCMEncounterLogInReportsModule() {
+
+		clinicalPage.verifyUserCannotDownloadFilesFromReportsMedicationRecommendationAndSuggestionsInReportsModule();
+
+	}
+
+	@And("the user should be able to view Reports CCM Encounter Log in Reports Module test")
+	public void userShouldBeAbleToViewReportsCCMEncounterLogInReportsModuleTest() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String ccmEncounterLogUrl = Hooks.prop.getProperty("ccmEncounterLogUrl");
+		Assert.assertNotNull("ccmEncounterLogUrl is missing in config", ccmEncounterLogUrl);
+
+		String fullCcmEncounterLogUrl = baseUrl + ccmEncounterLogUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+
+		Hooks.driver.get(fullCcmEncounterLogUrl);
+
+		Assert.assertTrue("Reports CCM Encounter Log page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/CCMEncounterLog"));
+
+		Hooks.scenario.log("User is on the RPM Status page");
+
+	}
+
+	// Reports / Medication Recommendation and Suggestions
+	@And("the user should not be able to download files from Reports Medication Recommendation And Suggestions in Reports Module test")
+	public void verifyUserCannotDownloadFilesFromReportsMedicationRecommendationAndSuggestionsInReportsModule() {
+
+		clinicalPage.verifyUserCannotDownloadFilesFromReportsMedicationRecommendationAndSuggestionsInReportsModule();
+
+	}
+
+	@And("I create a profile with View but no Download File access to Reports Medication Recommendation And Suggestions test")
+	public void iCreateAProfileWithViewAccessOnlyToReportsMedicationRecommendationAndSuggestionsTest() {
+		clinicalPage.clickFilterButton();
+		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.clickSearchButton();
+		clinicalPage.clickActionMenu();
+		clinicalPage.clickEditButton();
+		clinicalPage
+				.iCreateAProfileWithViewButNoDownloadFileAccessToReportsMedicationRecommendationAndSuggestionsTest();
+		clinicalPage.clickSubmitButton();
+		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+	}
+
+	@And("I create a profile with View and Download File access to Reports Medication Recommendation And Suggestions test")
+	public void createProfileWithViewAndDownloadFileAccessToReportsMedicationRecommendationAndSuggestionsTest() {
+		clinicalPage.clickFilterButton();
+		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.clickSearchButton();
+		clinicalPage.clickActionMenu();
+		clinicalPage.clickEditButton();
+		clinicalPage.createProfileWithViewAndDownloadAccessToReportsMedicationRecommendationAndSuggestionsTest();
+		clinicalPage.clickSubmitButton();
+		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+	}
+
+	@And("the user should be able to view Reports Medication Recommendation And Suggestions in Reports Module test")
+	public void userShouldBeAbleToViewReportsMedicationRecommendationAndSuggestionsInReportsModuleTest() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String medicationRecommendationUrl = Hooks.prop.getProperty("medicationRecommendationUrl");
+		Assert.assertNotNull("medicationRecommendationUrl is missing in config", medicationRecommendationUrl);
+
+		String fullMedicationRecommendationUrl = baseUrl + medicationRecommendationUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+
+		Hooks.driver.get(fullMedicationRecommendationUrl);
+
+		Assert.assertTrue("Reports Medication Recommendation page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/MedicationRecommendation"));
+
+		Hooks.scenario.log("User is on the RPM Status page");
+
+	}
+
+	@And("the user should be able to download files from Reports Medication Recommendation And Suggestions in Reports Module test")
+	public void verifyUserCanDownloadReportsMedicationRecommendationAndSuggestionsInReportsModule() {
+
+		clinicalPage.verifyUserCanDownloadFilesFromReportsMedicationRecommendationAndSuggestionsInReportsModule();
+
+	}
+
+	// Reports / Status Log
+	@And("I create a profile with View but no Download File access to Reports Status Log test")
+	public void createProfileWithViewAccessWithoutDownloadToReportsStatusLog() {
+		clinicalPage.clickFilterButton();
+		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.clickSearchButton();
+		clinicalPage.clickActionMenu();
+		clinicalPage.clickEditButton();
+		clinicalPage.createProfileWithViewOnlyAccessToReportsStatusLog();
+		clinicalPage.clickSubmitButton();
+		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+	}
+
+	@And("I create a profile with View and Download File access to Reports Status Log test")
+	public void createProfileWithViewAndDownloadFileAccessToReportsStatusLog() {
+		clinicalPage.clickFilterButton();
+		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.clickSearchButton();
+		clinicalPage.clickActionMenu();
+		clinicalPage.clickEditButton();
+		clinicalPage.createProfileWithViewAndDownloadAccessForReportsStatusLog();
+		clinicalPage.clickSubmitButton();
+		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+	}
+
+	@And("the user should be able to view Reports Status Log in Reports Module test")
+	public void userShouldBeAbleToViewReportsStatusLogInReportsModule() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String reportsStatusLogUrl = Hooks.prop.getProperty("reportsStatusLogUrl");
+		Assert.assertNotNull("reportsStatusLogUrl is missing in config", reportsStatusLogUrl);
+
+		String fullReportsStatusLogUrl = baseUrl + reportsStatusLogUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+
+		Hooks.driver.get(fullReportsStatusLogUrl);
+
+		Assert.assertTrue("Reports Status Log page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/StatusLogs"));
+
+		Hooks.scenario.log("User is on the RPM Status page");
+
+	}
+
+	@And("the user should not be able to download files from Reports Status Log in Reports Module test")
+	public void userShouldNotBeAbleToDownloadFilesFromReportsStatusLogInReportsModule() {
+
+		clinicalPage.verifyDownloadNotAvailable();
+
+	}
+
+	@And("the user should be able to download files from Reports Status Log in Reports Module test")
+	public void userShouldBeAbleToDownloadFilesFromReportsStatusLogInReportsModule() {
+
+		clinicalPage.downloadReportFromStatusLog();
+
+	}
+
+	// Patients / Clinical Encounter Review
+	@And("I create a profile with No Access to Patients Clinical Encounter Review test")
+	public void createProfileWithNoAccessToPatientsClinicalEncounterReview() {
+		clinicalPage.clickFilterButton();
+		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.clickSearchButton();
+		clinicalPage.clickActionMenu();
+		clinicalPage.clickEditButton();
+		clinicalPage.createProfileWithNoAccessForPatientsClinicalEncounterReview();
+		clinicalPage.clickSubmitButton();
+		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+	}
+
+	@And("I create a profile with View and View Star1 Drug access to Patients Clinical Encounter Review test")
+	public void createProfileWithViewAndViewStar1DrugAccessToPatientsClinicalEncounterReview() {
+		clinicalPage.clickFilterButton();
+		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.clickSearchButton();
+		clinicalPage.clickActionMenu();
+		clinicalPage.clickEditButton();
+		clinicalPage.createProfileWithViewAndStar1DrugAccessForPatientsClinicalEncounterReview();
+		clinicalPage.clickSubmitButton();
+		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+	}
+
+	@And("the user should be able to view Patients Clinical Encounter Review in Clinical Module test")
+	public void verifyUserCanViewPatientsClinicalEncounterReviewInClinicalModule() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String patientsUrl = Hooks.prop.getProperty("patientsUrl");
+		Assert.assertNotNull("patientsUrl is missing in config", patientsUrl);
+
+		String fullPatientsUrl = baseUrl + patientsUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+
+		Hooks.driver.get(fullPatientsUrl);
+
+		Assert.assertTrue("Patients page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/Patients"));
+
+		Hooks.scenario.log("User is on the Patients page");
+
+		clinicalPage.viewFirstClinicalEncounterReview();
+
+	}
+
+	@And("the user should be able to view Star1 Drug in Patients Clinical Encounter Review in Clinical Module test")
+	public void userShouldBeAbleToViewStar1DrugInPatientsClinicalEncounterReviewInClinicalModule() {
+
+		clinicalPage.verifyStar1DrugIsVisible();
+
+	}
+
+	@And("the user should not be able to access Patients Clinical Encounter Review in Clinical Module test")
+	public void userShouldNotBeAbleToAccessPatientsClinicalEncounterReviewInClinicalModule() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String patientsUrl = Hooks.prop.getProperty("patientsUrl");
+		Assert.assertNotNull("patientsUrl is missing in config", patientsUrl);
+
+		String fullPatientsUrl = baseUrl + patientsUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+
+		Hooks.driver.get(fullPatientsUrl);
+
+		Assert.assertTrue("Patients page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/Patients"));
+
+		Hooks.scenario.log("User is on the Patients page");
+
+		clinicalPage.verifyUserCannotAccessPatientsClinicalEncounterReviewInClinicalModule();
+
+	}
+
+	// Patients / Clinical Encounter
+	@And("I create a profile with Delete access only to Patients Clinical Encounter test")
+	public void createProfileWithDeleteAccessOnlyToPatientsClinicalEncounter() {
+		clinicalPage.clickFilterButton();
+		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.clickSearchButton();
+		clinicalPage.clickActionMenu();
+		clinicalPage.clickEditButton();
+		clinicalPage.createProfileWithDeleteAccessRestrictedToPatientsClinicalEncounter();
+		clinicalPage.clickSubmitButton();
+		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+	}
+
+	@And("I create a profile with Edit access only to Patients Clinical Encounter test")
+	public void createProfileWithEditAccessOnlyToPatientsClinicalEncounter() {
+		clinicalPage.clickFilterButton();
+		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.clickSearchButton();
+		clinicalPage.clickActionMenu();
+		clinicalPage.clickEditButton();
+		clinicalPage.createProfileWithEditOnlyAccessForPatientsClinicalEncounter();
+		clinicalPage.clickSubmitButton();
+		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+	}
+
+	@And("the user should not be able to add or delete Patients Clinical Encounter in Clinical Module test")
+	public void userShouldNotBeAbleToAddOrDeletePatientsClinicalEncounterInClinicalModule() {
+
+		clinicalPage.userShouldNotBeAbleToAddOrDeletePatientsClinicalEncounterInClinicalModuleTest();
+
+	}
+
+	@And("the user should be able to edit Patients Clinical Encounter in Clinical Module test")
+	public void userShouldBeAbleToEditPatientsClinicalEncounterInClinicalModule() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String patientsUrl = Hooks.prop.getProperty("patientsUrl");
+		Assert.assertNotNull("patientsUrl is missing in config", patientsUrl);
+
+		String fullPatientsUrl = baseUrl + patientsUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+
+		Hooks.driver.get(fullPatientsUrl);
+
+		Assert.assertTrue("Patients page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/Patients"));
+
+		Hooks.scenario.log("User is on the Patients page");
+
+		clinicalPage.editClinicalEncounter();
+
+	}
+
+	@And("the user should be able to delete Patients Clinical Encounter in Clinical Module test")
+	public void userShouldBeAbleToDeletePatientsClinicalEncounterInClinicalModule() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String patientsUrl = Hooks.prop.getProperty("patientsUrl");
+		Assert.assertNotNull("patientsUrl is missing in config", patientsUrl);
+
+		String fullPatientsUrl = baseUrl + patientsUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+
+		Hooks.driver.get(fullPatientsUrl);
+
+		Assert.assertTrue("Patients page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/Patients"));
+
+		Hooks.scenario.log("User is on the Patients page");
+
+		clinicalPage.deleteClinicalEncounter();
+
+	}
+
+	@And("the user should not be able to add or edit Patients Clinical Encounter in Clinical Module test")
+	public void userShouldNotBeAbleToAddOrEditPatientsClinicalEncounterInClinicalModule() {
+
+		clinicalPage.verifyUserCannotAddOrEditPatientsClinicalEncounterInClinicalModule();
+
+	}
+
+	@And("I create a profile with Add access only to Patients Clinical Encounter test")
+	public void createProfileWithAddAccessOnlyToPatientsClinicalEncounter() {
+		clinicalPage.clickFilterButton();
+		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.clickSearchButton();
+		clinicalPage.clickActionMenu();
+		clinicalPage.clickEditButton();
+		clinicalPage.createProfileWithAddOnlyAccessForPatientsClinicalEncounter();
+		clinicalPage.clickSubmitButton();
+		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+	}
+
+	@And("the user should be able to add Patients Clinical Encounter in Clinical Module test")
+	public void userShouldBeAbleToAddPatientsClinicalEncounterInClinicalModule() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String patientsUrl = Hooks.prop.getProperty("patientsUrl");
+		Assert.assertNotNull("patientsUrl is missing in config", patientsUrl);
+
+		String fullPatientsUrl = baseUrl + patientsUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+
+		Hooks.driver.get(fullPatientsUrl);
+
+		Assert.assertTrue("Patients page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/Patients"));
+
+		Hooks.scenario.log("User is on the Patients page");
+
+		clinicalPage.addClinicalEncounter();
+
+	}
+
+	@And("the user should not be able to edit or delete Patients Clinical Encounter in Clinical Module test")
+	public void userShouldNotBeAbleToEditOrDeletePatientsClinicalEncounterInClinicalModule() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String patientsUrl = Hooks.prop.getProperty("patientsUrl");
+		Assert.assertNotNull("patientsUrl is missing in config", patientsUrl);
+
+		String fullPatientsUrl = baseUrl + patientsUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+
+		Hooks.driver.get(fullPatientsUrl);
+
+		Assert.assertTrue("Patients page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/Patients"));
+
+		Hooks.scenario.log("User is on the Patients page");
+
+		clinicalPage.shouldNotAllowEditingOrDeletingPatientsClinicalEncounterInClinicalModule();
+
+	}
+
+	// SOAP Components
+	@And("I create a profile with Delete access only to SOAP Components test")
+	public void createProfileWithDeleteAccessOnlyToSoapComponents() {
+		clinicalPage.clickFilterButton();
+		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.clickSearchButton();
+		clinicalPage.clickActionMenu();
+		clinicalPage.clickEditButton();
+		clinicalPage.createProfileWithDeleteOnlyAccessForSoapComponents();
+		clinicalPage.clickSubmitButton();
+		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+	}
+
+	@And("I create a profile with Edit access only to SOAP Components test")
+	public void createProfileWithEditAccessOnlyToSoapComponents() {
+		clinicalPage.clickFilterButton();
+		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.clickSearchButton();
+		clinicalPage.clickActionMenu();
+		clinicalPage.clickEditButton();
+		clinicalPage.createProfileWithEditOnlyAccessForSoapComponents();
+		clinicalPage.clickSubmitButton();
+		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+	}
+
+	@And("the user should be able to edit SOAP Components in Clinical Module test")
+	public void userShouldBeAbleToEditSoapComponentsInClinicalModule() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String soapComponentsUrl = Hooks.prop.getProperty("soapComponentsUrl");
+		Assert.assertNotNull("soapComponentsUrl is missing in config", soapComponentsUrl);
+
+		String fullSoapComponentsUrl = baseUrl + soapComponentsUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+
+		Hooks.driver.get(fullSoapComponentsUrl);
+
+		Assert.assertTrue("SOAP Components page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/ClinicalSOAPComponents"));
+
+		Hooks.scenario.log("User is on the SOAP Components page");
+
+		clinicalPage.verifyUserCanEditSoapComponentsInClinicalModule();
+
+	}
+
+	@And("the user should be able to delete SOAP Components in Clinical Module test")
+	public void userShouldBeAbleToDeleteSoapComponentsInClinicalModule() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String soapComponentsUrl = Hooks.prop.getProperty("soapComponentsUrl");
+		Assert.assertNotNull("soapComponentsUrl is missing in config", soapComponentsUrl);
+
+		String fullSoapComponentsUrl = baseUrl + soapComponentsUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+
+		Hooks.driver.get(fullSoapComponentsUrl);
+
+		Assert.assertTrue("SOAP Components page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/ClinicalSOAPComponents"));
+
+		Hooks.scenario.log("User is on the SOAP Components page");
+
+		clinicalPage.verifyUserCanDeleteSoapComponentsInClinicalModule();
+
+	}
+
+	@And("the user should not be able to add or edit SOAP Components in Clinical Module test")
+	public void userShouldNotBeAbleToAddOrEditSoapComponentsInClinicalModule() {
+
+		clinicalPage.shouldNotAllowAddingOrEditingSoapComponentsInClinicalModule();
+
+	}
+
+	@And("the user should not be able to add or delete SOAP Components in Clinical Module test")
+	public void userShouldNotBeAbleToAddOrDeleteSoapComponentsInClinicalModule() {
+
+		clinicalPage.verifyUserCannotAddOrDeleteSoapComponentsInClinicalModule();
+
+	}
+
+	@And("I create a profile with Add access only to SOAP Components test")
+	public void createProfileWithAddAccessOnlyToSoapComponents() {
+		clinicalPage.clickFilterButton();
+		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.clickSearchButton();
+		clinicalPage.clickActionMenu();
+		clinicalPage.clickEditButton();
+		clinicalPage.createProfileWithAddOnlyAccessForSoapComponents();
+		clinicalPage.clickSubmitButton();
+		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+	}
+
+	@And("the user should be able to add SOAP Components in Clinical Module test")
+	public void userShouldBeAbleToAddSoapComponentsInClinicalModule() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String soapComponentsUrl = Hooks.prop.getProperty("soapComponentsUrl");
+		Assert.assertNotNull("soapComponentsUrl is missing in config", soapComponentsUrl);
+
+		String fullSoapComponentsUrl = baseUrl + soapComponentsUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+
+		Hooks.driver.get(fullSoapComponentsUrl);
+
+		Assert.assertTrue("SOAP Components page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/ClinicalSOAPComponents"));
+
+		Hooks.scenario.log("User is on the SOAP Components page");
+
+		clinicalPage.addSoapComponent();
+
+	}
+
+	@And("the user should not be able to edit or delete SOAP Components in Clinical Module test")
+	public void userShouldNotBeAbleToEditOrDeleteSoapComponentsInClinicalModule() {
+
+		clinicalPage.verifyUserCannotEditOrDeleteSoapComponentsInClinicalModule();
+
+	}
+
+	// Patients
+
+	@And("the user should be able to View Link and Sync Link in Clinical Module test")
+	public void userShouldBeAbleToViewAndSyncLinksInClinicalModule() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String patientsUrl = Hooks.prop.getProperty("patientsUrl");
+		Assert.assertNotNull("patientsUrl is missing in config", patientsUrl);
+
+		String fullPatientsUrl = baseUrl + patientsUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+
+		Hooks.driver.get(fullPatientsUrl);
+
+		Assert.assertTrue("Patients page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/Patients"));
+
+		Hooks.scenario.log("User is on the Patients page");
+
+		clinicalPage.deletePatient();
+
+	}
+
+	@And("I create a profile with All Access to Clinical Module test")
+	public void createProfileWithAllAccessToClinicalModule() {
+		clinicalPage.clickFilterButton();
+		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.clickSearchButton();
+		clinicalPage.clickActionMenu();
+		clinicalPage.clickEditButton();
+		clinicalPage.createProfileWithFullAccessForClinicalModule();
+		clinicalPage.clickSubmitButton();
+		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+	}
+
+	@And("the user should not be able to add or edit Patients in Patients Module test")
+	public void userShouldNotBeAbleToAddOrEditPatientsInPatientsModule() {
+
+		clinicalPage.verifyAddAndEditNotAvailable();
+
+	}
+
+	@And("the user should be able to delete Patients in Patients Module test")
+	public void userShouldBeAbleToDeletePatientsInPatientsModule() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String patientsUrl = Hooks.prop.getProperty("patientsUrl");
+		Assert.assertNotNull("patientsUrl is missing in config", patientsUrl);
+
+		String fullPatientsUrl = baseUrl + patientsUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+
+		Hooks.driver.get(fullPatientsUrl);
+
+		Assert.assertTrue("Patients page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/Patients"));
+
+		Hooks.scenario.log("User is on the Patients page");
+
+		clinicalPage.deletePatient();
+
+	}
+
+	@And("I create a profile with Delete access only to Patients Module test")
+	public void createProfileWithDeleteAccessOnlyToPatientsModule() {
+		clinicalPage.clickFilterButton();
+		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.clickSearchButton();
+		clinicalPage.clickActionMenu();
+		clinicalPage.clickEditButton();
+		clinicalPage.createProfileWithDeleteOnlyAccessForPatientsModule();
+		clinicalPage.clickSubmitButton();
+		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+	}
+
+	@And("I create a profile with Edit access only to Patients Module test")
+	public void createProfileWithEditAccessOnlyToPatientsModule() {
+		clinicalPage.clickFilterButton();
+		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.clickSearchButton();
+		clinicalPage.clickActionMenu();
+		clinicalPage.clickEditButton();
+		clinicalPage.createProfileWithEditOnlyAccessForPatientsModule();
+		clinicalPage.clickSubmitButton();
+		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+	}
+
+	@And("I create a profile with Add access only to Patients Module test")
+	public void createProfileWithAddAccessOnlyToPatientsModule() {
+		clinicalPage.clickFilterButton();
+		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.clickSearchButton();
+		clinicalPage.clickActionMenu();
+		clinicalPage.clickEditButton();
+		clinicalPage.createProfileWithAddAccessOnlyToPatientsModuleTest();
+		clinicalPage.clickSubmitButton();
+		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+	}
+
+	@And("the user should be able to add Patients in Patients Module test")
+	public void userShouldBeAbleToAddPatientsInPatientsModule() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String patientsUrl = Hooks.prop.getProperty("patientsUrl");
+		Assert.assertNotNull("patientsUrl is missing in config", patientsUrl);
+
+		String fullPatientsUrl = baseUrl + patientsUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+
+		Hooks.driver.get(fullPatientsUrl);
+
+		Assert.assertTrue("Patients page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/Patients"));
+
+		Hooks.scenario.log("User is on the Patients page");
+
+		clinicalPage.addNewPatient();
+		Hooks.driver.get(fullPatientsUrl);
+		clinicalPage.selectExistingPatient();
+
+	}
+
+	@And("the user should be able to edit Patients in Patients Module test")
+	public void userShouldBeAbleToEditPatientsInPatientsModule() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String patientsUrl = Hooks.prop.getProperty("patientsUrl");
+		Assert.assertNotNull("patientsUrl is missing in config", patientsUrl);
+
+		String fullPatientsUrl = baseUrl + patientsUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+
+		Hooks.driver.get(fullPatientsUrl);
+
+		Assert.assertTrue("Patients page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/Patients"));
+
+		Hooks.scenario.log("User is on the Patients page");
+
+		clinicalPage.editPatient();
+
+	}
+
+	@And("the user should not be able to add or delete Patients in Patients Module test")
+	public void userShouldNotBeAbleToAddOrDeletePatientsInPatientsModule() {
+
+		clinicalPage.verifyAddAndDeleteNotAvailable();
+
+	}
+
+	@And("the user should not be able to edit or delete Patients in Patients Module test")
+	public void userShouldNotBeAbleToEditOrDeletePatientsInPatientsModule() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String patientsUrl = Hooks.prop.getProperty("patientsUrl");
+		Assert.assertNotNull("patientsUrl is missing in config", patientsUrl);
+
+		String fullPatientsUrl = baseUrl + patientsUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+
+		Hooks.driver.get(fullPatientsUrl);
+
+		Assert.assertTrue("Patients page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/Patients"));
+
+		Hooks.scenario.log("User is on the Patients page");
+
+		clinicalPage.verifyEditAndDeleteNotAvailable();
+
+	}
+
+	// CPT Code
+	@And("I create a profile with Delete access only to Clinical Module CPT Code test")
+	public void createProfileWithDeleteAccessOnlyToClinicalModuleCptCode() {
+		clinicalPage.clickFilterButton();
+		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.clickSearchButton();
+		clinicalPage.clickActionMenu();
+		clinicalPage.clickEditButton();
+		clinicalPage.createProfileWithDeleteOnlyAccessForClinicalModuleCptCode();
+		clinicalPage.clickSubmitButton();
+		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+	}
+
+	@And("I create a profile with Edit access only to Clinical Module CPT Code test")
+	public void createProfileWithEditAccessOnlyToClinicalModuleCptCode() {
+		clinicalPage.clickFilterButton();
+		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.clickSearchButton();
+		clinicalPage.clickActionMenu();
+		clinicalPage.clickEditButton();
+		clinicalPage.createProfileWithEditAccessOnlyToClinicalModuleCptCodeTest();
+		clinicalPage.clickSubmitButton();
+		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+	}
+
+	@And("I create a profile with Add access only to Clinical Module CPT Code test")
+	public void createProfileWithAddAccessOnlyToClinicalModuleCptCode() {
+		clinicalPage.clickFilterButton();
+		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.clickSearchButton();
+		clinicalPage.clickActionMenu();
+		clinicalPage.clickEditButton();
+		clinicalPage.createProfileWithAddAccessOnlyToClinicalModuleCptCodeTest();
+		clinicalPage.clickSubmitButton();
+		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+	}
+
+	@And("the user should be able to add CPT Code in Clinical Module test")
+	public void userShouldBeAbleToAddCptCodeInClinicalModule() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String cptCodesUrl = Hooks.prop.getProperty("cptCodesUrl");
+		Assert.assertNotNull("cptCodesUrl is missing in config", cptCodesUrl);
+
+		String fullCptCodesUrl = baseUrl + cptCodesUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+
+		Hooks.driver.get(fullCptCodesUrl);
+
+		Assert.assertTrue("CPT Codes page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/CPTCodes"));
+
+		Hooks.scenario.log("User is on the CPT Codes page");
+
+		clinicalPage.addCptCode();
+
+	}
+
+	@And("the user should be able to edit CPT Code in Clinical Module test")
+	public void userShouldBeAbleToEditCptCodeInClinicalModule() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String cptCodesUrl = Hooks.prop.getProperty("cptCodesUrl");
+		Assert.assertNotNull("cptCodesUrl is missing in config", cptCodesUrl);
+
+		String fullCptCodesUrl = baseUrl + cptCodesUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+
+		Hooks.driver.get(fullCptCodesUrl);
+
+		Assert.assertTrue("CPT Codes page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/CPTCodes"));
+
+		Hooks.scenario.log("User is on the CPT Codes page");
+
+		clinicalPage.editCptCode();
+
+	}
+
+	@And("the user should be able to delete CPT Code in Clinical Module test")
+	public void userShouldBeAbleToDeleteCptCodeInClinicalModule() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String cptCodesUrl = Hooks.prop.getProperty("cptCodesUrl");
+		Assert.assertNotNull("cptCodesUrl is missing in config", cptCodesUrl);
+
+		String fullCptCodesUrl = baseUrl + cptCodesUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+
+		Hooks.driver.get(fullCptCodesUrl);
+
+		Assert.assertTrue("CPT Codes page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/CPTCodes"));
+
+		Hooks.scenario.log("User is on the CPT Codes page");
+
+		clinicalPage.deleteCptCode();
+
+	}
+
+	@And("the user should not be able to add or edit CPT Code in Clinical Module test")
+	public void userShouldNotBeAbleToAddOrEditCptCodeInClinicalModule() {
+
+		clinicalPage.verifyAddAndEditAreNotAvailable();
+
+	}
+
+	@And("the user should not be able to add or delete CPT Code in Clinical Module test")
+	public void userShouldNotBeAbleToAddOrDeleteCptCodeInClinicalModule() {
+
+		clinicalPage.verifyAddAndDeleteAreNotAvailable();
+
+	}
+
+	@And("the user should not be able to edit or delete CPT Code in Clinical Module test")
+	public void userShouldNotBeAbleToEditOrDeleteCptCodeInClinicalModule() {
+
+		clinicalPage.verifyEditAndDeleteAreNotAvailable();
+
+	}
+
 	// RPM Status
 	@And("the user should not be able to add or delete RPM Status in Clinical Module test")
 	public void verifyUserIsRestrictedFromAddingOrDeletingRPMStatus() {
