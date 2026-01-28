@@ -7739,9 +7739,6 @@ public class ClinicalSteps {
 	@And("the user should be able to delete Med Recons Current Medication in Clinical Module")
 	public void userShouldBeAbleToDeleteMedReconsCurrentMedicationInClinicalModule() {
 		sleep(3000);
-		driver.get(baseUrl + "/Clinical/Home/ClinicalMedRecons");
-		wait.until(ExpectedConditions.urlContains("/Clinical/Home/ClinicalMedRecons"));
-		sleep(3000);
 		clickWhenClickable(By.xpath("//span[normalize-space()='New Clinical Med Recons']"));
 		sleep(3000);
 		clickWhenClickable(By.xpath("//select[@id='ClinicalEncounter_EncounterStatus']"));

@@ -680,7 +680,6 @@ And I log in using the new user for Clinical Module
 Then the user should be able to view Patient Provider Referral in Clinical Module
 And the user should be able to refer to a new provider in Patient Provider Referral in Clinical Module
 
-#
 Scenario: User with View but no Referred To New Provider access for Patient / Provider Referral
 Given I log in as admin for Clinical Module
 When I create a new user with email for Clinical Module "testuser3_static@mailinator.com"
@@ -740,6 +739,7 @@ And I reset the user's password for Clinical Module
 And I log in using the new user for Clinical Module
 Then the user should be able to edit Prior Authorization in Clinical Module
 And the user should not be able to add or delete Prior Authorization in Clinical Module
+
 
 Scenario: User with Delete access for Prior Authorization
 Given I log in as admin for Clinical Module
@@ -803,6 +803,7 @@ And I reset the user's password for Clinical Module
 And I log in using the new user for Clinical Module
 Then the user should be able to add Med Recons Meds On Chart in Clinical Module
 And the user should not be able to edit or delete Med Recons Meds On Chart in Clinical Module
+
 
 Scenario: User with Edit access for Med Recons / Meds On Chart
 Given I log in as admin for Clinical Module
@@ -875,6 +876,7 @@ And I log in using the new user for Clinical Module
 Then the user should be able to view Reports MTM Encounter Log in Clinical Module
 And the user should not have access to Export Excel or Details for Reports MTM Encounter Log in Clinical Module
 
+
 Scenario: User with Add access for Remote Patient Monitoring RPM
 Given I log in as admin for Clinical Module
 When I create a new user with email for Clinical Module "testuser5_static@mailinator.com"
@@ -905,6 +907,7 @@ And I log in using the new user for Clinical Module
 Then the user should be able to delete Remote Patient Monitoring RPM in Clinical Module
 And the user should not be able to add or edit Remote Patient Monitoring RPM in Clinical Module
 
+#
 Scenario: User with Export Excel and Outgoing Call access
 Given I log in as admin for Clinical Module
 When I create a new user with email for Clinical Module "testuser8_static@mailinator.com"

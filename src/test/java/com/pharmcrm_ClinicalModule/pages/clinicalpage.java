@@ -7,6 +7,7 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -20,6 +21,195 @@ public class clinicalpage {
 
 	private WebDriver driver;
 	private WebDriverWait wait;
+
+	// Remote Patient Monitoring (RPM)
+	private By rpmActionMenuBtn = By.xpath("(//button[@id='bucketDrop']/i)[1]");
+	private By rpmEditOption = By.xpath(
+			"//div[contains(@class,'bucket-dropdown-content') and contains(@class,'show')]//span[contains(text(),'Edit')]");
+	private By outgoingCallIcon = By.xpath(
+			"//div[@id='page-wrapper']//div[@class='rmBesic-data']//div[1][1]//a[1]//*[name()='svg']//*[name()='path' and @id='Path_6']");
+
+	private static final By RPM_ACTION_MENU = By.xpath("(//button[@id='bucketDrop']/i)[1]");
+	private static final By RPM_EDIT_OPTION = By.xpath(
+			"//div[contains(@class,'bucket-dropdown-content') and contains(@class,'show')]//span[contains(text(),'Edit')]");
+
+	By rpmFirstRecordActionMenu = By.xpath("(//button[@id='bucketDrop']/i)[1]");
+	By rpmDeleteOption = By.xpath(
+			"//div[contains(@class,'bucket-dropdown-content') and contains(@class,'show')]//span[normalize-space()='Delete']");
+	By rpmDeleteConfirmButton = By.id("btnDeleteConfirm");
+
+	private static final By PROGRESS_STEPS_TAB = By.xpath("//a[normalize-space()='Progress Steps']");
+	private static final By PROGRESS_STATUS_DROPDOWN = By.id("ProgressStatus");
+	private static final By NOTE_TEXTAREA = By.id("RemoteMonitoring_Note");
+	private static final By SAVE_NOTE_BUTTON = By
+			.xpath("//button[@id='btnSaveRemoteMonitoringNote']//*[name()='svg']//*[name()='path' and @id='Path_23']");
+
+	private static final By BUCKET_DROPDOWN_BUTTON = By.xpath("(//button[@id='bucketDrop']/i)[1]");
+	private static final By EDIT_OPTION = By.xpath(
+			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]");
+	private static final By DELETE_OPTION = By.xpath(
+			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]");
+
+	private static final By NEW_RPM_BUTTON = By.xpath("//span[normalize-space()='New Patient Remote Monitoring']");
+	private static final By SEARCH_BUTTON = By.xpath("//button[normalize-space()='Search']");
+	private static final By SELECT_FIRST_PATIENT_RADIO = By.id("0c950395-71e6-4134-b8e1-a405b7ad98f6");
+	private static final By CONFIRM_PATIENT_BUTTON = By
+			.xpath("//div[@class='modal-footer text-right d-block']//button[@id='btnPatient']");
+	private static final By NEXT_BUTTON = By.xpath("//button[@id='btnNext']");
+	private static final By SUBMIT_LINK = By.xpath("//a[normalize-space()='Submit']");
+
+	// Reports / MTM Encounter Log
+	private static final By EXPORT_TO_EXCEL_BUTTON = By.xpath("//span[normalize-space()='Export to Excel']");
+	private static final By VIEW_DETAILS_ICON = By.xpath("//a[@class='txt-decor-none']//img");
+
+	// Med Recons / Current Medication
+	private static final By NEW_CLINICAL_MED_RECONS = By.xpath("//span[normalize-space()='New Clinical Med Recons']");
+	private static final By ADD_PATIENT_ICON = By.xpath("//a[@id='addPatientNamePopup']//img");
+	private static final By PATIENT_SEARCH_INPUT = By.id("Filter_PatientId");
+	private static final By PATIENT_SEARCH_BUTTON = By.xpath("//button[normalize-space()='Search']");
+	private static final By PATIENT_CONFIRM_BUTTON = By.id("btnPatient");
+	private static final By ADD_CURRENT_MEDICATION = By.xpath("//span[normalize-space()='Add Current Medication']");
+	private static final By DRUG_SEARCH_BUTTON = By.xpath("//button[normalize-space()='Search']");
+	private static final By DRUG_CONFIRM_BUTTON = By.id("btnDrug");
+	private static final By ADD_DRUG_ACTION = By.xpath("//td[@class='text-right']//a[1]//*[name()='svg']");
+	private static final By DELETE_MEDICATION_ICON = By
+			.xpath("//tr[@id='trMed_1']//a[@id='btnDeleteMedicationConfirm']//img");
+	private static final By DELETE_CONFIRM_BUTTON = By.id("deletepatientmedsonchart");
+	private static final By SAVE_BUTTON = By.id("btnSave");
+
+	private static final By ADD_CURRENT_MEDICATION_BUTTON = By
+			.xpath("//span[normalize-space()='Add Current Medication']");
+	private static final By DELETE_CURRENT_MEDICATION_ICON = By.xpath("//a[@id='btnDeleteMedicationConfirm']//img");
+	private static final By NEW_MED_RECONS_BTN = By.xpath("//span[normalize-space()='New Clinical Med Recons']");
+	private static final By ENCOUNTER_STATUS_DROPDOWN = By.id("ClinicalEncounter_EncounterStatus");
+	private static final By PATIENT_POPUP_ICON = By.xpath("//a[@id='addPatientNamePopup']//img");
+	private static final By PATIENT_ID_INPUT = By.id("Filter_PatientId");
+	private static final By PATIENT_SEARCH_BTN = By.xpath("//button[normalize-space()='Search']");
+	private static final By PATIENT_SELECT_CHECKBOX = By.xpath("//input[@id='0c950395-71e6-4134-b8e1-a405b7ad98f6']");
+	private static final By PATIENT_CONFIRM_BTN = By.id("btnPatient");
+	private static final By ADD_CURRENT_MEDICATION_BTN = By.xpath("//span[normalize-space()='Add Current Medication']");
+	private static final By DRUG_LOOKUP_ICON = By.xpath("//div[@class='model-inp requiredfield']//img");
+	private static final By DRUG_NAME_INPUT = By.id("Filter_DrugName");
+	private static final By DRUG_SEARCH_BTN = By.xpath("//button[normalize-space()='Search']");
+	private static final By DRUG_SELECT_CHECKBOX = By.xpath("//input[@id='0']");
+	private static final By DRUG_CONFIRM_BTN = By.id("btnDrug");
+	private static final By EDIT_MED_ICON = By.xpath("//tr[@id='trMed_1']//a[1]//img[1]");
+	private static final By DIRECTION_INPUT = By.id("ExtendedMedsOnChart_Direction_1");
+	private static final By SAVE_BTN = By.id("btnSave");
+	private By editCurrentMedicationIcon = By.xpath("//tbody//a[1]//img[1]");
+	private By deleteCurrentMedicationIcon = By.xpath("//a[@id='btnDeleteMedicationConfirm']//img");
+	public String clinicalMedReconsUrl = "/Clinical/Home/ClinicalMedRecons";
+	public By newClinicalMedReconsBtn = By.xpath("//span[normalize-space()='New Clinical Med Recons']");
+	public By searchPatientBtn = By.xpath("//button[normalize-space()='Search']");
+	public By patientRadioBtn = By.id("0c950395-71e6-4134-b8e1-a405b7ad98f6");
+	public By confirmPatientBtn = By.id("btnPatient");
+	public By addCurrentMedicationBtn = By.xpath("//span[normalize-space()='Add Current Medication']");
+	public By searchDrugBtn = By.xpath("//button[normalize-space()='Search']");
+	public By drugRadioBtn = By.id("0");
+	public By confirmDrugBtn = By.id("btnDrug");
+	public By addDrugToGridBtn = By.xpath("//td[@class='text-right']//a[1]//*[name()='svg']");
+	public By saveMedReconsBtn = By.id("btnSave");
+
+	// Med Recons / Meds On Chart
+	public By confirmDeleteMedsOnChartButton = By.id("deletepatientmedsonchart");
+
+	public By directionInputFirstMed = By.id("ExtendedMedsOnChart_Direction_1");
+
+	public By editMedsOnChartButton = By.xpath("//tbody//a[1]//img[1]");
+	public By deleteMedsOnChartButton = By.xpath("//a[@id='btnDeleteMedicationConfirm']//img");
+
+	public By addMedsOnChartButton = By.xpath("//span[normalize-space()='Add Meds On Chart']");
+	public By addDrugPopupIcon = By.xpath("//div[@class='model-inp requiredfield']//img");
+	public By drugNameFilterInput = By.id("Filter_DrugName");
+	public By drugSearchButton = By.xpath("//button[normalize-space()='Search']");
+	public By selectDrugRadioButton = By.id("0");
+	public By addDrugToChartButton = By.xpath("//td[@class='text-right']//a[1]//*[name()='svg']");
+	public By saveMedsOnChartButton = By.id("btnSave");
+
+	// Med Recons
+
+	public By downloadFileButton = By.xpath("//tbody/tr[1]/td[8]/div[1]/a[1]/img[1]");
+	public By currentMedicationCheckbox = By.xpath("//label[normalize-space()='Current Medication?']");
+	public By confirmDownloadButton = By.id("btnClinicalMedReconReportConfirm");
+	public By confirmMedReconsDeleteButton = By
+			.xpath("//div[@id='deleteClinicalMedReconModel']//button[@id='btnDeleteConfirm']");
+	public By medReconsEditButton = By.xpath("//tbody/tr[1]/td[8]/div[1]/a[1]/img[1]");
+	public By medReconsDeleteButton = By.xpath("//tbody/tr[1]/td[8]/div[1]/a[2]/img[1]");
+	public By medReconsArchiveButton = By.xpath("//tbody/tr[1]/td[8]/div[1]/a[3]/img[1]");
+	public By newMedReconsButton = By.xpath("//span[normalize-space()='New Clinical Med Recons']");
+	public By encounterStatusDropdown = By.id("ClinicalEncounter_EncounterStatus");
+	public By addPatientPopupIcon = By.xpath("//a[@id='addPatientNamePopup']//img");
+	public By patientIdFilterInput = By.id("Filter_PatientId");
+	public By patientSearchButton = By.xpath("//button[normalize-space()='Search']");
+	public By selectPatientRadioButton = By.id("0c950395-71e6-4134-b8e1-a405b7ad98f6");
+	public By saveMedReconsButton = By.id("btnSave");
+
+	// Prior Authorization
+	public By filterButton = By.xpath("//span[normalize-space()='Filter']");
+	public By showAllRecordsCheckbox = By.xpath("//label[normalize-space()='Show All Records?']");
+	public By searchFilterButton = By.xpath("//i[@class='fa-solid fa-magnifying-glass']");
+	public By unarchiveButton = By.xpath("//a[@id='btnUnArchive']//*[name()='svg']");
+	public By confirmUnarchiveButton = By.id("btnUnArchiveConfirm");
+	public By archiveButton = By.xpath("//*[name()='path' and @id='Union_4']");
+	public By newPriorAuthorizationOption = By.xpath("//span[normalize-space()='New Clinical Prior Authorization']");
+	public By progressStatusDropdown = By.id("ProgressStatus");
+	public By notesInput = By.id("ClinicalPriorAuthorization_Notes");
+	public By saveOutcomeNoteButton = By.id("btnSaveClinicalPriorAuthorizationOutcomeNote");
+
+	// Buttons & Links
+	public By newPriorAuthorizationButton = By.xpath("//span[normalize-space()='New Clinical Prior Authorization']");
+	public By addPatientButton = By.xpath("//a[@id='addPatientNamePopup']//img");
+	public By searchPatientButton = By.xpath("//button[normalize-space()='Search']");
+	public By selectFirstPatientRadio = By.xpath("(//input[@type='radio'])[1]");
+	public By confirmPatientButton = By
+			.xpath("//div[@class='modal-footer text-right d-block']//button[@id='btnPatient']");
+
+	public By addDrugButton = By.xpath("//a[@id='addDrugNamePopup']//img");
+	public By searchDrugButton = By.xpath("//button[normalize-space()='Search']");
+	public By selectDrugRadio = By.xpath("//input[@name='groupOfDrugRadios' and @data-name='amoxilin']");
+	public By confirmDrugButton = By.xpath("//div[@id='divSearchDrugInfo']//button[@id='btnDrug']");
+
+	public By addProviderButton = By.xpath("//a[@id='addProviderNamePopup']//img");
+	public By selectProviderRadio = By.xpath("//input[@type='radio' and @name='groupOfProviderRadios']");
+	public By confirmProviderButton = By.xpath("//button[@id='btnProvider']");
+
+	public By addPartnerButton = By.xpath("//a[@id='addPartnerNamePopup']//img");
+	public By fullSearchRadio = By.id("rdoFullSearch");
+	public By searchPartnerButton = By.xpath("//button[normalize-space()='Search']");
+	public By selectPartnerRadio = By.xpath("//input[@type='radio' and @name='groupOfPartnerRadios']");
+	public By confirmPartnerButton = By.xpath("//button[@id='btnPartner']");
+
+	public By verifyButton = By.id("btnVerify");
+	public By pendingSaveButton = By.id("btnPendingSave");
+	public By saveSubmissionButton = By.id("btnSaveSubmission");
+
+	// Tabs
+	public By patientDetailsTab = By.xpath("//label[normalize-space()='Patient Details']");
+	public By pharmacyDetailTab = By.xpath("//label[normalize-space()='Pharmacy Detail']");
+	public By providerDetailTab = By.xpath("//label[normalize-space()='Provider Detail']");
+	public By drugDetailTab = By.xpath("//label[normalize-space()='Drug Detail']");
+
+	// Inputs
+	public By patientFilterInput = By.id("Filter_PatientId");
+	public By drugFilterInput = By.id("Filter_DrugName");
+	public By partnerFilterInput = By.id("Filter_BusinessName");
+	public By receivedDateInput = By.name("ClinicalPriorAuthorization.ReceivedDate");
+	public By submissionDateInput = By.name("ClinicalPriorAuthorization.SubmissionDate");
+	public By submissionNoteInput = By.id("ClinicalPriorAuthorization_SubmissionNote");
+
+	// CareGiver Name
+	public By patientActionDropdown = By.xpath("(//button[@id='bucketDrop']/i)[1]");
+	public By caregiverEditOption = By
+			.xpath("//div[contains(@class,'bucket-dropdown-content')]//span[normalize-space()='Edit']");
+	public By caregiverDeleteOption = By
+			.xpath("//div[contains(@class,'bucket-dropdown-content')]//span[normalize-space()='Delete']");
+	public By newPatientCareGiverNameOption = By.xpath("//span[normalize-space()='New Patient Caregiver Name']");
+	public By careGiverLastNameField = By.id("PatientCareGiverName_LastName");
+	public By careGiverFirstNameField = By.id("PatientCareGiverName_FirstName");
+	public By saveCareGiverPopupButton = By.id("btnSaveCareGiverNamePopup");
+	public By finalSaveButton = By.id("btnSave");
+	private By chkClinicalCareGiverNameAll = By.xpath("//label[@for='chkg21ClinicalCareGiverNameAll']");
+	private By chkClinicalCareGiverNameAdd = By.xpath("//label[@for='chkg21ClinicalCareGiverNameAdd']");
 
 	// Reports / CCM Encounter Log
 	public By clinicalCCMLogAllLabel = By.xpath("//label[@for='chkg19ClinicalCCMLogAll']");
@@ -358,6 +548,8 @@ public class clinicalpage {
 	public By saveVitalsButton = By.xpath("//button[@id='btnSaveVital']");
 	public By updatedByColumn = By.xpath("//th[normalize-space()='Updated By']");
 	public By updatedDateColumn = By.xpath("//th[normalize-space()='Updated Date']");
+	public By priorAuthorizationProcessAllLabel = By.xpath("//label[@for='chkg23PriorAuthorizationProcessAll']");
+	public By priorAuthorizationGenerateAddLabel = By.xpath("//label[@for='chkg23PriorAuthorizationGenerateAdd']");
 
 	// General
 	public clinicalpage(WebDriver driver) {
@@ -2690,4 +2882,978 @@ public class clinicalpage {
 		sleep(2000);
 		assertElementPresent(REFERRAL_HEADER);
 	}
+	// CareGiver Name
+
+	public void userShouldNotBeAbleToAddOrEditCareGiverNameInClinicalModule() {
+
+		clickWhenClickable(patientActionDropdown);
+		sleep(2000);
+		clickWhenClickable(editOption);
+		sleep(3000);
+
+		Assert.assertTrue(driver.findElements(newPatientCareGiverNameOption).isEmpty());
+
+		clickWhenClickable(patientActionDropdown);
+		sleep(2000);
+
+		Assert.assertTrue(driver.findElements(editOption).isEmpty());
+	}
+
+	public void deleteCareGiverNameInClinicalModule() {
+
+		clickWhenClickable(patientActionDropdown);
+		sleep(2000);
+		clickWhenClickable(editOption);
+		sleep(3000);
+
+		clickWhenClickable(patientActionDropdown);
+		sleep(2000);
+		clickWhenClickable(deleteOption);
+		sleep(2000);
+
+		clickWhenClickable(confirmDeleteButton);
+		sleep(1000);
+	}
+
+	public void createClinicalProfileWithCareGiverDeleteAccess() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement providerReferralAll = wait.until(ExpectedConditions.elementToBeClickable(providerReferralAllLabel));
+		providerReferralAll.click();
+		sleep(2000);
+		WebElement providerReferralView = wait
+				.until(ExpectedConditions.elementToBeClickable(providerReferralViewLabel));
+		providerReferralView.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCannotAddOrDeleteCareGiverNameInClinicalModule() {
+
+		clickWhenClickable(patientActionDropdown);
+		sleep(2000);
+		clickWhenClickable(editOption);
+		sleep(3000);
+
+		Assert.assertTrue(driver.findElements(newPatientCareGiverNameOption).isEmpty());
+
+		clickWhenClickable(patientActionDropdown);
+		sleep(2000);
+
+		Assert.assertTrue(driver.findElements(deleteOption).isEmpty());
+	}
+
+	public void verifyUserCanEditCareGiverNameInClinicalModule() {
+
+		clickWhenClickable(patientActionDropdown);
+		sleep(2000);
+		clickWhenClickable(editOption);
+		sleep(3000);
+
+		clickWhenClickable(patientActionDropdown);
+		sleep(2000);
+		clickWhenClickable(editOption);
+		sleep(2000);
+
+		waitAndSendKeys(careGiverLastNameField, "Martin");
+		waitAndSendKeys(careGiverFirstNameField, "Brian");
+
+		clickWhenClickable(saveCareGiverPopupButton);
+		sleep(1000);
+		clickWhenClickable(finalSaveButton);
+	}
+
+	public void createClinicalProfileWithCareGiverEditAccess() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement providerReferralAll = wait.until(ExpectedConditions.elementToBeClickable(providerReferralAllLabel));
+		providerReferralAll.click();
+		sleep(2000);
+		WebElement providerReferralView = wait
+				.until(ExpectedConditions.elementToBeClickable(providerReferralViewLabel));
+		providerReferralView.click();
+		sleep(2000);
+
+	}
+
+	public void createClinicalProfileWithCareGiverAddAccess() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement providerReferralAll = wait
+				.until(ExpectedConditions.elementToBeClickable(chkClinicalCareGiverNameAll));
+		providerReferralAll.click();
+		sleep(2000);
+		WebElement providerReferralView = wait
+				.until(ExpectedConditions.elementToBeClickable(chkClinicalCareGiverNameAdd));
+		providerReferralView.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCanAddCareGiverNameInClinicalModule() {
+		sleep(2000);
+		clickWhenClickable(patientActionDropdown);
+		sleep(2000);
+
+		clickWhenClickable(editOption);
+		sleep(3000);
+
+		clickWhenClickable(newPatientCareGiverNameOption);
+		sleep(2000);
+
+		waitAndSendKeys(careGiverLastNameField, "Martin");
+		waitAndSendKeys(careGiverFirstNameField, "Brian");
+
+		clickWhenClickable(saveCareGiverPopupButton);
+		sleep(2000);
+
+		clickWhenClickable(finalSaveButton);
+	}
+
+	public void userShouldNotBeAbleToEditOrDeleteCareGiverNameInClinicalModule() {
+		sleep(4000);
+		clickWhenClickable(patientActionDropdown);
+		sleep(2000);
+		Assert.assertTrue(driver.findElements(caregiverEditOption).isEmpty());
+		Assert.assertTrue(driver.findElements(caregiverDeleteOption).isEmpty());
+	}
+	// Prior Authorization
+
+	public void verifyUserCannotAddOrDeletePriorAuthorizationInClinicalModule() {
+
+		clickWhenClickable(patientActionDropdown);
+		sleep(2000);
+
+		Assert.assertTrue(driver.findElements(newPriorAuthorizationOption).isEmpty());
+
+		clickWhenClickable(patientActionDropdown);
+		sleep(2000);
+
+		Assert.assertTrue(driver.findElements(deleteOption).isEmpty());
+	}
+
+	public void verifyUserCanEditPriorAuthorizationInClinicalModule() {
+
+		clickWhenClickable(patientActionDropdown);
+		sleep(2000);
+		clickWhenClickable(editOption);
+		sleep(2000);
+
+		clickWhenClickable(progressStatusDropdown);
+		selectDropdownByIndexWhenReady(progressStatusDropdown, 1);
+		sleep(2000);
+
+		waitAndSendKeys(notesInput, "Note");
+
+		clickWhenClickable(saveOutcomeNoteButton);
+	}
+
+	public void verifyUserCannotEditOrDeletePriorAuthorizationInClinicalModule() {
+		sleep(2000);
+		clickWhenClickable(patientActionDropdown);
+		sleep(2000);
+		Assert.assertTrue(driver.findElements(editOption).isEmpty());
+		Assert.assertTrue(driver.findElements(deleteOption).isEmpty());
+	}
+
+	public void userCreatesProfileWithPriorAuthorizationEditAccessOnly() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement providerReferralAll = wait.until(ExpectedConditions.elementToBeClickable(providerReferralAllLabel));
+		providerReferralAll.click();
+		sleep(2000);
+		WebElement providerReferralView = wait
+				.until(ExpectedConditions.elementToBeClickable(providerReferralViewLabel));
+		providerReferralView.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCanAddPriorAuthorizationInClinicalModule() {
+		sleep(4000);
+		clickWhenClickable(newPriorAuthorizationButton);
+		sleep(2000);
+
+		clickWhenClickable(addPatientButton);
+		sleep(2000);
+		waitAndSendKeys(patientFilterInput, "0004406");
+		clickWhenClickable(searchPatientButton);
+		sleep(2000);
+		clickWhenClickable(selectFirstPatientRadio);
+		sleep(1000);
+		clickWhenClickable(confirmPatientButton);
+		sleep(5000);
+
+		clickWhenClickable(addDrugButton);
+		sleep(3000);
+		waitAndSendKeys(drugFilterInput, "amoxilin");
+		clickWhenClickable(searchDrugButton);
+		sleep(2000);
+		clickWhenClickable(selectDrugRadio);
+		sleep(1000);
+		clickWhenClickable(confirmDrugButton);
+		sleep(5000);
+
+		clickWhenClickable(addProviderButton);
+		sleep(4000);
+		clickWhenClickable(selectProviderRadio);
+		sleep(3000);
+		clickWhenClickable(confirmProviderButton);
+		sleep(4000);
+
+		clickWhenClickable(addPartnerButton);
+		sleep(3000);
+		clickWhenClickable(fullSearchRadio);
+		sleep(3000);
+		waitAndSendKeys(partnerFilterInput, "Attorney");
+		clickWhenClickable(searchPartnerButton);
+		sleep(3000);
+		clickWhenClickable(selectPartnerRadio);
+		sleep(3000);
+		clickWhenClickable(confirmPartnerButton);
+		sleep(3000);
+
+		WebElement receivedDate = driver.findElement(receivedDateInput);
+		receivedDate.clear();
+		receivedDate.sendKeys("10/09/2025");
+		receivedDate.sendKeys(Keys.TAB);
+		sleep(2000);
+
+		clickWhenClickable(saveButton);
+		sleep(2000);
+
+		clickWhenClickable(patientDetailsTab);
+		clickWhenClickable(pharmacyDetailTab);
+		clickWhenClickable(providerDetailTab);
+		clickWhenClickable(drugDetailTab);
+
+		clickWhenClickable(verifyButton);
+		sleep(2000);
+		clickWhenClickable(pendingSaveButton);
+		sleep(2000);
+
+		WebElement submissionDate = driver.findElement(submissionDateInput);
+		submissionDate.clear();
+		submissionDate.sendKeys("10/09/2025");
+		submissionDate.sendKeys(Keys.TAB);
+		sleep(2000);
+
+		waitAndSendKeys(submissionNoteInput, "Submission");
+		clickWhenClickable(saveSubmissionButton);
+	}
+
+	public void createClinicalProfileWithPriorAuthorizationAddAccess() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement providerReferralAll = wait
+				.until(ExpectedConditions.elementToBeClickable(priorAuthorizationProcessAllLabel));
+		providerReferralAll.click();
+		sleep(2000);
+		WebElement providerReferralView = wait
+				.until(ExpectedConditions.elementToBeClickable(priorAuthorizationGenerateAddLabel));
+		providerReferralView.click();
+		sleep(2000);
+
+	}
+
+	public void createClinicalProfileWithFullPriorAuthorizationAccess() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement providerReferralAll = wait.until(ExpectedConditions.elementToBeClickable(providerReferralAllLabel));
+		providerReferralAll.click();
+		sleep(2000);
+		WebElement providerReferralView = wait
+				.until(ExpectedConditions.elementToBeClickable(providerReferralViewLabel));
+		providerReferralView.click();
+		sleep(2000);
+
+	}
+
+	public void createClinicalProfileWithPriorAuthorizationDeleteAccess() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement providerReferralAll = wait.until(ExpectedConditions.elementToBeClickable(providerReferralAllLabel));
+		providerReferralAll.click();
+		sleep(2000);
+		WebElement providerReferralView = wait
+				.until(ExpectedConditions.elementToBeClickable(providerReferralViewLabel));
+		providerReferralView.click();
+		sleep(2000);
+
+	}
+
+	public void deletePriorAuthorizationInClinicalModule() {
+
+		clickWhenClickable(patientActionDropdown);
+		sleep(2000);
+
+		clickWhenClickable(deleteOption);
+		sleep(2000);
+
+		clickWhenClickable(confirmDeleteButton);
+	}
+
+	public void verifyUserCannotAddOrEditPriorAuthorizationInClinicalModule() {
+
+		sleep(3000);
+
+		clickWhenClickable(patientActionDropdown);
+		sleep(2000);
+
+		Assert.assertTrue(driver.findElements(newPriorAuthorizationOption).isEmpty());
+
+		clickWhenClickable(patientActionDropdown);
+		sleep(2000);
+
+		Assert.assertTrue(driver.findElements(editOption).isEmpty());
+	}
+
+	public void userShouldBeAbleToExportExcelInClinicalModule() {
+
+		clickWhenClickable(exportToExcelButton);
+		sleep(2000);
+	}
+
+	public void userShouldBeAbleToArchiveInClinicalModule() {
+
+		sleep(3000);
+		clickWhenClickable(archiveButton);
+	}
+
+	public void userShouldBeAbleToUnarchiveInClinicalModule() {
+
+		sleep(3000);
+
+		clickWhenClickable(filterButton);
+		sleep(1000);
+
+		clickWhenClickable(showAllRecordsCheckbox);
+
+		clickWhenClickable(searchFilterButton);
+		sleep(1000);
+
+		clickWhenClickable(unarchiveButton);
+		sleep(1000);
+
+		clickWhenClickable(confirmUnarchiveButton);
+	}
+
+	// Med Recons
+
+	public void userShouldBeAbleToAccessDownloadFileInClinicalModule() {
+
+		clickWhenClickable(downloadFileButton);
+		sleep(3000);
+
+		clickWhenClickable(currentMedicationCheckbox);
+
+		clickWhenClickable(confirmDownloadButton);
+	}
+
+	public void createClinicalProfileWithDownloadFileAccess() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void createClinicalProfileWithMedReconsDeleteAccess() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void userShouldNotBeAbleToAddOrEditMedReconsInClinicalModule() {
+		sleep(3000);
+		assertElementNotPresent(newMedReconsButton);
+		assertElementNotPresent(medReconsEditButton);
+	}
+
+	public void userShouldBeAbleToDeleteMedReconsInClinicalModule() {
+
+		clickWhenClickable(medReconsDeleteButton);
+		sleep(1000);
+
+		clickWhenClickable(confirmMedReconsDeleteButton);
+	}
+
+	public void createClinicalProfileWithMedReconsAddAccess() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement providerReferralAll = wait.until(ExpectedConditions.elementToBeClickable(providerReferralAllLabel));
+		providerReferralAll.click();
+		sleep(2000);
+		WebElement providerReferralView = wait
+				.until(ExpectedConditions.elementToBeClickable(providerReferralViewLabel));
+		providerReferralView.click();
+		sleep(2000);
+
+	}
+
+	public void userShouldBeAbleToAddMedReconsInClinicalModule() {
+
+		clickWhenClickable(newMedReconsButton);
+		sleep(3000);
+
+		clickWhenClickable(encounterStatusDropdown);
+		sleep(1000);
+		selectDropdownByIndexWhenReady(encounterStatusDropdown, 2);
+		sleep(1000);
+
+		clickWhenClickable(addPatientPopupIcon);
+		sleep(2000);
+		waitAndSendKeys(patientIdFilterInput, "0004406");
+		clickWhenClickable(patientSearchButton);
+		sleep(2000);
+		clickWhenClickable(selectPatientRadioButton);
+		clickWhenClickable(confirmPatientButton);
+		sleep(1000);
+
+		clickWhenClickable(saveMedReconsButton);
+	}
+
+	public void userShouldNotBeAbleToEditOrDeleteMedReconsInClinicalModule() {
+
+		assertElementNotPresent(medReconsEditButton);
+		assertElementNotPresent(medReconsDeleteButton);
+		assertElementNotPresent(medReconsArchiveButton);
+	}
+
+	// Med Recons / Meds On Chart
+
+	public void userShouldNotBeAbleToAddOrEditMedReconsMedsOnChartInClinicalModule() {
+		sleep(3000);
+		assertElementNotPresent(addMedsOnChartButton);
+		assertElementNotPresent(deleteMedsOnChartButton);
+	}
+
+	public void userShouldBeAbleToDeleteMedReconsMedsOnChartInClinicalModule() {
+
+		clickWhenClickable(newMedReconsButton);
+		sleep(3000);
+
+		clickWhenClickable(encounterStatusDropdown);
+		sleep(1000);
+		selectDropdownByIndexWhenReady(encounterStatusDropdown, 2);
+		sleep(1000);
+
+		clickWhenClickable(addPatientPopupIcon);
+		sleep(2000);
+		waitAndSendKeys(patientIdFilterInput, "0004406");
+		clickWhenClickable(patientSearchButton);
+		sleep(2000);
+		clickWhenClickable(selectPatientRadioButton);
+		clickWhenClickable(confirmPatientButton);
+		sleep(1000);
+
+		clickWhenClickable(addMedsOnChartButton);
+		sleep(1000);
+		clickWhenClickable(addDrugPopupIcon);
+		sleep(1000);
+		waitAndSendKeys(drugNameFilterInput, "amoxilin");
+		clickWhenClickable(drugSearchButton);
+		sleep(1000);
+		clickWhenClickable(selectDrugRadioButton);
+		clickWhenClickable(confirmDrugButton);
+		clickWhenClickable(addDrugToChartButton);
+		sleep(1000);
+
+		clickWhenClickable(deleteMedsOnChartButton);
+		sleep(1000);
+		clickWhenClickable(confirmDeleteMedsOnChartButton);
+		sleep(1000);
+
+		clickWhenClickable(saveMedsOnChartButton);
+	}
+
+	public void createClinicalProfileWithMedReconsMedsOnChartDeleteAccess() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCannotAddOrDeleteMedReconsMedsOnChartInClinicalModule() {
+
+		sleep(3000);
+
+		assertElementNotPresent(addMedsOnChartButton);
+
+		assertElementNotPresent(deleteMedsOnChartButton);
+	}
+
+	public void userShouldBeAbleToEditMedReconsMedsOnChartInClinicalModule() {
+
+		clickWhenClickable(newMedReconsButton);
+		sleep(3000);
+
+		clickWhenClickable(encounterStatusDropdown);
+		sleep(1000);
+		selectDropdownByIndexWhenReady(encounterStatusDropdown, 2);
+		sleep(1000);
+
+		clickWhenClickable(addPatientPopupIcon);
+		sleep(2000);
+		waitAndSendKeys(patientIdFilterInput, "0004406");
+		clickWhenClickable(patientSearchButton);
+		sleep(2000);
+		clickWhenClickable(selectPatientRadioButton);
+		clickWhenClickable(confirmPatientButton);
+		sleep(1000);
+
+		clickWhenClickable(addMedsOnChartButton);
+		sleep(1000);
+		clickWhenClickable(addDrugPopupIcon);
+		sleep(1000);
+		waitAndSendKeys(drugNameFilterInput, "amoxilin");
+		clickWhenClickable(drugSearchButton);
+		sleep(1000);
+		clickWhenClickable(selectDrugRadioButton);
+		clickWhenClickable(confirmDrugButton);
+		clickWhenClickable(addDrugToChartButton);
+		sleep(1000);
+
+		clickWhenClickable(editMedsOnChartButton);
+		sleep(1000);
+		waitAndSendKeys(directionInputFirstMed, "Morning");
+		clickWhenClickable(editMedsOnChartButton);
+		sleep(1000);
+
+		clickWhenClickable(saveMedsOnChartButton);
+	}
+
+	public void createClinicalProfileWithMedReconsMedsOnChartEditAccess() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void createClinicalProfileWithMedReconsMedsOnChartAddAccess() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void userShouldNotBeAbleToEditOrDeleteMedReconsMedsOnChartInClinicalModule() {
+		sleep(3000);
+		assertElementNotPresent(editMedsOnChartButton);
+		assertElementNotPresent(deleteMedsOnChartButton);
+	}
+
+	public void userShouldBeAbleToAddMedReconsMedsOnChartInClinicalModule() {
+
+		clickWhenClickable(newMedReconsButton);
+		sleep(3000);
+
+		clickWhenClickable(encounterStatusDropdown);
+		sleep(1000);
+		selectDropdownByIndexWhenReady(encounterStatusDropdown, 2);
+		sleep(1000);
+
+		clickWhenClickable(addPatientPopupIcon);
+		sleep(2000);
+		waitAndSendKeys(patientIdFilterInput, "0004406");
+		clickWhenClickable(patientSearchButton);
+		sleep(2000);
+		clickWhenClickable(selectPatientRadioButton);
+		clickWhenClickable(confirmPatientButton);
+		sleep(1000);
+
+		clickWhenClickable(addMedsOnChartButton);
+		sleep(1000);
+		clickWhenClickable(addDrugPopupIcon);
+		sleep(1000);
+		waitAndSendKeys(drugNameFilterInput, "amoxilin");
+		clickWhenClickable(drugSearchButton);
+		sleep(1000);
+		clickWhenClickable(selectDrugRadioButton);
+		clickWhenClickable(confirmDrugButton);
+		clickWhenClickable(addDrugToChartButton);
+		sleep(1000);
+
+		clickWhenClickable(saveMedsOnChartButton);
+	}
+
+	// Med Recons / Current Medication
+
+	public void userShouldNotBeAbleToAddOrEditMedReconsCurrentMedicationInClinicalModule() {
+		sleep(3000);
+		assertElementNotPresent(ADD_CURRENT_MEDICATION);
+		assertElementNotPresent(DELETE_MEDICATION_ICON);
+	}
+
+	public void userShouldBeAbleToDeleteMedReconsCurrentMedicationInClinicalModule() {
+
+		sleep(3000);
+		clickWhenClickable(NEW_CLINICAL_MED_RECONS);
+
+		sleep(3000);
+		clickWhenClickable(ENCOUNTER_STATUS_DROPDOWN);
+		selectDropdownByIndexWhenReady(ENCOUNTER_STATUS_DROPDOWN, 2);
+
+		sleep(1000);
+		clickWhenClickable(ADD_PATIENT_ICON);
+
+		sleep(2000);
+		waitAndSendKeys(PATIENT_SEARCH_INPUT, "0004406");
+		clickWhenClickable(PATIENT_SEARCH_BUTTON);
+
+		sleep(2000);
+		clickWhenClickable(PATIENT_SELECT_CHECKBOX);
+		clickWhenClickable(PATIENT_CONFIRM_BUTTON);
+
+		sleep(1000);
+		clickWhenClickable(ADD_CURRENT_MEDICATION);
+
+		sleep(1000);
+		clickWhenClickable(DRUG_LOOKUP_ICON);
+
+		sleep(1000);
+		waitAndSendKeys(DRUG_NAME_INPUT, "amoxilin");
+		clickWhenClickable(DRUG_SEARCH_BUTTON);
+
+		sleep(1000);
+		clickWhenClickable(DRUG_SELECT_CHECKBOX);
+		clickWhenClickable(DRUG_CONFIRM_BUTTON);
+		clickWhenClickable(ADD_DRUG_ACTION);
+
+		sleep(1000);
+		clickWhenClickable(DELETE_MEDICATION_ICON);
+
+		sleep(1000);
+		clickWhenClickable(DELETE_CONFIRM_BUTTON);
+
+		sleep(1000);
+		clickWhenClickable(SAVE_BUTTON);
+	}
+
+	public void createProfileWithDeleteOnlyAccessForMedReconsCurrentMedicationTest() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void userShouldNotBeAbleToAddOrDeleteMedReconsCurrentMedicationInClinicalModule() {
+		sleep(3000);
+		assertElementNotPresent(ADD_CURRENT_MEDICATION_BUTTON);
+		assertElementNotPresent(DELETE_CURRENT_MEDICATION_ICON);
+	}
+
+	public void userShouldBeAbleToEditMedReconsCurrentMedicationInClinicalModule() {
+
+		clickWhenClickable(NEW_MED_RECONS_BTN);
+		sleep(3000);
+
+		clickWhenClickable(ENCOUNTER_STATUS_DROPDOWN);
+		selectDropdownByIndexWhenReady(ENCOUNTER_STATUS_DROPDOWN, 2);
+		sleep(1000);
+
+		clickWhenClickable(PATIENT_POPUP_ICON);
+		sleep(2000);
+
+		waitAndSendKeys(PATIENT_ID_INPUT, "0004406");
+		clickWhenClickable(PATIENT_SEARCH_BTN);
+		sleep(2000);
+
+		clickWhenClickable(PATIENT_SELECT_CHECKBOX);
+		clickWhenClickable(PATIENT_CONFIRM_BTN);
+		sleep(1000);
+
+		clickWhenClickable(ADD_CURRENT_MEDICATION_BTN);
+		sleep(1000);
+
+		clickWhenClickable(DRUG_LOOKUP_ICON);
+		sleep(1000);
+
+		waitAndSendKeys(DRUG_NAME_INPUT, "amoxilin");
+		clickWhenClickable(DRUG_SEARCH_BTN);
+		sleep(1000);
+
+		clickWhenClickable(DRUG_SELECT_CHECKBOX);
+		clickWhenClickable(DRUG_CONFIRM_BTN);
+		sleep(1000);
+
+		clickWhenClickable(EDIT_MED_ICON);
+		sleep(1000);
+
+		waitAndSendKeys(DIRECTION_INPUT, "Morning");
+		clickWhenClickable(EDIT_MED_ICON);
+		sleep(1000);
+
+		clickWhenClickable(SAVE_BTN);
+	}
+
+	public void userShouldNotBeAbleToEditOrDeleteMedReconsCurrentMedicationInClinicalModule() {
+		sleep(3000);
+
+		assertElementNotPresent(editCurrentMedicationIcon);
+		assertElementNotPresent(deleteCurrentMedicationIcon);
+	}
+
+	public void createProfileWithEditAccessForMedReconsCurrentMedication() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void userCreatesProfileWithAddAccessOnlyToMedReconsCurrentMedication() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void userShouldBeAbleToAddMedReconsCurrentMedicationInClinicalModule() {
+
+		clickWhenClickable(newClinicalMedReconsBtn);
+		sleep(3000);
+
+		clickWhenClickable(encounterStatusDropdown);
+		sleep(1000);
+		selectDropdownByIndexWhenReady(encounterStatusDropdown, 2);
+		sleep(1000);
+
+		clickWhenClickable(addPatientPopupIcon);
+		sleep(2000);
+		waitAndSendKeys(patientIdFilterInput, "0004406");
+		clickWhenClickable(searchPatientBtn);
+		sleep(2000);
+		clickWhenClickable(patientRadioBtn);
+		clickWhenClickable(confirmPatientBtn);
+		sleep(1000);
+
+		clickWhenClickable(addCurrentMedicationBtn);
+		sleep(1000);
+		clickWhenClickable(addDrugPopupIcon);
+		sleep(1000);
+		waitAndSendKeys(drugNameFilterInput, "amoxilin");
+		clickWhenClickable(searchDrugBtn);
+		sleep(1000);
+		clickWhenClickable(drugRadioBtn);
+		clickWhenClickable(confirmDrugBtn);
+		clickWhenClickable(addDrugToGridBtn);
+		sleep(1000);
+
+		clickWhenClickable(saveMedReconsBtn);
+	}
+
+	// Reports / MTM Encounter Log
+
+	public void userShouldNotHaveAccessToExportExcelOrDetailsForReportsMTMEncounterLogInClinicalModule() {
+		sleep(3000);
+		assertElementNotPresent(EXPORT_TO_EXCEL_BUTTON);
+		assertElementNotPresent(VIEW_DETAILS_ICON);
+	}
+
+	public void verifyUserHasViewAccessToReportsMTMEncounterLogInClinicalModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserHasViewExportAndDetailsAccessForReportsMTMEncounterLog() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void userShouldBeAbleToViewDetailsForReportsMTMEncounterLogInClinicalModule() {
+		sleep(3000);
+		clickWhenClickable(VIEW_DETAILS_ICON);
+	}
+
+	public void userShouldBeAbleToExportReportsMTMEncounterLogToExcelInClinicalModule() {
+		sleep(3000);
+		clickWhenClickable(EXPORT_TO_EXCEL_BUTTON);
+	}
+
+	// Remote Patient Monitoring (RPM)
+
+	public void userShouldBeAbleToExportDataToExcelInClinicalModule() {
+		sleep(3000);
+		clickWhenClickable(EXPORT_TO_EXCEL_BUTTON);
+	}
+
+	public void userShouldBeAbleToMakeOutgoingCallsInClinicalModule() {
+		sleep(4000);
+		clickWhenClickable(rpmActionMenuBtn);
+		sleep(2000);
+		clickWhenClickable(rpmEditOption);
+		sleep(2000);
+		clickWhenClickable(outgoingCallIcon);
+	}
+
+	public void iCreateAProfileWithExportExcelAndOutgoingCallPermissionsInClinicalModuleTest() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void userShouldNotBeAbleToAddOrEditRemotePatientMonitoringRPMInClinicalModule() {
+		sleep(3000);
+
+		assertElementNotPresent(NEW_RPM_BUTTON);
+
+		clickWhenClickable(RPM_ACTION_MENU);
+		sleep(2000);
+
+		assertElementNotPresent(RPM_EDIT_OPTION);
+	}
+
+	public void userShouldBeAbleToDeleteRemotePatientMonitoringRPMInClinicalModule() {
+
+		sleep(3000);
+		clickWhenClickable(rpmFirstRecordActionMenu);
+
+		sleep(2000);
+		clickWhenClickable(rpmDeleteOption);
+
+		sleep(2000);
+		clickWhenClickable(rpmDeleteConfirmButton);
+	}
+
+	public void userShouldHaveDeleteAccessToRemotePatientMonitoringInClinicalModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void userShouldNotBeAbleToAddOrDeleteRemotePatientMonitoringRPMInClinicalModule() {
+		sleep(3000);
+		assertElementNotPresent(NEW_RPM_BUTTON);
+
+		clickWhenClickable(BUCKET_DROPDOWN_BUTTON);
+		sleep(2000);
+		assertElementNotPresent(DELETE_OPTION);
+	}
+
+	public void userShouldBeAbleToEditRemotePatientMonitoringRPMInClinicalModule() {
+		sleep(3000);
+
+		clickWhenClickable(BUCKET_DROPDOWN_BUTTON);
+		sleep(2000);
+		clickWhenClickable(EDIT_OPTION);
+		sleep(2000);
+
+		clickWhenClickable(PROGRESS_STEPS_TAB);
+		sleep(2000);
+		clickWhenClickable(PROGRESS_STATUS_DROPDOWN);
+		sleep(1000);
+		selectDropdownByIndexWhenReady(PROGRESS_STATUS_DROPDOWN, 1);
+		sleep(2000);
+
+		waitAndSendKeys(NOTE_TEXTAREA, "Note");
+		clickWhenClickable(SAVE_NOTE_BUTTON);
+		sleep(2000);
+
+		clickWhenClickable(SUBMIT_LINK);
+	}
+
+	public void verifyUserHasEditAccessToRemotePatientMonitoringInClinicalModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void userShouldNotBeAbleToEditOrDeleteRemotePatientMonitoringRPMInClinicalModule() {
+		sleep(3000);
+		clickWhenClickable(BUCKET_DROPDOWN_BUTTON);
+		sleep(2000);
+		assertElementNotPresent(EDIT_OPTION);
+		assertElementNotPresent(DELETE_OPTION);
+	}
+
+	public void userShouldHaveAddAccessToRemotePatientMonitoringInClinicalModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement remoteMonitoringAll = wait.until(ExpectedConditions.elementToBeClickable(remoteMonitoringAllLabel));
+		remoteMonitoringAll.click();
+		sleep(2000);
+		WebElement remoteMonitoringAdd = wait.until(ExpectedConditions.elementToBeClickable(remoteMonitoringAddLabel));
+		remoteMonitoringAdd.click();
+		sleep(2000);
+
+	}
+
+	public void userShouldBeAbleToAddRemotePatientMonitoringRPMInClinicalModule() {
+		sleep(3000);
+
+		clickWhenClickable(NEW_RPM_BUTTON);
+		sleep(2000);
+		clickWhenClickable(ADD_PATIENT_ICON);
+		sleep(2000);
+		waitAndSendKeys(By.id("Filter_PatientId"), "0004406");
+		clickWhenClickable(SEARCH_BUTTON);
+		sleep(2000);
+		clickWhenClickable(SELECT_FIRST_PATIENT_RADIO);
+		clickWhenClickable(CONFIRM_PATIENT_BUTTON);
+		sleep(2000);
+		clickWhenClickable(NEXT_BUTTON);
+		sleep(3000);
+		clickWhenClickable(SUBMIT_LINK);
+	}
+
 }

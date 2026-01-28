@@ -819,7 +819,6 @@ And I create a profile with View but no Download File access to Reports Call Log
 Then the user should be able to view Reports Call Log in Reports Module test
 But the user should not be able to download files from Reports Call Log in Reports Module test
 
-@Clinical
 # Patient / Provider Referral
 Scenario: User with View and Referred To New Provider access for Patient / Provider Referral test
 Given user launch browser
@@ -844,6 +843,581 @@ Then the Clinical user should be able to view Profiles test
 And I create a profile with View but no Referred To New Provider access to Patient Provider Referral test
 Then the user should be able to view Patient Provider Referral in Clinical Module test
 But the user should not be able to refer to a new provider in Patient Provider Referral in Clinical Module test
+
+# CareGiver Name
+Scenario: User with Add access for CareGiver Name test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with Add access only to CareGiver Name in Clinical Module test
+Then the user should be able to add CareGiver Name in Clinical Module test
+And the user should not be able to edit or delete CareGiver Name in Clinical Module test
+
+Scenario: User with Edit access for CareGiver Name test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with Edit access only to CareGiver Name in Clinical Module test
+Then the user should be able to edit CareGiver Name in Clinical Module test
+And the user should not be able to add or delete CareGiver Name in Clinical Module test
+
+Scenario: User with Delete access for CareGiver Name test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with Delete access only to CareGiver Name in Clinical Module test
+Then the user should be able to delete CareGiver Name in Clinical Module test
+And the user should not be able to add or edit CareGiver Name in Clinical Module test
+
+# Prior Authorization
+Scenario: User with Add access for Prior Authorization test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with Add access only to Prior Authorization in Clinical Module test
+Then the user should be able to add Prior Authorization in Clinical Module test
+And the user should not be able to edit or delete Prior Authorization in Clinical Module test
+
+Scenario: User with Edit access for Prior Authorization test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with Edit access only to Prior Authorization in Clinical Module test
+Then the user should be able to edit Prior Authorization in Clinical Module test
+And the user should not be able to add or delete Prior Authorization in Clinical Module test
+
+Scenario: User with Delete access for Prior Authorization test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with Delete access only to Prior Authorization in Clinical Module test
+Then the user should be able to delete Prior Authorization in Clinical Module test
+And the user should not be able to add or edit Prior Authorization in Clinical Module test
+
+Scenario: User with Full access for Prior Authorization test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with full Acess to Prior Authorization in Clinical Module test
+Then the user should be able to Export Excel in Clinical Module test
+Then the user should be able to access Details in Clinical Module test
+Then the user should be able to Archive in Clinical Module test
+Then the user should be able to Unarchive in Clinical Module test
+Then the user should be able to view Grid View in Clinical Module test
+
+# Med Recons
+Scenario: User with Add access for Med Recons test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with Add access only to Med Recons in Clinical Module test
+Then the user should be able to add Med Recons in Clinical Module test
+And the user should not be able to edit or delete Med Recons in Clinical Module test
+
+Scenario: User with Delete access for Med Recons test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with Delete access only to Med Recons in Clinical Module test
+Then the user should be able to delete Med Recons in Clinical Module test
+And the user should not be able to add or edit Med Recons in Clinical Module test
+
+Scenario: User can access Download File test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with access only to Download File in Clinical Module test
+Then the user should be able to access Details in Clinical Module test
+Then the user should be able to access Download File in Clinical Module test
+
+# Med Recons / Meds On Chart
+Scenario: User with Add access for Med Recons / Meds On Chart test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with Add access only to Med Recons Meds On Chart in Clinical Module test
+Then the user should be able to add Med Recons Meds On Chart in Clinical Module test
+And the user should not be able to edit or delete Med Recons Meds On Chart in Clinical Module test
+
+Scenario: User with Edit access for Med Recons / Meds On Chart test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with Edit access only to Med Recons Meds On Chart in Clinical Module test
+Then the user should be able to edit Med Recons Meds On Chart in Clinical Module test
+And the user should not be able to add or delete Med Recons Meds On Chart in Clinical Module test
+
+Scenario: User with Delete access for Med Recons / Meds On Chart test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with Delete access only to Med Recons Meds On Chart in Clinical Module test
+Then the user should be able to delete Med Recons Meds On Chart in Clinical Module test
+And the user should not be able to add or edit Med Recons Meds On Chart in Clinical Module test
+
+# Med Recons / Current Medication
+Scenario: User with Add access for Med Recons / Current Medication test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with Add access only to Med Recons Current Medication in Clinical Module test
+Then the user should be able to add Med Recons Current Medication in Clinical Module test
+And the user should not be able to edit or delete Med Recons Current Medication in Clinical Module test
+
+Scenario: User with Edit access for Med Recons / Current Medication test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with Edit access only to Med Recons Current Medication in Clinical Module test
+Then the user should be able to edit Med Recons Current Medication in Clinical Module test
+And the user should not be able to add or delete Med Recons Current Medication in Clinical Module test
+
+Scenario: User with Delete access for Med Recons / Current Medication test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with Delete access only to Med Recons Current Medication in Clinical Module test
+Then the user should be able to delete Med Recons Current Medication in Clinical Module test
+And the user should not be able to add or edit Med Recons Current Medication in Clinical Module test
+
+# Reports / MTM Encounter Log
+Scenario: User with View, Export Excel, and Details access for Reports / MTM Encounter Log test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with View, Export Excel, and Details access to Reports MTM Encounter Log in Clinical Module test
+Then the user should be able to view Reports MTM Encounter Log in Clinical Module test
+And the user should be able to export Reports MTM Encounter Log to Excel in Clinical Module test
+And the user should be able to view Details for Reports MTM Encounter Log in Clinical Module test
+
+Scenario: User with View access only for Reports / MTM Encounter Log test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with View access only to Reports MTM Encounter Log in Clinical Module test
+Then the user should be able to view Reports MTM Encounter Log in Clinical Module test
+And the user should not have access to Export Excel or Details for Reports MTM Encounter Log in Clinical Module test
+
+@Clinical
+# Remote Patient Monitoring (RPM)
+Scenario: User with Add access for Remote Patient Monitoring RPM test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with Add access only to Remote Patient Monitoring RPM in Clinical Module test
+Then the user should be able to add Remote Patient Monitoring RPM in Clinical Module test
+And the user should not be able to edit or delete Remote Patient Monitoring RPM in Clinical Module test
+
+Scenario: User with Edit access for Remote Patient Monitoring RPM test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with Edit access only to Remote Patient Monitoring RPM in Clinical Module test
+Then the user should be able to edit Remote Patient Monitoring RPM in Clinical Module test
+And the user should not be able to add or delete Remote Patient Monitoring RPM in Clinical Module test
+
+Scenario: User with Delete access for Remote Patient Monitoring (RPM) test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with Delete access only to Remote Patient Monitoring RPM in Clinical Module test
+Then the user should be able to delete Remote Patient Monitoring RPM in Clinical Module test
+And the user should not be able to add or edit Remote Patient Monitoring RPM in Clinical Module test
+
+Scenario: User with Export Excel and Outgoing Call access test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with Export Excel and Outgoing Call access in Clinical Module test
+Then the user should be able to export data to Excel in Clinical Module test
+And the user should be able to make Outgoing Calls in Clinical Module test
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
