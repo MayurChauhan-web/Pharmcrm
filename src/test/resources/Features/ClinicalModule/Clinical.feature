@@ -1070,7 +1070,6 @@ And I create a profile with View access only to Reports MTM Encounter Log in Cli
 Then the user should be able to view Reports MTM Encounter Log in Clinical Module test
 And the user should not have access to Export Excel or Details for Reports MTM Encounter Log in Clinical Module test
 
-@Clinical
 # Remote Patient Monitoring (RPM)
 Scenario: User with Add access for Remote Patient Monitoring RPM test
 Given user launch browser
@@ -1119,6 +1118,593 @@ Then the Clinical user should be able to view Profiles test
 And I create a profile with Export Excel and Outgoing Call access in Clinical Module test
 Then the user should be able to export data to Excel in Clinical Module test
 And the user should be able to make Outgoing Calls in Clinical Module test
+
+# RPM / Remote Monitoring Parameter
+Scenario: User with Add access for RPM / Remote Monitoring Parameter test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with Add access only to RPM Remote Monitoring Parameter in Clinical Module test
+Then the user should be able to add RPM Remote Monitoring Parameter in Clinical Module test
+And the user should not be able to edit or delete RPM Remote Monitoring Parameter in Clinical Module test
+
+Scenario: User with Edit access for RPM / Remote Monitoring Parameter test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with Edit access only to RPM Remote Monitoring Parameter in Clinical Module test
+Then the user should be able to edit RPM Remote Monitoring Parameter in Clinical Module test
+And the user should not be able to add or delete RPM Remote Monitoring Parameter in Clinical Module test
+
+Scenario: User with Delete access for RPM / Remote Monitoring Parameter test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with Delete access only to RPM Remote Monitoring Parameter in Clinical Module test
+Then the user should be able to delete RPM Remote Monitoring Parameter in Clinical Module test
+And the user should not be able to add or edit RPM Remote Monitoring Parameter in Clinical Module test
+
+# RPM / RMP Details
+Scenario: User with Edit access for RPM / RMP Details test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with Edit access only to RPM RMP Details in Clinical Module test
+Then the user should be able to edit RPM RMP Details in Clinical Module test
+And the user should not have access to Add or Delete RPM RMP Details in Clinical Module test
+
+Scenario: User with no Edit access for RPM / RMP Details test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with no Edit access to RPM RMP Details in Clinical Module test
+Then the user should not be able to edit RPM RMP Details in Clinical Module test
+
+# RPM / External Details for Alert
+Scenario: User with Add access for RPM External Details for Alert test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with Add access only to RPM External Details for Alert in Clinical Module test
+Then the user should be able to add RPM External Details for Alert in Clinical Module test
+And the user should not be able to edit or delete RPM External Details for Alert in Clinical Module test
+
+Scenario: User with Edit access for RPM External Details for Alert test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with Edit access only to RPM External Details for Alert in Clinical Module test
+Then the user should be able to edit RPM External Details for Alert in Clinical Module test
+And the user should not be able to add or delete RPM External Details for Alert in Clinical Module test
+
+Scenario: User with Delete access for RPM External Details for Alert test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with Delete access only to RPM External Details for Alert in Clinical Module test
+Then the user should be able to delete RPM External Details for Alert in Clinical Module test
+And the user should not be able to add or edit RPM External Details for Alert in Clinical Module test
+
+# RPM / Trigger Alert for Time
+Scenario: User with Add access for RPM Trigger Alert for Time test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with Add access only to RPM Trigger Alert for Time in Clinical Module test
+Then the user should be able to add RPM Trigger Alert for Time in Clinical Module test
+And the user should not be able to edit or delete RPM Trigger Alert for Time in Clinical Module test
+
+Scenario: User with Edit access for RPM Trigger Alert for Time test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with Edit access only to RPM Trigger Alert for Time in Clinical Module test
+Then the user should be able to edit RPM Trigger Alert for Time in Clinical Module test
+And the user should not be able to add or delete RPM Trigger Alert for Time in Clinical Module test
+
+Scenario: User with Delete access for RPM Trigger Alert for Time test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with Delete access only to RPM Trigger Alert for Time in Clinical Module test
+Then the user should be able to delete RPM Trigger Alert for Time in Clinical Module test
+And the user should not be able to add or edit RPM Trigger Alert for Time in Clinical Module test
+
+# Reports / Remote Monitoring Report
+Scenario: User with all access for Reports Remote Monitoring Report test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with all access for Reports Remote Monitoring Report test
+Then the user should be able to view Reports Remote Monitoring Report in Clinical Module test
+And the user should be able to drill down Reports Remote Monitoring Report in Clinical Module test
+And the user should be able to download Reports Remote Monitoring Report file in Clinical Module test
+And the user should be able to send Reports Remote Monitoring Report for signature in Clinical Module test
+And the user should be able to export Reports Remote Monitoring Report to Excel in Clinical Module test
+And the user should be able to download drilldown report for Reports Remote Monitoring Report in Clinical Module test
+
+Scenario: User with View access for Reports Remote Monitoring Report test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with View access only to Reports Remote Monitoring Report in Clinical Module test
+Then the user should be able to delete RPM Trigger Alert for Time in Clinical Module test
+And the user should not be able to add or edit RPM Trigger Alert for Time in Clinical Module test
+
+# PA / All PA
+Scenario: User with all access for PA All PA test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with all access for PA All PA test
+Then the user should be able to view PA All PA in Clinical Module test
+And the user should be able to generate PA All PA in Clinical Module test
+And the user should be able to verify PA All PA in Clinical Module test
+And the user should be able to submit PA All PA in Clinical Module test
+And the user should be able to view PA All PA outcome in Clinical Module test
+And the user should be able to export PA All PA to Excel in Clinical Module test
+And the user should be able to show generated PA by all in Clinical Module test
+And the user should be able to delete PA status in Clinical Module test
+And the user should be able to delete PA outcome status in Clinical Module test
+And the user should be able to delete generated incoming attachment in Clinical Module test
+And the user should be able to delete PA ChartNote attachment in Clinical Module test
+And the user should be able to send Clinical PA Insurance in Clinical Module test
+
+@Clinical
+# RPM / RPM Status
+Scenario: User with Add access for RPM Status test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with Add access only to RPM Status in Clinical Module test
+Then the user should be able to add RPM RPM Status in Clinical Module test
+And the user should not be able to edit or delete RPM RPM Status in Clinical Module test
+
+Scenario: User with Edit access for RPM Status test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with Edit access only to RPM Status in Clinical Module test
+Then the user should be able to edit RPM RPM Status in Clinical Module test
+And the user should not be able to add or delete RPM RPM Status in Clinical Module test
+
+Scenario: User with Delete access for RPM Status test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with Delete access only to RPM Status in Clinical Module test
+Then the user should be able to delete RPM RPM Status in Clinical Module test
+And the user should not be able to add or edit RPM RPM Status in Clinical Module test
+
+# RPM / RPM Progress Step
+Scenario: User with Add access for RPM Progress Step test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with Add access only to RPM Progress Step in Clinical Module test
+Then the user should be able to add RPM Progress Step in Clinical Module test
+And the user should not be able to edit or delete RPM Progress Step in Clinical Module test
+
+Scenario: User with Edit access for RPM Progress Step test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with Edit access only to RPM Progress Step in Clinical Module test
+Then the user should be able to edit RPM Progress Step in Clinical Module test
+And the user should not be able to add or delete RPM Progress Step in Clinical Module test
+
+Scenario: User with Delete access for RPM Progress Step test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with Delete access only to RPM Progress Step in Clinical Module test
+Then the user should be able to delete RPM Progress Step in Clinical Module test
+And the user should not be able to add or edit RPM Progress Step in Clinical Module test
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

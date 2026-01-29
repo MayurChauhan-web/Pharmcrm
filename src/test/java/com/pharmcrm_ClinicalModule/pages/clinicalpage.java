@@ -22,7 +22,503 @@ public class clinicalpage {
 	private WebDriver driver;
 	private WebDriverWait wait;
 
+	// RPM / RPM Progress Step
+
+	public void addOrEditRpmProgressStepNotAllowed() {
+		sleep(3000);
+
+		assertElementNotPresent(saveProgressButton);
+		assertElementNotPresent(editProgressStepButton);
+	}
+
+	public void addOrDeleteRpmProgressStepNotAllowed() {
+		sleep(3000);
+
+		assertElementNotPresent(saveProgressButton);
+		assertElementNotPresent(deleteProgressButton);
+	}
+
+	public void deleteRpmProgressStepAllowed() {
+		sleep(3000);
+
+		clickWhenClickable(bucketDropdownIcon);
+		sleep(2000);
+		clickWhenClickable(editOption);
+		sleep(2000);
+		clickWhenClickable(progressStepsLink);
+		sleep(2000);
+		clickWhenClickable(deleteProgressStepButton);
+		sleep(2000);
+		clickWhenClickable(confirmDeleteButton);
+	}
+
+	public void editRpmProgressStepAllowed() {
+		sleep(3000);
+
+		// Actions
+		clickWhenClickable(bucketDropdownIcon);
+		sleep(2000);
+		clickWhenClickable(editOption);
+		sleep(2000);
+		clickWhenClickable(progressStepsLink);
+		sleep(2000);
+		clickWhenClickable(editProgressStepButton);
+		sleep(2000);
+		clickWhenClickable(addProgressStatusDropdown);
+		sleep(1000);
+		selectDropdownByIndexWhenReady(addProgressStatusDropdown, 1);
+		sleep(2000);
+		waitAndSendKeys(addRemoteMonitoringNoteField, "Note");
+		clickWhenClickable(saveEditedButton);
+		sleep(2000);
+	}
+
+	public void editOrDeleteRpmProgressStepNotAllowed() {
+		sleep(3000);
+
+		assertElementNotPresent(editProgressStepButton);
+		assertElementNotPresent(deleteProgressStepButton);
+	}
+
+	public void addRpmProgressStepAllowed() {
+		sleep(3000);
+		clickWhenClickable(bucketDropdownIcon);
+		sleep(2000);
+		clickWhenClickable(editOption);
+		sleep(2000);
+		clickWhenClickable(progressStepsLink);
+		sleep(2000);
+		clickWhenClickable(progressStatusDropdown);
+		sleep(1000);
+		selectDropdownByIndexWhenReady(progressStatusDropdown, 1);
+		sleep(2000);
+		waitAndSendKeys(remoteMonitoringNoteField, "Note");
+		clickWhenClickable(saveProgressButton);
+		sleep(2000);
+	}
+
+	public void createEditOnlyRpmProgressStepProfile() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement externalDetailsAllLabel = wait.until(ExpectedConditions.elementToBeClickable(RPMRPMStatusAllLabel));
+		externalDetailsAllLabel.click();
+		sleep(2000);
+		WebElement externalDetailsAddLabel = wait.until(ExpectedConditions.elementToBeClickable(RPMRPMStatusAddLabel));
+		externalDetailsAddLabel.click();
+		sleep(2000);
+
+	}
+
+	public void createDeleteOnlyRpmProgressStepProfile() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement externalDetailsAllLabel = wait.until(ExpectedConditions.elementToBeClickable(RPMRPMStatusAllLabel));
+		externalDetailsAllLabel.click();
+		sleep(2000);
+		WebElement externalDetailsAddLabel = wait.until(ExpectedConditions.elementToBeClickable(RPMRPMStatusAddLabel));
+		externalDetailsAddLabel.click();
+		sleep(2000);
+
+	}
+
+	public void createAddOnlyRpmProgressStepProfile() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement externalDetailsAllLabel = wait.until(ExpectedConditions.elementToBeClickable(RPMRPMStatusAllLabel));
+		externalDetailsAllLabel.click();
+		sleep(2000);
+		WebElement externalDetailsAddLabel = wait.until(ExpectedConditions.elementToBeClickable(RPMRPMStatusAddLabel));
+		externalDetailsAddLabel.click();
+		sleep(2000);
+
+	}
+
+	// RPM / RPM Progress Step
+
+	By deleteProgressButton = By.xpath("(//a[@id='btnDeleteRemoteMonitoringNoteConfirm'])[1]");
+
+	By addProgressStatusDropdown = By.id("AddProgressStatus");
+	By addRemoteMonitoringNoteField = By.id("AddRemoteMonitoring_Note");
+
+	By editProgressStepButton = By.xpath("(//a[@data-original-title='Edit Provider EHR'])[1]");
+	By deleteProgressStepButton = By.xpath("(//a[@id='btnDeleteRemoteMonitoringNoteConfirm'])[1]");
+
+	// Locators
+	By progressStepsLink = By.xpath("//a[normalize-space()='Progress Steps']");
+	By remoteMonitoringNoteField = By.id("RemoteMonitoring_Note");
+	By saveProgressButton = By
+			.xpath("//button[@id='btnSaveRemoteMonitoringNote']//*[name()='svg']//*[name()='path' and @id='Path_23']");
+
+	By editRpmButton = By.xpath("(//a[@data-original-title='Edit RPm Status'])[1]");
+
+	By deleteRpmStatusButton = By.xpath("(//a[@id='btnDeletePatientRPMStatusConfirm'])[1]");
+
+	By saveRpmButton = By.xpath(
+			"//button[@id='btnSaveRemoteMonitoringStatus']//*[name()='svg']//*[name()='path' and @id='Path_23']");
+	By deleteRpmButton = By.xpath("(//a[@id='btnDeletePatientRPMStatusConfirm'])[1]");
+	By editRpmStatusButton = By.xpath("(//a[@data-original-title='Edit RPm Status'])[1]");
+	By addRpmStatusDropdown = By.id("AddRPMStatus");
+	By addRpmNoteField = By.id("AddRPM_Note");
+	By saveEditedButton = By.id("btnSaveEditedRemoteMonitoringStatus");
+
+	By RPMRPMStatusAllLabel = By.xpath("//label[@for='chkg39PatientRPMStatusAll']");
+	By RPMRPMStatusAddLabel = By.xpath("//label[@for='chkg39PatientRPMStatusAdd']");
+
+	// Locators
+	By editRpmStatus = By.xpath("(//a[@data-original-title='Edit RPm Status'])[1]");
+	By deleteRpmStatus = By.xpath("(//a[@id='btnDeletePatientRPMStatusConfirm'])[1]");
+
+	// Locators
+	By bucketDropdownIcon = By.xpath("(//button[@id='bucketDrop']/i)[1]");
+	By editOption = By.xpath(
+			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]");
+	By rpmStatusLink = By.xpath("//a[normalize-space()='RPM Status']");
+	By rpmStatusDropdown = By.id("RPMStatus");
+	By rpmNoteField = By.id("RPM_Note");
+	By saveButton = By.xpath(
+			"//button[@id='btnSaveRemoteMonitoringStatus']//*[name()='svg']//*[name()='path' and @id='Path_23']");
+
+	// Reports / Remote Monitoring Report
+	By newClinicalPABtn = By.xpath("//span[normalize-space()='New Clinical Prior Authorization']");
+	By addPatientIcon = By.xpath("//a[@id='addPatientNamePopup']//img");
+	By searchBtn = By.xpath("//button[normalize-space()='Search']");
+	By selectPatientBtn = By.id("btnPatient");
+
+	By addDrugIcon = By.xpath("//a[@id='addDrugNamePopup']//img");
+	By drugRadio = By.xpath("//input[@name='groupOfDrugRadios' and @data-name='amoxilin']");
+	By selectDrugBtn = By.id("btnDrug");
+
+	By addProviderIcon = By.xpath("//a[@id='addProviderNamePopup']//img");
+	By providerRadio = By.xpath("//input[@type='radio' and @name='groupOfProviderRadios']");
+	By selectProviderBtn = By.id("btnProvider");
+
+	By addPartnerIcon = By.xpath("//a[@id='addPartnerNamePopup']//img");
+	By partnerNameInput = By.id("Filter_BusinessName");
+	By partnerRadio = By.xpath("//input[@type='radio' and @name='groupOfPartnerRadios']");
+	By selectPartnerBtn = By.id("btnPartner");
+
+	By saveBtn = By.id("btnSave");
+
+	By verifyBtn = By.id("btnVerify");
+
+	By pendingSaveBtn = By.id("btnPendingSave");
+	By saveSubmissionBtn = By.id("btnSaveSubmission");
+
+	By sendInsuranceBtn = By.id("sendClinicalPAInsurancePending");
+	By toEmailInput = By.id("toEmail");
+	By emailBodyInput = By.xpath("//div[@aria-label='Editor editing area: main. Press Alt+0 for help.']");
+	By sendEmailBtn = By.xpath("//button[@class='btn btn-primary']");
+
+	private static final By DELETE_CHARTNOTE_ATTACHMENT_ICON = By
+			.xpath("//a[@id='btnDeletePriorAuthorizationChartNoteAttachment']//img");
+	private static final By CONFIRM_CHARTNOTE_ATTACHMENT_DELETE_BTN = By
+			.id("btnDeletePriorAuthorizationChartNoteAttachment");
+
+	private static final By DELETE_GENERATED_ATTACHMENT_ICON = By
+			.xpath("//a[@id='btnDeletePriorAuthorizationGenerateAttachment']//img");
+	private static final By CONFIRM_ATTACHMENT_DELETE_BTN = By.id("btnGenerateAttachmentDeleteConfirm");
+
+	// Create PA
+	private static final By NEW_CLINICAL_PA_BTN = By
+			.xpath("//span[normalize-space()='New Clinical Prior Authorization']");
+
+	// Patient
+	private static final By SEARCH_BTN = By.xpath("//button[normalize-space()='Search']");
+	private static final By FIRST_PATIENT_RADIO = By.xpath("(//input[@type='radio'])[1]");
+	private static final By SELECT_PATIENT_BTN = By.id("btnPatient");
+
+	// Drug
+	private static final By ADD_DRUG_ICON = By.xpath("//a[@id='addDrugNamePopup']//img");
+	private static final By DRUG_RADIO = By.xpath("//input[@name='groupOfDrugRadios' and @data-name='amoxilin']");
+	private static final By SELECT_DRUG_BTN = By.id("btnDrug");
+
+	// Provider
+	private static final By ADD_PROVIDER_ICON = By.xpath("//a[@id='addProviderNamePopup']//img");
+	private static final By PROVIDER_RADIO = By.xpath("//input[@type='radio' and @name='groupOfProviderRadios']");
+
+	// Partner
+	private static final By ADD_PARTNER_ICON = By.xpath("//a[@id='addPartnerNamePopup']//img");
+	private static final By FULL_SEARCH_RADIO = By.id("rdoFullSearch");
+	private static final By BUSINESS_NAME_INPUT = By.id("Filter_BusinessName");
+	private static final By PARTNER_RADIO = By.xpath("//input[@type='radio' and @name='groupOfPartnerRadios']");
+	private static final By SELECT_PARTNER_BTN = By.id("btnPartner");
+
+	// Save & Verify
+	private static final By RECEIVED_DATE_INPUT = By.name("ClinicalPriorAuthorization.ReceivedDate");
+	private static final By PATIENT_DETAILS_TAB = By.xpath("//label[normalize-space()='Patient Details']");
+	private static final By PHARMACY_DETAILS_TAB = By.xpath("//label[normalize-space()='Pharmacy Detail']");
+	private static final By PROVIDER_DETAILS_TAB = By.xpath("//label[normalize-space()='Provider Detail']");
+	private static final By DRUG_DETAILS_TAB = By.xpath("//label[normalize-space()='Drug Detail']");
+	private static final By VERIFY_BTN = By.id("btnVerify");
+	private static final By PENDING_SAVE_BTN = By.id("btnPendingSave");
+
+	// Submission
+	private static final By SUBMISSION_DATE_INPUT = By.name("ClinicalPriorAuthorization.SubmissionDate");
+	private static final By SUBMISSION_NOTE_INPUT = By.id("ClinicalPriorAuthorization_SubmissionNote");
+	private static final By SAVE_SUBMISSION_BTN = By.id("btnSaveSubmission");
+
+	// Delete PA Outcome
+	private static final By OUTCOME_ACTION_MENU = By
+			.xpath("//td[@scope='row']//i[contains(@class,'fa-ellipsis-vertical')]");
+	private static final By DELETE_OUTCOME_OPTION = By
+			.xpath("//a[@id='btnDeletePriorAuthorizationOutcomeStatus']//span[normalize-space()='Delete']");
+	private static final By CONFIRM_OUTCOME_DELETE_BTN = By.id("btnOutcomeDeleteConfirm");
+
+	private By paActionMenuButton = By.xpath("//tbody/tr[1]/td[13]/div[1]/div[1]/button[1]/i[1]");
+
+	// Locators for generating PA All PA
+	private By newClinicalPAButton = By.xpath("//span[normalize-space()='New Clinical Prior Authorization']");
+	private By patientIdInput = By.id("Filter_PatientId");
+	private By firstPatientRadio = By.xpath("(//input[@type='radio'])[1]");
+	private By selectPatientButton = By
+			.xpath("//div[@class='modal-footer text-right d-block']//button[@id='btnPatient']");
+	private By drugNameInput = By.id("Filter_DrugName");
+	private By selectDrugButton = By.xpath("//div[@id='divSearchDrugInfo']//button[@id='btnDrug']");
+	private By selectProviderButton = By.xpath("//button[@id='btnProvider']");
+	private By businessNameInput = By.id("Filter_BusinessName");
+	private By partnerSearchButton = By.xpath("//button[normalize-space()='Search']");
+	private By selectPartnerButton = By.xpath("//button[@id='btnPartner']");
+	private By pharmacyDetailsTab = By.xpath("//label[normalize-space()='Pharmacy Detail']");
+	private By providerDetailsTab = By.xpath("//label[normalize-space()='Provider Detail']");
+	private By drugDetailsTab = By.xpath("//label[normalize-space()='Drug Detail']");
+
+	// RPM / Trigger Alert for Time
+	private By firstReportDrilldownIcon = By.xpath("//tbody/tr[1]/td[10]/div[1]/a[2]//*[name()='svg']");
+	private By downloadReportButton = By.xpath("//button[normalize-space()='Download Report']");
+
+	private By firstReportIcon = By.xpath("//tbody/tr[1]/td[10]/div[1]/a[1]/img[1]");
+	private By monthDropdown = By.id("ddMonth");
+	private By yearDropdown = By.id("ddYear");
+	private By sendForSignatureButton = By.xpath("//button[normalize-space()='Send for Signature']");
+	private By signerDropdown = By.id("ddSigner");
+	private By signerFullName = By.id("DigitalSignatureSigner_FullName");
+	private By signerEmail = By.id("DigitalSignatureSigner_EmailID");
+	private By addManualSignerButton = By.xpath("//a[@onclick='AddManualSigner()']//img[@class='v-align-middle']");
+	private By nextButton = By.xpath("//a[normalize-space()='Next']");
+	private By subjectInput = By.id("DigitalSignature_Subject");
+	private By editorInput = By.xpath("//div[@aria-label='Editor editing area: main. Press Alt+0 for help.']");
+	private By finishButton = By.xpath("//a[normalize-space()='Finish']");
+
+	private By downloadRemoteMonitoringReportIconParameter = By.xpath("//tbody/tr[1]/td[10]/div[1]/a[1]/img[1]");
+
+	private By reportMonthDropdownParameter = By.id("ddMonth");
+
+	private By reportYearDropdownParameter = By.id("ddYear");
+
+	private By downloadReportButtonParameter = By.xpath("//button[normalize-space()='Download']");
+
+	private By drillDownRemoteMonitoringReportIconParameter = By
+			.xpath("//tbody/tr[1]/td[10]/div[1]/a[2]//*[name()='svg']");
+
+	private By rpmPatientRemoteMonitoringUrl = By.xpath("//body"); // used only to validate navigation via URL
+
+	// Bucket menu
+	private By bucketDropdownIconTriggerAlert = By.xpath("(//button[@id='bucketDrop']/i)[1]");
+
+	private By editOptionTriggerAlert = By.xpath(
+			"//div[contains(@class,'bucket-dropdown-content') and contains(@class,'show')]//span[contains(text(),'Edit')]");
+
+	// Trigger alert row action menu
+	private By triggerAlertActionMenuIcon = By.xpath(
+			"//div[contains(@class,'rmMain-data') and contains(@class,'readingTable-main')]//button[1]//*[name()='svg']");
+
+	// Delete option inside dropdown
+	private By deleteTriggerAlertOption = By.id("btnDeleteRemoteMonitoringTriggerPointDetail");
+
+	// Confirm delete button
+	private By confirmDeleteTriggerAlertButton = By.id("deletePatientRemoteMonitoringTriggerPointDetail");
+
+	By triggerAlertActionMenuIconParameter = By
+			.xpath("//div[contains(@class,'rmMain-data readingTable-main')]//button//*[name()='svg']");
+
+	// Delete Trigger Alert option
+	By deleteTriggerAlertOptionParameter = By
+			.xpath("//a[@id='btnDeleteRemoteMonitoringTriggerPointDetail']//*[name()='svg']");
+
+	private By triggerAlertRowActionButtonParameter = By.xpath(
+			"//div[@class='rmMain-data readingTable-main']//div[1]//div[1]//div[1]//div[1]//button[1]//*[name()='svg']");
+
+	private By editTriggerAlertOptionParameter = By.xpath(
+			"//div[@class='tiggerAlert-dropdown show']//a[1]//*[name()='svg']//*[name()='path' and @id='Path_20']");
+
+	private By triggerAlertMinutesInputParameter = By.id("PatientRemoteMonitoringTriggerPoint_Minutes");
+
+	private By triggerAlertModalParameter = By.cssSelector("div.modal-dialog");
+	private By triggerAlertAllLabelParameter = By.xpath("//label[@for='chkg33TriggerAlertAll']");
+
+	private By triggerAlertAddLabelParameter = By.xpath("//label[@for='chkg33TriggerAlertAdd']");
+
+	private By triggerAlertRowEditIconParameter = By.xpath(
+			"(//div[contains(@class,'readingTable-main')]//button//*[name()='svg']//*[name()='path' and contains(@id,'Path_')])[2]");
+
+	private By editTriggerAlertButtonNotPresentParameter = By.xpath(
+			"//div[contains(@class,'tiggerAlert')]//a[contains(@onclick,'editRemoteMonitoringTriggerPointDetails')]");
+
+	private By deleteTriggerAlertButtonNotPresentParameter = By
+			.xpath("//div[contains(@class,'tiggerAlert')]//a[@id='btnDeleteRemoteMonitoringTriggerPointDetail']");
+
+	private By bucketDropdownIconParameterTrigger = By.xpath("(//button[@id='bucketDrop']/i)[1]");
+
+	private By editOptionParameterTrigger = By.xpath(
+			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]");
+
+	private By addTriggerAlertIconParameter = By.xpath("//i[@class='fa fa-plus']");
+
+	private By triggerParameterDropdownParameter = By.xpath(
+			"//div[@class='model-inp']//select[@id='PatientRemoteMonitoringTriggerPoint_PatientRemoteMonitoringParameterId']");
+
+	private By saveTriggerAlertButtonParameter = By
+			.xpath("//div[@class='modal-footer']//button[@id='btnSavePatientRemoteMonitoringTriggerPointDetailPopup']");
+
+	private By triggerMinutesInputParameter = By.id("PatientRemoteMonitoringTriggerPoint_Minutes");
+
+	private By triggerParameterSelectIdParameter = By
+			.id("PatientRemoteMonitoringTriggerPoint_PatientRemoteMonitoringParameterId");
+
+	// RPM / External Details for Alert
+	private By editExternalAlertButtonNotPresentParameter = By
+			.xpath("//a[contains(@onclick,'editRemoteMonitoringExternalEmailDetails')]/img");
+
+	private By deleteExternalAlertIconParameter = By
+			.xpath("//a[@id='btnDeleteRemoteMonitoringExternalEmailDetail']/img");
+
+	private By confirmDeleteExternalAlertButtonParameter = By
+			.xpath("//button[@id='deletePatientRemoteMonitoringExternalEmailDetail']");
+
+	private By addExternalAlertButtonNotPresentParameter = By
+			.xpath("//button[@onclick='javascript: BtnSavePatientRemoteMonitoring();']");
+	private By deleteExternalAlertButtonNotPresentParameter = By
+			.xpath("//a[@id='btnDeleteRemoteMonitoringExternalEmailDetail']/img");
+
+	private By externalAlertRelationParameter = By.id("PatientRemoteMonitoringExternalEmail_Relation");
+	private By editExternalAlertIconParameter = By.xpath("//tbody/tr[1]/td[10]/div[1]/a[1]/img[1]");
+	private By saveExternalAlertPopupButtonParameter = By
+			.xpath("//button[@id='btnSavePatientRemoteMonitoringExternalEmailDetailPopup']");
+
+	private By externalDetailsAllLabelParameter = By.xpath("//label[@for='chkg33ExternalDetailsAll']");
+
+	private By externalDetailsAddLabelParameter = By.xpath("//label[@for='chkg33ExternalDetailsAdd']");
+
+	private By editExternalAlertNotPresentParameter = By
+			.xpath("//a[@class='tooltiped txt-decor-none user-access']//img");
+	private By deleteExternalAlertNotPresentParameter = By
+			.xpath("//a[@id='btnDeleteRemoteMonitoringExternalEmailDetail']//img");
+
+	private By externalAlertNameParameter = By.id("AddPatientRemoteMonitoringExternalEmail_Name");
+
+	private By externalAlertEmailParameter = By.id("AddPatientRemoteMonitoringExternalEmail_EmailId");
+
+	private By externalAlertPhoneParameter = By.id("AddPatientRemoteMonitoringExternalEmail_PhoneNumber");
+
+	// Navigation
+	private By AlertbucketDropdownIconParameter = By.xpath("(//button[@id='bucketDrop']/i)[1]");
+
+	private By AlerteditOptionParameter = By.xpath(
+			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]");
+
+	private By externalAlertsTabParameter = By.xpath("//a[normalize-space()='External Alerts']");
+
+	// Save button
+	private By saveExternalAlertButtonParameter = By.xpath(
+			"//button[@onclick='javascript: BtnSavePatientRemoteMonitoring();']//*[name()='svg']//*[name()='path' and @id='Path_23']");
+
+	// RPM / RMP Details
+
+	private By bucketDropdownIconoptionParameter = By.xpath("(//button[@id='bucketDrop']/i)[1]");
+
+	private By deleteOptionParameter = By.xpath(
+			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]");
+
+	private By confirmDeleteButtonParameter = By
+			.xpath("//div[@id='deletePriorAuthorizationModel']//button[@id='btnDeleteConfirm']");
+
+	// RPM / Remote Monitoring Parameter
+	private By editRpmParameterNotPresentParameter = By
+			.xpath("//div[@class='row']//div[1]//div[1]//div[1]//div[2]//button[2]//*[name()='svg']");
+	private By deleteRpmParameterButtonParameter = By
+			.xpath("//div[@class='row']//div[1]//div[1]//div[1]//div[2]//button[3]//*[name()='svg']");
+
+	private By confirmDeleteRpmParameterButtonParameter = By.xpath("//button[@id='deleteRemoteMonitoringParameter']");
+
+	private By rmParameterDeleteLabelParameter = By.xpath("//label[@for='chkg31RMParameterDelete']");
+
+	private By addRpmParameterNotPresentParameter = By
+			.xpath("//button[@id='addRemoteMonitoringParameter']//*[name()='svg']//*[name()='path' and @id='Path_23']");
+
+	private By deleteRpmParameterNotPresentParameter = By
+			.xpath("//div[@class='row']//div[1]//div[1]//div[1]//div[2]//button[3]//*[name()='svg']");
+
+	private By maxTriggerValueParameter = By.id("RemoteMonitorParameter_MaxTriggerValue");
+
+	private By editRpmParameterButtonParameter = By.xpath(
+			"//div[@class='row']//div[1]//div[1]//div[1]//div[2]//button[2]//*[name()='svg']//*[name()='path' and @id='Path_20']");
+
+	private By saveRpmParameterButtonParameter = By.xpath("//button[@id='btnSaveRemoteParameter']");
+	private By rmParameterEditLabelParameter = By.xpath("//label[@for='chkg31RMParameterEdit']");
+	private By rmParameterAllLabelParameter = By.xpath("//label[@for='chkg31RMParameterAll']");
+
+	private By rmParameterAddLabelParameter = By.xpath("//label[@for='chkg31RMParameterAdd']");
+
+	private By editButtonNotPresentParameter = By
+			.xpath("//div[@class='row']//div[1]//div[1]//div[1]//div[2]//button[2]//*[name()='svg']");
+
+	private By deleteButtonNotPresentParameter = By.xpath(
+			"//div[@class='row']//div[1]//div[1]//div[1]//div[2]//button[3]//*[name()='svg']//*[name()='path' and @id='Path_21']");
+
+	private By bucketDropdownIconParameter = By.xpath("(//button[@id='bucketDrop']/i)[1]");
+
+	private By editOptionParameter = By
+			.xpath("//div[contains(@class,'bucket-dropdown-content')]//span[normalize-space()='Edit']");
+
+	private By devicesTabParameter = By.xpath("//a[normalize-space()='Devices']");
+
+	private By addRpmParameterButtonParameter = By
+			.xpath("//button[@id='addRemoteMonitoringParameter']//*[name()='svg']");
+
+	private By submitButtonParameter = By.xpath("//a[normalize-space()='Submit']");
+
+	private By rpmParameterDropdown = By.id("RemoteMonitoringParameter");
+
+	private By providerDropdown = By.id("Provider_FullName");
+
+	private By deviceDropdownParameter = By.id("RemoteMonitorParameter_PatientRemoteMonitoringDeviceId");
+
+	private By startDateField = By.id("RemoteMonitorParameter_StartDate");
+
+	private By endDateField = By.id("RemoteMonitorParameter_EndDate");
+
+	private By normalMin = By.id("RemoteMonitorParameter_NormalMin");
+
+	private By normalMax = By.id("RemoteMonitorParameter_NormalMax");
+
+	private By level1Min = By.id("RemoteMonitorParameter_Level1MinNormal");
+
+	private By level1Max = By.id("RemoteMonitorParameter_Level1MaxNormal");
+
+	private By level2Min = By.id("RemoteMonitorParameter_Level2MinNormal");
+
+	private By level2Max = By.id("RemoteMonitorParameter_Level2MaxNormal");
+
+	private By level3Min = By.id("RemoteMonitorParameter_Level3MinNormal");
+
+	private By level3Max = By.id("RemoteMonitorParameter_Level3MaxNormal");
+
+	private By minTriggerValue = By.id("RemoteMonitorParameter_MinTriggerValue");
+
+	private By maxTriggerValue = By.id("RemoteMonitorParameter_MaxTriggerValue");
+
 	// Remote Patient Monitoring (RPM)
+	public By remoteMonitoringAllCheckboxLabel = By.xpath("//label[@for='chkg31RemoteMonitoringAll']");
+	public By remoteMonitoringAddCheckboxLabel = By.xpath("//label[@for='chkg31RemoteMonitoringAdd']");
 	private By rpmActionMenuBtn = By.xpath("(//button[@id='bucketDrop']/i)[1]");
 	private By rpmEditOption = By.xpath(
 			"//div[contains(@class,'bucket-dropdown-content') and contains(@class,'show')]//span[contains(text(),'Edit')]");
@@ -63,6 +559,8 @@ public class clinicalpage {
 	private static final By VIEW_DETAILS_ICON = By.xpath("//a[@class='txt-decor-none']//img");
 
 	// Med Recons / Current Medication
+	public By medReconsCurrentMedicationAllLabel = By.xpath("//label[@for='chkg24MedReconsCurrentMedicationAll']");
+	public By medReconsCurrentMedicationAddLabel = By.xpath("//label[@for='chkg24MedReconsCurrentMedicationAdd']");
 	private static final By NEW_CLINICAL_MED_RECONS = By.xpath("//span[normalize-space()='New Clinical Med Recons']");
 	private static final By ADD_PATIENT_ICON = By.xpath("//a[@id='addPatientNamePopup']//img");
 	private static final By PATIENT_SEARCH_INPUT = By.id("Filter_PatientId");
@@ -517,9 +1015,9 @@ public class clinicalpage {
 
 	public By newPriorAuthButton = By.xpath("//span[normalize-space()='New Prior Authorization Type']");
 	public By priorAuthNameInput = By.id("PriorAuthorizationType_Name");
-	public By saveButton = By.id("btnSave");
+	public By RPMStatussaveButton = By.id("btnSave");
 	private By actionMenuIcon = By.xpath("(//button[@id='bucketDrop']/i)[1]");
-	private By editOption = By
+	private By RPMStatuseditOption = By
 			.xpath("//div[contains(@class,'bucket-dropdown-content')]//span[contains(text(),'Edit')]");
 	private By deleteOption = By
 			.xpath("//div[contains(@class,'bucket-dropdown-content')]//span[contains(text(),'Delete')]");
@@ -3645,11 +4143,19 @@ public class clinicalpage {
 		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
 		allModules.click();
 		sleep(2000);
+		WebElement medReconsCurrentMedicationAll = wait
+				.until(ExpectedConditions.elementToBeClickable(medReconsCurrentMedicationAllLabel));
+		medReconsCurrentMedicationAll.click();
+		sleep(2000);
+		WebElement medReconsCurrentMedicationAdd = wait
+				.until(ExpectedConditions.elementToBeClickable(medReconsCurrentMedicationAddLabel));
+		medReconsCurrentMedicationAdd.click();
+		sleep(2000);
 
 	}
 
 	public void userShouldBeAbleToAddMedReconsCurrentMedicationInClinicalModule() {
-
+		sleep(3000);
 		clickWhenClickable(newClinicalMedReconsBtn);
 		sleep(3000);
 
@@ -3829,10 +4335,12 @@ public class clinicalpage {
 		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
 		allModules.click();
 		sleep(2000);
-		WebElement remoteMonitoringAll = wait.until(ExpectedConditions.elementToBeClickable(remoteMonitoringAllLabel));
+		WebElement remoteMonitoringAll = wait
+				.until(ExpectedConditions.elementToBeClickable(remoteMonitoringAllCheckboxLabel));
 		remoteMonitoringAll.click();
 		sleep(2000);
-		WebElement remoteMonitoringAdd = wait.until(ExpectedConditions.elementToBeClickable(remoteMonitoringAddLabel));
+		WebElement remoteMonitoringAdd = wait
+				.until(ExpectedConditions.elementToBeClickable(remoteMonitoringAddCheckboxLabel));
 		remoteMonitoringAdd.click();
 		sleep(2000);
 
@@ -3854,6 +4362,1417 @@ public class clinicalpage {
 		clickWhenClickable(NEXT_BUTTON);
 		sleep(3000);
 		clickWhenClickable(SUBMIT_LINK);
+	}
+
+	// RPM / Remote Monitoring Parameter
+
+	public void cannotAddOrDeleteRpmRemoteMonitoringParameterInClinicalModule() {
+
+		clickWhenClickable(bucketDropdownIconParameter);
+		clickWhenClickable(editOptionParameter);
+
+		clickWhenClickable(devicesTabParameter);
+
+		assertElementNotPresent(addRpmParameterNotPresentParameter);
+		assertElementNotPresent(deleteRpmParameterNotPresentParameter);
+	}
+
+	public void canEditRpmRemoteMonitoringParameterInClinicalModule() {
+
+		clickWhenClickable(bucketDropdownIconParameter);
+		clickWhenClickable(editOptionParameter);
+
+		clickWhenClickable(devicesTabParameter);
+
+		clickWhenClickable(editRpmParameterButtonParameter);
+
+		waitAndSendKeys(maxTriggerValueParameter, "4");
+
+		clickWhenClickable(saveRpmParameterButtonParameter);
+	}
+
+	public void givenProfileHasDeleteAccessOnlyForRpmRemoteMonitoringParameter() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement rmParameterAllLabel = wait
+				.until(ExpectedConditions.elementToBeClickable(rmParameterAllLabelParameter));
+		rmParameterAllLabel.click();
+		sleep(2000);
+		WebElement rmParameterAddLabel = wait
+				.until(ExpectedConditions.elementToBeClickable(rmParameterDeleteLabelParameter));
+		rmParameterAddLabel.click();
+		sleep(2000);
+
+	}
+
+	public void givenProfileHasEditAccessOnlyForRpmRmpDetails() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void givenProfileHasEditAccessOnlyForRpmRemoteMonitoringParameter() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement rmParameterAllLabel = wait
+				.until(ExpectedConditions.elementToBeClickable(rmParameterAllLabelParameter));
+		rmParameterAllLabel.click();
+		sleep(2000);
+		WebElement rmParameterAddLabel = wait
+				.until(ExpectedConditions.elementToBeClickable(rmParameterEditLabelParameter));
+		rmParameterAddLabel.click();
+		sleep(2000);
+
+	}
+
+	public void givenProfileHasAddAccessOnlyForRpmRemoteMonitoringParameter() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement rmParameterAllLabel = wait
+				.until(ExpectedConditions.elementToBeClickable(rmParameterAllLabelParameter));
+		rmParameterAllLabel.click();
+		sleep(2000);
+		WebElement rmParameterAddLabel = wait
+				.until(ExpectedConditions.elementToBeClickable(rmParameterAddLabelParameter));
+		rmParameterAddLabel.click();
+		sleep(2000);
+
+	}
+
+	public void cannotEditOrDeleteRpmRemoteMonitoringParameterInClinicalModule() {
+		sleep(2000);
+		clickWhenClickable(bucketDropdownIconParameter);
+		sleep(2000);
+		clickWhenClickable(editOptionParameter);
+		sleep(2000);
+		clickWhenClickable(devicesTabParameter);
+		sleep(2000);
+		assertElementNotPresent(editButtonNotPresentParameter);
+		assertElementNotPresent(deleteButtonNotPresentParameter);
+	}
+
+	public void canAddRpmRemoteMonitoringParameterInClinicalModule() {
+		sleep(2000);
+		clickWhenClickable(bucketDropdownIconParameter);
+		sleep(2000);
+		clickWhenClickable(editOptionParameter);
+		sleep(2000);
+		clickWhenClickable(devicesTabParameter);
+		sleep(2000);
+		selectDropdownByIndexWhenReady(rpmParameterDropdown, 1);
+		sleep(2000);
+		selectDropdownByIndexWhenReady(providerDropdown, 1);
+		sleep(2000);
+		selectDropdownByIndexWhenReady(deviceDropdownParameter, 1);
+		sleep(2000);
+
+		WebElement startDate = driver.findElement(startDateField);
+		startDate.clear();
+		startDate.sendKeys("10/09/2025", Keys.TAB);
+
+		WebElement endDate = driver.findElement(endDateField);
+		endDate.clear();
+		endDate.sendKeys("10/09/2025", Keys.TAB);
+		sleep(2000);
+		waitAndSendKeys(normalMin, "4");
+		waitAndSendKeys(normalMax, "4");
+		waitAndSendKeys(level1Min, "4");
+		waitAndSendKeys(level1Max, "4");
+		waitAndSendKeys(level2Min, "4");
+		waitAndSendKeys(level2Max, "4");
+		waitAndSendKeys(level3Min, "4");
+		waitAndSendKeys(level3Max, "4");
+		waitAndSendKeys(minTriggerValue, "4");
+		waitAndSendKeys(maxTriggerValue, "4");
+
+		clickWhenClickable(addRpmParameterButtonParameter);
+		clickWhenClickable(submitButtonParameter);
+	}
+
+	public void canDeleteRpmRemoteMonitoringParameterInClinicalModule() {
+
+		clickWhenClickable(bucketDropdownIconParameter);
+		clickWhenClickable(editOptionParameter);
+
+		clickWhenClickable(devicesTabParameter);
+
+		clickWhenClickable(deleteRpmParameterButtonParameter);
+
+		clickWhenClickable(confirmDeleteRpmParameterButtonParameter);
+	}
+
+	public void cannotAddOrEditRpmRemoteMonitoringParameterInClinicalModule() {
+
+		clickWhenClickable(bucketDropdownIconParameter);
+		clickWhenClickable(editOptionParameter);
+
+		clickWhenClickable(devicesTabParameter);
+
+		assertElementNotPresent(addRpmParameterNotPresentParameter);
+		assertElementNotPresent(editRpmParameterNotPresentParameter);
+	}
+
+	// RPM / RMP Details
+
+	public void userShouldNotBeAbleToEditRPMRMPDetailsInClinicalModule() {
+
+		clickWhenClickable(bucketDropdownIconParameter);
+		clickWhenClickable(deleteOptionParameter);
+
+		clickWhenClickable(confirmDeleteButtonParameter);
+	}
+
+	public void givenProfileHasNoEditAccessForRpmRmpDetails() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement externalDetailsAllLabel = wait
+				.until(ExpectedConditions.elementToBeClickable(externalDetailsAllLabelParameter));
+		externalDetailsAllLabel.click();
+		sleep(2000);
+		WebElement externalDetailsAddLabel = wait
+				.until(ExpectedConditions.elementToBeClickable(externalDetailsAddLabelParameter));
+		externalDetailsAddLabel.click();
+		sleep(2000);
+
+	}
+
+	public void canEditRpmRmpDetailsInClinicalModule() {
+		sleep(4000);
+		clickWhenClickable(bucketDropdownIconoptionParameter);
+		sleep(2000);
+		clickWhenClickable(deleteOptionParameter);
+		sleep(2000);
+		clickWhenClickable(confirmDeleteButtonParameter);
+	}
+
+	public void userShouldNotHaveAccessToAddOrDeleteRPMRMPDetailsInClinicalModule() {
+		sleep(4000);
+		clickWhenClickable(bucketDropdownIconParameter);
+		sleep(2000);
+		clickWhenClickable(deleteOptionParameter);
+		sleep(2000);
+		clickWhenClickable(confirmDeleteButtonParameter);
+	}
+
+	// RPM / External Details for Alert
+
+	public void cannotAddOrEditRpmExternalDetailsForAlertInClinicalModule() {
+		sleep(3000);
+		assertElementNotPresent(addExternalAlertButtonNotPresentParameter);
+		assertElementNotPresent(editExternalAlertButtonNotPresentParameter);
+	}
+
+	public void canDeleteRpmExternalDetailsForAlertInClinicalModule() {
+
+		clickWhenClickable(bucketDropdownIconParameter);
+		clickWhenClickable(editOptionParameter);
+
+		clickWhenClickable(externalAlertsTabParameter);
+
+		clickWhenClickable(deleteExternalAlertIconParameter);
+
+		clickWhenClickable(confirmDeleteExternalAlertButtonParameter);
+	}
+
+	public void givenProfileHasDeleteAccessOnlyForRpmExternalDetailsForAlert() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement externalDetailsAllLabel = wait
+				.until(ExpectedConditions.elementToBeClickable(externalDetailsAllLabelParameter));
+		externalDetailsAllLabel.click();
+		sleep(2000);
+		WebElement externalDetailsAddLabel = wait
+				.until(ExpectedConditions.elementToBeClickable(externalDetailsAddLabelParameter));
+		externalDetailsAddLabel.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCannotAddOrDeleteRPMExternalDetailsForAlert() {
+
+		sleep(3000);
+		assertElementNotPresent(addExternalAlertButtonNotPresentParameter);
+		assertElementNotPresent(deleteExternalAlertButtonNotPresentParameter);
+	}
+
+	public void verifyUserCanEditRPMExternalDetailsForAlert() {
+
+		clickWhenClickable(bucketDropdownIconParameter);
+		clickWhenClickable(editOptionParameter);
+
+		clickWhenClickable(externalAlertsTabParameter);
+
+		clickWhenClickable(editExternalAlertIconParameter);
+
+		waitAndSendKeys(externalAlertRelationParameter, "Patient");
+
+		clickWhenClickable(saveExternalAlertPopupButtonParameter);
+	}
+
+	public void cannotEditOrDeleteRpmExternalDetailsForAlertInClinicalModule() {
+		sleep(3000);
+		assertElementNotPresent(editExternalAlertNotPresentParameter);
+		assertElementNotPresent(deleteExternalAlertNotPresentParameter);
+	}
+
+	public void givenProfileHasEditAccessOnlyForRpmExternalDetailsForAlert() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement externalDetailsAllLabel = wait
+				.until(ExpectedConditions.elementToBeClickable(externalDetailsAllLabelParameter));
+		externalDetailsAllLabel.click();
+		sleep(2000);
+		WebElement externalDetailsAddLabel = wait
+				.until(ExpectedConditions.elementToBeClickable(externalDetailsAddLabelParameter));
+		externalDetailsAddLabel.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCanAddRPMExternalDetailsForAlert() {
+		sleep(2000);
+		clickWhenClickable(AlertbucketDropdownIconParameter);
+		clickWhenClickable(AlerteditOptionParameter);
+		sleep(2000);
+		clickWhenClickable(externalAlertsTabParameter);
+		sleep(2000);
+		waitAndSendKeys(externalAlertNameParameter, "John Doe");
+		waitAndSendKeys(externalAlertEmailParameter, "johndoe_test@mailinator.com");
+		waitAndSendKeys(externalAlertPhoneParameter, "555-101-2020");
+		sleep(2000);
+		clickWhenClickable(saveExternalAlertButtonParameter);
+	}
+
+	// RPM / Trigger Alert for Time
+
+	public void downloadDrilldownReportForRemoteMonitoringReportInClinicalModule() {
+		sleep(3000);
+
+		clickWhenClickable(firstReportDrilldownIcon);
+		sleep(3000);
+
+		clickWhenClickable(downloadReportButton);
+		sleep(1000);
+	}
+
+	public void exportRemoteMonitoringReportToExcelInClinicalModule() {
+		sleep(3000);
+		clickWhenClickable(exportToExcelButton);
+	}
+
+	public void shouldSendReportsRemoteMonitoringReportForSignatureInClinicalModule() {
+		sleep(3000);
+
+		clickWhenClickable(firstReportIcon);
+		sleep(2000);
+
+		clickWhenClickable(monthDropdown);
+		sleep(2000);
+		selectDropdownByIndexWhenReady(monthDropdown, 1);
+		sleep(2000);
+
+		clickWhenClickable(yearDropdown);
+		sleep(2000);
+		selectDropdownByIndexWhenReady(yearDropdown, 1);
+		sleep(2000);
+
+		clickWhenClickable(sendForSignatureButton);
+		sleep(2000);
+
+		clickWhenClickable(signerDropdown);
+		sleep(2000);
+		selectDropdownByIndexWhenReady(signerDropdown, 1);
+		sleep(2000);
+
+		waitAndSendKeys(signerFullName, "Lisa Brooker");
+		waitAndSendKeys(signerEmail, "LisaJBrooker@mailinator.com");
+
+		clickWhenClickable(addManualSignerButton);
+		sleep(2000);
+
+		clickWhenClickable(nextButton);
+		sleep(2000);
+		clickWhenClickable(nextButton);
+
+		waitAndSendKeys(subjectInput, "Signature requested");
+		waitAndSendKeys(editorInput, "Signature requested");
+
+		clickWhenClickable(finishButton);
+	}
+
+	public void userShouldBeAbleToDownloadReportsRemoteMonitoringReportFileInClinicalModule() {
+
+		clickWhenClickable(downloadRemoteMonitoringReportIconParameter);
+		sleep(2000);
+
+		clickWhenClickable(reportMonthDropdownParameter);
+		sleep(1000);
+		selectDropdownByIndexWhenReady(reportMonthDropdownParameter, 1);
+		sleep(2000);
+
+		clickWhenClickable(reportYearDropdownParameter);
+		sleep(1000);
+		selectDropdownByIndexWhenReady(reportYearDropdownParameter, 1);
+		sleep(2000);
+
+		clickWhenClickable(downloadReportButtonParameter);
+		sleep(2000);
+	}
+
+	public void userShouldBeAbleToDrillDownReportsRemoteMonitoringReportInClinicalModule() {
+		sleep(3000);
+		clickWhenClickable(drillDownRemoteMonitoringReportIconParameter);
+		sleep(1000);
+	}
+
+	public void userCannotAddOrEditRPMTriggerAlertForTimeInClinicalModule() {
+		sleep(3000);
+		assertElementNotPresent(addTriggerAlertIconParameter);
+		sleep(2000);
+		clickWhenClickable(triggerAlertActionMenuIconParameter);
+		sleep(2000);
+		assertElementNotPresent(editTriggerAlertOptionParameter);
+	}
+
+	public void canDeleteRpmTriggerAlertForTimeInClinicalModule() {
+
+		sleep(3000);
+		clickWhenClickable(bucketDropdownIconTriggerAlert);
+
+		sleep(2000);
+		clickWhenClickable(editOptionTriggerAlert);
+
+		sleep(2000);
+		clickWhenClickable(triggerAlertActionMenuIcon);
+
+		sleep(2000);
+		clickWhenClickable(deleteTriggerAlertOption);
+
+		sleep(3000);
+		clickWhenClickable(confirmDeleteTriggerAlertButton);
+
+		sleep(1000);
+	}
+
+	public void userShouldNotBeAbleToAddOrDeleteRPMTriggerAlertForTimeInClinicalModule() {
+		sleep(3000);
+		assertElementNotPresent(addTriggerAlertIconParameter);
+		sleep(2000);
+		clickWhenClickable(triggerAlertActionMenuIconParameter);
+		sleep(2000);
+		assertElementNotPresent(deleteTriggerAlertOptionParameter);
+	}
+
+	public void createDeleteOnlyProfileForRpmTriggerAlertForTime() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement externalDetailsAllLabel = wait
+				.until(ExpectedConditions.elementToBeClickable(triggerAlertAllLabelParameter));
+		externalDetailsAllLabel.click();
+		sleep(2000);
+		WebElement externalDetailsAddLabel = wait
+				.until(ExpectedConditions.elementToBeClickable(triggerAlertAddLabelParameter));
+		externalDetailsAddLabel.click();
+		sleep(2000);
+
+	}
+
+	public void createProfileWithAllAccessForReportsRemoteMonitoringReport() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement externalDetailsAllLabel = wait
+				.until(ExpectedConditions.elementToBeClickable(triggerAlertAllLabelParameter));
+		externalDetailsAllLabel.click();
+		sleep(2000);
+		WebElement externalDetailsAddLabel = wait
+				.until(ExpectedConditions.elementToBeClickable(triggerAlertAddLabelParameter));
+		externalDetailsAddLabel.click();
+		sleep(2000);
+
+	}
+
+	public void canEditRpmTriggerAlertForTimeInClinicalModule() {
+
+		clickWhenClickable(bucketDropdownIconParameterTrigger);
+		clickWhenClickable(editOptionParameterTrigger);
+
+		clickWhenClickable(triggerAlertRowActionButtonParameter);
+		clickWhenClickable(editTriggerAlertOptionParameter);
+
+		waitAndSendKeys(triggerAlertMinutesInputParameter, "11");
+
+		clickWhenClickable(saveTriggerAlertButtonParameter);
+	}
+
+	public void givenProfileHasEditAccessOnlyForRpmTriggerAlertForTime() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement externalDetailsAllLabel = wait
+				.until(ExpectedConditions.elementToBeClickable(triggerAlertAllLabelParameter));
+		externalDetailsAllLabel.click();
+		sleep(2000);
+		WebElement externalDetailsAddLabel = wait
+				.until(ExpectedConditions.elementToBeClickable(triggerAlertAddLabelParameter));
+		externalDetailsAddLabel.click();
+		sleep(2000);
+
+	}
+
+	public void cannotEditOrDeleteRpmTriggerAlertForTimeInClinicalModule() {
+		sleep(3000);
+		clickWhenClickable(triggerAlertRowEditIconParameter);
+		sleep(2000);
+		assertElementNotPresent(editTriggerAlertButtonNotPresentParameter);
+		assertElementNotPresent(deleteTriggerAlertButtonNotPresentParameter);
+	}
+
+	public void canAddRpmTriggerAlertForTimeInClinicalModule() {
+		sleep(2000);
+		clickWhenClickable(bucketDropdownIconParameterTrigger);
+		clickWhenClickable(editOptionParameterTrigger);
+		sleep(2000);
+		clickWhenClickable(addTriggerAlertIconParameter);
+		sleep(2000);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(triggerAlertModalParameter));
+		sleep(2000);
+		WebElement triggerDropdown = wait
+				.until(ExpectedConditions.elementToBeClickable(triggerParameterDropdownParameter));
+		triggerDropdown.click();
+		selectDropdownByIndexWhenReady(triggerParameterSelectIdParameter, 1);
+		sleep(2000);
+		WebElement minutesInput = wait.until(ExpectedConditions.elementToBeClickable(triggerMinutesInputParameter));
+		minutesInput.clear();
+		minutesInput.sendKeys("10");
+		sleep(2000);
+		clickWhenClickable(saveTriggerAlertButtonParameter);
+		sleep(2000);
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(triggerAlertModalParameter));
+	}
+
+	public void givenProfileHasAddAccessOnlyForRpmTriggerAlertForTime() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement externalDetailsAllLabel = wait
+				.until(ExpectedConditions.elementToBeClickable(triggerAlertAllLabelParameter));
+		externalDetailsAllLabel.click();
+		sleep(2000);
+		WebElement externalDetailsAddLabel = wait
+				.until(ExpectedConditions.elementToBeClickable(triggerAlertAddLabelParameter));
+		externalDetailsAddLabel.click();
+		sleep(2000);
+
+	}
+
+	// Reports / Remote Monitoring Report
+
+	public void userShouldBeAbleToSendPAInsuranceInClinicalModule() {
+
+		clickWhenClickable(newClinicalPABtn);
+
+		clickWhenClickable(addPatientIcon);
+		waitAndSendKeys(patientIdInput, "0004406");
+		clickWhenClickable(searchBtn);
+		clickWhenClickable(firstPatientRadio);
+		clickWhenClickable(selectPatientBtn);
+
+		clickWhenClickable(addDrugIcon);
+		waitAndSendKeys(drugNameInput, "amoxilin");
+		clickWhenClickable(searchBtn);
+		clickWhenClickable(drugRadio);
+		clickWhenClickable(selectDrugBtn);
+
+		clickWhenClickable(addProviderIcon);
+		clickWhenClickable(providerRadio);
+		clickWhenClickable(selectProviderBtn);
+
+		clickWhenClickable(addPartnerIcon);
+		clickWhenClickable(fullSearchRadio);
+		waitAndSendKeys(partnerNameInput, "Attorney");
+		clickWhenClickable(searchBtn);
+		clickWhenClickable(partnerRadio);
+		clickWhenClickable(selectPartnerBtn);
+
+		WebElement receivedDate = driver.findElement(receivedDateInput);
+		receivedDate.clear();
+		receivedDate.sendKeys("10/09/2025");
+		receivedDate.sendKeys(Keys.TAB);
+		clickWhenClickable(saveBtn);
+
+		clickWhenClickable(patientDetailsTab);
+		clickWhenClickable(pharmacyDetailsTab);
+		clickWhenClickable(providerDetailsTab);
+		clickWhenClickable(drugDetailsTab);
+		clickWhenClickable(verifyBtn);
+
+		clickWhenClickable(pendingSaveBtn);
+		WebElement submissionDate = driver.findElement(submissionDateInput);
+		submissionDate.clear();
+		submissionDate.sendKeys("10/09/2025");
+		submissionDate.sendKeys(Keys.TAB);
+		waitAndSendKeys(submissionNoteInput, "Submission");
+		clickWhenClickable(saveSubmissionBtn);
+
+		clickWhenClickable(sendInsuranceBtn);
+		waitAndSendKeys(toEmailInput, "MarioLKlein@mailinator.com");
+		waitAndSendKeys(subjectInput, "Insurance");
+		waitAndSendKeys(emailBodyInput, "Insurance");
+		clickWhenClickable(sendEmailBtn);
+	}
+
+	public void deletePAChartNoteAttachmentInClinicalModule() {
+
+		clickWhenClickable(NEW_CLINICAL_PA_BTN);
+
+		clickWhenClickable(ADD_PATIENT_ICON);
+		waitAndSendKeys(PATIENT_ID_INPUT, "0004406");
+		clickWhenClickable(SEARCH_BTN);
+		clickWhenClickable(FIRST_PATIENT_RADIO);
+		clickWhenClickable(SELECT_PATIENT_BTN);
+
+		clickWhenClickable(ADD_DRUG_ICON);
+		waitAndSendKeys(DRUG_NAME_INPUT, "amoxilin");
+		clickWhenClickable(SEARCH_BTN);
+		clickWhenClickable(DRUG_RADIO);
+		clickWhenClickable(SELECT_DRUG_BTN);
+
+		clickWhenClickable(ADD_PROVIDER_ICON);
+		clickWhenClickable(PROVIDER_RADIO);
+		clickWhenClickable(SELECT_PROVIDER_BTN);
+
+		clickWhenClickable(ADD_PARTNER_ICON);
+		clickWhenClickable(FULL_SEARCH_RADIO);
+		waitAndSendKeys(BUSINESS_NAME_INPUT, "Attorney");
+		clickWhenClickable(SEARCH_BTN);
+		clickWhenClickable(PARTNER_RADIO);
+		clickWhenClickable(SELECT_PARTNER_BTN);
+
+		WebElement receivedDate = driver.findElement(RECEIVED_DATE_INPUT);
+		receivedDate.clear();
+		receivedDate.sendKeys("10/09/2025");
+		receivedDate.sendKeys(Keys.TAB);
+
+		clickWhenClickable(SAVE_BTN);
+
+		clickWhenClickable(PATIENT_DETAILS_TAB);
+		clickWhenClickable(PHARMACY_DETAILS_TAB);
+		clickWhenClickable(PROVIDER_DETAILS_TAB);
+		clickWhenClickable(DRUG_DETAILS_TAB);
+
+		clickWhenClickable(VERIFY_BTN);
+		clickWhenClickable(PENDING_SAVE_BTN);
+
+		WebElement submissionDate = driver.findElement(SUBMISSION_DATE_INPUT);
+		submissionDate.clear();
+		submissionDate.sendKeys("10/09/2025");
+		submissionDate.sendKeys(Keys.TAB);
+
+		waitAndSendKeys(SUBMISSION_NOTE_INPUT, "Submission");
+		clickWhenClickable(SAVE_SUBMISSION_BTN);
+
+		clickWhenClickable(DELETE_CHARTNOTE_ATTACHMENT_ICON);
+		clickWhenClickable(CONFIRM_CHARTNOTE_ATTACHMENT_DELETE_BTN);
+	}
+
+	public void userShouldBeAbleToDeletePAChartNoteAttachmentInClinicalModule() {
+
+		clickWhenClickable(NEW_CLINICAL_PA_BTN);
+
+		clickWhenClickable(ADD_PATIENT_ICON);
+		waitAndSendKeys(PATIENT_ID_INPUT, "0004406");
+		clickWhenClickable(SEARCH_BTN);
+		clickWhenClickable(FIRST_PATIENT_RADIO);
+		clickWhenClickable(SELECT_PATIENT_BTN);
+
+		clickWhenClickable(ADD_DRUG_ICON);
+		waitAndSendKeys(DRUG_NAME_INPUT, "amoxilin");
+		clickWhenClickable(SEARCH_BTN);
+		clickWhenClickable(DRUG_RADIO);
+		clickWhenClickable(SELECT_DRUG_BTN);
+
+		clickWhenClickable(ADD_PROVIDER_ICON);
+		clickWhenClickable(PROVIDER_RADIO);
+		clickWhenClickable(SELECT_PROVIDER_BTN);
+
+		clickWhenClickable(ADD_PARTNER_ICON);
+		clickWhenClickable(FULL_SEARCH_RADIO);
+		waitAndSendKeys(BUSINESS_NAME_INPUT, "Attorney");
+		clickWhenClickable(SEARCH_BTN);
+		clickWhenClickable(PARTNER_RADIO);
+		clickWhenClickable(SELECT_PARTNER_BTN);
+
+		WebElement receivedDate = driver.findElement(RECEIVED_DATE_INPUT);
+		receivedDate.clear();
+		receivedDate.sendKeys("10/09/2025");
+		receivedDate.sendKeys(Keys.TAB);
+
+		clickWhenClickable(SAVE_BTN);
+
+		clickWhenClickable(PATIENT_DETAILS_TAB);
+		clickWhenClickable(PHARMACY_DETAILS_TAB);
+		clickWhenClickable(PROVIDER_DETAILS_TAB);
+		clickWhenClickable(DRUG_DETAILS_TAB);
+		clickWhenClickable(VERIFY_BTN);
+		clickWhenClickable(PENDING_SAVE_BTN);
+
+		WebElement submissionDate = driver.findElement(SUBMISSION_DATE_INPUT);
+		submissionDate.clear();
+		submissionDate.sendKeys("10/09/2025");
+		submissionDate.sendKeys(Keys.TAB);
+
+		waitAndSendKeys(SUBMISSION_NOTE_INPUT, "Submission");
+		clickWhenClickable(SAVE_SUBMISSION_BTN);
+
+		clickWhenClickable(DELETE_CHARTNOTE_ATTACHMENT_ICON);
+		clickWhenClickable(CONFIRM_CHARTNOTE_ATTACHMENT_DELETE_BTN);
+	}
+
+	public void userShouldBeAbleToDeleteGeneratedIncomingAttachmentInClinicalModule() {
+
+		clickWhenClickable(NEW_CLINICAL_PA_BTN);
+
+		clickWhenClickable(ADD_PATIENT_ICON);
+		waitAndSendKeys(PATIENT_ID_INPUT, "0004406");
+		clickWhenClickable(SEARCH_BTN);
+		clickWhenClickable(FIRST_PATIENT_RADIO);
+		clickWhenClickable(SELECT_PATIENT_BTN);
+
+		clickWhenClickable(ADD_DRUG_ICON);
+		waitAndSendKeys(DRUG_NAME_INPUT, "amoxilin");
+		clickWhenClickable(SEARCH_BTN);
+		clickWhenClickable(DRUG_RADIO);
+		clickWhenClickable(SELECT_DRUG_BTN);
+
+		clickWhenClickable(ADD_PROVIDER_ICON);
+		clickWhenClickable(PROVIDER_RADIO);
+		clickWhenClickable(SELECT_PROVIDER_BTN);
+
+		clickWhenClickable(ADD_PARTNER_ICON);
+		clickWhenClickable(FULL_SEARCH_RADIO);
+		waitAndSendKeys(BUSINESS_NAME_INPUT, "Attorney");
+		clickWhenClickable(SEARCH_BTN);
+		clickWhenClickable(PARTNER_RADIO);
+		clickWhenClickable(SELECT_PARTNER_BTN);
+
+		WebElement receivedDate = driver.findElement(RECEIVED_DATE_INPUT);
+		receivedDate.clear();
+		receivedDate.sendKeys("10/09/2025");
+		receivedDate.sendKeys(Keys.TAB);
+
+		clickWhenClickable(SAVE_BTN);
+
+		clickWhenClickable(PATIENT_DETAILS_TAB);
+		clickWhenClickable(PHARMACY_DETAILS_TAB);
+		clickWhenClickable(PROVIDER_DETAILS_TAB);
+		clickWhenClickable(DRUG_DETAILS_TAB);
+		clickWhenClickable(VERIFY_BTN);
+		clickWhenClickable(PENDING_SAVE_BTN);
+
+		WebElement submissionDate = driver.findElement(SUBMISSION_DATE_INPUT);
+		submissionDate.clear();
+		submissionDate.sendKeys("10/09/2025");
+		submissionDate.sendKeys(Keys.TAB);
+
+		waitAndSendKeys(SUBMISSION_NOTE_INPUT, "Submission");
+		clickWhenClickable(SAVE_SUBMISSION_BTN);
+
+		clickWhenClickable(DELETE_GENERATED_ATTACHMENT_ICON);
+		clickWhenClickable(CONFIRM_ATTACHMENT_DELETE_BTN);
+	}
+
+	public void userShouldBeAbleToDeletePAOutcomeStatusInClinicalModule() {
+
+		clickWhenClickable(NEW_CLINICAL_PA_BTN);
+
+		clickWhenClickable(ADD_PATIENT_ICON);
+		waitAndSendKeys(PATIENT_ID_INPUT, "0004406");
+		clickWhenClickable(SEARCH_BTN);
+		clickWhenClickable(FIRST_PATIENT_RADIO);
+		clickWhenClickable(SELECT_PATIENT_BTN);
+
+		clickWhenClickable(ADD_DRUG_ICON);
+		waitAndSendKeys(DRUG_NAME_INPUT, "amoxilin");
+		clickWhenClickable(SEARCH_BTN);
+		clickWhenClickable(DRUG_RADIO);
+		clickWhenClickable(SELECT_DRUG_BTN);
+
+		clickWhenClickable(ADD_PROVIDER_ICON);
+		clickWhenClickable(PROVIDER_RADIO);
+		clickWhenClickable(SELECT_PROVIDER_BTN);
+
+		clickWhenClickable(ADD_PARTNER_ICON);
+		clickWhenClickable(FULL_SEARCH_RADIO);
+		waitAndSendKeys(BUSINESS_NAME_INPUT, "Attorney");
+		clickWhenClickable(SEARCH_BTN);
+		clickWhenClickable(PARTNER_RADIO);
+		clickWhenClickable(SELECT_PARTNER_BTN);
+
+		WebElement receivedDate = driver.findElement(RECEIVED_DATE_INPUT);
+		receivedDate.clear();
+		receivedDate.sendKeys("10/09/2025");
+		receivedDate.sendKeys(Keys.TAB);
+		clickWhenClickable(SAVE_BTN);
+
+		clickWhenClickable(PATIENT_DETAILS_TAB);
+		clickWhenClickable(PHARMACY_DETAILS_TAB);
+		clickWhenClickable(PROVIDER_DETAILS_TAB);
+		clickWhenClickable(DRUG_DETAILS_TAB);
+		clickWhenClickable(VERIFY_BTN);
+		clickWhenClickable(PENDING_SAVE_BTN);
+
+		WebElement submissionDate = driver.findElement(SUBMISSION_DATE_INPUT);
+		submissionDate.clear();
+		submissionDate.sendKeys("10/09/2025");
+		submissionDate.sendKeys(Keys.TAB);
+		waitAndSendKeys(SUBMISSION_NOTE_INPUT, "Submission");
+		clickWhenClickable(SAVE_SUBMISSION_BTN);
+
+		clickWhenClickable(OUTCOME_ACTION_MENU);
+		clickWhenClickable(DELETE_OUTCOME_OPTION);
+		clickWhenClickable(CONFIRM_OUTCOME_DELETE_BTN);
+	}
+
+	public void userShouldBeAbleToDeletePAStatusInClinicalModule() {
+		sleep(3000);
+
+		clickWhenClickable(paActionMenuButton);
+		sleep(2000);
+
+		clickWhenClickable(deleteOption);
+		sleep(2000);
+
+		clickWhenClickable(confirmDeleteButton);
+	}
+
+	public void userShouldBeAbleToShowGeneratedPABYAllInClinicalModule() {
+		sleep(3000);
+
+		clickWhenClickable(newClinicalPAButton);
+		sleep(2000);
+
+		clickWhenClickable(addPatientButton);
+		sleep(2000);
+		waitAndSendKeys(patientIdInput, "0004406");
+		clickWhenClickable(patientSearchButton);
+		sleep(2000);
+		clickWhenClickable(firstPatientRadio);
+		sleep(1000);
+		clickWhenClickable(selectPatientButton);
+		sleep(5000);
+
+		clickWhenClickable(addDrugButton);
+		sleep(3000);
+		waitAndSendKeys(drugNameInput, "amoxilin");
+		clickWhenClickable(drugSearchButton);
+		sleep(2000);
+		clickWhenClickable(selectDrugRadio);
+		sleep(1000);
+		clickWhenClickable(selectDrugButton);
+		sleep(5000);
+
+		clickWhenClickable(addProviderButton);
+		sleep(4000);
+		clickWhenClickable(selectProviderRadio);
+		sleep(3000);
+		clickWhenClickable(selectProviderButton);
+		sleep(4000);
+
+		clickWhenClickable(addPartnerButton);
+		sleep(3000);
+		clickWhenClickable(fullSearchRadio);
+		sleep(3000);
+		waitAndSendKeys(businessNameInput, "Attorney");
+		clickWhenClickable(partnerSearchButton);
+		sleep(3000);
+		clickWhenClickable(selectPartnerRadio);
+		sleep(3000);
+		clickWhenClickable(selectPartnerButton);
+		sleep(3000);
+
+		WebElement receivedDate = driver.findElement(receivedDateInput);
+		receivedDate.clear();
+		receivedDate.sendKeys("10/09/2025");
+		receivedDate.sendKeys(Keys.TAB);
+		sleep(2000);
+
+		clickWhenClickable(saveButton);
+		sleep(2000);
+
+		clickWhenClickable(patientDetailsTab);
+		clickWhenClickable(pharmacyDetailsTab);
+		clickWhenClickable(providerDetailsTab);
+		clickWhenClickable(drugDetailsTab);
+
+		clickWhenClickable(verifyButton);
+		sleep(2000);
+		clickWhenClickable(pendingSaveButton);
+		sleep(2000);
+
+		WebElement submissionDate = driver.findElement(submissionDateInput);
+		submissionDate.clear();
+		submissionDate.sendKeys("10/09/2025");
+		submissionDate.sendKeys(Keys.TAB);
+		sleep(2000);
+
+		waitAndSendKeys(submissionNoteInput, "Submission");
+		clickWhenClickable(saveSubmissionButton);
+	}
+
+	public void userShouldBeAbleToExportAllPAToExcelInClinicalModule() {
+		sleep(3000);
+
+		clickWhenClickable(exportToExcelButton);
+	}
+
+	public void userShouldBeAbleToViewAllPAOutcomeInClinicalModule() {
+		sleep(3000);
+
+		clickWhenClickable(newClinicalPAButton);
+		sleep(2000);
+
+		clickWhenClickable(addPatientButton);
+		sleep(2000);
+		waitAndSendKeys(patientIdInput, "0004406");
+		clickWhenClickable(patientSearchButton);
+		sleep(2000);
+		clickWhenClickable(firstPatientRadio);
+		sleep(1000);
+		clickWhenClickable(selectPatientButton);
+		sleep(5000);
+
+		clickWhenClickable(addDrugButton);
+		sleep(3000);
+		waitAndSendKeys(drugNameInput, "amoxilin");
+		clickWhenClickable(drugSearchButton);
+		sleep(2000);
+		clickWhenClickable(selectDrugRadio);
+		sleep(1000);
+		clickWhenClickable(selectDrugButton);
+		sleep(5000);
+
+		clickWhenClickable(addProviderButton);
+		sleep(4000);
+		clickWhenClickable(selectProviderRadio);
+		sleep(3000);
+		clickWhenClickable(selectProviderButton);
+		sleep(4000);
+
+		clickWhenClickable(addPartnerButton);
+		sleep(3000);
+		clickWhenClickable(fullSearchRadio);
+		sleep(3000);
+		waitAndSendKeys(businessNameInput, "Attorney");
+		clickWhenClickable(partnerSearchButton);
+		sleep(3000);
+		clickWhenClickable(selectPartnerRadio);
+		sleep(3000);
+		clickWhenClickable(selectPartnerButton);
+		sleep(3000);
+
+		WebElement receivedDate = driver.findElement(receivedDateInput);
+		receivedDate.clear();
+		receivedDate.sendKeys("10/09/2025");
+		receivedDate.sendKeys(Keys.TAB);
+		sleep(2000);
+
+		clickWhenClickable(saveButton);
+		sleep(2000);
+
+		clickWhenClickable(patientDetailsTab);
+		clickWhenClickable(pharmacyDetailsTab);
+		clickWhenClickable(providerDetailsTab);
+		clickWhenClickable(drugDetailsTab);
+
+		clickWhenClickable(verifyButton);
+		sleep(2000);
+		clickWhenClickable(pendingSaveButton);
+		sleep(2000);
+
+		WebElement submissionDate = driver.findElement(submissionDateInput);
+		submissionDate.clear();
+		submissionDate.sendKeys("10/09/2025");
+		submissionDate.sendKeys(Keys.TAB);
+		sleep(2000);
+
+		waitAndSendKeys(submissionNoteInput, "Submission");
+		clickWhenClickable(saveSubmissionButton);
+	}
+
+	public void userShouldBeAbleToSubmitAllPAInClinicalModule() {
+		sleep(3000);
+
+		clickWhenClickable(newClinicalPAButton);
+		sleep(2000);
+
+		clickWhenClickable(addPatientButton);
+		sleep(2000);
+		waitAndSendKeys(patientIdInput, "0004406");
+		clickWhenClickable(patientSearchButton);
+		sleep(2000);
+		clickWhenClickable(firstPatientRadio);
+		sleep(1000);
+		clickWhenClickable(selectPatientButton);
+		sleep(5000);
+
+		clickWhenClickable(addDrugButton);
+		sleep(3000);
+		waitAndSendKeys(drugNameInput, "amoxilin");
+		clickWhenClickable(drugSearchButton);
+		sleep(2000);
+		clickWhenClickable(selectDrugRadio);
+		sleep(1000);
+		clickWhenClickable(selectDrugButton);
+		sleep(5000);
+
+		clickWhenClickable(addProviderButton);
+		sleep(4000);
+		clickWhenClickable(selectProviderRadio);
+		sleep(3000);
+		clickWhenClickable(selectProviderButton);
+		sleep(4000);
+
+		clickWhenClickable(addPartnerButton);
+		sleep(3000);
+		clickWhenClickable(fullSearchRadio);
+		sleep(3000);
+		waitAndSendKeys(businessNameInput, "Attorney");
+		clickWhenClickable(partnerSearchButton);
+		sleep(3000);
+		clickWhenClickable(selectPartnerRadio);
+		sleep(3000);
+		clickWhenClickable(selectPartnerButton);
+		sleep(3000);
+
+		WebElement receivedDate = driver.findElement(receivedDateInput);
+		receivedDate.clear();
+		receivedDate.sendKeys("10/09/2025");
+		receivedDate.sendKeys(Keys.TAB);
+		sleep(2000);
+
+		clickWhenClickable(saveButton);
+		sleep(2000);
+
+		clickWhenClickable(patientDetailsTab);
+		clickWhenClickable(pharmacyDetailsTab);
+		clickWhenClickable(providerDetailsTab);
+		clickWhenClickable(drugDetailsTab);
+
+		clickWhenClickable(verifyButton);
+		sleep(2000);
+		clickWhenClickable(pendingSaveButton);
+		sleep(2000);
+
+		WebElement submissionDate = driver.findElement(submissionDateInput);
+		submissionDate.clear();
+		submissionDate.sendKeys("10/09/2025");
+		submissionDate.sendKeys(Keys.TAB);
+		sleep(2000);
+
+		waitAndSendKeys(submissionNoteInput, "Submission");
+		clickWhenClickable(saveSubmissionButton);
+	}
+
+	public void submitAllPAInClinicalModule() {
+		sleep(3000);
+
+		clickWhenClickable(newClinicalPAButton);
+		sleep(2000);
+
+		clickWhenClickable(addPatientButton);
+		sleep(2000);
+		waitAndSendKeys(patientIdInput, "0004406");
+		clickWhenClickable(patientSearchButton);
+		sleep(2000);
+		clickWhenClickable(firstPatientRadio);
+		sleep(1000);
+		clickWhenClickable(selectPatientButton);
+		sleep(5000);
+
+		clickWhenClickable(addDrugButton);
+		sleep(3000);
+		waitAndSendKeys(drugNameInput, "amoxilin");
+		clickWhenClickable(drugSearchButton);
+		sleep(2000);
+		clickWhenClickable(selectDrugRadio);
+		sleep(1000);
+		clickWhenClickable(selectDrugButton);
+		sleep(5000);
+
+		clickWhenClickable(addProviderButton);
+		sleep(4000);
+		clickWhenClickable(selectProviderRadio);
+		sleep(3000);
+		clickWhenClickable(selectProviderButton);
+		sleep(4000);
+
+		clickWhenClickable(addPartnerButton);
+		sleep(3000);
+		clickWhenClickable(fullSearchRadio);
+		sleep(3000);
+		waitAndSendKeys(businessNameInput, "Attorney");
+		clickWhenClickable(partnerSearchButton);
+		sleep(3000);
+		clickWhenClickable(selectPartnerRadio);
+		sleep(3000);
+		clickWhenClickable(selectPartnerButton);
+		sleep(3000);
+
+		WebElement receivedDate = driver.findElement(receivedDateInput);
+		receivedDate.clear();
+		receivedDate.sendKeys("10/09/2025");
+		receivedDate.sendKeys(Keys.TAB);
+		sleep(2000);
+
+		clickWhenClickable(saveButton);
+		sleep(2000);
+
+		clickWhenClickable(patientDetailsTab);
+		clickWhenClickable(pharmacyDetailsTab);
+		clickWhenClickable(providerDetailsTab);
+		clickWhenClickable(drugDetailsTab);
+
+		clickWhenClickable(verifyButton);
+		sleep(2000);
+		clickWhenClickable(pendingSaveButton);
+		sleep(2000);
+
+		WebElement submissionDate = driver.findElement(submissionDateInput);
+		submissionDate.clear();
+		submissionDate.sendKeys("10/09/2025");
+		submissionDate.sendKeys(Keys.TAB);
+		sleep(2000);
+
+		waitAndSendKeys(submissionNoteInput, "Submission");
+		clickWhenClickable(saveSubmissionButton);
+	}
+
+	public void verifyAllPAInClinicalModule() {
+		sleep(3000);
+
+		clickWhenClickable(newClinicalPAButton);
+		sleep(2000);
+
+		clickWhenClickable(addPatientButton);
+		sleep(2000);
+		waitAndSendKeys(patientIdInput, "0004406");
+		clickWhenClickable(patientSearchButton);
+		sleep(2000);
+		clickWhenClickable(firstPatientRadio);
+		sleep(1000);
+		clickWhenClickable(selectPatientButton);
+		sleep(5000);
+
+		clickWhenClickable(addDrugButton);
+		sleep(3000);
+		waitAndSendKeys(drugNameInput, "amoxilin");
+		clickWhenClickable(drugSearchButton);
+		sleep(2000);
+		clickWhenClickable(selectDrugRadio);
+		sleep(1000);
+		clickWhenClickable(selectDrugButton);
+		sleep(5000);
+
+		clickWhenClickable(addProviderButton);
+		sleep(4000);
+		clickWhenClickable(selectProviderRadio);
+		sleep(3000);
+		clickWhenClickable(selectProviderButton);
+		sleep(4000);
+
+		clickWhenClickable(addPartnerButton);
+		sleep(3000);
+		clickWhenClickable(fullSearchRadio);
+		sleep(3000);
+		waitAndSendKeys(businessNameInput, "Attorney");
+		clickWhenClickable(partnerSearchButton);
+		sleep(3000);
+		clickWhenClickable(selectPartnerRadio);
+		sleep(3000);
+		clickWhenClickable(selectPartnerButton);
+		sleep(3000);
+
+		WebElement receivedDate = driver.findElement(receivedDateInput);
+		receivedDate.clear();
+		receivedDate.sendKeys("10/09/2025");
+		receivedDate.sendKeys(Keys.TAB);
+		sleep(2000);
+
+		clickWhenClickable(saveButton);
+		sleep(2000);
+
+		clickWhenClickable(patientDetailsTab);
+		clickWhenClickable(pharmacyDetailsTab);
+		clickWhenClickable(providerDetailsTab);
+		clickWhenClickable(drugDetailsTab);
+
+		clickWhenClickable(verifyButton);
+		sleep(2000);
+		clickWhenClickable(pendingSaveButton);
+		sleep(2000);
+
+		WebElement submissionDate = driver.findElement(submissionDateInput);
+		submissionDate.clear();
+		submissionDate.sendKeys("10/09/2025");
+		submissionDate.sendKeys(Keys.TAB);
+		sleep(2000);
+
+		waitAndSendKeys(submissionNoteInput, "Submission");
+		clickWhenClickable(saveSubmissionButton);
+	}
+
+	public void userShouldBeAbleToGenerateAllPAInClinicalModule() {
+		sleep(3000);
+
+		clickWhenClickable(newClinicalPAButton);
+		sleep(2000);
+
+		clickWhenClickable(addPatientButton);
+		sleep(2000);
+		waitAndSendKeys(patientIdInput, "0004406");
+		clickWhenClickable(patientSearchButton);
+		sleep(2000);
+		clickWhenClickable(firstPatientRadio);
+		sleep(1000);
+		clickWhenClickable(selectPatientButton);
+		sleep(5000);
+
+		clickWhenClickable(addDrugButton);
+		sleep(3000);
+		waitAndSendKeys(drugNameInput, "amoxilin");
+		clickWhenClickable(drugSearchButton);
+		sleep(2000);
+		clickWhenClickable(selectDrugRadio);
+		sleep(1000);
+		clickWhenClickable(selectDrugButton);
+		sleep(5000);
+
+		clickWhenClickable(addProviderButton);
+		sleep(4000);
+		clickWhenClickable(selectProviderRadio);
+		sleep(3000);
+		clickWhenClickable(selectProviderButton);
+		sleep(4000);
+
+		clickWhenClickable(addPartnerButton);
+		sleep(3000);
+		clickWhenClickable(fullSearchRadio);
+		sleep(3000);
+		waitAndSendKeys(businessNameInput, "Attorney");
+		clickWhenClickable(partnerSearchButton);
+		sleep(3000);
+		clickWhenClickable(selectPartnerRadio);
+		sleep(3000);
+		clickWhenClickable(selectPartnerButton);
+		sleep(3000);
+
+		WebElement dateInput = driver.findElement(receivedDateInput);
+		dateInput.clear();
+		dateInput.sendKeys("10/09/2025");
+		dateInput.sendKeys(Keys.TAB);
+		sleep(2000);
+
+		clickWhenClickable(saveButton);
+		sleep(2000);
+
+		clickWhenClickable(patientDetailsTab);
+		clickWhenClickable(pharmacyDetailsTab);
+		clickWhenClickable(providerDetailsTab);
+		clickWhenClickable(drugDetailsTab);
+
+		clickWhenClickable(verifyButton);
+		sleep(2000);
+		clickWhenClickable(pendingSaveButton);
+		sleep(2000);
+
+		WebElement submissionDate = driver.findElement(submissionDateInput);
+		submissionDate.clear();
+		submissionDate.sendKeys("10/09/2025");
+		submissionDate.sendKeys(Keys.TAB);
+		sleep(2000);
+
+		waitAndSendKeys(submissionNoteInput, "Submission");
+		clickWhenClickable(saveSubmissionButton);
+	}
+
+	public void createProfileWithAllAccessForAllPA() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement externalDetailsAllLabel = wait
+				.until(ExpectedConditions.elementToBeClickable(triggerAlertAllLabelParameter));
+		externalDetailsAllLabel.click();
+		sleep(2000);
+		WebElement externalDetailsAddLabel = wait
+				.until(ExpectedConditions.elementToBeClickable(triggerAlertAddLabelParameter));
+		externalDetailsAddLabel.click();
+		sleep(2000);
+
+	}
+
+	public void createProfileWithViewAccessForRemoteMonitoringReportInClinicalModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement externalDetailsAllLabel = wait
+				.until(ExpectedConditions.elementToBeClickable(triggerAlertAllLabelParameter));
+		externalDetailsAllLabel.click();
+		sleep(2000);
+		WebElement externalDetailsAddLabel = wait
+				.until(ExpectedConditions.elementToBeClickable(triggerAlertAddLabelParameter));
+		externalDetailsAddLabel.click();
+		sleep(2000);
+
+	}
+
+	// RPM / RPM Status
+
+	public void addOrEditRpmStatusNotAllowed() {
+		sleep(3000);
+		assertElementNotPresent(saveRpmButton);
+		assertElementNotPresent(editRpmButton);
+	}
+
+	public void deleteRpmStatusAllowed() {
+		sleep(3000);
+
+		clickWhenClickable(bucketDropdownIcon);
+		sleep(2000);
+		clickWhenClickable(editOption);
+		sleep(2000);
+		clickWhenClickable(rpmStatusLink);
+		sleep(2000);
+		clickWhenClickable(deleteRpmStatusButton);
+		sleep(3000);
+		clickWhenClickable(confirmDeleteButton);
+	}
+
+	public void createDeleteOnlyRpmProfile() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement externalDetailsAllLabel = wait.until(ExpectedConditions.elementToBeClickable(RPMRPMStatusAllLabel));
+		externalDetailsAllLabel.click();
+		sleep(2000);
+		WebElement externalDetailsAddLabel = wait.until(ExpectedConditions.elementToBeClickable(RPMRPMStatusAddLabel));
+		externalDetailsAddLabel.click();
+		sleep(2000);
+
+	}
+
+	public void addOrDeleteRpmStatusNotAllowed() {
+		sleep(3000);
+		assertElementNotPresent(saveRpmButton);
+		assertElementNotPresent(deleteRpmButton);
+	}
+
+	public void userHasEditAccessToRpmStatus() {
+		sleep(3000);
+		clickWhenClickable(bucketDropdownIcon);
+		sleep(2000);
+		clickWhenClickable(editOption);
+		sleep(2000);
+		clickWhenClickable(rpmStatusLink);
+		sleep(2000);
+		clickWhenClickable(editRpmStatusButton);
+		sleep(3000);
+		clickWhenClickable(addRpmStatusDropdown);
+		sleep(1000);
+		selectDropdownByIndexWhenReady(addRpmStatusDropdown, 1);
+		sleep(2000);
+		waitAndSendKeys(addRpmNoteField, "Note");
+		clickWhenClickable(saveEditedButton);
+		sleep(2000);
+	}
+
+	public void userCannotEditOrDeleteRpmStatus() {
+		sleep(3000);
+		assertElementNotPresent(editRpmStatus);
+		assertElementNotPresent(deleteRpmStatus);
+	}
+
+	public void userCanAddRpmStatus() {
+		sleep(3000);
+		clickWhenClickable(bucketDropdownIcon);
+		sleep(2000);
+		clickWhenClickable(RPMStatuseditOption);
+		sleep(2000);
+		clickWhenClickable(rpmStatusLink);
+		sleep(2000);
+		clickWhenClickable(rpmStatusDropdown);
+		sleep(1000);
+		selectDropdownByIndexWhenReady(rpmStatusDropdown, 1);
+		sleep(2000);
+		waitAndSendKeys(rpmNoteField, "Note");
+		clickWhenClickable(RPMStatussaveButton);
+		sleep(2000);
+	}
+
+	public void createEditOnlyRpmProfile() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement externalDetailsAllLabel = wait.until(ExpectedConditions.elementToBeClickable(RPMRPMStatusAllLabel));
+		externalDetailsAllLabel.click();
+		sleep(2000);
+		WebElement externalDetailsAddLabel = wait.until(ExpectedConditions.elementToBeClickable(RPMRPMStatusAddLabel));
+		externalDetailsAddLabel.click();
+		sleep(2000);
+
+	}
+
+	public void createRpmAddProfile() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement externalDetailsAllLabel = wait.until(ExpectedConditions.elementToBeClickable(RPMRPMStatusAllLabel));
+		externalDetailsAllLabel.click();
+		sleep(2000);
+		WebElement externalDetailsAddLabel = wait.until(ExpectedConditions.elementToBeClickable(RPMRPMStatusAddLabel));
+		externalDetailsAddLabel.click();
+		sleep(2000);
+
 	}
 
 }

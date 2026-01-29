@@ -12,6 +12,1314 @@ public class clinicalstep {
 
 	private clinicalpage clinicalPage;
 
+	// RPM / RPM Progress Step
+	@And("I create a profile with Delete access only to RPM Progress Step in Clinical Module test")
+	public void createRpmProgressStepDeleteProfile() {
+		clinicalPage.clickFilterButton();
+		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.clickSearchButton();
+		clinicalPage.clickActionMenu();
+		clinicalPage.clickEditButton();
+		clinicalPage.createDeleteOnlyRpmProgressStepProfile();
+		clinicalPage.clickSubmitButton();
+		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+	}
+
+	@And("I create a profile with Edit access only to RPM Progress Step in Clinical Module test")
+	public void createRpmProgressStepEditProfile() {
+		clinicalPage.clickFilterButton();
+		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.clickSearchButton();
+		clinicalPage.clickActionMenu();
+		clinicalPage.clickEditButton();
+		clinicalPage.createEditOnlyRpmProgressStepProfile();
+		clinicalPage.clickSubmitButton();
+		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+	}
+
+	@And("I create a profile with Add access only to RPM Progress Step in Clinical Module test")
+	public void createRpmProgressStepAddProfile() {
+		clinicalPage.clickFilterButton();
+		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.clickSearchButton();
+		clinicalPage.clickActionMenu();
+		clinicalPage.clickEditButton();
+		clinicalPage.createAddOnlyRpmProgressStepProfile();
+		clinicalPage.clickSubmitButton();
+		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+	}
+
+	@And("the user should not be able to add or edit RPM Progress Step in Clinical Module test")
+	public void userCannotAddOrEditRpmProgressStep() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String rpmUrl = Hooks.prop.getProperty("rpmUrl");
+		Assert.assertNotNull("rpmUrl is missing in config", rpmUrl);
+
+		String fullRpmUrl = baseUrl + rpmUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+
+		Hooks.driver.get(fullRpmUrl);
+
+		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
+
+		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
+
+		clinicalPage.addOrEditRpmProgressStepNotAllowed();
+
+	}
+
+	@And("the user should not be able to add or delete RPM Progress Step in Clinical Module test")
+	public void userCannotAddOrDeleteRpmProgressStep() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String rpmUrl = Hooks.prop.getProperty("rpmUrl");
+		Assert.assertNotNull("rpmUrl is missing in config", rpmUrl);
+
+		String fullRpmUrl = baseUrl + rpmUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+
+		Hooks.driver.get(fullRpmUrl);
+
+		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
+
+		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
+
+		clinicalPage.addOrDeleteRpmProgressStepNotAllowed();
+
+	}
+
+	@And("the user should be able to edit RPM Progress Step in Clinical Module test")
+	public void userCanEditRpmProgressStep() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String rpmUrl = Hooks.prop.getProperty("rpmUrl");
+		Assert.assertNotNull("rpmUrl is missing in config", rpmUrl);
+
+		String fullRpmUrl = baseUrl + rpmUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+
+		Hooks.driver.get(fullRpmUrl);
+
+		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
+
+		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
+
+		clinicalPage.editRpmProgressStepAllowed();
+
+	}
+
+	@And("the user should be able to delete RPM Progress Step in Clinical Module test")
+	public void userCanDeleteRpmProgressStep() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String rpmUrl = Hooks.prop.getProperty("rpmUrl");
+		Assert.assertNotNull("rpmUrl is missing in config", rpmUrl);
+
+		String fullRpmUrl = baseUrl + rpmUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+
+		Hooks.driver.get(fullRpmUrl);
+
+		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
+
+		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
+
+		clinicalPage.deleteRpmProgressStepAllowed();
+
+	}
+
+	@And("the user should be able to add RPM Progress Step in Clinical Module test")
+	public void userCanAddRpmProgressStep() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String rpmUrl = Hooks.prop.getProperty("rpmUrl");
+		Assert.assertNotNull("rpmUrl is missing in config", rpmUrl);
+
+		String fullRpmUrl = baseUrl + rpmUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+
+		Hooks.driver.get(fullRpmUrl);
+
+		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
+
+		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
+
+		clinicalPage.addRpmProgressStepAllowed();
+
+	}
+
+	@And("the user should not be able to edit or delete RPM Progress Step in Clinical Module test")
+	public void userCannotEditOrDeleteRpmProgressStep() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String rpmUrl = Hooks.prop.getProperty("rpmUrl");
+		Assert.assertNotNull("rpmUrl is missing in config", rpmUrl);
+
+		String fullRpmUrl = baseUrl + rpmUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+
+		Hooks.driver.get(fullRpmUrl);
+
+		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
+
+		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
+
+		clinicalPage.editOrDeleteRpmProgressStepNotAllowed();
+
+	}
+	// RPM / RPM Status
+
+	@And("I create a profile with Delete access only to RPM Status in Clinical Module test")
+	public void createRpmDeleteProfile() {
+		clinicalPage.clickFilterButton();
+		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.clickSearchButton();
+		clinicalPage.clickActionMenu();
+		clinicalPage.clickEditButton();
+		clinicalPage.createDeleteOnlyRpmProfile();
+		clinicalPage.clickSubmitButton();
+		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+	}
+
+	@And("I create a profile with Edit access only to RPM Status in Clinical Module test")
+	public void createRpmEditProfile() {
+		clinicalPage.clickFilterButton();
+		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.clickSearchButton();
+		clinicalPage.clickActionMenu();
+		clinicalPage.clickEditButton();
+		clinicalPage.createEditOnlyRpmProfile();
+		clinicalPage.clickSubmitButton();
+		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+	}
+
+	@And("the user should be able to add RPM RPM Status in Clinical Module test")
+	public void userCanAddRpmStatus() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String rpmUrl = Hooks.prop.getProperty("rpmUrl");
+		Assert.assertNotNull("rpmUrl is missing in config", rpmUrl);
+
+		String fullRpmUrl = baseUrl + rpmUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+
+		Hooks.driver.get(fullRpmUrl);
+
+		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
+
+		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
+
+		clinicalPage.userCanAddRpmStatus();
+
+	}
+
+	@And("the user should not be able to add or delete RPM RPM Status in Clinical Module test")
+	public void userCannotAddOrDeleteRpmStatus() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String rpmUrl = Hooks.prop.getProperty("rpmUrl");
+		Assert.assertNotNull("rpmUrl is missing in config", rpmUrl);
+
+		String fullRpmUrl = baseUrl + rpmUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+
+		Hooks.driver.get(fullRpmUrl);
+
+		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
+
+		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
+
+		clinicalPage.addOrDeleteRpmStatusNotAllowed();
+
+	}
+
+	@And("the user should be able to delete RPM RPM Status in Clinical Module test")
+	public void userCanDeleteRpmStatus() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String rpmUrl = Hooks.prop.getProperty("rpmUrl");
+		Assert.assertNotNull("rpmUrl is missing in config", rpmUrl);
+
+		String fullRpmUrl = baseUrl + rpmUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+
+		Hooks.driver.get(fullRpmUrl);
+
+		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
+
+		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
+
+		clinicalPage.deleteRpmStatusAllowed();
+
+	}
+
+	@And("the user should not be able to add or edit RPM RPM Status in Clinical Module test")
+	public void userCannotAddOrEditRpmStatus() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String rpmUrl = Hooks.prop.getProperty("rpmUrl");
+		Assert.assertNotNull("rpmUrl is missing in config", rpmUrl);
+
+		String fullRpmUrl = baseUrl + rpmUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+
+		Hooks.driver.get(fullRpmUrl);
+
+		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
+
+		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
+
+		clinicalPage.addOrEditRpmStatusNotAllowed();
+
+	}
+
+	@And("the user should be able to edit RPM RPM Status in Clinical Module test")
+	public void userCanEditRpmStatus() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String rpmUrl = Hooks.prop.getProperty("rpmUrl");
+		Assert.assertNotNull("rpmUrl is missing in config", rpmUrl);
+
+		String fullRpmUrl = baseUrl + rpmUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+
+		Hooks.driver.get(fullRpmUrl);
+
+		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
+
+		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
+
+		clinicalPage.userHasEditAccessToRpmStatus();
+
+	}
+
+	@And("the user should not be able to edit or delete RPM RPM Status in Clinical Module test")
+	public void userCannotEditOrDeleteRpmStatus() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String rpmUrl = Hooks.prop.getProperty("rpmUrl");
+		Assert.assertNotNull("rpmUrl is missing in config", rpmUrl);
+
+		String fullRpmUrl = baseUrl + rpmUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+
+		Hooks.driver.get(fullRpmUrl);
+
+		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
+
+		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
+
+		clinicalPage.userCannotEditOrDeleteRpmStatus();
+
+	}
+
+	@And("I create a profile with Add access only to RPM Status in Clinical Module test")
+	public void createProfileWithAddAccessOnlyToRPMStatus() {
+		clinicalPage.clickFilterButton();
+		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.clickSearchButton();
+		clinicalPage.clickActionMenu();
+		clinicalPage.clickEditButton();
+		clinicalPage.createRpmAddProfile();
+		clinicalPage.clickSubmitButton();
+		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+	}
+	// Reports / Remote Monitoring Report
+
+	@And("the user should be able to send Clinical PA Insurance in Clinical Module test")
+	public void userShouldBeAbleToSendClinicalPAInsuranceInClinicalModule() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String rpmUrl = Hooks.prop.getProperty("rpmUrl");
+		Assert.assertNotNull("rpmUrl is missing in config", rpmUrl);
+
+		String fullRpmUrl = baseUrl + rpmUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+
+		Hooks.driver.get(fullRpmUrl);
+
+		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
+
+		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
+
+		clinicalPage.userShouldBeAbleToSendPAInsuranceInClinicalModule();
+
+	}
+
+	@And("the user should be able to delete PA ChartNote attachment in Clinical Module test")
+	public void userShouldBeAbleToDeletePAChartNoteAttachmentInClinicalModule() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String rpmUrl = Hooks.prop.getProperty("rpmUrl");
+		Assert.assertNotNull("rpmUrl is missing in config", rpmUrl);
+
+		String fullRpmUrl = baseUrl + rpmUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+
+		Hooks.driver.get(fullRpmUrl);
+
+		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
+
+		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
+
+		clinicalPage.deletePAChartNoteAttachmentInClinicalModule();
+
+	}
+
+	@And("I create a profile with all access for PA All PA test")
+	public void theUserShouldBeAbleToCreateProfileWithAllAccessForAllPA() {
+		clinicalPage.clickFilterButton();
+		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.clickSearchButton();
+		clinicalPage.clickActionMenu();
+		clinicalPage.clickEditButton();
+		clinicalPage.createProfileWithAllAccessForAllPA();
+		clinicalPage.clickSubmitButton();
+		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+	}
+
+	@And("I create a profile with View access only to Reports Remote Monitoring Report in Clinical Module test")
+	public void theUserShouldBeAbleToCreateProfileWithViewAccessForRemoteMonitoringReportInClinicalModule() {
+		clinicalPage.clickFilterButton();
+		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.clickSearchButton();
+		clinicalPage.clickActionMenu();
+		clinicalPage.clickEditButton();
+		clinicalPage.createProfileWithViewAccessForRemoteMonitoringReportInClinicalModule();
+		clinicalPage.clickSubmitButton();
+		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+	}
+
+	// RPM / Trigger Alert for Time
+	@And("the user should be able to download drilldown report for Reports Remote Monitoring Report in Clinical Module test")
+	public void theUserShouldBeAbleToDownloadDrilldownReportForRemoteMonitoringReportInClinicalModule() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String rpmUrl = Hooks.prop.getProperty("rpmUrl");
+		Assert.assertNotNull("rpmUrl is missing in config", rpmUrl);
+
+		String fullRpmUrl = baseUrl + rpmUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+
+		Hooks.driver.get(fullRpmUrl);
+
+		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
+
+		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
+
+		clinicalPage.downloadDrilldownReportForRemoteMonitoringReportInClinicalModule();
+
+	}
+
+	@And("the user should be able to export Reports Remote Monitoring Report to Excel in Clinical Module test")
+	public void createProfileWithSendForSignatureAccessForRemoteMonitoringReport() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String rpmUrl = Hooks.prop.getProperty("rpmUrl");
+		Assert.assertNotNull("rpmUrl is missing in config", rpmUrl);
+
+		String fullRpmUrl = baseUrl + rpmUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+
+		Hooks.driver.get(fullRpmUrl);
+
+		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
+
+		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
+
+		clinicalPage.exportRemoteMonitoringReportToExcelInClinicalModule();
+
+	}
+
+	@And("the user should be able to send Reports Remote Monitoring Report for signature in Clinical Module test")
+	public void userShouldBeAbleToSendReportsRemoteMonitoringReportForSignatureInClinicalModule() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String rpmUrl = Hooks.prop.getProperty("rpmUrl");
+		Assert.assertNotNull("rpmUrl is missing in config", rpmUrl);
+
+		String fullRpmUrl = baseUrl + rpmUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+
+		Hooks.driver.get(fullRpmUrl);
+
+		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
+
+		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
+
+		clinicalPage.shouldSendReportsRemoteMonitoringReportForSignatureInClinicalModule();
+
+	}
+
+	@And("I create a profile with all access for Reports Remote Monitoring Report test")
+	public void createProfileWithAllAccessForReportsRemoteMonitoringReportTest() {
+		clinicalPage.clickFilterButton();
+		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.clickSearchButton();
+		clinicalPage.clickActionMenu();
+		clinicalPage.clickEditButton();
+		clinicalPage.createProfileWithAllAccessForReportsRemoteMonitoringReport();
+		clinicalPage.clickSubmitButton();
+		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+	}
+
+	@And("the user should be able to download Reports Remote Monitoring Report file in Clinical Module test")
+	public void userShouldBeAbleToDownloadReportsRemoteMonitoringReportFileInClinicalModule() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String rpmUrl = Hooks.prop.getProperty("rpmUrl");
+		Assert.assertNotNull("rpmUrl is missing in config", rpmUrl);
+
+		String fullRpmUrl = baseUrl + rpmUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+
+		Hooks.driver.get(fullRpmUrl);
+
+		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
+
+		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
+
+		clinicalPage.userShouldBeAbleToDownloadReportsRemoteMonitoringReportFileInClinicalModule();
+
+	}
+
+	@And("the user should be able to drill down Reports Remote Monitoring Report in Clinical Module test")
+	public void userShouldBeAbleToDrillDownReportsRemoteMonitoringReportInClinicalModule() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String rpmUrl = Hooks.prop.getProperty("rpmUrl");
+		Assert.assertNotNull("rpmUrl is missing in config", rpmUrl);
+
+		String fullRpmUrl = baseUrl + rpmUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+
+		Hooks.driver.get(fullRpmUrl);
+
+		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
+
+		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
+
+		clinicalPage.userShouldBeAbleToDrillDownReportsRemoteMonitoringReportInClinicalModule();
+
+	}
+
+	@And("the user should be able to view Reports Remote Monitoring Report in Clinical Module test")
+	public void userShouldBeAbleToViewReportsRemoteMonitoringReportInClinicalModule() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String rpmUrl = Hooks.prop.getProperty("rpmUrl");
+		Assert.assertNotNull("rpmUrl is missing in config", rpmUrl);
+
+		String fullRpmUrl = baseUrl + rpmUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+
+		Hooks.driver.get(fullRpmUrl);
+
+		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
+
+		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
+
+	}
+
+	@And("the user should be able to delete RPM Trigger Alert for Time in Clinical Module test")
+	public void userShouldBeAbleToDeleteRpmTriggerAlertForTimeInClinicalModule() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String rpmUrl = Hooks.prop.getProperty("rpmUrl");
+		Assert.assertNotNull("rpmUrl is missing in config", rpmUrl);
+
+		String fullRpmUrl = baseUrl + rpmUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+
+		Hooks.driver.get(fullRpmUrl);
+
+		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
+
+		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
+
+		clinicalPage.canDeleteRpmTriggerAlertForTimeInClinicalModule();
+
+	}
+
+	@And("the user should be able to generate PA All PA in Clinical Module test")
+	public void theUserShouldBeAbleToGenerateAllPAInClinicalModule() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String clinicalPriorAuthorizationsUrl = Hooks.prop.getProperty("clinicalPriorAuthorizationsUrl");
+
+		Assert.assertNotNull("clinicalPriorAuthorizationsUrl is missing in config", clinicalPriorAuthorizationsUrl);
+
+		String fullClinicalPriorAuthorizationsUrl = baseUrl + clinicalPriorAuthorizationsUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+		clinicalPage.openClinicalPriorAuthorizationsPage(fullClinicalPriorAuthorizationsUrl);
+
+		Assert.assertTrue("Clinical Prior Authorizations page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/ClinicalPriorAuthorizations"));
+
+		clinicalPage.userShouldBeAbleToGenerateAllPAInClinicalModule();
+
+	}
+
+	@And("the user should be able to view PA All PA outcome in Clinical Module test")
+	public void theUserShouldBeAbleToViewAllPAOutcomeInClinicalModule() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String clinicalPriorAuthorizationsUrl = Hooks.prop.getProperty("clinicalPriorAuthorizationsUrl");
+
+		Assert.assertNotNull("clinicalPriorAuthorizationsUrl is missing in config", clinicalPriorAuthorizationsUrl);
+
+		String fullClinicalPriorAuthorizationsUrl = baseUrl + clinicalPriorAuthorizationsUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+		clinicalPage.openClinicalPriorAuthorizationsPage(fullClinicalPriorAuthorizationsUrl);
+
+		Assert.assertTrue("Clinical Prior Authorizations page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/ClinicalPriorAuthorizations"));
+
+		clinicalPage.userShouldBeAbleToViewAllPAOutcomeInClinicalModule();
+
+	}
+
+	@And("the user should be able to export PA All PA to Excel in Clinical Module test")
+	public void theUserShouldBeAbleToExportAllPAToExcelInClinicalModule() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String clinicalPriorAuthorizationsUrl = Hooks.prop.getProperty("clinicalPriorAuthorizationsUrl");
+
+		Assert.assertNotNull("clinicalPriorAuthorizationsUrl is missing in config", clinicalPriorAuthorizationsUrl);
+
+		String fullClinicalPriorAuthorizationsUrl = baseUrl + clinicalPriorAuthorizationsUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+		clinicalPage.openClinicalPriorAuthorizationsPage(fullClinicalPriorAuthorizationsUrl);
+
+		Assert.assertTrue("Clinical Prior Authorizations page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/ClinicalPriorAuthorizations"));
+
+		clinicalPage.userShouldBeAbleToExportAllPAToExcelInClinicalModule();
+
+	}
+
+	@And("the user should be able to delete generated incoming attachment in Clinical Module test")
+	public void userShouldBeAbleToDeleteGeneratedIncomingAttachmentInClinicalModule() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String clinicalPriorAuthorizationsUrl = Hooks.prop.getProperty("clinicalPriorAuthorizationsUrl");
+
+		Assert.assertNotNull("clinicalPriorAuthorizationsUrl is missing in config", clinicalPriorAuthorizationsUrl);
+
+		String fullClinicalPriorAuthorizationsUrl = baseUrl + clinicalPriorAuthorizationsUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+		clinicalPage.openClinicalPriorAuthorizationsPage(fullClinicalPriorAuthorizationsUrl);
+
+		Assert.assertTrue("Clinical Prior Authorizations page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/ClinicalPriorAuthorizations"));
+
+		clinicalPage.userShouldBeAbleToDeleteGeneratedIncomingAttachmentInClinicalModule();
+
+	}
+
+	@And("the user should be able to delete PA outcome status in Clinical Module test")
+	public void userShouldBeAbleToDeletePAOutcomeStatusInClinicalModule() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String clinicalPriorAuthorizationsUrl = Hooks.prop.getProperty("clinicalPriorAuthorizationsUrl");
+
+		Assert.assertNotNull("clinicalPriorAuthorizationsUrl is missing in config", clinicalPriorAuthorizationsUrl);
+
+		String fullClinicalPriorAuthorizationsUrl = baseUrl + clinicalPriorAuthorizationsUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+		clinicalPage.openClinicalPriorAuthorizationsPage(fullClinicalPriorAuthorizationsUrl);
+
+		Assert.assertTrue("Clinical Prior Authorizations page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/ClinicalPriorAuthorizations"));
+
+		clinicalPage.userShouldBeAbleToDeletePAOutcomeStatusInClinicalModule();
+
+	}
+
+	@And("the user should be able to delete PA status in Clinical Module test")
+	public void theUserShouldBeAbleToDeletePAStatusInClinicalModule() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String clinicalPriorAuthorizationsUrl = Hooks.prop.getProperty("clinicalPriorAuthorizationsUrl");
+
+		Assert.assertNotNull("clinicalPriorAuthorizationsUrl is missing in config", clinicalPriorAuthorizationsUrl);
+
+		String fullClinicalPriorAuthorizationsUrl = baseUrl + clinicalPriorAuthorizationsUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+		clinicalPage.openClinicalPriorAuthorizationsPage(fullClinicalPriorAuthorizationsUrl);
+
+		Assert.assertTrue("Clinical Prior Authorizations page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/ClinicalPriorAuthorizations"));
+
+		clinicalPage.userShouldBeAbleToDeletePAStatusInClinicalModule();
+
+	}
+
+	@And("the user should be able to show generated PA by all in Clinical Module test")
+	public void theUserShouldBeAbleToShowGeneratedPAByAllInClinicalModule() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String clinicalPriorAuthorizationsUrl = Hooks.prop.getProperty("clinicalPriorAuthorizationsUrl");
+
+		Assert.assertNotNull("clinicalPriorAuthorizationsUrl is missing in config", clinicalPriorAuthorizationsUrl);
+
+		String fullClinicalPriorAuthorizationsUrl = baseUrl + clinicalPriorAuthorizationsUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+		clinicalPage.openClinicalPriorAuthorizationsPage(fullClinicalPriorAuthorizationsUrl);
+
+		Assert.assertTrue("Clinical Prior Authorizations page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/ClinicalPriorAuthorizations"));
+
+		clinicalPage.userShouldBeAbleToShowGeneratedPABYAllInClinicalModule();
+
+	}
+
+	@And("the user should be able to submit PA All PA in Clinical Module test")
+	public void theUserShouldBeAbleToSubmitAllPAInClinicalModule() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String clinicalPriorAuthorizationsUrl = Hooks.prop.getProperty("clinicalPriorAuthorizationsUrl");
+
+		Assert.assertNotNull("clinicalPriorAuthorizationsUrl is missing in config", clinicalPriorAuthorizationsUrl);
+
+		String fullClinicalPriorAuthorizationsUrl = baseUrl + clinicalPriorAuthorizationsUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+		clinicalPage.openClinicalPriorAuthorizationsPage(fullClinicalPriorAuthorizationsUrl);
+
+		Assert.assertTrue("Clinical Prior Authorizations page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/ClinicalPriorAuthorizations"));
+
+		clinicalPage.submitAllPAInClinicalModule();
+
+	}
+
+	@And("the user should be able to verify PA All PA in Clinical Module test")
+	public void theUserShouldBeAbleToVerifyAllPAInClinicalModule() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String clinicalPriorAuthorizationsUrl = Hooks.prop.getProperty("clinicalPriorAuthorizationsUrl");
+
+		Assert.assertNotNull("clinicalPriorAuthorizationsUrl is missing in config", clinicalPriorAuthorizationsUrl);
+
+		String fullClinicalPriorAuthorizationsUrl = baseUrl + clinicalPriorAuthorizationsUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+		clinicalPage.openClinicalPriorAuthorizationsPage(fullClinicalPriorAuthorizationsUrl);
+
+		Assert.assertTrue("Clinical Prior Authorizations page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/ClinicalPriorAuthorizations"));
+
+		clinicalPage.verifyAllPAInClinicalModule();
+
+	}
+
+	@And("the user should be able to view PA All PA in Clinical Module test")
+	public void theUserShouldBeAbleToViewAllPAInClinicalModule() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String clinicalPriorAuthorizationsUrl = Hooks.prop.getProperty("clinicalPriorAuthorizationsUrl");
+
+		Assert.assertNotNull("clinicalPriorAuthorizationsUrl is missing in config", clinicalPriorAuthorizationsUrl);
+
+		String fullClinicalPriorAuthorizationsUrl = baseUrl + clinicalPriorAuthorizationsUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+		clinicalPage.openClinicalPriorAuthorizationsPage(fullClinicalPriorAuthorizationsUrl);
+
+		Assert.assertTrue("Clinical Prior Authorizations page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/ClinicalPriorAuthorizations"));
+
+		Hooks.scenario.log("User is on the Clinical Prior Authorizations page");
+
+	}
+
+	@And("the user should not be able to add or edit RPM Trigger Alert for Time in Clinical Module test")
+	public void userShouldNotBeAbleToAddOrEditRPMTriggerAlertForTimeInClinicalModule() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String rpmUrl = Hooks.prop.getProperty("rpmUrl");
+		Assert.assertNotNull("rpmUrl is missing in config", rpmUrl);
+
+		String fullRpmUrl = baseUrl + rpmUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+
+		Hooks.driver.get(fullRpmUrl);
+
+		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
+
+		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
+
+		clinicalPage.userCannotAddOrEditRPMTriggerAlertForTimeInClinicalModule();
+
+	}
+
+	@And("I create a profile with Delete access only to RPM Trigger Alert for Time in Clinical Module test")
+	public void iCreateAProfileWithDeleteAccessOnlyToRpmTriggerAlertForTimeInClinicalModule() {
+		clinicalPage.clickFilterButton();
+		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.clickSearchButton();
+		clinicalPage.clickActionMenu();
+		clinicalPage.clickEditButton();
+		clinicalPage.createDeleteOnlyProfileForRpmTriggerAlertForTime();
+		clinicalPage.clickSubmitButton();
+		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+	}
+
+	@And("the user should be able to edit RPM Trigger Alert for Time in Clinical Module test")
+	public void userShouldBeAbleToEditRpmTriggerAlertForTimeInClinicalModule() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String rpmUrl = Hooks.prop.getProperty("rpmUrl");
+		Assert.assertNotNull("rpmUrl is missing in config", rpmUrl);
+
+		String fullRpmUrl = baseUrl + rpmUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+
+		Hooks.driver.get(fullRpmUrl);
+
+		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
+
+		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
+
+		clinicalPage.canEditRpmTriggerAlertForTimeInClinicalModule();
+
+	}
+
+	@And("the user should not be able to add or delete RPM Trigger Alert for Time in Clinical Module test")
+	public void verifyUserCannotAddOrDeleteRPMTriggerAlertForTimeInClinicalModule() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String rpmUrl = Hooks.prop.getProperty("rpmUrl");
+		Assert.assertNotNull("rpmUrl is missing in config", rpmUrl);
+
+		String fullRpmUrl = baseUrl + rpmUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+
+		Hooks.driver.get(fullRpmUrl);
+
+		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
+
+		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
+
+		clinicalPage.userShouldNotBeAbleToAddOrDeleteRPMTriggerAlertForTimeInClinicalModule();
+
+	}
+
+	@And("I create a profile with Edit access only to RPM Trigger Alert for Time in Clinical Module test")
+	public void createProfileWithEditAccessOnlyForRpmTriggerAlertForTimeInClinicalModule() {
+		clinicalPage.clickFilterButton();
+		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.clickSearchButton();
+		clinicalPage.clickActionMenu();
+		clinicalPage.clickEditButton();
+		clinicalPage.givenProfileHasEditAccessOnlyForRpmTriggerAlertForTime();
+		clinicalPage.clickSubmitButton();
+		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+	}
+
+	@And("the user should not be able to edit or delete RPM Trigger Alert for Time in Clinical Module test")
+	public void userShouldNotBeAbleToEditOrDeleteRpmTriggerAlertForTimeInClinicalModule() {
+
+		clinicalPage.cannotEditOrDeleteRpmTriggerAlertForTimeInClinicalModule();
+
+	}
+
+	@And("the user should be able to add RPM Trigger Alert for Time in Clinical Module test")
+	public void userShouldBeAbleToAddRpmTriggerAlertForTimeInClinicalModule() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String rpmUrl = Hooks.prop.getProperty("rpmUrl");
+		Assert.assertNotNull("rpmUrl is missing in config", rpmUrl);
+
+		String fullRpmUrl = baseUrl + rpmUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+
+		Hooks.driver.get(fullRpmUrl);
+
+		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
+
+		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
+
+		clinicalPage.canAddRpmTriggerAlertForTimeInClinicalModule();
+
+	}
+
+	@And("I create a profile with Add access only to RPM Trigger Alert for Time in Clinical Module test")
+	public void createProfileWithAddAccessOnlyForRpmTriggerAlertForTimeInClinicalModule() {
+		clinicalPage.clickFilterButton();
+		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.clickSearchButton();
+		clinicalPage.clickActionMenu();
+		clinicalPage.clickEditButton();
+		clinicalPage.givenProfileHasAddAccessOnlyForRpmTriggerAlertForTime();
+		clinicalPage.clickSubmitButton();
+		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+	}
+
+	// RPM / External Details for Alert
+
+	@And("I create a profile with Delete access only to RPM External Details for Alert in Clinical Module test")
+	public void createProfileWithDeleteAccessOnlyForRpmExternalDetailsForAlertInClinicalModule() {
+		clinicalPage.clickFilterButton();
+		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.clickSearchButton();
+		clinicalPage.clickActionMenu();
+		clinicalPage.clickEditButton();
+		clinicalPage.givenProfileHasDeleteAccessOnlyForRpmExternalDetailsForAlert();
+		clinicalPage.clickSubmitButton();
+		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+	}
+
+	@And("the user should be able to delete RPM External Details for Alert in Clinical Module test")
+	public void userShouldBeAbleToDeleteRpmExternalDetailsForAlertInClinicalModule() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String rpmUrl = Hooks.prop.getProperty("rpmUrl");
+		Assert.assertNotNull("rpmUrl is missing in config", rpmUrl);
+
+		String fullRpmUrl = baseUrl + rpmUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+
+		Hooks.driver.get(fullRpmUrl);
+
+		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
+
+		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
+
+		clinicalPage.canDeleteRpmExternalDetailsForAlertInClinicalModule();
+
+	}
+
+	@And("the user should not be able to add or delete RPM External Details for Alert in Clinical Module test")
+	public void userShouldNotBeAbleToAddOrDeleteRpmExternalDetailsForAlertInClinicalModule() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String rpmUrl = Hooks.prop.getProperty("rpmUrl");
+		Assert.assertNotNull("rpmUrl is missing in config", rpmUrl);
+
+		String fullRpmUrl = baseUrl + rpmUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+
+		Hooks.driver.get(fullRpmUrl);
+
+		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
+
+		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
+
+		clinicalPage.verifyUserCannotAddOrDeleteRPMExternalDetailsForAlert();
+
+	}
+
+	@And("the user should not be able to add or edit RPM External Details for Alert in Clinical Module test")
+	public void userShouldNotBeAbleToAddOrEditRpmExternalDetailsForAlertInClinicalModule() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String rpmUrl = Hooks.prop.getProperty("rpmUrl");
+		Assert.assertNotNull("rpmUrl is missing in config", rpmUrl);
+
+		String fullRpmUrl = baseUrl + rpmUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+
+		Hooks.driver.get(fullRpmUrl);
+
+		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
+
+		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
+
+		clinicalPage.cannotAddOrEditRpmExternalDetailsForAlertInClinicalModule();
+
+	}
+
+	@And("the user should be able to edit RPM External Details for Alert in Clinical Module test")
+	public void userShouldBeAbleToEditRpmExternalDetailsForAlertInClinicalModule() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String rpmUrl = Hooks.prop.getProperty("rpmUrl");
+		Assert.assertNotNull("rpmUrl is missing in config", rpmUrl);
+
+		String fullRpmUrl = baseUrl + rpmUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+
+		Hooks.driver.get(fullRpmUrl);
+
+		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
+
+		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
+
+		clinicalPage.verifyUserCanEditRPMExternalDetailsForAlert();
+
+	}
+
+	@And("I create a profile with Edit access only to RPM External Details for Alert in Clinical Module test")
+	public void createProfileWithEditAccessOnlyForRpmExternalDetailsForAlertInClinicalModule() {
+		clinicalPage.clickFilterButton();
+		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.clickSearchButton();
+		clinicalPage.clickActionMenu();
+		clinicalPage.clickEditButton();
+		clinicalPage.givenProfileHasEditAccessOnlyForRpmExternalDetailsForAlert();
+		clinicalPage.clickSubmitButton();
+		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+	}
+
+	@And("I create a profile with Add access only to RPM External Details for Alert in Clinical Module test")
+	public void createProfileWithAddAccessOnlyForRpmExternalDetailsForAlertInClinicalModule() {
+		clinicalPage.clickFilterButton();
+		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.clickSearchButton();
+		clinicalPage.clickActionMenu();
+		clinicalPage.clickEditButton();
+		clinicalPage.givenProfileHasNoEditAccessForRpmRmpDetails();
+		clinicalPage.clickSubmitButton();
+		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+	}
+
+	@And("the user should not be able to edit or delete RPM External Details for Alert in Clinical Module test")
+	public void userShouldNotBeAbleToEditOrDeleteRpmExternalDetailsForAlertInClinicalModule() {
+
+		clinicalPage.cannotEditOrDeleteRpmExternalDetailsForAlertInClinicalModule();
+
+	}
+
+	@And("the user should be able to add RPM External Details for Alert in Clinical Module test")
+	public void userShouldBeAbleToAddRpmExternalDetailsForAlertInClinicalModule() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String rpmUrl = Hooks.prop.getProperty("rpmUrl");
+		Assert.assertNotNull("rpmUrl is missing in config", rpmUrl);
+
+		String fullRpmUrl = baseUrl + rpmUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+
+		Hooks.driver.get(fullRpmUrl);
+
+		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
+
+		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
+
+		clinicalPage.verifyUserCanAddRPMExternalDetailsForAlert();
+
+	}
+	// RPM / RMP Details
+
+	@And("I create a profile with no Edit access to RPM RMP Details in Clinical Module test")
+	public void createProfileWithNoEditAccessForRpmRmpDetailsInClinicalModule() {
+		clinicalPage.clickFilterButton();
+		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.clickSearchButton();
+		clinicalPage.clickActionMenu();
+		clinicalPage.clickEditButton();
+		clinicalPage.givenProfileHasNoEditAccessForRpmRmpDetails();
+		clinicalPage.clickSubmitButton();
+		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+	}
+
+	@And("I create a profile with Edit access only to RPM RMP Details in Clinical Module test")
+	public void createProfileWithEditAccessOnlyForRpmRmpDetailsInClinicalModule() {
+		clinicalPage.clickFilterButton();
+		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.clickSearchButton();
+		clinicalPage.clickActionMenu();
+		clinicalPage.clickEditButton();
+		clinicalPage.givenProfileHasEditAccessOnlyForRpmRmpDetails();
+		clinicalPage.clickSubmitButton();
+		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+	}
+
+	// RPM / Remote Monitoring Parameter
+	@And("I create a profile with Delete access only to RPM Remote Monitoring Parameter in Clinical Module test")
+	public void createProfileWithDeleteAccessOnlyForRpmRemoteMonitoringParameterInClinicalModule() {
+		clinicalPage.clickFilterButton();
+		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.clickSearchButton();
+		clinicalPage.clickActionMenu();
+		clinicalPage.clickEditButton();
+		clinicalPage.givenProfileHasDeleteAccessOnlyForRpmRemoteMonitoringParameter();
+		clinicalPage.clickSubmitButton();
+		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+	}
+
+	@And("I create a profile with Edit access only to RPM Remote Monitoring Parameter in Clinical Module test")
+	public void createProfileWithEditAccessOnlyForRpmRemoteMonitoringParameterInClinicalModule() {
+		clinicalPage.clickFilterButton();
+		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.clickSearchButton();
+		clinicalPage.clickActionMenu();
+		clinicalPage.clickEditButton();
+		clinicalPage.givenProfileHasEditAccessOnlyForRpmRemoteMonitoringParameter();
+		clinicalPage.clickSubmitButton();
+		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+	}
+
+	@And("the user should be able to add RPM Remote Monitoring Parameter in Clinical Module test")
+	public void userShouldBeAbleToAddRpmRemoteMonitoringParameterInClinicalModule() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String rpmUrl = Hooks.prop.getProperty("rpmUrl");
+		Assert.assertNotNull("rpmUrl is missing in config", rpmUrl);
+
+		String fullRpmUrl = baseUrl + rpmUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+
+		Hooks.driver.get(fullRpmUrl);
+
+		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
+
+		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
+
+		clinicalPage.canAddRpmRemoteMonitoringParameterInClinicalModule();
+
+	}
+
+	@And("the user should not be able to edit RPM RMP Details in Clinical Module test")
+	public void userShouldNotBeAbleToEditRpmRmpDetailsInClinicalModule() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String clinicalPriorAuthorizationsUrl = Hooks.prop.getProperty("clinicalPriorAuthorizationsUrl");
+
+		Assert.assertNotNull("clinicalPriorAuthorizationsUrl is missing in config", clinicalPriorAuthorizationsUrl);
+
+		String fullClinicalPriorAuthorizationsUrl = baseUrl + clinicalPriorAuthorizationsUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+		clinicalPage.openClinicalPriorAuthorizationsPage(fullClinicalPriorAuthorizationsUrl);
+
+		Assert.assertTrue("Clinical Prior Authorizations page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/ClinicalPriorAuthorizations"));
+
+		Hooks.scenario.log("User is on the Clinical Prior Authorizations page");
+
+		clinicalPage.userShouldNotBeAbleToEditRPMRMPDetailsInClinicalModule();
+
+	}
+
+	@And("the user should be able to edit RPM RMP Details in Clinical Module test")
+	public void userShouldBeAbleToEditRpmRmpDetailsInClinicalModule() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String clinicalPriorAuthorizationsUrl = Hooks.prop.getProperty("clinicalPriorAuthorizationsUrl");
+
+		Assert.assertNotNull("clinicalPriorAuthorizationsUrl is missing in config", clinicalPriorAuthorizationsUrl);
+
+		String fullClinicalPriorAuthorizationsUrl = baseUrl + clinicalPriorAuthorizationsUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+		clinicalPage.openClinicalPriorAuthorizationsPage(fullClinicalPriorAuthorizationsUrl);
+
+		Assert.assertTrue("Clinical Prior Authorizations page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/ClinicalPriorAuthorizations"));
+
+		Hooks.scenario.log("User is on the Clinical Prior Authorizations page");
+
+		clinicalPage.canEditRpmRmpDetailsInClinicalModule();
+
+	}
+
+	@And("the user should not have access to Add or Delete RPM RMP Details in Clinical Module test")
+	public void userShouldNotHaveAccessToAddOrDeleteRpmRmpDetailsInClinicalModule() {
+
+		clinicalPage.userShouldNotHaveAccessToAddOrDeleteRPMRMPDetailsInClinicalModule();
+
+	}
+
+	@And("the user should be able to delete RPM Remote Monitoring Parameter in Clinical Module test")
+	public void userShouldBeAbleToDeleteRpmRemoteMonitoringParameterInClinicalModule() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String rpmUrl = Hooks.prop.getProperty("rpmUrl");
+		Assert.assertNotNull("rpmUrl is missing in config", rpmUrl);
+
+		String fullRpmUrl = baseUrl + rpmUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+
+		Hooks.driver.get(fullRpmUrl);
+
+		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
+
+		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
+
+		clinicalPage.canDeleteRpmRemoteMonitoringParameterInClinicalModule();
+
+	}
+
+	@And("the user should not be able to add or edit RPM Remote Monitoring Parameter in Clinical Module test")
+	public void userShouldNotBeAbleToAddOrEditRpmRemoteMonitoringParameterInClinicalModule() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String rpmUrl = Hooks.prop.getProperty("rpmUrl");
+		Assert.assertNotNull("rpmUrl is missing in config", rpmUrl);
+
+		String fullRpmUrl = baseUrl + rpmUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+
+		Hooks.driver.get(fullRpmUrl);
+
+		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
+
+		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
+
+		clinicalPage.cannotAddOrEditRpmRemoteMonitoringParameterInClinicalModule();
+
+	}
+
+	@And("the user should be able to edit RPM Remote Monitoring Parameter in Clinical Module test")
+	public void userShouldBeAbleToEditRpmRemoteMonitoringParameterInClinicalModule() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String rpmUrl = Hooks.prop.getProperty("rpmUrl");
+		Assert.assertNotNull("rpmUrl is missing in config", rpmUrl);
+
+		String fullRpmUrl = baseUrl + rpmUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+
+		Hooks.driver.get(fullRpmUrl);
+
+		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
+
+		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
+
+		clinicalPage.canEditRpmRemoteMonitoringParameterInClinicalModule();
+
+	}
+
+	@And("the user should not be able to add or delete RPM Remote Monitoring Parameter in Clinical Module test")
+	public void userShouldNotBeAbleToAddOrDeleteRpmRemoteMonitoringParameterInClinicalModule() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String rpmUrl = Hooks.prop.getProperty("rpmUrl");
+		Assert.assertNotNull("rpmUrl is missing in config", rpmUrl);
+
+		String fullRpmUrl = baseUrl + rpmUrl;
+
+		clinicalPage = new clinicalpage(Hooks.driver);
+
+		Hooks.driver.get(fullRpmUrl);
+
+		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
+
+		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
+
+		clinicalPage.cannotAddOrDeleteRpmRemoteMonitoringParameterInClinicalModule();
+
+	}
+
+	@And("the user should not be able to edit or delete RPM Remote Monitoring Parameter in Clinical Module test")
+	public void userShouldNotBeAbleToEditOrDeleteRpmRemoteMonitoringParameterInClinicalModule() {
+
+		clinicalPage.cannotEditOrDeleteRpmRemoteMonitoringParameterInClinicalModule();
+
+	}
+
+	@And("I create a profile with Add access only to RPM Remote Monitoring Parameter in Clinical Module test")
+	public void createProfileWithAddOnlyAccessToRpmRemoteMonitoringParameterInClinicalModule() {
+		clinicalPage.clickFilterButton();
+		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.clickSearchButton();
+		clinicalPage.clickActionMenu();
+		clinicalPage.clickEditButton();
+		clinicalPage.givenProfileHasAddAccessOnlyForRpmRemoteMonitoringParameter();
+		clinicalPage.clickSubmitButton();
+		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+	}
+
 	// Remote Patient Monitoring (RPM)
 	@And("I create a profile with Export Excel and Outgoing Call access in Clinical Module test")
 	public void iCreateAProfileWithExportExcelAndOutgoingCallAccessInClinicalModuleTest() {

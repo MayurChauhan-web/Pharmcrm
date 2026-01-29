@@ -907,7 +907,6 @@ And I log in using the new user for Clinical Module
 Then the user should be able to delete Remote Patient Monitoring RPM in Clinical Module
 And the user should not be able to add or edit Remote Patient Monitoring RPM in Clinical Module
 
-#
 Scenario: User with Export Excel and Outgoing Call access
 Given I log in as admin for Clinical Module
 When I create a new user with email for Clinical Module "testuser8_static@mailinator.com"
@@ -917,6 +916,7 @@ And I reset the user's password for Clinical Module
 And I log in using the new user for Clinical Module
 Then the user should be able to export data to Excel in Clinical Module
 And the user should be able to make Outgoing Calls in Clinical Module
+
 
 Scenario: User with Add access for RPM / Remote Monitoring Parameter
 Given I log in as admin for Clinical Module
@@ -928,6 +928,7 @@ And I log in using the new user for Clinical Module
 Then the user should be able to add RPM Remote Monitoring Parameter in Clinical Module
 And the user should not be able to edit or delete RPM Remote Monitoring Parameter in Clinical Module
 
+
 Scenario: User with Edit access for RPM / Remote Monitoring Parameter
 Given I log in as admin for Clinical Module
 When I create a new user with email for Clinical Module "testuser1_static@mailinator.com"
@@ -937,6 +938,7 @@ And I reset the user's password for Clinical Module
 And I log in using the new user for Clinical Module
 Then the user should be able to edit RPM Remote Monitoring Parameter in Clinical Module
 And the user should not be able to add or delete RPM Remote Monitoring Parameter in Clinical Module
+
 
 Scenario: User with Delete access for RPM / Remote Monitoring Parameter
 Given I log in as admin for Clinical Module
@@ -966,6 +968,7 @@ And I assign the profile and workspace to the user for Clinical Module
 And I reset the user's password for Clinical Module
 And I log in using the new user for Clinical Module
 Then the user should not be able to edit RPM RMP Details in Clinical Module
+
 
 Scenario: User with Add access for RPM External Details for Alert
 Given I log in as admin for Clinical Module
@@ -997,6 +1000,7 @@ And I log in using the new user for Clinical Module
 Then the user should be able to delete RPM External Details for Alert in Clinical Module
 And the user should not be able to add or edit RPM External Details for Alert in Clinical Module
 
+
 Scenario: User with Add access for RPM Trigger Alert for Time
 Given I log in as admin for Clinical Module
 When I create a new user with email for Clinical Module "testuser7_static@mailinator.com"
@@ -1017,6 +1021,7 @@ And I log in using the new user for Clinical Module
 Then the user should be able to edit RPM Trigger Alert for Time in Clinical Module
 And the user should not be able to add or delete RPM Trigger Alert for Time in Clinical Module
 
+
 Scenario: User with Delete access for RPM Trigger Alert for Time
 Given I log in as admin for Clinical Module
 When I create a new user with email for Clinical Module "testuser2_static@mailinator.com"
@@ -1026,6 +1031,7 @@ And I reset the user's password for Clinical Module
 And I log in using the new user for Clinical Module
 Then the user should be able to delete RPM Trigger Alert for Time in Clinical Module
 And the user should not be able to add or edit RPM Trigger Alert for Time in Clinical Module
+
 
 Scenario: User with all access for Reports Remote Monitoring Report
 Given I log in as admin for Clinical Module
@@ -1040,6 +1046,7 @@ And the user should be able to download Reports Remote Monitoring Report file in
 And the user should be able to send Reports Remote Monitoring Report for signature in Clinical Module
 And the user should be able to export Reports Remote Monitoring Report to Excel in Clinical Module
 And the user should be able to download drilldown report for Reports Remote Monitoring Report in Clinical Module
+
 
 Scenario: User with View access for Reports Remote Monitoring Report
 Given I log in as admin for Clinical Module
@@ -1105,6 +1112,7 @@ And I log in using the new user for Clinical Module
 Then the user should be able to add RPM RPM Status in Clinical Module
 And the user should not be able to edit or delete RPM RPM Status in Clinical Module
 
+
 Scenario: User with Edit access for RPM Status
 Given I log in as admin for Clinical Module
 When I create a new user with email for Clinical Module "testuser5_static@mailinator.com"
@@ -1115,6 +1123,7 @@ And I log in using the new user for Clinical Module
 Then the user should be able to edit RPM RPM Status in Clinical Module
 And the user should not be able to add or delete RPM RPM Status in Clinical Module
 
+
 Scenario: User with Delete access for RPM Status
 Given I log in as admin for Clinical Module
 When I create a new user with email for Clinical Module "testuser1_static@mailinator.com"
@@ -1124,6 +1133,7 @@ And I reset the user's password for Clinical Module
 And I log in using the new user for Clinical Module
 Then the user should be able to delete RPM RPM Status in Clinical Module
 And the user should not be able to add or edit RPM RPM Status in Clinical Module
+
 
 Scenario: User with Add access for RPM Progress Step
 Given I log in as admin for Clinical Module
@@ -1145,6 +1155,7 @@ And I log in using the new user for Clinical Module
 Then the user should be able to edit RPM Progress Step in Clinical Module
 And the user should not be able to add or delete RPM Progress Step in Clinical Module
 
+#
 Scenario: User with Delete access for RPM Progress Step
 Given I log in as admin for Clinical Module
 When I create a new user with email for Clinical Module "testuser3_static@mailinator.com"

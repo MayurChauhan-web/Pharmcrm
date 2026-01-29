@@ -2,30 +2,30 @@
 <testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-01-28T17:50:01 IST" name="Default suite" finished-at="2026-01-28T17:51:23 IST" duration-ms="82398">
+  <suite started-at="2026-01-29T16:46:20 IST" name="Default suite" finished-at="2026-01-29T16:47:56 IST" duration-ms="96037">
     <groups>
       <group name="cucumber">
         <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.pharmcrm.pharmcrm_product.runner.MasterRunner@67c33749]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2026-01-28T17:50:01 IST" name="Default test" finished-at="2026-01-28T17:51:23 IST" duration-ms="82398">
+    <test started-at="2026-01-29T16:46:20 IST" name="Default test" finished-at="2026-01-29T16:47:56 IST" duration-ms="96037">
       <class name="com.pharmcrm.pharmcrm_product.runner.MasterRunner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.pharmcrm.pharmcrm_product.runner.MasterRunner@67c33749]" started-at="2026-01-28T17:50:01 IST" name="setUpClass" finished-at="2026-01-28T17:50:02 IST" duration-ms="701" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.pharmcrm.pharmcrm_product.runner.MasterRunner@67c33749]" started-at="2026-01-29T16:46:20 IST" name="setUpClass" finished-at="2026-01-29T16:46:21 IST" duration-ms="780" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@2a3a299]]>
+                <![CDATA[org.testng.TestRunner@8dfe921]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.pharmcrm.pharmcrm_product.runner.MasterRunner@67c33749]" started-at="2026-01-28T17:50:02 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-01-28T17:51:23 IST" duration-ms="81543" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.pharmcrm.pharmcrm_product.runner.MasterRunner@67c33749]" started-at="2026-01-29T16:46:21 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-01-29T16:47:56 IST" duration-ms="94990" status="FAIL">
           <params>
             <param index="0">
               <value>
-                <![CDATA["User with Add access for Remote Patient Monitoring RPM test"]]>
+                <![CDATA["User with Add access for RPM Status test"]]>
               </value>
             </param>
             <param index="1">
@@ -34,25 +34,35 @@
               </value>
             </param>
           </params>
-          <exception class="java.lang.AssertionError">
+          <exception class="org.openqa.selenium.TimeoutException">
             <message>
-              <![CDATA[Element should not be present: By.xpath: //div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]]]>
+              <![CDATA[Expected condition failed: waiting for element to be clickable: By.xpath: //a[normalize-space()='RPM Status'] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: '4.38.0', revision: '6b412e825c*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.12'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 144.0.7559.109, chrome: {chromedriverVersion: 144.0.7559.109 (6a8d5e49388..., userDataDir: C:\Users\MAYURC~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:49874}, goog:processID: 13348, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:49874/devtoo..., se:cdpVersion: 144.0.7559.109, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 93a828c13b97f335d1bd620df9da92e5]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: Element should not be present: By.xpath: //div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]
-at org.junit.Assert.fail(Assert.java:89)
-at org.junit.Assert.assertTrue(Assert.java:42)
-at com.pharmcrm_ClinicalModule.pages.clinicalpage.assertElementNotPresent(clinicalpage.java:1100)
-at com.pharmcrm_ClinicalModule.pages.clinicalpage.userShouldNotBeAbleToEditOrDeleteRemotePatientMonitoringRPMInClinicalModule(clinicalpage.java:3822)
-at com.pharmcrm_ClinicalModule.steps.clinicalstep.userShouldNotBeAbleToEditOrDeleteRemotePatientMonitoringInClinicalModule(clinicalstep.java:58)
-at ✽.the user should not be able to edit or delete Remote Patient Monitoring RPM in Clinical Module test(file:///C:/Users/MayurChauhan/eclipse-workspace/pharmcrm-product/src/test/resources/Features/ClinicalModule/Clinical.feature:1085)
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: //a[normalize-space()='RPM Status'] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: '4.38.0', revision: '6b412e825c*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.12'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 144.0.7559.109, chrome: {chromedriverVersion: 144.0.7559.109 (6a8d5e49388..., userDataDir: C:\Users\MAYURC~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:49874}, goog:processID: 13348, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:49874/devtoo..., se:cdpVersion: 144.0.7559.109, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 93a828c13b97f335d1bd620df9da92e5
+at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+at com.pharmcrm_ClinicalModule.pages.clinicalpage.clickWhenClickable(clinicalpage.java:1474)
+at com.pharmcrm_ClinicalModule.pages.clinicalpage.userCanAddRpmStatus(clinicalpage.java:39)
+at com.pharmcrm_ClinicalModule.steps.clinicalstep.userCanAddRpmStatus(clinicalstep.java:35)
+at ✽.the user should be able to add RPM RPM Status in Clinical Module test(file:///C:/Users/MayurChauhan/eclipse-workspace/pharmcrm-product/src/test/resources/Features/ClinicalModule/Clinical.feature:1320)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.pharmcrm.pharmcrm_product.runner.MasterRunner@67c33749]" started-at="2026-01-28T17:51:23 IST" name="tearDownClass" finished-at="2026-01-28T17:51:23 IST" duration-ms="88" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.pharmcrm.pharmcrm_product.runner.MasterRunner@67c33749]" started-at="2026-01-29T16:47:56 IST" name="tearDownClass" finished-at="2026-01-29T16:47:56 IST" duration-ms="160" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
