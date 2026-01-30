@@ -1306,7 +1306,6 @@ And the user should be able to delete generated incoming attachment in Clinical 
 And the user should be able to delete PA ChartNote attachment in Clinical Module test
 And the user should be able to send Clinical PA Insurance in Clinical Module test
 
-@Clinical
 # RPM / RPM Status
 Scenario: User with Add access for RPM Status test
 Given user launch browser
@@ -1380,6 +1379,274 @@ Then the Clinical user should be able to view Profiles test
 And I create a profile with Delete access only to RPM Progress Step in Clinical Module test
 Then the user should be able to delete RPM Progress Step in Clinical Module test
 And the user should not be able to add or edit RPM Progress Step in Clinical Module test
+
+# # Prior Authorization PA Progress Step
+Scenario: User with Add access for PA Progress Step test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with Add access only to PA Progress Step in Clinical Module test
+Then the user should be able to add PA Progress Step in Clinical Module test
+And the user should not be able to edit or delete PA Progress Step in Clinical Module test
+
+Scenario: User with Edit access for PA Progress Step test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with Edit access only to PA Progress Step in Clinical Module test
+Then the user should be able to edit PA Progress Step in Clinical Module test
+And the user should not be able to add or delete PA Progress Step in Clinical Module test
+
+Scenario: User with Delete access for PA Progress Step test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with Delete access only to PA Progress Step in Clinical Module test
+Then the user should be able to delete PA Progress Step in Clinical Module test
+And the user should not be able to add or edit PA Progress Step in Clinical Module test
+
+# RPM / Digital Signature
+Scenario: User with Edit access for Digital Signature test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with Edit access only to Digital Signature in Clinical Module test
+Then the user should be able to edit Digital Signature in Clinical Module test
+And the user should not be able to delete or download Digital Signature in Clinical Module test
+
+Scenario: User with Delete access for Digital Signature test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with Delete access only to Digital Signature in Clinical Module test
+Then the user should be able to delete Digital Signature in Clinical Module test
+And the user should not be able to edit or download Digital Signature in Clinical Module test
+
+Scenario: User with Download access for Digital Signature test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with Download access only to Digital Signature in Clinical Module test
+Then the user should be able to download Digital Signature in Clinical Module test
+And the user should not be able to edit or delete Digital Signature in Clinical Module test
+
+# RPM / CPT Code
+Scenario: User with Add access for CPT Code test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with Add access only to CPT Code in Clinical Module test
+Then the user should be able to add RPM CPT Code in Clinical Module test
+And the user should not be able to edit or delete RPM CPT Code in Clinical Module test
+
+Scenario: User with Edit access for CPT Code test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with Edit access only to CPT Code in Clinical Module test
+Then the user should be able to edit RPM CPT Code in Clinical Module test
+And the user should not be able to add or delete RPM CPT Code in Clinical Module test
+
+Scenario: User with Delete access for CPT Code test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with Delete access only to CPT Code in Clinical Module test
+Then the user should be able to delete RPM CPT Code in Clinical Module test
+And the user should not be able to add or edit RPM CPT Code in Clinical Module test
+
+@Clinical
+# Device Usage Statistic Report
+Scenario: User with View and Export access for Device Usage Statistic Report test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with View and Export access to Device Usage Statistic Report in Clinical Module test
+Then the user should be able to view Device Usage Statistic Report in Clinical Module test
+And the user should be able to export Device Usage Statistic Report in Clinical Module test
+
+Scenario: User with View-only access for Device Usage Statistic Report test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with View access only to Device Usage Statistic Report in Clinical Module test
+Then the user should be able to view Device Usage Statistic Report in Clinical Module test
+And the user should not be able to export Device Usage Statistic Report in Clinical Module test
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

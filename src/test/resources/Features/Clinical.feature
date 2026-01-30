@@ -1155,7 +1155,6 @@ And I log in using the new user for Clinical Module
 Then the user should be able to edit RPM Progress Step in Clinical Module
 And the user should not be able to add or delete RPM Progress Step in Clinical Module
 
-#
 Scenario: User with Delete access for RPM Progress Step
 Given I log in as admin for Clinical Module
 When I create a new user with email for Clinical Module "testuser3_static@mailinator.com"
@@ -1175,6 +1174,7 @@ And I reset the user's password for Clinical Module
 And I log in using the new user for Clinical Module
 Then the user should be able to add PA Progress Step in Clinical Module
 And the user should not be able to edit or delete PA Progress Step in Clinical Module
+
 
 Scenario: User with Edit access for PA Progress Step
 Given I log in as admin for Clinical Module
@@ -1226,6 +1226,7 @@ And I log in using the new user for Clinical Module
 Then the user should be able to download Digital Signature in Clinical Module
 And the user should not be able to edit or delete Digital Signature in Clinical Module
 
+
 Scenario: User with Add access for CPT Code
 Given I log in as admin for Clinical Module
 When I create a new user with email for Clinical Module "testuser3_static@mailinator.com"
@@ -1235,6 +1236,7 @@ And I reset the user's password for Clinical Module
 And I log in using the new user for Clinical Module
 Then the user should be able to add RPM CPT Code in Clinical Module
 And the user should not be able to edit or delete RPM CPT Code in Clinical Module
+
 
 Scenario: User with Edit access for CPT Code
 Given I log in as admin for Clinical Module
@@ -1266,6 +1268,7 @@ And I log in using the new user for Clinical Module
 Then the user should be able to view Device Usage Statistic Report in Clinical Module
 And the user should be able to export Device Usage Statistic Report in Clinical Module
 
+#
 Scenario: User with View-only access for Device Usage Statistic Report
 Given I log in as admin for Clinical Module
 When I create a new user with email for Clinical Module "testuser2_static@mailinator.com"
@@ -1275,6 +1278,10 @@ And I reset the user's password for Clinical Module
 And I log in using the new user for Clinical Module
 Then the user should be able to view Device Usage Statistic Report in Clinical Module
 And the user should not be able to export Device Usage Statistic Report in Clinical Module
+
+
+
+
 
 
 
