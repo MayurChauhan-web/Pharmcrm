@@ -119,6 +119,7 @@ public class PatientSteps {
 		clickWhenClickable(By.id("btnSave"));
 	}
 
+//-------
 	@Then("the user should be able to add patient external source")
 	public void userShouldBeAbleToAddPatientExternalSource() {
 		sleep(3000);
@@ -3070,12 +3071,98 @@ public class PatientSteps {
 
 	}
 
+	@Then("I navigate to the Patient page")
+	public void navigateToPatientPage() {
+		sleep(3000);
+		driver.get(baseUrl + "/Patient/Home/Patients");
+		wait.until(ExpectedConditions.urlContains("/Patient/Home/Patients"));
+
+	}
+
 	@Then("the user should not be able to access call records")
 	public void verifyUserCannotAccessCallRecords() {
 		sleep(2000);
 		driver.get(baseUrl + "/Setup/Home/CallActivities");
 		sleep(2000);
 		assertElementNotPresent(By.xpath("//div[@title='Recording URL']"));
+	}
+
+	@Then("I click on Add Quick Text")
+	public void clickOnAddQuickText() {
+		sleep(2000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='Quick Text']"));
+
+	}
+
+	@Then("I click on Send VCard Patient Module")
+	public void clickOnSendVCardInPatientModule() {
+		sleep(2000);
+		clickWhenClickable(By.xpath("//span[normalize-space()='Send VCard']"));
+
+	}
+
+	@Then("the patient should not be deleted")
+	public void verifyPatientIsNotDeleted() {
+		assertElementNotPresent(By.xpath("//div[@class='toast-message']"));
+
+	}
+
+	@Then("I click Cancel on Delete Patient confirmation")
+	public void clickCancelOnDeletePatientConfirmation() {
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@onclick='javascript: CloseDeletePopup();']//i[@class='fa fa-times']"));
+
+	}
+
+	@Then("I click on Delete Patient")
+	public void clickOnDeletePatient() {
+		sleep(2000);
+		clickWhenClickable(By.xpath("//tbody/tr[1]/td[12]/div[1]/div[1]/button[1]/i[1]"));
+		clickWhenClickable(By.xpath(
+				"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]"));
+
+	}
+
+	@Then("I click Send for Patient VCard")
+	public void clickSendForPatientVCard() {
+		sleep(2000);
+		clickWhenClickable(By.xpath("//button[@id='btnSendVCard']"));
+
+	}
+
+	@Then("I leave all required fields blank Patient Module")
+	public void leaveAllRequiredFieldsBlankInPatientModule() {
+
+	}
+
+	@Then("I click Send for Patient Quick Text")
+	public void clickSendForPatientQuickText() {
+		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
+	}
+
+	@Then("I should see validation messages for all required fields Patient Module")
+	public void verifyValidationMessagesForAllRequiredFieldsInPatientModule() {
+		assertElementPresent(By.xpath("//div[contains(text(),'Body should not be empty.')]"));
+		assertElementPresent(By.xpath("//div[contains(text(),'Please enter phone number.')]"));
+
+	}
+
+	@Then("I should see validation messages for all required fields Send VCard Patient Module")
+	public void verifyValidationMessagesForSendVCardRequiredFieldsInPatientModule() {
+		assertElementPresent(By.xpath("//div[@class='toast-message']"));
+
+	}
+
+	@Then("the patient quick text should not be created or updated")
+	public void verifyPatientQuickTextIsNotCreatedOrUpdated() {
+		assertElementPresent(By.xpath("//button[@id='btnSave']"));
+
+	}
+
+	@Then("the patient VCard should not be created or sent")
+	public void verifyPatientVCardIsNotCreatedOrSent() {
+		assertElementPresent(By.xpath("//button[@id='btnSendVCard']"));
+
 	}
 
 	@Then("the user should not have access to Consent Settings via UI or direct URL")
@@ -4694,6 +4781,7 @@ public class PatientSteps {
 		clickWhenClickable(By.xpath("//span[normalize-space()='Delete']"));
 		clickWhenClickable(By.xpath("//div[@id='deleteClinicalMedReconModel']//button[@id='btnDeleteConfirm']"));
 		sleep(3000);
+
 		driver.get(baseUrl + "/Patient/Home/Patients");
 		wait.until(ExpectedConditions.urlContains("/Patient/Home/Patients"));
 		sleep(3000);
@@ -4884,6 +4972,7 @@ public class PatientSteps {
 		selectDropdownByIndexWhenReady(By.id("Priority"), 1);
 		clickWhenClickable(By.xpath("//button[@id='btnSave']"));
 		sleep(3000);
+
 		driver.get(baseUrl + "/Patient/Home/Patients");
 		wait.until(ExpectedConditions.urlContains("/Patient/Home/Patients"));
 		sleep(3000);
