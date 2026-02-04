@@ -1,4 +1,3 @@
-@Drug
 Feature: Drug Module scenarios
 
   Scenario: User with View only access for Drug (Audit View)
@@ -89,6 +88,7 @@ Feature: Drug Module scenarios
   Then the user should be able to view and export excel in Drug  
   And the user should not be able to add, edit, delete, download template, or upload excel
   
+  
   Scenario: User with View only access for Star 1 Drug
   Given I log in as admin
   When I create a new user with email "testuser7_static@mailinator.com"
@@ -108,6 +108,7 @@ Feature: Drug Module scenarios
   And I log in using the new user
   Then the user should be able to view and edit Star 1 Drug
   
+  
   Scenario: User with View only access for Star 2 Drug
   Given I log in as admin
   When I create a new user with email "testuser1_static@mailinator.com"
@@ -118,6 +119,7 @@ Feature: Drug Module scenarios
   Then the user should be able to view Star 2 Drug 
   And the user should not be able to edit Star 2 Drug
   
+  
   Scenario: User with Edit access for Star 2 Drug
   Given I log in as admin
   When I create a new user with email "testuser1_static@mailinator.com"
@@ -126,6 +128,7 @@ Feature: Drug Module scenarios
   And I reset the user's password
   And I log in using the new user
   Then the user should be able to view and edit Star 2 Drug
+  
   
   Scenario: User with View only access for Allergy
   Given I log in as admin
@@ -137,6 +140,7 @@ Feature: Drug Module scenarios
   Then the user should be able to view Allergy 
   And the user should not be able to add, edit, delete, download template, upload excel, or export excel for Allergy
   
+  #
   Scenario: User with Add access for Allergy
   Given I log in as admin
   When I create a new user with email "testuser7_static@mailinator.com"

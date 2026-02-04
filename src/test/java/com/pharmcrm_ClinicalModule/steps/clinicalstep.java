@@ -3,7 +3,6 @@ package com.pharmcrm_ClinicalModule.steps;
 import org.junit.Assert;
 
 import com.pharmcrm_ClinicalModule.pages.clinicalpage;
-import com.pharmcrm_DeliveryModule.pages.deliverypage;
 
 import hooks.Hooks;
 import io.cucumber.java.en.And;
