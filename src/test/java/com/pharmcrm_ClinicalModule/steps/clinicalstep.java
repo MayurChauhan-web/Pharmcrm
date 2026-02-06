@@ -21,8 +21,9 @@ public class clinicalstep {
 		clinicalPage.clickEditButton();
 		clinicalPage.createProfileWithViewOnlyAccessToDeviceUsageReport();
 		clinicalPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Profile updated with View access only to Device Usage Statistic Report in Clinical Module");
+		Hooks.scenario.log("Profile updated with View access only to Device Usage Statistic Report in Clinical Module");
+
 	}
 
 	@And("I create a profile with View and Export access to Device Usage Statistic Report in Clinical Module test")
@@ -34,8 +35,11 @@ public class clinicalstep {
 		clinicalPage.clickEditButton();
 		clinicalPage.createProfileWithViewAndExportAccessToDeviceUsageReport();
 		clinicalPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println(
+				"Profile updated with View and Export access to Device Usage Statistic Report in Clinical Module");
+		Hooks.scenario
+				.log("Profile updated with View and Export access to Device Usage Statistic Report in Clinical Module");
+
 	}
 
 	// RPM / CPT Code
@@ -49,8 +53,10 @@ public class clinicalstep {
 		Hooks.driver.get(fullRpmUrl);
 		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
-		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
+
 		clinicalPage.cannotAddOrEditRPMCPTCodeInClinicalModule();
+		System.out.println("Verified user cannot add or edit RPM CPT Code in Clinical Module");
+		Hooks.scenario.log("Verified user cannot add or edit RPM CPT Code in Clinical Module");
 
 	}
 
@@ -64,8 +70,9 @@ public class clinicalstep {
 		Hooks.driver.get(fullRpmUrl);
 		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
-		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
 		clinicalPage.canDeleteRPMCPTCodeInClinicalModule();
+		System.out.println("Verified user can delete RPM CPT Code in Clinical Module");
+		Hooks.scenario.log("Verified user can delete RPM CPT Code in Clinical Module");
 
 	}
 
@@ -79,7 +86,8 @@ public class clinicalstep {
 		Hooks.driver.get(fullReportUrl);
 		Assert.assertTrue("Device Usage Statistic Report page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/DeviceUsageStatisticReport"));
-		Hooks.scenario.log("User is on the Device Usage Statistic Report page");
+		System.out.println("Verified user can view Device Usage Statistic Report in Clinical Module");
+		Hooks.scenario.log("Verified user can view Device Usage Statistic Report in Clinical Module");
 
 	}
 
@@ -93,8 +101,9 @@ public class clinicalstep {
 		Hooks.driver.get(fullReportUrl);
 		Assert.assertTrue("Device Usage Statistic Report page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/DeviceUsageStatisticReport"));
-		Hooks.scenario.log("User is on the Device Usage Statistic Report page");
 		clinicalPage.theUserShouldNotBeAbleToExportDeviceUsageStatisticReportInClinicalModule();
+		System.out.println("Verified user cannot export Device Usage Statistic Report in Clinical Module");
+		Hooks.scenario.log("Verified user cannot export Device Usage Statistic Report in Clinical Module");
 
 	}
 
@@ -108,8 +117,9 @@ public class clinicalstep {
 		Hooks.driver.get(fullReportUrl);
 		Assert.assertTrue("Device Usage Statistic Report page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/DeviceUsageStatisticReport"));
-		Hooks.scenario.log("User is on the Device Usage Statistic Report page");
 		clinicalPage.theUserShouldBeAbleToExportDeviceUsageStatisticReportInClinicalModule();
+		System.out.println("Verified user can export Device Usage Statistic Report in Clinical Module");
+		Hooks.scenario.log("Verified user can export Device Usage Statistic Report in Clinical Module");
 
 	}
 
@@ -122,8 +132,9 @@ public class clinicalstep {
 		clinicalPage.clickEditButton();
 		clinicalPage.createProfileWithDeleteOnlyCPTCodeAccess();
 		clinicalPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Profile updated with Delete access only to CPT Code in Clinical Module");
+		Hooks.scenario.log("Profile updated with Delete access only to CPT Code in Clinical Module");
+
 	}
 
 	@And("the user should not be able to add or delete RPM CPT Code in Clinical Module test")
@@ -136,8 +147,9 @@ public class clinicalstep {
 		Hooks.driver.get(fullRpmUrl);
 		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
-		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
 		clinicalPage.cannotAddOrDeleteRPMCPTCodeInClinicalModule();
+		System.out.println("Verified user cannot add or delete RPM CPT Code in Clinical Module");
+		Hooks.scenario.log("Verified user cannot add or delete RPM CPT Code in Clinical Module");
 
 	}
 
@@ -151,8 +163,9 @@ public class clinicalstep {
 		Hooks.driver.get(fullRpmUrl);
 		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
-		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
 		clinicalPage.canEditRPMCPTCodeInClinicalModule();
+		System.out.println("Verified user can edit RPM CPT Code in Clinical Module");
+		Hooks.scenario.log("Verified user can edit RPM CPT Code in Clinical Module");
 
 	}
 
@@ -165,8 +178,9 @@ public class clinicalstep {
 		clinicalPage.clickEditButton();
 		clinicalPage.createProfileWithEditOnlyCPTCodeAccess();
 		clinicalPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Profile updated with Edit access only to CPT Code in Clinical Module");
+		Hooks.scenario.log("Profile updated with Edit access only to CPT Code in Clinical Module");
+
 	}
 
 	@And("I create a profile with Add access only to CPT Code in Clinical Module test")
@@ -178,13 +192,16 @@ public class clinicalstep {
 		clinicalPage.clickEditButton();
 		clinicalPage.createProfileWithAddOnlyCPTCodeAccess();
 		clinicalPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Profile updated with Add access only to CPT Code in Clinical Module");
+		Hooks.scenario.log("Profile updated with Add access only to CPT Code in Clinical Module");
+
 	}
 
 	@And("the user should not be able to edit or delete RPM CPT Code in Clinical Module test")
 	public void shouldNotAllowUserToEditOrDeleteRPMCPTCodeInClinicalModule() {
 		clinicalPage.cannotEditOrDeleteRPMCPTCodeInClinicalModule();
+		System.out.println("Verified user cannot edit or delete RPM CPT Code in Clinical Module");
+		Hooks.scenario.log("Verified user cannot edit or delete RPM CPT Code in Clinical Module");
 
 	}
 
@@ -198,8 +215,9 @@ public class clinicalstep {
 		Hooks.driver.get(fullRpmUrl);
 		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
-		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
 		clinicalPage.canAddRPMCPTCodeInClinicalModule();
+		System.out.println("Verified user can add RPM CPT Code in Clinical Module");
+		Hooks.scenario.log("Verified user can add RPM CPT Code in Clinical Module");
 
 	}
 
@@ -213,13 +231,16 @@ public class clinicalstep {
 		clinicalPage.clickEditButton();
 		clinicalPage.createProfileWithDownloadOnlyDigitalSignatureAccess();
 		clinicalPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Profile updated with Download access only to Digital Signature in Clinical Module");
+		Hooks.scenario.log("Profile updated with Download access only to Digital Signature in Clinical Module");
+
 	}
 
 	@And("the user should not be able to delete or download Digital Signature in Clinical Module test")
 	public void shouldNotAllowUserToDeleteOrDownloadDigitalSignatureInClinicalModule() {
 		clinicalPage.cannotDeleteOrDownloadDigitalSignatureInClinicalModule();
+		System.out.println("Verified user cannot delete or download Digital Signature in Clinical Module");
+		Hooks.scenario.log("Verified user cannot delete or download Digital Signature in Clinical Module");
 
 	}
 
@@ -233,8 +254,9 @@ public class clinicalstep {
 		Hooks.driver.get(fullRpmUrl);
 		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
-		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
 		clinicalPage.cannotEditOrDeleteDigitalSignatureInClinicalModule();
+		System.out.println("Verified user cannot edit or delete Digital Signature in Clinical Module");
+		Hooks.scenario.log("Verified user cannot edit or delete Digital Signature in Clinical Module");
 
 	}
 
@@ -248,8 +270,9 @@ public class clinicalstep {
 		Hooks.driver.get(fullRpmUrl);
 		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
-		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
 		clinicalPage.canDownloadDigitalSignatureInClinicalModule();
+		System.out.println("Verified user can download Digital Signature in Clinical Module");
+		Hooks.scenario.log("Verified user can download Digital Signature in Clinical Module");
 
 	}
 
@@ -263,8 +286,9 @@ public class clinicalstep {
 		Hooks.driver.get(fullRpmUrl);
 		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
-		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
 		clinicalPage.canDeleteDigitalSignatureInClinicalModule();
+		System.out.println("Verified user can delete Digital Signature in Clinical Module");
+		Hooks.scenario.log("Verified user can delete Digital Signature in Clinical Module");
 
 	}
 
@@ -278,8 +302,9 @@ public class clinicalstep {
 		Hooks.driver.get(fullRpmUrl);
 		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
-		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
 		clinicalPage.cannotEditOrDownloadDigitalSignatureInClinicalModule();
+		System.out.println("Verified user cannot edit or download Digital Signature in Clinical Module");
+		Hooks.scenario.log("Verified user cannot edit or download Digital Signature in Clinical Module");
 
 	}
 
@@ -292,8 +317,9 @@ public class clinicalstep {
 		clinicalPage.clickEditButton();
 		clinicalPage.createProfileWithDeleteOnlyDigitalSignatureAccess();
 		clinicalPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Profile updated with Delete access only to Digital Signature in Clinical Module");
+		Hooks.scenario.log("Profile updated with Delete access only to Digital Signature in Clinical Module");
+
 	}
 
 	@And("I create a profile with Edit access only to Digital Signature in Clinical Module test")
@@ -305,8 +331,9 @@ public class clinicalstep {
 		clinicalPage.clickEditButton();
 		clinicalPage.createProfileWithEditOnlyDigitalSignatureAccess();
 		clinicalPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Profile updated with Edit access only to Digital Signature in Clinical Module");
+		Hooks.scenario.log("Profile updated with Edit access only to Digital Signature in Clinical Module");
+
 	}
 
 	@And("the user should be able to edit Digital Signature in Clinical Module test")
@@ -319,8 +346,9 @@ public class clinicalstep {
 		Hooks.driver.get(fullRpmUrl);
 		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
-		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
 		clinicalPage.canEditDigitalSignatureInClinicalModule();
+		System.out.println("Verified user can edit Digital Signature in Clinical Module");
+		Hooks.scenario.log("Verified user can edit Digital Signature in Clinical Module");
 
 	}
 
@@ -336,6 +364,8 @@ public class clinicalstep {
 		Assert.assertTrue("Clinical Prior Authorizations page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/ClinicalPriorAuthorizations"));
 		clinicalPage.cannotAddOrEditPAProgressStepInClinicalModule();
+		System.out.println("Verified user cannot add or edit PA Progress Step in Clinical Module");
+		Hooks.scenario.log("Verified user cannot add or edit PA Progress Step in Clinical Module");
 
 	}
 
@@ -350,6 +380,8 @@ public class clinicalstep {
 		Assert.assertTrue("Clinical Prior Authorizations page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/ClinicalPriorAuthorizations"));
 		clinicalPage.canDeletePAProgressStepInClinicalModule();
+		System.out.println("Verified user can delete PA Progress Step in Clinical Module");
+		Hooks.scenario.log("Verified user can delete PA Progress Step in Clinical Module");
 
 	}
 
@@ -362,13 +394,16 @@ public class clinicalstep {
 		clinicalPage.clickEditButton();
 		clinicalPage.createProfileWithDeleteOnlyPAProgressStepAccess();
 		clinicalPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Profile updated with Delete access only to PA Progress Step in Clinical Module");
+		Hooks.scenario.log("Profile updated with Delete access only to PA Progress Step in Clinical Module");
+
 	}
 
 	@And("the user should not be able to edit or delete PA Progress Step in Clinical Module test")
 	public void shouldNotAllowUserToEditOrDeletePAProgressStepInClinicalModule() {
 		clinicalPage.cannotEditOrDeletePAProgressStepInClinicalModule();
+		System.out.println("Verified user cannot edit or delete PA Progress Step in Clinical Module");
+		Hooks.scenario.log("Verified user cannot edit or delete PA Progress Step in Clinical Module");
 
 	}
 
@@ -383,6 +418,8 @@ public class clinicalstep {
 		Assert.assertTrue("Clinical Prior Authorizations page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/ClinicalPriorAuthorizations"));
 		clinicalPage.cannotAddOrDeletePAProgressStepInClinicalModule();
+		System.out.println("Verified user cannot add or delete PA Progress Step in Clinical Module");
+		Hooks.scenario.log("Verified user cannot add or delete PA Progress Step in Clinical Module");
 
 	}
 
@@ -397,6 +434,8 @@ public class clinicalstep {
 		Assert.assertTrue("Clinical Prior Authorizations page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/ClinicalPriorAuthorizations"));
 		clinicalPage.canEditPAProgressStepInClinicalModule();
+		System.out.println("Verified user can edit PA Progress Step in Clinical Module");
+		Hooks.scenario.log("Verified user can edit PA Progress Step in Clinical Module");
 
 	}
 
@@ -411,6 +450,8 @@ public class clinicalstep {
 		Assert.assertTrue("Clinical Prior Authorizations page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/ClinicalPriorAuthorizations"));
 		clinicalPage.canAddPAProgressStepInClinicalModule();
+		System.out.println("Verified user can add PA Progress Step in Clinical Module");
+		Hooks.scenario.log("Verified user can add PA Progress Step in Clinical Module");
 
 	}
 
@@ -423,8 +464,9 @@ public class clinicalstep {
 		clinicalPage.clickEditButton();
 		clinicalPage.createProfileWithEditOnlyPAProgressStepAccess();
 		clinicalPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Profile updated with Edit access only to PA Progress Step in Clinical Module");
+		Hooks.scenario.log("Profile updated with Edit access only to PA Progress Step in Clinical Module");
+
 	}
 
 	@And("I create a profile with Add access only to PA Progress Step in Clinical Module test")
@@ -436,8 +478,9 @@ public class clinicalstep {
 		clinicalPage.clickEditButton();
 		clinicalPage.createProfileForPAProgressStep();
 		clinicalPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Profile updated with Add access only to PA Progress Step in Clinical Module");
+		Hooks.scenario.log("Profile updated with Add access only to PA Progress Step in Clinical Module");
+
 	}
 
 	// RPM / RPM Progress Step
@@ -450,8 +493,9 @@ public class clinicalstep {
 		clinicalPage.clickEditButton();
 		clinicalPage.createDeleteOnlyRpmProgressStepProfile();
 		clinicalPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Profile updated with Delete access only to RPM Progress Step in Clinical Module");
+		Hooks.scenario.log("Profile updated with Delete access only to RPM Progress Step in Clinical Module");
+
 	}
 
 	@And("I create a profile with Edit access only to RPM Progress Step in Clinical Module test")
@@ -463,8 +507,9 @@ public class clinicalstep {
 		clinicalPage.clickEditButton();
 		clinicalPage.createEditOnlyRpmProgressStepProfile();
 		clinicalPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Profile updated with Edit access only to RPM Progress Step in Clinical Module");
+		Hooks.scenario.log("Profile updated with Edit access only to RPM Progress Step in Clinical Module");
+
 	}
 
 	@And("I create a profile with Add access only to RPM Progress Step in Clinical Module test")
@@ -476,8 +521,9 @@ public class clinicalstep {
 		clinicalPage.clickEditButton();
 		clinicalPage.createAddOnlyRpmProgressStepProfile();
 		clinicalPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Profile updated with Add access only to RPM Progress Step in Clinical Module");
+		Hooks.scenario.log("Profile updated with Add access only to RPM Progress Step in Clinical Module");
+
 	}
 
 	@And("the user should not be able to add or edit RPM Progress Step in Clinical Module test")
@@ -490,8 +536,9 @@ public class clinicalstep {
 		Hooks.driver.get(fullRpmUrl);
 		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
-		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
 		clinicalPage.addOrEditRpmProgressStepNotAllowed();
+		System.out.println("Verified user cannot add or edit RPM Progress Step in Clinical Module");
+		Hooks.scenario.log("Verified user cannot add or edit RPM Progress Step in Clinical Module");
 
 	}
 
@@ -505,8 +552,9 @@ public class clinicalstep {
 		Hooks.driver.get(fullRpmUrl);
 		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
-		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
 		clinicalPage.addOrDeleteRpmProgressStepNotAllowed();
+		System.out.println("Verified user cannot add or delete RPM Progress Step in Clinical Module");
+		Hooks.scenario.log("Verified user cannot add or delete RPM Progress Step in Clinical Module");
 
 	}
 
@@ -520,8 +568,9 @@ public class clinicalstep {
 		Hooks.driver.get(fullRpmUrl);
 		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
-		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
 		clinicalPage.editRpmProgressStepAllowed();
+		System.out.println("Verified user can edit RPM Progress Step in Clinical Module");
+		Hooks.scenario.log("Verified user can edit RPM Progress Step in Clinical Module");
 
 	}
 
@@ -535,8 +584,9 @@ public class clinicalstep {
 		Hooks.driver.get(fullRpmUrl);
 		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
-		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
 		clinicalPage.deleteRpmProgressStepAllowed();
+		System.out.println("Verified user can delete RPM Progress Step in Clinical Module");
+		Hooks.scenario.log("Verified user can delete RPM Progress Step in Clinical Module");
 
 	}
 
@@ -550,8 +600,9 @@ public class clinicalstep {
 		Hooks.driver.get(fullRpmUrl);
 		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
-		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
 		clinicalPage.addRpmProgressStepAllowed();
+		System.out.println("Verified user can add RPM Progress Step in Clinical Module");
+		Hooks.scenario.log("Verified user can add RPM Progress Step in Clinical Module");
 
 	}
 
@@ -565,8 +616,9 @@ public class clinicalstep {
 		Hooks.driver.get(fullRpmUrl);
 		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
-		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
 		clinicalPage.editOrDeleteRpmProgressStepNotAllowed();
+		System.out.println("Verified user cannot edit or delete RPM Progress Step in Clinical Module");
+		Hooks.scenario.log("Verified user cannot edit or delete RPM Progress Step in Clinical Module");
 
 	}
 
@@ -580,8 +632,9 @@ public class clinicalstep {
 		clinicalPage.clickEditButton();
 		clinicalPage.createDeleteOnlyRpmProfile();
 		clinicalPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Profile updated with Delete access only to RPM Status in Clinical Module");
+		Hooks.scenario.log("Profile updated with Delete access only to RPM Status in Clinical Module");
+
 	}
 
 	@And("I create a profile with Edit access only to RPM Status in Clinical Module test")
@@ -593,11 +646,12 @@ public class clinicalstep {
 		clinicalPage.clickEditButton();
 		clinicalPage.createEditOnlyRpmProfile();
 		clinicalPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Profile updated with Edit access only to RPM Status in Clinical Module");
+		Hooks.scenario.log("Profile updated with Edit access only to RPM Status in Clinical Module");
+
 	}
 
-	@And("the user should be able to add RPM RPM Status in Clinical Module test")
+	@And("the user should be able to add RPM Status page in Clinical Module test")
 	public void userCanAddRpmStatus() {
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String rpmUrl = Hooks.prop.getProperty("rpmUrl");
@@ -607,12 +661,13 @@ public class clinicalstep {
 		Hooks.driver.get(fullRpmUrl);
 		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
-		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
 		clinicalPage.userCanAddRpmStatus();
+		System.out.println("Verified user can add RPM Status in Clinical Module");
+		Hooks.scenario.log("Verified user can add RPM Status in Clinical Module");
 
 	}
 
-	@And("the user should not be able to add or delete RPM RPM Status in Clinical Module test")
+	@And("the user should not be able to add or delete RPM Status page in Clinical Module test")
 	public void userCannotAddOrDeleteRpmStatus() {
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String rpmUrl = Hooks.prop.getProperty("rpmUrl");
@@ -622,12 +677,13 @@ public class clinicalstep {
 		Hooks.driver.get(fullRpmUrl);
 		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
-		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
 		clinicalPage.addOrDeleteRpmStatusNotAllowed();
+		System.out.println("Verified user cannot add or delete RPM Status in Clinical Module");
+		Hooks.scenario.log("Verified user cannot add or delete RPM Status in Clinical Module");
 
 	}
 
-	@And("the user should be able to delete RPM RPM Status in Clinical Module test")
+	@And("the user should be able to delete RPM Status page in Clinical Module test")
 	public void userCanDeleteRpmStatus() {
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String rpmUrl = Hooks.prop.getProperty("rpmUrl");
@@ -637,12 +693,13 @@ public class clinicalstep {
 		Hooks.driver.get(fullRpmUrl);
 		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
-		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
 		clinicalPage.deleteRpmStatusAllowed();
+		System.out.println("Verified user can delete RPM Status in Clinical Module");
+		Hooks.scenario.log("Verified user can delete RPM Status in Clinical Module");
 
 	}
 
-	@And("the user should not be able to add or edit RPM RPM Status in Clinical Module test")
+	@And("the user should not be able to add or edit RPM Status Page in Clinical Module test")
 	public void userCannotAddOrEditRpmStatus() {
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String rpmUrl = Hooks.prop.getProperty("rpmUrl");
@@ -652,12 +709,13 @@ public class clinicalstep {
 		Hooks.driver.get(fullRpmUrl);
 		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
-		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
 		clinicalPage.addOrEditRpmStatusNotAllowed();
+		System.out.println("Verified user cannot add or edit RPM Status in Clinical Module");
+		Hooks.scenario.log("Verified user cannot add or edit RPM Status in Clinical Module");
 
 	}
 
-	@And("the user should be able to edit RPM RPM Status in Clinical Module test")
+	@And("the user should be able to edit RPM Status page in Clinical Module test")
 	public void userCanEditRpmStatus() {
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String rpmUrl = Hooks.prop.getProperty("rpmUrl");
@@ -667,12 +725,13 @@ public class clinicalstep {
 		Hooks.driver.get(fullRpmUrl);
 		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
-		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
 		clinicalPage.userHasEditAccessToRpmStatus();
+		System.out.println("Verified user can edit RPM Status in Clinical Module");
+		Hooks.scenario.log("Verified user can edit RPM Status in Clinical Module");
 
 	}
 
-	@And("the user should not be able to edit or delete RPM RPM Status in Clinical Module test")
+	@And("the user should not be able to edit or delete RPM Status page in Clinical Module test")
 	public void userCannotEditOrDeleteRpmStatus() {
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String rpmUrl = Hooks.prop.getProperty("rpmUrl");
@@ -682,8 +741,9 @@ public class clinicalstep {
 		Hooks.driver.get(fullRpmUrl);
 		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
-		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
 		clinicalPage.userCannotEditOrDeleteRpmStatus();
+		System.out.println("Verified user cannot edit or delete RPM Status in Clinical Module");
+		Hooks.scenario.log("Verified user cannot edit or delete RPM Status in Clinical Module");
 
 	}
 
@@ -696,8 +756,9 @@ public class clinicalstep {
 		clinicalPage.clickEditButton();
 		clinicalPage.createRpmAddProfile();
 		clinicalPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Profile updated with Add access only to RPM Status in Clinical Module");
+		Hooks.scenario.log("Profile updated with Add access only to RPM Status in Clinical Module");
+
 	}
 
 	// Reports / Remote Monitoring Report
@@ -711,8 +772,9 @@ public class clinicalstep {
 		Hooks.driver.get(fullRpmUrl);
 		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
-		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
 		clinicalPage.userShouldBeAbleToSendPAInsuranceInClinicalModule();
+		System.out.println("Verified user can send Clinical PA Insurance in Clinical Module");
+		Hooks.scenario.log("Verified user can send Clinical PA Insurance in Clinical Module");
 
 	}
 
@@ -726,8 +788,9 @@ public class clinicalstep {
 		Hooks.driver.get(fullRpmUrl);
 		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
-		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
 		clinicalPage.deletePAChartNoteAttachmentInClinicalModule();
+		System.out.println("Verified user can delete PA ChartNote attachment in Clinical Module");
+		Hooks.scenario.log("Verified user can delete PA ChartNote attachment in Clinical Module");
 
 	}
 
@@ -740,8 +803,9 @@ public class clinicalstep {
 		clinicalPage.clickEditButton();
 		clinicalPage.createProfileWithAllAccessForAllPA();
 		clinicalPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Profile updated with all access for PA All in Clinical Module");
+		Hooks.scenario.log("Profile updated with all access for PA All in Clinical Module");
+
 	}
 
 	@And("I create a profile with View access only to Reports Remote Monitoring Report in Clinical Module test")
@@ -753,8 +817,11 @@ public class clinicalstep {
 		clinicalPage.clickEditButton();
 		clinicalPage.createProfileWithViewAccessForRemoteMonitoringReportInClinicalModule();
 		clinicalPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println(
+				"Profile updated with View access only to Reports Remote Monitoring Report in Clinical Module");
+		Hooks.scenario
+				.log("Profile updated with View access only to Reports Remote Monitoring Report in Clinical Module");
+
 	}
 
 	// RPM / Trigger Alert for Time
@@ -768,8 +835,11 @@ public class clinicalstep {
 		Hooks.driver.get(fullRpmUrl);
 		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
-		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
 		clinicalPage.downloadDrilldownReportForRemoteMonitoringReportInClinicalModule();
+		System.out.println(
+				"Verified user can download drilldown report for Reports Remote Monitoring Report in Clinical Module");
+		Hooks.scenario.log(
+				"Verified user can download drilldown report for Reports Remote Monitoring Report in Clinical Module");
 
 	}
 
@@ -783,8 +853,9 @@ public class clinicalstep {
 		Hooks.driver.get(fullRpmUrl);
 		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
-		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
 		clinicalPage.exportRemoteMonitoringReportToExcelInClinicalModule();
+		System.out.println("Verified user can export Reports Remote Monitoring Report to Excel in Clinical Module");
+		Hooks.scenario.log("Verified user can export Reports Remote Monitoring Report to Excel in Clinical Module");
 
 	}
 
@@ -798,8 +869,9 @@ public class clinicalstep {
 		Hooks.driver.get(fullRpmUrl);
 		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
-		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
 		clinicalPage.shouldSendReportsRemoteMonitoringReportForSignatureInClinicalModule();
+		System.out.println("Verified user can send Reports Remote Monitoring Report for signature in Clinical Module");
+		Hooks.scenario.log("Verified user can send Reports Remote Monitoring Report for signature in Clinical Module");
 
 	}
 
@@ -812,8 +884,9 @@ public class clinicalstep {
 		clinicalPage.clickEditButton();
 		clinicalPage.createProfileWithAllAccessForReportsRemoteMonitoringReport();
 		clinicalPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Profile updated with all access for Reports Remote Monitoring Report in Clinical Module");
+		Hooks.scenario.log("Profile updated with all access for Reports Remote Monitoring Report in Clinical Module");
+
 	}
 
 	@And("the user should be able to download Reports Remote Monitoring Report file in Clinical Module test")
@@ -826,8 +899,9 @@ public class clinicalstep {
 		Hooks.driver.get(fullRpmUrl);
 		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
-		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
 		clinicalPage.userShouldBeAbleToDownloadReportsRemoteMonitoringReportFileInClinicalModule();
+		System.out.println("Verified user can download Reports Remote Monitoring Report file in Clinical Module");
+		Hooks.scenario.log("Verified user can download Reports Remote Monitoring Report file in Clinical Module");
 
 	}
 
@@ -841,8 +915,9 @@ public class clinicalstep {
 		Hooks.driver.get(fullRpmUrl);
 		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
-		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
 		clinicalPage.userShouldBeAbleToDrillDownReportsRemoteMonitoringReportInClinicalModule();
+		System.out.println("Verified user can drill down Reports Remote Monitoring Report in Clinical Module");
+		Hooks.scenario.log("Verified user can drill down Reports Remote Monitoring Report in Clinical Module");
 
 	}
 
@@ -856,7 +931,8 @@ public class clinicalstep {
 		Hooks.driver.get(fullRpmUrl);
 		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
-		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
+		System.out.println("Verified user can view Reports Remote Monitoring Report in Clinical Module");
+		Hooks.scenario.log("Verified user can view Reports Remote Monitoring Report in Clinical Module");
 
 	}
 
@@ -870,8 +946,9 @@ public class clinicalstep {
 		Hooks.driver.get(fullRpmUrl);
 		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
-		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
 		clinicalPage.canDeleteRpmTriggerAlertForTimeInClinicalModule();
+		System.out.println("Verified user can delete RPM Trigger Alert for Time in Clinical Module");
+		Hooks.scenario.log("Verified user can delete RPM Trigger Alert for Time in Clinical Module");
 
 	}
 
@@ -886,6 +963,8 @@ public class clinicalstep {
 		Assert.assertTrue("Clinical Prior Authorizations page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/ClinicalPriorAuthorizations"));
 		clinicalPage.userShouldBeAbleToGenerateAllPAInClinicalModule();
+		System.out.println("Verified user can generate PA All PA in Clinical Module");
+		Hooks.scenario.log("Verified user can generate PA All PA in Clinical Module");
 
 	}
 
@@ -900,6 +979,8 @@ public class clinicalstep {
 		Assert.assertTrue("Clinical Prior Authorizations page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/ClinicalPriorAuthorizations"));
 		clinicalPage.userShouldBeAbleToViewAllPAOutcomeInClinicalModule();
+		System.out.println("Verified user can view PA All PA outcome in Clinical Module");
+		Hooks.scenario.log("Verified user can view PA All PA outcome in Clinical Module");
 
 	}
 
@@ -914,6 +995,8 @@ public class clinicalstep {
 		Assert.assertTrue("Clinical Prior Authorizations page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/ClinicalPriorAuthorizations"));
 		clinicalPage.userShouldBeAbleToExportAllPAToExcelInClinicalModule();
+		System.out.println("Verified user can export PA All PA to Excel in Clinical Module");
+		Hooks.scenario.log("Verified user can export PA All PA to Excel in Clinical Module");
 
 	}
 
@@ -928,6 +1011,8 @@ public class clinicalstep {
 		Assert.assertTrue("Clinical Prior Authorizations page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/ClinicalPriorAuthorizations"));
 		clinicalPage.userShouldBeAbleToDeleteGeneratedIncomingAttachmentInClinicalModule();
+		System.out.println("Verified user can delete generated incoming attachment in Clinical Module");
+		Hooks.scenario.log("Verified user can delete generated incoming attachment in Clinical Module");
 
 	}
 
@@ -942,6 +1027,8 @@ public class clinicalstep {
 		Assert.assertTrue("Clinical Prior Authorizations page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/ClinicalPriorAuthorizations"));
 		clinicalPage.userShouldBeAbleToDeletePAOutcomeStatusInClinicalModule();
+		System.out.println("Verified user can delete PA outcome status in Clinical Module");
+		Hooks.scenario.log("Verified user can delete PA outcome status in Clinical Module");
 
 	}
 
@@ -956,6 +1043,8 @@ public class clinicalstep {
 		Assert.assertTrue("Clinical Prior Authorizations page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/ClinicalPriorAuthorizations"));
 		clinicalPage.userShouldBeAbleToDeletePAStatusInClinicalModule();
+		System.out.println("Verified user can delete PA status in Clinical Module");
+		Hooks.scenario.log("Verified user can delete PA status in Clinical Module");
 
 	}
 
@@ -970,6 +1059,8 @@ public class clinicalstep {
 		Assert.assertTrue("Clinical Prior Authorizations page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/ClinicalPriorAuthorizations"));
 		clinicalPage.userShouldBeAbleToShowGeneratedPABYAllInClinicalModule();
+		System.out.println("Verified user can show generated PA by All in Clinical Module");
+		Hooks.scenario.log("Verified user can show generated PA by All in Clinical Module");
 
 	}
 
@@ -984,6 +1075,8 @@ public class clinicalstep {
 		Assert.assertTrue("Clinical Prior Authorizations page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/ClinicalPriorAuthorizations"));
 		clinicalPage.submitAllPAInClinicalModule();
+		System.out.println("Verified user can submit all PAs in Clinical Module");
+		Hooks.scenario.log("Verified user can submit all PAs in Clinical Module");
 
 	}
 
@@ -998,6 +1091,8 @@ public class clinicalstep {
 		Assert.assertTrue("Clinical Prior Authorizations page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/ClinicalPriorAuthorizations"));
 		clinicalPage.verifyAllPAInClinicalModule();
+		System.out.println("Verified user can verify all PAs in Clinical Module");
+		Hooks.scenario.log("Verified user can verify all PAs in Clinical Module");
 
 	}
 
@@ -1011,7 +1106,8 @@ public class clinicalstep {
 		clinicalPage.openClinicalPriorAuthorizationsPage(fullClinicalPriorAuthorizationsUrl);
 		Assert.assertTrue("Clinical Prior Authorizations page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/ClinicalPriorAuthorizations"));
-		Hooks.scenario.log("User is on the Clinical Prior Authorizations page");
+		System.out.println("Verified user can view all PAs in Clinical Module");
+		Hooks.scenario.log("Verified user can view all PAs in Clinical Module");
 
 	}
 
@@ -1025,8 +1121,9 @@ public class clinicalstep {
 		Hooks.driver.get(fullRpmUrl);
 		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
-		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
 		clinicalPage.userCannotAddOrEditRPMTriggerAlertForTimeInClinicalModule();
+		System.out.println("Verified user cannot add or edit RPM Trigger Alert for Time in Clinical Module");
+		Hooks.scenario.log("Verified user cannot add or edit RPM Trigger Alert for Time in Clinical Module");
 
 	}
 
@@ -1039,8 +1136,9 @@ public class clinicalstep {
 		clinicalPage.clickEditButton();
 		clinicalPage.createDeleteOnlyProfileForRpmTriggerAlertForTime();
 		clinicalPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Verified profile has Delete-only access to RPM Trigger Alert for Time in Clinical Module");
+		Hooks.scenario.log("Verified profile has Delete-only access to RPM Trigger Alert for Time in Clinical Module");
+
 	}
 
 	@And("the user should be able to edit RPM Trigger Alert for Time in Clinical Module test")
@@ -1053,8 +1151,9 @@ public class clinicalstep {
 		Hooks.driver.get(fullRpmUrl);
 		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
-		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
 		clinicalPage.canEditRpmTriggerAlertForTimeInClinicalModule();
+		System.out.println("Verified user can edit RPM Trigger Alert for Time in Clinical Module");
+		Hooks.scenario.log("Verified user can edit RPM Trigger Alert for Time in Clinical Module");
 
 	}
 
@@ -1068,8 +1167,9 @@ public class clinicalstep {
 		Hooks.driver.get(fullRpmUrl);
 		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
-		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
 		clinicalPage.userShouldNotBeAbleToAddOrDeleteRPMTriggerAlertForTimeInClinicalModule();
+		System.out.println("Verified user cannot add or delete RPM Trigger Alert for Time in Clinical Module");
+		Hooks.scenario.log("Verified user cannot add or delete RPM Trigger Alert for Time in Clinical Module");
 
 	}
 
@@ -1082,13 +1182,16 @@ public class clinicalstep {
 		clinicalPage.clickEditButton();
 		clinicalPage.givenProfileHasEditAccessOnlyForRpmTriggerAlertForTime();
 		clinicalPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Verified profile has Edit-only access to RPM Trigger Alert for Time in Clinical Module");
+		Hooks.scenario.log("Verified profile has Edit-only access to RPM Trigger Alert for Time in Clinical Module");
+
 	}
 
 	@And("the user should not be able to edit or delete RPM Trigger Alert for Time in Clinical Module test")
 	public void userShouldNotBeAbleToEditOrDeleteRpmTriggerAlertForTimeInClinicalModule() {
 		clinicalPage.cannotEditOrDeleteRpmTriggerAlertForTimeInClinicalModule();
+		System.out.println("Verified user cannot edit or delete RPM Trigger Alert for Time in Clinical Module");
+		Hooks.scenario.log("Verified user cannot edit or delete RPM Trigger Alert for Time in Clinical Module");
 
 	}
 
@@ -1102,8 +1205,9 @@ public class clinicalstep {
 		Hooks.driver.get(fullRpmUrl);
 		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
-		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
 		clinicalPage.canAddRpmTriggerAlertForTimeInClinicalModule();
+		System.out.println("Verified user can add RPM Trigger Alert for Time in Clinical Module");
+		Hooks.scenario.log("Verified user can add RPM Trigger Alert for Time in Clinical Module");
 
 	}
 
@@ -1116,8 +1220,9 @@ public class clinicalstep {
 		clinicalPage.clickEditButton();
 		clinicalPage.givenProfileHasAddAccessOnlyForRpmTriggerAlertForTime();
 		clinicalPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Verified profile has Add-only access to RPM Trigger Alert for Time in Clinical Module");
+		Hooks.scenario.log("Verified profile has Add-only access to RPM Trigger Alert for Time in Clinical Module");
+
 	}
 
 	// RPM / External Details for Alert
@@ -1130,8 +1235,11 @@ public class clinicalstep {
 		clinicalPage.clickEditButton();
 		clinicalPage.givenProfileHasDeleteAccessOnlyForRpmExternalDetailsForAlert();
 		clinicalPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println(
+				"Verified profile has Delete-only access to RPM External Details for Alert in Clinical Module");
+		Hooks.scenario
+				.log("Verified profile has Delete-only access to RPM External Details for Alert in Clinical Module");
+
 	}
 
 	@And("the user should be able to delete RPM External Details for Alert in Clinical Module test")
@@ -1144,8 +1252,9 @@ public class clinicalstep {
 		Hooks.driver.get(fullRpmUrl);
 		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
-		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
 		clinicalPage.canDeleteRpmExternalDetailsForAlertInClinicalModule();
+		System.out.println("Verified user can delete RPM External Details for Alert in Clinical Module");
+		Hooks.scenario.log("Verified user can delete RPM External Details for Alert in Clinical Module");
 
 	}
 
@@ -1159,8 +1268,9 @@ public class clinicalstep {
 		Hooks.driver.get(fullRpmUrl);
 		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
-		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
 		clinicalPage.verifyUserCannotAddOrDeleteRPMExternalDetailsForAlert();
+		System.out.println("Verified user cannot add or delete RPM External Details for Alert in Clinical Module");
+		Hooks.scenario.log("Verified user cannot add or delete RPM External Details for Alert in Clinical Module");
 
 	}
 
@@ -1174,8 +1284,9 @@ public class clinicalstep {
 		Hooks.driver.get(fullRpmUrl);
 		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
-		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
 		clinicalPage.cannotAddOrEditRpmExternalDetailsForAlertInClinicalModule();
+		System.out.println("Verified user cannot add or edit RPM External Details for Alert in Clinical Module");
+		Hooks.scenario.log("Verified user cannot add or edit RPM External Details for Alert in Clinical Module");
 
 	}
 
@@ -1189,8 +1300,9 @@ public class clinicalstep {
 		Hooks.driver.get(fullRpmUrl);
 		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
-		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
 		clinicalPage.verifyUserCanEditRPMExternalDetailsForAlert();
+		System.out.println("Verified user can edit RPM External Details for Alert in Clinical Module");
+		Hooks.scenario.log("Verified user can edit RPM External Details for Alert in Clinical Module");
 
 	}
 
@@ -1203,8 +1315,11 @@ public class clinicalstep {
 		clinicalPage.clickEditButton();
 		clinicalPage.givenProfileHasEditAccessOnlyForRpmExternalDetailsForAlert();
 		clinicalPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out
+				.println("Verified profile has Edit-only access to RPM External Details for Alert in Clinical Module");
+		Hooks.scenario
+				.log("Verified profile has Edit-only access to RPM External Details for Alert in Clinical Module");
+
 	}
 
 	@And("I create a profile with Add access only to RPM External Details for Alert in Clinical Module test")
@@ -1216,13 +1331,16 @@ public class clinicalstep {
 		clinicalPage.clickEditButton();
 		clinicalPage.givenProfileHasNoEditAccessForRpmRmpDetails();
 		clinicalPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Verified profile has Add-only access to RPM External Details for Alert in Clinical Module");
+		Hooks.scenario.log("Verified profile has Add-only access to RPM External Details for Alert in Clinical Module");
+
 	}
 
 	@And("the user should not be able to edit or delete RPM External Details for Alert in Clinical Module test")
 	public void userShouldNotBeAbleToEditOrDeleteRpmExternalDetailsForAlertInClinicalModule() {
 		clinicalPage.cannotEditOrDeleteRpmExternalDetailsForAlertInClinicalModule();
+		System.out.println("Verified user cannot edit or delete RPM External Details for Alert in Clinical Module");
+		Hooks.scenario.log("Verified user cannot edit or delete RPM External Details for Alert in Clinical Module");
 
 	}
 
@@ -1236,8 +1354,9 @@ public class clinicalstep {
 		Hooks.driver.get(fullRpmUrl);
 		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
-		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
 		clinicalPage.verifyUserCanAddRPMExternalDetailsForAlert();
+		System.out.println("Verified user can add RPM External Details for Alert in Clinical Module");
+		Hooks.scenario.log("Verified user can add RPM External Details for Alert in Clinical Module");
 
 	}
 
@@ -1251,8 +1370,9 @@ public class clinicalstep {
 		clinicalPage.clickEditButton();
 		clinicalPage.givenProfileHasNoEditAccessForRpmRmpDetails();
 		clinicalPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Verified profile has no Edit access to RPM RMP Details in Clinical Module");
+		Hooks.scenario.log("Verified profile has no Edit access to RPM RMP Details in Clinical Module");
+
 	}
 
 	@And("I create a profile with Edit access only to RPM RMP Details in Clinical Module test")
@@ -1264,8 +1384,9 @@ public class clinicalstep {
 		clinicalPage.clickEditButton();
 		clinicalPage.givenProfileHasEditAccessOnlyForRpmRmpDetails();
 		clinicalPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Verified profile has Edit-only access to RPM RMP Details in Clinical Module");
+		Hooks.scenario.log("Verified profile has Edit-only access to RPM RMP Details in Clinical Module");
+
 	}
 
 	// RPM / Remote Monitoring Parameter
@@ -1278,8 +1399,11 @@ public class clinicalstep {
 		clinicalPage.clickEditButton();
 		clinicalPage.givenProfileHasDeleteAccessOnlyForRpmRemoteMonitoringParameter();
 		clinicalPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println(
+				"Verified profile has Delete-only access to RPM Remote Monitoring Parameter in Clinical Module");
+		Hooks.scenario
+				.log("Verified profile has Delete-only access to RPM Remote Monitoring Parameter in Clinical Module");
+
 	}
 
 	@And("I create a profile with Edit access only to RPM Remote Monitoring Parameter in Clinical Module test")
@@ -1291,8 +1415,11 @@ public class clinicalstep {
 		clinicalPage.clickEditButton();
 		clinicalPage.givenProfileHasEditAccessOnlyForRpmRemoteMonitoringParameter();
 		clinicalPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out
+				.println("Verified profile has Edit-only access to RPM Remote Monitoring Parameter in Clinical Module");
+		Hooks.scenario
+				.log("Verified profile has Edit-only access to RPM Remote Monitoring Parameter in Clinical Module");
+
 	}
 
 	@And("the user should be able to add RPM Remote Monitoring Parameter in Clinical Module test")
@@ -1305,8 +1432,9 @@ public class clinicalstep {
 		Hooks.driver.get(fullRpmUrl);
 		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
-		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
 		clinicalPage.canAddRpmRemoteMonitoringParameterInClinicalModule();
+		System.out.println("Verified user can add RPM Remote Monitoring Parameter in Clinical Module");
+		Hooks.scenario.log("Verified user can add RPM Remote Monitoring Parameter in Clinical Module");
 
 	}
 
@@ -1320,8 +1448,9 @@ public class clinicalstep {
 		clinicalPage.openClinicalPriorAuthorizationsPage(fullClinicalPriorAuthorizationsUrl);
 		Assert.assertTrue("Clinical Prior Authorizations page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/ClinicalPriorAuthorizations"));
-		Hooks.scenario.log("User is on the Clinical Prior Authorizations page");
 		clinicalPage.userShouldNotBeAbleToEditRPMRMPDetailsInClinicalModule();
+		System.out.println("Verified user cannot edit RPM RMP Details in Clinical Module");
+		Hooks.scenario.log("Verified user cannot edit RPM RMP Details in Clinical Module");
 
 	}
 
@@ -1335,14 +1464,17 @@ public class clinicalstep {
 		clinicalPage.openClinicalPriorAuthorizationsPage(fullClinicalPriorAuthorizationsUrl);
 		Assert.assertTrue("Clinical Prior Authorizations page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/ClinicalPriorAuthorizations"));
-		Hooks.scenario.log("User is on the Clinical Prior Authorizations page");
 		clinicalPage.canEditRpmRmpDetailsInClinicalModule();
+		System.out.println("Verified user can edit RPM RMP Details in Clinical Module");
+		Hooks.scenario.log("Verified user can edit RPM RMP Details in Clinical Module");
 
 	}
 
 	@And("the user should not have access to Add or Delete RPM RMP Details in Clinical Module test")
 	public void userShouldNotHaveAccessToAddOrDeleteRpmRmpDetailsInClinicalModule() {
 		clinicalPage.userShouldNotHaveAccessToAddOrDeleteRPMRMPDetailsInClinicalModule();
+		System.out.println("Verified user cannot add or delete RPM RMP Details in Clinical Module");
+		Hooks.scenario.log("Verified user cannot add or delete RPM RMP Details in Clinical Module");
 
 	}
 
@@ -1356,8 +1488,9 @@ public class clinicalstep {
 		Hooks.driver.get(fullRpmUrl);
 		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
-		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
 		clinicalPage.canDeleteRpmRemoteMonitoringParameterInClinicalModule();
+		System.out.println("Verified user can delete RPM Remote Monitoring Parameter in Clinical Module");
+		Hooks.scenario.log("Verified user can delete RPM Remote Monitoring Parameter in Clinical Module");
 
 	}
 
@@ -1371,8 +1504,9 @@ public class clinicalstep {
 		Hooks.driver.get(fullRpmUrl);
 		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
-		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
 		clinicalPage.cannotAddOrEditRpmRemoteMonitoringParameterInClinicalModule();
+		System.out.println("Verified user cannot add or edit RPM Remote Monitoring Parameter in Clinical Module");
+		Hooks.scenario.log("Verified user cannot add or edit RPM Remote Monitoring Parameter in Clinical Module");
 
 	}
 
@@ -1386,8 +1520,9 @@ public class clinicalstep {
 		Hooks.driver.get(fullRpmUrl);
 		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
-		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
 		clinicalPage.canEditRpmRemoteMonitoringParameterInClinicalModule();
+		System.out.println("Verified user can edit RPM Remote Monitoring Parameter in Clinical Module");
+		Hooks.scenario.log("Verified user can edit RPM Remote Monitoring Parameter in Clinical Module");
 
 	}
 
@@ -1401,14 +1536,17 @@ public class clinicalstep {
 		Hooks.driver.get(fullRpmUrl);
 		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
-		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
 		clinicalPage.cannotAddOrDeleteRpmRemoteMonitoringParameterInClinicalModule();
+		System.out.println("Verified user cannot add or delete RPM Remote Monitoring Parameter in Clinical Module");
+		Hooks.scenario.log("Verified user cannot add or delete RPM Remote Monitoring Parameter in Clinical Module");
 
 	}
 
 	@And("the user should not be able to edit or delete RPM Remote Monitoring Parameter in Clinical Module test")
 	public void userShouldNotBeAbleToEditOrDeleteRpmRemoteMonitoringParameterInClinicalModule() {
 		clinicalPage.cannotEditOrDeleteRpmRemoteMonitoringParameterInClinicalModule();
+		System.out.println("Verified user cannot edit or delete RPM Remote Monitoring Parameter in Clinical Module");
+		Hooks.scenario.log("Verified user cannot edit or delete RPM Remote Monitoring Parameter in Clinical Module");
 
 	}
 
@@ -1421,8 +1559,11 @@ public class clinicalstep {
 		clinicalPage.clickEditButton();
 		clinicalPage.givenProfileHasAddAccessOnlyForRpmRemoteMonitoringParameter();
 		clinicalPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out
+				.println("Verified profile has Add-only access to RPM Remote Monitoring Parameter in Clinical Module");
+		Hooks.scenario
+				.log("Verified profile has Add-only access to RPM Remote Monitoring Parameter in Clinical Module");
+
 	}
 
 	// Remote Patient Monitoring (RPM)
@@ -1435,8 +1576,9 @@ public class clinicalstep {
 		clinicalPage.clickEditButton();
 		clinicalPage.iCreateAProfileWithExportExcelAndOutgoingCallPermissionsInClinicalModuleTest();
 		clinicalPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Verified profile has Export Excel and Outgoing Call access in Clinical Module");
+		Hooks.scenario.log("Verified profile has Export Excel and Outgoing Call access in Clinical Module");
+
 	}
 
 	@And("I create a profile with Delete access only to Remote Patient Monitoring RPM in Clinical Module test")
@@ -1448,8 +1590,11 @@ public class clinicalstep {
 		clinicalPage.clickEditButton();
 		clinicalPage.userShouldHaveDeleteAccessToRemotePatientMonitoringInClinicalModule();
 		clinicalPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println(
+				"Verified profile has Delete-only access to Remote Patient Monitoring (RPM) in Clinical Module");
+		Hooks.scenario
+				.log("Verified profile has Delete-only access to Remote Patient Monitoring (RPM) in Clinical Module");
+
 	}
 
 	@And("I create a profile with Edit access only to Remote Patient Monitoring RPM in Clinical Module test")
@@ -1461,31 +1606,42 @@ public class clinicalstep {
 		clinicalPage.clickEditButton();
 		clinicalPage.verifyUserHasEditAccessToRemotePatientMonitoringInClinicalModule();
 		clinicalPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out
+				.println("Verified profile has Edit-only access to Remote Patient Monitoring (RPM) in Clinical Module");
+		Hooks.scenario
+				.log("Verified profile has Edit-only access to Remote Patient Monitoring (RPM) in Clinical Module");
+
 	}
 
 	@And("the user should not be able to edit or delete Remote Patient Monitoring RPM in Clinical Module test")
 	public void userShouldNotBeAbleToEditOrDeleteRemotePatientMonitoringInClinicalModule() {
 		clinicalPage.userShouldNotBeAbleToEditOrDeleteRemotePatientMonitoringRPMInClinicalModule();
+		System.out.println("Verified user cannot edit or delete Remote Patient Monitoring (RPM) in Clinical Module");
+		Hooks.scenario.log("Verified user cannot edit or delete Remote Patient Monitoring (RPM) in Clinical Module");
 
 	}
 
 	@And("the user should not be able to add or delete Remote Patient Monitoring RPM in Clinical Module test")
 	public void userShouldNotBeAbleToAddOrDeleteRemotePatientMonitoringInClinicalModule() {
 		clinicalPage.userShouldNotBeAbleToAddOrDeleteRemotePatientMonitoringRPMInClinicalModule();
+		System.out.println("Verified user cannot add or delete Remote Patient Monitoring (RPM) in Clinical Module");
+		Hooks.scenario.log("Verified user cannot add or delete Remote Patient Monitoring (RPM) in Clinical Module");
 
 	}
 
 	@And("the user should not be able to add or edit Remote Patient Monitoring RPM in Clinical Module test")
 	public void userShouldNotBeAbleToAddOrEditRemotePatientMonitoringRPMInClinicalModule() {
 		clinicalPage.userShouldNotBeAbleToAddOrEditRemotePatientMonitoringRPMInClinicalModule();
+		System.out.println("Verified user cannot add or edit Remote Patient Monitoring (RPM) in Clinical Module");
+		Hooks.scenario.log("Verified user cannot add or edit Remote Patient Monitoring (RPM) in Clinical Module");
 
 	}
 
 	@And("the user should be able to make Outgoing Calls in Clinical Module test")
 	public void userShouldBeAbleToMakeOutgoingCallsInClinicalModuleTest() {
 		clinicalPage.userShouldBeAbleToMakeOutgoingCallsInClinicalModule();
+		System.out.println("Verified user can make Outgoing Calls in Clinical Module");
+		Hooks.scenario.log("Verified user can make Outgoing Calls in Clinical Module");
 
 	}
 
@@ -1499,8 +1655,9 @@ public class clinicalstep {
 		Hooks.driver.get(fullRpmUrl);
 		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
-		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
 		clinicalPage.userShouldBeAbleToExportDataToExcelInClinicalModule();
+		System.out.println("Verified user can export data to Excel in Clinical Module");
+		Hooks.scenario.log("Verified user can export data to Excel in Clinical Module");
 
 	}
 
@@ -1514,8 +1671,9 @@ public class clinicalstep {
 		Hooks.driver.get(fullRpmUrl);
 		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
-		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
 		clinicalPage.userShouldBeAbleToDeleteRemotePatientMonitoringRPMInClinicalModule();
+		System.out.println("Verified user can delete Remote Patient Monitoring (RPM) in Clinical Module");
+		Hooks.scenario.log("Verified user can delete Remote Patient Monitoring (RPM) in Clinical Module");
 
 	}
 
@@ -1529,8 +1687,9 @@ public class clinicalstep {
 		Hooks.driver.get(fullRpmUrl);
 		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
-		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
 		clinicalPage.userShouldBeAbleToEditRemotePatientMonitoringRPMInClinicalModule();
+		System.out.println("Verified user can edit Remote Patient Monitoring (RPM) in Clinical Module");
+		Hooks.scenario.log("Verified user can edit Remote Patient Monitoring (RPM) in Clinical Module");
 
 	}
 
@@ -1544,8 +1703,9 @@ public class clinicalstep {
 		Hooks.driver.get(fullRpmUrl);
 		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
-		Hooks.scenario.log("User is on the Remote Patient Monitoring page");
 		clinicalPage.userShouldBeAbleToAddRemotePatientMonitoringRPMInClinicalModule();
+		System.out.println("Verified user can add Remote Patient Monitoring (RPM) in Clinical Module");
+		Hooks.scenario.log("Verified user can add Remote Patient Monitoring (RPM) in Clinical Module");
 
 	}
 
@@ -1558,26 +1718,37 @@ public class clinicalstep {
 		clinicalPage.clickEditButton();
 		clinicalPage.userShouldHaveAddAccessToRemotePatientMonitoringInClinicalModule();
 		clinicalPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out
+				.println("Verified profile has Add-only access to Remote Patient Monitoring (RPM) in Clinical Module");
+		Hooks.scenario
+				.log("Verified profile has Add-only access to Remote Patient Monitoring (RPM) in Clinical Module");
+
 	}
 
 	// Reports / MTM Encounter Log
 	@And("the user should be able to view Details for Reports MTM Encounter Log in Clinical Module test")
 	public void userShouldBeAbleToViewDetailsForReportsMTMEncounterLogInClinicalModule() {
 		clinicalPage.userShouldBeAbleToViewDetailsForReportsMTMEncounterLogInClinicalModule();
+		System.out.println("Verified user can view Details for Reports MTM Encounter Log in Clinical Module");
+		Hooks.scenario.log("Verified user can view Details for Reports MTM Encounter Log in Clinical Module");
 
 	}
 
 	@And("the user should be able to export Reports MTM Encounter Log to Excel in Clinical Module test")
 	public void userShouldBeAbleToExportReportsMTMEncounterLogToExcelInClinicalModule() {
 		clinicalPage.userShouldBeAbleToExportReportsMTMEncounterLogToExcelInClinicalModule();
+		System.out.println("Verified user can export Reports MTM Encounter Log to Excel in Clinical Module");
+		Hooks.scenario.log("Verified user can export Reports MTM Encounter Log to Excel in Clinical Module");
 
 	}
 
 	@And("the user should not have access to Export Excel or Details for Reports MTM Encounter Log in Clinical Module test")
 	public void verifyUserCannotAccessExportOrDetailsForReportsMTMEncounterLogInClinicalModule() {
 		clinicalPage.userShouldNotHaveAccessToExportExcelOrDetailsForReportsMTMEncounterLogInClinicalModule();
+		System.out.println(
+				"Verified user cannot access Export Excel or Details for Reports MTM Encounter Log in Clinical Module");
+		Hooks.scenario.log(
+				"Verified user cannot access Export Excel or Details for Reports MTM Encounter Log in Clinical Module");
 
 	}
 
@@ -1591,7 +1762,8 @@ public class clinicalstep {
 		Hooks.driver.get(fullMtmEncounterLogUrl);
 		Assert.assertTrue("Reports MTM Encounter Log page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/MTMEncounterLog"));
-		Hooks.scenario.log("User is on the Reports MTM Encounter Log page");
+		System.out.println("Verified user can view Reports MTM Encounter Log in Clinical Module");
+		Hooks.scenario.log("Verified user can view Reports MTM Encounter Log in Clinical Module");
 
 	}
 
@@ -1604,8 +1776,9 @@ public class clinicalstep {
 		clinicalPage.clickEditButton();
 		clinicalPage.verifyUserHasViewAccessToReportsMTMEncounterLogInClinicalModule();
 		clinicalPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Verified profile has View-only access to Reports MTM Encounter Log in Clinical Module");
+		Hooks.scenario.log("Verified profile has View-only access to Reports MTM Encounter Log in Clinical Module");
+
 	}
 
 	@And("I create a profile with View, Export Excel, and Details access to Reports MTM Encounter Log in Clinical Module test")
@@ -1617,14 +1790,19 @@ public class clinicalstep {
 		clinicalPage.clickEditButton();
 		clinicalPage.verifyUserHasViewExportAndDetailsAccessForReportsMTMEncounterLog();
 		clinicalPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println(
+				"Verified profile has View, Export Excel, and Details access to Reports MTM Encounter Log in Clinical Module");
+		Hooks.scenario.log(
+				"Verified profile has View, Export Excel, and Details access to Reports MTM Encounter Log in Clinical Module");
+
 	}
 
 	// Med Recons / Current Medication
 	@And("the user should not be able to add or edit Med Recons Current Medication in Clinical Module test")
 	public void verifyUserCannotAddOrEditMedReconsCurrentMedicationInClinicalModule() {
 		clinicalPage.userShouldNotBeAbleToAddOrEditMedReconsCurrentMedicationInClinicalModule();
+		System.out.println("Verified user cannot add or edit Med Recons Current Medication in Clinical Module");
+		Hooks.scenario.log("Verified user cannot add or edit Med Recons Current Medication in Clinical Module");
 
 	}
 
@@ -1638,8 +1816,9 @@ public class clinicalstep {
 		Hooks.driver.get(fullClinicalMedReconsUrl);
 		Assert.assertTrue("Clinical Med Recons page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/ClinicalMedRecons"));
-		Hooks.scenario.log("User is on the Clinical Med Recons page");
 		clinicalPage.userShouldBeAbleToDeleteMedReconsCurrentMedicationInClinicalModule();
+		System.out.println("Verified user can delete Med Recons Current Medication in Clinical Module");
+		Hooks.scenario.log("Verified user can delete Med Recons Current Medication in Clinical Module");
 
 	}
 
@@ -1652,13 +1831,18 @@ public class clinicalstep {
 		clinicalPage.clickEditButton();
 		clinicalPage.createProfileWithDeleteOnlyAccessForMedReconsCurrentMedicationTest();
 		clinicalPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out
+				.println("Verified profile has Delete-only access to Med Recons Current Medication in Clinical Module");
+		Hooks.scenario
+				.log("Verified profile has Delete-only access to Med Recons Current Medication in Clinical Module");
+
 	}
 
 	@And("the user should not be able to add or delete Med Recons Current Medication in Clinical Module test")
 	public void verifyUserCannotAddOrDeleteMedReconsCurrentMedicationInClinicalModule() {
 		clinicalPage.userShouldNotBeAbleToAddOrDeleteMedReconsCurrentMedicationInClinicalModule();
+		System.out.println("Verified user cannot add or delete Med Recons Current Medication in Clinical Module");
+		Hooks.scenario.log("Verified user cannot add or delete Med Recons Current Medication in Clinical Module");
 
 	}
 
@@ -1672,8 +1856,9 @@ public class clinicalstep {
 		Hooks.driver.get(fullClinicalMedReconsUrl);
 		Assert.assertTrue("Clinical Med Recons page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/ClinicalMedRecons"));
-		Hooks.scenario.log("User is on the Clinical Med Recons page");
 		clinicalPage.userShouldBeAbleToEditMedReconsCurrentMedicationInClinicalModule();
+		System.out.println("Verified user can edit Med Recons Current Medication in Clinical Module");
+		Hooks.scenario.log("Verified user can edit Med Recons Current Medication in Clinical Module");
 
 	}
 
@@ -1686,8 +1871,9 @@ public class clinicalstep {
 		clinicalPage.clickEditButton();
 		clinicalPage.createProfileWithEditAccessForMedReconsCurrentMedication();
 		clinicalPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Verified profile has Edit-only access to Med Recons Current Medication in Clinical Module");
+		Hooks.scenario.log("Verified profile has Edit-only access to Med Recons Current Medication in Clinical Module");
+
 	}
 
 	@And("I create a profile with Add access only to Med Recons Current Medication in Clinical Module test")
@@ -1699,13 +1885,16 @@ public class clinicalstep {
 		clinicalPage.clickEditButton();
 		clinicalPage.userCreatesProfileWithAddAccessOnlyToMedReconsCurrentMedication();
 		clinicalPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Verified profile has Add-only access to Med Recons Current Medication in Clinical Module");
+		Hooks.scenario.log("Verified profile has Add-only access to Med Recons Current Medication in Clinical Module");
+
 	}
 
 	@And("the user should not be able to edit or delete Med Recons Current Medication in Clinical Module test")
 	public void userShouldNotBeAbleToEditOrDeleteMedReconsCurrentMedicationInClinicalModule() {
 		clinicalPage.userShouldNotBeAbleToEditOrDeleteMedReconsCurrentMedicationInClinicalModule();
+		System.out.println("Verified user cannot edit or delete Med Recons Current Medication in Clinical Module");
+		Hooks.scenario.log("Verified user cannot edit or delete Med Recons Current Medication in Clinical Module");
 
 	}
 
@@ -1719,8 +1908,9 @@ public class clinicalstep {
 		Hooks.driver.get(fullClinicalMedReconsUrl);
 		Assert.assertTrue("Clinical Med Recons page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/ClinicalMedRecons"));
-		Hooks.scenario.log("User is on the Clinical Med Recons page");
 		clinicalPage.userShouldBeAbleToAddMedReconsCurrentMedicationInClinicalModule();
+		System.out.println("Verified user can add Med Recons Current Medication in Clinical Module");
+		Hooks.scenario.log("Verified user can add Med Recons Current Medication in Clinical Module");
 
 	}
 
@@ -1728,12 +1918,16 @@ public class clinicalstep {
 	@And("the user should not be able to add or delete Med Recons Meds On Chart in Clinical Module test")
 	public void userShouldNotBeAbleToAddOrDeleteMedReconsMedsOnChartInClinicalModule() {
 		clinicalPage.verifyUserCannotAddOrDeleteMedReconsMedsOnChartInClinicalModule();
+		System.out.println("Verified user cannot add or delete Med Recons Meds On Chart in Clinical Module");
+		Hooks.scenario.log("Verified user cannot add or delete Med Recons Meds On Chart in Clinical Module");
 
 	}
 
 	@And("the user should not be able to add or edit Med Recons Meds On Chart in Clinical Module test")
 	public void userShouldNotBeAbleToAddOrEditMedReconsMedsOnChartInClinicalModule() {
 		clinicalPage.userShouldNotBeAbleToAddOrEditMedReconsMedsOnChartInClinicalModule();
+		System.out.println("Verified user cannot add or edit Med Recons Meds On Chart in Clinical Module");
+		Hooks.scenario.log("Verified user cannot add or edit Med Recons Meds On Chart in Clinical Module");
 
 	}
 
@@ -1747,8 +1941,9 @@ public class clinicalstep {
 		Hooks.driver.get(fullClinicalMedReconsUrl);
 		Assert.assertTrue("Clinical Med Recons page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/ClinicalMedRecons"));
-		Hooks.scenario.log("User is on the Clinical Med Recons page");
 		clinicalPage.userShouldBeAbleToDeleteMedReconsMedsOnChartInClinicalModule();
+		System.out.println("Verified user can delete Med Recons Meds On Chart in Clinical Module");
+		Hooks.scenario.log("Verified user can delete Med Recons Meds On Chart in Clinical Module");
 
 	}
 
@@ -1762,8 +1957,9 @@ public class clinicalstep {
 		Hooks.driver.get(fullClinicalMedReconsUrl);
 		Assert.assertTrue("Clinical Med Recons page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/ClinicalMedRecons"));
-		Hooks.scenario.log("User is on the Clinical Med Recons page");
 		clinicalPage.userShouldBeAbleToEditMedReconsMedsOnChartInClinicalModule();
+		System.out.println("Verified user can edit Med Recons Meds On Chart in Clinical Module");
+		Hooks.scenario.log("Verified user can edit Med Recons Meds On Chart in Clinical Module");
 
 	}
 
@@ -1776,8 +1972,9 @@ public class clinicalstep {
 		clinicalPage.clickEditButton();
 		clinicalPage.createClinicalProfileWithMedReconsMedsOnChartDeleteAccess();
 		clinicalPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Verified profile has Delete-only access to Med Recons Meds On Chart in Clinical Module");
+		Hooks.scenario.log("Verified profile has Delete-only access to Med Recons Meds On Chart in Clinical Module");
+
 	}
 
 	@And("I create a profile with Edit access only to Med Recons Meds On Chart in Clinical Module test")
@@ -1789,13 +1986,17 @@ public class clinicalstep {
 		clinicalPage.clickEditButton();
 		clinicalPage.createClinicalProfileWithMedReconsMedsOnChartEditAccess();
 		clinicalPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Verified profile has Edit-only access to Med Recons Meds On Chart in Clinical Module");
+		Hooks.scenario.log("Verified profile has Edit-only access to Med Recons Meds On Chart in Clinical Module");
+
 	}
 
 	@And("the user should not be able to edit or delete Med Recons Meds On Chart in Clinical Module test")
 	public void userShouldNotBeAbleToEditOrDeleteMedReconsMedsOnChartInClinicalModule() {
 		clinicalPage.userShouldNotBeAbleToEditOrDeleteMedReconsMedsOnChartInClinicalModule();
+		System.out.println("Verified user cannot edit or delete Med Recons Meds On Chart in Clinical Module");
+		Hooks.scenario.log("Verified user cannot edit or delete Med Recons Meds On Chart in Clinical Module");
+
 	}
 
 	@And("the user should be able to add Med Recons Meds On Chart in Clinical Module test")
@@ -1808,8 +2009,9 @@ public class clinicalstep {
 		Hooks.driver.get(fullClinicalMedReconsUrl);
 		Assert.assertTrue("Clinical Med Recons page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/ClinicalMedRecons"));
-		Hooks.scenario.log("User is on the Clinical Med Recons page");
 		clinicalPage.userShouldBeAbleToAddMedReconsMedsOnChartInClinicalModule();
+		System.out.println("Verified user can add Med Recons Meds On Chart in Clinical Module");
+		Hooks.scenario.log("Verified user can add Med Recons Meds On Chart in Clinical Module");
 
 	}
 
@@ -1822,8 +2024,9 @@ public class clinicalstep {
 		clinicalPage.clickEditButton();
 		clinicalPage.createClinicalProfileWithMedReconsMedsOnChartAddAccess();
 		clinicalPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Verified profile has Add-only access to Med Recons Meds On Chart in Clinical Module");
+		Hooks.scenario.log("Verified profile has Add-only access to Med Recons Meds On Chart in Clinical Module");
+
 	}
 
 	// Med Recons
@@ -1837,8 +2040,9 @@ public class clinicalstep {
 		Hooks.driver.get(fullClinicalMedReconsUrl);
 		Assert.assertTrue("Clinical Med Recons page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/ClinicalMedRecons"));
-		Hooks.scenario.log("User is on the Clinical Med Recons page");
 		clinicalPage.userShouldBeAbleToAccessDownloadFileInClinicalModule();
+		System.out.println("Verified user can access Download File in Clinical Module");
+		Hooks.scenario.log("Verified user can access Download File in Clinical Module");
 
 	}
 
@@ -1851,13 +2055,16 @@ public class clinicalstep {
 		clinicalPage.clickEditButton();
 		clinicalPage.createClinicalProfileWithDownloadFileAccess();
 		clinicalPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Verified user can access Download File in Clinical Module");
+		Hooks.scenario.log("Verified user can access Download File in Clinical Module");
+
 	}
 
 	@And("the user should not be able to add or edit Med Recons in Clinical Module test")
 	public void userShouldNotBeAbleToAddOrEditMedReconsInClinicalModule() {
 		clinicalPage.userShouldNotBeAbleToAddOrEditMedReconsInClinicalModule();
+		System.out.println("Verified user cannot add or edit Med Recons in Clinical Module");
+		Hooks.scenario.log("Verified user cannot add or edit Med Recons in Clinical Module");
 
 	}
 
@@ -1871,8 +2078,9 @@ public class clinicalstep {
 		Hooks.driver.get(fullClinicalMedReconsUrl);
 		Assert.assertTrue("Clinical Med Recons page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/ClinicalMedRecons"));
-		Hooks.scenario.log("User is on the Clinical Med Recons page");
 		clinicalPage.userShouldBeAbleToDeleteMedReconsInClinicalModule();
+		System.out.println("Verified user can delete Med Recons in Clinical Module");
+		Hooks.scenario.log("Verified user can delete Med Recons in Clinical Module");
 
 	}
 
@@ -1885,8 +2093,9 @@ public class clinicalstep {
 		clinicalPage.clickEditButton();
 		clinicalPage.createClinicalProfileWithMedReconsDeleteAccess();
 		clinicalPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Verified profile has Delete-only access to Med Recons in Clinical Module");
+		Hooks.scenario.log("Verified profile has Delete-only access to Med Recons in Clinical Module");
+
 	}
 
 	@And("I create a profile with Add access only to Med Recons in Clinical Module test")
@@ -1898,8 +2107,9 @@ public class clinicalstep {
 		clinicalPage.clickEditButton();
 		clinicalPage.createClinicalProfileWithMedReconsAddAccess();
 		clinicalPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Verified profile has Add-only access to Med Recons in Clinical Module");
+		Hooks.scenario.log("Verified profile has Add-only access to Med Recons in Clinical Module");
+
 	}
 
 	@And("the user should be able to add Med Recons in Clinical Module test")
@@ -1912,14 +2122,17 @@ public class clinicalstep {
 		Hooks.driver.get(fullClinicalMedReconsUrl);
 		Assert.assertTrue("Clinical Med Recons page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/ClinicalMedRecons"));
-		Hooks.scenario.log("User is on the Clinical Med Recons page");
 		clinicalPage.userShouldBeAbleToAddMedReconsInClinicalModule();
+		System.out.println("Verified user can add Med Recons in Clinical Module");
+		Hooks.scenario.log("Verified user can add Med Recons in Clinical Module");
 
 	}
 
 	@And("the user should not be able to edit or delete Med Recons in Clinical Module test")
 	public void userShouldNotBeAbleToEditOrDeleteMedReconsInClinicalModule() {
 		clinicalPage.userShouldNotBeAbleToEditOrDeleteMedReconsInClinicalModule();
+		System.out.println("Verified user cannot edit or delete Med Recons in Clinical Module");
+		Hooks.scenario.log("Verified user cannot edit or delete Med Recons in Clinical Module");
 
 	}
 
@@ -1934,8 +2147,9 @@ public class clinicalstep {
 		clinicalPage.openClinicalPriorAuthorizationsPage(fullClinicalPriorAuthorizationsUrl);
 		Assert.assertTrue("Clinical Prior Authorizations page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/ClinicalPriorAuthorizations"));
-		Hooks.scenario.log("User is on the Clinical Prior Authorizations page");
 		clinicalPage.userShouldBeAbleToExportExcelInClinicalModule();
+		System.out.println("Verified user can Export Excel in Clinical Module");
+		Hooks.scenario.log("Verified user can Export Excel in Clinical Module");
 
 	}
 
@@ -1949,8 +2163,9 @@ public class clinicalstep {
 		clinicalPage.openClinicalPriorAuthorizationsPage(fullClinicalPriorAuthorizationsUrl);
 		Assert.assertTrue("Clinical Prior Authorizations page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/ClinicalPriorAuthorizations"));
-		Hooks.scenario.log("User is on the Clinical Prior Authorizations page");
 		clinicalPage.userShouldBeAbleToAddMedReconsInClinicalModule();
+		System.out.println("Verified user can access Details in Clinical Module");
+		Hooks.scenario.log("Verified user can access Details in Clinical Module");
 
 	}
 
@@ -1964,8 +2179,9 @@ public class clinicalstep {
 		clinicalPage.openClinicalPriorAuthorizationsPage(fullClinicalPriorAuthorizationsUrl);
 		Assert.assertTrue("Clinical Prior Authorizations page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/ClinicalPriorAuthorizations"));
-		Hooks.scenario.log("User is on the Clinical Prior Authorizations page");
 		clinicalPage.userShouldBeAbleToArchiveInClinicalModule();
+		System.out.println("Verified user can Archive in Clinical Module");
+		Hooks.scenario.log("Verified user can Archive in Clinical Module");
 
 	}
 
@@ -1979,8 +2195,9 @@ public class clinicalstep {
 		clinicalPage.openClinicalPriorAuthorizationsPage(fullClinicalPriorAuthorizationsUrl);
 		Assert.assertTrue("Clinical Prior Authorizations page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/ClinicalPriorAuthorizations"));
-		Hooks.scenario.log("User is on the Clinical Prior Authorizations page");
 		clinicalPage.userShouldBeAbleToUnarchiveInClinicalModule();
+		System.out.println("Verified user can Unarchive in Clinical Module");
+		Hooks.scenario.log("Verified user can Unarchive in Clinical Module");
 
 	}
 
@@ -1994,13 +2211,16 @@ public class clinicalstep {
 		clinicalPage.openClinicalPriorAuthorizationsPage(fullClinicalPriorAuthorizationsUrl);
 		Assert.assertTrue("Clinical Prior Authorizations page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/ClinicalPriorAuthorizations"));
-		Hooks.scenario.log("User is on the Clinical Prior Authorizations page");
+		System.out.println("Verified user can view Grid View in Clinical Module");
+		Hooks.scenario.log("Verified user can view Grid View in Clinical Module");
 
 	}
 
 	@And("the user should not be able to add or edit Prior Authorization in Clinical Module test")
 	public void userShouldNotBeAbleToAddOrEditPriorAuthorizationInClinicalModule() {
 		clinicalPage.verifyUserCannotAddOrEditPriorAuthorizationInClinicalModule();
+		System.out.println("Verified user cannot add or edit Prior Authorization in Clinical Module");
+		Hooks.scenario.log("Verified user cannot add or edit Prior Authorization in Clinical Module");
 
 	}
 
@@ -2014,8 +2234,9 @@ public class clinicalstep {
 		clinicalPage.openClinicalPriorAuthorizationsPage(fullClinicalPriorAuthorizationsUrl);
 		Assert.assertTrue("Clinical Prior Authorizations page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/ClinicalPriorAuthorizations"));
-		Hooks.scenario.log("User is on the Clinical Prior Authorizations page");
 		clinicalPage.deletePriorAuthorizationInClinicalModule();
+		System.out.println("Verified user can delete Prior Authorization in Clinical Module");
+		Hooks.scenario.log("Verified user can delete Prior Authorization in Clinical Module");
 
 	}
 
@@ -2028,8 +2249,9 @@ public class clinicalstep {
 		clinicalPage.clickEditButton();
 		clinicalPage.createClinicalProfileWithFullPriorAuthorizationAccess();
 		clinicalPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Verified user has full access to Prior Authorization in Clinical Module");
+		Hooks.scenario.log("Verified user has full access to Prior Authorization in Clinical Module");
+
 	}
 
 	@And("I create a profile with Delete access only to Prior Authorization in Clinical Module test")
@@ -2041,8 +2263,9 @@ public class clinicalstep {
 		clinicalPage.clickEditButton();
 		clinicalPage.createClinicalProfileWithPriorAuthorizationDeleteAccess();
 		clinicalPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Verified user has Delete access only to Prior Authorization in Clinical Module");
+		Hooks.scenario.log("Verified user has Delete access only to Prior Authorization in Clinical Module");
+
 	}
 
 	@And("I create a profile with Edit access only to Prior Authorization in Clinical Module test")
@@ -2054,8 +2277,9 @@ public class clinicalstep {
 		clinicalPage.clickEditButton();
 		clinicalPage.userCreatesProfileWithPriorAuthorizationEditAccessOnly();
 		clinicalPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Verified user has Edit access only to Prior Authorization in Clinical Module");
+		Hooks.scenario.log("Verified user has Edit access only to Prior Authorization in Clinical Module");
+
 	}
 
 	@And("the user should be able to edit Prior Authorization in Clinical Module test")
@@ -2068,14 +2292,19 @@ public class clinicalstep {
 		clinicalPage.openClinicalPriorAuthorizationsPage(fullClinicalPriorAuthorizationsUrl);
 		Assert.assertTrue("Clinical Prior Authorizations page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/ClinicalPriorAuthorizations"));
-		Hooks.scenario.log("User is on the Clinical Prior Authorizations page");
 		clinicalPage.verifyUserCanEditPriorAuthorizationInClinicalModule();
+		System.out.println("Verified user can edit Prior Authorization in Clinical Module");
+		Hooks.scenario.log("Verified user can edit Prior Authorization in Clinical Module");
+
 
 	}
 
 	@And("the user should not be able to add or delete Prior Authorization in Clinical Module test")
 	public void userShouldNotBeAbleToAddOrDeletePriorAuthorizationInClinicalModule() {
 		clinicalPage.verifyUserCannotAddOrDeletePriorAuthorizationInClinicalModule();
+		System.out.println("Verified user cannot add or delete Prior Authorization in Clinical Module");
+		Hooks.scenario.log("Verified user cannot add or delete Prior Authorization in Clinical Module");
+
 
 	}
 
@@ -2088,8 +2317,9 @@ public class clinicalstep {
 		clinicalPage.clickEditButton();
 		clinicalPage.createClinicalProfileWithPriorAuthorizationAddAccess();
 		clinicalPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Verified user has Add access only to Prior Authorization in Clinical Module");
+		Hooks.scenario.log("Verified user has Add access only to Prior Authorization in Clinical Module");
+
 	}
 
 	@And("the user should be able to add Prior Authorization in Clinical Module test")
@@ -2102,14 +2332,18 @@ public class clinicalstep {
 		clinicalPage.openClinicalPriorAuthorizationsPage(fullClinicalPriorAuthorizationsUrl);
 		Assert.assertTrue("Clinical Prior Authorizations page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/ClinicalPriorAuthorizations"));
-		Hooks.scenario.log("User is on the Clinical Prior Authorizations page");
 		clinicalPage.verifyUserCanAddPriorAuthorizationInClinicalModule();
+		System.out.println("Verified user can add Prior Authorization in Clinical Module");
+		Hooks.scenario.log("Verified user can add Prior Authorization in Clinical Module");
 
 	}
 
 	@And("the user should not be able to edit or delete Prior Authorization in Clinical Module test")
 	public void userShouldNotBeAbleToEditOrDeletePriorAuthorizationInClinicalModule() {
 		clinicalPage.verifyUserCannotEditOrDeletePriorAuthorizationInClinicalModule();
+		System.out.println("Verified user cannot edit or delete Prior Authorization in Clinical Module");
+		Hooks.scenario.log("Verified user cannot edit or delete Prior Authorization in Clinical Module");
+
 
 	}
 
@@ -2123,8 +2357,9 @@ public class clinicalstep {
 		clinicalPage.clickEditButton();
 		clinicalPage.createClinicalProfileWithCareGiverDeleteAccess();
 		clinicalPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Verified user has Delete access only to CareGiver Name in Clinical Module");
+		Hooks.scenario.log("Verified user has Delete access only to CareGiver Name in Clinical Module");
+
 	}
 
 	@And("I create a profile with Edit access only to CareGiver Name in Clinical Module test")
@@ -2136,8 +2371,9 @@ public class clinicalstep {
 		clinicalPage.clickEditButton();
 		clinicalPage.createClinicalProfileWithCareGiverEditAccess();
 		clinicalPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Verified user has Edit access only to CareGiver Name in Clinical Module");
+		Hooks.scenario.log("Verified user has Edit access only to CareGiver Name in Clinical Module");
+
 	}
 
 	@And("the user should be able to delete CareGiver Name in Clinical Module test")
@@ -2150,14 +2386,18 @@ public class clinicalstep {
 		Hooks.driver.get(fullPatientsUrl);
 		Assert.assertTrue("Patients page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/Patients"));
-		Hooks.scenario.log("User is on the Patients page");
 		clinicalPage.deleteCareGiverNameInClinicalModule();
+		System.out.println("Verified user can delete CareGiver Name in Clinical Module");
+		Hooks.scenario.log("Verified user can delete CareGiver Name in Clinical Module");
 
 	}
 
 	@And("the user should not be able to add or edit CareGiver Name in Clinical Module test")
 	public void userShouldNotBeAbleToAddOrEditCareGiverNameInClinicalModule() {
 		clinicalPage.userShouldNotBeAbleToAddOrEditCareGiverNameInClinicalModule();
+		System.out.println("Verified user cannot add or edit CareGiver Name in Clinical Module");
+		Hooks.scenario.log("Verified user cannot add or edit CareGiver Name in Clinical Module");
+
 
 	}
 
@@ -2171,14 +2411,17 @@ public class clinicalstep {
 		Hooks.driver.get(fullPatientsUrl);
 		Assert.assertTrue("Patients page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/Patients"));
-		Hooks.scenario.log("User is on the Patients page");
 		clinicalPage.verifyUserCanEditCareGiverNameInClinicalModule();
+		System.out.println("Verified user can edit CareGiver Name in Clinical Module");
+		Hooks.scenario.log("Verified user can edit CareGiver Name in Clinical Module");
 
 	}
 
 	@And("the user should not be able to add or delete CareGiver Name in Clinical Module test")
 	public void userShouldNotBeAbleToAddOrDeleteCareGiverNameInClinicalModule() {
 		clinicalPage.verifyUserCannotAddOrDeleteCareGiverNameInClinicalModule();
+		System.out.println("Verified user cannot add or delete CareGiver Name in Clinical Module");
+		Hooks.scenario.log("Verified user cannot add or delete CareGiver Name in Clinical Module");
 
 	}
 
