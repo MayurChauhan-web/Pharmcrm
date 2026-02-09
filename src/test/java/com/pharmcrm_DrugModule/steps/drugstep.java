@@ -1,10 +1,7 @@
 package com.pharmcrm_DrugModule.steps;
 
 import org.junit.Assert;
-
-import com.pharmcrm_ClinicalModule.pages.clinicalpage;
 import com.pharmcrm_DrugModule.pages.drugpage;
-
 import hooks.Hooks;
 import io.cucumber.java.en.And;
 
@@ -16,6 +13,8 @@ public class drugstep {
 	@And("the user should not be able to add Program test")
 	public void userCannotAddProgramTest() {
 		drugPage.verifyUserCannotAddProgramTest();
+		System.out.println("User should not be able to add Program test");
+		Hooks.scenario.log("User should not be able to add Program test");
 
 	}
 
@@ -28,8 +27,9 @@ public class drugstep {
 		drugPage = new drugpage(Hooks.driver);
 		drugPage.opendrugsPage(fullDrugHomeUrl);
 		Assert.assertTrue("Drug Home page is not displayed", Hooks.driver.getCurrentUrl().contains("/Drug/Home/Drugs"));
-		Hooks.scenario.log("User is on the Drug Home page");
 		drugPage.verifyUserCanViewAndDeleteProgramTest();
+		System.out.println("User should be able to view and delete Program test");
+		Hooks.scenario.log("User should be able to view and delete Program test");
 
 	}
 
@@ -42,13 +42,16 @@ public class drugstep {
 		drugPage.clickEditButton();
 		drugPage.setupProfileWithProgramViewAndDeletePermissions();
 		drugPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Profile created with View and Delete access to Program test");
+		Hooks.scenario.log("Profile created with View and Delete access to Program test");
+
 	}
 
 	@And("the user should not be able to delete Program test")
 	public void userCannotDeleteProgramTest() {
 		drugPage.verifyUserCannotDeleteProgramTest();
+		System.out.println("User should not be able to delete Program test");
+		Hooks.scenario.log("User should not be able to delete Program test");
 
 	}
 
@@ -61,8 +64,9 @@ public class drugstep {
 		drugPage = new drugpage(Hooks.driver);
 		drugPage.opendrugsPage(fullDrugHomeUrl);
 		Assert.assertTrue("Drug Home page is not displayed", Hooks.driver.getCurrentUrl().contains("/Drug/Home/Drugs"));
-		Hooks.scenario.log("User is on the Drug Home page");
 		drugPage.validateViewAndAddAccessForProgramTest();
+		System.out.println("User should be able to view and add Program test");
+		Hooks.scenario.log("User should be able to view and add Program test");
 
 	}
 
@@ -75,14 +79,17 @@ public class drugstep {
 		drugPage.clickEditButton();
 		drugPage.setupProfileWithProgramViewAndAddPermissions();
 		drugPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Profile created with View and Add access to Program test");
+		Hooks.scenario.log("Profile created with View and Add access to Program test");
+
 	}
 
 	// Disease State
 	@And("the user should not be able to add Disease State test")
 	public void userCannotAddDiseaseStateTest() {
 		drugPage.verifyUserCannotAddDiseaseStateTest();
+		System.out.println("User should not be able to add Disease State test");
+		Hooks.scenario.log("User should not be able to add Disease State test");
 
 	}
 
@@ -95,8 +102,9 @@ public class drugstep {
 		drugPage = new drugpage(Hooks.driver);
 		drugPage.opendrugsPage(fullDrugHomeUrl);
 		Assert.assertTrue("Drug Home page is not displayed", Hooks.driver.getCurrentUrl().contains("/Drug/Home/Drugs"));
-		Hooks.scenario.log("User is on the Drug Home page");
 		drugPage.verifyUserCanViewAndDeleteDiseaseStateTest();
+		System.out.println("User should be able to view and delete Disease State test");
+		Hooks.scenario.log("User should be able to view and delete Disease State test");
 
 	}
 
@@ -109,13 +117,16 @@ public class drugstep {
 		drugPage.clickEditButton();
 		drugPage.createProfileWithDiseaseStateViewAndDeleteAccess();
 		drugPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Profile created with View and Delete access to Disease State test");
+		Hooks.scenario.log("Profile created with View and Delete access to Disease State test");
+
 	}
 
 	@And("the user should not be able to delete Disease State test")
 	public void restrictDiseaseStateTestDeletePermission() {
 		drugPage.setDiseaseStateTestNoDeletePermission();
+		System.out.println("User should not be able to delete Disease State test");
+		Hooks.scenario.log("User should not be able to delete Disease State test");
 
 	}
 
@@ -128,8 +139,9 @@ public class drugstep {
 		drugPage = new drugpage(Hooks.driver);
 		drugPage.opendrugsPage(fullDrugHomeUrl);
 		Assert.assertTrue("Drug Home page is not displayed", Hooks.driver.getCurrentUrl().contains("/Drug/Home/Drugs"));
-		Hooks.scenario.log("User is on the Drug Home page");
 		drugPage.allowUserToViewAndAddDiseaseStateTest();
+		System.out.println("User should be able to view and add Disease State test");
+		Hooks.scenario.log("User should be able to view and add Disease State test");
 
 	}
 
@@ -142,8 +154,9 @@ public class drugstep {
 		drugPage.clickEditButton();
 		drugPage.createDiseaseStateTestViewAddProfile();
 		drugPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Profile created with View and Add access to Disease State test");
+		Hooks.scenario.log("Profile created with View and Add access to Disease State test");
+
 	}
 
 	// Drug Approved Indication
@@ -156,8 +169,9 @@ public class drugstep {
 		drugPage = new drugpage(Hooks.driver);
 		drugPage.opendrugsPage(fullDrugHomeUrl);
 		Assert.assertTrue("Drug Home page is not displayed", Hooks.driver.getCurrentUrl().contains("/Drug/Home/Drugs"));
-		Hooks.scenario.log("User is on the Drug Home page");
 		drugPage.allowOnlyViewAndDeleteForDrugApprovedIndicationTest();
+		System.out.println("User should not be able to add or edit Drug Approved Indication test");
+		Hooks.scenario.log("User should not be able to add or edit Drug Approved Indication test");
 
 	}
 
@@ -170,8 +184,9 @@ public class drugstep {
 		drugPage = new drugpage(Hooks.driver);
 		drugPage.opendrugsPage(fullDrugHomeUrl);
 		Assert.assertTrue("Drug Home page is not displayed", Hooks.driver.getCurrentUrl().contains("/Drug/Home/Drugs"));
-		Hooks.scenario.log("User is on the Drug Home page");
 		drugPage.userShouldBeAbleToViewAndDeleteDrugApprovedIndication();
+		System.out.println("User should be able to view and delete Drug Approved Indication test");
+		Hooks.scenario.log("User should be able to view and delete Drug Approved Indication test");
 
 	}
 
@@ -184,8 +199,9 @@ public class drugstep {
 		drugPage.clickEditButton();
 		drugPage.createDrugApprovedIndicationTestViewDeleteProfile();
 		drugPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Profile created with View and Delete access to Drug Approved Indication test");
+		Hooks.scenario.log("Profile created with View and Delete access to Drug Approved Indication test");
+
 	}
 
 	@And("the user should not be able to add or delete Drug Approved Indication test")
@@ -197,8 +213,9 @@ public class drugstep {
 		drugPage = new drugpage(Hooks.driver);
 		drugPage.opendrugsPage(fullDrugHomeUrl);
 		Assert.assertTrue("Drug Home page is not displayed", Hooks.driver.getCurrentUrl().contains("/Drug/Home/Drugs"));
-		Hooks.scenario.log("User is on the Drug Home page");
 		drugPage.allowOnlyViewAndEditForDrugApprovedIndicationTest();
+		System.out.println("User should not be able to add or delete Drug Approved Indication test");
+		Hooks.scenario.log("User should not be able to add or delete Drug Approved Indication test");
 
 	}
 
@@ -211,8 +228,9 @@ public class drugstep {
 		drugPage = new drugpage(Hooks.driver);
 		drugPage.opendrugsPage(fullDrugHomeUrl);
 		Assert.assertTrue("Drug Home page is not displayed", Hooks.driver.getCurrentUrl().contains("/Drug/Home/Drugs"));
-		Hooks.scenario.log("User is on the Drug Home page");
 		drugPage.allowUserToViewAndEditDrugApprovedIndicationTest();
+		System.out.println("User should be able to view and edit Drug Approved Indication test");
+		Hooks.scenario.log("User should be able to view and edit Drug Approved Indication test");
 
 	}
 
@@ -225,13 +243,16 @@ public class drugstep {
 		drugPage.clickEditButton();
 		drugPage.createDrugApprovedIndicationViewEditProfile();
 		drugPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Profile created with View and Edit access to Drug Approved Indication test");
+		Hooks.scenario.log("Profile created with View and Edit access to Drug Approved Indication test");
+
 	}
 
 	@And("the user should not be able to edit or delete Drug Approved Indication test")
 	public void restrictDrugApprovedIndicationTestToViewAndAddOnly() {
 		drugPage.isDrugApprovedIndicationTestViewAddOnlyUser();
+		System.out.println("User should not be able to edit or delete Drug Approved Indication test");
+		Hooks.scenario.log("User should not be able to edit or delete Drug Approved Indication test");
 
 	}
 
@@ -244,8 +265,9 @@ public class drugstep {
 		drugPage.clickEditButton();
 		drugPage.createDrugApprovedIndicationTestViewAddProfile();
 		drugPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Profile created with View and Add access to Drug Approved Indication test");
+		Hooks.scenario.log("Profile created with View and Add access to Drug Approved Indication test");
+
 	}
 
 	@And("the user should be able to view and add Drug Approved Indication test")
@@ -257,8 +279,9 @@ public class drugstep {
 		drugPage = new drugpage(Hooks.driver);
 		drugPage.opendrugsPage(fullDrugHomeUrl);
 		Assert.assertTrue("Drug Home page is not displayed", Hooks.driver.getCurrentUrl().contains("/Drug/Home/Drugs"));
-		Hooks.scenario.log("User is on the Drug Home page");
 		drugPage.canUserViewAndAddDrugApprovedIndicationTest();
+		System.out.println("User should be able to view and add Drug Approved Indication test");
+		Hooks.scenario.log("User should be able to view and add Drug Approved Indication test");
 
 	}
 
@@ -272,8 +295,9 @@ public class drugstep {
 		drugPage = new drugpage(Hooks.driver);
 		drugPage.opendrugsPage(fullDrugHomeUrl);
 		Assert.assertTrue("Drug Home page is not displayed", Hooks.driver.getCurrentUrl().contains("/Drug/Home/Drugs"));
-		Hooks.scenario.log("User is on the Drug Home page");
 		drugPage.denyDrugFamilyTestAddEdit();
+		System.out.println("User should not be able to add or edit Drug Family test");
+		Hooks.scenario.log("User should not be able to add or edit Drug Family test");
 
 	}
 
@@ -286,8 +310,9 @@ public class drugstep {
 		drugPage = new drugpage(Hooks.driver);
 		drugPage.opendrugsPage(fullDrugHomeUrl);
 		Assert.assertTrue("Drug Home page is not displayed", Hooks.driver.getCurrentUrl().contains("/Drug/Home/Drugs"));
-		Hooks.scenario.log("User is on the Drug Home page");
 		drugPage.allowDrugFamilyTestViewDelete();
+		System.out.println("User should be able to view and delete Drug Family test");
+		Hooks.scenario.log("User should be able to view and delete Drug Family test");
 
 	}
 
@@ -300,8 +325,9 @@ public class drugstep {
 		drugPage.clickEditButton();
 		drugPage.createDrugFamilyTestViewDeleteProfile();
 		drugPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Profile created with View and Delete access to Drug Family test");
+		Hooks.scenario.log("Profile created with View and Delete access to Drug Family test");
+
 	}
 
 	@And("the user should not be able to add or delete Drug Family test")
@@ -313,8 +339,9 @@ public class drugstep {
 		drugPage = new drugpage(Hooks.driver);
 		drugPage.opendrugsPage(fullDrugHomeUrl);
 		Assert.assertTrue("Drug Home page is not displayed", Hooks.driver.getCurrentUrl().contains("/Drug/Home/Drugs"));
-		Hooks.scenario.log("User is on the Drug Home page");
 		drugPage.denyDrugFamilyTestAddDelete();
+		System.out.println("User should not be able to add or delete Drug Family test");
+		Hooks.scenario.log("User should not be able to add or delete Drug Family test");
 
 	}
 
@@ -327,8 +354,9 @@ public class drugstep {
 		drugPage = new drugpage(Hooks.driver);
 		drugPage.opendrugsPage(fullDrugHomeUrl);
 		Assert.assertTrue("Drug Home page is not displayed", Hooks.driver.getCurrentUrl().contains("/Drug/Home/Drugs"));
-		Hooks.scenario.log("User is on the Drug Home page");
 		drugPage.userShouldBeAbleToViewAndEditDrugFamily();
+		System.out.println("User should be able to view and edit Drug Family test");
+		Hooks.scenario.log("User should be able to view and edit Drug Family test");
 
 	}
 
@@ -341,8 +369,9 @@ public class drugstep {
 		drugPage.clickEditButton();
 		drugPage.createDrugFamilyTestViewEditProfile();
 		drugPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Profile created with View and Edit access to Drug Family test");
+		Hooks.scenario.log("Profile created with View and Edit access to Drug Family test");
+
 	}
 
 	@And("I create a profile with View and Add access to Drug Family test")
@@ -354,13 +383,16 @@ public class drugstep {
 		drugPage.clickEditButton();
 		drugPage.createDrugFamilyViewAddProfile();
 		drugPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Profile created with View and Add access to Drug Family test");
+		Hooks.scenario.log("Profile created with View and Add access to Drug Family test");
+
 	}
 
 	@And("the user should not be able to edit or delete Drug Family test")
 	public void restrictDrugFamilyTestToViewAndAddOnly() {
 		drugPage.userShouldNotBeAbleToEditOrDeleteDrugFamily();
+		System.out.println("User should not be able to edit or delete Drug Family test");
+		Hooks.scenario.log("User should not be able to edit or delete Drug Family test");
 
 	}
 
@@ -373,8 +405,9 @@ public class drugstep {
 		drugPage = new drugpage(Hooks.driver);
 		drugPage.opendrugsPage(fullDrugHomeUrl);
 		Assert.assertTrue("Drug Home page is not displayed", Hooks.driver.getCurrentUrl().contains("/Drug/Home/Drugs"));
-		Hooks.scenario.log("User is on the Drug Home page");
 		drugPage.allowUserToViewAndAddDrugFamilyTest();
+		System.out.println("User should be able to view and add Drug Family test");
+		Hooks.scenario.log("User should be able to view and add Drug Family test");
 
 	}
 
@@ -388,8 +421,9 @@ public class drugstep {
 		drugPage = new drugpage(Hooks.driver);
 		drugPage.opendrugsPage(fullDrugHomeUrl);
 		Assert.assertTrue("Drug Home page is not displayed", Hooks.driver.getCurrentUrl().contains("/Drug/Home/Drugs"));
-		Hooks.scenario.log("User is on the Drug Home page");
 		drugPage.denyDrugTherapeuticTestAddEdit();
+		System.out.println("User should not be able to add or edit Drug Therapeutic test");
+		Hooks.scenario.log("User should not be able to add or edit Drug Therapeutic test");
 
 	}
 
@@ -402,8 +436,9 @@ public class drugstep {
 		drugPage = new drugpage(Hooks.driver);
 		drugPage.opendrugsPage(fullDrugHomeUrl);
 		Assert.assertTrue("Drug Home page is not displayed", Hooks.driver.getCurrentUrl().contains("/Drug/Home/Drugs"));
-		Hooks.scenario.log("User is on the Drug Home page");
 		drugPage.allowDrugTherapeuticTestViewDelete();
+		System.out.println("User should be able to view and delete Drug Therapeutic test");
+		Hooks.scenario.log("User should be able to view and delete Drug Therapeutic test");
 
 	}
 
@@ -416,8 +451,9 @@ public class drugstep {
 		drugPage.clickEditButton();
 		drugPage.createDrugTherapeuticTestViewDeleteProfile();
 		drugPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Profile created with View and Delete access to Drug Therapeutic test");
+		Hooks.scenario.log("Profile created with View and Delete access to Drug Therapeutic test");
+
 	}
 
 	@And("the user should not be able to add or delete Drug Therapeutic test")
@@ -429,8 +465,9 @@ public class drugstep {
 		drugPage = new drugpage(Hooks.driver);
 		drugPage.opendrugsPage(fullDrugHomeUrl);
 		Assert.assertTrue("Drug Home page is not displayed", Hooks.driver.getCurrentUrl().contains("/Drug/Home/Drugs"));
-		Hooks.scenario.log("User is on the Drug Home page");
 		drugPage.userShouldNotBeAbleToAddOrDeleteDrugTherapeutic();
+		System.out.println("User should not be able to add or delete Drug Therapeutic test");
+		Hooks.scenario.log("User should not be able to add or delete Drug Therapeutic test");
 
 	}
 
@@ -443,8 +480,9 @@ public class drugstep {
 		drugPage = new drugpage(Hooks.driver);
 		drugPage.opendrugsPage(fullDrugHomeUrl);
 		Assert.assertTrue("Drug Home page is not displayed", Hooks.driver.getCurrentUrl().contains("/Drug/Home/Drugs"));
-		Hooks.scenario.log("User is on the Drug Home page");
 		drugPage.allowUserToViewAndEditDrugTherapeuticTest();
+		System.out.println("User should be able to view and edit Drug Therapeutic test");
+		Hooks.scenario.log("User should be able to view and edit Drug Therapeutic test");
 
 	}
 
@@ -457,8 +495,9 @@ public class drugstep {
 		drugPage.clickEditButton();
 		drugPage.createDrugTherapeuticTestViewEditProfile();
 		drugPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Profile created with View and Edit access to Drug Therapeutic test");
+		Hooks.scenario.log("Profile created with View and Edit access to Drug Therapeutic test");
+
 	}
 
 	@And("I create a profile with View and Add access to Drug Therapeutic test")
@@ -470,13 +509,16 @@ public class drugstep {
 		drugPage.clickEditButton();
 		drugPage.createDrugTherapeuticViewAddProfile();
 		drugPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Profile created with View and Add access to Drug Therapeutic test");
+		Hooks.scenario.log("Profile created with View and Add access to Drug Therapeutic test");
+
 	}
 
 	@And("the user should not be able to edit or delete Drug Therapeutic test")
 	public void restrictDrugTherapeuticTestToViewAndAddOnly() {
 		drugPage.denyDrugTherapeuticTestEditDelete();
+		System.out.println("User should not be able to edit or delete Drug Therapeutic test");
+		Hooks.scenario.log("User should not be able to edit or delete Drug Therapeutic test");
 
 	}
 
@@ -489,8 +531,9 @@ public class drugstep {
 		drugPage = new drugpage(Hooks.driver);
 		drugPage.opendrugsPage(fullDrugHomeUrl);
 		Assert.assertTrue("Drug Home page is not displayed", Hooks.driver.getCurrentUrl().contains("/Drug/Home/Drugs"));
-		Hooks.scenario.log("User is on the Drug Home page");
 		drugPage.allowDrugTherapeuticTestViewAdd();
+		System.out.println("User should be able to view and add Drug Therapeutic test");
+		Hooks.scenario.log("User should be able to view and add Drug Therapeutic test");
 
 	}
 
@@ -505,8 +548,9 @@ public class drugstep {
 		drugPage.openICD10Page(fullIcd10HomeUrl);
 		Assert.assertTrue("ICD10 Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Drug/Home/ICD10s"));
-		Hooks.scenario.log("User is on the ICD10 Home page");
 		drugPage.userShouldNotBeAbleToAddOrEditICD10();
+		System.out.println("User should not be able to add or edit ICD10 test");
+		Hooks.scenario.log("User should not be able to add or edit ICD10 test");
 
 	}
 
@@ -520,8 +564,9 @@ public class drugstep {
 		drugPage.openICD10Page(fullIcd10HomeUrl);
 		Assert.assertTrue("ICD10 Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Drug/Home/ICD10s"));
-		Hooks.scenario.log("User is on the ICD10 Home page");
 		drugPage.allowUserToViewAndDeleteICD10Test();
+		System.out.println("User should be able to view and delete ICD10 test");
+		Hooks.scenario.log("User should be able to view and delete ICD10 test");
 
 	}
 
@@ -534,8 +579,9 @@ public class drugstep {
 		drugPage.clickEditButton();
 		drugPage.createICD10TestViewDeleteProfile();
 		drugPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Profile created with View and Delete access to ICD10 test");
+		Hooks.scenario.log("Profile created with View and Delete access to ICD10 test");
+
 	}
 
 	@And("the user should not be able to add or delete ICD10 test")
@@ -548,8 +594,9 @@ public class drugstep {
 		drugPage.openICD10Page(fullIcd10HomeUrl);
 		Assert.assertTrue("ICD10 Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Drug/Home/ICD10s"));
-		Hooks.scenario.log("User is on the ICD10 Home page");
 		drugPage.restrictICD10TestToViewAndEditOnly();
+		System.out.println("User should not be able to add or delete ICD10 test");
+		Hooks.scenario.log("User should not be able to add or delete ICD10 test");
 
 	}
 
@@ -563,8 +610,9 @@ public class drugstep {
 		drugPage.openICD10Page(fullIcd10HomeUrl);
 		Assert.assertTrue("ICD10 Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Drug/Home/ICD10s"));
-		Hooks.scenario.log("User is on the ICD10 Home page");
 		drugPage.userShouldBeAbleToViewAndAddICD10();
+		System.out.println("User should be able to view and edit ICD10 test");
+		Hooks.scenario.log("User should be able to view and edit ICD10 test");
 
 	}
 
@@ -577,8 +625,9 @@ public class drugstep {
 		drugPage.clickEditButton();
 		drugPage.createICD10TestViewEditProfile();
 		drugPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Profile created with View and Edit access to ICD10 test");
+		Hooks.scenario.log("Profile created with View and Edit access to ICD10 test");
+
 	}
 
 	@And("I create a profile with View and Add access to ICD10 test")
@@ -590,13 +639,16 @@ public class drugstep {
 		drugPage.clickEditButton();
 		drugPage.createICD10TestAddAccessProfile();
 		drugPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Profile created with View and Add access to ICD10 test");
+		Hooks.scenario.log("Profile created with View and Add access to ICD10 test");
+
 	}
 
 	@And("the user should not be able to add, edit, or delete ICD10 test")
 	public void restrictICD10TestToViewOnly() {
 		drugPage.userShouldNotBeAbleToModifyICD10();
+		System.out.println("User should not be able to add, edit, or delete ICD10 test");
+		Hooks.scenario.log("User should not be able to add, edit, or delete ICD10 test");
 
 	}
 
@@ -610,8 +662,9 @@ public class drugstep {
 		drugPage.openICD10Page(fullIcd10HomeUrl);
 		Assert.assertTrue("ICD10 Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Drug/Home/ICD10s"));
-		Hooks.scenario.log("User is on the ICD10 Home page");
 		drugPage.allowOnlyViewAndAddForICD10Test();
+		System.out.println("User should not be able to edit or delete ICD10 test");
+		Hooks.scenario.log("User should not be able to edit or delete ICD10 test");
 
 	}
 
@@ -625,8 +678,9 @@ public class drugstep {
 		drugPage.openICD10Page(fullIcd10HomeUrl);
 		Assert.assertTrue("ICD10 Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Drug/Home/ICD10s"));
-		Hooks.scenario.log("User is on the ICD10 Home page");
 		drugPage.userShouldBeAbleToViewAndAddICD10();
+		System.out.println("User should be able to view and add ICD10 test");
+		Hooks.scenario.log("User should be able to view and add ICD10 test");
 
 	}
 
@@ -640,7 +694,8 @@ public class drugstep {
 		drugPage.openICD10Page(fullIcd10HomeUrl);
 		Assert.assertTrue("ICD10 Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Drug/Home/ICD10s"));
-		Hooks.scenario.log("User is on the ICD10 Home page");
+		System.out.println("User should be able to view ICD10 test");
+		Hooks.scenario.log("User should be able to view ICD10 test");
 
 	}
 
@@ -653,8 +708,9 @@ public class drugstep {
 		drugPage.clickEditButton();
 		drugPage.createICD10TestViewOnlyProfile();
 		drugPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Profile created with View access only to ICD10 test");
+		Hooks.scenario.log("Profile created with View access only to ICD10 test");
+
 	}
 
 	// Allergy
@@ -668,8 +724,11 @@ public class drugstep {
 		drugPage.openAllergiesPage(fullAllergyHomeUrl);
 		Assert.assertTrue("Allergy Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Drug/Home/Allergies"));
-		Hooks.scenario.log("User is on the Allergy Home page");
 		drugPage.allowOnlyViewAndExportExcelForAllergyTest();
+		System.out.println(
+				"User should not be able to add, edit, delete, download template, or upload excel for Allergy test");
+		Hooks.scenario.log(
+				"User should not be able to add, edit, delete, download template, or upload excel for Allergy test");
 
 	}
 
@@ -683,8 +742,9 @@ public class drugstep {
 		drugPage.openAllergiesPage(fullAllergyHomeUrl);
 		Assert.assertTrue("Allergy Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Drug/Home/Allergies"));
-		Hooks.scenario.log("User is on the Allergy Home page");
 		drugPage.allowUserToViewAndExportAllergyTestExcel();
+		System.out.println("User should be able to view and export excel in Allergy test");
+		Hooks.scenario.log("User should be able to view and export excel in Allergy test");
 
 	}
 
@@ -697,8 +757,9 @@ public class drugstep {
 		drugPage.clickEditButton();
 		drugPage.createAllergyTestViewExportExcelProfile();
 		drugPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Profile created with View and Export Excel access to Allergy test");
+		Hooks.scenario.log("Profile created with View and Export Excel access to Allergy test");
+
 	}
 
 	@And("I create a profile with View and Upload Excel access to Allergy test")
@@ -710,8 +771,9 @@ public class drugstep {
 		drugPage.clickEditButton();
 		drugPage.createAllergyTestViewUploadExcelProfile();
 		drugPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Profile created with View and Upload Excel access to Allergy test");
+		Hooks.scenario.log("Profile created with View and Upload Excel access to Allergy test");
+
 	}
 
 	@And("the user should not be able to add, edit, delete, upload excel, or export excel for Allergy test")
@@ -724,8 +786,11 @@ public class drugstep {
 		drugPage.openAllergiesPage(fullAllergyHomeUrl);
 		Assert.assertTrue("Allergy Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Drug/Home/Allergies"));
-		Hooks.scenario.log("User is on the Allergy Home page");
 		drugPage.applyAllergyTestLimitedAccessPolicy();
+		System.out.println(
+				"User should not be able to add, edit, delete, upload excel, or export excel for Allergy test");
+		Hooks.scenario
+				.log("User should not be able to add, edit, delete, upload excel, or export excel for Allergy test");
 
 	}
 
@@ -739,8 +804,11 @@ public class drugstep {
 		drugPage.openAllergiesPage(fullAllergyHomeUrl);
 		Assert.assertTrue("Allergy Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Drug/Home/Allergies"));
-		Hooks.scenario.log("User is on the Allergy Home page");
 		drugPage.allowOnlyViewAndUploadExcelForAllergyTest();
+		System.out.println(
+				"User should not be able to add, edit, delete, download template, or export excel for Allergy test");
+		Hooks.scenario.log(
+				"User should not be able to add, edit, delete, download template, or export excel for Allergy test");
 
 	}
 
@@ -754,8 +822,9 @@ public class drugstep {
 		drugPage.openAllergiesPage(fullAllergyHomeUrl);
 		Assert.assertTrue("Allergy Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Drug/Home/Allergies"));
-		Hooks.scenario.log("User is on the Allergy Home page");
 		drugPage.allowUserToViewAndUploadAllergyTestExcel();
+		System.out.println("User should be able to view and upload excel in Allergy test");
+		Hooks.scenario.log("User should be able to view and upload excel in Allergy test");
 
 	}
 
@@ -769,8 +838,9 @@ public class drugstep {
 		drugPage.openAllergiesPage(fullAllergyHomeUrl);
 		Assert.assertTrue("Allergy Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Drug/Home/Allergies"));
-		Hooks.scenario.log("User is on the Allergy Home page");
 		drugPage.setAllergyTestViewTemplatePermissions();
+		System.out.println("User should be able to view and download template in Allergy test");
+		Hooks.scenario.log("User should be able to view and download template in Allergy test");
 
 	}
 
@@ -784,8 +854,11 @@ public class drugstep {
 		drugPage.openAllergiesPage(fullAllergyHomeUrl);
 		Assert.assertTrue("Allergy Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Drug/Home/Allergies"));
-		Hooks.scenario.log("User is on the Allergy Home page");
 		drugPage.disableAllergyTestAddEditExportImport();
+		System.out.println(
+				"User should not be able to add, edit, download template, upload excel, or export excel for Allergy test");
+		Hooks.scenario.log(
+				"User should not be able to add, edit, download template, upload excel, or export excel for Allergy test");
 
 	}
 
@@ -799,8 +872,9 @@ public class drugstep {
 		drugPage.openAllergiesPage(fullAllergyHomeUrl);
 		Assert.assertTrue("Allergy Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Drug/Home/Allergies"));
-		Hooks.scenario.log("User is on the Allergy Home page");
 		drugPage.allowUserToViewAndDeleteAllergyTest();
+		System.out.println("User should be able to view and delete Allergy test");
+		Hooks.scenario.log("User should be able to view and delete Allergy test");
 
 	}
 
@@ -813,8 +887,9 @@ public class drugstep {
 		drugPage.clickEditButton();
 		drugPage.createAllergyTestViewTemplateAccessProfile();
 		drugPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Profile created with View and Download Template access to Allergy test");
+		Hooks.scenario.log("Profile created with View and Download Template access to Allergy test");
+
 	}
 
 	@And("I create a profile with View and Delete access to Allergy test")
@@ -826,8 +901,9 @@ public class drugstep {
 		drugPage.clickEditButton();
 		drugPage.createAllergyTestViewDeleteProfile();
 		drugPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Profile created with View and Delete access to Allergy test");
+		Hooks.scenario.log("Profile created with View and Delete access to Allergy test");
+
 	}
 
 	@And("the user should not be able to delete, download template, upload excel, or export excel for Allergy test")
@@ -840,8 +916,11 @@ public class drugstep {
 		drugPage.openAllergiesPage(fullAllergyHomeUrl);
 		Assert.assertTrue("Allergy Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Drug/Home/Allergies"));
-		Hooks.scenario.log("User is on the Allergy Home page");
 		drugPage.verifyUserCannotDeleteDownloadUploadExportAllergy();
+		System.out.println(
+				"User should not be able to delete, download template, upload excel, or export excel for Allergy test");
+		Hooks.scenario.log(
+				"User should not be able to delete, download template, upload excel, or export excel for Allergy test");
 
 	}
 
@@ -855,8 +934,9 @@ public class drugstep {
 		drugPage.openAllergiesPage(fullAllergyHomeUrl);
 		Assert.assertTrue("Allergy Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Drug/Home/Allergies"));
-		Hooks.scenario.log("User is on the Allergy Home page");
 		drugPage.verifyUserCanViewAndAddAllergy();
+		System.out.println("User should be able to view and add Allergy test");
+		Hooks.scenario.log("User should be able to view and add Allergy test");
 
 	}
 
@@ -869,8 +949,9 @@ public class drugstep {
 		drugPage.clickEditButton();
 		drugPage.createProfileWithViewAndAddAccess();
 		drugPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Profile created with View and Add access to Allergy test");
+		Hooks.scenario.log("Profile created with View and Add access to Allergy test");
+
 	}
 
 	@And("I create a profile with View access only to Allergy test")
@@ -882,8 +963,9 @@ public class drugstep {
 		drugPage.clickEditButton();
 		drugPage.createAllergyViewOnlyProfile();
 		drugPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Profile created with View access only to Allergy test");
+		Hooks.scenario.log("Profile created with View access only to Allergy test");
+
 	}
 
 	@And("the user should not be able to add, edit, delete, download template, upload excel, or export excel for Allergy test")
@@ -896,8 +978,11 @@ public class drugstep {
 		drugPage.openAllergiesPage(fullAllergyHomeUrl);
 		Assert.assertTrue("Allergy Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Drug/Home/Allergies"));
-		Hooks.scenario.log("User is on the Allergy Home page");
 		drugPage.verifyUserCannotAddEditDeleteDownloadUploadExportAllergy();
+		System.out.println(
+				"User should not be able to add, edit, delete, download template, upload excel, or export excel for Allergy test");
+		Hooks.scenario.log(
+				"User should not be able to add, edit, delete, download template, upload excel, or export excel for Allergy test");
 
 	}
 
@@ -911,7 +996,8 @@ public class drugstep {
 		drugPage.openAllergiesPage(fullAllergyHomeUrl);
 		Assert.assertTrue("Allergy Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Drug/Home/Allergies"));
-		Hooks.scenario.log("User is on the Allergy Home page");
+		System.out.println("User should be able to view Allergy test");
+		Hooks.scenario.log("User should be able to view Allergy test");
 
 	}
 
@@ -925,8 +1011,9 @@ public class drugstep {
 		drugPage.clickEditButton();
 		drugPage.createStar2DrugViewAndEditProfile();
 		drugPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Profile created with View and Edit access to Star 2 Drug test");
+		Hooks.scenario.log("Profile created with View and Edit access to Star 2 Drug test");
+
 	}
 
 	@And("I create a profile with View access only to Star 2 Drug test")
@@ -938,8 +1025,9 @@ public class drugstep {
 		drugPage.clickEditButton();
 		drugPage.createStar2DrugViewOnlyProfile();
 		drugPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Profile created with View access only to Star 2 Drug test");
+		Hooks.scenario.log("Profile created with View access only to Star 2 Drug test");
+
 	}
 
 	@And("the user should be able to view and edit Star 2 Drug test")
@@ -952,8 +1040,9 @@ public class drugstep {
 		drugPage.openStar2DrugsPage(fullStar2DrugHomeUrl);
 		Assert.assertTrue("Star 2 Drug Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Drug/Home/Star2Drugs"));
-		Hooks.scenario.log("User is on the Star 2 Drug Home page");
 		drugPage.verifyUserCanViewAndEditStar2Drug();
+		System.out.println("User should be able to view and edit Star 2 Drug test");
+		Hooks.scenario.log("User should be able to view and edit Star 2 Drug test");
 
 	}
 
@@ -967,7 +1056,8 @@ public class drugstep {
 		drugPage.openStar2DrugsPage(fullStar2DrugHomeUrl);
 		Assert.assertTrue("Star 2 Drug Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Drug/Home/Star2Drugs"));
-		Hooks.scenario.log("User is on the Star 2 Drug Home page");
+		System.out.println("User should be able to view Star 2 Drug test");
+		Hooks.scenario.log("User should be able to view Star 2 Drug test");
 
 	}
 
@@ -981,8 +1071,9 @@ public class drugstep {
 		drugPage.openStar2DrugsPage(fullStar2DrugHomeUrl);
 		Assert.assertTrue("Star 2 Drug Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Drug/Home/Star2Drugs"));
-		Hooks.scenario.log("User is on the Star 2 Drug Home page");
 		drugPage.verifyUserCannotEditStar2Drug();
+		System.out.println("User should not be able to edit Star 2 Drug test");
+		Hooks.scenario.log("User should not be able to edit Star 2 Drug test");
 
 	}
 
@@ -997,8 +1088,9 @@ public class drugstep {
 		drugPage.openStar1DrugsPage(fullStar1DrugHomeUrl);
 		Assert.assertTrue("Star 1 Drug Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Drug/Home/Star1Drugs"));
-		Hooks.scenario.log("User is on the Star 1 Drug Home page");
 		drugPage.viewAndEditStar1DrugTest();
+		System.out.println("User should be able to view and edit Star 1 Drug test");
+		Hooks.scenario.log("User should be able to view and edit Star 1 Drug test");
 
 	}
 
@@ -1011,8 +1103,9 @@ public class drugstep {
 		drugPage.clickEditButton();
 		drugPage.createStar1DrugViewAndEditProfile();
 		drugPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Profile created with View and Edit access to Star 1 Drug test");
+		Hooks.scenario.log("Profile created with View and Edit access to Star 1 Drug test");
+
 	}
 
 	@And("I create a profile with View access only to Star 1 Drug test")
@@ -1024,8 +1117,9 @@ public class drugstep {
 		drugPage.clickEditButton();
 		drugPage.createStar1DrugViewOnlyProfile();
 		drugPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Profile created with View access only to Star 1 Drug test");
+		Hooks.scenario.log("Profile created with View access only to Star 1 Drug test");
+
 	}
 
 	@And("the user should be able to view Star 1 Drug test")
@@ -1038,7 +1132,8 @@ public class drugstep {
 		drugPage.openStar1DrugsPage(fullStar1DrugHomeUrl);
 		Assert.assertTrue("Star 1 Drug Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Drug/Home/Star1Drugs"));
-		Hooks.scenario.log("User is on the Star 1 Drug Home page");
+		System.out.println("User should be able to view Star 1 Drug test");
+		Hooks.scenario.log("User should be able to view Star 1 Drug test");
 
 	}
 
@@ -1052,8 +1147,9 @@ public class drugstep {
 		drugPage.openStar1DrugsPage(fullStar1DrugHomeUrl);
 		Assert.assertTrue("Star 1 Drug Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Drug/Home/Star1Drugs"));
-		Hooks.scenario.log("User is on the Star 1 Drug Home page");
 		drugPage.verifyUserCannotEditStar1Drug();
+		System.out.println("User should not be able to edit Star 1 Drug test");
+		Hooks.scenario.log("User should not be able to edit Star 1 Drug test");
 
 	}
 
@@ -1067,8 +1163,9 @@ public class drugstep {
 		drugPage = new drugpage(Hooks.driver);
 		drugPage.opendrugsPage(fullDrugHomeUrl);
 		Assert.assertTrue("Drug Home page is not displayed", Hooks.driver.getCurrentUrl().contains("/Drug/Home/Drugs"));
-		Hooks.scenario.log("User is on the Drug Home page");
 		drugPage.verifyUserCannotAddEditDeleteDownloadOrUploadDrug();
+		System.out.println("User should not be able to add, edit, delete, download template, or upload excel test");
+		Hooks.scenario.log("User should not be able to add, edit, delete, download template, or upload excel test");
 
 	}
 
@@ -1081,8 +1178,9 @@ public class drugstep {
 		drugPage = new drugpage(Hooks.driver);
 		drugPage.opendrugsPage(fullDrugHomeUrl);
 		Assert.assertTrue("Drug Home page is not displayed", Hooks.driver.getCurrentUrl().contains("/Drug/Home/Drugs"));
-		Hooks.scenario.log("User is on the Drug Home page");
 		drugPage.verifyUserCanViewAndExportExcelInDrug();
+		System.out.println("User should be able to view and export excel in Drug test");
+		Hooks.scenario.log("User should be able to view and export excel in Drug test");
 
 	}
 
@@ -1095,8 +1193,9 @@ public class drugstep {
 		drugPage.clickEditButton();
 		drugPage.verifyProfileWithViewAndExportExcelAccessToDrug();
 		drugPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Profile created with View and Export Excel access to Drug test");
+		Hooks.scenario.log("Profile created with View and Export Excel access to Drug test");
+
 	}
 
 	@And("the user should not be able to add, edit, download template, upload excel, or export excel test")
@@ -1108,8 +1207,11 @@ public class drugstep {
 		drugPage = new drugpage(Hooks.driver);
 		drugPage.opendrugsPage(fullDrugHomeUrl);
 		Assert.assertTrue("Drug Home page is not displayed", Hooks.driver.getCurrentUrl().contains("/Drug/Home/Drugs"));
-		Hooks.scenario.log("User is on the Drug Home page");
 		drugPage.verifyUserCannotAddEditDownloadUploadOrExportDrug();
+		System.out
+				.println("User should not be able to add, edit, download template, upload excel, or export excel test");
+		Hooks.scenario
+				.log("User should not be able to add, edit, download template, upload excel, or export excel test");
 
 	}
 
@@ -1122,14 +1224,17 @@ public class drugstep {
 		drugPage = new drugpage(Hooks.driver);
 		drugPage.opendrugsPage(fullDrugHomeUrl);
 		Assert.assertTrue("Drug Home page is not displayed", Hooks.driver.getCurrentUrl().contains("/Drug/Home/Drugs"));
-		Hooks.scenario.log("User is on the Drug Home page");
 		drugPage.verifyUserCannotAddEditDeleteUploadOrExportDrug();
+		System.out.println("User should not be able to add, edit, delete, upload excel, or export excel test");
+		Hooks.scenario.log("User should not be able to add, edit, delete, upload excel, or export excel test");
 
 	}
 
 	@And("the user should not be able to add, edit, delete, download template, or export excel test")
 	public void userShouldNotBeAbleToAddEditDeleteDownloadOrExportDrug() {
 		drugPage.verifyUserCannotAddEditDeleteDownloadOrExportDrug();
+		System.out.println("User should not be able to add, edit, delete, download template, or export excel test");
+		Hooks.scenario.log("User should not be able to add, edit, delete, download template, or export excel test");
 
 	}
 
@@ -1142,8 +1247,9 @@ public class drugstep {
 		drugPage = new drugpage(Hooks.driver);
 		drugPage.opendrugsPage(fullDrugHomeUrl);
 		Assert.assertTrue("Drug Home page is not displayed", Hooks.driver.getCurrentUrl().contains("/Drug/Home/Drugs"));
-		Hooks.scenario.log("User is on the Drug Home page");
 		drugPage.verifyUserCanViewAndUploadExcelInDrug();
+		System.out.println("User should be able to view and upload excel in Drug test");
+		Hooks.scenario.log("User should be able to view and upload excel in Drug test");
 
 	}
 
@@ -1156,8 +1262,9 @@ public class drugstep {
 		drugPage = new drugpage(Hooks.driver);
 		drugPage.opendrugsPage(fullDrugHomeUrl);
 		Assert.assertTrue("Drug Home page is not displayed", Hooks.driver.getCurrentUrl().contains("/Drug/Home/Drugs"));
-		Hooks.scenario.log("User is on the Drug Home page");
 		drugPage.verifyUserCanViewAndDownloadTemplateInDrug();
+		System.out.println("User should be able to view and download template in Drug test");
+		Hooks.scenario.log("User should be able to view and download template in Drug test");
 
 	}
 
@@ -1170,8 +1277,9 @@ public class drugstep {
 		drugPage = new drugpage(Hooks.driver);
 		drugPage.opendrugsPage(fullDrugHomeUrl);
 		Assert.assertTrue("Drug Home page is not displayed", Hooks.driver.getCurrentUrl().contains("/Drug/Home/Drugs"));
-		Hooks.scenario.log("User is on the Drug Home page");
 		drugPage.verifyUserCanViewAndDeleteInDrug();
+		System.out.println("User should be able to view and delete in Drug test");
+		Hooks.scenario.log("User should be able to view and delete in Drug test");
 
 	}
 
@@ -1184,8 +1292,9 @@ public class drugstep {
 		drugPage.clickEditButton();
 		drugPage.verifyProfileWithViewAndUploadExcelAccessToDrug();
 		drugPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Profile created with View and Upload Excel access to Drug test");
+		Hooks.scenario.log("Profile created with View and Upload Excel access to Drug test");
+
 	}
 
 	@And("I create a profile with View and Download Template access to Drug test")
@@ -1197,8 +1306,9 @@ public class drugstep {
 		drugPage.clickEditButton();
 		drugPage.verifyProfileWithViewAndDownloadTemplateAccessToDrug();
 		drugPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Profile created with View and Download Template access to Drug test");
+		Hooks.scenario.log("Profile created with View and Download Template access to Drug test");
+
 	}
 
 	@And("I create a profile with View and Delete access to Drug test")
@@ -1210,13 +1320,16 @@ public class drugstep {
 		drugPage.clickEditButton();
 		drugPage.createDrugViewAndDeleteProfile();
 		drugPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Profile created with View and Delete access to Drug test");
+		Hooks.scenario.log("Profile created with View and Delete access to Drug test");
+
 	}
 
 	@And("the user should not be able to delete, download template, upload excel, or export excel test")
 	public void userShouldNotBeAbleToDeleteDownloadUploadOrExportDrug() {
 		drugPage.verifyUserCannotDeleteDownloadUploadOrExportDrug();
+		System.out.println("User should not be able to delete, download template, upload excel, or export excel test");
+		Hooks.scenario.log("User should not be able to delete, download template, upload excel, or export excel test");
 
 	}
 
@@ -1229,8 +1342,9 @@ public class drugstep {
 		drugPage.clickEditButton();
 		drugPage.createDrugViewAndAddProfile();
 		drugPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Profile created with View and Add access to Drug test");
+		Hooks.scenario.log("Profile created with View and Add access to Drug test");
+
 	}
 
 	@And("I create a profile with View access only to Drug test")
@@ -1242,13 +1356,18 @@ public class drugstep {
 		drugPage.clickEditButton();
 		drugPage.createDrugViewOnlyProfile();
 		drugPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Profile created with View access only to Drug test");
+		Hooks.scenario.log("Profile created with View access only to Drug test");
+
 	}
 
 	@And("the user should not be able to add, edit, delete, download template, upload excel, or export excel test")
 	public void userShouldNotBeAbleToAddEditDeleteOrExportDrug() {
 		drugPage.verifyUserCannotAddEditDeleteOrExportDrug();
+		System.out.println(
+				"User should not be able to add, edit, delete, download template, upload excel, or export excel test");
+		Hooks.scenario.log(
+				"User should not be able to add, edit, delete, download template, upload excel, or export excel test");
 
 	}
 
@@ -1261,8 +1380,9 @@ public class drugstep {
 		drugPage = new drugpage(Hooks.driver);
 		drugPage.opendrugsPage(fullDrugHomeUrl);
 		Assert.assertTrue("Drug Home page is not displayed", Hooks.driver.getCurrentUrl().contains("/Drug/Home/Drugs"));
-		Hooks.scenario.log("User is on the Drug Home page");
 		drugPage.verifyUserCanViewAndAddDrug();
+		System.out.println("User should be able to view and add in Drug test");
+		Hooks.scenario.log("User should be able to view and add in Drug test");
 
 	}
 
@@ -1275,7 +1395,8 @@ public class drugstep {
 		drugPage = new drugpage(Hooks.driver);
 		drugPage.opendrugsPage(fullDrugHomeUrl);
 		Assert.assertTrue("Drug Home page is not displayed", Hooks.driver.getCurrentUrl().contains("/Drug/Home/Drugs"));
-		Hooks.scenario.log("User is on the Drug Home page");
+		System.out.println("User should be able to view Drug test");
+		Hooks.scenario.log("User should be able to view Drug test");
 
 	}
 
@@ -1290,7 +1411,9 @@ public class drugstep {
 		drugPage.opendrugProfilesPage(fullProfilesUrl);
 		Assert.assertTrue("Profiles page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/Profiles"));
-		Hooks.scenario.log("Clinical user is on the Profiles page");
+		System.out.println("Drug user should be able to view Profiles test");
+		Hooks.scenario.log("Drug user should be able to view Profiles test");
+
 	}
 
 	// Audit View
@@ -1303,8 +1426,9 @@ public class drugstep {
 		drugPage = new drugpage(Hooks.driver);
 		drugPage.opendrugsPage(fullDrugHomeUrl);
 		Assert.assertTrue("Drug Home page is not displayed", Hooks.driver.getCurrentUrl().contains("/Drug/Home/Drugs"));
-		Hooks.scenario.log("User is on the Drug Home page");
 		drugPage.userCannotViewDrugGeneralAuditViewSettings();
+		System.out.println("User should not be able to view Drug General Audit View settings test");
+		Hooks.scenario.log("User should not be able to view Drug General Audit View settings test");
 
 	}
 
@@ -1317,8 +1441,9 @@ public class drugstep {
 		drugPage = new drugpage(Hooks.driver);
 		drugPage.opendrugsPage(fullDrugHomeUrl);
 		Assert.assertTrue("Drug Home page is not displayed", Hooks.driver.getCurrentUrl().contains("/Drug/Home/Drugs"));
-		Hooks.scenario.log("User is on the Drug Home page");
 		drugPage.verifyGeneralAuditViewSettings();
+		System.out.println("User should be able to view Drug General Audit View settings test");
+		Hooks.scenario.log("User should be able to view Drug General Audit View settings test");
 
 	}
 
@@ -1331,8 +1456,9 @@ public class drugstep {
 		drugPage.clickEditButton();
 		drugPage.createDrugGeneralAuditNoAccessProfile();
 		drugPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Profile created with No access to Drug Module General Audit View test");
+		Hooks.scenario.log("Profile created with No access to Drug Module General Audit View test");
+
 	}
 
 	@And("I create a profile with View access only to Drug Module General Audit View test")
@@ -1344,8 +1470,9 @@ public class drugstep {
 		drugPage.clickEditButton();
 		drugPage.createViewOnlyDrugGeneralAuditProfile();
 		drugPage.clickSubmitButton();
-		System.out.println("Profile updated with Add, Edit, and Delete access to Patient Vitals");
-		Hooks.scenario.log("Profile updated with Add, Edit, and Delete access to Patient Vitals");
+		System.out.println("Profile created with View access only to Drug Module General Audit View test");
+		Hooks.scenario.log("Profile created with View access only to Drug Module General Audit View test");
+
 	}
 
 	private void sleep(long millis) {
