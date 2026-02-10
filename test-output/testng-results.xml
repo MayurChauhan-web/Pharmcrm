@@ -1,67 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-02-04T15:21:39 IST" name="Default suite" finished-at="2026-02-04T15:22:58 IST" duration-ms="79420">
+  <suite started-at="2026-02-10T17:46:21 IST" name="Default suite" finished-at="2026-02-10T17:47:26 IST" duration-ms="65063">
     <groups>
       <group name="cucumber">
         <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.pharmcrm.pharmcrm_product.runner.MasterRunner@67c33749]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2026-02-04T15:21:39 IST" name="Default test" finished-at="2026-02-04T15:22:58 IST" duration-ms="79420">
+    <test started-at="2026-02-10T17:46:21 IST" name="Default test" finished-at="2026-02-10T17:47:26 IST" duration-ms="65063">
       <class name="com.pharmcrm.pharmcrm_product.runner.MasterRunner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.pharmcrm.pharmcrm_product.runner.MasterRunner@67c33749]" started-at="2026-02-04T15:21:39 IST" name="setUpClass" finished-at="2026-02-04T15:21:39 IST" duration-ms="693" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.pharmcrm.pharmcrm_product.runner.MasterRunner@67c33749]" started-at="2026-02-10T17:46:21 IST" name="setUpClass" finished-at="2026-02-10T17:46:22 IST" duration-ms="673" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@41a6d121]]>
+                <![CDATA[org.testng.TestRunner@203dd56b]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.pharmcrm.pharmcrm_product.runner.MasterRunner@67c33749]" started-at="2026-02-04T15:21:39 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-04T15:22:58 IST" duration-ms="78585" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.pharmcrm.pharmcrm_product.runner.MasterRunner@67c33749]" started-at="2026-02-10T17:46:22 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-10T17:47:26 IST" duration-ms="64234" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["User with Delete access for Program test"]]>
+                <![CDATA["User with both View and Export Excel access for Referrals test"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["Entire Drug Module."]]>
+                <![CDATA["Entire Provider Module."]]>
               </value>
             </param>
           </params>
-          <exception class="org.openqa.selenium.TimeoutException">
-            <message>
-              <![CDATA[Expected condition failed: waiting for url to contain "/Drug/Home/Drugs". Current url: "https://qa01.pharmcrm.com/Setup/Home/Profiles" (tried for 10 second(s) with 500 milliseconds interval)
-Build info: version: '4.38.0', revision: '6b412e825c*'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.12'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 144.0.7559.112, chrome: {chromedriverVersion: 144.0.7559.133 (7da823b1d59..., userDataDir: C:\Users\MAYURC~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59177}, goog:processID: 11676, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59177/devtoo..., se:cdpVersion: 144.0.7559.112, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 5e718ccf360a574b56335974d2322183]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for url to contain "/Drug/Home/Drugs". Current url: "https://qa01.pharmcrm.com/Setup/Home/Profiles" (tried for 10 second(s) with 500 milliseconds interval)
-Build info: version: '4.38.0', revision: '6b412e825c*'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.12'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 144.0.7559.112, chrome: {chromedriverVersion: 144.0.7559.133 (7da823b1d59..., userDataDir: C:\Users\MAYURC~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59177}, goog:processID: 11676, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59177/devtoo..., se:cdpVersion: 144.0.7559.112, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 5e718ccf360a574b56335974d2322183
-at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
-at com.pharmcrm_DrugModule.pages.drugpage.opendrugsPage(drugpage.java:1235)
-at com.pharmcrm_DrugModule.steps.drugstep.userCanViewAndDeleteProgramTest(drugstep.java:32)
-at ✽.the user should be able to view and delete Program test(file:///C:/Users/MayurChauhan/eclipse-workspace/pharmcrm-product/src/test/resources/com/Features/DrugModule/Drug.feature:428)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.TimeoutException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.pharmcrm.pharmcrm_product.runner.MasterRunner@67c33749]" started-at="2026-02-04T15:22:58 IST" name="tearDownClass" finished-at="2026-02-04T15:22:58 IST" duration-ms="85" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.pharmcrm.pharmcrm_product.runner.MasterRunner@67c33749]" started-at="2026-02-10T17:47:26 IST" name="tearDownClass" finished-at="2026-02-10T17:47:26 IST" duration-ms="98" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
