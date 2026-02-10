@@ -1316,8 +1316,8 @@ And user enter the organization password
 When user click on the go button
 Then the Clinical user should be able to view Profiles test
 And I create a profile with Add access only to RPM Status in Clinical Module test
-Then the user should be able to add RPM RPM Status in Clinical Module test
-And the user should not be able to edit or delete RPM RPM Status in Clinical Module test
+Then the user should be able to add RPM Status page in Clinical Module test
+And the user should not be able to edit or delete RPM Status page in Clinical Module test
 
 Scenario: User with Edit access for RPM Status test
 Given user launch browser
@@ -1328,8 +1328,8 @@ And user enter the organization password
 When user click on the go button
 Then the Clinical user should be able to view Profiles test
 And I create a profile with Edit access only to RPM Status in Clinical Module test
-Then the user should be able to edit RPM RPM Status in Clinical Module test
-And the user should not be able to add or delete RPM RPM Status in Clinical Module test
+Then the user should be able to edit RPM Status page in Clinical Module test
+And the user should not be able to add or delete RPM Status page in Clinical Module test
 
 Scenario: User with Delete access for RPM Status test
 Given user launch browser
@@ -1340,8 +1340,8 @@ And user enter the organization password
 When user click on the go button
 Then the Clinical user should be able to view Profiles test
 And I create a profile with Delete access only to RPM Status in Clinical Module test
-Then the user should be able to delete RPM RPM Status in Clinical Module test
-And the user should not be able to add or edit RPM RPM Status in Clinical Module test
+Then the user should be able to delete RPM Status page in Clinical Module test
+And the user should not be able to add or edit RPM Status Page in Clinical Module test
 
 # RPM / RPM Progress Step
 Scenario: User with Add access for RPM Progress Step test
@@ -1380,7 +1380,7 @@ And I create a profile with Delete access only to RPM Progress Step in Clinical 
 Then the user should be able to delete RPM Progress Step in Clinical Module test
 And the user should not be able to add or edit RPM Progress Step in Clinical Module test
 
-# # Prior Authorization PA Progress Step
+# Prior Authorization PA Progress Step
 Scenario: User with Add access for PA Progress Step test
 Given user launch browser
 Then user click on the user type dropdown
@@ -1515,4 +1515,3 @@ Then the Clinical user should be able to view Profiles test
 And I create a profile with View access only to Device Usage Statistic Report in Clinical Module test
 Then the user should be able to view Device Usage Statistic Report in Clinical Module test
 And the user should not be able to export Device Usage Statistic Report in Clinical Module test
-
