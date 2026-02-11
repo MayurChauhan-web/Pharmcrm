@@ -9,6 +9,891 @@ public class providerstep {
 
 	private providerpage providerPage;
 
+	// Business Group
+	@And("the user should be able to delete Business Group in Provider Module test")
+	public void userShouldBeAbleToDeleteBusinessGroupInProviderModuleTest() {
+
+		providerPage.verifyUserCanDeleteBusinessGroup();
+
+	}
+
+	@And("I create a profile with View and Delete access but no Add, Edit or Make Partner access to Business Group in Provider Module test")
+	public void businessGroupProfileWithViewAndDeleteAccessNoAddNoEditNoMakePartner() {
+		providerPage.clickFilterButton();
+		providerPage.enterProfileName("Sunil");
+		providerPage.clickSearchButton();
+		providerPage.clickActionMenu();
+		providerPage.clickEditButton();
+		providerPage.businessGroupProfileViewDeleteOnly();
+		providerPage.clickSubmitButton();
+		System.out.println("Profile created with View access only to Provider Module General Audit View test");
+		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+
+	}
+
+	@And("I create a profile with View and Edit access but no Add, Delete or Make Partner access to Business Group in Provider Module test")
+	public void businessGroupProfileWithViewAndEditAccessNoAddNoDeleteNoMakePartner() {
+		providerPage.clickFilterButton();
+		providerPage.enterProfileName("Sunil");
+		providerPage.clickSearchButton();
+		providerPage.clickActionMenu();
+		providerPage.clickEditButton();
+		providerPage.businessGroupProfileViewEditOnly();
+		providerPage.clickSubmitButton();
+		System.out.println("Profile created with View access only to Provider Module General Audit View test");
+		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+
+	}
+
+	@And("the user should not be able to make Business Group a Partner in Provider Module test")
+	public void userShouldNotBeAbleToMakeBusinessGroupPartnerInProviderModuleTest() {
+
+		providerPage.verifyUserCannotMakeBusinessGroupPartner();
+
+	}
+
+	@And("the user should not be able to delete Business Group in Provider Module test")
+	public void userShouldNotBeAbleToDeleteBusinessGroupInProviderModuleTest() {
+
+		providerPage.verifyUserCannotDeleteBusinessGroup();
+
+	}
+
+	@And("the user should not be able to edit Business Group in Provider Module test")
+	public void userShouldNotBeAbleToEditBusinessGroupInProviderModuleTest() {
+
+		providerPage.verifyUserCannotEditBusinessGroup();
+
+	}
+
+	@And("the user should not be able to add Business Group in Provider Module test")
+	public void userShouldNotBeAbleToAddBusinessGroupInProviderModuleTest() {
+
+		providerPage.verifyUserCannotAddBusinessGroup();
+
+	}
+
+	@And("the user should be able to edit Business Group in Provider Module test")
+	public void userShouldBeAbleToEditBusinessGroupInProviderModuleTest() {
+
+		providerPage.verifyUserCanEditBusinessGroup();
+
+	}
+
+	@And("the user should be able to add Business Group in Provider Module test")
+	public void userShouldBeAbleToAddBusinessGroupInProviderModuleTest() {
+
+		providerPage.verifyUserCanAddBusinessGroup();
+
+	}
+
+	@And("the user should be able to view Business Group in Provider Module test")
+	public void userShouldBeAbleToViewBusinessGroupInProviderModuleTest() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String businessGroupsUrl = Hooks.prop.getProperty("businessGroupsUrl");
+		Assert.assertNotNull("businessGroupsUrl is missing in config", businessGroupsUrl);
+
+		String fullBusinessGroupsUrl = baseUrl + businessGroupsUrl;
+		providerPage = new providerpage(Hooks.driver);
+		providerPage.openProviderPage(fullBusinessGroupsUrl);
+
+		Assert.assertTrue("Business Groups page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/BusinessGroups"));
+
+	}
+
+	@And("I create a profile with View and Add access but no Edit, Delete or Make Partner access to Business Group in Provider Module test")
+	public void businessGroupProfileWithViewAndAddAccessNoEditNoDeleteNoMakePartner() {
+		providerPage.clickFilterButton();
+		providerPage.enterProfileName("Sunil");
+		providerPage.clickSearchButton();
+		providerPage.clickActionMenu();
+		providerPage.clickEditButton();
+		providerPage.businessGroupProfileViewAddOnly();
+		providerPage.clickSubmitButton();
+		System.out.println("Profile created with View access only to Provider Module General Audit View test");
+		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+
+	}
+
+	// Provider EHR
+
+	@And("I create a profile with Delete access but no Add or Edit access to Provider EHR in Provider Module test")
+	public void providerEHRProfileWithDeleteAccessNoAddNoEdit() {
+		providerPage.clickFilterButton();
+		providerPage.enterProfileName("Sunil");
+		providerPage.clickSearchButton();
+		providerPage.clickActionMenu();
+		providerPage.clickEditButton();
+		providerPage.providerEHRProfileDeleteOnly();
+		providerPage.clickSubmitButton();
+		System.out.println("Profile created with View access only to Provider Module General Audit View test");
+		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+
+	}
+
+	@And("the user should not be able to add Provider EHR in Provider Module test")
+	public void userShouldNotBeAbleToAddProviderEHRInProviderModuleTest() {
+
+		providerPage.verifyUserCannotAddProviderEHR();
+
+	}
+
+	@And("the user should not be able to delete Provider EHR in Provider Module test")
+	public void userShouldNotBeAbleToDeleteProviderEHRInProviderModuleTest() {
+
+		providerPage.verifyUserCannotDeleteProviderEHR();
+
+	}
+
+	@And("the user should not be able to edit Provider EHR in Provider Module test")
+	public void userShouldNotBeAbleToEditProviderEHRInProviderModuleTest() {
+
+		providerPage.verifyUserCannotEditProviderEHR();
+
+	}
+
+	@And("the user should be able to delete Provider EHR in Provider Module test")
+	public void userShouldBeAbleToDeleteProviderEHRInProviderModuleTest() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String providerHomeUrl = Hooks.prop.getProperty("providerHomeUrl");
+		Assert.assertNotNull("providerHomeUrl is missing in config", providerHomeUrl);
+		String fullProviderHomeUrl = baseUrl + providerHomeUrl;
+		providerPage = new providerpage(Hooks.driver);
+		providerPage.openProviderPage(fullProviderHomeUrl);
+		Assert.assertTrue("Provider Home page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
+
+		providerPage.verifyUserCanDeleteProviderEHR();
+	}
+
+	@And("the user should be able to edit Provider EHR in Provider Module test")
+	public void userShouldBeAbleToEditProviderEHRInProviderModuleTest() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String providerHomeUrl = Hooks.prop.getProperty("providerHomeUrl");
+		Assert.assertNotNull("providerHomeUrl is missing in config", providerHomeUrl);
+		String fullProviderHomeUrl = baseUrl + providerHomeUrl;
+		providerPage = new providerpage(Hooks.driver);
+		providerPage.openProviderPage(fullProviderHomeUrl);
+		Assert.assertTrue("Provider Home page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
+
+		providerPage.verifyUserCanEditProviderEHR();
+	}
+
+	@And("the user should be able to add Provider EHR in Provider Module test")
+	public void userShouldBeAbleToAddProviderEHRInProviderModuleTest() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String providerHomeUrl = Hooks.prop.getProperty("providerHomeUrl");
+		Assert.assertNotNull("providerHomeUrl is missing in config", providerHomeUrl);
+		String fullProviderHomeUrl = baseUrl + providerHomeUrl;
+		providerPage = new providerpage(Hooks.driver);
+		providerPage.openProviderPage(fullProviderHomeUrl);
+		Assert.assertTrue("Provider Home page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
+
+		providerPage.verifyUserCanAddProviderEHR();
+	}
+
+	@And("I create a profile with Edit access but no Add or Delete access to Provider EHR in Provider Module test")
+	public void providerEHRProfileWithEditAccessNoAddNoDelete() {
+		providerPage.clickFilterButton();
+		providerPage.enterProfileName("Sunil");
+		providerPage.clickSearchButton();
+		providerPage.clickActionMenu();
+		providerPage.clickEditButton();
+		providerPage.providerEHRProfileRestrictedAddDelete();
+		providerPage.clickSubmitButton();
+		System.out.println("Profile created with View access only to Provider Module General Audit View test");
+		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+
+	}
+
+	@And("I create a profile with Add access but no Edit or Delete access to Provider EHR in Provider Module test")
+	public void providerEHRProfileWithAddAccessNoEditNoDelete() {
+		providerPage.clickFilterButton();
+		providerPage.enterProfileName("Sunil");
+		providerPage.clickSearchButton();
+		providerPage.clickActionMenu();
+		providerPage.clickEditButton();
+		providerPage.providerEHRProfileAddOnly();
+		providerPage.clickSubmitButton();
+		System.out.println("Profile created with View access only to Provider Module General Audit View test");
+		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+
+	}
+
+	// Provider Service
+	@And("I create a profile with View and Delete access but no Add, Edit to Provider Service in Provider Module test")
+	public void providerServiceProfileWithViewAndDeleteAccessNoAddNoEdit() {
+		providerPage.clickFilterButton();
+		providerPage.enterProfileName("Sunil");
+		providerPage.clickSearchButton();
+		providerPage.clickActionMenu();
+		providerPage.clickEditButton();
+		providerPage.providerServiceProfileViewDeleteOnly();
+		providerPage.clickSubmitButton();
+		System.out.println("Profile created with View access only to Provider Module General Audit View test");
+		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+
+	}
+
+	@And("the user should be able to delete Provider Service in Provider Module test")
+	public void userShouldBeAbleToDeleteProviderServiceInProviderModuleTest() {
+
+		providerPage.verifyUserCanDeleteProviderService();
+
+	}
+
+	@And("the user should not be able to add Provider Service in Provider Module test")
+	public void userShouldNotBeAbleToAddProviderServiceInProviderModuleTest() {
+
+		providerPage.verifyUserCannotAddProviderService();
+
+	}
+
+	@And("the user should be able to edit Provider Service in Provider Module test")
+	public void userShouldBeAbleToEditProviderServiceInProviderModuleTest() {
+
+		providerPage.verifyUserCanEditProviderService();
+
+	}
+
+	@And("I create a profile with View and Edit access but no Add, Delete to Provider Service in Provider Module test")
+	public void providerServiceProfileWithViewAndEditAccessNoAddNoDelete() {
+		providerPage.clickFilterButton();
+		providerPage.enterProfileName("Sunil");
+		providerPage.clickSearchButton();
+		providerPage.clickActionMenu();
+		providerPage.clickEditButton();
+		providerPage.providerServiceProfileViewEditOnly();
+		providerPage.clickSubmitButton();
+		System.out.println("Profile created with View access only to Provider Module General Audit View test");
+		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+
+	}
+
+	@And("the user should not be able to delete Provider Service in Provider Module test")
+	public void userShouldNotBeAbleToDeleteProviderServiceInProviderModuleTest() {
+
+		providerPage.verifyUserCannotDeleteProviderService();
+
+	}
+
+	@And("the user should not be able to edit Provider Service in Provider Module test")
+	public void userShouldNotBeAbleToEditProviderServiceInProviderModuleTest() {
+
+		providerPage.verifyUserCannotEditProviderService();
+
+	}
+
+	@And("the user should be able to add Provider Service in Provider Module test")
+	public void userShouldBeAbleToAddProviderServiceInProviderModuleTest() {
+
+		providerPage.verifyUserCanAddProviderService();
+
+	}
+
+	@And("the user should be able to view Provider Service in Provider Module test")
+	public void userShouldBeAbleToViewProviderServiceInProviderModuleTest() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String providerHomeUrl = Hooks.prop.getProperty("providerHomeUrl");
+		Assert.assertNotNull("providerHomeUrl is missing in config", providerHomeUrl);
+		String fullProviderHomeUrl = baseUrl + providerHomeUrl;
+		providerPage = new providerpage(Hooks.driver);
+		providerPage.openProviderPage(fullProviderHomeUrl);
+		Assert.assertTrue("Provider Home page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
+
+		providerPage.verifyUserCanViewProviderService();
+	}
+
+	@And("I create a profile with View and Add access but no Edit, Delete to Provider Service in Provider Module test")
+	public void providerServiceProfileWithViewAndAddAccessWithoutEditOrDelete() {
+		providerPage.clickFilterButton();
+		providerPage.enterProfileName("Sunil");
+		providerPage.clickSearchButton();
+		providerPage.clickActionMenu();
+		providerPage.clickEditButton();
+		providerPage.providerServiceProfileWithViewAndAddAccessNoEditNoDelete();
+		providerPage.clickSubmitButton();
+		System.out.println("Profile created with View access only to Provider Module General Audit View test");
+		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+
+	}
+
+	// Provider Executive
+	@And("the user should be able to reset passwords for Provider Executive users test")
+	public void userShouldBeAbleToResetPasswordsForProviderExecutiveUsersTest() {
+
+		providerPage.verifyUserCanResetProviderExecutivePasswords();
+
+	}
+
+	@And("I create a profile with both View and Reset Password access to Provider Executive test")
+	public void providerExecutiveProfileWithViewAndResetPasswordAccess() {
+		providerPage.clickFilterButton();
+		providerPage.enterProfileName("Sunil");
+		providerPage.clickSearchButton();
+		providerPage.clickActionMenu();
+		providerPage.clickEditButton();
+		providerPage.providerExecutiveProfileWithViewAndResetPasswordAccessPermission();
+		providerPage.clickSubmitButton();
+		System.out.println("Profile created with View access only to Provider Module General Audit View test");
+		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+
+	}
+
+	@And("the user should not be able to reset passwords for Provider Executive test")
+	public void userShouldNotBeAbleToResetPasswordsForProviderExecutiveTest() {
+
+		providerPage.verifyUserCannotResetProviderExecutivePasswords();
+
+	}
+
+	@And("the user should be able to view Provider Executive records test")
+	public void userShouldBeAbleToViewProviderExecutiveRecordsTest() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String providerHomeUrl = Hooks.prop.getProperty("providerHomeUrl");
+		Assert.assertNotNull("providerHomeUrl is missing in config", providerHomeUrl);
+		String fullProviderHomeUrl = baseUrl + providerHomeUrl;
+		providerPage = new providerpage(Hooks.driver);
+		providerPage.openProviderPage(fullProviderHomeUrl);
+		Assert.assertTrue("Provider Home page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
+
+		providerPage.verifyUserCanViewProviderExecutiveRecords();
+	}
+
+	@And("I create a profile with View access but without Reset Password access to Provider Executive test")
+	public void providerExecutiveProfileViewAccessWithoutResetPassword() {
+		providerPage.clickFilterButton();
+		providerPage.enterProfileName("Sunil");
+		providerPage.clickSearchButton();
+		providerPage.clickActionMenu();
+		providerPage.clickEditButton();
+		providerPage.providerExecutiveProfileWithViewAccessWithoutResetPasswordPermission();
+		providerPage.clickSubmitButton();
+		System.out.println("Profile created with View access only to Provider Module General Audit View test");
+		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+
+	}
+
+	// DeDupe
+	@And("the user should not be able to update DeDupe records via UI or direct URL for Provider Module test")
+	public void userShouldNotBeAbleToUpdateDeDupeRecordsViaUIOrDirectURLForProviderModuleTest() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String deDupeProvidersUrl = Hooks.prop.getProperty("deDupeProvidersUrl");
+		Assert.assertNotNull("deDupeProvidersUrl is missing in config", deDupeProvidersUrl);
+		String fullDeDupeProvidersUrl = baseUrl + deDupeProvidersUrl;
+		providerPage = new providerpage(Hooks.driver);
+		providerPage.openProviderPage(fullDeDupeProvidersUrl);
+		providerPage.userShouldNotBeAbleToUpdateDeDupeRecordsForProviderModule();
+
+	}
+
+	@And("I create a profile without Update access to Provider Module DeDupe test")
+	public void providerModuleDeDupeProfileNoUpdateAccess() {
+		providerPage.clickFilterButton();
+		providerPage.enterProfileName("Sunil");
+		providerPage.clickSearchButton();
+		providerPage.clickActionMenu();
+		providerPage.clickEditButton();
+		providerPage.providerModuleDeDupeProfileWithoutUpdatePermission();
+		providerPage.clickSubmitButton();
+		System.out.println("Profile created with View access only to Provider Module General Audit View test");
+		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+
+	}
+
+	@And("the user should be able to update DeDupe records for Provider Module test")
+	public void userShouldBeAbleToUpdateDeDupeRecordsForProviderModuleTest() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String deDupeProvidersUrl = Hooks.prop.getProperty("deDupeProvidersUrl");
+		Assert.assertNotNull("deDupeProvidersUrl is missing in config", deDupeProvidersUrl);
+
+		String fullDeDupeProvidersUrl = baseUrl + deDupeProvidersUrl;
+		providerPage = new providerpage(Hooks.driver);
+		providerPage.openProviderPage(fullDeDupeProvidersUrl);
+
+		Assert.assertTrue("DeDupe Providers page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/DeDupeProviders"));
+
+		providerPage.userShouldBeAbleToUpdateDeDupeRecordsForProviderModule();
+	}
+
+	@And("I create a profile with Update access to Provider Module DeDupe test")
+	public void providerModuleDeDupeProfileUpdateAccess() {
+		providerPage.clickFilterButton();
+		providerPage.enterProfileName("Sunil");
+		providerPage.clickSearchButton();
+		providerPage.clickActionMenu();
+		providerPage.clickEditButton();
+		providerPage.providerModuleDeDupeProfileWithUpdatePermission();
+		providerPage.clickSubmitButton();
+		System.out.println("Profile created with View access only to Provider Module General Audit View test");
+		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+
+	}
+
+	// Referral Patient History
+
+	@And("the user should not be able to download File in Referral Patient History test")
+	public void userShouldNotBeAbleToDownloadFileInReferralPatientHistoryTest() {
+
+		providerPage.userShouldNotBeAbleToDownloadFileInReferralPatientHistory();
+
+	}
+
+	@And("I create a profile without Download File permission for Referral Patient History test")
+	public void referralPatientHistoryProfileNoFileDownload() {
+		providerPage.clickFilterButton();
+		providerPage.enterProfileName("Sunil");
+		providerPage.clickSearchButton();
+		providerPage.clickActionMenu();
+		providerPage.clickEditButton();
+		providerPage.referralPatientHistoryProfileWithoutFileDownloadPermission();
+		providerPage.clickSubmitButton();
+		System.out.println("Profile created with View access only to Provider Module General Audit View test");
+		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+
+	}
+
+	@And("the user should be able to download File in Referral Patient History test")
+	public void userShouldBeAbleToDownloadFileInReferralPatientHistoryTest() {
+
+		providerPage.userShouldBeAbleToDownloadFileInReferralPatientHistory();
+
+	}
+
+	@And("I create a profile with Download File permission for Referral Patient History test")
+	public void referralPatientHistoryProfileDownloadFileOnly() {
+		providerPage.clickFilterButton();
+		providerPage.enterProfileName("Sunil");
+		providerPage.clickSearchButton();
+		providerPage.clickActionMenu();
+		providerPage.clickEditButton();
+		providerPage.referralPatientHistoryProfileFileDownloadPermission();
+		providerPage.clickSubmitButton();
+		System.out.println("Profile created with View access only to Provider Module General Audit View test");
+		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+
+	}
+
+	@And("the user should be able to view Referral Patient History test")
+	public void userShouldBeAbleToViewReferralPatientHistoryTest() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String providerHomeUrl = Hooks.prop.getProperty("providerHomeUrl");
+		Assert.assertNotNull("providerHomeUrl is missing in config", providerHomeUrl);
+		String fullProviderHomeUrl = baseUrl + providerHomeUrl;
+		providerPage = new providerpage(Hooks.driver);
+		providerPage.openProviderPage(fullProviderHomeUrl);
+		Assert.assertTrue("Provider Home page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
+
+		providerPage.userShouldBeAbleToViewReferralPatientHistory();
+
+	}
+
+	// Bucket
+	@And("the user should not be able to favourite Folder in Bucket test")
+	public void userShouldNotBeAbleToFavouriteFolderInBucketTest() {
+
+		providerPage.userShouldNotBeAbleToFavouriteFolderInBucket();
+
+	}
+
+	@And("the user should not be able to delete Folder in Bucket test")
+	public void userShouldNotBeAbleToDeleteFolderInBucketTest() {
+
+		providerPage.userShouldNotBeAbleToDeleteFolderInBucket();
+
+	}
+
+	@And("the user should not be able to edit Folder in Bucket test")
+	public void userShouldNotBeAbleToEditFolderInBucketTest() {
+
+		providerPage.userShouldNotBeAbleToEditFolderInBucket();
+
+	}
+
+	@And("the user should not be able to add Folder in Bucket test")
+	public void userShouldNotBeAbleToAddFolderInBucketTest() {
+
+		providerPage.userShouldNotBeAbleToAddFolderInBucket();
+
+	}
+
+	@And("the user should not be able to view Folder in Bucket test")
+	public void userShouldNotBeAbleToViewFolderInBucketTest() {
+
+		providerPage.userShouldNotBeAbleToViewFolderInBucket();
+
+	}
+
+	@And("the user should be able to download File in Bucket test")
+	public void userShouldBeAbleToDownloadFileInBucketTest() {
+
+		providerPage.userShouldBeAbleToDownloadFileInBucket();
+
+	}
+
+	@And("the user should be able to favourite File in Bucket test")
+	public void userShouldBeAbleToFavouriteFileInBucketTest() {
+
+		providerPage.userShouldBeAbleToFavouriteFileInBucket();
+
+	}
+
+	@And("the user should be able to delete File in Bucket test")
+	public void userShouldBeAbleToDeleteFileInBucketTest() {
+
+		providerPage.userShouldBeAbleToDeleteFileInBucket();
+
+	}
+
+	@And("the user should be able to edit File in Bucket test")
+	public void userShouldBeAbleToEditFileInBucketTest() {
+
+		providerPage.userShouldBeAbleToEditFileInBucket();
+
+	}
+
+	@And("the user should be able to add File in Bucket test")
+	public void userShouldBeAbleToAddFileInBucketTest() {
+
+		providerPage.userShouldBeAbleToAddFileInBucket();
+
+	}
+
+	@And("I create a profile with full File permissions but no Folder permissions for Bucket test")
+	public void bucketTestProfileFileOnlyNoFolder() {
+		providerPage.clickFilterButton();
+		providerPage.enterProfileName("Sunil");
+		providerPage.clickSearchButton();
+		providerPage.clickActionMenu();
+		providerPage.clickEditButton();
+		providerPage.bucketTestProfileFileFullNoFolder();
+		providerPage.clickSubmitButton();
+		System.out.println("Profile created with View access only to Provider Module General Audit View test");
+		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+
+	}
+
+	@And("the user should not be able to view File in Bucket test")
+	public void userShouldNotBeAbleToViewFileInBucketTest() {
+
+		providerPage.userShouldNotBeAbleToViewFileInBucket();
+
+	}
+
+	@And("the user should not be able to download File in Bucket test")
+	public void userShouldNotBeAbleToDownloadFileInBucketTest() {
+
+		providerPage.userShouldNotBeAbleToDownloadFileInBucket();
+
+	}
+
+	@And("the user should not be able to favourite File in Bucket test")
+	public void userShouldNotBeAbleToFavouriteFileInBucketTest() {
+
+		providerPage.userShouldNotBeAbleToFavouriteFileInBucket();
+
+	}
+
+	@And("the user should not be able to delete File in Bucket test")
+	public void userShouldNotBeAbleToDeleteFileInBucketTest() {
+
+		providerPage.userShouldNotBeAbleToDeleteFileInBucket();
+
+	}
+
+	@And("the user should not be able to edit File in Bucket test")
+	public void userShouldNotBeAbleToEditFileInBucketTest() {
+
+		providerPage.userShouldNotBeAbleToEditFileInBucket();
+
+	}
+
+	@And("the user should not be able to add File in Bucket test")
+	public void userShouldNotBeAbleToAddFileInBucketTest() {
+
+		providerPage.userShouldNotBeAbleToAddFileInBucket();
+
+	}
+
+	@And("the user should be able to favourite Folder in Bucket test")
+	public void userShouldBeAbleToFavouriteFolderInBucketTest() {
+
+		providerPage.userShouldBeAbleToFavouriteFolderInBucket();
+
+	}
+
+	@And("the user should be able to delete Folder in Bucket test")
+	public void userShouldBeAbleToDeleteFolderInBucketTest() {
+
+		providerPage.userShouldBeAbleToDeleteFolderInBucket();
+
+	}
+
+	@And("the user should be able to edit Folder in Bucket test")
+	public void userShouldBeAbleToEditFolderInBucketTest() {
+
+		providerPage.userShouldBeAbleToEditFolderInBucket();
+
+	}
+
+	@And("the user should be able to add Folder in Bucket test")
+	public void userShouldBeAbleToAddFolderInBucketTest() {
+
+		providerPage.userShouldBeAbleToAddFolderInBucket();
+
+	}
+
+	@And("the user should be able to view File in Bucket test")
+	public void userShouldBeAbleToViewFileInBucketTest() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String providerHomeUrl = Hooks.prop.getProperty("providerHomeUrl");
+		Assert.assertNotNull("providerHomeUrl is missing in config", providerHomeUrl);
+		String fullProviderHomeUrl = baseUrl + providerHomeUrl;
+		providerPage = new providerpage(Hooks.driver);
+		providerPage.openProviderPage(fullProviderHomeUrl);
+		Assert.assertTrue("Provider Home page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
+
+		providerPage.userShouldBeAbleToViewFileInBucket();
+
+	}
+
+	@And("the user should be able to view Folder in Bucket test")
+	public void userShouldBeAbleToViewFolderInBucketTest() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String providerHomeUrl = Hooks.prop.getProperty("providerHomeUrl");
+		Assert.assertNotNull("providerHomeUrl is missing in config", providerHomeUrl);
+		String fullProviderHomeUrl = baseUrl + providerHomeUrl;
+		providerPage = new providerpage(Hooks.driver);
+		providerPage.openProviderPage(fullProviderHomeUrl);
+		Assert.assertTrue("Provider Home page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
+
+		providerPage.userShouldBeAbleToViewReferralEnrollment();
+
+	}
+
+	@And("I create a profile with full Folder permissions but no File permissions for Bucket test")
+	public void createProfileWithFullFolderPermissionsNoFilePermissionsBucketTest() {
+		providerPage.clickFilterButton();
+		providerPage.enterProfileName("Sunil");
+		providerPage.clickSearchButton();
+		providerPage.clickActionMenu();
+		providerPage.clickEditButton();
+		providerPage.bucketTestProfileFolderOnly();
+		providerPage.clickSubmitButton();
+		System.out.println("Profile created with View access only to Provider Module General Audit View test");
+		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+
+	}
+
+	// Referral Enrollment
+	@And("the user should be able to delete Referral Enrollment test")
+	public void userShouldBeAbleToDeleteReferralEnrollmentTest() {
+
+		providerPage.userShouldBeAbleToDeleteReferralEnrollment();
+
+	}
+
+	@And("the user should not be able to add Referral Enrollment test")
+	public void userShouldNotBeAbleToAddReferralEnrollmentTest() {
+
+		providerPage.userShouldNotBeAbleToAddReferralEnrollment();
+
+	}
+
+	@And("the user should be able to edit Referral Enrollment test")
+	public void userShouldBeAbleToEditReferralEnrollmentTest() {
+
+		providerPage.userShouldBeAbleToEditReferralEnrollment();
+
+	}
+
+	@And("I create a profile with View and Delete access but no Add or Edit access to Referral Enrollment test")
+	public void createProfileWithViewAndDeleteAccessOnlyForReferralEnrollmentTest() {
+		providerPage.clickFilterButton();
+		providerPage.enterProfileName("Sunil");
+		providerPage.clickSearchButton();
+		providerPage.clickActionMenu();
+		providerPage.clickEditButton();
+		providerPage.createReferralEnrollmentProfileViewDeleteAccessOnly();
+		providerPage.clickSubmitButton();
+		System.out.println("Profile created with View access only to Provider Module General Audit View test");
+		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+
+	}
+
+	@And("I create a profile with View and Edit access but no Add or Delete access to Referral Enrollment test")
+	public void profileWithViewAndEditAccessReferralEnrollmentTest() {
+		providerPage.clickFilterButton();
+		providerPage.enterProfileName("Sunil");
+		providerPage.clickSearchButton();
+		providerPage.clickActionMenu();
+		providerPage.clickEditButton();
+		providerPage.setupProfileReferralEnrollmentTestViewEditAccess();
+		providerPage.clickSubmitButton();
+		System.out.println("Profile created with View access only to Provider Module General Audit View test");
+		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+
+	}
+
+	@And("the user should not be able to delete Referral Enrollment test")
+	public void userShouldNotBeAbleToDeleteReferralEnrollmentTest() {
+
+		providerPage.userShouldNotBeAbleToDeleteReferralEnrollment();
+
+	}
+
+	@And("the user should not be able to edit Referral Enrollment test")
+	public void verifyUserCannotEditReferralEnrollmentTest() {
+
+		providerPage.userShouldNotBeAbleToEditReferralEnrollment();
+
+	}
+
+	@And("the user should be able to add Referral Enrollment test")
+	public void verifyUserCanAddReferralEnrollmentTest() {
+
+		providerPage.userShouldBeAbleToAddReferralEnrollment();
+
+	}
+
+	@And("the user should be able to view Referral Enrollment test")
+	public void verifyUserCanViewReferralEnrollmentTest() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String providerHomeUrl = Hooks.prop.getProperty("providerHomeUrl");
+		Assert.assertNotNull("providerHomeUrl is missing in config", providerHomeUrl);
+		String fullProviderHomeUrl = baseUrl + providerHomeUrl;
+		providerPage = new providerpage(Hooks.driver);
+		providerPage.openProviderPage(fullProviderHomeUrl);
+		Assert.assertTrue("Provider Home page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
+
+		providerPage.userShouldBeAbleToViewReferralEnrollment();
+
+	}
+
+	@And("I create a profile with View and Add access but no Edit or Delete access to Referral Enrollment test")
+	public void profileWithViewAndAddAccessReferralEnrollmentTest() {
+		providerPage.clickFilterButton();
+		providerPage.enterProfileName("Sunil");
+		providerPage.clickSearchButton();
+		providerPage.clickActionMenu();
+		providerPage.clickEditButton();
+		providerPage.setupProfileReferralEnrollmentTestViewAddAccess();
+		providerPage.clickSubmitButton();
+		System.out.println("Profile created with View access only to Provider Module General Audit View test");
+		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+
+	}
+	// Executives
+
+	@And("the user should be able to delete Executives test")
+	public void verifyUserCanDeleteExecutivesTest() {
+
+		providerPage.userShouldBeAbleToDeleteExecutives();
+
+	}
+
+	@And("the user should not be able to add Executives test")
+	public void verifyUserCannotAddExecutivesTest() {
+
+		providerPage.userShouldNotBeAbleToAddExecutives();
+
+	}
+
+	@And("the user should be able to edit Executives test")
+	public void verifyUserCanEditExecutivesTest() {
+
+		providerPage.userShouldBeAbleToEditExecutives();
+
+	}
+
+	@And("I create a profile with View and Delete access but no Add or Edit access to Executives test")
+	public void profileWithViewAndDeleteAccessExecutivesTest() {
+		providerPage.clickFilterButton();
+		providerPage.enterProfileName("Sunil");
+		providerPage.clickSearchButton();
+		providerPage.clickActionMenu();
+		providerPage.clickEditButton();
+		providerPage.setupProfileExecutivesTestViewDeleteAccess();
+		providerPage.clickSubmitButton();
+		System.out.println("Profile created with View access only to Provider Module General Audit View test");
+		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+
+	}
+
+	@And("I create a profile with View and Edit access but no Add or Delete access to Executives test")
+	public void profileWithViewAndEditAccessExecutivesTest() {
+		providerPage.clickFilterButton();
+		providerPage.enterProfileName("Sunil");
+		providerPage.clickSearchButton();
+		providerPage.clickActionMenu();
+		providerPage.clickEditButton();
+		providerPage.setupProfileExecutivesTestViewEditAccess();
+		providerPage.clickSubmitButton();
+		System.out.println("Profile created with View access only to Provider Module General Audit View test");
+		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+
+	}
+
+	@And("the user should not be able to delete Executives test")
+	public void verifyUserCannotDeleteExecutivesTest() {
+
+		providerPage.userShouldNotBeAbleToDeleteExecutives();
+
+	}
+
+	@And("the user should not be able to edit Executives test")
+	public void verifyUserCannotEditExecutivesTest() {
+
+		providerPage.userShouldNotBeAbleToEditExecutives();
+
+	}
+
+	@And("the user should be able to add Executives test")
+	public void verifyUserCanAddExecutivesTest() {
+
+		providerPage.userShouldBeAbleToAddExecutives();
+
+	}
+
+	@And("the user should be able to view Executives test")
+	public void verifyUserCanViewExecutivesTest() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String providerHomeUrl = Hooks.prop.getProperty("providerHomeUrl");
+		Assert.assertNotNull("providerHomeUrl is missing in config", providerHomeUrl);
+		String fullProviderHomeUrl = baseUrl + providerHomeUrl;
+		providerPage = new providerpage(Hooks.driver);
+		providerPage.openProviderPage(fullProviderHomeUrl);
+		Assert.assertTrue("Provider Home page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
+
+		providerPage.userShouldBeAbleToViewExecutives();
+
+	}
+
+	@And("I create a profile with View and Add access but no Edit or Delete access to Executives test")
+	public void createProfileWithViewAndAddAccessOnlyForExecutivesTest() {
+		providerPage.clickFilterButton();
+		providerPage.enterProfileName("Sunil");
+		providerPage.clickSearchButton();
+		providerPage.clickActionMenu();
+		providerPage.clickEditButton();
+		providerPage.createExecutivesTestProfileViewAddOnly();
+		providerPage.clickSubmitButton();
+		System.out.println("Profile created with View access only to Provider Module General Audit View test");
+		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+
+	}
+
 	// Referrals
 	@And("the user should be able to export Referrals to Excel in Provider Module test")
 	public void userShouldExportReferralsToExcelInProviderModule() {

@@ -17,6 +17,148 @@ public class providerpage {
 	private WebDriver driver;
 	private WebDriverWait wait;
 
+	// Business Group
+	public By confirmDeleteBusinessGroupButton = By.xpath("//div[@id='genericmodal']//button[@id='btnDeleteConfirm']");
+	public By businessGroupDeleteField = By.xpath("//label[@for='chkg42BusinessGroupDelete']");
+	public By businessGroupNotesField = By.id("BusinessGroup_PrivateNotes");
+	public By businessGroupEditField = By.xpath("//label[@for='chkg42BusinessGroupEdit']");
+	public By businessGroupAllField = By.xpath("//label[@for='chkg42BusinessGroupAll']");
+	public By businessGroupAddField = By.xpath("//label[@for='chkg42BusinessGroupAdd']");
+	public By newBusinessGroupButton = By.xpath("//span[normalize-space()='New Business Group']");
+	public By businessGroupNameField = By.id("BusinessGroup_Name");
+	public By businessGroupPhoneField = By.id("BusinessGroup_PhoneNumber");
+	public By businessGroupPhoneExtField = By.id("BusinessGroup_PhoneNumberExt");
+	public By businessGroupEmailField = By.id("BusinessGroup_Email");
+	public By businessGroupZoneField = By.id("BusinessGroup_Zone");
+	public By saveBusinessGroupButton = By.id("btnSave");
+	public By businessGroupRecordIcon = By.xpath("//tbody/tr[1]/td[4]/div[1]/div[1]/button[1]/i[1]");
+	public By editBusinessGroupOption = By.xpath(
+			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]");
+	public By deleteBusinessGroupOption = By.xpath(
+			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]");
+	public By partnerBusinessGroupOption = By
+			.xpath("//tbody/tr[1]/td[4]/div[1]/a[1]//*[name()='svg']//*[name()='path' and @id='Union_28']");
+
+	// Provider EHR
+	public By ehrTabLink = By.xpath("//a[normalize-space()='EHR']");
+	public By newEhrButton = By.xpath("//span[normalize-space()='New EHR']");
+	public By ehrDropdown = By.id("ddEHR");
+	public By saveProviderEhrButton = By.id("btnSaveProviderEHR");
+	public By ehrRecordIcon = By.xpath("//tbody/tr[1]/td[7]/div[1]/div[1]/button[1]/i[1]");
+	public By editEhrOption = By.xpath(
+			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]");
+	public By deleteEhrOption = By.xpath(
+			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]");
+	public By ehrNotesField = By.id("ProviderEHR_Notes");
+	public By confirmDeleteEhrButton = By.id("deleteProviderEHR");
+	public By providerEHRAllField = By.xpath("//label[@for='chkg39ProviderEHRAll']");
+	public By providerEHRAddField = By.xpath("//label[@for='chkg39ProviderEHRAdd']");
+
+	// Provider Service
+	public By serviceTabLink = By.xpath("//a[normalize-space()='Service']");
+	public By serviceRecordIcon = By.xpath("//th[@scope='col']//i[@class='fa-solid fa-ellipsis-vertical']");
+	public By newServiceButton = By.xpath("//span[normalize-space()='New Service']");
+	public By serviceDropdownInput = By
+			.xpath("//div[@class='model-inp select-city-dd dropdowncheckbox']//input[@type='text']");
+	public By serviceDropdownOption = By.xpath("//div[@class='model-inp select-city-dd dropdowncheckbox']//ul/li[2]");
+	public By saveProviderServiceButton = By.id("btnSaveProviderService");
+	public By editServiceOption = By.xpath(
+			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//a[@class='tooltiped txt-decor-none user-access']//div[@class='gridRecordContextInner']");
+	public By deleteServiceOption = By
+			.xpath("//a[@id='btnDeleteProviderService']//div[@class='gridRecordContextInner']");
+	public By serviceNotesField = By.id("Service_Notes");
+	public By confirmDeleteServiceButton = By.id("deleteProviderService");
+
+	// Provider Executive
+	public By executivesTabLink = By.xpath("//a[normalize-space()='Executives']");
+	public By executiveRecordButton = By.xpath("//tbody/tr/td[9]/div[1]/div[1]/button[1]/i[1]");
+	public By resetPasswordOption = By.xpath("//span[normalize-space()='Reset Password']");
+	public By newPasswordField = By.id("newPassword");
+	public By confirmPasswordField = By.id("confirmPassword");
+	public By resetPasswordButton = By.id("btnResetPassword");
+
+	// DeDupe
+	public By providerDeDupeAllLabel = By.xpath("//label[@for='chkg35ProviderDeDupeAll']");
+	public By errorHeader = By.xpath("//h2[normalize-space()='Error']");
+	public By doctorLastNameCheckbox = By.xpath("//label[normalize-space()='Doctor Last Name']");
+	public By doctorFirstNameCheckbox = By.xpath("//label[normalize-space()='Doctor First Name']");
+	public By findDuplicateButton = By.xpath("//span[normalize-space()='Find Duplicate']");
+	public By firstDuplicateCheckbox = By.xpath("(//label[starts-with(@for,'ckhg_')])[1]");
+	public By secondDuplicateCheckbox = By.xpath("(//label[starts-with(@for,'ckhg_')])[2]");
+	public By mergeButton = By.xpath("//table[1]//thead[1]//tr[1]//th[9]//a[1]");
+	public By firstRecordCheckbox = By.xpath("(//input[starts-with(@id,'chkg_')])[1]");
+	public By nextButton = By.xpath("//a[normalize-space()='Next']");
+	public By finishButton = By.xpath("//a[normalize-space()='Finish']");
+
+	// Referral Patient History
+	public By historyTabLink = By.xpath("//a[normalize-space()='History']");
+	public By referralHistoryDownloadIcon = By.xpath("//img[@class='mr-2']");
+
+	// Bucket
+	public By fileUploadInput = By.id("file-3");
+	public By saveFileButton = By.id("btnSaveFile");
+	public By fileNameTextBox = By.id("fileNameTextBox");
+	public By confirmDeleteFileButton = By.id("btnDeleteFileConfirm");
+	public By favouriteFileLocator = By.xpath("//img[contains(@src,'bookmark')]");
+	public By viewFolderIcon = By.xpath("//*[name()='path' and contains(@d,'M575.8 255')]");
+	public By editFolderLocator = By
+			.xpath("//td[@class='text-right']//a[@class='tooltiped txt-decor-none user-access']//img");
+	public By deleteFolderLocator = By.xpath("//a[@id='btnDeleteFolder']//img");
+	public By favouriteFolderLocator = By.xpath("//img[@src='/Content/img/black-bookmark.png']");
+	public By providersPageLink = By.xpath("//tbody/tr[1]/td[13]/div[1]/a[1]/img[1]");
+	public By bucketFolderLocator = By.id("0f8dcc97-695d-4f62-9ad1-6b43157cb7fe");
+	public By addFolderButton = By.id("btnAddFolder");
+	public By folderNameField = By.id("BucketFolder_FolderName");
+	public By saveFolderButton = By.id("btnSave");
+	public By editFolderIcon = By.xpath("//tbody/tr[5]/td[2]/a[1]/img[1]");
+	public By deleteFolderIcon = By.xpath("//tbody/tr[5]/td[2]/a[2]/img[1]");
+	public By confirmDeleteFolderButton = By.xpath("//div[@id='deleteFolderModel']//button[@id='btnDeleteConfirm']");
+	public By favouriteFolderIcon = By.xpath("//tbody/tr[5]/td[1]/a[1]/img[1]");
+	public By bucketFolderLink = By.id("42862eaa-0885-47aa-b59b-dd695a8da2dc");
+	public By addFileButton = By.id("btnAddFile");
+	public By editFileIcon = By.xpath("//tbody/tr[2]/td[2]/a[1]/img[1]");
+	public By deleteFileIcon = By.xpath("//a[@id='btnDeleteFile']//img");
+	public By favouriteFileIcon = By.xpath("//img[@src='/Content/img/black-bookmark.png']");
+	public By downloadFileIcon = By.xpath("//tbody//tr//a[3]//*[name()='svg']");
+	public By viewFileIcon = By.xpath("//img[@class='edit']");
+
+	// Referral Enrollment
+	public By referralEnrollmentLink = By.xpath("//a[normalize-space()='Referral Enrollment']");
+
+	public By newReferralEnrollmentButton = By.xpath("//span[normalize-space()='New Referral Enrollment']");
+	public By startDateField = By.id("ProviderReferralEnrollment_StartDate");
+	public By specificDate = By.xpath("//td[@data-month='1' and @data-year='2026']/a[text()='11']");
+	public By saveReferralEnrollmentButton = By.id("btnSaveProviderReferralEnrollmentPopup");
+
+	public By referralEnrollmentOptionsMenu = By.xpath("//tbody/tr/td[8]/div[1]/div[1]/button[1]/i[1]");
+	public By referralEnrollmentEditOption = By.xpath(
+			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]");
+
+	public By referralEnrollmentDeleteOption = By
+			.xpath("//a[@id='btnDeleteProviderReferralEnrollment']//span[contains(text(),'Delete')]");
+	public By referralEnrollmentNotesField = By.id("ProviderReferralEnrollment_Notes");
+
+	public By confirmDeleteReferralEnrollmentButton = By.id("deleteProviderReferralEnrollment");
+	public By providerReferralEnrollmentAllField = By.xpath("//label[@for='chkg20ProviderReferralEnrollmentAll']");
+	public By providerReferralEnrollmentAddField = By.xpath("//label[@for='chkg20ProviderReferralEnrollmentAdd']");
+
+	// Executives
+	public By confirmDeleteButton = By.id("deleteProviderExecutive");
+	public By productServiceField = By.id("ProviderExecutive_ProductService");
+	public By executivesAllLabel = By.xpath("//label[@for='chkg20ExecutivesAll']");
+	public By executiveAddLabel = By.xpath("//label[@for='chkg20ExecutiveAdd']");
+	public By optionsMenuIcon = By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']");
+	public By editOption = By.xpath("//span[normalize-space()='Edit']");
+	public By deleteOption = By.xpath("//span[normalize-space()='Delete']");
+	public By newExecutiveButton = By.xpath("//span[normalize-space()='New Executive']");
+	public By lastNameField = By.id("ProviderExecutive_LastName");
+	public By firstNameField = By.id("ProviderExecutive_FirstName");
+	public By emailField = By.id("ProviderExecutive_EmailId");
+	public By profileDropdown = By.id("ProviderExecutive_ProfileId");
+	public By saveExecutiveButton = By.id("btnSaveProviderExecutivePopup");
+	public By firstRowViewIcon = By.xpath("//tbody/tr[1]/td[13]/div[1]/a[1]/img[1]");
+	public By executivesLink = By.xpath("//a[normalize-space()='Executives']");
+
 	// Referrals
 	public By exportToExcelButton = By.xpath("//span[normalize-space()='Export to Excel']");
 
@@ -111,6 +253,789 @@ public class providerpage {
 	public By updatedDateColumn = By.xpath("//th[normalize-space()='Updated Date']");
 	public By priorAuthorizationProcessAllLabel = By.xpath("//label[@for='chkg23PriorAuthorizationProcessAll']");
 	public By priorAuthorizationGenerateAddLabel = By.xpath("//label[@for='chkg23PriorAuthorizationGenerateAdd']");
+
+	// Business Group
+
+	public void verifyUserCanDeleteBusinessGroup() {
+		sleep(3000);
+		clickWhenClickable(businessGroupRecordIcon);
+		sleep(1000);
+
+		clickWhenClickable(deleteBusinessGroupOption);
+		sleep(1000);
+
+		clickWhenClickable(confirmDeleteBusinessGroupButton);
+	}
+
+	public void verifyUserCanEditBusinessGroup() {
+		sleep(3000);
+		clickWhenClickable(businessGroupRecordIcon);
+		sleep(1000);
+
+		clickWhenClickable(editBusinessGroupOption);
+		sleep(2000);
+
+		waitAndSendKeys(businessGroupNotesField, "note");
+		clickWhenClickable(saveBusinessGroupButton);
+	}
+
+	public void verifyUserCannotAddBusinessGroup() {
+		sleep(2000);
+		assertElementNotPresent(newBusinessGroupButton);
+	}
+
+	public void verifyUserCannotMakeBusinessGroupPartner() {
+		sleep(3000);
+		clickWhenClickable(businessGroupRecordIcon);
+		sleep(1000);
+		assertElementNotPresent(partnerBusinessGroupOption);
+	}
+
+	public void verifyUserCannotDeleteBusinessGroup() {
+		sleep(1000);
+		assertElementNotPresent(deleteBusinessGroupOption);
+	}
+
+	public void verifyUserCannotEditBusinessGroup() {
+		sleep(1000);
+		clickWhenClickable(businessGroupRecordIcon);
+		sleep(1000);
+		assertElementNotPresent(editBusinessGroupOption);
+	}
+
+	public void verifyUserCanAddBusinessGroup() {
+		sleep(3000);
+		clickWhenClickable(newBusinessGroupButton);
+		sleep(2000);
+
+		waitAndSendKeys(businessGroupNameField, "Sunrise Pharmacy Group");
+		waitAndSendKeys(businessGroupPhoneField, "2125557845");
+		waitAndSendKeys(businessGroupPhoneExtField, "203");
+		waitAndSendKeys(businessGroupEmailField, "contact@mailinator.com");
+		waitAndSendKeys(businessGroupZoneField, "200");
+
+		clickWhenClickable(saveBusinessGroupButton);
+	}
+
+	public void businessGroupProfileViewDeleteOnly() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement businessGroupAllElement = wait.until(ExpectedConditions.elementToBeClickable(businessGroupAllField));
+		businessGroupAllElement.click();
+		sleep(2000);
+		WebElement businessGroupDeleteElement = wait
+				.until(ExpectedConditions.elementToBeClickable(businessGroupDeleteField));
+		businessGroupDeleteElement.click();
+
+	}
+
+	public void businessGroupProfileViewEditOnly() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement businessGroupAllElement = wait.until(ExpectedConditions.elementToBeClickable(businessGroupAllField));
+		businessGroupAllElement.click();
+		sleep(2000);
+		WebElement businessGroupEditElement = wait
+				.until(ExpectedConditions.elementToBeClickable(businessGroupEditField));
+		businessGroupEditElement.click();
+
+	}
+
+	public void businessGroupProfileViewAddOnly() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement businessGroupAllElement = wait.until(ExpectedConditions.elementToBeClickable(businessGroupAllField));
+		businessGroupAllElement.click();
+
+		WebElement businessGroupAddElement = wait.until(ExpectedConditions.elementToBeClickable(businessGroupAddField));
+		businessGroupAddElement.click();
+
+	}
+
+	// Provider EHR
+
+	public void verifyUserCanDeleteProviderEHR() {
+		sleep(3000);
+		clickWhenClickable(providersPageLink);
+		sleep(3000);
+		clickWhenClickable(ehrTabLink);
+		sleep(1000);
+
+		clickWhenClickable(ehrRecordIcon);
+		sleep(1000);
+
+		clickWhenClickable(deleteEhrOption);
+		clickWhenClickable(confirmDeleteEhrButton);
+	}
+
+	public void providerEHRProfileDeleteOnly() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCannotAddProviderEHR() {
+		sleep(3000);
+		assertElementNotPresent(newEhrButton);
+	}
+
+	public void verifyUserCanEditProviderEHR() {
+		sleep(3000);
+		clickWhenClickable(providersPageLink);
+		sleep(3000);
+		clickWhenClickable(ehrTabLink);
+		sleep(1000);
+
+		clickWhenClickable(ehrRecordIcon);
+		sleep(1000);
+
+		clickWhenClickable(editEhrOption);
+		sleep(1000);
+
+		waitAndSendKeys(ehrNotesField, "Note");
+		clickWhenClickable(saveProviderEhrButton);
+	}
+
+	public void verifyUserCannotDeleteProviderEHR() {
+		sleep(1000);
+		assertElementNotPresent(deleteEhrOption);
+	}
+
+	public void verifyUserCannotEditProviderEHR() {
+		sleep(3000);
+		clickWhenClickable(ehrRecordIcon);
+		sleep(1000);
+		assertElementNotPresent(editEhrOption);
+	}
+
+	public void verifyUserCanAddProviderEHR() {
+		sleep(3000);
+
+		clickWhenClickable(providersPageLink);
+		sleep(3000);
+		clickWhenClickable(ehrTabLink);
+		sleep(1000);
+
+		clickWhenClickable(newEhrButton);
+		sleep(1000);
+
+		clickWhenClickable(ehrDropdown);
+		sleep(1000);
+
+		selectDropdownByIndexWhenReady(ehrDropdown, 1);
+		sleep(3000);
+
+		clickWhenClickable(saveProviderEhrButton);
+	}
+
+	public void providerEHRProfileRestrictedAddDelete() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void providerEHRProfileAddOnly() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement providerEHRAllElement = wait.until(ExpectedConditions.elementToBeClickable(providerEHRAllField));
+		providerEHRAllElement.click();
+		sleep(2000);
+		WebElement providerEHRAddElement = wait.until(ExpectedConditions.elementToBeClickable(providerEHRAddField));
+		providerEHRAddElement.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCanDeleteProviderService() {
+		sleep(3000);
+		clickWhenClickable(serviceRecordIcon);
+		sleep(1000);
+
+		clickWhenClickable(deleteServiceOption);
+		sleep(1000);
+
+		clickWhenClickable(confirmDeleteServiceButton);
+	}
+
+	public void providerServiceProfileViewDeleteOnly() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCannotAddProviderService() {
+		sleep(3000);
+		assertElementNotPresent(newServiceButton);
+	}
+
+	public void verifyUserCanEditProviderService() {
+		sleep(3000);
+		clickWhenClickable(serviceRecordIcon);
+		sleep(1000);
+
+		clickWhenClickable(editServiceOption);
+		sleep(1000);
+
+		waitAndSendKeys(serviceNotesField, "note");
+		clickWhenClickable(saveProviderServiceButton);
+	}
+
+	public void verifyUserCannotDeleteProviderService() {
+		sleep(3000);
+		clickWhenClickable(serviceRecordIcon);
+		sleep(1000);
+		assertElementNotPresent(deleteServiceOption);
+	}
+
+	public void verifyUserCannotEditProviderService() {
+		sleep(3000);
+		clickWhenClickable(serviceRecordIcon);
+		sleep(1000);
+		assertElementNotPresent(editServiceOption);
+	}
+
+	public void verifyUserCanAddProviderService() {
+		sleep(3000);
+		clickWhenClickable(newServiceButton);
+		sleep(1000);
+
+		clickWhenClickable(serviceDropdownInput);
+		sleep(1000);
+
+		clickWhenClickable(serviceDropdownOption);
+		sleep(1000);
+
+		clickWhenClickable(saveProviderServiceButton);
+	}
+
+	public void verifyUserCanViewProviderService() {
+		sleep(3000);
+		clickWhenClickable(providersPageLink);
+		sleep(3000);
+		clickWhenClickable(serviceTabLink);
+		sleep(2000);
+
+		assertElementPresent(serviceRecordIcon);
+	}
+
+	public void providerServiceProfileViewEditOnly() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void providerServiceProfileWithViewAndAddAccessNoEditNoDelete() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+	// Provider Executive
+
+	public void verifyUserCanResetProviderExecutivePasswords() {
+		sleep(3000);
+		clickWhenClickable(executiveRecordButton);
+		clickWhenClickable(resetPasswordOption);
+		sleep(3000);
+
+		waitAndSendKeys(newPasswordField, "Admin@1234");
+		waitAndSendKeys(confirmPasswordField, "Admin@1234");
+		clickWhenClickable(resetPasswordButton);
+	}
+
+	public void verifyUserCannotResetProviderExecutivePasswords() {
+		sleep(2000);
+		clickWhenClickable(executiveRecordButton);
+		assertElementNotPresent(resetPasswordOption);
+	}
+
+	public void verifyUserCanViewProviderExecutiveRecords() {
+		sleep(3000);
+
+		clickWhenClickable(providersPageLink);
+		sleep(3000);
+		clickWhenClickable(executivesTabLink);
+		sleep(2000);
+
+		assertElementPresent(executiveRecordButton);
+	}
+
+	public void providerExecutiveProfileWithViewAndResetPasswordAccessPermission() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void providerExecutiveProfileWithViewAccessWithoutResetPasswordPermission() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	// DeDupe
+
+	public void userShouldNotBeAbleToUpdateDeDupeRecordsForProviderModule() {
+		sleep(3000);
+		List<WebElement> errorHeaders = driver.findElements(errorHeader);
+		if (!errorHeaders.isEmpty()) {
+			System.out.println("Error: Don't have proper access to requested page");
+		} else {
+			System.out.println("No error. Page loaded successfully.");
+		}
+	}
+
+	public void providerModuleDeDupeProfileWithoutUpdatePermission() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement providerDeDupeAllElement = wait
+				.until(ExpectedConditions.elementToBeClickable(providerDeDupeAllLabel));
+		providerDeDupeAllElement.click();
+		sleep(2000);
+
+	}
+
+	public void userShouldBeAbleToUpdateDeDupeRecordsForProviderModule() {
+		sleep(3000);
+
+		clickWhenClickable(doctorLastNameCheckbox);
+		clickWhenClickable(doctorFirstNameCheckbox);
+		clickWhenClickable(findDuplicateButton);
+		sleep(2000);
+
+		clickWhenClickable(firstDuplicateCheckbox);
+		clickWhenClickable(secondDuplicateCheckbox);
+		clickWhenClickable(mergeButton);
+		sleep(2000);
+
+		clickWhenClickable(firstRecordCheckbox);
+		sleep(1000);
+
+		clickWhenClickable(nextButton);
+		sleep(1000);
+		clickWhenClickable(nextButton);
+		sleep(1000);
+		clickWhenClickable(finishButton);
+	}
+
+	public void providerModuleDeDupeProfileWithUpdatePermission() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	// Referral Patient History
+	public void userShouldNotBeAbleToDownloadFileInReferralPatientHistory() {
+		sleep(1000);
+		assertElementNotPresent(referralHistoryDownloadIcon);
+	}
+
+	public void referralPatientHistoryProfileWithoutFileDownloadPermission() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void userShouldBeAbleToDownloadFileInReferralPatientHistory() {
+		sleep(1000);
+		clickWhenClickable(referralHistoryDownloadIcon);
+	}
+
+	public void userShouldBeAbleToViewReferralPatientHistory() {
+		sleep(3000);
+		clickWhenClickable(providersPageLink);
+		sleep(3000);
+		clickWhenClickable(historyTabLink);
+	}
+
+	public void referralPatientHistoryProfileFileDownloadPermission() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	// Bucket
+	public void userShouldNotBeAbleToFavouriteFolderInBucket() {
+		sleep(1000);
+		assertElementNotPresent(favouriteFolderLocator);
+	}
+
+	public void userShouldNotBeAbleToDeleteFolderInBucket() {
+		sleep(1000);
+		assertElementNotPresent(deleteFolderLocator);
+	}
+
+	public void userShouldNotBeAbleToEditFolderInBucket() {
+		sleep(1000);
+		assertElementNotPresent(editFolderLocator);
+	}
+
+	public void userShouldNotBeAbleToAddFolderInBucket() {
+		sleep(1000);
+		assertElementNotPresent(addFolderButton);
+	}
+
+	public void userShouldNotBeAbleToViewFolderInBucket() {
+		sleep(1000);
+		clickWhenClickable(viewFolderIcon);
+	}
+
+	public void userShouldBeAbleToDownloadFileInBucket() {
+		sleep(3000);
+		clickWhenClickable(downloadFileIcon);
+		sleep(1000);
+	}
+
+	public void userShouldBeAbleToFavouriteFileInBucket() {
+		sleep(3000);
+		clickWhenClickable(favouriteFileLocator);
+		sleep(3000);
+	}
+
+	public void userShouldBeAbleToDeleteFileInBucket() {
+		sleep(3000);
+		clickWhenClickable(deleteFileIcon);
+		sleep(1000);
+		clickWhenClickable(confirmDeleteFileButton);
+	}
+
+	public void userShouldBeAbleToEditFileInBucket() {
+		sleep(3000);
+		clickWhenClickable(editFileIcon);
+		sleep(1000);
+		waitAndSendKeys(fileNameTextBox, "file");
+		clickWhenClickable(saveFileButton);
+	}
+
+	public void userShouldBeAbleToAddFileInBucket() {
+		sleep(3000);
+		clickWhenClickable(addFileButton);
+		sleep(1000);
+		String filePath = System.getProperty("user.dir") + "/src/test/resources/Documents/dummy.pdf";
+		WebElement fileInput = driver.findElement(fileUploadInput);
+		fileInput.sendKeys(filePath);
+		sleep(3000);
+		clickWhenClickable(saveFileButton);
+	}
+
+	public void userShouldBeAbleToViewFileInBucket() {
+		sleep(3000);
+		clickWhenClickable(providersPageLink);
+		sleep(3000);
+		clickWhenClickable(bucketFolderLocator);
+		sleep(2000);
+		assertElementPresent(addFileButton);
+	}
+
+	public void bucketTestProfileFileFullNoFolder() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void userShouldNotBeAbleToViewFileInBucket() {
+		sleep(1000);
+		assertElementNotPresent(viewFileIcon);
+	}
+
+	public void userShouldNotBeAbleToDownloadFileInBucket() {
+		sleep(1000);
+		assertElementNotPresent(downloadFileIcon);
+	}
+
+	public void userShouldNotBeAbleToFavouriteFileInBucket() {
+		sleep(1000);
+		assertElementNotPresent(favouriteFileIcon);
+	}
+
+	public void userShouldNotBeAbleToDeleteFileInBucket() {
+		sleep(1000);
+		assertElementNotPresent(deleteFileIcon);
+	}
+
+	public void userShouldNotBeAbleToEditFileInBucket() {
+		sleep(1000);
+		assertElementNotPresent(editFileIcon);
+	}
+
+	public void userShouldNotBeAbleToAddFileInBucket() {
+		sleep(3000);
+		clickWhenClickable(bucketFolderLink);
+		sleep(2000);
+		assertElementNotPresent(addFileButton);
+	}
+
+	public void userShouldBeAbleToFavouriteFolderInBucket() {
+		sleep(3000);
+		clickWhenClickable(favouriteFolderIcon);
+		sleep(3000);
+	}
+
+	public void userShouldBeAbleToDeleteFolderInBucket() {
+		sleep(3000);
+		clickWhenClickable(deleteFolderIcon);
+		sleep(1000);
+		clickWhenClickable(confirmDeleteFolderButton);
+	}
+
+	public void userShouldBeAbleToEditFolderInBucket() {
+		sleep(3000);
+		clickWhenClickable(editFolderIcon);
+		sleep(2000);
+		waitAndSendKeys(folderNameField, "Bucket");
+		clickWhenClickable(saveFolderButton);
+	}
+
+	public void userShouldBeAbleToAddFolderInBucket() {
+		sleep(3000);
+		clickWhenClickable(addFolderButton);
+		sleep(2000);
+		waitAndSendKeys(folderNameField, "BucketFolder");
+		clickWhenClickable(saveFolderButton);
+	}
+
+	public void bucketTestProfileFolderOnly() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	// Referral Enrollment
+
+	public void userShouldBeAbleToDeleteReferralEnrollment() {
+		sleep(3000);
+		clickWhenClickable(referralEnrollmentOptionsMenu);
+		sleep(2000);
+		clickWhenClickable(referralEnrollmentDeleteOption);
+		sleep(2000);
+		clickWhenClickable(confirmDeleteReferralEnrollmentButton);
+	}
+
+	public void createReferralEnrollmentProfileViewDeleteAccessOnly() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void userShouldNotBeAbleToAddReferralEnrollment() {
+		sleep(3000);
+		assertElementNotPresent(newReferralEnrollmentButton);
+	}
+
+	public void userShouldBeAbleToEditReferralEnrollment() {
+		sleep(3000);
+		clickWhenClickable(referralEnrollmentOptionsMenu);
+		sleep(2000);
+		clickWhenClickable(referralEnrollmentEditOption);
+		sleep(2000);
+		waitAndSendKeys(referralEnrollmentNotesField, "Note");
+		clickWhenClickable(saveReferralEnrollmentButton);
+	}
+
+	public void setupProfileReferralEnrollmentTestViewEditAccess() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void userShouldNotBeAbleToDeleteReferralEnrollment() {
+		sleep(2000);
+		clickWhenClickable(referralEnrollmentOptionsMenu);
+		sleep(2000);
+		assertElementNotPresent(referralEnrollmentDeleteOption);
+	}
+
+	public void userShouldNotBeAbleToEditReferralEnrollment() {
+		sleep(3000);
+		clickWhenClickable(referralEnrollmentOptionsMenu);
+		sleep(2000);
+		assertElementNotPresent(referralEnrollmentEditOption);
+	}
+
+	public void userShouldBeAbleToAddReferralEnrollment() {
+		sleep(3000);
+		clickWhenClickable(newReferralEnrollmentButton);
+		sleep(3000);
+		clickWhenClickable(startDateField);
+		clickWhenClickable(specificDate);
+		sleep(2000);
+		clickWhenClickable(saveReferralEnrollmentButton);
+	}
+
+	public void userShouldBeAbleToViewReferralEnrollment() {
+		sleep(3000);
+		clickWhenClickable(firstRowViewIcon);
+		sleep(3000);
+		clickWhenClickable(referralEnrollmentLink);
+		sleep(3000);
+	}
+
+	public void setupProfileReferralEnrollmentTestViewAddAccess() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement providerReferralEnrollmentAll = wait
+				.until(ExpectedConditions.elementToBeClickable(providerReferralEnrollmentAllField));
+		providerReferralEnrollmentAll.click();
+		sleep(2000);
+		WebElement providerReferralEnrollmentAdd = wait
+				.until(ExpectedConditions.elementToBeClickable(providerReferralEnrollmentAddField));
+		providerReferralEnrollmentAdd.click();
+
+	}
+
+	// Executives
+	public void userShouldBeAbleToDeleteExecutives() {
+		sleep(3000);
+		clickWhenClickable(optionsMenuIcon);
+		sleep(1000);
+		clickWhenClickable(deleteOption);
+		sleep(1000);
+		clickWhenClickable(confirmDeleteButton);
+	}
+
+	public void setupProfileExecutivesTestViewDeleteAccess() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+
+	}
+
+	public void userShouldNotBeAbleToAddExecutives() {
+		sleep(2000);
+		assertElementNotPresent(newExecutiveButton);
+	}
+
+	public void userShouldBeAbleToEditExecutives() {
+		sleep(3000);
+		clickWhenClickable(firstRowViewIcon);
+		sleep(3000);
+		clickWhenClickable(executivesLink);
+		sleep(2000);
+		clickWhenClickable(optionsMenuIcon);
+		sleep(1000);
+		clickWhenClickable(editOption);
+		sleep(2000);
+		waitAndSendKeys(productServiceField, "PA");
+		sleep(2000);
+		clickWhenClickable(saveExecutiveButton);
+	}
+
+	public void setupProfileExecutivesTestViewEditAccess() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+
+	}
+
+	public void userShouldNotBeAbleToDeleteExecutives() {
+		sleep(3000);
+		clickWhenClickable(optionsMenuIcon);
+		sleep(2000);
+		assertElementNotPresent(deleteOption);
+	}
+
+	public void userShouldNotBeAbleToEditExecutives() {
+		sleep(3000);
+		clickWhenClickable(optionsMenuIcon);
+		sleep(2000);
+		assertElementNotPresent(editOption);
+	}
+
+	public void userShouldBeAbleToAddExecutives() {
+		sleep(4000);
+		clickWhenClickable(newExecutiveButton);
+		sleep(3000);
+		waitAndSendKeys(lastNameField, "Selby");
+		waitAndSendKeys(firstNameField, "Teresa");
+		waitAndSendKeys(emailField, "TeresaJSelby@mailinator.com");
+		clickWhenClickable(profileDropdown);
+		selectDropdownByIndexWhenReady(profileDropdown, 2);
+		sleep(3000);
+		clickWhenClickable(saveExecutiveButton);
+	}
+
+	public void userShouldBeAbleToViewExecutives() {
+		sleep(3000);
+		clickWhenClickable(firstRowViewIcon);
+		sleep(3000);
+		clickWhenClickable(executivesLink);
+		sleep(3000);
+	}
+
+	public void createExecutivesTestProfileViewAddOnly() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement executivesAllElement = wait.until(ExpectedConditions.elementToBeClickable(executivesAllLabel));
+		executivesAllElement.click();
+		sleep(2000);
+		WebElement executiveAddElement = wait.until(ExpectedConditions.elementToBeClickable(executiveAddLabel));
+		executiveAddElement.click();
+		sleep(2000);
+
+	}
 
 	// Referrals
 
@@ -574,7 +1499,6 @@ public class providerpage {
 
 	public void openProviderPage(String fullUrl) {
 		driver.get(fullUrl);
-		wait.until(ExpectedConditions.urlContains("/Prescriber/Home/Providers"));
 	}
 
 	public void userProfileWithViewAccessOnly() {

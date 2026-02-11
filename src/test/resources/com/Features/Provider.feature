@@ -252,7 +252,7 @@ And I log in using the new user for Provider Module
 Then the user should be able to view Referrals in Provider Module
 And the user should be able to export Referrals to Excel in Provider Module  
 
-#
+
 Scenario: User with View and Add access but no Edit or Delete for Executives
 Given I log in as admin for Provider Module
 When I create a new user with email for Provider Module "testuser7_static@mailinator.com" 
@@ -264,6 +264,7 @@ Then the user should be able to view Executives
 And the user should be able to add Executives  
 And the user should not be able to edit Executives  
 And the user should not be able to delete Executives 
+
 
 Scenario: User with View and Edit access but no Add or Delete for Executives
 Given I log in as admin for Provider Module
@@ -288,6 +289,7 @@ Then the user should be able to view Executives
 And the user should be able to delete Executives 
 And the user should not be able to add Executives
 And the user should not be able to edit Executives
+
 
 Scenario: User with View and Add access but no Edit or Delete for Referral Enrollment
 Given I log in as admin for Provider Module
@@ -325,6 +327,7 @@ And the user should be able to delete Referral Enrollment
 And the user should not be able to add Referral Enrollment
 And the user should not be able to edit Referral Enrollment
 
+
 Scenario: User with all Folder permissions but no File permissions in Bucket
 Given I log in as admin for Provider Module
 When I create a new user with email for Provider Module "testuser4_static@mailinator.com"
@@ -344,6 +347,7 @@ And the user should not be able to favourite File in Bucket
 And the user should not be able to download File in Bucket 
 And the user should not be able to view File in Bucket 
 
+
 Scenario: User with all File permissions but no Folder permissions in Bucket
 Given I log in as admin for Provider Module
 When I create a new user with email for Provider Module "testuser5_static@mailinator.com"
@@ -362,6 +366,7 @@ And the user should not be able to add Folder in Bucket
 And the user should not be able to edit Folder in Bucket 
 And the user should not be able to delete Folder in Bucket 
 And the user should not be able to favourite Folder in Bucket
+
 
 Scenario: User with Download File permission in Referral Patient History
 Given I log in as admin for Provider Module
@@ -401,6 +406,7 @@ And I reset the user's password for Provider Module
 And I log in using the new user for Provider Module
 Then the user should not be able to update DeDupe records via UI or direct URL for Provider Module
 
+
 Scenario: Create user with View but not Reset Password access to Provider Executive
 Given I log in as admin for Provider Module
 When I create a new user with email for Provider Module "testuser1_static@mailinator.com"
@@ -411,6 +417,7 @@ And I log in using the new user for Provider Module
 Then the user should be able to view Provider Executive records 
 And the user should not be able to reset passwords for Provider Executive 
 
+
 Scenario: Create user with both View and Reset Password access to Provider Executive
 Given I log in as admin for Provider Module
 When I create a new user with email for Provider Module "testuser2_static@mailinator.com"
@@ -420,6 +427,7 @@ And I reset the user's password for Provider Module
 And I log in using the new user for Provider Module
 Then the user should be able to view Provider Executive records
 And the user should be able to reset passwords for Provider Executive users 
+
 
 Scenario: User with View and Add access but no Edit, Delete for Provider Service
 Given I log in as admin for Provider Module
@@ -433,6 +441,7 @@ And the user should be able to add Provider Service in Provider Module
 And the user should not be able to edit Provider Service in Provider Module 
 And the user should not be able to delete Provider Service in Provider Module 
 
+
 Scenario: User with View and Edit access but no Add, Delete for Provider Service
 Given I log in as admin for Provider Module
 When I create a new user with email for Provider Module "testuser6_static@mailinator.com"
@@ -445,6 +454,7 @@ And the user should be able to edit Provider Service in Provider Module
 And the user should not be able to add Provider Service in Provider Module 
 And the user should not be able to delete Provider Service in Provider Module
 
+
 Scenario: User with View and Delete access but no Add, Edit for Provider Service
 Given I log in as admin for Provider Module
 When I create a new user with email for Provider Module "testuser8_static@mailinator.com"
@@ -456,6 +466,7 @@ Then the user should be able to view Provider Service in Provider Module
 And the user should be able to delete Provider Service in Provider Module 
 And the user should not be able to add Provider Service in Provider Module
 And the user should not be able to edit Provider Service in Provider Module
+
 
 Scenario: User with Add access to Provider EHR but no Edit or Delete
 Given I log in as admin for Provider Module
@@ -478,6 +489,7 @@ And I log in using the new user for Provider Module
 Then the user should be able to edit Provider EHR in Provider Module 
 And the user should not be able to add Provider EHR in Provider Module 
 And the user should not be able to delete Provider EHR in Provider Module
+
 
 Scenario: User with Delete access to Provider EHR but no Add or Edit
 Given I log in as admin for Provider Module
@@ -503,6 +515,7 @@ And the user should not be able to edit Business Group in Provider Module
 And the user should not be able to delete Business Group in Provider Module
 And the user should not be able to make Business Group a Partner in Provider Module
 
+
 Scenario: User with View and Edit access but no Add, Delete or Make Partner for Business Group
 Given I log in as admin for Provider Module
 When I create a new user with email for Provider Module "testuser2_static@mailinator.com"
@@ -516,6 +529,7 @@ And the user should not be able to add Business Group in Provider Module
 And the user should not be able to delete Business Group in Provider Module
 And the user should not be able to make Business Group a Partner in Provider Module
 
+#
 Scenario: User with View and Delete access but no Add, Edit or Make Partner for Business Group
 Given I log in as admin for Provider Module
 When I create a new user with email for Provider Module "testuser3_static@mailinator.com"
