@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-02-11T17:56:36 IST" name="Default suite" finished-at="2026-02-11T17:57:52 IST" duration-ms="75237">
+  <suite started-at="2026-02-12T09:57:14 IST" name="Default suite" finished-at="2026-02-12T09:58:29 IST" duration-ms="74729">
     <groups>
       <group name="cucumber">
         <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.pharmcrm.pharmcrm_product.runner.MasterRunner@67c33749]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2026-02-11T17:56:36 IST" name="Default test" finished-at="2026-02-11T17:57:52 IST" duration-ms="75237">
+    <test started-at="2026-02-12T09:57:14 IST" name="Default test" finished-at="2026-02-12T09:58:29 IST" duration-ms="74729">
       <class name="com.pharmcrm.pharmcrm_product.runner.MasterRunner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.pharmcrm.pharmcrm_product.runner.MasterRunner@67c33749]" started-at="2026-02-11T17:56:36 IST" name="setUpClass" finished-at="2026-02-11T17:56:37 IST" duration-ms="691" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.pharmcrm.pharmcrm_product.runner.MasterRunner@67c33749]" started-at="2026-02-12T09:57:14 IST" name="setUpClass" finished-at="2026-02-12T09:57:15 IST" duration-ms="731" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@3d7fa3ae]]>
+                <![CDATA[org.testng.TestRunner@3605c4d3]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.pharmcrm.pharmcrm_product.runner.MasterRunner@67c33749]" started-at="2026-02-11T17:56:37 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-11T17:57:51 IST" duration-ms="74416" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.pharmcrm.pharmcrm_product.runner.MasterRunner@67c33749]" started-at="2026-02-12T09:57:15 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-12T09:58:29 IST" duration-ms="73854" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["User with View and Delete access but no Add, Edit or Make Partner for Business Group test"]]>
+                <![CDATA["User with View and Add access but no Edit or Delete for Business Group Address test"]]>
               </value>
             </param>
             <param index="1">
@@ -34,25 +34,10 @@
               </value>
             </param>
           </params>
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[Element should not be present: By.xpath: //tbody/tr[1]/td[4]/div[1]/a[1]//*[name()='svg']//*[name()='path' and @id='Union_28']]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: Element should not be present: By.xpath: //tbody/tr[1]/td[4]/div[1]/a[1]//*[name()='svg']//*[name()='path' and @id='Union_28']
-at org.junit.Assert.fail(Assert.java:89)
-at org.junit.Assert.assertTrue(Assert.java:42)
-at com.pharmcrm_ProviderModule.pages.providerpage.assertElementNotPresent(providerpage.java:1574)
-at com.pharmcrm_ProviderModule.pages.providerpage.verifyUserCannotMakeBusinessGroupPartner(providerpage.java:291)
-at com.pharmcrm_ProviderModule.steps.providerstep.userShouldNotBeAbleToMakeBusinessGroupPartnerInProviderModuleTest(providerstep.java:51)
-at ✽.the user should not be able to make Business Group a Partner in Provider Module test(file:///C:/Users/MayurChauhan/eclipse-workspace/pharmcrm-product/src/test/resources/com/Features/ProviderModule/Provider.feature:628)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.pharmcrm.pharmcrm_product.runner.MasterRunner@67c33749]" started-at="2026-02-11T17:57:51 IST" name="tearDownClass" finished-at="2026-02-11T17:57:52 IST" duration-ms="76" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.pharmcrm.pharmcrm_product.runner.MasterRunner@67c33749]" started-at="2026-02-12T09:58:29 IST" name="tearDownClass" finished-at="2026-02-12T09:58:29 IST" duration-ms="90" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->

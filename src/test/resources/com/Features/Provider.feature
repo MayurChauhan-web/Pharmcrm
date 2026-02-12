@@ -529,7 +529,6 @@ And the user should not be able to add Business Group in Provider Module
 And the user should not be able to delete Business Group in Provider Module
 And the user should not be able to make Business Group a Partner in Provider Module
 
-#
 Scenario: User with View and Delete access but no Add, Edit or Make Partner for Business Group
 Given I log in as admin for Provider Module
 When I create a new user with email for Provider Module "testuser3_static@mailinator.com"
@@ -556,6 +555,7 @@ And the user should not be able to add Business Group in Provider Module
 And the user should not be able to edit Business Group in Provider Module
 And the user should not be able to delete Business Group in Provider Module
 
+
 Scenario: User with View and Add access but no Edit or Delete for Business Group Address
 Given I log in as admin for Provider Module
 When I create a new user with email for Provider Module "testuser6_static@mailinator.com"
@@ -567,6 +567,7 @@ Then the user should be able to view Business Group Address in Provider Module
 And the user should be able to add Business Group Address in Provider Module
 And the user should not be able to edit Business Group Address in Provider Module
 And the user should not be able to delete Business Group Address in Provider Module
+
 
 Scenario: User with View and Edit access but no Add or Delete for Business Group Address
 Given I log in as admin for Provider Module
@@ -652,6 +653,7 @@ And I log in using the new user for Provider Module
 Then the user should be able to view Provider Remote Monitoring Details
 And the user should not be able to download files from Provider Remote Monitoring Details
 
+
 Scenario: User with Export Excel permission for Provider PA Details
 Given I log in as admin for Provider Module
 When I create a new user with email for Provider Module "testuser2_static@mailinator.com"
@@ -672,6 +674,7 @@ And I log in using the new user for Provider Module
 Then the user should be able to view Provider PA Details
 And the user should not be able to export Provider PA Details to Excel
 
+
 Scenario: User with View and Add access but no Edit or Delete for Provider Type
 Given I log in as admin for Provider Module
 When I create a new user with email for Provider Module "testuser3_static@mailinator.com"
@@ -683,6 +686,7 @@ Then the user should be able to view Provider Type in Provider Module
 And the user should be able to add Provider Type in Provider Module
 And the user should not be able to edit Provider Type in Provider Module
 And the user should not be able to delete Provider Type in Provider Module
+
 
 Scenario: User with View and Edit access but no Add or Delete for Provider Type
 Given I log in as admin for Provider Module
@@ -708,6 +712,7 @@ And the user should be able to delete Provider Type in Provider Module
 And the user should not be able to add Provider Type in Provider Module
 And the user should not be able to edit Provider Type in Provider Module
 
+
 Scenario: User with View and Add access but no Edit or Delete for Category
 Given I log in as admin for Provider Module
 When I create a new user with email for Provider Module "testuser6_static@mailinator.com"
@@ -719,6 +724,7 @@ Then the user should be able to view Category in Provider Module
 And the user should be able to add Category in Provider Module
 And the user should not be able to edit Category in Provider Module
 And the user should not be able to delete Category in Provider Module
+
 
 Scenario: User with View and Edit access but no Add or Delete for Category
 Given I log in as admin for Provider Module
@@ -732,6 +738,7 @@ And the user should be able to edit Category in Provider Module
 And the user should not be able to add Category in Provider Module
 And the user should not be able to delete Category in Provider Module
 
+
 Scenario: User with View and Delete access but no Add or Edit for Category
 Given I log in as admin for Provider Module
 When I create a new user with email for Provider Module "testuser10_static@mailinator.com"
@@ -743,6 +750,7 @@ Then the user should be able to view Category in Provider Module
 And the user should be able to delete Category in Provider Module
 And the user should not be able to add Category in Provider Module
 And the user should not be able to edit Category in Provider Module
+
 
 Scenario: User with View and Add access but no Edit or Delete for Specialty
 Given I log in as admin for Provider Module
@@ -780,6 +788,7 @@ And the user should be able to delete Specialty in Provider Module
 And the user should not be able to add Specialty in Provider Module
 And the user should not be able to edit Specialty in Provider Module
 
+
 Scenario: User with View and Add access but no Edit or Delete for Service
 Given I log in as admin for Provider Module
 When I create a new user with email for Provider Module "testuser5_static@mailinator.com"
@@ -804,6 +813,7 @@ And the user should be able to edit Service in Provider Module
 And the user should not be able to add Service in Provider Module
 And the user should not be able to delete Service in Provider Module
 
+
 Scenario: User with View and Delete access but no Add or Edit for Service
 Given I log in as admin for Provider Module
 When I create a new user with email for Provider Module "testuser9_static@mailinator.com"
@@ -816,6 +826,7 @@ And the user should be able to delete Service in Provider Module
 And the user should not be able to add Service in Provider Module
 And the user should not be able to edit Service in Provider Module
 
+#
 Scenario: User with View and Add access but no Edit or Delete for Provider Template
 Given I log in as admin for Provider Module
 When I create a new user with email for Provider Module "testuser10_static@mailinator.com"

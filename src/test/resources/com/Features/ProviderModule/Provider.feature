@@ -611,7 +611,6 @@ And the user should not be able to add Business Group in Provider Module test
 And the user should not be able to delete Business Group in Provider Module test
 And the user should not be able to make Business Group a Partner in Provider Module test
 
-@Provider
 Scenario: User with View and Delete access but no Add, Edit or Make Partner for Business Group test
 Given user launch browser
 Then user click on the user type dropdown
@@ -626,6 +625,615 @@ And the user should be able to delete Business Group in Provider Module test
 And the user should not be able to add Business Group in Provider Module test
 And the user should not be able to edit Business Group in Provider Module test
 And the user should not be able to make Business Group a Partner in Provider Module test
+
+Scenario: User with View and Make Partner access but no Add, Edit or Delete for Business Group test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Provider user should be able to view Profiles test
+And I create a profile with View and Make Partner access but no Add, Edit or Delete access to Business Group in Provider Module test
+Then the user should be able to view Business Group in Provider Module test
+And the user should be able to make Business Group a Partner in Provider Module test
+And the user should not be able to add Business Group in Provider Module test
+And the user should not be able to edit Business Group in Provider Module test
+And the user should not be able to delete Business Group in Provider Module test
+
+# Business Group Address
+Scenario: User with View and Add access but no Edit or Delete for Business Group Address test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Provider user should be able to view Profiles test
+And I create a profile with View and Add access but no Edit or Delete access to Business Group Address in Provider Module test
+Then the user should be able to view Business Group Address in Provider Module test
+And the user should be able to add Business Group Address in Provider Module test
+And the user should not be able to edit Business Group Address in Provider Module test
+And the user should not be able to delete Business Group Address in Provider Module test
+
+Scenario: User with View and Edit access but no Add or Delete for Business Group Address test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Provider user should be able to view Profiles test
+And I create a profile with View and Edit access but no Add or Delete access to Business Group Address in Provider Module test
+Then the user should be able to view Business Group Address in Provider Module test
+And the user should be able to edit Business Group Address in Provider Module test
+And the user should not be able to add Business Group Address in Provider Module test
+And the user should not be able to delete Business Group Address in Provider Module test
+
+Scenario: User with View and Delete access but no Add or Edit for Business Group Address test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Provider user should be able to view Profiles test
+And I create a profile with View and Delete access but no Add or Edit access to Business Group Address in Provider Module test
+Then the user should be able to view Business Group Address in Provider Module test
+And the user should be able to delete Business Group Address in Provider Module test
+And the user should not be able to add Business Group Address in Provider Module test
+And the user should not be able to edit Business Group Address in Provider Module test
+
+@Provider
+# Provider Referral Incoming Details
+Scenario: User with Download File permission for Provider Referral Incoming Details test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Provider user should be able to view Profiles test
+And I create a profile with Download File permission for Provider Referral Incoming Details test
+Then the user should be able to view Provider Referral Incoming Details test
+And the user should be able to download files from Provider Referral Incoming Details test
+
+Scenario: User without Download File permission for Provider Referral Incoming Details test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Provider user should be able to view Profiles test
+And I create a profile without Download File permission for Provider Referral Incoming Details test
+Then the user should be able to view Provider Referral Incoming Details test
+And the user should not be able to download files from Provider Referral Incoming Details test
+
+# Provider Referral Outgoing Details
+Scenario: User with Download File permission for Provider Referral Outgoing Details test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Provider user should be able to view Profiles test
+And I create a profile with Download File permission for Provider Referral Outgoing Details test
+Then the user should be able to view Provider Referral Outgoing Details test
+And the user should be able to download files from Provider Referral Outgoing Details test
+
+Scenario: User without Download File permission for Provider Referral Outgoing Details test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Provider user should be able to view Profiles test
+And I create a profile without Download File permission for Provider Referral Outgoing Details test
+Then the user should be able to view Provider Referral Outgoing Details test
+And the user should not be able to download files from Provider Referral Outgoing Details test
+
+# Provider Remote Monitoring Details
+Scenario: User with Download File permission for Provider Remote Monitoring Details test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Provider user should be able to view Profiles test
+And I create a profile with Download File permission for Provider Remote Monitoring Details test
+Then the user should be able to view Provider Remote Monitoring Details test
+And the user should be able to download files from Provider Remote Monitoring Details test
+
+Scenario: User without Download File permission for Provider Remote Monitoring Details test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Provider user should be able to view Profiles test
+And I create a profile without Download File permission for Provider Remote Monitoring Details test
+Then the user should be able to view Provider Remote Monitoring Details test
+And the user should not be able to download files from Provider Remote Monitoring Details test
+
+# Provider PA Details
+Scenario: User with Export Excel permission for Provider PA Details test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Provider user should be able to view Profiles test
+And I create a profile with Export Excel permission for Provider PA Details test
+Then the user should be able to view Provider PA Details test
+And the user should be able to export Provider PA Details to Excel test
+
+Scenario: User without Export Excel permission for Provider PA Details test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Provider user should be able to view Profiles test
+And I create a profile without Export Excel permission for Provider PA Details test
+Then the user should be able to view Provider PA Details test
+And the user should not be able to export Provider PA Details to Excel test
+
+# Provider Type
+Scenario: User with View and Add access but no Edit or Delete for Provider Type test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Provider user should be able to view Profiles test
+And I create a profile with View and Add access but no Edit or Delete access to Provider Type in Provider Module test
+Then the user should be able to view Provider Type in Provider Module test
+And the user should be able to add Provider Type in Provider Module test
+And the user should not be able to edit Provider Type in Provider Module test
+And the user should not be able to delete Provider Type in Provider Module test
+
+Scenario: User with View and Edit access but no Add or Delete for Provider Type test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Provider user should be able to view Profiles test
+And I create a profile with View and Edit access but no Add or Delete access to Provider Type in Provider Module test
+Then the user should be able to view Provider Type in Provider Module test
+And the user should be able to edit Provider Type in Provider Module test
+And the user should not be able to add Provider Type in Provider Module test
+And the user should not be able to delete Provider Type in Provider Module test
+
+Scenario: User with View and Delete access but no Add or Edit for Provider Type test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Provider user should be able to view Profiles test
+And I create a profile with View and Delete access but no Add or Edit access to Provider Type in Provider Module test
+Then the user should be able to view Provider Type in Provider Module test
+And the user should be able to delete Provider Type in Provider Module test
+And the user should not be able to add Provider Type in Provider Module test
+And the user should not be able to edit Provider Type in Provider Module test
+
+# Category
+Scenario: User with View and Add access but no Edit or Delete for Category test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Provider user should be able to view Profiles test
+And I create a profile with View and Add access but no Edit or Delete access to Category in Provider Module test
+Then the user should be able to view Category in Provider Module test
+And the user should be able to add Category in Provider Module test
+And the user should not be able to edit Category in Provider Module test
+And the user should not be able to delete Category in Provider Module test
+
+Scenario: User with View and Edit access but no Add or Delete for Category test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Provider user should be able to view Profiles test
+And I create a profile with View and Edit access but no Add or Delete access to Category in Provider Module test
+Then the user should be able to view Category in Provider Module test
+And the user should be able to edit Category in Provider Module test
+And the user should not be able to add Category in Provider Module test
+And the user should not be able to delete Category in Provider Module test
+
+Scenario: User with View and Delete access but no Add or Edit for Category test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Provider user should be able to view Profiles test
+And I create a profile with View and Delete access but no Add or Edit access to Category in Provider Module test
+Then the user should be able to view Category in Provider Module test
+And the user should be able to delete Category in Provider Module test
+And the user should not be able to add Category in Provider Module test
+And the user should not be able to edit Category in Provider Module test
+
+# Specialty
+Scenario: User with View and Add access but no Edit or Delete for Specialty test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Provider user should be able to view Profiles test
+And I create a profile with View and Add access but no Edit or Delete access to Specialty in Provider Module test
+Then the user should be able to view Specialty in Provider Module test
+And the user should be able to add Specialty in Provider Module test
+And the user should not be able to edit Specialty in Provider Module test
+And the user should not be able to delete Specialty in Provider Module test
+
+Scenario: User with View and Edit access but no Add or Delete for Specialty test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Provider user should be able to view Profiles test
+And I create a profile with View and Edit access but no Add or Delete access to Specialty in Provider Module test
+Then the user should be able to view Specialty in Provider Module test
+And the user should be able to edit Specialty in Provider Module test
+And the user should not be able to add Specialty in Provider Module test
+And the user should not be able to delete Specialty in Provider Module test
+
+Scenario: User with View and Delete access but no Add or Edit for Specialty test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Provider user should be able to view Profiles test
+And I create a profile with View and Delete access but no Add or Edit access to Specialty in Provider Module test
+Then the user should be able to view Specialty in Provider Module test
+And the user should be able to delete Specialty in Provider Module test
+And the user should not be able to add Specialty in Provider Module test
+And the user should not be able to edit Specialty in Provider Module test
+
+# Service
+Scenario: User with View and Add access but no Edit or Delete for Service test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Provider user should be able to view Profiles test
+And I create a profile with View and Add access but no Edit or Delete access to Service in Provider Module test
+Then the user should be able to view Service in Provider Module test
+And the user should be able to add Service in Provider Module test
+And the user should not be able to edit Service in Provider Module test
+And the user should not be able to delete Service in Provider Module test
+
+Scenario: User with View and Edit access but no Add or Delete for Service test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Provider user should be able to view Profiles test
+And I create a profile with View and Edit access but no Add or Delete access to Service in Provider Module test
+Then the user should be able to view Service in Provider Module test
+And the user should be able to edit Service in Provider Module test
+And the user should not be able to add Service in Provider Module test
+And the user should not be able to delete Service in Provider Module test
+
+Scenario: User with View and Delete access but no Add or Edit for Service test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Provider user should be able to view Profiles test
+And I create a profile with View and Delete access but no Add or Edit access to Service in Provider Module test
+Then the user should be able to view Service in Provider Module test
+And the user should be able to delete Service in Provider Module test
+And the user should not be able to add Service in Provider Module test
+And the user should not be able to edit Service in Provider Module test
+
+# Provider Template
+Scenario: User with View and Add access but no Edit or Delete for Provider Template test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Provider user should be able to view Profiles test
+And I create a profile with View and Add access but no Edit or Delete access to Provider Template in Provider Module test
+Then the user should be able to view Provider Template in Provider Module test
+And the user should be able to add Provider Template in Provider Module test
+And the user should not be able to edit Provider Template in Provider Module test
+And the user should not be able to delete Provider Template in Provider Module test
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
