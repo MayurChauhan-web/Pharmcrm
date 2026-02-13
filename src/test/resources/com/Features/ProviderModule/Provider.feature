@@ -684,7 +684,6 @@ And the user should be able to delete Business Group Address in Provider Module 
 And the user should not be able to add Business Group Address in Provider Module test
 And the user should not be able to edit Business Group Address in Provider Module test
 
-@Provider
 # Provider Referral Incoming Details
 Scenario: User with Download File permission for Provider Referral Incoming Details test
 Given user launch browser
@@ -971,6 +970,142 @@ Then the user should be able to view Provider Template in Provider Module test
 And the user should be able to add Provider Template in Provider Module test
 And the user should not be able to edit Provider Template in Provider Module test
 And the user should not be able to delete Provider Template in Provider Module test
+
+Scenario: User with View and Edit access but no Add or Delete for Provider Template test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Provider user should be able to view Profiles test
+And I create a profile with View and Edit access but no Add or Delete access to Provider Template in Provider Module test
+Then the user should be able to view Provider Template in Provider Module test
+And the user should be able to edit Provider Template in Provider Module test
+And the user should not be able to add Provider Template in Provider Module
+And the user should not be able to delete Provider Template in Provider Module
+
+Scenario: User with View and Delete access but no Add or Edit for Provider Template test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Provider user should be able to view Profiles test
+And I create a profile with View and Delete access but no Add or Edit access to Provider Template in Provider Module test
+Then the user should be able to view Provider Template in Provider Module test
+And the user should be able to delete Provider Template in Provider Module test
+And the user should not be able to add Provider Template in Provider Module test
+And the user should not be able to edit Provider Template in Provider Module test
+
+# # BusinessGroup
+Scenario: BusinessGroup page required fields validation test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the user should see validation messages for all required fields: Email, Zone, Phone, and BusinessGroup Name
+
+Scenario: BusinessGroup page invalid email ID validation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the user should see a validation message indicating the email ID is invalid
+
+Scenario: BusinessGroup page invalid phone number validation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the user should see a validation message indicating the phone number is invalid
+
+Scenario: BusinessGroup page filter with blank Business Group Name search
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the user should see a validation message indicating Business Group Name is required
+
+Scenario: BusinessGroup page add address fields validation test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the user should see validation messages for all required address fields: Street, City, State, Zip Code, and Contact Number1
+
+@Provider
+Scenario: BusinessGroup page invalid Fax, Contact Numbers, and Zip Code validation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then The user should see validation messages indicating Fax, Contact Number1, Contact Number2, and Zip Code are invalid
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

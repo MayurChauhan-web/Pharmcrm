@@ -826,7 +826,6 @@ And the user should be able to delete Service in Provider Module
 And the user should not be able to add Service in Provider Module
 And the user should not be able to edit Service in Provider Module
 
-#
 Scenario: User with View and Add access but no Edit or Delete for Provider Template
 Given I log in as admin for Provider Module
 When I create a new user with email for Provider Module "testuser10_static@mailinator.com"

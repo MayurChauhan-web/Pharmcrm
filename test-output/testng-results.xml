@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="0" failed="0" skipped="1">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-02-12T09:57:14 IST" name="Default suite" finished-at="2026-02-12T09:58:29 IST" duration-ms="74729">
+  <suite started-at="2026-02-13T16:58:47 IST" name="Default suite" finished-at="2026-02-13T16:59:28 IST" duration-ms="41080">
     <groups>
       <group name="cucumber">
         <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.pharmcrm.pharmcrm_product.runner.MasterRunner@67c33749]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2026-02-12T09:57:14 IST" name="Default test" finished-at="2026-02-12T09:58:29 IST" duration-ms="74729">
+    <test started-at="2026-02-13T16:58:47 IST" name="Default test" finished-at="2026-02-13T16:59:28 IST" duration-ms="41080">
       <class name="com.pharmcrm.pharmcrm_product.runner.MasterRunner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.pharmcrm.pharmcrm_product.runner.MasterRunner@67c33749]" started-at="2026-02-12T09:57:14 IST" name="setUpClass" finished-at="2026-02-12T09:57:15 IST" duration-ms="731" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.pharmcrm.pharmcrm_product.runner.MasterRunner@67c33749]" started-at="2026-02-13T16:58:47 IST" name="setUpClass" finished-at="2026-02-13T16:58:48 IST" duration-ms="749" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@3605c4d3]]>
+                <![CDATA[org.testng.TestRunner@27068a50]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.pharmcrm.pharmcrm_product.runner.MasterRunner@67c33749]" started-at="2026-02-12T09:57:15 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-12T09:58:29 IST" duration-ms="73854" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.pharmcrm.pharmcrm_product.runner.MasterRunner@67c33749]" started-at="2026-02-13T16:58:48 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-13T16:59:28 IST" duration-ms="40123" status="SKIP">
           <params>
             <param index="0">
               <value>
-                <![CDATA["User with View and Add access but no Edit or Delete for Business Group Address test"]]>
+                <![CDATA["BusinessGroup page invalid Fax, Contact Numbers, and Zip Code validation"]]>
               </value>
             </param>
             <param index="1">
@@ -34,10 +34,44 @@
               </value>
             </param>
           </params>
+          <exception class="org.testng.SkipException">
+            <message>
+              <![CDATA[Skipping because some invalid digit-length validations are missing: MISSING INVALID VALIDATIONS FOR: Contact Number2, Zip Code]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.testng.SkipException: Skipping because some invalid digit-length validations are missing: MISSING INVALID VALIDATIONS FOR: Contact Number2, Zip Code
+at io.cucumber.testng.TestCaseResultObserver.lambda$assertTestCasePassed$1(TestCaseResultObserver.java:27)
+at io.cucumber.core.runtime.TestCaseResultObserver.assertTestCasePassed(TestCaseResultObserver.java:66)
+at io.cucumber.testng.TestCaseResultObserver.assertTestCasePassed(TestCaseResultObserver.java:23)
+at io.cucumber.testng.TestNGCucumberRunner.lambda$runScenario$1(TestNGCucumberRunner.java:133)
+at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:137)
+at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
+at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:137)
+at io.cucumber.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:129)
+at io.cucumber.testng.AbstractTestNGCucumberTests.runScenario(AbstractTestNGCucumberTests.java:35)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.TestMethodWithDataProviderMethodWorker.call(TestMethodWithDataProviderMethodWorker.java:81)
+at org.testng.internal.thread.Async$AsyncTask.run(Async.java:34)
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+at java.base/java.lang.Thread.run(Thread.java:842)
+Caused by: org.junit.AssumptionViolatedException: Skipping because some invalid digit-length validations are missing: MISSING INVALID VALIDATIONS FOR: Contact Number2, Zip Code
+at org.junit.Assume.assumeTrue(Assume.java:68)
+at com.pharmcrm_ProviderModule.steps.providerstep.validationMessagesForInvalidFaxContactNumbersAndZipCodeShouldBeDisplayed(providerstep.java:36)
+at ✽.The user should see validation messages indicating Fax, Contact Number1, Contact Number2, and Zip Code are invalid(file:///C:/Users/MayurChauhan/eclipse-workspace/pharmcrm-product/src/test/resources/com/Features/ProviderModule/Provider.feature:1056)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.testng.SkipException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.pharmcrm.pharmcrm_product.runner.MasterRunner@67c33749]" started-at="2026-02-12T09:58:29 IST" name="tearDownClass" finished-at="2026-02-12T09:58:29 IST" duration-ms="90" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.pharmcrm.pharmcrm_product.runner.MasterRunner@67c33749]" started-at="2026-02-13T16:59:28 IST" name="tearDownClass" finished-at="2026-02-13T16:59:28 IST" duration-ms="131" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->

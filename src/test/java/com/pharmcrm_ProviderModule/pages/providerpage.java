@@ -1,6 +1,7 @@
 package com.pharmcrm_ProviderModule.pages;
 
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.List;
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -17,7 +18,23 @@ public class providerpage {
 	private WebDriver driver;
 	private WebDriverWait wait;
 
+	// BusinessGroup
+	public By frontDeskNameField = By.id("BusinessGroup_FrontDeskName");
+	public By contactNumber1Field = By.id("BusinessGroup_ContactNumber1");
+	public By contactNumber2Field = By.id("BusinessGroup_ContactNumber2");
+	public By faxField = By.id("BusinessGroup_Fax");
+	public By viewButton = By.xpath("//tbody/tr[1]/td[4]/div[1]/a[2]/img[1]");
+	public By filterIcon = By.xpath("//a[@id='searchcollapse']//*[name()='svg']");
+	public By businessGroupName = By.id("BusinessGroup_Name");
+	public By phoneNumber = By.id("BusinessGroup_PhoneNumber");
+	public By phoneExtension = By.id("BusinessGroup_PhoneNumberExt");
+	public By zoneField = By.id("BusinessGroup_Zone");
+	public By toastMessages = By.xpath("//div[contains(@class,'toast-message')]");
+	public By fieldErrors = By.xpath("//span[contains(@class,'text-danger') or contains(@class,'error')]");
+
 	// Provider Template
+	public By confirmDeleteProviderTemplateButton = By
+			.xpath("//div[@id='genericmodal']//button[@id='btnDeleteConfirm']");
 	public By newProviderTemplateButton = By.xpath("//span[normalize-space()='New Template']");
 	public By providerTemplateNameField = By.id("ProviderDocumentTemplate_Name");
 	public By saveProviderTemplateButton = By.id("btnSave");
@@ -342,7 +359,402 @@ public class providerpage {
 	public By priorAuthorizationProcessAllLabel = By.xpath("//label[@for='chkg23PriorAuthorizationProcessAll']");
 	public By priorAuthorizationGenerateAddLabel = By.xpath("//label[@for='chkg23PriorAuthorizationGenerateAdd']");
 
+	// BusinessGroup
+
+	public String validateInvalidBusinessGroupAddressFields() {
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+		WebElement viewBtn = wait.until(ExpectedConditions.elementToBeClickable(viewButton));
+
+		try {
+			viewBtn.click();
+		} catch (Exception e) {
+			((JavascriptExecutor) driver).executeScript("arguments[0].click();", viewBtn);
+		}
+
+		WebElement newAddressBtn = wait.until(ExpectedConditions.elementToBeClickable(newAddressButton));
+
+		try {
+			newAddressBtn.click();
+		} catch (Exception e) {
+			((JavascriptExecutor) driver).executeScript("arguments[0].click();", newAddressBtn);
+		}
+
+		driver.findElement(streetField).sendKeys("Test Street");
+		driver.findElement(cityField).sendKeys("Test City");
+		driver.findElement(stateField).sendKeys("Test State");
+		driver.findElement(frontDeskNameField).sendKeys("Front Desk");
+
+		driver.findElement(zipCodeField).sendKeys("12");
+		driver.findElement(contactNumber1Field).sendKeys("12345");
+		driver.findElement(contactNumber2Field).sendKeys("1234");
+		driver.findElement(faxField).sendKeys("123");
+
+		WebElement saveBtn = wait.until(ExpectedConditions.elementToBeClickable(saveAddressButton));
+
+		try {
+			saveBtn.click();
+		} catch (Exception e) {
+			((JavascriptExecutor) driver).executeScript("arguments[0].click();", saveBtn);
+		}
+
+		List<String> errorMessages = new ArrayList<>();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(toastMessages));
+
+			for (WebElement toast : toasts) {
+				String msg = toast.getText().trim();
+				if (!msg.isEmpty()) {
+					errorMessages.add(msg.toLowerCase());
+				}
+			}
+		} catch (TimeoutException ignored) {
+		}
+
+		List<WebElement> fieldErrorElements = driver.findElements(fieldErrors);
+
+		for (WebElement error : fieldErrorElements) {
+			String msg = error.getText().trim();
+			if (!msg.isEmpty()) {
+				errorMessages.add(msg.toLowerCase());
+			}
+		}
+
+		List<String> missingFields = new ArrayList<>();
+
+		if (errorMessages.stream().noneMatch(msg -> msg.contains("fax")))
+			missingFields.add("Fax");
+
+		if (errorMessages.stream().noneMatch(msg -> msg.contains("contact number1") || msg.contains("contact 1")))
+			missingFields.add("Contact Number1");
+
+		if (errorMessages.stream().noneMatch(msg -> msg.contains("contact number2") || msg.contains("contact 2")))
+			missingFields.add("Contact Number2");
+
+		if (errorMessages.stream().noneMatch(msg -> msg.contains("zip") || msg.contains("postal")))
+			missingFields.add("Zip Code");
+
+		if (missingFields.isEmpty()) {
+			return "SUCCESS: All invalid digit-length validations displayed correctly.";
+		}
+
+		return "MISSING INVALID VALIDATIONS FOR: " + String.join(", ", missingFields);
+	}
+
+	public String validateRequiredAddressFieldsFromViewPage() {
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+		WebElement viewBtn = wait.until(ExpectedConditions.elementToBeClickable(viewButton));
+
+		try {
+			viewBtn.click();
+		} catch (Exception e) {
+			((JavascriptExecutor) driver).executeScript("arguments[0].click();", viewBtn);
+		}
+
+		WebElement newAddressBtn = wait.until(ExpectedConditions.elementToBeClickable(newAddressButton));
+
+		try {
+			newAddressBtn.click();
+		} catch (Exception e) {
+			((JavascriptExecutor) driver).executeScript("arguments[0].click();", newAddressBtn);
+		}
+
+		WebElement saveAddressBtn = wait.until(ExpectedConditions.elementToBeClickable(saveAddressButton));
+
+		try {
+			saveAddressBtn.click();
+		} catch (Exception e) {
+			((JavascriptExecutor) driver).executeScript("arguments[0].click();", saveAddressBtn);
+		}
+
+		List<String> errorMessages = new ArrayList<>();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(toastMessages));
+
+			for (WebElement toast : toasts) {
+				String msg = toast.getText().trim();
+				if (!msg.isEmpty()) {
+					errorMessages.add(msg.toLowerCase());
+				}
+			}
+		} catch (TimeoutException ignored) {
+		}
+
+		List<WebElement> fieldErrorElements = driver.findElements(fieldErrors);
+
+		for (WebElement error : fieldErrorElements) {
+			String msg = error.getText().trim();
+			if (!msg.isEmpty()) {
+				errorMessages.add(msg.toLowerCase());
+			}
+		}
+
+		List<String> missingFields = new ArrayList<>();
+
+		if (errorMessages.stream().noneMatch(msg -> msg.contains("street")))
+			missingFields.add("Street");
+
+		if (errorMessages.stream().noneMatch(msg -> msg.contains("city")))
+			missingFields.add("City");
+
+		if (errorMessages.stream().noneMatch(msg -> msg.contains("state")))
+			missingFields.add("State");
+
+		if (errorMessages.stream().noneMatch(msg -> msg.contains("zip") || msg.contains("postal")))
+			missingFields.add("Zip Code");
+
+		if (errorMessages.stream().noneMatch(msg -> msg.contains("contact")))
+			missingFields.add("Contact Number1");
+
+		if (missingFields.isEmpty()) {
+			return "SUCCESS: All required address field validations displayed.";
+		}
+
+		return "MISSING VALIDATIONS FOR: " + String.join(", ", missingFields);
+	}
+
+	public String filterWithBlankBusinessGroupNameAndValidate() {
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+
+		WebElement filter = wait.until(ExpectedConditions.elementToBeClickable(filterIcon));
+
+		try {
+			filter.click();
+		} catch (Exception e) {
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].click();", filter);
+		}
+
+		WebElement searchBtn = driver.findElement(searchButton);
+
+		try {
+			searchBtn.click();
+		} catch (Exception e) {
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].click();", searchBtn);
+		}
+
+		List<String> errorMessages = new ArrayList<>();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(toastMessages));
+
+			for (WebElement toast : toasts) {
+				String msg = toast.getText().trim();
+				if (!msg.isEmpty()) {
+					errorMessages.add(msg);
+				}
+			}
+
+		} catch (TimeoutException ignored) {
+			System.out.println("No toast validation message appeared.");
+		}
+
+		if (!errorMessages.isEmpty()) {
+			return "VALIDATION DISPLAYED: " + String.join(" | ", errorMessages);
+		}
+
+		return "NO VALIDATION MESSAGE DISPLAYED";
+	}
+
+	public String clickOnSaveButtonAndGetValidationMessages() {
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		WebElement saveBtn = wait.until(ExpectedConditions.presenceOfElementLocated(saveButton));
+
+		try {
+			wait.until(ExpectedConditions.elementToBeClickable(saveBtn)).click();
+			System.out.println("Save button clicked successfully");
+		} catch (ElementClickInterceptedException e) {
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].click();", saveBtn);
+			System.out.println("Save button clicked using JS");
+		}
+
+		List<String> errorMessages = new ArrayList<>();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(toastMessages));
+
+			for (WebElement toast : toasts) {
+				String msg = toast.getText().trim();
+				if (!msg.isEmpty()) {
+					errorMessages.add(msg);
+				}
+			}
+		} catch (TimeoutException ignored) {
+		}
+
+		List<WebElement> fieldErrorElements = driver.findElements(fieldErrors);
+
+		for (WebElement error : fieldErrorElements) {
+			String msg = error.getText().trim();
+			if (!msg.isEmpty()) {
+				errorMessages.add(msg);
+			}
+		}
+
+		boolean emailError = errorMessages.stream().anyMatch(msg -> msg.toLowerCase().contains("email"));
+		boolean zoneError = errorMessages.stream().anyMatch(msg -> msg.toLowerCase().contains("zone"));
+		boolean phoneError = errorMessages.stream().anyMatch(msg -> msg.toLowerCase().contains("phone"));
+		boolean businessGroupError = errorMessages.stream()
+				.anyMatch(msg -> msg.toLowerCase().contains("business group"));
+
+		if (emailError && zoneError && phoneError && businessGroupError) {
+			return "ERRORS: All required field validations displayed -> " + String.join(" | ", errorMessages);
+		}
+
+		return "ERROR: Required field validations missing -> " + String.join(" | ", errorMessages);
+	}
+
+	public String enterBusinessGroupDetailsWithInvalidEmailAndValidate() {
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(businessGroupName)).sendKeys("Test Business Group");
+
+		driver.findElement(phoneNumber).sendKeys("9876543210");
+
+		driver.findElement(phoneExtension).sendKeys("123");
+
+		driver.findElement(emailField).sendKeys("invalidemail.com");
+
+		driver.findElement(zoneField).sendKeys("Zone 1");
+
+		WebElement saveBtn = driver.findElement(saveButton);
+
+		try {
+			saveBtn.click();
+		} catch (Exception e) {
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].click();", saveBtn);
+		}
+
+		List<String> errorMessages = new ArrayList<>();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(toastMessages));
+
+			for (WebElement toast : toasts) {
+				String msg = toast.getText().trim();
+				if (!msg.isEmpty()) {
+					errorMessages.add(msg);
+				}
+			}
+
+		} catch (TimeoutException ignored) {
+			System.out.println("No toast validation message appeared.");
+		}
+
+		if (!errorMessages.isEmpty()) {
+			return "Toast Validation Message: " + String.join(" | ", errorMessages);
+		}
+
+		return "No validation message displayed on UI";
+	}
+
+	public String enterBusinessGroupDetailsWithInvalidPhoneAndValidate() {
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(businessGroupName)).sendKeys("Test Business Group");
+
+		driver.findElement(phoneNumber).sendKeys("12345");
+
+		driver.findElement(phoneExtension).sendKeys("123");
+
+		driver.findElement(emailField).sendKeys("test@gmail.com");
+
+		driver.findElement(zoneField).sendKeys("Zone 1");
+
+		WebElement saveBtn = driver.findElement(saveButton);
+
+		try {
+			saveBtn.click();
+		} catch (Exception e) {
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].click();", saveBtn);
+		}
+
+		List<String> errorMessages = new ArrayList<>();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(toastMessages));
+
+			for (WebElement toast : toasts) {
+				String msg = toast.getText().trim();
+				if (!msg.isEmpty()) {
+					errorMessages.add(msg);
+				}
+			}
+
+		} catch (TimeoutException ignored) {
+			System.out.println("No toast validation message appeared.");
+		}
+
+		if (!errorMessages.isEmpty()) {
+			return "Toast Validation Message: " + String.join(" | ", errorMessages);
+		}
+
+		return "No validation message displayed for invalid phone number";
+	}
 	// Provider Template
+
+	public void verifyUserCannotAddProviderTemplate() {
+		sleep(3000);
+		assertElementNotPresent(newProviderTemplateButton);
+	}
+
+	public void verifyUserCanDeleteProviderTemplate() {
+		sleep(3000);
+		clickWhenClickable(providerTemplateOptionsButton);
+		sleep(2000);
+		clickWhenClickable(deleteProviderTemplateOption);
+		sleep(2000);
+		clickWhenClickable(confirmDeleteProviderTemplateButton);
+	}
+
+	public void createProfileViewDeleteOnlyProviderTemplate() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCanEditProviderTemplate() {
+		sleep(3000);
+		clickWhenClickable(providerTemplateOptionsButton);
+		sleep(2000);
+		clickWhenClickable(editProviderTemplateOption);
+		sleep(3000);
+		waitAndSendKeys(providerTemplateNameField, "Provider Registration Template");
+		clickWhenClickable(saveProviderTemplateButton);
+	}
+
+	public void createProfileViewEditOnlyProviderTemplate() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
 
 	public void verifyUserCannotDeleteProviderTemplate() {
 		sleep(3000);
@@ -378,6 +790,7 @@ public class providerpage {
 		sleep(2000);
 
 	}
+
 	// Service
 
 	public void verifyUserCanDeleteService() {
