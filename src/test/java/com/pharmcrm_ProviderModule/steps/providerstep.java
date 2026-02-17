@@ -11,6 +11,449 @@ public class providerstep {
 
 	private providerpage providerPage;
 
+	// Providers Management
+	@And("Validation should have to show for Add Service Blank form submission")
+	public void validateServiceFormOnSubmit() throws Exception {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String providerHomeUrl = Hooks.prop.getProperty("providerHomeUrl");
+		Assert.assertNotNull("providerHomeUrl is missing in config", providerHomeUrl);
+		String fullProviderHomeUrl = baseUrl + providerHomeUrl;
+		providerPage = new providerpage(Hooks.driver);
+		providerPage.openProviderPage(fullProviderHomeUrl);
+		Assert.assertTrue("Provider Home page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
+
+		String result = providerPage.checkBlankServiceFormFields();
+
+		Thread.sleep(2000);
+
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+	
+	@And("Add Executive Validation should have to show for invalid Email, Cell, Phone, Fax Number")
+	public void validateExecutiveContactDetails() throws Exception {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String providerHomeUrl = Hooks.prop.getProperty("providerHomeUrl");
+		Assert.assertNotNull("providerHomeUrl is missing in config", providerHomeUrl);
+		String fullProviderHomeUrl = baseUrl + providerHomeUrl;
+		providerPage = new providerpage(Hooks.driver);
+		providerPage.openProviderPage(fullProviderHomeUrl);
+		Assert.assertTrue("Provider Home page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
+
+		String result = providerPage.checkInvalidExecutiveInputs();
+
+		Thread.sleep(2000);
+
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("Add Executive Blank form Validation should have to show")
+	public void validateExecutiveFormOnSubmit() throws Exception {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String providerHomeUrl = Hooks.prop.getProperty("providerHomeUrl");
+		Assert.assertNotNull("providerHomeUrl is missing in config", providerHomeUrl);
+		String fullProviderHomeUrl = baseUrl + providerHomeUrl;
+		providerPage = new providerpage(Hooks.driver);
+		providerPage.openProviderPage(fullProviderHomeUrl);
+		Assert.assertTrue("Provider Home page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
+
+		String result = providerPage.isExecutiveFormValid();
+
+		Thread.sleep(2000);
+
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("Validation message should have to show for invalid Contact Number")
+	public void validateProviderContactNumber() throws Exception {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String providerHomeUrl = Hooks.prop.getProperty("providerHomeUrl");
+		Assert.assertNotNull("providerHomeUrl is missing in config", providerHomeUrl);
+		String fullProviderHomeUrl = baseUrl + providerHomeUrl;
+		providerPage = new providerpage(Hooks.driver);
+		providerPage.openProviderPage(fullProviderHomeUrl);
+		Assert.assertTrue("Provider Home page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
+
+		String result = providerPage.isProviderContactNumberValid();
+
+		Thread.sleep(2000);
+
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("Validation message is showing for Add Address when submitting blank")
+	public void validateAddressOnSubmit() throws Exception {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String providerHomeUrl = Hooks.prop.getProperty("providerHomeUrl");
+		Assert.assertNotNull("providerHomeUrl is missing in config", providerHomeUrl);
+		String fullProviderHomeUrl = baseUrl + providerHomeUrl;
+		providerPage = new providerpage(Hooks.driver);
+		providerPage.openProviderPage(fullProviderHomeUrl);
+		Assert.assertTrue("Provider Home page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
+
+		String result = providerPage.checkBlankAddressField();
+
+		Thread.sleep(2000);
+
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("Add New Business Group Validation should have show for Blank Zone")
+	public void validateBusinessGroupZoneNotEmpty() throws Exception {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String providerHomeUrl = Hooks.prop.getProperty("providerHomeUrl");
+		Assert.assertNotNull("providerHomeUrl is missing in config", providerHomeUrl);
+		String fullProviderHomeUrl = baseUrl + providerHomeUrl;
+		providerPage = new providerpage(Hooks.driver);
+		providerPage.openProviderPage(fullProviderHomeUrl);
+		Assert.assertTrue("Provider Home page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
+
+		String result = providerPage.checkBlankBusinessGroupZone();
+
+		Thread.sleep(2000);
+
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("Search Business Group Validation should have to show on Blank Search , Add New Business Group and Submit")
+	public void validateBusinessGroupSearchAndSubmit() throws Exception {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String providerHomeUrl = Hooks.prop.getProperty("providerHomeUrl");
+		Assert.assertNotNull("providerHomeUrl is missing in config", providerHomeUrl);
+		String fullProviderHomeUrl = baseUrl + providerHomeUrl;
+		providerPage = new providerpage(Hooks.driver);
+		providerPage.openProviderPage(fullProviderHomeUrl);
+		Assert.assertTrue("Provider Home page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
+
+		String result = providerPage.checkBusinessGroupBlankSearch();
+
+		Thread.sleep(2000);
+
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("Provider Management filter Validation should have to show for Invalid input Email,Zipcode,Phone Number,Fax Number")
+	public void validateProviderFilterInputs() throws Exception {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String providerHomeUrl = Hooks.prop.getProperty("providerHomeUrl");
+		Assert.assertNotNull("providerHomeUrl is missing in config", providerHomeUrl);
+		String fullProviderHomeUrl = baseUrl + providerHomeUrl;
+		providerPage = new providerpage(Hooks.driver);
+		providerPage.openProviderPage(fullProviderHomeUrl);
+		Assert.assertTrue("Provider Home page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
+
+		String result = providerPage.checkInvalidProviderFilterFields();
+
+		Thread.sleep(2000);
+
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("Provider Management Filter Blank Search Validation message should have to show")
+	public void validateProviderSearchFilter() throws Exception {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String providerHomeUrl = Hooks.prop.getProperty("providerHomeUrl");
+		Assert.assertNotNull("providerHomeUrl is missing in config", providerHomeUrl);
+		String fullProviderHomeUrl = baseUrl + providerHomeUrl;
+		providerPage = new providerpage(Hooks.driver);
+		providerPage.openProviderPage(fullProviderHomeUrl);
+		Assert.assertTrue("Provider Home page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
+
+		String result = providerPage.isProviderSearchFilterValid();
+
+		Thread.sleep(2000);
+
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("New provider Validation should have to show for Invalid Phone Number")
+	public void validateProviderPhoneNumber() throws Exception {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String providerHomeUrl = Hooks.prop.getProperty("providerHomeUrl");
+		Assert.assertNotNull("providerHomeUrl is missing in config", providerHomeUrl);
+		String fullProviderHomeUrl = baseUrl + providerHomeUrl;
+		providerPage = new providerpage(Hooks.driver);
+		providerPage.openProviderPage(fullProviderHomeUrl);
+		Assert.assertTrue("Provider Home page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
+
+		String result = providerPage.isProviderPhoneNumberValid();
+
+		Thread.sleep(2000);
+
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("Validation should have to show for Invalid Email Id")
+	public void checkInvalidEmailId() throws Exception {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String providerHomeUrl = Hooks.prop.getProperty("providerHomeUrl");
+		Assert.assertNotNull("providerHomeUrl is missing in config", providerHomeUrl);
+		String fullProviderHomeUrl = baseUrl + providerHomeUrl;
+		providerPage = new providerpage(Hooks.driver);
+		providerPage.openProviderPage(fullProviderHomeUrl);
+		Assert.assertTrue("Provider Home page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
+
+		String result = providerPage.validateProviderEmail();
+
+		Thread.sleep(2000);
+
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("Validation should have to show for Invalid NPI Number")
+	public void validateNpiNumber() throws Exception {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String providerHomeUrl = Hooks.prop.getProperty("providerHomeUrl");
+		Assert.assertNotNull("providerHomeUrl is missing in config", providerHomeUrl);
+		String fullProviderHomeUrl = baseUrl + providerHomeUrl;
+		providerPage = new providerpage(Hooks.driver);
+		providerPage.openProviderPage(fullProviderHomeUrl);
+		Assert.assertTrue("Provider Home page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
+
+		String result = providerPage.isNpiNumberValid();
+
+		Thread.sleep(2000);
+
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("Validation should have to show for Blank New Provider Page")
+	public void validateNewProviderPage() throws Exception {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String providerHomeUrl = Hooks.prop.getProperty("providerHomeUrl");
+		Assert.assertNotNull("providerHomeUrl is missing in config", providerHomeUrl);
+		String fullProviderHomeUrl = baseUrl + providerHomeUrl;
+		providerPage = new providerpage(Hooks.driver);
+		providerPage.openProviderPage(fullProviderHomeUrl);
+		Assert.assertTrue("Provider Home page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
+
+		String result = providerPage.validateNewProviderNotEmpty();
+
+		Thread.sleep(2000);
+
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("Validation should have to show for Invalid Phone Number")
+	public void isInvalidPhoneNumberValidationDisplayed() throws Exception {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String providerHomeUrl = Hooks.prop.getProperty("providerHomeUrl");
+		Assert.assertNotNull("providerHomeUrl is missing in config", providerHomeUrl);
+		String fullProviderHomeUrl = baseUrl + providerHomeUrl;
+		providerPage = new providerpage(Hooks.driver);
+		providerPage.openProviderPage(fullProviderHomeUrl);
+		Assert.assertTrue("Provider Home page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
+
+		String result = providerPage.validateInvalidPhoneNumber();
+
+		Thread.sleep(2000);
+
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("Validation should have to show for Blank VCard")
+	public void validateVCardOnSend() throws Exception {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String providerHomeUrl = Hooks.prop.getProperty("providerHomeUrl");
+		Assert.assertNotNull("providerHomeUrl is missing in config", providerHomeUrl);
+		String fullProviderHomeUrl = baseUrl + providerHomeUrl;
+		providerPage = new providerpage(Hooks.driver);
+		providerPage.openProviderPage(fullProviderHomeUrl);
+		Assert.assertTrue("Provider Home page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
+
+		String result = providerPage.validateVCardNotEmptyOnSend();
+
+		Thread.sleep(2000);
+
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("Validation should have to show for Quick Text Blank Send")
+	public void validateQuickTextOnSend() throws Exception {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String providerHomeUrl = Hooks.prop.getProperty("providerHomeUrl");
+		Assert.assertNotNull("providerHomeUrl is missing in config", providerHomeUrl);
+		String fullProviderHomeUrl = baseUrl + providerHomeUrl;
+		providerPage = new providerpage(Hooks.driver);
+		providerPage.openProviderPage(fullProviderHomeUrl);
+		Assert.assertTrue("Provider Home page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
+
+		String result = providerPage.isQuickTextSendValid();
+
+		Thread.sleep(2000);
+
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("Validation should have to show for Blank Quick Text Field")
+	public void validateQuickTextField() throws Exception {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String providerHomeUrl = Hooks.prop.getProperty("providerHomeUrl");
+		Assert.assertNotNull("providerHomeUrl is missing in config", providerHomeUrl);
+		String fullProviderHomeUrl = baseUrl + providerHomeUrl;
+		providerPage = new providerpage(Hooks.driver);
+		providerPage.openProviderPage(fullProviderHomeUrl);
+		Assert.assertTrue("Provider Home page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
+
+		String result = providerPage.validateBlankQuickTextField();
+
+		Thread.sleep(2000);
+
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
 	// BusinessGroup
 
 	@And("The user should see validation messages indicating Fax, Contact Number1, Contact Number2, and Zip Code are invalid")

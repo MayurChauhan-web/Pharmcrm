@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>0/0/1</td>
+<td>Tests passed/Failed/Skipped:</td><td>1/0/0</td>
 </tr><tr>
-<td>Started on:</td><td>Fri Feb 13 16:58:47 IST 2026</td>
+<td>Started on:</td><td>Tue Feb 17 15:37:10 IST 2026</td>
 </tr>
-<tr><td>Total time:</td><td>41 seconds (41080 ms)</td>
+<tr><td>Total time:</td><td>43 seconds (43198 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,8 +67,8 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
-<table width='100%' border='1' class='invocation-skipped'>
-<tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
 <td><b>Attribute(s)</b></td>
 <td width="30%"><b>Exception</b></td>
@@ -76,62 +76,9 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.pharmcrm.pharmcrm_product.runner.MasterRunner.runScenario()'><b>runScenario</b><br>Test class: com.pharmcrm.pharmcrm_product.runner.MasterRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "BusinessGroup page invalid Fax, Contact Numbers, and Zip Code validation", "Entire Provider Module."</td>
-<td><div><pre>org.testng.SkipException: Skipping because some invalid digit-length validations are missing: MISSING INVALID VALIDATIONS FOR: Contact Number2, Zip Code
-	at io.cucumber.testng.TestCaseResultObserver.lambda$assertTestCasePassed$1(TestCaseResultObserver.java:27)
-	at io.cucumber.core.runtime.TestCaseResultObserver.assertTestCasePassed(TestCaseResultObserver.java:66)
-	at io.cucumber.testng.TestCaseResultObserver.assertTestCasePassed(TestCaseResultObserver.java:23)
-	at io.cucumber.testng.TestNGCucumberRunner.lambda$runScenario$1(TestNGCucumberRunner.java:133)
-	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:137)
-	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
-	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:137)
-	at io.cucumber.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:129)
-	at io.cucumber.testng.AbstractTestNGCucumberTests.runScenario(AbstractTestNGCucumberTests.java:35)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
-	at org.testng.internal.invokers.TestMethodWithDataProviderMethodWorker.call(TestMethodWithDataProviderMethodWorker.java:81)
-	at org.testng.internal.thread.Async$AsyncTask.run(Async.java:34)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:842)
-Caused by: org.junit.AssumptionViolatedException: Skipping because some invalid digit-length validations are missing: MISSING INVALID VALIDATIONS FOR: Contact Number2, Zip Code
-	at org.junit.Assume.assumeTrue(Assume.java:68)
-	at com.pharmcrm_ProviderModule.steps.providerstep.validationMessagesForInvalidFaxContactNumbersAndZipCodeShouldBeDisplayed(providerstep.java:36)
-	at ✽.The user should see validation messages indicating Fax, Contact Number1, Contact Number2, and Zip Code are invalid(file:///C:/Users/MayurChauhan/eclipse-workspace/pharmcrm-product/src/test/resources/com/Features/ProviderModule/Provider.feature:1056)
-</pre></div><a href='#' onClick='toggleBox("stack-trace491041153", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace491041153'><pre>org.testng.SkipException: Skipping because some invalid digit-length validations are missing: MISSING INVALID VALIDATIONS FOR: Contact Number2, Zip Code
-	at io.cucumber.testng.TestCaseResultObserver.lambda$assertTestCasePassed$1(TestCaseResultObserver.java:27)
-	at io.cucumber.core.runtime.TestCaseResultObserver.assertTestCasePassed(TestCaseResultObserver.java:66)
-	at io.cucumber.testng.TestCaseResultObserver.assertTestCasePassed(TestCaseResultObserver.java:23)
-	at io.cucumber.testng.TestNGCucumberRunner.lambda$runScenario$1(TestNGCucumberRunner.java:133)
-	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:137)
-	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
-	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:137)
-	at io.cucumber.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:129)
-	at io.cucumber.testng.AbstractTestNGCucumberTests.runScenario(AbstractTestNGCucumberTests.java:35)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
-	at org.testng.internal.invokers.TestMethodWithDataProviderMethodWorker.call(TestMethodWithDataProviderMethodWorker.java:81)
-	at org.testng.internal.thread.Async$AsyncTask.run(Async.java:34)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:842)
-Caused by: org.junit.AssumptionViolatedException: Skipping because some invalid digit-length validations are missing: MISSING INVALID VALIDATIONS FOR: Contact Number2, Zip Code
-	at org.junit.Assume.assumeTrue(Assume.java:68)
-	at com.pharmcrm_ProviderModule.steps.providerstep.validationMessagesForInvalidFaxContactNumbersAndZipCodeShouldBeDisplayed(providerstep.java:36)
-	at ✽.The user should see validation messages indicating Fax, Contact Number1, Contact Number2, and Zip Code are invalid(file:///C:/Users/MayurChauhan/eclipse-workspace/pharmcrm-product/src/test/resources/com/Features/ProviderModule/Provider.feature:1056)
-</pre></div></td>
-<td>40</td>
+<td title='com.pharmcrm.pharmcrm_product.runner.MasterRunner.runScenario()'><b>runScenario</b><br>Test class: com.pharmcrm.pharmcrm_product.runner.MasterRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Provider Management New Provider Search Business Group Validation on Blank Search Add New Business Group and Submit", "Entire Provider Module."</td>
+<td></td>
+<td>42</td>
 <td>com.pharmcrm.pharmcrm_product.runner.MasterRunner@67c33749</td></tr>
 </table><p>
 </body>

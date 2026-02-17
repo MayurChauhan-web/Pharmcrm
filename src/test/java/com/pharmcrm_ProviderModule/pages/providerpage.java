@@ -18,6 +18,628 @@ public class providerpage {
 	private WebDriver driver;
 	private WebDriverWait wait;
 
+	// Providers Management
+
+	public String checkBlankServiceFormFields() throws InterruptedException {
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(viewIcon)).click();
+
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(serviceLink)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(newServiceSpan)).click();
+
+		Thread.sleep(2000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(saveProviderServiceButton)).click();
+
+		try {
+			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
+
+			String actualMessage = toast.getText().trim();
+
+			return "SUCCESS: Validation displayed -> " + actualMessage;
+
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String checkInvalidExecutiveInputs() throws InterruptedException {
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(viewIcon)).click();
+
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(executivesTabLink)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(newExecutiveButton)).click();
+
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(providerExecutiveLastNameField)).sendKeys("Kristin");
+		wait.until(ExpectedConditions.elementToBeClickable(providerExecutiveFirstNameField)).sendKeys("Knipe");
+		wait.until(ExpectedConditions.elementToBeClickable(providerExecutiveEmailField)).sendKeys("email");
+		wait.until(ExpectedConditions.elementToBeClickable(providerExecutivePhoneNumberField)).sendKeys("11");
+		wait.until(ExpectedConditions.elementToBeClickable(providerExecutiveCellNumberField)).sendKeys("11");
+		wait.until(ExpectedConditions.elementToBeClickable(providerExecutivePhoneExtensionField)).sendKeys("11");
+		wait.until(ExpectedConditions.elementToBeClickable(providerExecutiveFaxNumberField)).sendKeys("11");
+		wait.until(ExpectedConditions.elementToBeClickable(providerExecutiveDesignationField)).sendKeys("Admin");
+		wait.until(ExpectedConditions.elementToBeClickable(saveAddressButtonProvider)).click();
+
+		try {
+			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
+
+			String actualMessage = toast.getText().trim();
+
+			return "SUCCESS: Validation displayed -> " + actualMessage;
+
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String isExecutiveFormValid() throws InterruptedException {
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(viewIcon)).click();
+
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(executivesTabLink)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(newExecutiveButton)).click();
+
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(saveProviderExecutiveButton)).click();
+
+		try {
+			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
+
+			String actualMessage = toast.getText().trim();
+
+			return "SUCCESS: Validation displayed -> " + actualMessage;
+
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String isProviderContactNumberValid() throws InterruptedException {
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(viewIcon)).click();
+
+		Thread.sleep(2000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(newAddressButton)).click();
+
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(streetFieldProvider)).sendKeys("Thomas Street");
+		wait.until(ExpectedConditions.elementToBeClickable(cityFieldProvider)).sendKeys("Jekson");
+		wait.until(ExpectedConditions.elementToBeClickable(stateFieldProvider)).sendKeys("FL");
+		wait.until(ExpectedConditions.elementToBeClickable(zipCodeFieldProvider)).sendKeys("1");
+		wait.until(ExpectedConditions.elementToBeClickable(contactNumber1FieldProvider)).sendKeys("11");
+		wait.until(ExpectedConditions.elementToBeClickable(contactNumber2FieldProvider)).sendKeys("11");
+		wait.until(ExpectedConditions.elementToBeClickable(saveAddressButtonProvider)).click();
+
+		try {
+			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
+
+			String actualMessage = toast.getText().trim();
+
+			return "SUCCESS: Validation displayed -> " + actualMessage;
+
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String checkBlankAddressField() throws InterruptedException {
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(viewIcon)).click();
+
+		Thread.sleep(2000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(newAddressButton)).click();
+
+		Thread.sleep(2000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(saveAddressButtonProvider)).click();
+
+		try {
+			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
+
+			String actualMessage = toast.getText().trim();
+
+			return "SUCCESS: Validation displayed -> " + actualMessage;
+
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String checkBlankBusinessGroupZone() throws InterruptedException {
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newProviderTab)).click();
+
+		Thread.sleep(2000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(businessGroupImage)).click();
+
+		Thread.sleep(2000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(profileNameInput)).sendKeys("Business");
+
+		wait.until(ExpectedConditions.elementToBeClickable(addNewBusinessGroupButton)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(submitBusinessGroupButton)).click();
+
+		try {
+			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
+
+			String actualMessage = toast.getText().trim();
+
+			return "SUCCESS: Validation displayed -> " + actualMessage;
+
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String checkBusinessGroupBlankSearch() throws InterruptedException {
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newProviderTab)).click();
+
+		Thread.sleep(2000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(businessGroupImage)).click();
+
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(searchButtontext)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(addNewBusinessGroupButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(submitBusinessGroupButton)).click();
+
+		try {
+			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
+
+			String actualMessage = toast.getText().trim();
+
+			return "SUCCESS: Validation displayed -> " + actualMessage;
+
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String checkInvalidProviderFilterFields() throws InterruptedException {
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(searchCollapseIcon)).click();
+
+		Thread.sleep(2000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(filterEmail)).sendKeys("invalidemail");
+
+		wait.until(ExpectedConditions.elementToBeClickable(filterExecutiveEmail)).sendKeys("test@");
+
+		wait.until(ExpectedConditions.elementToBeClickable(filterZipCode)).sendKeys("12AB");
+
+		wait.until(ExpectedConditions.elementToBeClickable(filterPhoneNumber)).sendKeys("123");
+
+		wait.until(ExpectedConditions.elementToBeClickable(filterFaxNumber)).sendKeys("FAX123");
+
+		wait.until(ExpectedConditions.elementToBeClickable(searchIcon)).click();
+
+		try {
+			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
+
+			String actualMessage = toast.getText().trim();
+
+			return "SUCCESS: Validation displayed -> " + actualMessage;
+
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String isProviderSearchFilterValid() throws InterruptedException {
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(searchCollapseIcon)).click();
+
+		Thread.sleep(2000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(searchIcon)).click();
+
+		try {
+			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
+
+			String actualMessage = toast.getText().trim();
+
+			return "SUCCESS: Validation displayed -> " + actualMessage;
+
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String isProviderPhoneNumberValid() throws InterruptedException {
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newProviderTab)).click();
+
+		Thread.sleep(2000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(doctorLastName)).sendKeys("Smith");
+
+		wait.until(ExpectedConditions.elementToBeClickable(doctorFirstName)).sendKeys("John");
+
+		wait.until(ExpectedConditions.elementToBeClickable(providerZone)).sendKeys("North");
+
+		wait.until(ExpectedConditions.elementToBeClickable(providerNPI)).sendKeys("1234567890");
+
+		wait.until(ExpectedConditions.elementToBeClickable(businessPhone1)).sendKeys("12");
+
+		wait.until(ExpectedConditions.elementToBeClickable(businessPhone2)).sendKeys("abcd123");
+
+		wait.until(ExpectedConditions.elementToBeClickable(cellPhone)).sendKeys("999");
+
+		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
+
+		try {
+			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
+
+			String actualMessage = toast.getText().trim();
+
+			return "SUCCESS: Validation displayed -> " + actualMessage;
+
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String validateProviderEmail() throws InterruptedException {
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newProviderTab)).click();
+
+		Thread.sleep(2000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(doctorLastName)).sendKeys("Smith");
+
+		wait.until(ExpectedConditions.elementToBeClickable(doctorFirstName)).sendKeys("John");
+
+		wait.until(ExpectedConditions.elementToBeClickable(providerZone)).sendKeys("North");
+
+		wait.until(ExpectedConditions.elementToBeClickable(providerNPI)).sendKeys("1234567890");
+		wait.until(ExpectedConditions.elementToBeClickable(primaryEmail)).sendKeys("invalidemail");
+		wait.until(ExpectedConditions.elementToBeClickable(secondaryEmail)).sendKeys("test@");
+
+		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
+
+		try {
+			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
+
+			String actualMessage = toast.getText().trim();
+
+			return "SUCCESS: Validation displayed -> " + actualMessage;
+
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String isNpiNumberValid() throws InterruptedException {
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newProviderTab)).click();
+
+		Thread.sleep(2000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(doctorLastName)).sendKeys("Smith");
+
+		wait.until(ExpectedConditions.elementToBeClickable(doctorFirstName)).sendKeys("John");
+
+		wait.until(ExpectedConditions.elementToBeClickable(providerZone)).sendKeys("North");
+
+		wait.until(ExpectedConditions.elementToBeClickable(providerNPI)).sendKeys("12");
+
+		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
+
+		try {
+			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
+
+			String actualMessage = toast.getText().trim();
+
+			return "SUCCESS: Validation displayed -> " + actualMessage;
+
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String validateNewProviderNotEmpty() throws InterruptedException {
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newProviderTab)).click();
+
+		Thread.sleep(2000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
+
+		try {
+			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
+
+			String actualMessage = toast.getText().trim();
+
+			return "SUCCESS: Validation displayed -> " + actualMessage;
+
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String validateInvalidPhoneNumber() throws InterruptedException {
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		Thread.sleep(2000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(sendVCardTab)).click();
+
+		Thread.sleep(2000);
+
+		WebElement phoneField = wait.until(ExpectedConditions.elementToBeClickable(vCardPhoneNumber));
+		phoneField.clear();
+		phoneField.sendKeys("12");
+
+		wait.until(ExpectedConditions.elementToBeClickable(sendVCardSubmitButton)).click();
+
+		try {
+			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
+
+			String actualMessage = toast.getText().trim();
+
+			return "SUCCESS: Validation displayed -> " + actualMessage;
+
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String validateVCardNotEmptyOnSend() throws InterruptedException {
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		Thread.sleep(2000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(sendVCardTab)).click();
+
+		Thread.sleep(2000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(sendVCardSubmitButton)).click();
+
+		try {
+			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
+
+			String actualMessage = toast.getText().trim();
+
+			return "SUCCESS: Validation displayed -> " + actualMessage;
+
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String isQuickTextSendValid() {
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(quickTextTab)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+
+		try {
+			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
+
+			String actualMessage = toast.getText().trim();
+
+			return "SUCCESS: Validation displayed -> " + actualMessage;
+
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String validateBlankQuickTextField() {
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(quickTextTab)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(searchButtonQuickText)).click();
+
+		String expectedMessage = "please enter \"Business Name\", \"First Name\" or \"Last Name\" to search provider.";
+
+		try {
+			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
+
+			String actualMessage = toast.getText().trim();
+
+			if (actualMessage.equalsIgnoreCase(expectedMessage)) {
+				return "SUCCESS: Validation displayed -> " + actualMessage;
+			} else {
+				return "ERROR: Validation message mismatch -> " + actualMessage;
+			}
+
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	// Providers Management
+	By serviceLink = By.xpath("//a[normalize-space()='Service']");
+	By newServiceSpan = By.xpath("//span[normalize-space()='New Service']");
+
+	By providerExecutiveLastNameField = By.xpath("//input[@id='ProviderExecutive_LastName']");
+
+	By providerExecutiveFirstNameField = By.xpath("//input[@id='ProviderExecutive_FirstName']");
+
+	By providerExecutiveEmailField = By.xpath("//input[@id='ProviderExecutive_EmailId']");
+
+	By providerExecutivePhoneNumberField = By.xpath("//input[@id='ProviderExecutive_PhoneNumber']");
+
+	By providerExecutiveCellNumberField = By.xpath("//input[@id='ProviderExecutive_CellNumber']");
+
+	By providerExecutivePhoneExtensionField = By.xpath("//input[@id='ProviderExecutive_PhoneNumberExtension']");
+
+	By providerExecutiveFaxNumberField = By.xpath("//input[@id='ProviderExecutive_FaxNumber']");
+
+	By providerExecutiveDesignationField = By.xpath("//input[@id='ProviderExecutive_Designation']");
+
+	By saveProviderExecutiveButton = By.xpath("//button[@id='btnSaveProviderExecutivePopup']");
+
+	By streetFieldProvider = By.xpath("//input[@id='ProviderAddress_Street']");
+
+	By cityFieldProvider = By.xpath("//input[@id='ProviderAddress_City']");
+
+	By stateFieldProvider = By.xpath("//input[@id='ProviderAddress_State']");
+
+	By zipCodeFieldProvider = By.xpath("//input[@id='ProviderAddress_ZipCode']");
+
+	By contactNumber1FieldProvider = By.xpath("//input[@id='ProviderAddress_ContactNumber1']");
+
+	By contactNumber2FieldProvider = By.xpath("//input[@id='ProviderAddress_ContactNumber2']");
+
+	By saveAddressButtonProvider = By.xpath("//button[@id='btnSaveAddress']");
+	By viewIcon = By.xpath("//tbody/tr[1]/td[13]/div[1]/a[1]/img[1]");
+	By addNewBusinessGroupButton = By.xpath("//button[normalize-space()='Add New Business Group']");
+	By submitBusinessGroupButton = By.xpath("//button[@id='btnsubmit']");
+	By businessGroupImage = By.xpath("//a[@id='addBusinessGroupPopup']//img");
+	By filterEmail = By.xpath("//input[@id='Filter_EmailId']");
+	By filterExecutiveEmail = By.xpath("//input[@id='Filter_ProviderExecutiveEmailId']");
+	By filterZipCode = By.xpath("//input[@id='Filter_ZipCode']");
+	By filterPhoneNumber = By.xpath("//input[@id='Filter_PhoneNumber']");
+	By filterFaxNumber = By.xpath("//input[@id='Filter_FaxNumber']");
+	By searchCollapseIcon = By.xpath("//a[@id='searchcollapse']//*[name()='svg']//*[name()='path' and @id='Union_73']");
+	By searchIcon = By.xpath("//i[@class='fa-solid fa-magnifying-glass']");
+	By businessPhone1 = By.id("Provider_BusinessPhone1");
+	By businessPhone2 = By.id("Provider_BusinessPhone2");
+	By cellPhone = By.id("Provider_CellPhone");
+	By primaryEmail = By.id("Provider_PrimaryEmail");
+	By secondaryEmail = By.id("Provider_SecondaryEmail");
+	By doctorLastName = By.id("Provider_DoctorLastName");
+	By doctorFirstName = By.id("Provider_DoctorFirstName");
+	By providerZone = By.id("Provider_Zone");
+	By providerNPI = By.id("Provider_NPINumber");
+	By newProviderTab = By.xpath("//span[normalize-space()='New Provider']");
+	By vCardPhoneNumber = By.id("vCardPhoneNumber");
+	By sendVCardTab = By.xpath("//span[normalize-space()='Send VCard']");
+	By toastMessage = By.xpath("//div[@class='toast-message']");
+	By searchButtonQuickText = By.xpath("//button[normalize-space()='Search']");
+	By quickTextTab = By.xpath("//span[normalize-space()='Quick Text']");
+
 	// BusinessGroup
 	public By frontDeskNameField = By.id("BusinessGroup_FrontDeskName");
 	public By contactNumber1Field = By.id("BusinessGroup_ContactNumber1");

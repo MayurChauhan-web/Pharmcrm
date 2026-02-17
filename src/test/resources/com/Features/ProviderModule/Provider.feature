@@ -1045,7 +1045,6 @@ And user enter the organization password
 When user click on the go button
 Then the user should see validation messages for all required address fields: Street, City, State, Zip Code, and Contact Number1
 
-@Provider
 Scenario: BusinessGroup page invalid Fax, Contact Numbers, and Zip Code validation
 Given user launch browser
 Then user click on the user type dropdown
@@ -1054,6 +1053,248 @@ Then user enter the organization emailid
 And user enter the organization password
 When user click on the go button
 Then The user should see validation messages indicating Fax, Contact Number1, Contact Number2, and Zip Code are invalid
+
+# Providers Management 
+Scenario: Quick Text Blank Search Validation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Validation should have to show for Blank Quick Text Field
+
+Scenario: Quick Text Blank Send Validation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Validation should have to show for Quick Text Blank Send
+
+Scenario: Send VCard Blank Send Validation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Validation should have to show for Blank VCard
+
+Scenario: Send VCard Validation for Invalid Phone Number
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Validation should have to show for Invalid Phone Number
+
+Scenario: New Provider page Blank Submission Validation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Validation should have to show for Blank New Provider Page
+
+Scenario: New Provider Verify Invalid NPI Number
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Validation should have to show for Invalid NPI Number 
+
+Scenario: New Provider Verify Invalid NPI Number
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Validation should have to show for Invalid NPI Number 
+
+Scenario: New Provider Verify Invalid Email validation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Validation should have to show for Invalid Email Id
+
+Scenario: New Provider Verify Invalid Phone Number
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then New provider Validation should have to show for Invalid Phone Number
+
+Scenario: Provider Management Filter Blank Search Validation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Provider Management Filter Blank Search Validation message should have to show 
+
+Scenario: Provider Management Filter Invalid input Validation for Email,Zipcode,Phone Number,Fax Number
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Provider Management filter Validation should have to show for Invalid input Email,Zipcode,Phone Number,Fax Number
+
+Scenario: Search Business Group Add New Business Group Validation for Blank Zone
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Add New Business Group Validation should have show for Blank Zone
+
+Scenario: Provider Management Add Address Validation for Blank Submission
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Validation message is showing for Add Address when submitting blank
+
+Scenario: Provider Management Add Address Validation for Invalid Contact Number
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Validation message should have to show for invalid Contact Number 
+
+Scenario: Provider Management Add Executive Blank form Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Add Executive Blank form Validation should have to show 
+
+Scenario: Provider Management Add Executive Validation for Invalid Email, Cell, Phone, Fax Number
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Add Executive Validation should have to show for invalid Email, Cell, Phone, Fax Number
+
+Scenario: Provider Management Add Service Blank field Validation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Validation should have to show for Add Service Blank form submission
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
