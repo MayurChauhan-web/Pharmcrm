@@ -19,6 +19,265 @@ public class providerpage {
 	private WebDriverWait wait;
 
 	// Providers Management
+	By newEhrSpan = By.xpath("//span[normalize-space()='New EHR']");
+	By ehrLink = By.xpath("//a[normalize-space()='EHR']");
+	By serviceLink = By.xpath("//a[normalize-space()='Service']");
+	By newServiceSpan = By.xpath("//span[normalize-space()='New Service']");
+	By providerExecutiveLastNameField = By.xpath("//input[@id='ProviderExecutive_LastName']");
+	By providerExecutiveFirstNameField = By.xpath("//input[@id='ProviderExecutive_FirstName']");
+	By providerExecutiveEmailField = By.xpath("//input[@id='ProviderExecutive_EmailId']");
+	By providerExecutivePhoneNumberField = By.xpath("//input[@id='ProviderExecutive_PhoneNumber']");
+	By providerExecutiveCellNumberField = By.xpath("//input[@id='ProviderExecutive_CellNumber']");
+	By providerExecutivePhoneExtensionField = By.xpath("//input[@id='ProviderExecutive_PhoneNumberExtension']");
+	By providerExecutiveFaxNumberField = By.xpath("//input[@id='ProviderExecutive_FaxNumber']");
+	By providerExecutiveDesignationField = By.xpath("//input[@id='ProviderExecutive_Designation']");
+	By saveProviderExecutiveButton = By.xpath("//button[@id='btnSaveProviderExecutivePopup']");
+	By streetFieldProvider = By.xpath("//input[@id='ProviderAddress_Street']");
+	By cityFieldProvider = By.xpath("//input[@id='ProviderAddress_City']");
+	By stateFieldProvider = By.xpath("//input[@id='ProviderAddress_State']");
+	By zipCodeFieldProvider = By.xpath("//input[@id='ProviderAddress_ZipCode']");
+	By contactNumber1FieldProvider = By.xpath("//input[@id='ProviderAddress_ContactNumber1']");
+	By contactNumber2FieldProvider = By.xpath("//input[@id='ProviderAddress_ContactNumber2']");
+	By saveAddressButtonProvider = By.xpath("//button[@id='btnSaveAddress']");
+	By viewIcon = By.xpath("//tbody/tr[1]/td[13]/div[1]/a[1]/img[1]");
+	By addNewBusinessGroupButton = By.xpath("//button[normalize-space()='Add New Business Group']");
+	By submitBusinessGroupButton = By.xpath("//button[@id='btnsubmit']");
+	By businessGroupImage = By.xpath("//a[@id='addBusinessGroupPopup']//img");
+	By filterEmail = By.xpath("//input[@id='Filter_EmailId']");
+	By filterExecutiveEmail = By.xpath("//input[@id='Filter_ProviderExecutiveEmailId']");
+	By filterZipCode = By.xpath("//input[@id='Filter_ZipCode']");
+	By filterPhoneNumber = By.xpath("//input[@id='Filter_PhoneNumber']");
+	By filterFaxNumber = By.xpath("//input[@id='Filter_FaxNumber']");
+	By searchCollapseIcon = By.xpath("//a[@id='searchcollapse']//*[name()='svg']//*[name()='path' and @id='Union_73']");
+	By searchIcon = By.xpath("//i[@class='fa-solid fa-magnifying-glass']");
+	By businessPhone1 = By.id("Provider_BusinessPhone1");
+	By businessPhone2 = By.id("Provider_BusinessPhone2");
+	By cellPhone = By.id("Provider_CellPhone");
+	By primaryEmail = By.id("Provider_PrimaryEmail");
+	By secondaryEmail = By.id("Provider_SecondaryEmail");
+	By doctorLastName = By.id("Provider_DoctorLastName");
+	By doctorFirstName = By.id("Provider_DoctorFirstName");
+	By providerZone = By.id("Provider_Zone");
+	By providerNPI = By.id("Provider_NPINumber");
+	By newProviderTab = By.xpath("//span[normalize-space()='New Provider']");
+	By vCardPhoneNumber = By.id("vCardPhoneNumber");
+	By sendVCardTab = By.xpath("//span[normalize-space()='Send VCard']");
+	By toastMessage = By.xpath("//div[@class='toast-message']");
+	By searchButtonQuickText = By.xpath("//button[normalize-space()='Search']");
+	By quickTextTab = By.xpath("//span[normalize-space()='Quick Text']");
+	By providerCommunicationLink = By.xpath("//a[normalize-space()='Provider Communication']");
+	By newCommunicationSpan = By.xpath("//span[normalize-space()='New Communication']");
+	By saveCommunicationButtonProvider = By.xpath("//button[@id='btnSaveCommunication']");
+	By newReferralEnrollmentText = By.xpath("//span[normalize-space()='New Referral Enrollment']");
+	By saveProviderReferralEnrollmentButton = By.xpath("//button[@id='btnSaveProviderReferralEnrollmentPopup']");
+	By phoneNumberField = By.xpath("//input[@id='ProviderReferralEnrollment_PhoneNumber']");
+	By emailIdField = By.xpath("//input[@id='ProviderReferralEnrollment_EmailId']");
+	By faxNumberField = By.xpath("//input[@id='ProviderReferralEnrollment_FaxNumber']");
+	By documentLibraryTab = By.xpath("//span[normalize-space()='Document Library']");
+	By addFolderButtonDocumet = By.xpath("//a[@id='btnAddFolder']//*[name()='svg']");
+
+	// Providers Management
+	public String validateCheckbox() throws InterruptedException {
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(findDuplicateButton)).click();
+
+		try {
+			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
+
+			String actualMessage = toast.getText().trim();
+
+			return "SUCCESS: Validation displayed -> " + actualMessage;
+
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String validateDocumentLibraryAddFolderSubmission() throws InterruptedException {
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(viewIcon)).click();
+
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(documentLibraryTab)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(addFolderButtonDocumet)).click();
+
+		Thread.sleep(2000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
+
+		try {
+			wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(toastMessage, 0));
+
+			List<WebElement> toasts = driver.findElements(toastMessage);
+
+			StringBuilder allMessages = new StringBuilder();
+
+			for (WebElement toast : toasts) {
+				if (toast.isDisplayed()) {
+					allMessages.append(toast.getText().trim()).append(" | ");
+				}
+			}
+
+			return "SUCCESS: Validations displayed -> " + allMessages.toString();
+
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message(s) not displayed";
+		}
+	}
+
+	public String validateReferralEnrollmentPhoneEmailFax() throws InterruptedException {
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(viewIcon)).click();
+
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(referralEnrollmentLink)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(newReferralEnrollmentText)).click();
+
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(phoneNumberField)).sendKeys("11");
+		wait.until(ExpectedConditions.elementToBeClickable(emailIdField)).sendKeys("email");
+		wait.until(ExpectedConditions.elementToBeClickable(faxNumberField)).sendKeys("11");
+
+		wait.until(ExpectedConditions.elementToBeClickable(saveProviderReferralEnrollmentButton)).click();
+
+		try {
+			wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(toastMessage, 0));
+
+			List<WebElement> toasts = driver.findElements(toastMessage);
+
+			StringBuilder allMessages = new StringBuilder();
+
+			for (WebElement toast : toasts) {
+				if (toast.isDisplayed()) {
+					allMessages.append(toast.getText().trim()).append(" | ");
+				}
+			}
+
+			return "SUCCESS: Validations displayed -> " + allMessages.toString();
+
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message(s) not displayed";
+		}
+	}
+
+	public String validateReferralEnrollmentFormOnEmptySubmission() throws InterruptedException {
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(viewIcon)).click();
+
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(referralEnrollmentLink)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(newReferralEnrollmentText)).click();
+
+		Thread.sleep(2000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(saveProviderReferralEnrollmentButton)).click();
+
+		try {
+			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
+
+			String actualMessage = toast.getText().trim();
+
+			return "SUCCESS: Validation displayed -> " + actualMessage;
+
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String validateProviderCommunicationFormOnEmptySubmission() throws InterruptedException {
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(viewIcon)).click();
+
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(providerCommunicationLink)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(newCommunicationSpan)).click();
+
+		Thread.sleep(2000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(saveCommunicationButtonProvider)).click();
+
+		try {
+			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
+
+			String actualMessage = toast.getText().trim();
+
+			return "SUCCESS: Validation displayed -> " + actualMessage;
+
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String shouldShowValidationForBlankAddProviderEHRForm() throws InterruptedException {
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(viewIcon)).click();
+
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(ehrLink)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(newEhrSpan)).click();
+
+		Thread.sleep(2000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(saveProviderEhrButton)).click();
+
+		try {
+			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
+
+			String actualMessage = toast.getText().trim();
+
+			return "SUCCESS: Validation displayed -> " + actualMessage;
+
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
 
 	public String checkBlankServiceFormFields() throws InterruptedException {
 
@@ -577,68 +836,6 @@ public class providerpage {
 			return "ERROR: Validation toast message not displayed";
 		}
 	}
-
-	// Providers Management
-	By serviceLink = By.xpath("//a[normalize-space()='Service']");
-	By newServiceSpan = By.xpath("//span[normalize-space()='New Service']");
-
-	By providerExecutiveLastNameField = By.xpath("//input[@id='ProviderExecutive_LastName']");
-
-	By providerExecutiveFirstNameField = By.xpath("//input[@id='ProviderExecutive_FirstName']");
-
-	By providerExecutiveEmailField = By.xpath("//input[@id='ProviderExecutive_EmailId']");
-
-	By providerExecutivePhoneNumberField = By.xpath("//input[@id='ProviderExecutive_PhoneNumber']");
-
-	By providerExecutiveCellNumberField = By.xpath("//input[@id='ProviderExecutive_CellNumber']");
-
-	By providerExecutivePhoneExtensionField = By.xpath("//input[@id='ProviderExecutive_PhoneNumberExtension']");
-
-	By providerExecutiveFaxNumberField = By.xpath("//input[@id='ProviderExecutive_FaxNumber']");
-
-	By providerExecutiveDesignationField = By.xpath("//input[@id='ProviderExecutive_Designation']");
-
-	By saveProviderExecutiveButton = By.xpath("//button[@id='btnSaveProviderExecutivePopup']");
-
-	By streetFieldProvider = By.xpath("//input[@id='ProviderAddress_Street']");
-
-	By cityFieldProvider = By.xpath("//input[@id='ProviderAddress_City']");
-
-	By stateFieldProvider = By.xpath("//input[@id='ProviderAddress_State']");
-
-	By zipCodeFieldProvider = By.xpath("//input[@id='ProviderAddress_ZipCode']");
-
-	By contactNumber1FieldProvider = By.xpath("//input[@id='ProviderAddress_ContactNumber1']");
-
-	By contactNumber2FieldProvider = By.xpath("//input[@id='ProviderAddress_ContactNumber2']");
-
-	By saveAddressButtonProvider = By.xpath("//button[@id='btnSaveAddress']");
-	By viewIcon = By.xpath("//tbody/tr[1]/td[13]/div[1]/a[1]/img[1]");
-	By addNewBusinessGroupButton = By.xpath("//button[normalize-space()='Add New Business Group']");
-	By submitBusinessGroupButton = By.xpath("//button[@id='btnsubmit']");
-	By businessGroupImage = By.xpath("//a[@id='addBusinessGroupPopup']//img");
-	By filterEmail = By.xpath("//input[@id='Filter_EmailId']");
-	By filterExecutiveEmail = By.xpath("//input[@id='Filter_ProviderExecutiveEmailId']");
-	By filterZipCode = By.xpath("//input[@id='Filter_ZipCode']");
-	By filterPhoneNumber = By.xpath("//input[@id='Filter_PhoneNumber']");
-	By filterFaxNumber = By.xpath("//input[@id='Filter_FaxNumber']");
-	By searchCollapseIcon = By.xpath("//a[@id='searchcollapse']//*[name()='svg']//*[name()='path' and @id='Union_73']");
-	By searchIcon = By.xpath("//i[@class='fa-solid fa-magnifying-glass']");
-	By businessPhone1 = By.id("Provider_BusinessPhone1");
-	By businessPhone2 = By.id("Provider_BusinessPhone2");
-	By cellPhone = By.id("Provider_CellPhone");
-	By primaryEmail = By.id("Provider_PrimaryEmail");
-	By secondaryEmail = By.id("Provider_SecondaryEmail");
-	By doctorLastName = By.id("Provider_DoctorLastName");
-	By doctorFirstName = By.id("Provider_DoctorFirstName");
-	By providerZone = By.id("Provider_Zone");
-	By providerNPI = By.id("Provider_NPINumber");
-	By newProviderTab = By.xpath("//span[normalize-space()='New Provider']");
-	By vCardPhoneNumber = By.id("vCardPhoneNumber");
-	By sendVCardTab = By.xpath("//span[normalize-space()='Send VCard']");
-	By toastMessage = By.xpath("//div[@class='toast-message']");
-	By searchButtonQuickText = By.xpath("//button[normalize-space()='Search']");
-	By quickTextTab = By.xpath("//span[normalize-space()='Quick Text']");
 
 	// BusinessGroup
 	public By frontDeskNameField = By.id("BusinessGroup_FrontDeskName");

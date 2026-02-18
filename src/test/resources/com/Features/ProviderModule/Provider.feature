@@ -1208,6 +1208,73 @@ And user enter the organization password
 When user click on the go button
 Then Validation should have to show for Add Service Blank form submission
 
+##
+Scenario: Add Provider EHR Blank Form Submission
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Validation should have to show for Add Provider EHR Blank Form Submission
+
+Scenario: Provider Communication Blank Form Submission
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Validation should have to show for Provider Communication Blank Form Submission
+
+Scenario: Referral Enrollment Blank Form Submission
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Validation should have to show for Referral Enrollment Blank Form Submission
+
+Scenario: Add Referral Enrollment Invalid Phone , Email , Fax Number Validation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Add Referral Enrollment Validation should have to show for Invalid Phone , Email , Fax Number
+
+Scenario: Document Library Add Folder Blank submission Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Document Library Add Folder Blank submission Should have to show validation
+
+Scenario: DeDupe Find Duplicate Checkbox Validation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Checkbox Validation should have to show if not selected
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
