@@ -6,7 +6,6 @@ import java.time.LocalDate;
 import java.time.format.TextStyle;
 import java.util.List;
 import java.util.Locale;
-
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementNotInteractableException;
@@ -18,119 +17,108 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import com.google.common.base.Function;
 
 public class deliverypage {
 
 	// Delivery Statistic Report
-	public By EXPORT_DELIVERY_STATISTIC_REPORT = By.xpath("//span[normalize-space()='Export Excel']");
-	public By DELIVERY_STATISTIC_REPORT_ALL = By.xpath("//label[@for='chkg47DeliveryStatisticReportAll']");
-	public By DELIVERY_STATISTIC_REPORT_VIEW = By.xpath("//label[@for='chkg47DeliveryStatisticReportView']");
+	public By exportDeliveryStatisticReport = By.xpath("//span[normalize-space()='Export Excel']");
+	public By deliveryStatisticReportAll = By.xpath("//label[@for='chkg47DeliveryStatisticReportAll']");
+	public By deliveryStatisticReportView = By.xpath("//label[@for='chkg47DeliveryStatisticReportView']");
 
 	// Manifest Summary Report
-	public By EXPORT_EXCEL_BUTTON_MANIFEST_SUMMARY = By.xpath("//span[normalize-space()='Export Excel']");
-	public By MANIFEST_SUMMARY_REPORT_EXPORT_BUTTON = By.xpath("//tbody/tr[1]/td[7]/a[1]//*[name()='svg']");
+	public By exportExcelButtonManifestSummary = By.xpath("//span[normalize-space()='Export Excel']");
+	public By manifestSummaryReportExportButton = By.xpath("//tbody/tr[1]/td[7]/a[1]//*[name()='svg']");
 
 	// Delivery Report
-	public By EXPORT_EXCEL_BUTTON = By.xpath("//span[normalize-space()='Export Excel']");
-	public By DELIVERY_REPORT_ALL = By.xpath("//label[@for='chkg46DeliveryReportAll']");
-	public By DELIVERY_REPORT_VIEW = By.xpath("//label[@for='chkg46DeliveryReportView']");
+	public By exportExcelButton = By.xpath("//span[normalize-space()='Export Excel']");
+	public By deliveryReportAll = By.xpath("//label[@for='chkg46DeliveryReportAll']");
+	public By deliveryReportView = By.xpath("//label[@for='chkg46DeliveryReportView']");
 
 	// Delivery Job Setting
-	public By DELIVERY_ACTION_MENU = By
+	public By deliveryActionMenu = By
 			.xpath("//tr[@module-data='data_Delivery']//i[@class='fa-solid fa-ellipsis-vertical']");
-	public By DELIVERY_EDIT_OPTION = By
+	public By deliveryEditOption = By
 			.xpath("//div[contains(@class,'bucket-dropdown-content')]//span[normalize-space()='Edit']");
-	public By RUN_TRIGGER_BUTTON = By.xpath(
+	public By runTriggerButton = By.xpath(
 			"//tr[@module-data='data_Delivery']//a[contains(@class,'triggerButton') and normalize-space()='Run Trigger']");
-	public By DELIVERY_JOB_SETTINGS_URL = By.xpath("//label[@for='chk_Delivery']//img");
-	public By DELIVERY_RUN_TRIGGER_BUTTON = By.xpath(
+	public By deliveryJobSettingsUrl = By.xpath("//label[@for='chk_Delivery']//img");
+	public By deliveryRunTriggerButton = By.xpath(
 			"//tr[@module-data='data_Delivery']//a[contains(@class,'triggerButton') and normalize-space()='Run Trigger']");
-	public By DELIVERY_MODULE_CHECKBOX = By.xpath("//label[@for='chk_Delivery']//img");
-	public By DELIVERY_MODULE_ACTION_MENU = By
+	public By deliveryModuleCheckbox = By.xpath("//label[@for='chk_Delivery']//img");
+	public By deliveryModuleActionMenu = By
 			.xpath("//tr[@module-data='data_Delivery']//i[contains(@class,'fa-ellipsis-vertical')]");
-	public By EDIT_JOB_SETTING_OPTION = By.xpath(
+	public By editJobSettingOption = By.xpath(
 			"//div[contains(@class,'bucket-dropdown-content') and contains(@class,'show')]//span[normalize-space()='Edit']");
-	public By FROM_EMAIL_INPUT = By.id("ReportSetting_FromEmail");
-	public By TO_EMAIL_INPUT = By.id("ReportSetting_ToEmail");
-	public By SAVE_JOB_SETTING_BUTTON = By.id("btnSave");
+	public By fromEmailInput = By.id("ReportSetting_FromEmail");
+	public By toEmailInput = By.id("ReportSetting_ToEmail");
+	public By saveJobSettingButton = By.id("btnSave");
 
 	// Customer Attestation
-	public By CUSTOMER_ATTESTATION_ALL_ACCESS_CHECKBOX = By.xpath("//label[@for='chkg5CustomerAttestationAll']");
-	public By CUSTOMER_ATTESTATION_ADD_ACCESS_CHECKBOX = By.xpath("//label[@for='chkg5CustomerAttestationAdd']");
-	public By SEND_FOR_SIGNATURE_BUTTON = By.xpath("//span[normalize-space()='Send For Signature']");
-	public By SEND_SIGNATURE_DROPDOWN = By.id("sendsignaturelinkforpackageAttestation");
-	public By PRINT_CUSTOMER_ATTESTATION_OPTION = By.xpath(
+	public By customerAttestationAllAccessCheckbox = By.xpath("//label[@for='chkg5CustomerAttestationAll']");
+	public By customerAttestationAddAccessCheckbox = By.xpath("//label[@for='chkg5CustomerAttestationAdd']");
+	public By sendForSignatureButton = By.xpath("//span[normalize-space()='Send For Signature']");
+	public By sendSignatureDropdown = By.id("sendsignaturelinkforpackageAttestation");
+	public By printCustomerAttestationOption = By.xpath(
 			"//div[contains(@class,'bucket-dropdown-content') and contains(@class,'show')]//span[normalize-space()='Print']");
-	public By CONFIRM_DELETE_CUSTOMER_ATTESTATION_BUTTON = By.id("deletePackageCustomerAttestation");
+	public By confirmDeleteCustomerAttestationButton = By.id("deletePackageCustomerAttestation");
 
 	public By datepickerDay(int day) {
 		return By.xpath("//td[normalize-space()='" + day + "']");
 	}
 
-	public By FIRST_CUSTOMER_ATTESTATION_ACTION_MENU = By.xpath("(//button[@id='bucketDrop']/i)[1]");
-	public By CUSTOMER_ATTESTATION_ACTION_DROPDOWN = By.xpath("//div[contains(@class,'bucket-dropdown-content')]");
-	public By EDIT_CUSTOMER_ATTESTATION_OPTION = By.xpath(
+	public By firstCustomerAttestationActionMenu = By.xpath("(//button[@id='bucketDrop']/i)[1]");
+	public By customerAttestationActionDropdown = By.xpath("//div[contains(@class,'bucket-dropdown-content')]");
+	public By editCustomerAttestationOption = By.xpath(
 			"//div[contains(@class,'bucket-dropdown-content') and contains(@class,'show')]//span[normalize-space()='Edit']");
-	public By DELETE_CUSTOMER_ATTESTATION_OPTION = By.xpath(
+	public By deleteCustomerAttestationOption = By.xpath(
 			"//div[contains(@class,'bucket-dropdown-content') and contains(@class,'show')]//span[normalize-space()='Delete']");
-	public By FIRST_PACKAGE_DETAIL_BUTTON = By.xpath("//tbody/tr[1]/td[12]/div[1]/a[1]/img[1]");
-	public By ADD_CUSTOMER_ATTESTATION_BUTTON = By.xpath("//span[normalize-space()='Add Customer Attestation']");
-	public By RX_NUMBER_INPUT = By.id("PackageCustomerAttestation_RxNumber");
-	public By PATIENT_NAME_INPUT = By.id("PackageCustomerAttestation_PatientName");
-	public By MEDICATION_INPUT = By.id("PackageCustomerAttestation_Medication");
-	public By RECEIVED_FROM_INPUT = By.id("PackageCustomerAttestation_ReceivedFrom");
-	public By FILLED_DATE_INPUT = By.id("PackageCustomerAttestation_FilledDate");
-	public By RECEIVED_DATE_INPUT = By.id("PackageCustomerAttestation_ReceivedDate");
-	public By ADDRESS_RECEIVER_INPUT = By.id("PackageCustomerAttestation_AddressReceiver");
-	public By RECEIVER_NAME_INPUT = By.id("PackageCustomerAttestation_ReceiverName");
-	public By PATIENT_RELATION_INPUT = By.id("PackageCustomerAttestation_PatientRelation");
-	public By PHONE_NUMBER_INPUT = By.id("PackageCustomerAttestation_PhoneNumber");
-	public By SAVE_CUSTOMER_ATTESTATION_BUTTON = By.id("btnSavePackageCustomerAttestation");
+	public By firstPackageDetailButton = By.xpath("//tbody/tr[1]/td[12]/div[1]/a[1]/img[1]");
+	public By addCustomerAttestationButton = By.xpath("//span[normalize-space()='Add Customer Attestation']");
+	public By saveCustomerAttestationButton = By.id("btnSavePackageCustomerAttestation");
 
 	// Manifest
-	public By MANIFEST_SUMMARY_REPORT_ALL = By.xpath("//label[@for='chkg47ManifestSummaryReportAll']");
-	public By MANIFEST_SUMMARY_REPORT_VIEW = By.xpath("//label[@for='chkg47ManifestSummaryReportView']");
-	public By MANIFEST_ALL_ACCESS_CHECKBOX = By.xpath("//label[@for='chkg04ManifestAll']");
-	public By MANIFEST_ADD_ACCESS_CHECKBOX = By.xpath("//label[@for='chkg04ManifestAdd']");
-	public By PRINT_MANIFEST_BUTTON = By.id("manifestDetailPrintBtn");
-	public By CLOSE_PRINT_MODAL_BUTTON = By
+	public By manifestSummaryReportAll = By.xpath("//label[@for='chkg47ManifestSummaryReportAll']");
+	public By manifestSummaryReportView = By.xpath("//label[@for='chkg47ManifestSummaryReportView']");
+	public By manifestAllAccessCheckbox = By.xpath("//label[@for='chkg04ManifestAll']");
+	public By manifestAddAccessCheckbox = By.xpath("//label[@for='chkg04ManifestAdd']");
+	public By printManifestButton = By.id("manifestDetailPrintBtn");
+	public By closePrintModalButton = By
 			.xpath("//button[@onclick='javascript: CloseManifestDetailPrintModal();']//i[@class='fa fa-times']");
-	public By DELETE_MANIFEST_BUNDLE_BUTTON = By.id("btnDeleteManifestBundle");
-	public By CONFIRM_DELETE_BUNDLE_BUTTON = By.id("btnDeleteBundleConfirm");
-	public By SAVE_MANIFEST_BUTTON = By.id("btnSave");
-	public By SKIP_MANIFEST_PACKAGE_BUTTON = By.id("btnSkipManifestPackage");
-	public By CONFIRM_SKIP_BUTTON = By.id("btnSkipConfirm");
-	public By DELETE_MANIFEST_PACKAGE_BUTTON = By.id("btnDeleteManifestPackage");
-	public By CONFIRM_DELETE_PACKAGE_BUTTON = By
+	public By deleteManifestBundleButton = By.id("btnDeleteManifestBundle");
+	public By confirmDeleteBundleButton = By.id("btnDeleteBundleConfirm");
+	public By saveManifestButton = By.id("btnSave");
+	public By skipManifestPackageButton = By.id("btnSkipManifestPackage");
+	public By confirmSkipButton = By.id("btnSkipConfirm");
+	public By deleteManifestPackageButton = By.id("btnDeleteManifestPackage");
+	public By confirmDeletePackageButton = By
 			.xpath("//div[@id='deleteManifestPackageModel']//button[@id='btnDeleteConfirm']");
-	public By SEARCH_PACKAGE_BUTTON = By.id("searchPackagePopup");
-	public By FILTER_LOGISTIC_DROPDOWN = By.id("Filter_LogisticId");
-	public By FILTER_FROM_DATE = By.id("Filter_FromDate");
-	public By DATEPICKER_DAY_1 = By.xpath("//td[normalize-space()='1']");
-	public By SEARCH_BUTTON = By.xpath("//button[normalize-space()='Search']");
-	public By PACKAGE_CHECKBOX = By.xpath("//label[@for='b38063de-b375-4421-a2ee-0fb842cdb451']");
-	public By SUBMIT_BUTTON = By.xpath("//button[@class='btn btn-primary'][normalize-space()='Submit']");
-	public By FIRST_MANIFEST_DETAIL_BUTTON = By.xpath("//tbody/tr[1]/td[7]/div[1]/a[1]/img[1]");
-	public By CONFIRM_DELETE_BUTTON = By.id("btndeletemanifestconform");
-	public By FIRST_MANIFEST_ACTION_MENU = By.xpath("(//button[@id='bucketDrop']/i)[1]");
-	public By MANIFEST_STATUS_DROPDOWN = By.id("Manifest_Status");
-	public By MANIFEST_ACTION_DROPDOWN = By.xpath("//div[contains(@class,'bucket-dropdown-content')]");
-	public By MANIFEST_ACTION_MENU = By.xpath("(//button[@id='bucketDrop']/i)[1]");
-	public By EDIT_MANIFEST_OPTION = By.xpath(
+	public By searchPackageButton = By.id("searchPackagePopup");
+	public By filterLogisticDropdown = By.id("Filter_LogisticId");
+	public By filterFromDate = By.id("Filter_FromDate");
+	public By datepickerDay1 = By.xpath("//td[normalize-space()='1']");
+	public By searchButtonmn = By.xpath("//button[normalize-space()='Search']");
+	public By packageCheckbox = By.xpath("//label[@for='b38063de-b375-4421-a2ee-0fb842cdb451']");
+	public By submitButtonmn = By.xpath("//button[@class='btn btn-primary'][normalize-space()='Submit']");
+	public By firstManifestDetailButton = By.xpath("//tbody/tr[1]/td[7]/div[1]/a[1]/img[1]");
+	public By confirmDeleteButtonmn = By.id("btndeletemanifestconform");
+	public By firstManifestActionMenu = By.xpath("(//button[@id='bucketDrop']/i)[1]");
+	public By manifestStatusDropdown = By.id("Manifest_Status");
+	public By manifestActionDropdown = By.xpath("//div[contains(@class,'bucket-dropdown-content')]");
+	public By manifestActionMenu = By.xpath("(//button[@id='bucketDrop']/i)[1]");
+	public By editManifestOption = By.xpath(
 			"//div[contains(@class,'bucket-dropdown-content') and contains(@class,'show')]//span[normalize-space()='Edit']");
-	public By DELETE_MANIFEST_OPTION = By.xpath(
+	public By deleteManifestOption = By.xpath(
 			"//div[contains(@class,'bucket-dropdown-content') and contains(@class,'show')]//span[normalize-space()='Delete']");
-	public By NEW_MANIFEST_BUTTON = By.xpath("//span[normalize-space()='New Manifest']");
-	public By DELIVERY_DATE_INPUT = By.id("Manifest_DeliveryDate");
-	public By DATEPICKER_YEAR_DROPDOWN = By.xpath("//select[contains(@class,'ui-datepicker-year')]");
-	public By DATEPICKER_MONTH_DROPDOWN = By.xpath("//select[contains(@class,'ui-datepicker-month')]");
-	public By DRIVER_DROPDOWN = By.id("Manifest_Driver_Id");
-	public By STARTING_POINT_DROPDOWN = By.id("Manifest_StartingPoint");
-	public By END_POINT_DROPDOWN = By.id("Manifest_EndPoint");
-	public By STATUS_DROPDOWN = By.id("Manifest_Status");
-	public By SAVE_BUTTON = By.id("btnSave");
+	public By newManifestButton = By.xpath("//span[normalize-space()='New Manifest']");
+	public By deliveryDateInput = By.id("Manifest_DeliveryDate");
+	public By datepickerYearDropdown = By.xpath("//select[contains(@class,'ui-datepicker-year')]");
+	public By datepickerMonthDropdown = By.xpath("//select[contains(@class,'ui-datepicker-month')]");
+	public By driverDropdown = By.id("Manifest_Driver_Id");
+	public By startingPointDropdown = By.id("Manifest_StartingPoint");
+	public By endPointDropdown = By.id("Manifest_EndPoint");
+	public By statusDropdown = By.id("Manifest_Status");
+	public By saveButton = By.id("btnSave");
 
 	// Package Plan Restriction
 	public By packagePlanRestrictionIcon = By.xpath("//*[name()='path' and contains(@d,'m211 91v21')]");
@@ -302,9 +290,6 @@ public class deliverypage {
 	public By firstStateDeleteIcon = By.xpath("//tbody/tr[1]/td[2]/div[1]/a[1]/img[1]");
 	public By deleteConfirmStateButton = By.id("btnDeleteConfirmRestictedState");
 
-	// Package Setting
-	public By saveButton = By.id("btnSave");
-
 	// Profile
 	public By preloader = By.cssSelector("div.preloader");
 	public By profileNameInput = By.xpath("//input[@id='Filter_Name']");
@@ -329,7 +314,6 @@ public class deliverypage {
 	private WebDriverWait wait;
 
 	// Package Plan Restriction
-
 	public void verifyUserCannotAccessPackagePlanRestriction() {
 		wait.until(ExpectedConditions.elementToBeClickable(packageActionDropdownRow1)).click();
 		wait.until(ExpectedConditions.elementToBeClickable(editPackageOption)).click();
@@ -1374,153 +1358,153 @@ public class deliverypage {
 	// Manifest
 	public void testPrintManifestFunctionality() {
 		sleep(2000);
-		wait.until(ExpectedConditions.elementToBeClickable(FIRST_MANIFEST_ACTION_MENU));
-		clickWhenClickable(FIRST_MANIFEST_ACTION_MENU);
+		wait.until(ExpectedConditions.elementToBeClickable(firstManifestActionMenu));
+		clickWhenClickable(firstManifestActionMenu);
 		sleep(2000);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(EDIT_MANIFEST_OPTION));
-		clickWhenClickable(EDIT_MANIFEST_OPTION);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(editManifestOption));
+		clickWhenClickable(editManifestOption);
 		sleep(2000);
-		wait.until(ExpectedConditions.elementToBeClickable(MANIFEST_STATUS_DROPDOWN));
-		selectDropdownByIndexWhenReady(MANIFEST_STATUS_DROPDOWN, 10);
+		wait.until(ExpectedConditions.elementToBeClickable(manifestStatusDropdown));
+		selectDropdownByIndexWhenReady(manifestStatusDropdown, 10);
 		sleep(2000);
-		clickWhenClickable(SAVE_MANIFEST_BUTTON);
+		clickWhenClickable(saveManifestButton);
 		sleep(2000);
-		wait.until(ExpectedConditions.elementToBeClickable(PRINT_MANIFEST_BUTTON));
-		clickWhenClickable(PRINT_MANIFEST_BUTTON);
+		wait.until(ExpectedConditions.elementToBeClickable(printManifestButton));
+		clickWhenClickable(printManifestButton);
 		sleep(2000);
 		((JavascriptExecutor) driver).executeScript("window.print();");
 		System.out.println("Manifest PDF auto-saved in Downloads folder");
 		sleep(2000);
-		wait.until(ExpectedConditions.elementToBeClickable(CLOSE_PRINT_MODAL_BUTTON));
-		clickWhenClickable(CLOSE_PRINT_MODAL_BUTTON);
+		wait.until(ExpectedConditions.elementToBeClickable(closePrintModalButton));
+		clickWhenClickable(closePrintModalButton);
 	}
 
 	public void testDeleteManifestBundleFunctionality() {
 		sleep(2000);
-		wait.until(ExpectedConditions.elementToBeClickable(FIRST_MANIFEST_DETAIL_BUTTON));
-		clickWhenClickable(FIRST_MANIFEST_DETAIL_BUTTON);
+		wait.until(ExpectedConditions.elementToBeClickable(firstManifestDetailButton));
+		clickWhenClickable(firstManifestDetailButton);
 		sleep(2000);
-		wait.until(ExpectedConditions.elementToBeClickable(DELETE_MANIFEST_BUNDLE_BUTTON));
-		clickWhenClickable(DELETE_MANIFEST_BUNDLE_BUTTON);
+		wait.until(ExpectedConditions.elementToBeClickable(deleteManifestBundleButton));
+		clickWhenClickable(deleteManifestBundleButton);
 		sleep(2000);
-		wait.until(ExpectedConditions.elementToBeClickable(CONFIRM_DELETE_BUNDLE_BUTTON));
-		clickWhenClickable(CONFIRM_DELETE_BUNDLE_BUTTON);
+		wait.until(ExpectedConditions.elementToBeClickable(confirmDeleteBundleButton));
+		clickWhenClickable(confirmDeleteBundleButton);
 
 	}
 
 	public void testAddManifestBundleFunctionality() {
 		sleep(2000);
-		wait.until(ExpectedConditions.elementToBeClickable(FIRST_MANIFEST_DETAIL_BUTTON));
+		wait.until(ExpectedConditions.elementToBeClickable(firstManifestDetailButton));
 		sleep(2000);
-		clickWhenClickable(FIRST_MANIFEST_DETAIL_BUTTON);
+		clickWhenClickable(firstManifestDetailButton);
 
 	}
 
 	public void verifyUserCanSkipManifestPackage() {
 		sleep(2000);
-		clickWhenClickable(FIRST_MANIFEST_ACTION_MENU);
+		clickWhenClickable(firstManifestActionMenu);
 		sleep(2000);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(EDIT_MANIFEST_OPTION));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(editManifestOption));
 		sleep(2000);
-		clickWhenClickable(EDIT_MANIFEST_OPTION);
+		clickWhenClickable(editManifestOption);
 		sleep(2000);
-		wait.until(ExpectedConditions.elementToBeClickable(MANIFEST_STATUS_DROPDOWN));
+		wait.until(ExpectedConditions.elementToBeClickable(manifestStatusDropdown));
 		sleep(2000);
-		selectDropdownByIndexWhenReady(MANIFEST_STATUS_DROPDOWN, 2);
+		selectDropdownByIndexWhenReady(manifestStatusDropdown, 2);
 		sleep(2000);
-		clickWhenClickable(SAVE_MANIFEST_BUTTON);
+		clickWhenClickable(saveManifestButton);
 		sleep(2000);
-		wait.until(ExpectedConditions.elementToBeClickable(SKIP_MANIFEST_PACKAGE_BUTTON));
+		wait.until(ExpectedConditions.elementToBeClickable(skipManifestPackageButton));
 		sleep(2000);
-		clickWhenClickable(SKIP_MANIFEST_PACKAGE_BUTTON);
+		clickWhenClickable(skipManifestPackageButton);
 		sleep(2000);
-		wait.until(ExpectedConditions.elementToBeClickable(CONFIRM_SKIP_BUTTON));
+		wait.until(ExpectedConditions.elementToBeClickable(confirmSkipButton));
 		sleep(2000);
-		clickWhenClickable(CONFIRM_SKIP_BUTTON);
+		clickWhenClickable(confirmSkipButton);
 
 	}
 
 	public void testDeleteManifestPackageAccessInDeliveryModule() {
 		sleep(2000);
-		wait.until(ExpectedConditions.elementToBeClickable(DELETE_MANIFEST_PACKAGE_BUTTON));
+		wait.until(ExpectedConditions.elementToBeClickable(deleteManifestPackageButton));
 		sleep(2000);
-		clickWhenClickable(DELETE_MANIFEST_PACKAGE_BUTTON);
+		clickWhenClickable(deleteManifestPackageButton);
 		sleep(2000);
-		wait.until(ExpectedConditions.elementToBeClickable(CONFIRM_DELETE_PACKAGE_BUTTON));
+		wait.until(ExpectedConditions.elementToBeClickable(confirmDeletePackageButton));
 		sleep(2000);
-		clickWhenClickable(CONFIRM_DELETE_PACKAGE_BUTTON);
+		clickWhenClickable(confirmDeletePackageButton);
 		sleep(2000);
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(CONFIRM_DELETE_PACKAGE_BUTTON));
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(confirmDeletePackageButton));
 	}
 
 	public void verifyUserCanAddManifestPackage() {
 		sleep(2000);
-		clickWhenClickable(SEARCH_PACKAGE_BUTTON);
+		clickWhenClickable(searchPackageButton);
 		sleep(2000);
-		clickWhenClickable(FILTER_LOGISTIC_DROPDOWN);
+		clickWhenClickable(filterLogisticDropdown);
 		sleep(2000);
-		selectDropdownByIndexWhenReady(FILTER_LOGISTIC_DROPDOWN, 1);
+		selectDropdownByIndexWhenReady(filterLogisticDropdown, 1);
 		sleep(2000);
-		clickWhenClickable(FILTER_FROM_DATE);
+		clickWhenClickable(filterFromDate);
 		sleep(2000);
 		int year = LocalDate.now().getYear();
 		String month = LocalDate.now().getMonth().getDisplayName(TextStyle.SHORT, Locale.ENGLISH);
 		sleep(2000);
-		WebElement yearDropdown = wait.until(ExpectedConditions.visibilityOfElementLocated(DATEPICKER_YEAR_DROPDOWN));
+		WebElement yearDropdown = wait.until(ExpectedConditions.visibilityOfElementLocated(datepickerYearDropdown));
 		new Select(yearDropdown).selectByVisibleText(String.valueOf(year));
 		sleep(2000);
-		WebElement monthDropdown = wait.until(ExpectedConditions.visibilityOfElementLocated(DATEPICKER_MONTH_DROPDOWN));
+		WebElement monthDropdown = wait.until(ExpectedConditions.visibilityOfElementLocated(datepickerMonthDropdown));
 		sleep(2000);
 		new Select(monthDropdown).selectByVisibleText(month);
 		sleep(2000);
-		wait.until(ExpectedConditions.elementToBeClickable(DATEPICKER_DAY_1)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(datepickerDay1)).click();
 		sleep(2000);
-		clickWhenClickable(SEARCH_BUTTON);
+		clickWhenClickable(searchButton);
 		sleep(2000);
-		clickWhenClickable(PACKAGE_CHECKBOX);
+		clickWhenClickable(packageCheckbox);
 		sleep(2000);
-		clickWhenClickable(SUBMIT_BUTTON);
+		clickWhenClickable(submitButton);
 
 	}
 
 	public void testManifestDetailIsAccessibleByUser() {
 		sleep(2000);
-		wait.until(ExpectedConditions.elementToBeClickable(FIRST_MANIFEST_DETAIL_BUTTON));
+		wait.until(ExpectedConditions.elementToBeClickable(firstManifestDetailButton));
 		sleep(2000);
-		clickWhenClickable(FIRST_MANIFEST_DETAIL_BUTTON);
+		clickWhenClickable(firstManifestDetailButton);
 
 	}
 
 	public void verifyUserCannotAddOrEditManifest() {
-		assertElementNotPresent(NEW_MANIFEST_BUTTON);
-		clickWhenClickable(FIRST_MANIFEST_ACTION_MENU);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(MANIFEST_ACTION_DROPDOWN));
-		assertElementNotPresent(EDIT_MANIFEST_OPTION);
+		assertElementNotPresent(newManifestButton);
+		clickWhenClickable(firstManifestActionMenu);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(manifestActionDropdown));
+		assertElementNotPresent(editManifestOption);
 	}
 
 	public void testViewAndDeleteManifestAccessInDeliveryModule() {
-		clickWhenClickable(FIRST_MANIFEST_ACTION_MENU);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(MANIFEST_ACTION_DROPDOWN));
-		clickWhenClickable(DELETE_MANIFEST_OPTION);
-		wait.until(ExpectedConditions.elementToBeClickable(CONFIRM_DELETE_BUTTON));
-		clickWhenClickable(CONFIRM_DELETE_BUTTON);
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(DELETE_MANIFEST_OPTION));
+		clickWhenClickable(firstManifestActionMenu);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(manifestActionDropdown));
+		clickWhenClickable(deleteManifestOption);
+		wait.until(ExpectedConditions.elementToBeClickable(confirmDeleteButton));
+		clickWhenClickable(confirmDeleteButton);
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(deleteManifestOption));
 	}
 
 	public void verifyUserCannotAddOrDeleteManifest() {
-		assertElementNotPresent(NEW_MANIFEST_BUTTON);
-		clickWhenClickable(MANIFEST_ACTION_MENU);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(MANIFEST_ACTION_DROPDOWN));
-		assertElementNotPresent(DELETE_MANIFEST_OPTION);
+		assertElementNotPresent(newManifestButton);
+		clickWhenClickable(manifestActionMenu);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(manifestActionDropdown));
+		assertElementNotPresent(deleteManifestOption);
 	}
 
 	public void testViewAndEditManifestAccessInDeliveryModule() {
-		clickWhenClickable(MANIFEST_ACTION_MENU);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(MANIFEST_ACTION_DROPDOWN));
-		clickWhenClickable(EDIT_MANIFEST_OPTION);
-		wait.until(ExpectedConditions.elementToBeClickable(MANIFEST_STATUS_DROPDOWN));
-		selectDropdownByIndexWhenReady(MANIFEST_STATUS_DROPDOWN, 2);
-		clickWhenClickable(SAVE_BUTTON);
+		clickWhenClickable(manifestActionMenu);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(manifestActionDropdown));
+		clickWhenClickable(editManifestOption);
+		wait.until(ExpectedConditions.elementToBeClickable(manifestStatusDropdown));
+		selectDropdownByIndexWhenReady(manifestStatusDropdown, 2);
+		clickWhenClickable(saveButton);
 
 	}
 
@@ -1553,52 +1537,52 @@ public class deliverypage {
 
 	public void verifyUserCannotEditOrDeleteManifest() {
 		sleep(2000);
-		clickWhenClickable(MANIFEST_ACTION_MENU);
+		clickWhenClickable(manifestActionMenu);
 		sleep(2000);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(MANIFEST_ACTION_DROPDOWN));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(manifestActionDropdown));
 		sleep(2000);
-		assertElementNotPresent(EDIT_MANIFEST_OPTION);
+		assertElementNotPresent(editManifestOption);
 		sleep(2000);
-		assertElementNotPresent(DELETE_MANIFEST_OPTION);
+		assertElementNotPresent(deleteManifestOption);
 	}
 
 	public void verifyUserCanViewAndAddManifest() {
 		sleep(2000);
-		clickWhenClickable(NEW_MANIFEST_BUTTON);
+		clickWhenClickable(newManifestButton);
 		sleep(2000);
-		clickWhenClickable(DELIVERY_DATE_INPUT);
+		clickWhenClickable(deliveryDateInput);
 		sleep(2000);
 		LocalDate futureDate = LocalDate.now().plusDays(5);
 		int day = futureDate.getDayOfMonth();
 		int year = futureDate.getYear();
 		String month = futureDate.getMonth().getDisplayName(TextStyle.SHORT, Locale.ENGLISH);
 		sleep(2000);
-		WebElement yearDropdown = wait.until(ExpectedConditions.visibilityOfElementLocated(DATEPICKER_YEAR_DROPDOWN));
+		WebElement yearDropdown = wait.until(ExpectedConditions.visibilityOfElementLocated(datepickerYearDropdown));
 		new Select(yearDropdown).selectByVisibleText(String.valueOf(year));
 		sleep(2000);
-		WebElement monthDropdown = wait.until(ExpectedConditions.visibilityOfElementLocated(DATEPICKER_MONTH_DROPDOWN));
+		WebElement monthDropdown = wait.until(ExpectedConditions.visibilityOfElementLocated(datepickerMonthDropdown));
 		new Select(monthDropdown).selectByVisibleText(month);
 		sleep(2000);
 		By DATE_TO_SELECT = By.xpath("//td[normalize-space()='" + day + "']");
 		wait.until(ExpectedConditions.elementToBeClickable(DATE_TO_SELECT)).click();
 		sleep(2000);
-		clickWhenClickable(DRIVER_DROPDOWN);
+		clickWhenClickable(driverDropdown);
 		sleep(2000);
-		selectDropdownByIndexWhenReady(DRIVER_DROPDOWN, 1);
+		selectDropdownByIndexWhenReady(driverDropdown, 1);
 		sleep(2000);
-		clickWhenClickable(STARTING_POINT_DROPDOWN);
+		clickWhenClickable(startingPointDropdown);
 		sleep(2000);
-		selectDropdownByIndexWhenReady(STARTING_POINT_DROPDOWN, 1);
+		selectDropdownByIndexWhenReady(startingPointDropdown, 1);
 		sleep(2000);
-		clickWhenClickable(END_POINT_DROPDOWN);
+		clickWhenClickable(endPointDropdown);
 		sleep(2000);
-		selectDropdownByIndexWhenReady(END_POINT_DROPDOWN, 1);
+		selectDropdownByIndexWhenReady(endPointDropdown, 1);
 		sleep(2000);
-		clickWhenClickable(STATUS_DROPDOWN);
+		clickWhenClickable(statusDropdown);
 		sleep(2000);
-		selectDropdownByIndexWhenReady(STATUS_DROPDOWN, 1);
+		selectDropdownByIndexWhenReady(statusDropdown, 1);
 		sleep(2000);
-		clickWhenClickable(SAVE_BUTTON);
+		clickWhenClickable(saveButton);
 	}
 
 	public void testProfileWithViewAndAddPermissionsForManifest() {
@@ -1608,13 +1592,11 @@ public class deliverypage {
 		selectAllModules.click();
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-		WebElement manifestAllAccess = wait
-				.until(ExpectedConditions.elementToBeClickable(MANIFEST_ALL_ACCESS_CHECKBOX));
+		WebElement manifestAllAccess = wait.until(ExpectedConditions.elementToBeClickable(manifestAllAccessCheckbox));
 		manifestAllAccess.click();
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-		WebElement manifestAddAccess = wait
-				.until(ExpectedConditions.elementToBeClickable(MANIFEST_ADD_ACCESS_CHECKBOX));
+		WebElement manifestAddAccess = wait.until(ExpectedConditions.elementToBeClickable(manifestAddAccessCheckbox));
 		manifestAddAccess.click();
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 
@@ -1627,23 +1609,23 @@ public class deliverypage {
 
 	// Customer Attestation
 	public void verifyUserCanSendCustomerAttestationForSignature() {
-		wait.until(ExpectedConditions.elementToBeClickable(SEND_FOR_SIGNATURE_BUTTON));
-		clickWhenClickable(SEND_FOR_SIGNATURE_BUTTON);
-		wait.until(ExpectedConditions.elementToBeClickable(SEND_SIGNATURE_DROPDOWN));
-		selectDropdownByIndexWhenReady(SEND_SIGNATURE_DROPDOWN, 1);
+		wait.until(ExpectedConditions.elementToBeClickable(sendForSignatureButton));
+		clickWhenClickable(sendForSignatureButton);
+		wait.until(ExpectedConditions.elementToBeClickable(sendSignatureDropdown));
+		selectDropdownByIndexWhenReady(sendSignatureDropdown, 1);
 	}
 
 	public void verifyUserCanPrintCustomerAttestation() {
-		wait.until(ExpectedConditions.elementToBeClickable(FIRST_PACKAGE_DETAIL_BUTTON));
-		clickWhenClickable(FIRST_PACKAGE_DETAIL_BUTTON);
-		wait.until(ExpectedConditions.elementToBeClickable(FIRST_CUSTOMER_ATTESTATION_ACTION_MENU));
-		clickWhenClickable(FIRST_CUSTOMER_ATTESTATION_ACTION_MENU);
-		wait.until(ExpectedConditions.elementToBeClickable(PRINT_CUSTOMER_ATTESTATION_OPTION));
-		clickWhenClickable(PRINT_CUSTOMER_ATTESTATION_OPTION);
+		wait.until(ExpectedConditions.elementToBeClickable(firstPackageDetailButton));
+		clickWhenClickable(firstPackageDetailButton);
+		wait.until(ExpectedConditions.elementToBeClickable(firstCustomerAttestationActionMenu));
+		clickWhenClickable(firstCustomerAttestationActionMenu);
+		wait.until(ExpectedConditions.elementToBeClickable(printCustomerAttestationOption));
+		clickWhenClickable(printCustomerAttestationOption);
 		((JavascriptExecutor) driver).executeScript("window.print();");
 		System.out.println("Customer Attestation PDF auto-saved in Downloads folder");
-		wait.until(ExpectedConditions.elementToBeClickable(CLOSE_PRINT_MODAL_BUTTON));
-		clickWhenClickable(CLOSE_PRINT_MODAL_BUTTON);
+		wait.until(ExpectedConditions.elementToBeClickable(closePrintModalButton));
+		clickWhenClickable(closePrintModalButton);
 	}
 
 	public void testPrintAndSendForSignatureAccessToCustomerAttestation() {
@@ -1656,54 +1638,54 @@ public class deliverypage {
 	}
 
 	public void testCustomerAttestationAddEditRestricted() {
-		assertElementNotPresent(ADD_CUSTOMER_ATTESTATION_BUTTON);
-		wait.until(ExpectedConditions.elementToBeClickable(FIRST_CUSTOMER_ATTESTATION_ACTION_MENU));
-		clickWhenClickable(FIRST_CUSTOMER_ATTESTATION_ACTION_MENU);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(CUSTOMER_ATTESTATION_ACTION_DROPDOWN));
-		assertElementNotPresent(EDIT_CUSTOMER_ATTESTATION_OPTION);
+		assertElementNotPresent(addCustomerAttestationButton);
+		wait.until(ExpectedConditions.elementToBeClickable(firstCustomerAttestationActionMenu));
+		clickWhenClickable(firstCustomerAttestationActionMenu);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(customerAttestationActionDropdown));
+		assertElementNotPresent(editCustomerAttestationOption);
 	}
 
 	public void testCustomerAttestationDeleteAccess() {
-		wait.until(ExpectedConditions.elementToBeClickable(FIRST_PACKAGE_DETAIL_BUTTON));
-		clickWhenClickable(FIRST_PACKAGE_DETAIL_BUTTON);
-		wait.until(ExpectedConditions.elementToBeClickable(FIRST_CUSTOMER_ATTESTATION_ACTION_MENU));
-		clickWhenClickable(FIRST_CUSTOMER_ATTESTATION_ACTION_MENU);
-		wait.until(ExpectedConditions.elementToBeClickable(DELETE_CUSTOMER_ATTESTATION_OPTION));
-		clickWhenClickable(DELETE_CUSTOMER_ATTESTATION_OPTION);
-		wait.until(ExpectedConditions.elementToBeClickable(CONFIRM_DELETE_CUSTOMER_ATTESTATION_BUTTON));
-		clickWhenClickable(CONFIRM_DELETE_CUSTOMER_ATTESTATION_BUTTON);
+		wait.until(ExpectedConditions.elementToBeClickable(firstPackageDetailButton));
+		clickWhenClickable(firstPackageDetailButton);
+		wait.until(ExpectedConditions.elementToBeClickable(firstCustomerAttestationActionMenu));
+		clickWhenClickable(firstCustomerAttestationActionMenu);
+		wait.until(ExpectedConditions.elementToBeClickable(deleteCustomerAttestationOption));
+		clickWhenClickable(deleteCustomerAttestationOption);
+		wait.until(ExpectedConditions.elementToBeClickable(confirmDeleteCustomerAttestationButton));
+		clickWhenClickable(confirmDeleteCustomerAttestationButton);
 	}
 
 	public void testNoAddOrDeleteAccessForCustomerAttestation() {
-		assertElementNotPresent(ADD_CUSTOMER_ATTESTATION_BUTTON);
-		wait.until(ExpectedConditions.elementToBeClickable(FIRST_CUSTOMER_ATTESTATION_ACTION_MENU));
-		clickWhenClickable(FIRST_CUSTOMER_ATTESTATION_ACTION_MENU);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(CUSTOMER_ATTESTATION_ACTION_DROPDOWN));
-		assertElementNotPresent(DELETE_CUSTOMER_ATTESTATION_OPTION);
+		assertElementNotPresent(addCustomerAttestationButton);
+		wait.until(ExpectedConditions.elementToBeClickable(firstCustomerAttestationActionMenu));
+		clickWhenClickable(firstCustomerAttestationActionMenu);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(customerAttestationActionDropdown));
+		assertElementNotPresent(deleteCustomerAttestationOption);
 	}
 
 	public void testCustomerAttestationEditAccess() {
-		wait.until(ExpectedConditions.elementToBeClickable(FIRST_PACKAGE_DETAIL_BUTTON));
-		clickWhenClickable(FIRST_PACKAGE_DETAIL_BUTTON);
-		wait.until(ExpectedConditions.elementToBeClickable(FIRST_CUSTOMER_ATTESTATION_ACTION_MENU));
-		clickWhenClickable(FIRST_CUSTOMER_ATTESTATION_ACTION_MENU);
-		wait.until(ExpectedConditions.elementToBeClickable(EDIT_CUSTOMER_ATTESTATION_OPTION));
-		clickWhenClickable(EDIT_CUSTOMER_ATTESTATION_OPTION);
-		waitAndSendKeys(ADDRESS_RECEIVER_INPUT, "Ahmedabad");
-		wait.until(ExpectedConditions.elementToBeClickable(SAVE_CUSTOMER_ATTESTATION_BUTTON));
-		clickWhenClickable(SAVE_CUSTOMER_ATTESTATION_BUTTON);
+		wait.until(ExpectedConditions.elementToBeClickable(firstPackageDetailButton));
+		clickWhenClickable(firstPackageDetailButton);
+		wait.until(ExpectedConditions.elementToBeClickable(firstCustomerAttestationActionMenu));
+		clickWhenClickable(firstCustomerAttestationActionMenu);
+		wait.until(ExpectedConditions.elementToBeClickable(editCustomerAttestationOption));
+		clickWhenClickable(editCustomerAttestationOption);
+		waitAndSendKeys(addressReceiverInput, "Ahmedabad");
+		wait.until(ExpectedConditions.elementToBeClickable(saveCustomerAttestationButton));
+		clickWhenClickable(saveCustomerAttestationButton);
 	}
 
 	public void testEditAndDeleteAccessRestrictedForCustomerAttestation() {
 		sleep(2000);
-		wait.until(ExpectedConditions.elementToBeClickable(FIRST_CUSTOMER_ATTESTATION_ACTION_MENU));
-		clickWhenClickable(FIRST_CUSTOMER_ATTESTATION_ACTION_MENU);
+		wait.until(ExpectedConditions.elementToBeClickable(firstCustomerAttestationActionMenu));
+		clickWhenClickable(firstCustomerAttestationActionMenu);
 		sleep(2000);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(CUSTOMER_ATTESTATION_ACTION_DROPDOWN));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(customerAttestationActionDropdown));
 		sleep(2000);
-		assertElementNotPresent(EDIT_CUSTOMER_ATTESTATION_OPTION);
+		assertElementNotPresent(editCustomerAttestationOption);
 		sleep(2000);
-		assertElementNotPresent(DELETE_CUSTOMER_ATTESTATION_OPTION);
+		assertElementNotPresent(deleteCustomerAttestationOption);
 	}
 
 	public void testCustomerAttestationDeleteAccessProfile() {
@@ -1731,40 +1713,40 @@ public class deliverypage {
 		selectAllModules.click();
 		sleep(2000);
 		WebElement customerAttestationAllAccess = wait
-				.until(ExpectedConditions.elementToBeClickable(CUSTOMER_ATTESTATION_ALL_ACCESS_CHECKBOX));
+				.until(ExpectedConditions.elementToBeClickable(customerAttestationAllAccessCheckbox));
 		customerAttestationAllAccess.click();
 		sleep(2000);
 		WebElement customerAttestationAddAccess = wait
-				.until(ExpectedConditions.elementToBeClickable(CUSTOMER_ATTESTATION_ADD_ACCESS_CHECKBOX));
+				.until(ExpectedConditions.elementToBeClickable(customerAttestationAddAccessCheckbox));
 		customerAttestationAddAccess.click();
 
 	}
 
 	public void testAddCustomerAttestationFunctionality() {
 		sleep(2000);
-		wait.until(ExpectedConditions.elementToBeClickable(FIRST_PACKAGE_DETAIL_BUTTON));
+		wait.until(ExpectedConditions.elementToBeClickable(firstPackageDetailButton));
 		sleep(2000);
-		clickWhenClickable(FIRST_PACKAGE_DETAIL_BUTTON);
+		clickWhenClickable(firstPackageDetailButton);
 		sleep(2000);
-		wait.until(ExpectedConditions.elementToBeClickable(ADD_CUSTOMER_ATTESTATION_BUTTON));
+		wait.until(ExpectedConditions.elementToBeClickable(addCustomerAttestationButton));
 		sleep(2000);
-		clickWhenClickable(ADD_CUSTOMER_ATTESTATION_BUTTON);
+		clickWhenClickable(addCustomerAttestationButton);
 		sleep(2000);
-		waitAndSendKeys(RX_NUMBER_INPUT, "RX7845123");
-		waitAndSendKeys(PATIENT_NAME_INPUT, "John A. Smith");
-		waitAndSendKeys(MEDICATION_INPUT, "Atorvastatin 20mg Tablet");
-		waitAndSendKeys(RECEIVED_FROM_INPUT, "CVS Pharmacy");
+		waitAndSendKeys(rxNumberInput, "RX7845123");
+		waitAndSendKeys(patientNameInput, "John A. Smith");
+		waitAndSendKeys(medicationInput, "Atorvastatin 20mg Tablet");
+		waitAndSendKeys(receivedFromInput, "CVS Pharmacy");
 		sleep(2000);
-		selectDate(FILLED_DATE_INPUT, 5);
+		selectDate(filledDateInput, 5);
 		sleep(2000);
-		selectDate(RECEIVED_DATE_INPUT, 5);
+		selectDate(receivedDateInput, 5);
 		sleep(2000);
-		waitAndSendKeys(ADDRESS_RECEIVER_INPUT, "742 Evergreen Terrace, Springfield, IL 62704");
-		waitAndSendKeys(RECEIVER_NAME_INPUT, "Mary Smith");
-		waitAndSendKeys(PATIENT_RELATION_INPUT, "Spouse");
-		waitAndSendKeys(PHONE_NUMBER_INPUT, "2175558945");
+		waitAndSendKeys(addressReceiverInput, "742 Evergreen Terrace, Springfield, IL 62704");
+		waitAndSendKeys(receiverNameInput, "Mary Smith");
+		waitAndSendKeys(patientRelationInput, "Spouse");
+		waitAndSendKeys(phoneNumberInput, "2175558945");
 		sleep(2000);
-		clickWhenClickable(SAVE_CUSTOMER_ATTESTATION_BUTTON);
+		clickWhenClickable(saveCustomerAttestationButton);
 	}
 
 	private void selectDate(By dateInputLocator, int daysFromToday) {
@@ -1774,9 +1756,9 @@ public class deliverypage {
 		int day = futureDate.getDayOfMonth();
 		int year = futureDate.getYear();
 		String month = futureDate.getMonth().getDisplayName(TextStyle.SHORT, Locale.ENGLISH);
-		WebElement yearDropdown = wait.until(ExpectedConditions.visibilityOfElementLocated(DATEPICKER_YEAR_DROPDOWN));
+		WebElement yearDropdown = wait.until(ExpectedConditions.visibilityOfElementLocated(datepickerYearDropdown));
 		new Select(yearDropdown).selectByVisibleText(String.valueOf(year));
-		WebElement monthDropdown = wait.until(ExpectedConditions.visibilityOfElementLocated(DATEPICKER_MONTH_DROPDOWN));
+		WebElement monthDropdown = wait.until(ExpectedConditions.visibilityOfElementLocated(datepickerMonthDropdown));
 		new Select(monthDropdown).selectByVisibleText(month);
 		WebElement dayToSelect = wait.until(ExpectedConditions.elementToBeClickable(datepickerDay(day)));
 		dayToSelect.click();
@@ -1785,17 +1767,17 @@ public class deliverypage {
 
 	// Delivery Job Setting
 	public void noEditDeliveryJobSettingTest() {
-		clickWhenClickable(DELIVERY_MODULE_CHECKBOX);
+		clickWhenClickable(deliveryModuleCheckbox);
 		sleep(2000);
-		clickWhenClickable(DELIVERY_ACTION_MENU);
+		clickWhenClickable(deliveryActionMenu);
 		sleep(2000);
-		assertElementNotPresent(DELIVERY_EDIT_OPTION);
+		assertElementNotPresent(deliveryEditOption);
 	}
 
 	public void runTriggersDeliveryModuleTest() {
-		clickWhenClickable(DELIVERY_MODULE_CHECKBOX);
+		clickWhenClickable(deliveryModuleCheckbox);
 		sleep(2000);
-		clickWhenClickable(RUN_TRIGGER_BUTTON);
+		clickWhenClickable(runTriggerButton);
 		sleep(2000);
 	}
 
@@ -1810,9 +1792,9 @@ public class deliverypage {
 
 	public void testDeliveryModuleRunTriggersNotAllowed() {
 		sleep(3000);
-		clickWhenClickable(DELIVERY_JOB_SETTINGS_URL);
+		clickWhenClickable(deliveryJobSettingsUrl);
 		sleep(2000);
-		assertElementNotPresent(DELIVERY_RUN_TRIGGER_BUTTON);
+		assertElementNotPresent(deliveryJobSettingsUrl);
 	}
 
 	public void testDeliveryJobSettingEditAccessProfile() {
@@ -1831,32 +1813,32 @@ public class deliverypage {
 
 	public void verifyUserCanEditDeliveryJobSetting() {
 		sleep(2000);
-		wait.until(ExpectedConditions.elementToBeClickable(DELIVERY_MODULE_CHECKBOX));
-		clickWhenClickable(DELIVERY_MODULE_CHECKBOX);
+		wait.until(ExpectedConditions.elementToBeClickable(deliveryModuleCheckbox));
+		clickWhenClickable(deliveryModuleCheckbox);
 		sleep(2000);
-		wait.until(ExpectedConditions.elementToBeClickable(DELIVERY_MODULE_ACTION_MENU));
-		clickWhenClickable(DELIVERY_MODULE_ACTION_MENU);
+		wait.until(ExpectedConditions.elementToBeClickable(deliveryModuleActionMenu));
+		clickWhenClickable(deliveryModuleActionMenu);
 		sleep(2000);
-		wait.until(ExpectedConditions.elementToBeClickable(EDIT_JOB_SETTING_OPTION));
-		clickWhenClickable(EDIT_JOB_SETTING_OPTION);
+		wait.until(ExpectedConditions.elementToBeClickable(editJobSettingOption));
+		clickWhenClickable(editJobSettingOption);
 		sleep(2000);
-		waitAndSendKeys(FROM_EMAIL_INPUT, "delivery_admin@mailinator.com");
-		waitAndSendKeys(TO_EMAIL_INPUT, "notifications@mailinator.com");
+		waitAndSendKeys(fromEmailInput, "delivery_admin@mailinator.com");
+		waitAndSendKeys(toEmailInput, "notifications@mailinator.com");
 		sleep(2000);
-		wait.until(ExpectedConditions.elementToBeClickable(SAVE_JOB_SETTING_BUTTON));
-		clickWhenClickable(SAVE_JOB_SETTING_BUTTON);
+		wait.until(ExpectedConditions.elementToBeClickable(saveJobSettingButton));
+		clickWhenClickable(saveJobSettingButton);
 	}
 
 	// Delivery Report
 	public void verifyUserCannotExportDeliveryReport() {
-		assertElementNotPresent(EXPORT_EXCEL_BUTTON);
+		assertElementNotPresent(exportExcelButton);
 	}
 
 	public void verifyUserCanExportDeliveryReport() {
 		sleep(2000);
-		wait.until(ExpectedConditions.elementToBeClickable(EXPORT_EXCEL_BUTTON));
+		wait.until(ExpectedConditions.elementToBeClickable(exportExcelButton));
 		sleep(2000);
-		clickWhenClickable(EXPORT_EXCEL_BUTTON);
+		clickWhenClickable(exportExcelButton);
 		sleep(2000);
 	}
 
@@ -1866,11 +1848,10 @@ public class deliverypage {
 		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
 		allModules.click();
 		sleep(2000);
-		WebElement deliveryReportAllElement = wait.until(ExpectedConditions.elementToBeClickable(DELIVERY_REPORT_ALL));
+		WebElement deliveryReportAllElement = wait.until(ExpectedConditions.elementToBeClickable(deliveryReportAll));
 		deliveryReportAllElement.click();
 		sleep(2000);
-		WebElement deliveryReportViewElement = wait
-				.until(ExpectedConditions.elementToBeClickable(DELIVERY_REPORT_VIEW));
+		WebElement deliveryReportViewElement = wait.until(ExpectedConditions.elementToBeClickable(deliveryReportView));
 		deliveryReportViewElement.click();
 
 	}
@@ -1892,14 +1873,14 @@ public class deliverypage {
 	// Manifest Summary Report
 	public void exportManifestSummaryReportTest() {
 		sleep(2000);
-		wait.until(ExpectedConditions.elementToBeClickable(MANIFEST_SUMMARY_REPORT_EXPORT_BUTTON));
+		wait.until(ExpectedConditions.elementToBeClickable(manifestSummaryReportExportButton));
 		sleep(2000);
-		clickWhenClickable(MANIFEST_SUMMARY_REPORT_EXPORT_BUTTON);
+		clickWhenClickable(manifestSummaryReportExportButton);
 		sleep(2000);
 	}
 
 	public void verifyUserCannotExportManifestSummaryReport() {
-		assertElementNotPresent(EXPORT_EXCEL_BUTTON_MANIFEST_SUMMARY);
+		assertElementNotPresent(exportExcelButtonManifestSummary);
 	}
 
 	public void manifestSummaryReportViewOnlyTest() {
@@ -1909,11 +1890,11 @@ public class deliverypage {
 		allModules.click();
 		sleep(2000);
 		WebElement manifestSummaryReportAllElement = wait
-				.until(ExpectedConditions.elementToBeClickable(MANIFEST_SUMMARY_REPORT_ALL));
+				.until(ExpectedConditions.elementToBeClickable(manifestSummaryReportAll));
 		manifestSummaryReportAllElement.click();
 		sleep(2000);
 		WebElement manifestSummaryReportViewElement = wait
-				.until(ExpectedConditions.elementToBeClickable(MANIFEST_SUMMARY_REPORT_VIEW));
+				.until(ExpectedConditions.elementToBeClickable(manifestSummaryReportView));
 		manifestSummaryReportViewElement.click();
 
 	}
@@ -1935,14 +1916,14 @@ public class deliverypage {
 	// Delivery Statistic Report
 	public void verifyUserCannotExportDeliveryStatisticReport() {
 		sleep(2000);
-		assertElementNotPresent(EXPORT_DELIVERY_STATISTIC_REPORT);
+		assertElementNotPresent(exportDeliveryStatisticReport);
 	}
 
 	public void verifyUserCanExportDeliveryStatisticReport() {
 		sleep(2000);
-		wait.until(ExpectedConditions.elementToBeClickable(EXPORT_DELIVERY_STATISTIC_REPORT));
+		wait.until(ExpectedConditions.elementToBeClickable(exportDeliveryStatisticReport));
 		sleep(2000);
-		clickWhenClickable(EXPORT_DELIVERY_STATISTIC_REPORT);
+		clickWhenClickable(exportDeliveryStatisticReport);
 		sleep(2000);
 	}
 
@@ -1954,11 +1935,11 @@ public class deliverypage {
 		selectAllModulesLabelElement.click();
 		sleep(2000);
 		WebElement deliveryStatisticReportAllElement = wait
-				.until(ExpectedConditions.elementToBeClickable(DELIVERY_STATISTIC_REPORT_ALL));
+				.until(ExpectedConditions.elementToBeClickable(deliveryStatisticReportAll));
 		deliveryStatisticReportAllElement.click();
 		sleep(2000);
 		WebElement deliveryStatisticReportViewElement = wait
-				.until(ExpectedConditions.elementToBeClickable(DELIVERY_STATISTIC_REPORT_VIEW));
+				.until(ExpectedConditions.elementToBeClickable(deliveryStatisticReportView));
 		deliveryStatisticReportViewElement.click();
 
 	}

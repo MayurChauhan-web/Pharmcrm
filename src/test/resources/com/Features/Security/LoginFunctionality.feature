@@ -20,4 +20,4 @@ Scenario: User able to login with user type as Patient in login page
   Then user enter the Patient emailid
   And user enter the Patient password
   When user click on the go button  
-      
+  

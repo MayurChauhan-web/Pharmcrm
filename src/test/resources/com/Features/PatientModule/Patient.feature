@@ -1299,4 +1299,3 @@ Then the user should be able to view color codes test
 And the user should be able to add a color code test
 And the user should be able to edit a color code test
 And the user should be able to delete a color code test
-

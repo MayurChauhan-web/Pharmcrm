@@ -25,7 +25,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -39,7 +39,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Default_suite" class="navigator-link">
-              <span class="suite-name border-passed">Default suite</span>
+              <span class="suite-name border-failed">Default suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -50,7 +50,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\MayurChauhan\AppData\Local\Temp\testng-eclipse-1367349400\testng-customsuite.xml</span>
+                    <span>C:\Users\MayurChauhan\AppData\Local\Temp\testng-eclipse-2008977457\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -92,21 +92,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,   1 passed</span>
+                    <span class="method-stats">1 method, 1 failed,   </span>
                   </li>
                   <li>
-                    <span class="method-list-title passed">Passed methods</span>
-                    <span class="show-or-hide-methods passed">
-                      <a href="#" panel-name="suite-Default_suite" class="hide-methods passed suite-Default_suite"> (hide)</a> <!-- hide-methods passed suite-Default_suite -->
-                      <a href="#" panel-name="suite-Default_suite" class="show-methods passed suite-Default_suite"> (show)</a> <!-- show-methods passed suite-Default_suite -->
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Default_suite" class="hide-methods failed suite-Default_suite"> (hide)</a> <!-- hide-methods failed suite-Default_suite -->
+                      <a href="#" panel-name="suite-Default_suite" class="show-methods failed suite-Default_suite"> (show)</a> <!-- show-methods failed suite-Default_suite -->
                     </span>
-                    <div class="method-list-content passed suite-Default_suite">
+                    <div class="method-list-content failed suite-Default_suite">
                       <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.pharmcrm.pharmcrm_product.runner.MasterRunner" class="method navigator-link" hash-for-method="runScenario(&quot;User with View only access for General Audit View test&quot;, &quot;Entire Delivery Module.&quot;)">runScenario("User with View only access for General Audit View test", "Entire Delivery Module.")</a> <!-- method navigator-link -->
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="com.pharmcrm.pharmcrm_product.runner.MasterRunner" class="method navigator-link" hash-for-method="runScenario(&quot;User with Delete access for Program test&quot;, &quot;Entire Drug Module.&quot;)">runScenario("User with Delete access for Program test", "Entire Drug Module.")</a> <!-- method navigator-link -->
                       </span>
                       <br/>
-                    </div> <!-- method-list-content passed suite-Default_suite -->
+                    </div> <!-- method-list-content failed suite-Default_suite -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -118,28 +118,41 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Default_suite" class="panel Default_suite">
-          <div class="suite-Default_suite-class-passed">
+          <div class="suite-Default_suite-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
+              <img src="failed.png"/>
               <span class="class-name">com.pharmcrm.pharmcrm_product.runner.MasterRunner</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="runScenario(&quot;User with View only access for General Audit View test&quot;, &quot;Entire Delivery Module.&quot;)">
-                  </a> <!-- runScenario("User with View only access for General Audit View test", "Entire Delivery Module.") -->
+                  <a name="runScenario(&quot;User with Delete access for Program test&quot;, &quot;Entire Drug Module.&quot;)">
+                  </a> <!-- runScenario("User with Delete access for Program test", "Entire Drug Module.") -->
                   <span class="method-name">runScenario</span>
-                  <span class="parameters">("User with View only access for General Audit View test","Entire Delivery Module.")</span>
+                  <span class="parameters">("User with Delete access for Program test","Entire Drug Module.")</span>
+                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for url to contain &quot;/Drug/Home/Drugs&quot;. Current url: &quot;https://qa01.pharmcrm.com/Setup/Home/Profiles&quot; (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.38.0&apos;, revision: &apos;6b412e825c*&apos;
+System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.12&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 144.0.7559.112, chrome: {chromedriverVersion: 144.0.7559.133 (7da823b1d59..., userDataDir: C:\Users\MAYURC~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59177}, goog:processID: 11676, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59177/devtoo..., se:cdpVersion: 144.0.7559.112, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 5e718ccf360a574b56335974d2322183
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+	at com.pharmcrm_DrugModule.pages.drugpage.opendrugsPage(drugpage.java:1235)
+	at com.pharmcrm_DrugModule.steps.drugstep.userCanViewAndDeleteProgramTest(drugstep.java:32)
+	at ✽.the user should be able to view and delete Program test(file:///C:/Users/MayurChauhan/eclipse-workspace/pharmcrm-product/src/test/resources/com/Features/DrugModule/Drug.feature:428)
+
+</div> <!-- stack-trace -->
                   <em>
 (Runs Cucumber Scenarios)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Default_suite-class-passed -->
+          </div> <!-- suite-Default_suite-class-failed -->
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\MayurChauhan\AppData\Local\Temp\testng-eclipse-1367349400\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\MayurChauhan\AppData\Local\Temp\testng-eclipse-2008977457\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -200,12 +213,12 @@ data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'runScenario')
 data.setCell(0, 2, 'com.pharmcrm.pharmcrm_product.runner.MasterRunner')
-data.setCell(0, 3, 55291);
+data.setCell(0, 3, 78585);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 55 seconds</span>
+              <span class="suite-total-time">Total running time: 1 minutes</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -233,16 +246,18 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">com.pharmcrm.pharmcrm_product.runner.MasterRunner</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
-                <span class="method-name">setUpClass(org.testng.TestRunner@7a356a0d)</span>
+                <span class="method-name">setUpClass(org.testng.TestRunner@41a6d121)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
-                <span class="method-name">runScenario("User with View only access for General Audit View test", "Entire Delivery Module.")</span>
-                <span class="method-start">772 ms</span>
+                <img src="failed.png">
+                </img>
+                <span class="method-name">runScenario("User with Delete access for Program test", "Entire Drug Module.")</span>
+                <span class="method-start">711 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">tearDownClass</span>
-                <span class="method-start">56069 ms</span>
+                <span class="method-start">79308 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
