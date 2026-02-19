@@ -19,6 +19,8 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import com.google.common.base.Function;
 
+import hooks.Hooks;
+
 public class deliverypage {
 
 	// Delivery Statistic Report
@@ -337,7 +339,7 @@ public class deliverypage {
 		sleep(3000);
 		WebElement planInput = wait.until(ExpectedConditions.elementToBeClickable(packagePlanInput));
 		planInput.clear();
-		planInput.sendKeys("100");
+		planInput.sendKeys(Hooks.prop.getProperty("plan.value"));
 	}
 
 	public void verifyUserCanViewPackagePlanRestriction() {
@@ -456,25 +458,25 @@ public class deliverypage {
 		sleep(3000);
 		wait.until(ExpectedConditions.elementToBeClickable(generateInvoiceBtn)).click();
 		sleep(3000);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(invoiceFirstName)).sendKeys("Miguel");
+		driver.findElement(invoiceFirstName).sendKeys(Hooks.prop.getProperty("invoice.firstname"));
 		sleep(3000);
-		driver.findElement(invoiceBillingEmail).sendKeys("miguel.smith@mailinator.com");
-		driver.findElement(prescriptionNumber).sendKeys("RX1234567");
+		driver.findElement(invoiceBillingEmail).sendKeys(Hooks.prop.getProperty("invoice.email"));
+		driver.findElement(prescriptionNumber).sendKeys(Hooks.prop.getProperty("prescription.number"));
 		sleep(3000);
 		wait.until(ExpectedConditions.elementToBeClickable(rxDropdownInput)).click();
 		sleep(3000);
 		wait.until(ExpectedConditions.elementToBeClickable(rxOption)).click();
 		sleep(3000);
-		driver.findElement(invoiceDescription).sendKeys("Atorvastatin 20mg Tablet");
-		driver.findElement(invoiceQuantity).sendKeys("30");
-		driver.findElement(invoiceCopay).sendKeys("15.00");
+		driver.findElement(invoiceDescription).sendKeys(Hooks.prop.getProperty("invoice.description"));
+		driver.findElement(invoiceQuantity).sendKeys(Hooks.prop.getProperty("invoice.quantity"));
+		driver.findElement(invoiceCopay).sendKeys(Hooks.prop.getProperty("invoice.copay"));
 		wait.until(ExpectedConditions.elementToBeClickable(addInvoiceDetailBtn)).click();
 		sleep(3000);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(patientEmail)).sendKeys("miguel.smith@mailinator.com");
+		driver.findElement(patientEmail).sendKeys(Hooks.prop.getProperty("patient.email"));
 		sleep(3000);
 		driver.findElement(patientEmailCheckbox).click();
 		sleep(3000);
-		driver.findElement(billToFirstName).sendKeys("Miguel");
+		driver.findElement(billToFirstName).sendKeys(Hooks.prop.getProperty("billto.firstname"));
 		sleep(3000);
 		wait.until(ExpectedConditions.elementToBeClickable(saveAndSendBtn)).click();
 	}
@@ -483,16 +485,16 @@ public class deliverypage {
 		sleep(3000);
 		wait.until(ExpectedConditions.elementToBeClickable(addCustomerAttestationBtn)).click();
 		sleep(3000);
-		waitAndSendKeys(rxNumberInput, "RX7845123");
-		waitAndSendKeys(patientNameInput, "John A. Smith");
-		waitAndSendKeys(medicationInput, "Atorvastatin 20mg Tablet");
-		waitAndSendKeys(receivedFromInput, "CVS Pharmacy");
+		driver.findElement(rxNumberInput).sendKeys(Hooks.prop.getProperty("rx.number"));
+		driver.findElement(patientNameInput).sendKeys(Hooks.prop.getProperty("patient.name"));
+		driver.findElement(medicationInput).sendKeys(Hooks.prop.getProperty("medication.name"));
+		driver.findElement(receivedFromInput).sendKeys(Hooks.prop.getProperty("received.from"));
 		selectFutureDate(filledDateInput, 5, wait);
 		selectFutureDate(receivedDateInput, 5, wait);
-		waitAndSendKeys(addressReceiverInput, "742 Evergreen Terrace, Springfield, IL 62704");
-		waitAndSendKeys(receiverNameInput, "Mary Smith");
-		waitAndSendKeys(patientRelationInput, "Spouse");
-		waitAndSendKeys(phoneNumberInput, "2175558945");
+		driver.findElement(addressReceiverInput).sendKeys(Hooks.prop.getProperty("receiver.address"));
+		driver.findElement(receiverNameInput).sendKeys(Hooks.prop.getProperty("receiver.name"));
+		driver.findElement(patientRelationInput).sendKeys(Hooks.prop.getProperty("patient.relation"));
+		driver.findElement(phoneNumberInput).sendKeys(Hooks.prop.getProperty("receiver.phone"));
 		sleep(3000);
 		wait.until(ExpectedConditions.elementToBeClickable(saveAttestationBtn)).click();
 	}
@@ -621,7 +623,7 @@ public class deliverypage {
 		sleep(3000);
 		WebElement cityField = wait.until(ExpectedConditions.visibilityOfElementLocated(cityInputField));
 		cityField.clear();
-		cityField.sendKeys("4646545767");
+		cityField.sendKeys(Hooks.prop.getProperty("city.value"));
 		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
 	}
 
@@ -652,7 +654,7 @@ public class deliverypage {
 		clickWhenClickable(logisticCompanyDropdown);
 		selectDropdownByIndexWhenReady(logisticCompanyDropdown, 6);
 		sleep(2000);
-		waitAndSendKeys(trackingNumberField, "3477568");
+		driver.findElement(trackingNumberField).sendKeys(Hooks.prop.getProperty("tracking.number"));
 		clickWhenClickable(shippingDateInput);
 		LocalDate futureDate = LocalDate.now().plusDays(5);
 		int day = futureDate.getDayOfMonth();
@@ -664,18 +666,18 @@ public class deliverypage {
 				.selectByVisibleText(month);
 		clickWhenClickable(datePickerDay.apply(day));
 		sleep(2000);
-		waitAndSendKeys(customerNameField, "Miguel Frost");
-		waitAndSendKeys(customerContactField, "4646545767");
-		waitAndSendKeys(streetField, "4646545767");
-		waitAndSendKeys(cityField, "4646545767");
-		waitAndSendKeys(zipCodeField, "4646545767");
+		driver.findElement(customerNameField).sendKeys(Hooks.prop.getProperty("customer.name"));
+		driver.findElement(customerContactField).sendKeys(Hooks.prop.getProperty("customer.contact"));
+		driver.findElement(streetField).sendKeys(Hooks.prop.getProperty("customer.street"));
+		driver.findElement(cityField).sendKeys(Hooks.prop.getProperty("customer.city"));
+		driver.findElement(zipCodeField).sendKeys(Hooks.prop.getProperty("customer.zip"));
 		sleep(2000);
 		clickWhenClickable(stateDropdown);
 		selectDropdownByIndexWhenReady(stateDropdown, 1);
 		sleep(2000);
 		WebElement addressInput = driver.findElement(addressInputField);
 		addressInput.clear();
-		addressInput.sendKeys("Prahlad Nagar, Ahmedabad, Gujarat, India");
+		addressInput.sendKeys(Hooks.prop.getProperty("address.value"));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(addressSuggestion));
 		addressInput.sendKeys(Keys.ARROW_DOWN);
 		addressInput.sendKeys(Keys.ENTER);
@@ -788,8 +790,8 @@ public class deliverypage {
 		sleep(2000);
 		clickWhenClickable(DeliveryMarkereditOption);
 		sleep(2000);
-		waitAndSendKeys(markerNameInput, "Pharmacy Main Store");
-		waitAndSendKeys(travelToInput, "New York");
+		driver.findElement(markerNameInput).sendKeys(Hooks.prop.getProperty("marker.name"));
+		driver.findElement(travelToInput).sendKeys(Hooks.prop.getProperty("travel.to"));
 		sleep(2000);
 		clickWhenClickable(startingPoint);
 		sleep(2000);
@@ -800,8 +802,8 @@ public class deliverypage {
 		sleep(2000);
 		clickWhenClickable(newDeliveryMarkerBtn);
 		sleep(2000);
-		waitAndSendKeys(deliveryMarkerName, "Pharmacy Main Store");
-		waitAndSendKeys(travelTo, "New York");
+		driver.findElement(deliveryMarkerName).sendKeys(Hooks.prop.getProperty("delivery.marker.name"));
+		driver.findElement(travelTo).sendKeys(Hooks.prop.getProperty("delivery.travel.to"));
 		clickWhenClickable(startingPoint);
 		clickWhenClickable(deliverysaveButton);
 	}
@@ -945,7 +947,7 @@ public class deliverypage {
 		sleep(2000);
 		clickWhenClickable(editOption);
 		sleep(2000);
-		waitAndSendKeys(logisticNameInput, "Ryder Logistics");
+		driver.findElement(logisticNameInput).sendKeys(Hooks.prop.getProperty("logistic.name"));
 		sleep(2000);
 		clickWhenClickable(deliveryRadioButton);
 		sleep(2000);
@@ -957,7 +959,7 @@ public class deliverypage {
 		sleep(2000);
 		clickWhenClickable(newLogisticCompanyButton);
 		sleep(2000);
-		waitAndSendKeys(logisticNameInput, "Ryder Logistics");
+		driver.findElement(logisticNameInput).sendKeys(Hooks.prop.getProperty("logistic.name"));
 		sleep(2000);
 		clickWhenClickable(deliveryRadioButton);
 		sleep(2000);
@@ -1018,10 +1020,10 @@ public class deliverypage {
 		sleep(2000);
 		clickWhenClickable(editOption);
 		sleep(2000);
-		waitAndSendKeys(zipCodeInput, "10001");
-		waitAndSendKeys(cityInput, "New York");
-		waitAndSendKeys(countyInput, "USA");
-		waitAndSendKeys(radiusInput, "10");
+		driver.findElement(zipCodeInput).sendKeys(Hooks.prop.getProperty("location.zip"));
+		driver.findElement(cityInput).sendKeys(Hooks.prop.getProperty("location.city"));
+		driver.findElement(countyInput).sendKeys(Hooks.prop.getProperty("location.county"));
+		driver.findElement(radiusInput).sendKeys(Hooks.prop.getProperty("location.radius"));
 		clickWhenClickable(saveButton);
 
 	}
@@ -1089,10 +1091,10 @@ public class deliverypage {
 		sleep(3000);
 		clickWhenClickable(newDeliveryDistanceButton);
 		sleep(3000);
-		waitAndSendKeys(zipCodeInput, "10001");
-		waitAndSendKeys(cityInput, "New York");
-		waitAndSendKeys(countyInput, "USA");
-		waitAndSendKeys(radiusInput, "10");
+		driver.findElement(zipCodeInput).sendKeys(Hooks.prop.getProperty("location.zip"));
+		driver.findElement(cityInput).sendKeys(Hooks.prop.getProperty("location.city"));
+		driver.findElement(countyInput).sendKeys(Hooks.prop.getProperty("location.county"));
+		driver.findElement(radiusInput).sendKeys(Hooks.prop.getProperty("location.radius"));
 		sleep(2000);
 		clickWhenClickable(DeliveryDistancesaveButton);
 	}
@@ -1126,7 +1128,7 @@ public class deliverypage {
 
 	public void verifyUserCanViewAndAddPackageRestriction() {
 		sleep(2000);
-		waitAndSendKeys(planInput, "Call Patient");
+		driver.findElement(planInput).sendKeys(Hooks.prop.getProperty("plan.action"));
 		sleep(2000);
 		clickWhenClickable(restrictionOption);
 		sleep(2000);
@@ -1328,12 +1330,6 @@ public class deliverypage {
 	private void jsClick(WebElement element) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", element);
-	}
-
-	private void waitAndSendKeys(By locator, String value) {
-		WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-		element.clear();
-		element.sendKeys(value);
 	}
 
 	// Delivery Identifier
@@ -1671,7 +1667,7 @@ public class deliverypage {
 		clickWhenClickable(firstCustomerAttestationActionMenu);
 		wait.until(ExpectedConditions.elementToBeClickable(editCustomerAttestationOption));
 		clickWhenClickable(editCustomerAttestationOption);
-		waitAndSendKeys(addressReceiverInput, "Ahmedabad");
+		driver.findElement(addressReceiverInput).sendKeys(Hooks.prop.getProperty("receiver.address"));
 		wait.until(ExpectedConditions.elementToBeClickable(saveCustomerAttestationButton));
 		clickWhenClickable(saveCustomerAttestationButton);
 	}
@@ -1732,19 +1728,19 @@ public class deliverypage {
 		sleep(2000);
 		clickWhenClickable(addCustomerAttestationButton);
 		sleep(2000);
-		waitAndSendKeys(rxNumberInput, "RX7845123");
-		waitAndSendKeys(patientNameInput, "John A. Smith");
-		waitAndSendKeys(medicationInput, "Atorvastatin 20mg Tablet");
-		waitAndSendKeys(receivedFromInput, "CVS Pharmacy");
+		driver.findElement(rxNumberInput).sendKeys(Hooks.prop.getProperty("rx.number"));
+		driver.findElement(patientNameInput).sendKeys(Hooks.prop.getProperty("patient.name"));
+		driver.findElement(medicationInput).sendKeys(Hooks.prop.getProperty("medication.name"));
+		driver.findElement(receivedFromInput).sendKeys(Hooks.prop.getProperty("received.from"));
 		sleep(2000);
 		selectDate(filledDateInput, 5);
 		sleep(2000);
 		selectDate(receivedDateInput, 5);
 		sleep(2000);
-		waitAndSendKeys(addressReceiverInput, "742 Evergreen Terrace, Springfield, IL 62704");
-		waitAndSendKeys(receiverNameInput, "Mary Smith");
-		waitAndSendKeys(patientRelationInput, "Spouse");
-		waitAndSendKeys(phoneNumberInput, "2175558945");
+		driver.findElement(addressReceiverInput).sendKeys(Hooks.prop.getProperty("receiver.address"));
+		driver.findElement(receiverNameInput).sendKeys(Hooks.prop.getProperty("receiver.name"));
+		driver.findElement(patientRelationInput).sendKeys(Hooks.prop.getProperty("patient.relation"));
+		driver.findElement(phoneNumberInput).sendKeys(Hooks.prop.getProperty("receiver.phone"));
 		sleep(2000);
 		clickWhenClickable(saveCustomerAttestationButton);
 	}
@@ -1822,8 +1818,8 @@ public class deliverypage {
 		wait.until(ExpectedConditions.elementToBeClickable(editJobSettingOption));
 		clickWhenClickable(editJobSettingOption);
 		sleep(2000);
-		waitAndSendKeys(fromEmailInput, "delivery_admin@mailinator.com");
-		waitAndSendKeys(toEmailInput, "notifications@mailinator.com");
+		driver.findElement(fromEmailInput).sendKeys(Hooks.prop.getProperty("email.from"));
+		driver.findElement(toEmailInput).sendKeys(Hooks.prop.getProperty("email.to"));
 		sleep(2000);
 		wait.until(ExpectedConditions.elementToBeClickable(saveJobSettingButton));
 		clickWhenClickable(saveJobSettingButton);

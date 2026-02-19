@@ -14,35 +14,27 @@ public class providerstep {
 	// Providers Management
 	@And("Checkbox Validation should have to show if not selected")
 	public void checkIfCheckboxSelected() throws Exception {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String deDupeProvidersUrl = Hooks.prop.getProperty("deDupeProvidersUrl");
 		Assert.assertNotNull("deDupeProvidersUrl is missing in config", deDupeProvidersUrl);
-
 		String fullDeDupeProvidersUrl = baseUrl + deDupeProvidersUrl;
 		providerPage = new providerpage(Hooks.driver);
 		providerPage.openProviderPage(fullDeDupeProvidersUrl);
-
 		Assert.assertTrue("DeDupe Providers page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/DeDupeProviders"));
-
 		String result = providerPage.validateCheckbox();
-
 		Thread.sleep(2000);
-
 		Hooks.scenario.log("Validation Result: " + result);
 		System.out.println("Validation Result: " + result);
-
 		if (result.startsWith("ERROR")) {
 			Hooks.scenario.log("Validation failed: " + result);
 			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
 		}
 
 	}
-	
+
 	@And("Document Library Add Folder Blank submission Should have to show validation")
 	public void validateDocumentLibraryAddFolder() throws Exception {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String providerHomeUrl = Hooks.prop.getProperty("providerHomeUrl");
 		Assert.assertNotNull("providerHomeUrl is missing in config", providerHomeUrl);
@@ -51,24 +43,19 @@ public class providerstep {
 		providerPage.openProviderPage(fullProviderHomeUrl);
 		Assert.assertTrue("Provider Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
-
 		String result = providerPage.validateDocumentLibraryAddFolderSubmission();
-
 		Thread.sleep(2000);
-
 		Hooks.scenario.log("Validation Result: " + result);
 		System.out.println("Validation Result: " + result);
-
 		if (result.startsWith("ERROR")) {
 			Hooks.scenario.log("Validation failed: " + result);
 			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
 		}
 
 	}
-	
+
 	@And("Add Referral Enrollment Validation should have to show for Invalid Phone , Email , Fax Number")
 	public void validateReferralEnrollmentContactInfo() throws Exception {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String providerHomeUrl = Hooks.prop.getProperty("providerHomeUrl");
 		Assert.assertNotNull("providerHomeUrl is missing in config", providerHomeUrl);
@@ -77,14 +64,10 @@ public class providerstep {
 		providerPage.openProviderPage(fullProviderHomeUrl);
 		Assert.assertTrue("Provider Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
-
 		String result = providerPage.validateReferralEnrollmentPhoneEmailFax();
-
 		Thread.sleep(2000);
-
 		Hooks.scenario.log("Validation Result: " + result);
 		System.out.println("Validation Result: " + result);
-
 		if (result.startsWith("ERROR")) {
 			Hooks.scenario.log("Validation failed: " + result);
 			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
@@ -94,7 +77,6 @@ public class providerstep {
 
 	@And("Validation should have to show for Referral Enrollment Blank Form Submission")
 	public void validateReferralEnrollmentBlankFormSubmission() throws Exception {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String providerHomeUrl = Hooks.prop.getProperty("providerHomeUrl");
 		Assert.assertNotNull("providerHomeUrl is missing in config", providerHomeUrl);
@@ -103,14 +85,10 @@ public class providerstep {
 		providerPage.openProviderPage(fullProviderHomeUrl);
 		Assert.assertTrue("Provider Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
-
 		String result = providerPage.validateReferralEnrollmentFormOnEmptySubmission();
-
 		Thread.sleep(2000);
-
 		Hooks.scenario.log("Validation Result: " + result);
 		System.out.println("Validation Result: " + result);
-
 		if (result.startsWith("ERROR")) {
 			Hooks.scenario.log("Validation failed: " + result);
 			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
@@ -120,7 +98,6 @@ public class providerstep {
 
 	@And("Validation should have to show for Provider Communication Blank Form Submission")
 	public void validateProviderCommunicationBlankFormSubmission() throws Exception {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String providerHomeUrl = Hooks.prop.getProperty("providerHomeUrl");
 		Assert.assertNotNull("providerHomeUrl is missing in config", providerHomeUrl);
@@ -129,14 +106,10 @@ public class providerstep {
 		providerPage.openProviderPage(fullProviderHomeUrl);
 		Assert.assertTrue("Provider Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
-
 		String result = providerPage.validateProviderCommunicationFormOnEmptySubmission();
-
 		Thread.sleep(2000);
-
 		Hooks.scenario.log("Validation Result: " + result);
 		System.out.println("Validation Result: " + result);
-
 		if (result.startsWith("ERROR")) {
 			Hooks.scenario.log("Validation failed: " + result);
 			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
@@ -146,7 +119,6 @@ public class providerstep {
 
 	@And("Validation should have to show for Add Provider EHR Blank Form Submission")
 	public void validateAddProviderEHRBlankFormSubmission() throws Exception {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String providerHomeUrl = Hooks.prop.getProperty("providerHomeUrl");
 		Assert.assertNotNull("providerHomeUrl is missing in config", providerHomeUrl);
@@ -155,14 +127,10 @@ public class providerstep {
 		providerPage.openProviderPage(fullProviderHomeUrl);
 		Assert.assertTrue("Provider Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
-
 		String result = providerPage.shouldShowValidationForBlankAddProviderEHRForm();
-
 		Thread.sleep(2000);
-
 		Hooks.scenario.log("Validation Result: " + result);
 		System.out.println("Validation Result: " + result);
-
 		if (result.startsWith("ERROR")) {
 			Hooks.scenario.log("Validation failed: " + result);
 			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
@@ -172,7 +140,6 @@ public class providerstep {
 
 	@And("Validation should have to show for Add Service Blank form submission")
 	public void validateServiceFormOnSubmit() throws Exception {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String providerHomeUrl = Hooks.prop.getProperty("providerHomeUrl");
 		Assert.assertNotNull("providerHomeUrl is missing in config", providerHomeUrl);
@@ -181,14 +148,10 @@ public class providerstep {
 		providerPage.openProviderPage(fullProviderHomeUrl);
 		Assert.assertTrue("Provider Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
-
 		String result = providerPage.checkBlankServiceFormFields();
-
 		Thread.sleep(2000);
-
 		Hooks.scenario.log("Validation Result: " + result);
 		System.out.println("Validation Result: " + result);
-
 		if (result.startsWith("ERROR")) {
 			Hooks.scenario.log("Validation failed: " + result);
 			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
@@ -198,7 +161,6 @@ public class providerstep {
 
 	@And("Add Executive Validation should have to show for invalid Email, Cell, Phone, Fax Number")
 	public void validateExecutiveContactDetails() throws Exception {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String providerHomeUrl = Hooks.prop.getProperty("providerHomeUrl");
 		Assert.assertNotNull("providerHomeUrl is missing in config", providerHomeUrl);
@@ -207,14 +169,10 @@ public class providerstep {
 		providerPage.openProviderPage(fullProviderHomeUrl);
 		Assert.assertTrue("Provider Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
-
 		String result = providerPage.checkInvalidExecutiveInputs();
-
 		Thread.sleep(2000);
-
 		Hooks.scenario.log("Validation Result: " + result);
 		System.out.println("Validation Result: " + result);
-
 		if (result.startsWith("ERROR")) {
 			Hooks.scenario.log("Validation failed: " + result);
 			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
@@ -224,7 +182,6 @@ public class providerstep {
 
 	@And("Add Executive Blank form Validation should have to show")
 	public void validateExecutiveFormOnSubmit() throws Exception {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String providerHomeUrl = Hooks.prop.getProperty("providerHomeUrl");
 		Assert.assertNotNull("providerHomeUrl is missing in config", providerHomeUrl);
@@ -233,14 +190,10 @@ public class providerstep {
 		providerPage.openProviderPage(fullProviderHomeUrl);
 		Assert.assertTrue("Provider Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
-
 		String result = providerPage.isExecutiveFormValid();
-
 		Thread.sleep(2000);
-
 		Hooks.scenario.log("Validation Result: " + result);
 		System.out.println("Validation Result: " + result);
-
 		if (result.startsWith("ERROR")) {
 			Hooks.scenario.log("Validation failed: " + result);
 			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
@@ -250,7 +203,6 @@ public class providerstep {
 
 	@And("Validation message should have to show for invalid Contact Number")
 	public void validateProviderContactNumber() throws Exception {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String providerHomeUrl = Hooks.prop.getProperty("providerHomeUrl");
 		Assert.assertNotNull("providerHomeUrl is missing in config", providerHomeUrl);
@@ -259,14 +211,10 @@ public class providerstep {
 		providerPage.openProviderPage(fullProviderHomeUrl);
 		Assert.assertTrue("Provider Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
-
 		String result = providerPage.isProviderContactNumberValid();
-
 		Thread.sleep(2000);
-
 		Hooks.scenario.log("Validation Result: " + result);
 		System.out.println("Validation Result: " + result);
-
 		if (result.startsWith("ERROR")) {
 			Hooks.scenario.log("Validation failed: " + result);
 			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
@@ -276,7 +224,6 @@ public class providerstep {
 
 	@And("Validation message is showing for Add Address when submitting blank")
 	public void validateAddressOnSubmit() throws Exception {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String providerHomeUrl = Hooks.prop.getProperty("providerHomeUrl");
 		Assert.assertNotNull("providerHomeUrl is missing in config", providerHomeUrl);
@@ -285,14 +232,10 @@ public class providerstep {
 		providerPage.openProviderPage(fullProviderHomeUrl);
 		Assert.assertTrue("Provider Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
-
 		String result = providerPage.checkBlankAddressField();
-
 		Thread.sleep(2000);
-
 		Hooks.scenario.log("Validation Result: " + result);
 		System.out.println("Validation Result: " + result);
-
 		if (result.startsWith("ERROR")) {
 			Hooks.scenario.log("Validation failed: " + result);
 			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
@@ -302,7 +245,6 @@ public class providerstep {
 
 	@And("Add New Business Group Validation should have show for Blank Zone")
 	public void validateBusinessGroupZoneNotEmpty() throws Exception {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String providerHomeUrl = Hooks.prop.getProperty("providerHomeUrl");
 		Assert.assertNotNull("providerHomeUrl is missing in config", providerHomeUrl);
@@ -311,14 +253,10 @@ public class providerstep {
 		providerPage.openProviderPage(fullProviderHomeUrl);
 		Assert.assertTrue("Provider Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
-
 		String result = providerPage.checkBlankBusinessGroupZone();
-
 		Thread.sleep(2000);
-
 		Hooks.scenario.log("Validation Result: " + result);
 		System.out.println("Validation Result: " + result);
-
 		if (result.startsWith("ERROR")) {
 			Hooks.scenario.log("Validation failed: " + result);
 			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
@@ -328,7 +266,6 @@ public class providerstep {
 
 	@And("Search Business Group Validation should have to show on Blank Search , Add New Business Group and Submit")
 	public void validateBusinessGroupSearchAndSubmit() throws Exception {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String providerHomeUrl = Hooks.prop.getProperty("providerHomeUrl");
 		Assert.assertNotNull("providerHomeUrl is missing in config", providerHomeUrl);
@@ -337,14 +274,10 @@ public class providerstep {
 		providerPage.openProviderPage(fullProviderHomeUrl);
 		Assert.assertTrue("Provider Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
-
 		String result = providerPage.checkBusinessGroupBlankSearch();
-
 		Thread.sleep(2000);
-
 		Hooks.scenario.log("Validation Result: " + result);
 		System.out.println("Validation Result: " + result);
-
 		if (result.startsWith("ERROR")) {
 			Hooks.scenario.log("Validation failed: " + result);
 			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
@@ -354,7 +287,6 @@ public class providerstep {
 
 	@And("Provider Management filter Validation should have to show for Invalid input Email,Zipcode,Phone Number,Fax Number")
 	public void validateProviderFilterInputs() throws Exception {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String providerHomeUrl = Hooks.prop.getProperty("providerHomeUrl");
 		Assert.assertNotNull("providerHomeUrl is missing in config", providerHomeUrl);
@@ -363,14 +295,10 @@ public class providerstep {
 		providerPage.openProviderPage(fullProviderHomeUrl);
 		Assert.assertTrue("Provider Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
-
 		String result = providerPage.checkInvalidProviderFilterFields();
-
 		Thread.sleep(2000);
-
 		Hooks.scenario.log("Validation Result: " + result);
 		System.out.println("Validation Result: " + result);
-
 		if (result.startsWith("ERROR")) {
 			Hooks.scenario.log("Validation failed: " + result);
 			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
@@ -380,7 +308,6 @@ public class providerstep {
 
 	@And("Provider Management Filter Blank Search Validation message should have to show")
 	public void validateProviderSearchFilter() throws Exception {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String providerHomeUrl = Hooks.prop.getProperty("providerHomeUrl");
 		Assert.assertNotNull("providerHomeUrl is missing in config", providerHomeUrl);
@@ -389,14 +316,10 @@ public class providerstep {
 		providerPage.openProviderPage(fullProviderHomeUrl);
 		Assert.assertTrue("Provider Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
-
 		String result = providerPage.isProviderSearchFilterValid();
-
 		Thread.sleep(2000);
-
 		Hooks.scenario.log("Validation Result: " + result);
 		System.out.println("Validation Result: " + result);
-
 		if (result.startsWith("ERROR")) {
 			Hooks.scenario.log("Validation failed: " + result);
 			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
@@ -406,7 +329,6 @@ public class providerstep {
 
 	@And("New provider Validation should have to show for Invalid Phone Number")
 	public void validateProviderPhoneNumber() throws Exception {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String providerHomeUrl = Hooks.prop.getProperty("providerHomeUrl");
 		Assert.assertNotNull("providerHomeUrl is missing in config", providerHomeUrl);
@@ -415,14 +337,10 @@ public class providerstep {
 		providerPage.openProviderPage(fullProviderHomeUrl);
 		Assert.assertTrue("Provider Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
-
 		String result = providerPage.isProviderPhoneNumberValid();
-
 		Thread.sleep(2000);
-
 		Hooks.scenario.log("Validation Result: " + result);
 		System.out.println("Validation Result: " + result);
-
 		if (result.startsWith("ERROR")) {
 			Hooks.scenario.log("Validation failed: " + result);
 			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
@@ -432,7 +350,6 @@ public class providerstep {
 
 	@And("Validation should have to show for Invalid Email Id")
 	public void checkInvalidEmailId() throws Exception {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String providerHomeUrl = Hooks.prop.getProperty("providerHomeUrl");
 		Assert.assertNotNull("providerHomeUrl is missing in config", providerHomeUrl);
@@ -441,14 +358,10 @@ public class providerstep {
 		providerPage.openProviderPage(fullProviderHomeUrl);
 		Assert.assertTrue("Provider Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
-
 		String result = providerPage.validateProviderEmail();
-
 		Thread.sleep(2000);
-
 		Hooks.scenario.log("Validation Result: " + result);
 		System.out.println("Validation Result: " + result);
-
 		if (result.startsWith("ERROR")) {
 			Hooks.scenario.log("Validation failed: " + result);
 			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
@@ -458,7 +371,6 @@ public class providerstep {
 
 	@And("Validation should have to show for Invalid NPI Number")
 	public void validateNpiNumber() throws Exception {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String providerHomeUrl = Hooks.prop.getProperty("providerHomeUrl");
 		Assert.assertNotNull("providerHomeUrl is missing in config", providerHomeUrl);
@@ -467,14 +379,10 @@ public class providerstep {
 		providerPage.openProviderPage(fullProviderHomeUrl);
 		Assert.assertTrue("Provider Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
-
 		String result = providerPage.isNpiNumberValid();
-
 		Thread.sleep(2000);
-
 		Hooks.scenario.log("Validation Result: " + result);
 		System.out.println("Validation Result: " + result);
-
 		if (result.startsWith("ERROR")) {
 			Hooks.scenario.log("Validation failed: " + result);
 			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
@@ -484,7 +392,6 @@ public class providerstep {
 
 	@And("Validation should have to show for Blank New Provider Page")
 	public void validateNewProviderPage() throws Exception {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String providerHomeUrl = Hooks.prop.getProperty("providerHomeUrl");
 		Assert.assertNotNull("providerHomeUrl is missing in config", providerHomeUrl);
@@ -493,14 +400,10 @@ public class providerstep {
 		providerPage.openProviderPage(fullProviderHomeUrl);
 		Assert.assertTrue("Provider Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
-
 		String result = providerPage.validateNewProviderNotEmpty();
-
 		Thread.sleep(2000);
-
 		Hooks.scenario.log("Validation Result: " + result);
 		System.out.println("Validation Result: " + result);
-
 		if (result.startsWith("ERROR")) {
 			Hooks.scenario.log("Validation failed: " + result);
 			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
@@ -510,7 +413,6 @@ public class providerstep {
 
 	@And("Validation should have to show for Invalid Phone Number")
 	public void isInvalidPhoneNumberValidationDisplayed() throws Exception {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String providerHomeUrl = Hooks.prop.getProperty("providerHomeUrl");
 		Assert.assertNotNull("providerHomeUrl is missing in config", providerHomeUrl);
@@ -519,14 +421,10 @@ public class providerstep {
 		providerPage.openProviderPage(fullProviderHomeUrl);
 		Assert.assertTrue("Provider Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
-
 		String result = providerPage.validateInvalidPhoneNumber();
-
 		Thread.sleep(2000);
-
 		Hooks.scenario.log("Validation Result: " + result);
 		System.out.println("Validation Result: " + result);
-
 		if (result.startsWith("ERROR")) {
 			Hooks.scenario.log("Validation failed: " + result);
 			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
@@ -536,7 +434,6 @@ public class providerstep {
 
 	@And("Validation should have to show for Blank VCard")
 	public void validateVCardOnSend() throws Exception {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String providerHomeUrl = Hooks.prop.getProperty("providerHomeUrl");
 		Assert.assertNotNull("providerHomeUrl is missing in config", providerHomeUrl);
@@ -545,14 +442,10 @@ public class providerstep {
 		providerPage.openProviderPage(fullProviderHomeUrl);
 		Assert.assertTrue("Provider Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
-
 		String result = providerPage.validateVCardNotEmptyOnSend();
-
 		Thread.sleep(2000);
-
 		Hooks.scenario.log("Validation Result: " + result);
 		System.out.println("Validation Result: " + result);
-
 		if (result.startsWith("ERROR")) {
 			Hooks.scenario.log("Validation failed: " + result);
 			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
@@ -562,7 +455,6 @@ public class providerstep {
 
 	@And("Validation should have to show for Quick Text Blank Send")
 	public void validateQuickTextOnSend() throws Exception {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String providerHomeUrl = Hooks.prop.getProperty("providerHomeUrl");
 		Assert.assertNotNull("providerHomeUrl is missing in config", providerHomeUrl);
@@ -571,14 +463,10 @@ public class providerstep {
 		providerPage.openProviderPage(fullProviderHomeUrl);
 		Assert.assertTrue("Provider Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
-
 		String result = providerPage.isQuickTextSendValid();
-
 		Thread.sleep(2000);
-
 		Hooks.scenario.log("Validation Result: " + result);
 		System.out.println("Validation Result: " + result);
-
 		if (result.startsWith("ERROR")) {
 			Hooks.scenario.log("Validation failed: " + result);
 			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
@@ -588,7 +476,6 @@ public class providerstep {
 
 	@And("Validation should have to show for Blank Quick Text Field")
 	public void validateQuickTextField() throws Exception {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String providerHomeUrl = Hooks.prop.getProperty("providerHomeUrl");
 		Assert.assertNotNull("providerHomeUrl is missing in config", providerHomeUrl);
@@ -597,14 +484,10 @@ public class providerstep {
 		providerPage.openProviderPage(fullProviderHomeUrl);
 		Assert.assertTrue("Provider Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
-
 		String result = providerPage.validateBlankQuickTextField();
-
 		Thread.sleep(2000);
-
 		Hooks.scenario.log("Validation Result: " + result);
 		System.out.println("Validation Result: " + result);
-
 		if (result.startsWith("ERROR")) {
 			Hooks.scenario.log("Validation failed: " + result);
 			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
@@ -613,26 +496,19 @@ public class providerstep {
 	}
 
 	// BusinessGroup
-
 	@And("The user should see validation messages indicating Fax, Contact Number1, Contact Number2, and Zip Code are invalid")
 	public void validationMessagesForInvalidFaxContactNumbersAndZipCodeShouldBeDisplayed() throws Exception {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String businessGroupsUrl = Hooks.prop.getProperty("businessGroupsUrl");
 		Assert.assertNotNull("businessGroupsUrl is missing in config", businessGroupsUrl);
-
 		String fullBusinessGroupsUrl = baseUrl + businessGroupsUrl;
 		providerPage = new providerpage(Hooks.driver);
 		providerPage.openProviderPage(fullBusinessGroupsUrl);
-
 		Assert.assertTrue("Business Groups page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/BusinessGroups"));
-
 		String result = providerPage.validateInvalidBusinessGroupAddressFields();
-
 		Hooks.scenario.log("Invalid Address Field Validation Result: " + result);
 		System.out.println("Invalid Address Field Validation Result: " + result);
-
 		if (result.startsWith("MISSING")) {
 			Assume.assumeTrue("Skipping because some invalid digit-length validations are missing: " + result, false);
 		}
@@ -641,23 +517,17 @@ public class providerstep {
 
 	@And("the user should see validation messages for all required address fields: Street, City, State, Zip Code, and Contact Number1")
 	public void validationMessagesForAllRequiredAddressFieldsShouldBeDisplayed() throws Exception {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String businessGroupsUrl = Hooks.prop.getProperty("businessGroupsUrl");
 		Assert.assertNotNull("businessGroupsUrl is missing in config", businessGroupsUrl);
-
 		String fullBusinessGroupsUrl = baseUrl + businessGroupsUrl;
 		providerPage = new providerpage(Hooks.driver);
 		providerPage.openProviderPage(fullBusinessGroupsUrl);
-
 		Assert.assertTrue("Business Groups page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/BusinessGroups"));
-
 		String result = providerPage.validateRequiredAddressFieldsFromViewPage();
-
 		Hooks.scenario.log("Address Required Validation Result: " + result);
 		System.out.println("Address Required Validation Result: " + result);
-
 		if (result.startsWith("MISSING")) {
 			Assume.assumeTrue("Skipping because some validations are missing: " + result, false);
 		}
@@ -666,28 +536,20 @@ public class providerstep {
 
 	@And("the user should see a validation message indicating Business Group Name is required")
 	public void validationMessageForBusinessGroupNameRequiredShouldBeDisplayed() throws Exception {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String businessGroupsUrl = Hooks.prop.getProperty("businessGroupsUrl");
 		Assert.assertNotNull("businessGroupsUrl is missing in config", businessGroupsUrl);
-
 		String fullBusinessGroupsUrl = baseUrl + businessGroupsUrl;
 		providerPage = new providerpage(Hooks.driver);
 		providerPage.openProviderPage(fullBusinessGroupsUrl);
-
 		Assert.assertTrue("Business Groups page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/BusinessGroups"));
-
 		String result = providerPage.filterWithBlankBusinessGroupNameAndValidate();
-
 		Hooks.scenario.log("Filter Validation Result: " + result);
 		System.out.println("Filter Validation Result: " + result);
-
 		if (result.equals("NO VALIDATION MESSAGE DISPLAYED")) {
-
 			Hooks.scenario.log("Validation not displayed. Skipping scenario.");
 			System.out.println("Validation not displayed. Skipping scenario.");
-
 			Assume.assumeTrue("Skipping because validation not shown on UI", false);
 		}
 
@@ -695,22 +557,16 @@ public class providerstep {
 
 	@And("the user should see a validation message indicating the phone number is invalid")
 	public void validationMessageForInvalidPhoneNumberShouldBeDisplayed() throws Exception {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String addBusinessGroupsUrl = Hooks.prop.getProperty("addbusinessGroupsUrl");
 		Assert.assertNotNull("addbusinessGroupsUrl is missing in config", addBusinessGroupsUrl);
-
 		String fullBusinessGroupsUrl = baseUrl + addBusinessGroupsUrl;
 		providerPage = new providerpage(Hooks.driver);
 		providerPage.openProviderPage(fullBusinessGroupsUrl);
-
 		Assert.assertTrue("Business Groups page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/BusinessGroup"));
-
 		String result = providerPage.enterBusinessGroupDetailsWithInvalidPhoneAndValidate();
-
 		Thread.sleep(2000);
-
 		Hooks.scenario.log("Phone Validation Result: " + result);
 		System.out.println("Phone Validation Result: " + result);
 
@@ -718,22 +574,16 @@ public class providerstep {
 
 	@And("the user should see a validation message indicating the email ID is invalid")
 	public void validationMessageShouldBeDisplayed() throws Exception {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String addBusinessGroupsUrl = Hooks.prop.getProperty("addbusinessGroupsUrl");
 		Assert.assertNotNull("addbusinessGroupsUrl is missing in config", addBusinessGroupsUrl);
-
 		String fullBusinessGroupsUrl = baseUrl + addBusinessGroupsUrl;
 		providerPage = new providerpage(Hooks.driver);
 		providerPage.openProviderPage(fullBusinessGroupsUrl);
-
 		Assert.assertTrue("Business Groups page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/BusinessGroup"));
-
 		String result = providerPage.enterBusinessGroupDetailsWithInvalidEmailAndValidate();
-
 		Thread.sleep(2000);
-
 		Hooks.scenario.log("Email Validation Result: " + result);
 		System.out.println("Email Validation Result: " + result);
 
@@ -741,25 +591,18 @@ public class providerstep {
 
 	@And("the user should see validation messages for all required fields: Email, Zone, Phone, and BusinessGroup Name")
 	public void userSeesValidationMessagesForBusinessGroupRequiredFieldsTest() throws Exception {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String addBusinessGroupsUrl = Hooks.prop.getProperty("addbusinessGroupsUrl");
 		Assert.assertNotNull("addbusinessGroupsUrl is missing in config", addBusinessGroupsUrl);
-
 		String fullBusinessGroupsUrl = baseUrl + addBusinessGroupsUrl;
 		providerPage = new providerpage(Hooks.driver);
 		providerPage.openProviderPage(fullBusinessGroupsUrl);
-
 		Assert.assertTrue("Business Groups page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/BusinessGroup"));
-
 		String result = providerPage.clickOnSaveButtonAndGetValidationMessages();
-
 		Thread.sleep(2000);
-
 		Hooks.scenario.log("Validation Result: " + result);
 		System.out.println("Validation Result: " + result);
-
 		if (result.startsWith("ERROR")) {
 			Hooks.scenario.log("Validation failed: " + result);
 			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
@@ -768,17 +611,14 @@ public class providerstep {
 	}
 
 	// Provider Template
-
 	@And("the user should not be able to add Provider Template in Provider Module test")
 	public void userCannotAddProviderTemplateInProviderModuleTest() {
-
 		providerPage.verifyUserCannotAddProviderTemplate();
 
 	}
 
 	@And("the user should be able to delete Provider Template in Provider Module test")
 	public void userCanDeleteProviderTemplateInProviderModuleTest() {
-
 		providerPage.verifyUserCanDeleteProviderTemplate();
 
 	}
@@ -799,7 +639,6 @@ public class providerstep {
 
 	@And("the user should be able to edit Provider Template in Provider Module test")
 	public void userCanEditProviderTemplateInProviderModuleTest() {
-
 		providerPage.verifyUserCanEditProviderTemplate();
 
 	}
@@ -820,39 +659,32 @@ public class providerstep {
 
 	@And("the user should not be able to delete Provider Template in Provider Module test")
 	public void userCannotDeleteProviderTemplateInProviderModuleTest() {
-
 		providerPage.verifyUserCannotDeleteProviderTemplate();
 
 	}
 
 	@And("the user should not be able to edit Provider Template in Provider Module test")
 	public void userCannotEditProviderTemplateInProviderModuleTest() {
-
 		providerPage.verifyUserCannotEditProviderTemplate();
 
 	}
 
 	@And("the user should be able to add Provider Template in Provider Module test")
 	public void userCanAddProviderTemplateInProviderModuleTest() {
-
 		providerPage.verifyUserCanAddProviderTemplate();
 
 	}
 
 	@And("the user should be able to view Provider Template in Provider Module test")
 	public void userCanViewProviderTemplateInProviderModuleTest() {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String templatesUrl = Hooks.prop.getProperty("TemplatesUrl");
 		Assert.assertNotNull("TemplatesUrl is missing in config", templatesUrl);
-
 		String fullTemplatesUrl = baseUrl + templatesUrl;
 		providerPage = new providerpage(Hooks.driver);
 		providerPage.openTemplatesPage(fullTemplatesUrl);
-
 		Assert.assertTrue("Provider Template page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/Templates"));
-
 		providerPage.verifyUserCanViewProviderType();
 	}
 
@@ -873,7 +705,6 @@ public class providerstep {
 	// Service
 	@And("the user should be able to delete Service in Provider Module test")
 	public void userCanDeleteServiceInProviderModuleTest() {
-
 		providerPage.verifyUserCanDeleteService();
 
 	}
@@ -894,14 +725,12 @@ public class providerstep {
 
 	@And("the user should not be able to add Service in Provider Module test")
 	public void userCannotAddServiceInProviderModuleTest() {
-
 		providerPage.verifyUserCannotAddService();
 
 	}
 
 	@And("the user should be able to edit Service in Provider Module test")
 	public void userCanEditServiceInProviderModuleTest() {
-
 		providerPage.verifyUserCanEditService();
 
 	}
@@ -922,39 +751,32 @@ public class providerstep {
 
 	@And("the user should not be able to delete Service in Provider Module test")
 	public void userCannotDeleteServiceInProviderModuleTest() {
-
 		providerPage.verifyUserCannotDeleteService();
 
 	}
 
 	@And("the user should not be able to edit Service in Provider Module test")
 	public void userCannotEditServiceInProviderModuleTest() {
-
 		providerPage.verifyUserCannotEditService();
 
 	}
 
 	@And("the user should be able to add Service in Provider Module test")
 	public void userCanAddServiceInProviderModuleTest() {
-
 		providerPage.verifyUserCanAddService();
 
 	}
 
 	@And("the user should be able to view Service in Provider Module test")
 	public void userCanViewServiceInProviderModuleTest() {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String servicesUrl = Hooks.prop.getProperty("ServicesUrl");
 		Assert.assertNotNull("ServicesUrl is missing in config", servicesUrl);
-
 		String fullServicesUrl = baseUrl + servicesUrl;
 		providerPage = new providerpage(Hooks.driver);
 		providerPage.openServicesPage(fullServicesUrl);
-
 		Assert.assertTrue("Service page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/Services"));
-
 		providerPage.verifyUserCanViewProviderType();
 	}
 
@@ -975,7 +797,6 @@ public class providerstep {
 	// Specialty
 	@And("the user should be able to delete Specialty in Provider Module test")
 	public void userCanDeleteSpecialtyInProviderModuleTest() {
-
 		providerPage.verifyUserCanDeleteSpecialty();
 
 	}
@@ -996,14 +817,12 @@ public class providerstep {
 
 	@And("the user should not be able to add Specialty in Provider Module test")
 	public void userCannotAddSpecialtyInProviderModuleTest() {
-
 		providerPage.verifyUserCannotAddSpecialty();
 
 	}
 
 	@And("the user should be able to edit Specialty in Provider Module test")
 	public void userCanEditSpecialtyInProviderModuleTest() {
-
 		providerPage.verifyUserCanEditSpecialty();
 
 	}
@@ -1024,39 +843,32 @@ public class providerstep {
 
 	@And("the user should not be able to delete Specialty in Provider Module test")
 	public void userCannotDeleteSpecialtyInProviderModuleTest() {
-
 		providerPage.verifyUserCannotDeleteSpecialty();
 
 	}
 
 	@And("the user should not be able to edit Specialty in Provider Module test")
 	public void userCannotEditSpecialtyInProviderModuleTest() {
-
 		providerPage.verifyUserCannotEditSpecialty();
 
 	}
 
 	@And("the user should be able to add Specialty in Provider Module test")
 	public void userCanAddSpecialtyInProviderModuleTest() {
-
 		providerPage.verifyUserCanAddSpecialty();
 
 	}
 
 	@And("the user should be able to view Specialty in Provider Module test")
 	public void userCanViewSpecialtyInProviderModuleTest() {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String specialtiesUrl = Hooks.prop.getProperty("SpecialtiesUrl");
 		Assert.assertNotNull("SpecialtiesUrl is missing in config", specialtiesUrl);
-
 		String fullSpecialtiesUrl = baseUrl + specialtiesUrl;
 		providerPage = new providerpage(Hooks.driver);
 		providerPage.openSpecialtiesPage(fullSpecialtiesUrl);
-
 		Assert.assertTrue("Specialty page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/Specialties"));
-
 		providerPage.verifyUserCanViewProviderType();
 	}
 
@@ -1077,7 +889,6 @@ public class providerstep {
 	// Category
 	@And("the user should be able to delete Category in Provider Module test")
 	public void userCanDeleteCategoryInProviderModuleTest() {
-
 		providerPage.verifyUserCanDeleteCategory();
 
 	}
@@ -1098,14 +909,12 @@ public class providerstep {
 
 	@And("the user should not be able to add Category in Provider Module test")
 	public void userCannotAddCategoryInProviderModuleTest() {
-
 		providerPage.verifyUserCannotAddCategory();
 
 	}
 
 	@And("the user should be able to edit Category in Provider Module test")
 	public void userCanEditCategoryInProviderModuleTest() {
-
 		providerPage.verifyUserCanEditCategory();
 
 	}
@@ -1126,18 +935,14 @@ public class providerstep {
 
 	@And("the user should be able to view Category in Provider Module test")
 	public void userCanViewCategoryInProviderModuleTest() {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String categoriesUrl = Hooks.prop.getProperty("CategoriesUrl");
 		Assert.assertNotNull("CategoriesUrl is missing in config", categoriesUrl);
-
 		String fullCategoriesUrl = baseUrl + categoriesUrl;
 		providerPage = new providerpage(Hooks.driver);
 		providerPage.openCategoriesPage(fullCategoriesUrl);
-
 		Assert.assertTrue("Provider Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/Categories"));
-
 		providerPage.verifyUserCanViewProviderType();
 	}
 
@@ -1172,42 +977,36 @@ public class providerstep {
 
 	@And("the user should not be able to delete Category in Provider Module test")
 	public void userCannotDeleteCategoryInProviderModuleTest() {
-
 		providerPage.verifyUserCannotDeleteCategory();
 
 	}
 
 	@And("the user should not be able to edit Category in Provider Module test")
 	public void userCannotEditCategoryInProviderModuleTest() {
-
 		providerPage.verifyUserCannotEditCategory();
 
 	}
 
 	@And("the user should be able to add Category in Provider Module test")
 	public void userCanAddCategoryInProviderModuleTest() {
-
 		providerPage.verifyUserCanAddCategory();
 
 	}
 
 	@And("the user should not be able to add Provider Type in Provider Module test")
 	public void userCannotAddProviderTypeInProviderModuleTest() {
-
 		providerPage.verifyUserCannotAddProviderType();
 
 	}
 
 	@And("the user should be able to delete Provider Type in Provider Module test")
 	public void userCanDeleteProviderTypeInProviderModuleTest() {
-
 		providerPage.verifyUserCanDeleteProviderType();
 
 	}
 
 	@And("the user should be able to edit Provider Type in Provider Module test")
 	public void userCanEditProviderTypeInProviderModuleTest() {
-
 		providerPage.verifyUserCanEditProviderType();
 
 	}
@@ -1228,39 +1027,32 @@ public class providerstep {
 
 	@And("the user should not be able to delete Provider Type in Provider Module test")
 	public void userCannotDeleteProviderTypeInProviderModuleTest() {
-
 		providerPage.verifyUserCannotDeleteProviderType();
 
 	}
 
 	@And("the user should not be able to edit Provider Type in Provider Module test")
 	public void userCannotEditProviderTypeInProviderModuleTest() {
-
 		providerPage.verifyUserCannotEditProviderType();
 
 	}
 
 	@And("the user should be able to add Provider Type in Provider Module test")
 	public void userCanAddProviderTypeInProviderModuleTest() {
-
 		providerPage.verifyUserCanAddProviderType();
 
 	}
 
 	@And("the user should be able to view Provider Type in Provider Module test")
 	public void userCanViewProviderTypeInProviderModuleTest() {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String providerTypeUrl = Hooks.prop.getProperty("ProviderTypeUrl");
 		Assert.assertNotNull("ProviderTypeUrl is missing in config", providerTypeUrl);
-
 		String fullProviderTypeUrl = baseUrl + providerTypeUrl;
 		providerPage = new providerpage(Hooks.driver);
 		providerPage.openProviderTypePage(fullProviderTypeUrl);
-
 		Assert.assertTrue("Provider Type page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/ProviderType"));
-
 		providerPage.verifyUserCanViewProviderType();
 
 	}
@@ -1282,7 +1074,6 @@ public class providerstep {
 	// Provider PA Details
 	@And("the user should not be able to export Provider PA Details to Excel test")
 	public void userCannotExportProviderPADetailsToExcelTest() {
-
 		providerPage.userShouldNotBeAbleToExportPADetailsToExcel();
 
 	}
@@ -1303,7 +1094,6 @@ public class providerstep {
 
 	@And("the user should be able to export Provider PA Details to Excel test")
 	public void userCanExportProviderPADetailsToExcelTest() {
-
 		providerPage.userShouldBeAbleToExportPADetailsToExcel();
 
 	}
@@ -1339,14 +1129,12 @@ public class providerstep {
 
 	@And("the user should not be able to download files from Provider Remote Monitoring Details test")
 	public void userCannotDownloadFilesFromProviderRemoteMonitoringDetailsTest() {
-
 		providerPage.userShouldNotBeAbleToDownloadFilesFromRemoteMonitoringDetails();
 
 	}
 
 	@And("the user should be able to download files from Provider Remote Monitoring Details test")
 	public void userCanDownloadFilesFromProviderRemoteMonitoringDetailsTest() {
-
 		providerPage.userShouldBeAbleToDownloadFilesFromRemoteMonitoringDetails();
 
 	}
@@ -1361,7 +1149,6 @@ public class providerstep {
 		providerPage.openProviderPage(fullProviderHomeUrl);
 		Assert.assertTrue("Provider Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
-
 		providerPage.userShouldBeAbleToViewProviderPADetails();
 
 	}
@@ -1376,7 +1163,6 @@ public class providerstep {
 		providerPage.openProviderPage(fullProviderHomeUrl);
 		Assert.assertTrue("Provider Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
-
 		providerPage.userShouldBeAbleToViewProviderRemoteMonitoringDetails();
 
 	}
@@ -1412,14 +1198,12 @@ public class providerstep {
 
 	@And("the user should not be able to download files from Provider Referral Outgoing Details test")
 	public void userCannotDownloadFilesFromProviderReferralOutgoingDetailsTest() {
-
 		providerPage.userShouldNotBeAbleToDownloadFilesFromReferralOutgoingDetails();
 
 	}
 
 	@And("the user should be able to download files from Provider Referral Outgoing Details test")
 	public void userCanDownloadFilesFromProviderReferralOutgoingDetailsTest() {
-
 		providerPage.userShouldBeAbleToDownloadFilesFromReferralOutgoingDetails();
 
 	}
@@ -1434,7 +1218,6 @@ public class providerstep {
 		providerPage.openProviderPage(fullProviderHomeUrl);
 		Assert.assertTrue("Provider Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
-
 		providerPage.userShouldBeAbleToViewProviderReferralOutgoingDetails();
 
 	}
@@ -1456,7 +1239,6 @@ public class providerstep {
 	// Provider Referral Incoming Details
 	@And("the user should not be able to download files from Provider Referral Incoming Details test")
 	public void userCannotDownloadFilesFromProviderReferralIncomingDetailsTest() {
-
 		providerPage.userShouldBeAbleToDownloadFilesFromReferralIncomingDetails();
 
 	}
@@ -1477,7 +1259,6 @@ public class providerstep {
 
 	@And("the user should be able to download files from Provider Referral Incoming Details test")
 	public void userCanDownloadFilesFromProviderReferralIncomingDetailsTest() {
-
 		providerPage.userShouldBeAbleToDownloadFilesFromReferralIncomingDetails();
 
 	}
@@ -1492,7 +1273,6 @@ public class providerstep {
 		providerPage.openProviderPage(fullProviderHomeUrl);
 		Assert.assertTrue("Provider Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
-
 		providerPage.userShouldBeAbleToViewReferralIncomingDetails();
 
 	}
@@ -1514,7 +1294,6 @@ public class providerstep {
 	// Business Group Address
 	@And("the user should be able to delete Business Group Address in Provider Module test")
 	public void userCanDeleteBusinessGroupAddressInProviderModuleTest() {
-
 		providerPage.deleteBusinessGroupAddressInProviderModule();
 
 	}
@@ -1535,14 +1314,12 @@ public class providerstep {
 
 	@And("the user should not be able to add Business Group Address in Provider Module test")
 	public void userCannotAddBusinessGroupAddressInProviderModuleTest() {
-
 		providerPage.verifyUserCannotAddBusinessGroupAddress();
 
 	}
 
 	@And("the user should be able to edit Business Group Address in Provider Module test")
 	public void userCanEditBusinessGroupAddressInProviderModuleTest() {
-
 		providerPage.verifyUserCanEditBusinessGroupAddress();
 
 	}
@@ -1563,21 +1340,18 @@ public class providerstep {
 
 	@And("the user should not be able to edit Business Group Address in Provider Module test")
 	public void userCannotEditBusinessGroupAddressInProviderModuleTest() {
-
 		providerPage.verifyUserCannotEditBusinessGroupAddress();
 
 	}
 
 	@And("the user should not be able to delete Business Group Address in Provider Module test")
 	public void userCannotDeleteBusinessGroupAddressInProviderModuleTest() {
-
 		providerPage.verifyUserCannotDeleteBusinessGroupAddress();
 
 	}
 
 	@And("the user should be able to add Business Group Address in Provider Module test")
 	public void userCanAddBusinessGroupAddressInProviderModuleTest() {
-
 		providerPage.verifyUserCanAddBusinessGroupAddress();
 
 	}
@@ -1587,14 +1361,11 @@ public class providerstep {
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String businessGroupsUrl = Hooks.prop.getProperty("businessGroupsUrl");
 		Assert.assertNotNull("businessGroupsUrl is missing in config", businessGroupsUrl);
-
 		String fullBusinessGroupsUrl = baseUrl + businessGroupsUrl;
 		providerPage = new providerpage(Hooks.driver);
 		providerPage.openProviderPage(fullBusinessGroupsUrl);
-
 		Assert.assertTrue("Business Groups page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/BusinessGroups"));
-
 		providerPage.verifyUserCanViewBusinessGroupAddress();
 
 	}
@@ -1616,7 +1387,6 @@ public class providerstep {
 	// Business Group
 	@And("the user should be able to make Business Group a Partner in Provider Module test")
 	public void userCanMakeBusinessGroupPartnerInProviderModuleTest() {
-
 		providerPage.verifyUserCanMakeBusinessGroupPartner();
 
 	}
@@ -1637,7 +1407,6 @@ public class providerstep {
 
 	@And("the user should be able to delete Business Group in Provider Module test")
 	public void userShouldBeAbleToDeleteBusinessGroupInProviderModuleTest() {
-
 		providerPage.verifyUserCanDeleteBusinessGroup();
 
 	}
@@ -1672,42 +1441,36 @@ public class providerstep {
 
 	@And("the user should not be able to make Business Group a Partner in Provider Module test")
 	public void userShouldNotBeAbleToMakeBusinessGroupPartnerInProviderModuleTest() {
-
 		providerPage.verifyUserCannotMakeBusinessGroupPartner();
 
 	}
 
 	@And("the user should not be able to delete Business Group in Provider Module test")
 	public void userShouldNotBeAbleToDeleteBusinessGroupInProviderModuleTest() {
-
 		providerPage.verifyUserCannotDeleteBusinessGroup();
 
 	}
 
 	@And("the user should not be able to edit Business Group in Provider Module test")
 	public void userShouldNotBeAbleToEditBusinessGroupInProviderModuleTest() {
-
 		providerPage.verifyUserCannotEditBusinessGroup();
 
 	}
 
 	@And("the user should not be able to add Business Group in Provider Module test")
 	public void userShouldNotBeAbleToAddBusinessGroupInProviderModuleTest() {
-
 		providerPage.verifyUserCannotAddBusinessGroup();
 
 	}
 
 	@And("the user should be able to edit Business Group in Provider Module test")
 	public void userShouldBeAbleToEditBusinessGroupInProviderModuleTest() {
-
 		providerPage.verifyUserCanEditBusinessGroup();
 
 	}
 
 	@And("the user should be able to add Business Group in Provider Module test")
 	public void userShouldBeAbleToAddBusinessGroupInProviderModuleTest() {
-
 		providerPage.verifyUserCanAddBusinessGroup();
 
 	}
@@ -1717,11 +1480,9 @@ public class providerstep {
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String businessGroupsUrl = Hooks.prop.getProperty("businessGroupsUrl");
 		Assert.assertNotNull("businessGroupsUrl is missing in config", businessGroupsUrl);
-
 		String fullBusinessGroupsUrl = baseUrl + businessGroupsUrl;
 		providerPage = new providerpage(Hooks.driver);
 		providerPage.openProviderPage(fullBusinessGroupsUrl);
-
 		Assert.assertTrue("Business Groups page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/BusinessGroups"));
 
@@ -1742,7 +1503,6 @@ public class providerstep {
 	}
 
 	// Provider EHR
-
 	@And("I create a profile with Delete access but no Add or Edit access to Provider EHR in Provider Module test")
 	public void providerEHRProfileWithDeleteAccessNoAddNoEdit() {
 		providerPage.clickFilterButton();
@@ -1759,21 +1519,18 @@ public class providerstep {
 
 	@And("the user should not be able to add Provider EHR in Provider Module test")
 	public void userShouldNotBeAbleToAddProviderEHRInProviderModuleTest() {
-
 		providerPage.verifyUserCannotAddProviderEHR();
 
 	}
 
 	@And("the user should not be able to delete Provider EHR in Provider Module test")
 	public void userShouldNotBeAbleToDeleteProviderEHRInProviderModuleTest() {
-
 		providerPage.verifyUserCannotDeleteProviderEHR();
 
 	}
 
 	@And("the user should not be able to edit Provider EHR in Provider Module test")
 	public void userShouldNotBeAbleToEditProviderEHRInProviderModuleTest() {
-
 		providerPage.verifyUserCannotEditProviderEHR();
 
 	}
@@ -1788,7 +1545,6 @@ public class providerstep {
 		providerPage.openProviderPage(fullProviderHomeUrl);
 		Assert.assertTrue("Provider Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
-
 		providerPage.verifyUserCanDeleteProviderEHR();
 	}
 
@@ -1802,7 +1558,6 @@ public class providerstep {
 		providerPage.openProviderPage(fullProviderHomeUrl);
 		Assert.assertTrue("Provider Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
-
 		providerPage.verifyUserCanEditProviderEHR();
 	}
 
@@ -1816,7 +1571,6 @@ public class providerstep {
 		providerPage.openProviderPage(fullProviderHomeUrl);
 		Assert.assertTrue("Provider Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
-
 		providerPage.verifyUserCanAddProviderEHR();
 	}
 
@@ -1865,21 +1619,18 @@ public class providerstep {
 
 	@And("the user should be able to delete Provider Service in Provider Module test")
 	public void userShouldBeAbleToDeleteProviderServiceInProviderModuleTest() {
-
 		providerPage.verifyUserCanDeleteProviderService();
 
 	}
 
 	@And("the user should not be able to add Provider Service in Provider Module test")
 	public void userShouldNotBeAbleToAddProviderServiceInProviderModuleTest() {
-
 		providerPage.verifyUserCannotAddProviderService();
 
 	}
 
 	@And("the user should be able to edit Provider Service in Provider Module test")
 	public void userShouldBeAbleToEditProviderServiceInProviderModuleTest() {
-
 		providerPage.verifyUserCanEditProviderService();
 
 	}
@@ -1900,21 +1651,18 @@ public class providerstep {
 
 	@And("the user should not be able to delete Provider Service in Provider Module test")
 	public void userShouldNotBeAbleToDeleteProviderServiceInProviderModuleTest() {
-
 		providerPage.verifyUserCannotDeleteProviderService();
 
 	}
 
 	@And("the user should not be able to edit Provider Service in Provider Module test")
 	public void userShouldNotBeAbleToEditProviderServiceInProviderModuleTest() {
-
 		providerPage.verifyUserCannotEditProviderService();
 
 	}
 
 	@And("the user should be able to add Provider Service in Provider Module test")
 	public void userShouldBeAbleToAddProviderServiceInProviderModuleTest() {
-
 		providerPage.verifyUserCanAddProviderService();
 
 	}
@@ -1929,7 +1677,6 @@ public class providerstep {
 		providerPage.openProviderPage(fullProviderHomeUrl);
 		Assert.assertTrue("Provider Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
-
 		providerPage.verifyUserCanViewProviderService();
 	}
 
@@ -1950,7 +1697,6 @@ public class providerstep {
 	// Provider Executive
 	@And("the user should be able to reset passwords for Provider Executive users test")
 	public void userShouldBeAbleToResetPasswordsForProviderExecutiveUsersTest() {
-
 		providerPage.verifyUserCanResetProviderExecutivePasswords();
 
 	}
@@ -1971,7 +1717,6 @@ public class providerstep {
 
 	@And("the user should not be able to reset passwords for Provider Executive test")
 	public void userShouldNotBeAbleToResetPasswordsForProviderExecutiveTest() {
-
 		providerPage.verifyUserCannotResetProviderExecutivePasswords();
 
 	}
@@ -1986,7 +1731,6 @@ public class providerstep {
 		providerPage.openProviderPage(fullProviderHomeUrl);
 		Assert.assertTrue("Provider Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
-
 		providerPage.verifyUserCanViewProviderExecutiveRecords();
 	}
 
@@ -2036,14 +1780,11 @@ public class providerstep {
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String deDupeProvidersUrl = Hooks.prop.getProperty("deDupeProvidersUrl");
 		Assert.assertNotNull("deDupeProvidersUrl is missing in config", deDupeProvidersUrl);
-
 		String fullDeDupeProvidersUrl = baseUrl + deDupeProvidersUrl;
 		providerPage = new providerpage(Hooks.driver);
 		providerPage.openProviderPage(fullDeDupeProvidersUrl);
-
 		Assert.assertTrue("DeDupe Providers page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/DeDupeProviders"));
-
 		providerPage.userShouldBeAbleToUpdateDeDupeRecordsForProviderModule();
 	}
 
@@ -2062,10 +1803,8 @@ public class providerstep {
 	}
 
 	// Referral Patient History
-
 	@And("the user should not be able to download File in Referral Patient History test")
 	public void userShouldNotBeAbleToDownloadFileInReferralPatientHistoryTest() {
-
 		providerPage.userShouldNotBeAbleToDownloadFileInReferralPatientHistory();
 
 	}
@@ -2086,7 +1825,6 @@ public class providerstep {
 
 	@And("the user should be able to download File in Referral Patient History test")
 	public void userShouldBeAbleToDownloadFileInReferralPatientHistoryTest() {
-
 		providerPage.userShouldBeAbleToDownloadFileInReferralPatientHistory();
 
 	}
@@ -2115,7 +1853,6 @@ public class providerstep {
 		providerPage.openProviderPage(fullProviderHomeUrl);
 		Assert.assertTrue("Provider Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
-
 		providerPage.userShouldBeAbleToViewReferralPatientHistory();
 
 	}
@@ -2123,70 +1860,60 @@ public class providerstep {
 	// Bucket
 	@And("the user should not be able to favourite Folder in Bucket test")
 	public void userShouldNotBeAbleToFavouriteFolderInBucketTest() {
-
 		providerPage.userShouldNotBeAbleToFavouriteFolderInBucket();
 
 	}
 
 	@And("the user should not be able to delete Folder in Bucket test")
 	public void userShouldNotBeAbleToDeleteFolderInBucketTest() {
-
 		providerPage.userShouldNotBeAbleToDeleteFolderInBucket();
 
 	}
 
 	@And("the user should not be able to edit Folder in Bucket test")
 	public void userShouldNotBeAbleToEditFolderInBucketTest() {
-
 		providerPage.userShouldNotBeAbleToEditFolderInBucket();
 
 	}
 
 	@And("the user should not be able to add Folder in Bucket test")
 	public void userShouldNotBeAbleToAddFolderInBucketTest() {
-
 		providerPage.userShouldNotBeAbleToAddFolderInBucket();
 
 	}
 
 	@And("the user should not be able to view Folder in Bucket test")
 	public void userShouldNotBeAbleToViewFolderInBucketTest() {
-
 		providerPage.userShouldNotBeAbleToViewFolderInBucket();
 
 	}
 
 	@And("the user should be able to download File in Bucket test")
 	public void userShouldBeAbleToDownloadFileInBucketTest() {
-
 		providerPage.userShouldBeAbleToDownloadFileInBucket();
 
 	}
 
 	@And("the user should be able to favourite File in Bucket test")
 	public void userShouldBeAbleToFavouriteFileInBucketTest() {
-
 		providerPage.userShouldBeAbleToFavouriteFileInBucket();
 
 	}
 
 	@And("the user should be able to delete File in Bucket test")
 	public void userShouldBeAbleToDeleteFileInBucketTest() {
-
 		providerPage.userShouldBeAbleToDeleteFileInBucket();
 
 	}
 
 	@And("the user should be able to edit File in Bucket test")
 	public void userShouldBeAbleToEditFileInBucketTest() {
-
 		providerPage.userShouldBeAbleToEditFileInBucket();
 
 	}
 
 	@And("the user should be able to add File in Bucket test")
 	public void userShouldBeAbleToAddFileInBucketTest() {
-
 		providerPage.userShouldBeAbleToAddFileInBucket();
 
 	}
@@ -2207,70 +1934,60 @@ public class providerstep {
 
 	@And("the user should not be able to view File in Bucket test")
 	public void userShouldNotBeAbleToViewFileInBucketTest() {
-
 		providerPage.userShouldNotBeAbleToViewFileInBucket();
 
 	}
 
 	@And("the user should not be able to download File in Bucket test")
 	public void userShouldNotBeAbleToDownloadFileInBucketTest() {
-
 		providerPage.userShouldNotBeAbleToDownloadFileInBucket();
 
 	}
 
 	@And("the user should not be able to favourite File in Bucket test")
 	public void userShouldNotBeAbleToFavouriteFileInBucketTest() {
-
 		providerPage.userShouldNotBeAbleToFavouriteFileInBucket();
 
 	}
 
 	@And("the user should not be able to delete File in Bucket test")
 	public void userShouldNotBeAbleToDeleteFileInBucketTest() {
-
 		providerPage.userShouldNotBeAbleToDeleteFileInBucket();
 
 	}
 
 	@And("the user should not be able to edit File in Bucket test")
 	public void userShouldNotBeAbleToEditFileInBucketTest() {
-
 		providerPage.userShouldNotBeAbleToEditFileInBucket();
 
 	}
 
 	@And("the user should not be able to add File in Bucket test")
 	public void userShouldNotBeAbleToAddFileInBucketTest() {
-
 		providerPage.userShouldNotBeAbleToAddFileInBucket();
 
 	}
 
 	@And("the user should be able to favourite Folder in Bucket test")
 	public void userShouldBeAbleToFavouriteFolderInBucketTest() {
-
 		providerPage.userShouldBeAbleToFavouriteFolderInBucket();
 
 	}
 
 	@And("the user should be able to delete Folder in Bucket test")
 	public void userShouldBeAbleToDeleteFolderInBucketTest() {
-
 		providerPage.userShouldBeAbleToDeleteFolderInBucket();
 
 	}
 
 	@And("the user should be able to edit Folder in Bucket test")
 	public void userShouldBeAbleToEditFolderInBucketTest() {
-
 		providerPage.userShouldBeAbleToEditFolderInBucket();
 
 	}
 
 	@And("the user should be able to add Folder in Bucket test")
 	public void userShouldBeAbleToAddFolderInBucketTest() {
-
 		providerPage.userShouldBeAbleToAddFolderInBucket();
 
 	}
@@ -2285,7 +2002,6 @@ public class providerstep {
 		providerPage.openProviderPage(fullProviderHomeUrl);
 		Assert.assertTrue("Provider Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
-
 		providerPage.userShouldBeAbleToViewFileInBucket();
 
 	}
@@ -2300,7 +2016,6 @@ public class providerstep {
 		providerPage.openProviderPage(fullProviderHomeUrl);
 		Assert.assertTrue("Provider Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
-
 		providerPage.userShouldBeAbleToViewReferralEnrollment();
 
 	}
@@ -2322,21 +2037,18 @@ public class providerstep {
 	// Referral Enrollment
 	@And("the user should be able to delete Referral Enrollment test")
 	public void userShouldBeAbleToDeleteReferralEnrollmentTest() {
-
 		providerPage.userShouldBeAbleToDeleteReferralEnrollment();
 
 	}
 
 	@And("the user should not be able to add Referral Enrollment test")
 	public void userShouldNotBeAbleToAddReferralEnrollmentTest() {
-
 		providerPage.userShouldNotBeAbleToAddReferralEnrollment();
 
 	}
 
 	@And("the user should be able to edit Referral Enrollment test")
 	public void userShouldBeAbleToEditReferralEnrollmentTest() {
-
 		providerPage.userShouldBeAbleToEditReferralEnrollment();
 
 	}
@@ -2371,21 +2083,18 @@ public class providerstep {
 
 	@And("the user should not be able to delete Referral Enrollment test")
 	public void userShouldNotBeAbleToDeleteReferralEnrollmentTest() {
-
 		providerPage.userShouldNotBeAbleToDeleteReferralEnrollment();
 
 	}
 
 	@And("the user should not be able to edit Referral Enrollment test")
 	public void verifyUserCannotEditReferralEnrollmentTest() {
-
 		providerPage.userShouldNotBeAbleToEditReferralEnrollment();
 
 	}
 
 	@And("the user should be able to add Referral Enrollment test")
 	public void verifyUserCanAddReferralEnrollmentTest() {
-
 		providerPage.userShouldBeAbleToAddReferralEnrollment();
 
 	}
@@ -2400,7 +2109,6 @@ public class providerstep {
 		providerPage.openProviderPage(fullProviderHomeUrl);
 		Assert.assertTrue("Provider Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
-
 		providerPage.userShouldBeAbleToViewReferralEnrollment();
 
 	}
@@ -2418,25 +2126,22 @@ public class providerstep {
 		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
 
 	}
-	// Executives
 
+	// Executives
 	@And("the user should be able to delete Executives test")
 	public void verifyUserCanDeleteExecutivesTest() {
-
 		providerPage.userShouldBeAbleToDeleteExecutives();
 
 	}
 
 	@And("the user should not be able to add Executives test")
 	public void verifyUserCannotAddExecutivesTest() {
-
 		providerPage.userShouldNotBeAbleToAddExecutives();
 
 	}
 
 	@And("the user should be able to edit Executives test")
 	public void verifyUserCanEditExecutivesTest() {
-
 		providerPage.userShouldBeAbleToEditExecutives();
 
 	}
@@ -2471,21 +2176,18 @@ public class providerstep {
 
 	@And("the user should not be able to delete Executives test")
 	public void verifyUserCannotDeleteExecutivesTest() {
-
 		providerPage.userShouldNotBeAbleToDeleteExecutives();
 
 	}
 
 	@And("the user should not be able to edit Executives test")
 	public void verifyUserCannotEditExecutivesTest() {
-
 		providerPage.userShouldNotBeAbleToEditExecutives();
 
 	}
 
 	@And("the user should be able to add Executives test")
 	public void verifyUserCanAddExecutivesTest() {
-
 		providerPage.userShouldBeAbleToAddExecutives();
 
 	}
@@ -2500,7 +2202,6 @@ public class providerstep {
 		providerPage.openProviderPage(fullProviderHomeUrl);
 		Assert.assertTrue("Provider Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
-
 		providerPage.userShouldBeAbleToViewExecutives();
 
 	}
@@ -2522,14 +2223,12 @@ public class providerstep {
 	// Referrals
 	@And("the user should be able to export Referrals to Excel in Provider Module test")
 	public void userShouldExportReferralsToExcelInProviderModule() {
-
 		providerPage.userShouldBeAbleToExportReferralsToExcelInProviderModule();
 
 	}
 
 	@And("the user should not be able to export Referrals to Excel in Provider Module test")
 	public void userShouldNotExportReferralsToExcelInProviderModule() {
-
 		providerPage.userShouldNotBeAbleToExportReferralsToExcelInProviderModule();
 
 	}
@@ -2579,7 +2278,6 @@ public class providerstep {
 	// Provider Communication
 	@And("the user should be able to delete Provider Communication in Provider Module test")
 	public void verifyDeleteAccessToProviderCommunicationInProviderModule() {
-
 		providerPage.userShouldBeAbleToDeleteProviderCommunicationInProviderModule();
 
 	}
@@ -2600,7 +2298,6 @@ public class providerstep {
 
 	@And("the user should be able to edit Provider Communication in Provider Module test")
 	public void verifyEditAccessToProviderCommunicationInProviderModule() {
-
 		providerPage.userShouldBeAbleToEditProviderCommunicationInProviderModule();
 
 	}
@@ -2621,28 +2318,24 @@ public class providerstep {
 
 	@And("the user should not be able to add Provider Communication in Provider Module test")
 	public void userShouldNotAddProviderCommunicationInProviderModule() {
-
 		providerPage.userShouldNotBeAbleToAddProviderCommunicationInProviderModule();
 
 	}
 
 	@And("the user should not be able to delete Provider Communication in Provider Module test")
 	public void userShouldNotDeleteProviderCommunicationInProviderModule() {
-
 		providerPage.userShouldNotBeAbleToDeleteProviderCommunicationInProviderModule();
 
 	}
 
 	@And("the user should not be able to edit Provider Communication in Provider Module test")
 	public void userShouldNotEditProviderCommunicationInProviderModule() {
-
 		providerPage.userShouldNotBeAbleToEditProviderCommunicationInProviderModule();
 
 	}
 
 	@And("the user should be able to add Provider Communication in Provider Module test")
 	public void userShouldAddProviderCommunicationInProviderModule() {
-
 		providerPage.userShouldBeAbleToAddProviderCommunicationInProviderModule();
 
 	}
@@ -2678,7 +2371,6 @@ public class providerstep {
 	// Provider Address
 	@And("the user should be able to delete Provider Address in Provider Module test")
 	public void userShouldDeleteProviderAddressInProviderModule() {
-
 		providerPage.userShouldBeAbleToDeleteProviderAddressInProviderModule();
 
 	}
@@ -2699,14 +2391,12 @@ public class providerstep {
 
 	@And("the user should not be able to add Provider Address in Provider Module test")
 	public void userShouldNotAddProviderAddressInProviderModule() {
-
 		providerPage.userShouldNotBeAbleToAddProviderAddressInProviderModule();
 
 	}
 
 	@And("the user should be able to edit Provider Address in Provider Module test")
 	public void userShouldEditProviderAddressInProviderModule() {
-
 		providerPage.userShouldBeAbleToEditProviderAddressInProviderModule();
 
 	}
@@ -2727,21 +2417,18 @@ public class providerstep {
 
 	@And("the user should not be able to delete Provider Address in Provider Module test")
 	public void userShouldNotDeleteProviderAddressInProviderModule() {
-
 		providerPage.userShouldNotBeAbleToDeleteProviderAddressInProviderModule();
 
 	}
 
 	@And("the user should not be able to edit Provider Address in Provider Module test")
 	public void userShouldNotEditProviderAddressInProviderModule() {
-
 		providerPage.userShouldNotBeAbleToEditProviderAddressInProviderModule();
 
 	}
 
 	@And("the user should be able to add Provider Address in Provider Module test")
 	public void userShouldAddProviderAddressInProviderModule() {
-
 		providerPage.userShouldBeAbleToAddProviderAddressInProviderModule();
 
 	}
@@ -2777,7 +2464,6 @@ public class providerstep {
 	// Provider
 	@And("the user should be able to delete Provider in Provider Module test")
 	public void userShouldDeleteProviderInProviderModule() {
-
 		providerPage.userShouldBeAbleToDeleteProviderInProviderModule();
 
 	}
@@ -2826,42 +2512,36 @@ public class providerstep {
 
 	@And("the user should not be able to add Provider in Provider Module test")
 	public void userShouldNotAddProviderInProviderModule() {
-
 		providerPage.userShouldNotBeAbleToAddProviderInProviderModule();
 
 	}
 
 	@And("the user should not be able to view Provider details in Provider Module test")
 	public void userShouldNotViewProviderDetailsInProviderModule() {
-
 		providerPage.userShouldNotBeAbleToViewProviderDetailsInProviderModule();
 
 	}
 
 	@And("the user should not be able to delete Provider in Provider Module test")
 	public void userShouldNotDeleteProviderInProviderModule() {
-
 		providerPage.userShouldNotBeAbleToDeleteProviderInProviderModule();
 
 	}
 
 	@And("the user should not be able to edit Provider in Provider Module test")
 	public void userShouldNotEditProviderInProviderModule() {
-
 		providerPage.userShouldNotBeAbleToEditProviderInProviderModule();
 
 	}
 
 	@And("the user should be able to view Provider details in Provider Module test")
 	public void userShouldViewProviderDetailsInProviderModule() {
-
 		providerPage.userShouldBeAbleToViewProviderDetailsInProviderModule();
 
 	}
 
 	@And("the user should be able to add Provider in Provider Module test")
 	public void userShouldAddProviderInProviderModule() {
-
 		providerPage.userShouldBeAbleToAddProviderInProviderModule();
 
 	}
@@ -2908,7 +2588,6 @@ public class providerstep {
 	}
 
 	// Text
-
 	@And("the user should not be able to send VCard in Provider Module test")
 	public void userShouldNotSendVcardInProviderModule() {
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
@@ -2941,14 +2620,12 @@ public class providerstep {
 
 	@And("the user should be able to send VCard in Provider Module test")
 	public void userShouldSendVcardInProviderModule() {
-
 		providerPage.userShouldBeAbleToSendVCardInProviderModule();
 
 	}
 
 	@And("the user should be able to send Text in Provider Module test")
 	public void userShouldSendTextInProviderModule() {
-
 		providerPage.userShouldBeAbleToSendTextInProviderModule();
 
 	}
@@ -3002,7 +2679,6 @@ public class providerstep {
 
 	@And("the user should be able to approve NPI Request in Provider Module test")
 	public void userShouldApproveNpiRequestInProviderModule() {
-
 		providerPage.userShouldBeAbleToApproveNPIRequestInProviderModule();
 
 	}

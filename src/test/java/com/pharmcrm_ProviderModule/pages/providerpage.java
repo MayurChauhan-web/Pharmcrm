@@ -14,828 +14,70 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import hooks.Hooks;
+
 public class providerpage {
 	private WebDriver driver;
 	private WebDriverWait wait;
 
 	// Providers Management
-	By newEhrSpan = By.xpath("//span[normalize-space()='New EHR']");
-	By ehrLink = By.xpath("//a[normalize-space()='EHR']");
-	By serviceLink = By.xpath("//a[normalize-space()='Service']");
-	By newServiceSpan = By.xpath("//span[normalize-space()='New Service']");
-	By providerExecutiveLastNameField = By.xpath("//input[@id='ProviderExecutive_LastName']");
-	By providerExecutiveFirstNameField = By.xpath("//input[@id='ProviderExecutive_FirstName']");
-	By providerExecutiveEmailField = By.xpath("//input[@id='ProviderExecutive_EmailId']");
-	By providerExecutivePhoneNumberField = By.xpath("//input[@id='ProviderExecutive_PhoneNumber']");
-	By providerExecutiveCellNumberField = By.xpath("//input[@id='ProviderExecutive_CellNumber']");
-	By providerExecutivePhoneExtensionField = By.xpath("//input[@id='ProviderExecutive_PhoneNumberExtension']");
-	By providerExecutiveFaxNumberField = By.xpath("//input[@id='ProviderExecutive_FaxNumber']");
-	By providerExecutiveDesignationField = By.xpath("//input[@id='ProviderExecutive_Designation']");
-	By saveProviderExecutiveButton = By.xpath("//button[@id='btnSaveProviderExecutivePopup']");
-	By streetFieldProvider = By.xpath("//input[@id='ProviderAddress_Street']");
-	By cityFieldProvider = By.xpath("//input[@id='ProviderAddress_City']");
-	By stateFieldProvider = By.xpath("//input[@id='ProviderAddress_State']");
-	By zipCodeFieldProvider = By.xpath("//input[@id='ProviderAddress_ZipCode']");
-	By contactNumber1FieldProvider = By.xpath("//input[@id='ProviderAddress_ContactNumber1']");
-	By contactNumber2FieldProvider = By.xpath("//input[@id='ProviderAddress_ContactNumber2']");
-	By saveAddressButtonProvider = By.xpath("//button[@id='btnSaveAddress']");
-	By viewIcon = By.xpath("//tbody/tr[1]/td[13]/div[1]/a[1]/img[1]");
-	By addNewBusinessGroupButton = By.xpath("//button[normalize-space()='Add New Business Group']");
-	By submitBusinessGroupButton = By.xpath("//button[@id='btnsubmit']");
-	By businessGroupImage = By.xpath("//a[@id='addBusinessGroupPopup']//img");
-	By filterEmail = By.xpath("//input[@id='Filter_EmailId']");
-	By filterExecutiveEmail = By.xpath("//input[@id='Filter_ProviderExecutiveEmailId']");
-	By filterZipCode = By.xpath("//input[@id='Filter_ZipCode']");
-	By filterPhoneNumber = By.xpath("//input[@id='Filter_PhoneNumber']");
-	By filterFaxNumber = By.xpath("//input[@id='Filter_FaxNumber']");
-	By searchCollapseIcon = By.xpath("//a[@id='searchcollapse']//*[name()='svg']//*[name()='path' and @id='Union_73']");
-	By searchIcon = By.xpath("//i[@class='fa-solid fa-magnifying-glass']");
-	By businessPhone1 = By.id("Provider_BusinessPhone1");
-	By businessPhone2 = By.id("Provider_BusinessPhone2");
-	By cellPhone = By.id("Provider_CellPhone");
-	By primaryEmail = By.id("Provider_PrimaryEmail");
-	By secondaryEmail = By.id("Provider_SecondaryEmail");
-	By doctorLastName = By.id("Provider_DoctorLastName");
-	By doctorFirstName = By.id("Provider_DoctorFirstName");
-	By providerZone = By.id("Provider_Zone");
-	By providerNPI = By.id("Provider_NPINumber");
-	By newProviderTab = By.xpath("//span[normalize-space()='New Provider']");
-	By vCardPhoneNumber = By.id("vCardPhoneNumber");
-	By sendVCardTab = By.xpath("//span[normalize-space()='Send VCard']");
-	By toastMessage = By.xpath("//div[@class='toast-message']");
-	By searchButtonQuickText = By.xpath("//button[normalize-space()='Search']");
-	By quickTextTab = By.xpath("//span[normalize-space()='Quick Text']");
-	By providerCommunicationLink = By.xpath("//a[normalize-space()='Provider Communication']");
-	By newCommunicationSpan = By.xpath("//span[normalize-space()='New Communication']");
-	By saveCommunicationButtonProvider = By.xpath("//button[@id='btnSaveCommunication']");
-	By newReferralEnrollmentText = By.xpath("//span[normalize-space()='New Referral Enrollment']");
-	By saveProviderReferralEnrollmentButton = By.xpath("//button[@id='btnSaveProviderReferralEnrollmentPopup']");
-	By phoneNumberField = By.xpath("//input[@id='ProviderReferralEnrollment_PhoneNumber']");
-	By emailIdField = By.xpath("//input[@id='ProviderReferralEnrollment_EmailId']");
-	By faxNumberField = By.xpath("//input[@id='ProviderReferralEnrollment_FaxNumber']");
-	By documentLibraryTab = By.xpath("//span[normalize-space()='Document Library']");
-	By addFolderButtonDocumet = By.xpath("//a[@id='btnAddFolder']//*[name()='svg']");
-
-	// Providers Management
-	public String validateCheckbox() throws InterruptedException {
-
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-
-		try {
-			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-		} catch (Exception ignored) {
-		}
-
-		wait.until(ExpectedConditions.elementToBeClickable(findDuplicateButton)).click();
-
-		try {
-			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
-
-			String actualMessage = toast.getText().trim();
-
-			return "SUCCESS: Validation displayed -> " + actualMessage;
-
-		} catch (TimeoutException e) {
-			return "ERROR: Validation toast message not displayed";
-		}
-	}
-
-	public String validateDocumentLibraryAddFolderSubmission() throws InterruptedException {
-
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-
-		try {
-			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-		} catch (Exception ignored) {
-		}
-
-		wait.until(ExpectedConditions.elementToBeClickable(viewIcon)).click();
-
-		Thread.sleep(2000);
-		wait.until(ExpectedConditions.elementToBeClickable(documentLibraryTab)).click();
-
-		wait.until(ExpectedConditions.elementToBeClickable(addFolderButtonDocumet)).click();
-
-		Thread.sleep(2000);
-
-		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
-
-		try {
-			wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(toastMessage, 0));
-
-			List<WebElement> toasts = driver.findElements(toastMessage);
-
-			StringBuilder allMessages = new StringBuilder();
-
-			for (WebElement toast : toasts) {
-				if (toast.isDisplayed()) {
-					allMessages.append(toast.getText().trim()).append(" | ");
-				}
-			}
-
-			return "SUCCESS: Validations displayed -> " + allMessages.toString();
-
-		} catch (TimeoutException e) {
-			return "ERROR: Validation toast message(s) not displayed";
-		}
-	}
-
-	public String validateReferralEnrollmentPhoneEmailFax() throws InterruptedException {
-
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-
-		try {
-			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-		} catch (Exception ignored) {
-		}
-
-		wait.until(ExpectedConditions.elementToBeClickable(viewIcon)).click();
-
-		Thread.sleep(2000);
-		wait.until(ExpectedConditions.elementToBeClickable(referralEnrollmentLink)).click();
-
-		wait.until(ExpectedConditions.elementToBeClickable(newReferralEnrollmentText)).click();
-
-		Thread.sleep(2000);
-		wait.until(ExpectedConditions.elementToBeClickable(phoneNumberField)).sendKeys("11");
-		wait.until(ExpectedConditions.elementToBeClickable(emailIdField)).sendKeys("email");
-		wait.until(ExpectedConditions.elementToBeClickable(faxNumberField)).sendKeys("11");
-
-		wait.until(ExpectedConditions.elementToBeClickable(saveProviderReferralEnrollmentButton)).click();
-
-		try {
-			wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(toastMessage, 0));
-
-			List<WebElement> toasts = driver.findElements(toastMessage);
-
-			StringBuilder allMessages = new StringBuilder();
-
-			for (WebElement toast : toasts) {
-				if (toast.isDisplayed()) {
-					allMessages.append(toast.getText().trim()).append(" | ");
-				}
-			}
-
-			return "SUCCESS: Validations displayed -> " + allMessages.toString();
-
-		} catch (TimeoutException e) {
-			return "ERROR: Validation toast message(s) not displayed";
-		}
-	}
-
-	public String validateReferralEnrollmentFormOnEmptySubmission() throws InterruptedException {
-
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-
-		try {
-			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-		} catch (Exception ignored) {
-		}
-
-		wait.until(ExpectedConditions.elementToBeClickable(viewIcon)).click();
-
-		Thread.sleep(2000);
-		wait.until(ExpectedConditions.elementToBeClickable(referralEnrollmentLink)).click();
-
-		wait.until(ExpectedConditions.elementToBeClickable(newReferralEnrollmentText)).click();
-
-		Thread.sleep(2000);
-
-		wait.until(ExpectedConditions.elementToBeClickable(saveProviderReferralEnrollmentButton)).click();
-
-		try {
-			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
-
-			String actualMessage = toast.getText().trim();
-
-			return "SUCCESS: Validation displayed -> " + actualMessage;
-
-		} catch (TimeoutException e) {
-			return "ERROR: Validation toast message not displayed";
-		}
-	}
-
-	public String validateProviderCommunicationFormOnEmptySubmission() throws InterruptedException {
-
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-
-		try {
-			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-		} catch (Exception ignored) {
-		}
-
-		wait.until(ExpectedConditions.elementToBeClickable(viewIcon)).click();
-
-		Thread.sleep(2000);
-		wait.until(ExpectedConditions.elementToBeClickable(providerCommunicationLink)).click();
-
-		wait.until(ExpectedConditions.elementToBeClickable(newCommunicationSpan)).click();
-
-		Thread.sleep(2000);
-
-		wait.until(ExpectedConditions.elementToBeClickable(saveCommunicationButtonProvider)).click();
-
-		try {
-			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
-
-			String actualMessage = toast.getText().trim();
-
-			return "SUCCESS: Validation displayed -> " + actualMessage;
-
-		} catch (TimeoutException e) {
-			return "ERROR: Validation toast message not displayed";
-		}
-	}
-
-	public String shouldShowValidationForBlankAddProviderEHRForm() throws InterruptedException {
-
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-
-		try {
-			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-		} catch (Exception ignored) {
-		}
-
-		wait.until(ExpectedConditions.elementToBeClickable(viewIcon)).click();
-
-		Thread.sleep(2000);
-		wait.until(ExpectedConditions.elementToBeClickable(ehrLink)).click();
-
-		wait.until(ExpectedConditions.elementToBeClickable(newEhrSpan)).click();
-
-		Thread.sleep(2000);
-
-		wait.until(ExpectedConditions.elementToBeClickable(saveProviderEhrButton)).click();
-
-		try {
-			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
-
-			String actualMessage = toast.getText().trim();
-
-			return "SUCCESS: Validation displayed -> " + actualMessage;
-
-		} catch (TimeoutException e) {
-			return "ERROR: Validation toast message not displayed";
-		}
-	}
-
-	public String checkBlankServiceFormFields() throws InterruptedException {
-
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-
-		try {
-			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-		} catch (Exception ignored) {
-		}
-
-		wait.until(ExpectedConditions.elementToBeClickable(viewIcon)).click();
-
-		Thread.sleep(2000);
-		wait.until(ExpectedConditions.elementToBeClickable(serviceLink)).click();
-
-		wait.until(ExpectedConditions.elementToBeClickable(newServiceSpan)).click();
-
-		Thread.sleep(2000);
-
-		wait.until(ExpectedConditions.elementToBeClickable(saveProviderServiceButton)).click();
-
-		try {
-			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
-
-			String actualMessage = toast.getText().trim();
-
-			return "SUCCESS: Validation displayed -> " + actualMessage;
-
-		} catch (TimeoutException e) {
-			return "ERROR: Validation toast message not displayed";
-		}
-	}
-
-	public String checkInvalidExecutiveInputs() throws InterruptedException {
-
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-
-		try {
-			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-		} catch (Exception ignored) {
-		}
-
-		wait.until(ExpectedConditions.elementToBeClickable(viewIcon)).click();
-
-		Thread.sleep(2000);
-		wait.until(ExpectedConditions.elementToBeClickable(executivesTabLink)).click();
-
-		wait.until(ExpectedConditions.elementToBeClickable(newExecutiveButton)).click();
-
-		Thread.sleep(2000);
-		wait.until(ExpectedConditions.elementToBeClickable(providerExecutiveLastNameField)).sendKeys("Kristin");
-		wait.until(ExpectedConditions.elementToBeClickable(providerExecutiveFirstNameField)).sendKeys("Knipe");
-		wait.until(ExpectedConditions.elementToBeClickable(providerExecutiveEmailField)).sendKeys("email");
-		wait.until(ExpectedConditions.elementToBeClickable(providerExecutivePhoneNumberField)).sendKeys("11");
-		wait.until(ExpectedConditions.elementToBeClickable(providerExecutiveCellNumberField)).sendKeys("11");
-		wait.until(ExpectedConditions.elementToBeClickable(providerExecutivePhoneExtensionField)).sendKeys("11");
-		wait.until(ExpectedConditions.elementToBeClickable(providerExecutiveFaxNumberField)).sendKeys("11");
-		wait.until(ExpectedConditions.elementToBeClickable(providerExecutiveDesignationField)).sendKeys("Admin");
-		wait.until(ExpectedConditions.elementToBeClickable(saveAddressButtonProvider)).click();
-
-		try {
-			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
-
-			String actualMessage = toast.getText().trim();
-
-			return "SUCCESS: Validation displayed -> " + actualMessage;
-
-		} catch (TimeoutException e) {
-			return "ERROR: Validation toast message not displayed";
-		}
-	}
-
-	public String isExecutiveFormValid() throws InterruptedException {
-
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-
-		try {
-			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-		} catch (Exception ignored) {
-		}
-
-		wait.until(ExpectedConditions.elementToBeClickable(viewIcon)).click();
-
-		Thread.sleep(2000);
-		wait.until(ExpectedConditions.elementToBeClickable(executivesTabLink)).click();
-
-		wait.until(ExpectedConditions.elementToBeClickable(newExecutiveButton)).click();
-
-		Thread.sleep(2000);
-		wait.until(ExpectedConditions.elementToBeClickable(saveProviderExecutiveButton)).click();
-
-		try {
-			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
-
-			String actualMessage = toast.getText().trim();
-
-			return "SUCCESS: Validation displayed -> " + actualMessage;
-
-		} catch (TimeoutException e) {
-			return "ERROR: Validation toast message not displayed";
-		}
-	}
-
-	public String isProviderContactNumberValid() throws InterruptedException {
-
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-
-		try {
-			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-		} catch (Exception ignored) {
-		}
-
-		wait.until(ExpectedConditions.elementToBeClickable(viewIcon)).click();
-
-		Thread.sleep(2000);
-
-		wait.until(ExpectedConditions.elementToBeClickable(newAddressButton)).click();
-
-		Thread.sleep(2000);
-		wait.until(ExpectedConditions.elementToBeClickable(streetFieldProvider)).sendKeys("Thomas Street");
-		wait.until(ExpectedConditions.elementToBeClickable(cityFieldProvider)).sendKeys("Jekson");
-		wait.until(ExpectedConditions.elementToBeClickable(stateFieldProvider)).sendKeys("FL");
-		wait.until(ExpectedConditions.elementToBeClickable(zipCodeFieldProvider)).sendKeys("1");
-		wait.until(ExpectedConditions.elementToBeClickable(contactNumber1FieldProvider)).sendKeys("11");
-		wait.until(ExpectedConditions.elementToBeClickable(contactNumber2FieldProvider)).sendKeys("11");
-		wait.until(ExpectedConditions.elementToBeClickable(saveAddressButtonProvider)).click();
-
-		try {
-			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
-
-			String actualMessage = toast.getText().trim();
-
-			return "SUCCESS: Validation displayed -> " + actualMessage;
-
-		} catch (TimeoutException e) {
-			return "ERROR: Validation toast message not displayed";
-		}
-	}
-
-	public String checkBlankAddressField() throws InterruptedException {
-
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-
-		try {
-			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-		} catch (Exception ignored) {
-		}
-
-		wait.until(ExpectedConditions.elementToBeClickable(viewIcon)).click();
-
-		Thread.sleep(2000);
-
-		wait.until(ExpectedConditions.elementToBeClickable(newAddressButton)).click();
-
-		Thread.sleep(2000);
-
-		wait.until(ExpectedConditions.elementToBeClickable(saveAddressButtonProvider)).click();
-
-		try {
-			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
-
-			String actualMessage = toast.getText().trim();
-
-			return "SUCCESS: Validation displayed -> " + actualMessage;
-
-		} catch (TimeoutException e) {
-			return "ERROR: Validation toast message not displayed";
-		}
-	}
-
-	public String checkBlankBusinessGroupZone() throws InterruptedException {
-
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-
-		try {
-			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-		} catch (Exception ignored) {
-		}
-
-		wait.until(ExpectedConditions.elementToBeClickable(newProviderTab)).click();
-
-		Thread.sleep(2000);
-
-		wait.until(ExpectedConditions.elementToBeClickable(businessGroupImage)).click();
-
-		Thread.sleep(2000);
-
-		wait.until(ExpectedConditions.elementToBeClickable(profileNameInput)).sendKeys("Business");
-
-		wait.until(ExpectedConditions.elementToBeClickable(addNewBusinessGroupButton)).click();
-
-		wait.until(ExpectedConditions.elementToBeClickable(submitBusinessGroupButton)).click();
-
-		try {
-			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
-
-			String actualMessage = toast.getText().trim();
-
-			return "SUCCESS: Validation displayed -> " + actualMessage;
-
-		} catch (TimeoutException e) {
-			return "ERROR: Validation toast message not displayed";
-		}
-	}
-
-	public String checkBusinessGroupBlankSearch() throws InterruptedException {
-
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-
-		try {
-			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-		} catch (Exception ignored) {
-		}
-
-		wait.until(ExpectedConditions.elementToBeClickable(newProviderTab)).click();
-
-		Thread.sleep(2000);
-
-		wait.until(ExpectedConditions.elementToBeClickable(businessGroupImage)).click();
-
-		Thread.sleep(2000);
-		wait.until(ExpectedConditions.elementToBeClickable(searchButtontext)).click();
-		wait.until(ExpectedConditions.elementToBeClickable(addNewBusinessGroupButton)).click();
-		wait.until(ExpectedConditions.elementToBeClickable(submitBusinessGroupButton)).click();
-
-		try {
-			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
-
-			String actualMessage = toast.getText().trim();
-
-			return "SUCCESS: Validation displayed -> " + actualMessage;
-
-		} catch (TimeoutException e) {
-			return "ERROR: Validation toast message not displayed";
-		}
-	}
-
-	public String checkInvalidProviderFilterFields() throws InterruptedException {
-
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-
-		try {
-			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-		} catch (Exception ignored) {
-		}
-
-		wait.until(ExpectedConditions.elementToBeClickable(searchCollapseIcon)).click();
-
-		Thread.sleep(2000);
-
-		wait.until(ExpectedConditions.elementToBeClickable(filterEmail)).sendKeys("invalidemail");
-
-		wait.until(ExpectedConditions.elementToBeClickable(filterExecutiveEmail)).sendKeys("test@");
-
-		wait.until(ExpectedConditions.elementToBeClickable(filterZipCode)).sendKeys("12AB");
-
-		wait.until(ExpectedConditions.elementToBeClickable(filterPhoneNumber)).sendKeys("123");
-
-		wait.until(ExpectedConditions.elementToBeClickable(filterFaxNumber)).sendKeys("FAX123");
-
-		wait.until(ExpectedConditions.elementToBeClickable(searchIcon)).click();
-
-		try {
-			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
-
-			String actualMessage = toast.getText().trim();
-
-			return "SUCCESS: Validation displayed -> " + actualMessage;
-
-		} catch (TimeoutException e) {
-			return "ERROR: Validation toast message not displayed";
-		}
-	}
-
-	public String isProviderSearchFilterValid() throws InterruptedException {
-
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-
-		try {
-			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-		} catch (Exception ignored) {
-		}
-
-		wait.until(ExpectedConditions.elementToBeClickable(searchCollapseIcon)).click();
-
-		Thread.sleep(2000);
-
-		wait.until(ExpectedConditions.elementToBeClickable(searchIcon)).click();
-
-		try {
-			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
-
-			String actualMessage = toast.getText().trim();
-
-			return "SUCCESS: Validation displayed -> " + actualMessage;
-
-		} catch (TimeoutException e) {
-			return "ERROR: Validation toast message not displayed";
-		}
-	}
-
-	public String isProviderPhoneNumberValid() throws InterruptedException {
-
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-
-		try {
-			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-		} catch (Exception ignored) {
-		}
-
-		wait.until(ExpectedConditions.elementToBeClickable(newProviderTab)).click();
-
-		Thread.sleep(2000);
-
-		wait.until(ExpectedConditions.elementToBeClickable(doctorLastName)).sendKeys("Smith");
-
-		wait.until(ExpectedConditions.elementToBeClickable(doctorFirstName)).sendKeys("John");
-
-		wait.until(ExpectedConditions.elementToBeClickable(providerZone)).sendKeys("North");
-
-		wait.until(ExpectedConditions.elementToBeClickable(providerNPI)).sendKeys("1234567890");
-
-		wait.until(ExpectedConditions.elementToBeClickable(businessPhone1)).sendKeys("12");
-
-		wait.until(ExpectedConditions.elementToBeClickable(businessPhone2)).sendKeys("abcd123");
-
-		wait.until(ExpectedConditions.elementToBeClickable(cellPhone)).sendKeys("999");
-
-		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
-
-		try {
-			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
-
-			String actualMessage = toast.getText().trim();
-
-			return "SUCCESS: Validation displayed -> " + actualMessage;
-
-		} catch (TimeoutException e) {
-			return "ERROR: Validation toast message not displayed";
-		}
-	}
-
-	public String validateProviderEmail() throws InterruptedException {
-
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-
-		try {
-			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-		} catch (Exception ignored) {
-		}
-
-		wait.until(ExpectedConditions.elementToBeClickable(newProviderTab)).click();
-
-		Thread.sleep(2000);
-
-		wait.until(ExpectedConditions.elementToBeClickable(doctorLastName)).sendKeys("Smith");
-
-		wait.until(ExpectedConditions.elementToBeClickable(doctorFirstName)).sendKeys("John");
-
-		wait.until(ExpectedConditions.elementToBeClickable(providerZone)).sendKeys("North");
-
-		wait.until(ExpectedConditions.elementToBeClickable(providerNPI)).sendKeys("1234567890");
-		wait.until(ExpectedConditions.elementToBeClickable(primaryEmail)).sendKeys("invalidemail");
-		wait.until(ExpectedConditions.elementToBeClickable(secondaryEmail)).sendKeys("test@");
-
-		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
-
-		try {
-			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
-
-			String actualMessage = toast.getText().trim();
-
-			return "SUCCESS: Validation displayed -> " + actualMessage;
-
-		} catch (TimeoutException e) {
-			return "ERROR: Validation toast message not displayed";
-		}
-	}
-
-	public String isNpiNumberValid() throws InterruptedException {
-
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-
-		try {
-			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-		} catch (Exception ignored) {
-		}
-
-		wait.until(ExpectedConditions.elementToBeClickable(newProviderTab)).click();
-
-		Thread.sleep(2000);
-
-		wait.until(ExpectedConditions.elementToBeClickable(doctorLastName)).sendKeys("Smith");
-
-		wait.until(ExpectedConditions.elementToBeClickable(doctorFirstName)).sendKeys("John");
-
-		wait.until(ExpectedConditions.elementToBeClickable(providerZone)).sendKeys("North");
-
-		wait.until(ExpectedConditions.elementToBeClickable(providerNPI)).sendKeys("12");
-
-		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
-
-		try {
-			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
-
-			String actualMessage = toast.getText().trim();
-
-			return "SUCCESS: Validation displayed -> " + actualMessage;
-
-		} catch (TimeoutException e) {
-			return "ERROR: Validation toast message not displayed";
-		}
-	}
-
-	public String validateNewProviderNotEmpty() throws InterruptedException {
-
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-
-		try {
-			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-		} catch (Exception ignored) {
-		}
-
-		wait.until(ExpectedConditions.elementToBeClickable(newProviderTab)).click();
-
-		Thread.sleep(2000);
-
-		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
-
-		try {
-			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
-
-			String actualMessage = toast.getText().trim();
-
-			return "SUCCESS: Validation displayed -> " + actualMessage;
-
-		} catch (TimeoutException e) {
-			return "ERROR: Validation toast message not displayed";
-		}
-	}
-
-	public String validateInvalidPhoneNumber() throws InterruptedException {
-
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-
-		try {
-			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-		} catch (Exception ignored) {
-		}
-
-		Thread.sleep(2000);
-
-		wait.until(ExpectedConditions.elementToBeClickable(sendVCardTab)).click();
-
-		Thread.sleep(2000);
-
-		WebElement phoneField = wait.until(ExpectedConditions.elementToBeClickable(vCardPhoneNumber));
-		phoneField.clear();
-		phoneField.sendKeys("12");
-
-		wait.until(ExpectedConditions.elementToBeClickable(sendVCardSubmitButton)).click();
-
-		try {
-			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
-
-			String actualMessage = toast.getText().trim();
-
-			return "SUCCESS: Validation displayed -> " + actualMessage;
-
-		} catch (TimeoutException e) {
-			return "ERROR: Validation toast message not displayed";
-		}
-	}
-
-	public String validateVCardNotEmptyOnSend() throws InterruptedException {
-
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-
-		try {
-			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-		} catch (Exception ignored) {
-		}
-
-		Thread.sleep(2000);
-
-		wait.until(ExpectedConditions.elementToBeClickable(sendVCardTab)).click();
-
-		Thread.sleep(2000);
-
-		wait.until(ExpectedConditions.elementToBeClickable(sendVCardSubmitButton)).click();
-
-		try {
-			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
-
-			String actualMessage = toast.getText().trim();
-
-			return "SUCCESS: Validation displayed -> " + actualMessage;
-
-		} catch (TimeoutException e) {
-			return "ERROR: Validation toast message not displayed";
-		}
-	}
-
-	public String isQuickTextSendValid() {
-
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-
-		try {
-			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-		} catch (Exception ignored) {
-		}
-
-		wait.until(ExpectedConditions.elementToBeClickable(quickTextTab)).click();
-
-		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
-
-		try {
-			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
-
-			String actualMessage = toast.getText().trim();
-
-			return "SUCCESS: Validation displayed -> " + actualMessage;
-
-		} catch (TimeoutException e) {
-			return "ERROR: Validation toast message not displayed";
-		}
-	}
-
-	public String validateBlankQuickTextField() {
-
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-
-		try {
-			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-		} catch (Exception ignored) {
-		}
-
-		wait.until(ExpectedConditions.elementToBeClickable(quickTextTab)).click();
-
-		wait.until(ExpectedConditions.elementToBeClickable(searchButtonQuickText)).click();
-
-		String expectedMessage = "please enter \"Business Name\", \"First Name\" or \"Last Name\" to search provider.";
-
-		try {
-			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
-
-			String actualMessage = toast.getText().trim();
-
-			if (actualMessage.equalsIgnoreCase(expectedMessage)) {
-				return "SUCCESS: Validation displayed -> " + actualMessage;
-			} else {
-				return "ERROR: Validation message mismatch -> " + actualMessage;
-			}
-
-		} catch (TimeoutException e) {
-			return "ERROR: Validation toast message not displayed";
-		}
-	}
+	public By newEhrSpan = By.xpath("//span[normalize-space()='New EHR']");
+	public By ehrLink = By.xpath("//a[normalize-space()='EHR']");
+	public By serviceLink = By.xpath("//a[normalize-space()='Service']");
+	public By newServiceSpan = By.xpath("//span[normalize-space()='New Service']");
+	public By providerExecutiveLastNameField = By.xpath("//input[@id='ProviderExecutive_LastName']");
+	public By providerExecutiveFirstNameField = By.xpath("//input[@id='ProviderExecutive_FirstName']");
+	public By providerExecutiveEmailField = By.xpath("//input[@id='ProviderExecutive_EmailId']");
+	public By providerExecutivePhoneNumberField = By.xpath("//input[@id='ProviderExecutive_PhoneNumber']");
+	public By providerExecutiveCellNumberField = By.xpath("//input[@id='ProviderExecutive_CellNumber']");
+	public By providerExecutivePhoneExtensionField = By.xpath("//input[@id='ProviderExecutive_PhoneNumberExtension']");
+	public By providerExecutiveFaxNumberField = By.xpath("//input[@id='ProviderExecutive_FaxNumber']");
+	public By providerExecutiveDesignationField = By.xpath("//input[@id='ProviderExecutive_Designation']");
+	public By saveProviderExecutiveButton = By.xpath("//button[@id='btnSaveProviderExecutivePopup']");
+	public By streetFieldProvider = By.xpath("//input[@id='ProviderAddress_Street']");
+	public By cityFieldProvider = By.xpath("//input[@id='ProviderAddress_City']");
+	public By stateFieldProvider = By.xpath("//input[@id='ProviderAddress_State']");
+	public By zipCodeFieldProvider = By.xpath("//input[@id='ProviderAddress_ZipCode']");
+	public By contactNumber1FieldProvider = By.xpath("//input[@id='ProviderAddress_ContactNumber1']");
+	public By contactNumber2FieldProvider = By.xpath("//input[@id='ProviderAddress_ContactNumber2']");
+	public By saveAddressButtonProvider = By.xpath("//button[@id='btnSaveAddress']");
+	public By viewIcon = By.xpath("//tbody/tr[1]/td[13]/div[1]/a[1]/img[1]");
+	public By addNewBusinessGroupButton = By.xpath("//button[normalize-space()='Add New Business Group']");
+	public By submitBusinessGroupButton = By.xpath("//button[@id='btnsubmit']");
+	public By businessGroupImage = By.xpath("//a[@id='addBusinessGroupPopup']//img");
+	public By filterEmail = By.xpath("//input[@id='Filter_EmailId']");
+	public By filterExecutiveEmail = By.xpath("//input[@id='Filter_ProviderExecutiveEmailId']");
+	public By filterZipCode = By.xpath("//input[@id='Filter_ZipCode']");
+	public By filterPhoneNumber = By.xpath("//input[@id='Filter_PhoneNumber']");
+	public By filterFaxNumber = By.xpath("//input[@id='Filter_FaxNumber']");
+	public By searchCollapseIcon = By
+			.xpath("//a[@id='searchcollapse']//*[name()='svg']//*[name()='path' and @id='Union_73']");
+	public By searchIcon = By.xpath("//i[@class='fa-solid fa-magnifying-glass']");
+	public By businessPhone1 = By.id("Provider_BusinessPhone1");
+	public By businessPhone2 = By.id("Provider_BusinessPhone2");
+	public By cellPhone = By.id("Provider_CellPhone");
+	public By primaryEmail = By.id("Provider_PrimaryEmail");
+	public By secondaryEmail = By.id("Provider_SecondaryEmail");
+	public By doctorLastName = By.id("Provider_DoctorLastName");
+	public By doctorFirstName = By.id("Provider_DoctorFirstName");
+	public By providerZone = By.id("Provider_Zone");
+	public By providerNPI = By.id("Provider_NPINumber");
+	public By newProviderTab = By.xpath("//span[normalize-space()='New Provider']");
+	public By vCardPhoneNumber = By.id("vCardPhoneNumber");
+	public By sendVCardTab = By.xpath("//span[normalize-space()='Send VCard']");
+	public By toastMessage = By.xpath("//div[@class='toast-message']");
+	public By searchButtonQuickText = By.xpath("//button[normalize-space()='Search']");
+	public By quickTextTab = By.xpath("//span[normalize-space()='Quick Text']");
+	public By providerCommunicationLink = By.xpath("//a[normalize-space()='Provider Communication']");
+	public By newCommunicationSpan = By.xpath("//span[normalize-space()='New Communication']");
+	public By saveCommunicationButtonProvider = By.xpath("//button[@id='btnSaveCommunication']");
+	public By newReferralEnrollmentText = By.xpath("//span[normalize-space()='New Referral Enrollment']");
+	public By saveProviderReferralEnrollmentButton = By.xpath("//button[@id='btnSaveProviderReferralEnrollmentPopup']");
+	public By phoneNumberField = By.xpath("//input[@id='ProviderReferralEnrollment_PhoneNumber']");
+	public By emailIdField = By.xpath("//input[@id='ProviderReferralEnrollment_EmailId']");
+	public By faxNumberField = By.xpath("//input[@id='ProviderReferralEnrollment_FaxNumber']");
+	public By documentLibraryTab = By.xpath("//span[normalize-space()='Document Library']");
+	public By addFolderButtonDocumet = By.xpath("//a[@id='btnAddFolder']//*[name()='svg']");
 
 	// BusinessGroup
 	public By frontDeskNameField = By.id("BusinessGroup_FrontDeskName");
@@ -857,11 +99,9 @@ public class providerpage {
 	public By newProviderTemplateButton = By.xpath("//span[normalize-space()='New Template']");
 	public By providerTemplateNameField = By.id("ProviderDocumentTemplate_Name");
 	public By saveProviderTemplateButton = By.id("btnSave");
-
 	public By providerTemplateOptionsButton = By.xpath("(//button[@id='bucketDrop']/i)[1]");
 	public By editProviderTemplateOption = By.xpath(
 			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]");
-
 	public By deleteProviderTemplateOption = By.xpath(
 			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]");
 
@@ -1048,20 +288,16 @@ public class providerpage {
 
 	// Referral Enrollment
 	public By referralEnrollmentLink = By.xpath("//a[normalize-space()='Referral Enrollment']");
-
 	public By newReferralEnrollmentButton = By.xpath("//span[normalize-space()='New Referral Enrollment']");
 	public By startDateField = By.id("ProviderReferralEnrollment_StartDate");
 	public By specificDate = By.xpath("//td[@data-month='1' and @data-year='2026']/a[text()='11']");
 	public By saveReferralEnrollmentButton = By.id("btnSaveProviderReferralEnrollmentPopup");
-
 	public By referralEnrollmentOptionsMenu = By.xpath("//tbody/tr/td[8]/div[1]/div[1]/button[1]/i[1]");
 	public By referralEnrollmentEditOption = By.xpath(
 			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]");
-
 	public By referralEnrollmentDeleteOption = By
 			.xpath("//a[@id='btnDeleteProviderReferralEnrollment']//span[contains(text(),'Delete')]");
 	public By referralEnrollmentNotesField = By.id("ProviderReferralEnrollment_Notes");
-
 	public By confirmDeleteReferralEnrollmentButton = By.id("deleteProviderReferralEnrollment");
 	public By providerReferralEnrollmentAllField = By.xpath("//label[@for='chkg20ProviderReferralEnrollmentAll']");
 	public By providerReferralEnrollmentAddField = By.xpath("//label[@for='chkg20ProviderReferralEnrollmentAdd']");
@@ -1178,48 +414,601 @@ public class providerpage {
 	public By priorAuthorizationProcessAllLabel = By.xpath("//label[@for='chkg23PriorAuthorizationProcessAll']");
 	public By priorAuthorizationGenerateAddLabel = By.xpath("//label[@for='chkg23PriorAuthorizationGenerateAdd']");
 
-	// BusinessGroup
-
-	public String validateInvalidBusinessGroupAddressFields() {
-
+	// Providers Management
+	public String validateCheckbox() throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(findDuplicateButton)).click();
+		try {
+			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
+			String actualMessage = toast.getText().trim();
+			return "SUCCESS: Validation displayed -> " + actualMessage;
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
 
+	public String validateDocumentLibraryAddFolderSubmission() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(viewIcon)).click();
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(documentLibraryTab)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(addFolderButtonDocumet)).click();
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
+		try {
+			wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(toastMessage, 0));
+			List<WebElement> toasts = driver.findElements(toastMessage);
+			StringBuilder allMessages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				if (toast.isDisplayed()) {
+					allMessages.append(toast.getText().trim()).append(" | ");
+				}
+			}
+			return "SUCCESS: Validations displayed -> " + allMessages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message(s) not displayed";
+		}
+	}
+
+	public String validateReferralEnrollmentPhoneEmailFax() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(viewIcon)).click();
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(referralEnrollmentLink)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(newReferralEnrollmentText)).click();
+		Thread.sleep(2000);
+		String phoneNumber = Hooks.prop.getProperty("phonenumber");
+		String email = Hooks.prop.getProperty("email");
+		String faxNumber = Hooks.prop.getProperty("faxnumber");
+				wait.until(ExpectedConditions.elementToBeClickable(phoneNumberField)).sendKeys(phoneNumber);
+		wait.until(ExpectedConditions.elementToBeClickable(emailIdField)).sendKeys(email);
+		wait.until(ExpectedConditions.elementToBeClickable(faxNumberField)).sendKeys(faxNumber);
+				System.out.println("Phone: " + phoneNumber);
+		System.out.println("Email: " + email);
+		System.out.println("Fax: " + faxNumber);
+		Hooks.scenario.log("Phone: " + phoneNumber);
+		Hooks.scenario.log("Email: " + email);
+		Hooks.scenario.log("Fax: " + faxNumber);
+		wait.until(ExpectedConditions.elementToBeClickable(saveProviderReferralEnrollmentButton)).click();
+		try {
+			wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(toastMessage, 0));
+			List<WebElement> toasts = driver.findElements(toastMessage);
+			StringBuilder allMessages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				if (toast.isDisplayed()) {
+					allMessages.append(toast.getText().trim()).append(" | ");
+				}
+			}
+			return "SUCCESS: Validations displayed -> " + allMessages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message(s) not displayed";
+		}
+	}
+
+	public String validateReferralEnrollmentFormOnEmptySubmission() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(viewIcon)).click();
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(referralEnrollmentLink)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(newReferralEnrollmentText)).click();
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(saveProviderReferralEnrollmentButton)).click();
+		try {
+			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
+			String actualMessage = toast.getText().trim();
+			return "SUCCESS: Validation displayed -> " + actualMessage;
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String validateProviderCommunicationFormOnEmptySubmission() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(viewIcon)).click();
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(providerCommunicationLink)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(newCommunicationSpan)).click();
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(saveCommunicationButtonProvider)).click();
+		try {
+			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
+			String actualMessage = toast.getText().trim();
+			return "SUCCESS: Validation displayed -> " + actualMessage;
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String shouldShowValidationForBlankAddProviderEHRForm() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(viewIcon)).click();
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(ehrLink)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(newEhrSpan)).click();
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(saveProviderEhrButton)).click();
+		try {
+			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
+			String actualMessage = toast.getText().trim();
+			return "SUCCESS: Validation displayed -> " + actualMessage;
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String checkBlankServiceFormFields() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(viewIcon)).click();
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(serviceLink)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(newServiceSpan)).click();
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(saveProviderServiceButton)).click();
+		try {
+			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
+			String actualMessage = toast.getText().trim();
+			return "SUCCESS: Validation displayed -> " + actualMessage;
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String checkInvalidExecutiveInputs() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(viewIcon)).click();
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(executivesTabLink)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(newExecutiveButton)).click();
+		Thread.sleep(2000);
+		String lastName = Hooks.prop.getProperty("provider_lastname");
+		String firstName = Hooks.prop.getProperty("provider_firstname");
+		String email = Hooks.prop.getProperty("provider_email");
+		String phone = Hooks.prop.getProperty("provider_phone");
+		String cell = Hooks.prop.getProperty("provider_cell");
+		String extension = Hooks.prop.getProperty("provider_extension");
+		String fax = Hooks.prop.getProperty("provider_fax");
+		String designation = Hooks.prop.getProperty("provider_designation");
+		wait.until(ExpectedConditions.elementToBeClickable(providerExecutiveLastNameField)).sendKeys(lastName);
+		wait.until(ExpectedConditions.elementToBeClickable(providerExecutiveFirstNameField)).sendKeys(firstName);
+		wait.until(ExpectedConditions.elementToBeClickable(providerExecutiveEmailField)).sendKeys(email);
+		wait.until(ExpectedConditions.elementToBeClickable(providerExecutivePhoneNumberField)).sendKeys(phone);
+		wait.until(ExpectedConditions.elementToBeClickable(providerExecutiveCellNumberField)).sendKeys(cell);
+		wait.until(ExpectedConditions.elementToBeClickable(providerExecutivePhoneExtensionField)).sendKeys(extension);
+		wait.until(ExpectedConditions.elementToBeClickable(providerExecutiveFaxNumberField)).sendKeys(fax);
+		wait.until(ExpectedConditions.elementToBeClickable(providerExecutiveDesignationField)).sendKeys(designation);
+		Hooks.scenario.log("Provider Executive Details Entered Successfully");
+		wait.until(ExpectedConditions.elementToBeClickable(saveAddressButtonProvider)).click();
+		try {
+			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
+			String actualMessage = toast.getText().trim();
+			return "SUCCESS: Validation displayed -> " + actualMessage;
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String isExecutiveFormValid() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(viewIcon)).click();
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(executivesTabLink)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(newExecutiveButton)).click();
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(saveProviderExecutiveButton)).click();
+		try {
+			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
+			String actualMessage = toast.getText().trim();
+			return "SUCCESS: Validation displayed -> " + actualMessage;
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String isProviderContactNumberValid() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(viewIcon)).click();
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(newAddressButton)).click();
+		Thread.sleep(2000);
+		String street = Hooks.prop.getProperty("provider_street");
+		String city = Hooks.prop.getProperty("provider_city");
+		String state = Hooks.prop.getProperty("provider_state");
+		String zip = Hooks.prop.getProperty("provider_zip");
+		String contact1 = Hooks.prop.getProperty("provider_contact1");
+		String contact2 = Hooks.prop.getProperty("provider_contact2");
+		wait.until(ExpectedConditions.elementToBeClickable(streetFieldProvider)).sendKeys(street);
+		wait.until(ExpectedConditions.elementToBeClickable(cityFieldProvider)).sendKeys(city);
+		wait.until(ExpectedConditions.elementToBeClickable(stateFieldProvider)).sendKeys(state);
+		wait.until(ExpectedConditions.elementToBeClickable(zipCodeFieldProvider)).sendKeys(zip);
+		wait.until(ExpectedConditions.elementToBeClickable(contactNumber1FieldProvider)).sendKeys(contact1);
+		wait.until(ExpectedConditions.elementToBeClickable(contactNumber2FieldProvider)).sendKeys(contact2);
+		Hooks.scenario.log("Provider Address Details Entered Successfully");
+		wait.until(ExpectedConditions.elementToBeClickable(saveAddressButtonProvider)).click();
+		try {
+			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
+			String actualMessage = toast.getText().trim();
+			return "SUCCESS: Validation displayed -> " + actualMessage;
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String checkBlankAddressField() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(viewIcon)).click();
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(newAddressButton)).click();
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(saveAddressButtonProvider)).click();
+		try {
+			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
+			String actualMessage = toast.getText().trim();
+			return "SUCCESS: Validation displayed -> " + actualMessage;
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String checkBlankBusinessGroupZone() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(newProviderTab)).click();
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(businessGroupImage)).click();
+		Thread.sleep(2000);
+		String profileName = Hooks.prop.getProperty("profile_name");
+		wait.until(ExpectedConditions.elementToBeClickable(profileNameInput)).sendKeys(profileName);
+		Hooks.scenario.log("Profile Name Entered: " + profileName);
+		wait.until(ExpectedConditions.elementToBeClickable(addNewBusinessGroupButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(submitBusinessGroupButton)).click();
+
+		try {
+			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
+			String actualMessage = toast.getText().trim();
+			return "SUCCESS: Validation displayed -> " + actualMessage;
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String checkBusinessGroupBlankSearch() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(newProviderTab)).click();
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(businessGroupImage)).click();
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(searchButtontext)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(addNewBusinessGroupButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(submitBusinessGroupButton)).click();
+		try {
+			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
+			String actualMessage = toast.getText().trim();
+			return "SUCCESS: Validation displayed -> " + actualMessage;
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String checkInvalidProviderFilterFields() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(searchCollapseIcon)).click();
+		Thread.sleep(2000);
+		String invalidEmail = Hooks.prop.getProperty("invalid_email");
+		String invalidExecutiveEmail = Hooks.prop.getProperty("invalid_executive_email");
+		String invalidZip = Hooks.prop.getProperty("invalid_zip");
+		String invalidPhone = Hooks.prop.getProperty("invalid_phone");
+		String invalidFax = Hooks.prop.getProperty("invalid_fax");
+		wait.until(ExpectedConditions.elementToBeClickable(filterEmail)).sendKeys(invalidEmail);
+		wait.until(ExpectedConditions.elementToBeClickable(filterExecutiveEmail)).sendKeys(invalidExecutiveEmail);
+		wait.until(ExpectedConditions.elementToBeClickable(filterZipCode)).sendKeys(invalidZip);
+		wait.until(ExpectedConditions.elementToBeClickable(filterPhoneNumber)).sendKeys(invalidPhone);
+		wait.until(ExpectedConditions.elementToBeClickable(filterFaxNumber)).sendKeys(invalidFax);
+		Hooks.scenario.log("Invalid filter values entered successfully");
+		wait.until(ExpectedConditions.elementToBeClickable(searchIcon)).click();
+		try {
+			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
+			String actualMessage = toast.getText().trim();
+			return "SUCCESS: Validation displayed -> " + actualMessage;
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String isProviderSearchFilterValid() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(searchCollapseIcon)).click();
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(searchIcon)).click();
+		try {
+			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
+			String actualMessage = toast.getText().trim();
+			return "SUCCESS: Validation displayed -> " + actualMessage;
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String isProviderPhoneNumberValid() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(newProviderTab)).click();
+		Thread.sleep(2000);
+		String doctorLast = Hooks.prop.getProperty("doctor_lastname");
+		String doctorFirst = Hooks.prop.getProperty("doctor_firstname");
+		String zone = Hooks.prop.getProperty("provider_zone");
+		String npi = Hooks.prop.getProperty("provider_npi");
+		String phone1 = Hooks.prop.getProperty("business_phone1");
+		String phone2 = Hooks.prop.getProperty("business_phone2");
+		String cell = Hooks.prop.getProperty("cell_phone");
+		wait.until(ExpectedConditions.elementToBeClickable(doctorLastName)).sendKeys(doctorLast);
+		wait.until(ExpectedConditions.elementToBeClickable(doctorFirstName)).sendKeys(doctorFirst);
+		wait.until(ExpectedConditions.elementToBeClickable(providerZone)).sendKeys(zone);
+		wait.until(ExpectedConditions.elementToBeClickable(providerNPI)).sendKeys(npi);
+		wait.until(ExpectedConditions.elementToBeClickable(businessPhone1)).sendKeys(phone1);
+		wait.until(ExpectedConditions.elementToBeClickable(businessPhone2)).sendKeys(phone2);
+		wait.until(ExpectedConditions.elementToBeClickable(cellPhone)).sendKeys(cell);
+		Hooks.scenario.log("Doctor & Provider details entered successfully");
+		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
+		try {
+			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
+			String actualMessage = toast.getText().trim();
+			return "SUCCESS: Validation displayed -> " + actualMessage;
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String validateProviderEmail() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(newProviderTab)).click();
+		Thread.sleep(2000);
+		String doctorLast = Hooks.prop.getProperty("doctor_lastname");
+		String doctorFirst = Hooks.prop.getProperty("doctor_firstname");
+		String zone = Hooks.prop.getProperty("provider_zone");
+		String npi = Hooks.prop.getProperty("provider_npi");
+		String primaryInvalidEmail = Hooks.prop.getProperty("invalid_primary_email");
+		String secondaryInvalidEmail = Hooks.prop.getProperty("invalid_secondary_email");
+		wait.until(ExpectedConditions.elementToBeClickable(doctorLastName)).sendKeys(doctorLast);
+		wait.until(ExpectedConditions.elementToBeClickable(doctorFirstName)).sendKeys(doctorFirst);
+		wait.until(ExpectedConditions.elementToBeClickable(providerZone)).sendKeys(zone);
+		wait.until(ExpectedConditions.elementToBeClickable(providerNPI)).sendKeys(npi);
+		wait.until(ExpectedConditions.elementToBeClickable(primaryEmail)).sendKeys(primaryInvalidEmail);
+		wait.until(ExpectedConditions.elementToBeClickable(secondaryEmail)).sendKeys(secondaryInvalidEmail);
+		Hooks.scenario.log("Doctor details with invalid emails entered successfully");
+		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
+		try {
+			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
+			String actualMessage = toast.getText().trim();
+			return "SUCCESS: Validation displayed -> " + actualMessage;
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String isNpiNumberValid() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(newProviderTab)).click();
+		Thread.sleep(2000);
+		String doctorLast = Hooks.prop.getProperty("doctor_lastname");
+		String doctorFirst = Hooks.prop.getProperty("doctor_firstname");
+		String zone = Hooks.prop.getProperty("provider_zone");
+		String invalidNpi = Hooks.prop.getProperty("invalid_provider_npi");
+		wait.until(ExpectedConditions.elementToBeClickable(doctorLastName)).sendKeys(doctorLast);
+		wait.until(ExpectedConditions.elementToBeClickable(doctorFirstName)).sendKeys(doctorFirst);
+		wait.until(ExpectedConditions.elementToBeClickable(providerZone)).sendKeys(zone);
+		wait.until(ExpectedConditions.elementToBeClickable(providerNPI)).sendKeys(invalidNpi);
+		Hooks.scenario.log("Doctor details entered with invalid NPI");
+		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
+		try {
+			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
+			String actualMessage = toast.getText().trim();
+			return "SUCCESS: Validation displayed -> " + actualMessage;
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String validateNewProviderNotEmpty() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(newProviderTab)).click();
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
+		try {
+			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
+			String actualMessage = toast.getText().trim();
+			return "SUCCESS: Validation displayed -> " + actualMessage;
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String validateInvalidPhoneNumber() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(sendVCardTab)).click();
+		Thread.sleep(2000);
+		WebElement phoneField = wait.until(ExpectedConditions.elementToBeClickable(vCardPhoneNumber));
+		String phone = Hooks.prop.getProperty("invalid_phone");
+		phoneField.clear();
+		phoneField.sendKeys(phone);
+		Hooks.scenario.log("Phone number entered: " + phone);
+		wait.until(ExpectedConditions.elementToBeClickable(sendVCardSubmitButton)).click();
+		try {
+			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
+			String actualMessage = toast.getText().trim();
+			return "SUCCESS: Validation displayed -> " + actualMessage;
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String validateVCardNotEmptyOnSend() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(sendVCardTab)).click();
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(sendVCardSubmitButton)).click();
+		try {
+			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
+			String actualMessage = toast.getText().trim();
+			return "SUCCESS: Validation displayed -> " + actualMessage;
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String isQuickTextSendValid() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(quickTextTab)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+		try {
+			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
+			String actualMessage = toast.getText().trim();
+			return "SUCCESS: Validation displayed -> " + actualMessage;
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String validateBlankQuickTextField() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(quickTextTab)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(searchButtonQuickText)).click();
+		String expectedMessage = "please enter \"Business Name\", \"First Name\" or \"Last Name\" to search provider.";
+		try {
+			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
+			String actualMessage = toast.getText().trim();
+			if (actualMessage.equalsIgnoreCase(expectedMessage)) {
+				return "SUCCESS: Validation displayed -> " + actualMessage;
+			} else {
+				return "ERROR: Validation message mismatch -> " + actualMessage;
+			}
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	// BusinessGroup
+	public String validateInvalidBusinessGroupAddressFields() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 		WebElement viewBtn = wait.until(ExpectedConditions.elementToBeClickable(viewButton));
-
 		try {
 			viewBtn.click();
 		} catch (Exception e) {
 			((JavascriptExecutor) driver).executeScript("arguments[0].click();", viewBtn);
 		}
-
 		WebElement newAddressBtn = wait.until(ExpectedConditions.elementToBeClickable(newAddressButton));
-
 		try {
 			newAddressBtn.click();
 		} catch (Exception e) {
 			((JavascriptExecutor) driver).executeScript("arguments[0].click();", newAddressBtn);
 		}
-
-		driver.findElement(streetField).sendKeys("Test Street");
-		driver.findElement(cityField).sendKeys("Test City");
-		driver.findElement(stateField).sendKeys("Test State");
-		driver.findElement(frontDeskNameField).sendKeys("Front Desk");
-
-		driver.findElement(zipCodeField).sendKeys("12");
-		driver.findElement(contactNumber1Field).sendKeys("12345");
-		driver.findElement(contactNumber2Field).sendKeys("1234");
-		driver.findElement(faxField).sendKeys("123");
-
+		driver.findElement(streetField).sendKeys(Hooks.prop.getProperty("address.street"));
+		driver.findElement(cityField).sendKeys(Hooks.prop.getProperty("address.city"));
+		driver.findElement(stateField).sendKeys(Hooks.prop.getProperty("address.state"));
+		driver.findElement(frontDeskNameField).sendKeys(Hooks.prop.getProperty("frontdesk.name"));
+		driver.findElement(zipCodeField).sendKeys(Hooks.prop.getProperty("address.zip.invalid"));
+		driver.findElement(contactNumber1Field).sendKeys(Hooks.prop.getProperty("contact.number1"));
+		driver.findElement(contactNumber2Field).sendKeys(Hooks.prop.getProperty("contact.number2"));
+		driver.findElement(faxField).sendKeys(Hooks.prop.getProperty("fax.invalid"));
 		WebElement saveBtn = wait.until(ExpectedConditions.elementToBeClickable(saveAddressButton));
-
 		try {
 			saveBtn.click();
 		} catch (Exception e) {
 			((JavascriptExecutor) driver).executeScript("arguments[0].click();", saveBtn);
 		}
-
 		List<String> errorMessages = new ArrayList<>();
-
 		try {
 			List<WebElement> toasts = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(toastMessages));
 
@@ -1231,7 +1020,6 @@ public class providerpage {
 			}
 		} catch (TimeoutException ignored) {
 		}
-
 		List<WebElement> fieldErrorElements = driver.findElements(fieldErrors);
 
 		for (WebElement error : fieldErrorElements) {
@@ -1240,58 +1028,42 @@ public class providerpage {
 				errorMessages.add(msg.toLowerCase());
 			}
 		}
-
 		List<String> missingFields = new ArrayList<>();
-
 		if (errorMessages.stream().noneMatch(msg -> msg.contains("fax")))
 			missingFields.add("Fax");
-
 		if (errorMessages.stream().noneMatch(msg -> msg.contains("contact number1") || msg.contains("contact 1")))
 			missingFields.add("Contact Number1");
-
 		if (errorMessages.stream().noneMatch(msg -> msg.contains("contact number2") || msg.contains("contact 2")))
 			missingFields.add("Contact Number2");
-
 		if (errorMessages.stream().noneMatch(msg -> msg.contains("zip") || msg.contains("postal")))
 			missingFields.add("Zip Code");
-
 		if (missingFields.isEmpty()) {
 			return "SUCCESS: All invalid digit-length validations displayed correctly.";
 		}
-
 		return "MISSING INVALID VALIDATIONS FOR: " + String.join(", ", missingFields);
 	}
 
 	public String validateRequiredAddressFieldsFromViewPage() {
-
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-
 		WebElement viewBtn = wait.until(ExpectedConditions.elementToBeClickable(viewButton));
-
 		try {
 			viewBtn.click();
 		} catch (Exception e) {
 			((JavascriptExecutor) driver).executeScript("arguments[0].click();", viewBtn);
 		}
-
 		WebElement newAddressBtn = wait.until(ExpectedConditions.elementToBeClickable(newAddressButton));
-
 		try {
 			newAddressBtn.click();
 		} catch (Exception e) {
 			((JavascriptExecutor) driver).executeScript("arguments[0].click();", newAddressBtn);
 		}
-
 		WebElement saveAddressBtn = wait.until(ExpectedConditions.elementToBeClickable(saveAddressButton));
-
 		try {
 			saveAddressBtn.click();
 		} catch (Exception e) {
 			((JavascriptExecutor) driver).executeScript("arguments[0].click();", saveAddressBtn);
 		}
-
 		List<String> errorMessages = new ArrayList<>();
-
 		try {
 			List<WebElement> toasts = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(toastMessages));
 
@@ -1303,7 +1075,6 @@ public class providerpage {
 			}
 		} catch (TimeoutException ignored) {
 		}
-
 		List<WebElement> fieldErrorElements = driver.findElements(fieldErrors);
 
 		for (WebElement error : fieldErrorElements) {
@@ -1312,46 +1083,33 @@ public class providerpage {
 				errorMessages.add(msg.toLowerCase());
 			}
 		}
-
 		List<String> missingFields = new ArrayList<>();
-
 		if (errorMessages.stream().noneMatch(msg -> msg.contains("street")))
 			missingFields.add("Street");
-
 		if (errorMessages.stream().noneMatch(msg -> msg.contains("city")))
 			missingFields.add("City");
-
 		if (errorMessages.stream().noneMatch(msg -> msg.contains("state")))
 			missingFields.add("State");
-
 		if (errorMessages.stream().noneMatch(msg -> msg.contains("zip") || msg.contains("postal")))
 			missingFields.add("Zip Code");
-
 		if (errorMessages.stream().noneMatch(msg -> msg.contains("contact")))
 			missingFields.add("Contact Number1");
-
 		if (missingFields.isEmpty()) {
 			return "SUCCESS: All required address field validations displayed.";
 		}
-
 		return "MISSING VALIDATIONS FOR: " + String.join(", ", missingFields);
 	}
 
 	public String filterWithBlankBusinessGroupNameAndValidate() {
-
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-
 		WebElement filter = wait.until(ExpectedConditions.elementToBeClickable(filterIcon));
-
 		try {
 			filter.click();
 		} catch (Exception e) {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].click();", filter);
 		}
-
 		WebElement searchBtn = driver.findElement(searchButton);
 
 		try {
@@ -1360,41 +1118,31 @@ public class providerpage {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].click();", searchBtn);
 		}
-
 		List<String> errorMessages = new ArrayList<>();
-
 		try {
 			List<WebElement> toasts = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(toastMessages));
-
 			for (WebElement toast : toasts) {
 				String msg = toast.getText().trim();
 				if (!msg.isEmpty()) {
 					errorMessages.add(msg);
 				}
 			}
-
 		} catch (TimeoutException ignored) {
 			System.out.println("No toast validation message appeared.");
 		}
-
 		if (!errorMessages.isEmpty()) {
 			return "VALIDATION DISPLAYED: " + String.join(" | ", errorMessages);
 		}
-
 		return "NO VALIDATION MESSAGE DISPLAYED";
 	}
 
 	public String clickOnSaveButtonAndGetValidationMessages() {
-
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-
 		try {
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		} catch (Exception ignored) {
 		}
-
 		WebElement saveBtn = wait.until(ExpectedConditions.presenceOfElementLocated(saveButton));
-
 		try {
 			wait.until(ExpectedConditions.elementToBeClickable(saveBtn)).click();
 			System.out.println("Save button clicked successfully");
@@ -1403,9 +1151,7 @@ public class providerpage {
 			js.executeScript("arguments[0].click();", saveBtn);
 			System.out.println("Save button clicked using JS");
 		}
-
 		List<String> errorMessages = new ArrayList<>();
-
 		try {
 			List<WebElement> toasts = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(toastMessages));
 
@@ -1417,7 +1163,6 @@ public class providerpage {
 			}
 		} catch (TimeoutException ignored) {
 		}
-
 		List<WebElement> fieldErrorElements = driver.findElements(fieldErrors);
 
 		for (WebElement error : fieldErrorElements) {
@@ -1426,45 +1171,32 @@ public class providerpage {
 				errorMessages.add(msg);
 			}
 		}
-
 		boolean emailError = errorMessages.stream().anyMatch(msg -> msg.toLowerCase().contains("email"));
 		boolean zoneError = errorMessages.stream().anyMatch(msg -> msg.toLowerCase().contains("zone"));
 		boolean phoneError = errorMessages.stream().anyMatch(msg -> msg.toLowerCase().contains("phone"));
 		boolean businessGroupError = errorMessages.stream()
 				.anyMatch(msg -> msg.toLowerCase().contains("business group"));
-
 		if (emailError && zoneError && phoneError && businessGroupError) {
 			return "ERRORS: All required field validations displayed -> " + String.join(" | ", errorMessages);
 		}
-
 		return "ERROR: Required field validations missing -> " + String.join(" | ", errorMessages);
 	}
 
 	public String enterBusinessGroupDetailsWithInvalidEmailAndValidate() {
-
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
 		wait.until(ExpectedConditions.visibilityOfElementLocated(businessGroupName)).sendKeys("Test Business Group");
-
-		driver.findElement(phoneNumber).sendKeys("9876543210");
-
-		driver.findElement(phoneExtension).sendKeys("123");
-
-		driver.findElement(emailField).sendKeys("invalidemail.com");
-
-		driver.findElement(zoneField).sendKeys("Zone 1");
-
+		driver.findElement(phoneNumber).sendKeys(Hooks.prop.getProperty("phone.valid"));
+		driver.findElement(phoneExtension).sendKeys(Hooks.prop.getProperty("phone.extension"));
+		driver.findElement(emailField).sendKeys(Hooks.prop.getProperty("email.invalid"));
+		driver.findElement(zoneField).sendKeys(Hooks.prop.getProperty("provider.zone"));
 		WebElement saveBtn = driver.findElement(saveButton);
-
 		try {
 			saveBtn.click();
 		} catch (Exception e) {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].click();", saveBtn);
 		}
-
 		List<String> errorMessages = new ArrayList<>();
-
 		try {
 			List<WebElement> toasts = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(toastMessages));
 
@@ -1482,35 +1214,25 @@ public class providerpage {
 		if (!errorMessages.isEmpty()) {
 			return "Toast Validation Message: " + String.join(" | ", errorMessages);
 		}
-
 		return "No validation message displayed on UI";
 	}
 
 	public String enterBusinessGroupDetailsWithInvalidPhoneAndValidate() {
-
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
-		wait.until(ExpectedConditions.visibilityOfElementLocated(businessGroupName)).sendKeys("Test Business Group");
-
-		driver.findElement(phoneNumber).sendKeys("12345");
-
-		driver.findElement(phoneExtension).sendKeys("123");
-
-		driver.findElement(emailField).sendKeys("test@gmail.com");
-
-		driver.findElement(zoneField).sendKeys("Zone 1");
-
+		wait.until(ExpectedConditions.visibilityOfElementLocated(businessGroupName))
+				.sendKeys(Hooks.prop.getProperty("business.group.name"));
+		driver.findElement(phoneNumber).sendKeys(Hooks.prop.getProperty("contact.phone.invalid"));
+		driver.findElement(phoneExtension).sendKeys(Hooks.prop.getProperty("contact.extension"));
+		driver.findElement(emailField).sendKeys(Hooks.prop.getProperty("contact.email.valid"));
+		driver.findElement(zoneField).sendKeys(Hooks.prop.getProperty("provider.zone"));
 		WebElement saveBtn = driver.findElement(saveButton);
-
 		try {
 			saveBtn.click();
 		} catch (Exception e) {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].click();", saveBtn);
 		}
-
 		List<String> errorMessages = new ArrayList<>();
-
 		try {
 			List<WebElement> toasts = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(toastMessages));
 
@@ -1524,15 +1246,13 @@ public class providerpage {
 		} catch (TimeoutException ignored) {
 			System.out.println("No toast validation message appeared.");
 		}
-
 		if (!errorMessages.isEmpty()) {
 			return "Toast Validation Message: " + String.join(" | ", errorMessages);
 		}
-
 		return "No validation message displayed for invalid phone number";
 	}
-	// Provider Template
 
+	// Provider Template
 	public void verifyUserCannotAddProviderTemplate() {
 		sleep(3000);
 		assertElementNotPresent(newProviderTemplateButton);
@@ -1562,7 +1282,7 @@ public class providerpage {
 		sleep(2000);
 		clickWhenClickable(editProviderTemplateOption);
 		sleep(3000);
-		waitAndSendKeys(providerTemplateNameField, "Provider Registration Template");
+		driver.findElement(providerTemplateNameField).sendKeys(Hooks.prop.getProperty("provider.template.name"));
 		clickWhenClickable(saveProviderTemplateButton);
 	}
 
@@ -1593,7 +1313,7 @@ public class providerpage {
 		sleep(1000);
 		clickWhenClickable(newProviderTemplateButton);
 		sleep(1000);
-		waitAndSendKeys(providerTemplateNameField, "Provider Registration Template");
+		driver.findElement(providerTemplateNameField).sendKeys(Hooks.prop.getProperty("provider.template.name"));
 		clickWhenClickable(saveProviderTemplateButton);
 	}
 
@@ -1611,7 +1331,6 @@ public class providerpage {
 	}
 
 	// Service
-
 	public void verifyUserCanDeleteService() {
 		sleep(3000);
 		clickWhenClickable(serviceOptionsButton);
@@ -1641,7 +1360,7 @@ public class providerpage {
 		sleep(2000);
 		clickWhenClickable(editServiceOption);
 		sleep(3000);
-		waitAndSendKeys(serviceNameField, "Chronic Disease Management");
+		driver.findElement(serviceNameField).sendKeys(Hooks.prop.getProperty("service.name"));
 		clickWhenClickable(saveServiceButton);
 	}
 
@@ -1672,7 +1391,7 @@ public class providerpage {
 		sleep(1000);
 		clickWhenClickable(newProviderServiceButton);
 		sleep(1000);
-		waitAndSendKeys(serviceNameField, "Chronic Disease Management");
+		driver.findElement(serviceNameField).sendKeys(Hooks.prop.getProperty("service.name"));
 		clickWhenClickable(saveServiceButton);
 	}
 
@@ -1719,7 +1438,7 @@ public class providerpage {
 		sleep(2000);
 		clickWhenClickable(editSpecialtyOption);
 		sleep(3000);
-		waitAndSendKeys(specialtyNameField, "Oncology");
+		driver.findElement(specialtyNameField).sendKeys(Hooks.prop.getProperty("specialty.name"));
 		clickWhenClickable(saveSpecialtyButton);
 	}
 
@@ -1750,7 +1469,7 @@ public class providerpage {
 		sleep(1000);
 		clickWhenClickable(newProviderSpecialtyButton);
 		sleep(1000);
-		waitAndSendKeys(specialtyNameField, "Oncology");
+		driver.findElement(specialtyNameField).sendKeys(Hooks.prop.getProperty("specialty.name"));
 		clickWhenClickable(saveSpecialtyButton);
 	}
 
@@ -1797,7 +1516,7 @@ public class providerpage {
 		sleep(2000);
 		clickWhenClickable(editCategoryOption);
 		sleep(3000);
-		waitAndSendKeys(categoryNameField, "Orthopedics");
+		driver.findElement(categoryNameField).sendKeys(Hooks.prop.getProperty("category.name"));
 		clickWhenClickable(saveCategoryButton);
 	}
 
@@ -1828,7 +1547,7 @@ public class providerpage {
 		sleep(1000);
 		clickWhenClickable(newProviderCategoryButton);
 		sleep(1000);
-		waitAndSendKeys(categoryNameField, "Orthopedics");
+		driver.findElement(categoryNameField).sendKeys(Hooks.prop.getProperty("category.name"));
 		clickWhenClickable(saveCategoryButton);
 	}
 
@@ -1846,7 +1565,6 @@ public class providerpage {
 	}
 
 	// Provider Type
-
 	public void openProviderTypePage(String fullProviderTypeUrl) {
 		driver.get(fullProviderTypeUrl);
 	}
@@ -1880,7 +1598,7 @@ public class providerpage {
 		sleep(1000);
 		clickWhenClickable(editProviderTypeOption);
 		sleep(1000);
-		waitAndSendKeys(providerTypeLabelField, "PCP");
+		driver.findElement(providerTypeLabelField).sendKeys(Hooks.prop.getProperty("provider.type.label"));
 		clickWhenClickable(saveProviderTypeButton);
 	}
 
@@ -1911,8 +1629,8 @@ public class providerpage {
 		sleep(1000);
 		clickWhenClickable(newProviderTypeButton);
 		sleep(1000);
-		waitAndSendKeys(providerTypeNameField, "Primary Care");
-		waitAndSendKeys(providerTypeLabelField, "PCP");
+		driver.findElement(providerTypeNameField).sendKeys(Hooks.prop.getProperty("provider.type.name"));
+		driver.findElement(providerTypeLabelField).sendKeys(Hooks.prop.getProperty("provider.type.label"));
 		clickWhenClickable(saveProviderTypeButton);
 	}
 
@@ -1929,8 +1647,8 @@ public class providerpage {
 		sleep(3000);
 		assertElementPresent(providerTypeNameColumn);
 	}
-	// Provider PA Details
 
+	// Provider PA Details
 	public void userShouldNotBeAbleToExportPADetailsToExcel() {
 		sleep(3000);
 		assertElementNotPresent(exportToExcelButton);
@@ -2053,7 +1771,6 @@ public class providerpage {
 	}
 
 	// Business Group Address
-
 	public void deleteBusinessGroupAddressInProviderModule() {
 		sleep(3000);
 		clickWhenClickable(optionsMenuButton);
@@ -2114,10 +1831,10 @@ public class providerpage {
 		sleep(1000);
 		clickWhenClickable(newAddressButton);
 		sleep(1000);
-		waitAndSendKeys(streetField, "123 Main Street, Suite 200");
-		waitAndSendKeys(cityField, "New York");
-		waitAndSendKeys(stateField, "NY");
-		waitAndSendKeys(zipCodeField, "10001");
+		driver.findElement(streetField).sendKeys(Hooks.prop.getProperty("address.street"));
+		driver.findElement(cityField).sendKeys(Hooks.prop.getProperty("address.city"));
+		driver.findElement(stateField).sendKeys(Hooks.prop.getProperty("address.state"));
+		driver.findElement(zipCodeField).sendKeys(Hooks.prop.getProperty("address.zip"));
 		clickWhenClickable(saveAddressButton);
 	}
 
@@ -2145,7 +1862,6 @@ public class providerpage {
 	}
 
 	// Provider Referral Incoming Details
-
 	public void userShouldNotBeAbleToDownloadFilesFromReferralIncomingDetails() {
 		sleep(1000);
 		assertElementNotPresent(exportToExcelButton);
@@ -2186,7 +1902,6 @@ public class providerpage {
 	}
 
 	// Business Group
-
 	public void createProfileWithViewAndPartnerAccessNoCrud() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
@@ -2204,10 +1919,8 @@ public class providerpage {
 		sleep(3000);
 		clickWhenClickable(businessGroupRecordIcon);
 		sleep(1000);
-
 		clickWhenClickable(deleteBusinessGroupOption);
 		sleep(1000);
-
 		clickWhenClickable(confirmDeleteBusinessGroupButton);
 	}
 
@@ -2215,11 +1928,9 @@ public class providerpage {
 		sleep(3000);
 		clickWhenClickable(businessGroupRecordIcon);
 		sleep(1000);
-
 		clickWhenClickable(editBusinessGroupOption);
 		sleep(2000);
-
-		waitAndSendKeys(businessGroupNotesField, "note");
+		driver.findElement(businessGroupNotesField).sendKeys(Hooks.prop.getProperty("business.group.notes"));
 		clickWhenClickable(saveBusinessGroupButton);
 	}
 
@@ -2251,13 +1962,11 @@ public class providerpage {
 		sleep(3000);
 		clickWhenClickable(newBusinessGroupButton);
 		sleep(2000);
-
-		waitAndSendKeys(businessGroupNameField, "Sunrise Pharmacy Group");
-		waitAndSendKeys(businessGroupPhoneField, "2125557845");
-		waitAndSendKeys(businessGroupPhoneExtField, "203");
-		waitAndSendKeys(businessGroupEmailField, "contact@mailinator.com");
-		waitAndSendKeys(businessGroupZoneField, "200");
-
+		driver.findElement(businessGroupNameField).sendKeys(Hooks.prop.getProperty("business.group.name"));
+		driver.findElement(businessGroupPhoneField).sendKeys(Hooks.prop.getProperty("business.group.phone"));
+		driver.findElement(businessGroupPhoneExtField).sendKeys(Hooks.prop.getProperty("business.group.phone.ext"));
+		driver.findElement(businessGroupEmailField).sendKeys(Hooks.prop.getProperty("business.group.email"));
+		driver.findElement(businessGroupZoneField).sendKeys(Hooks.prop.getProperty("business.group.zone"));
 		clickWhenClickable(saveBusinessGroupButton);
 	}
 
@@ -2306,17 +2015,14 @@ public class providerpage {
 	}
 
 	// Provider EHR
-
 	public void verifyUserCanDeleteProviderEHR() {
 		sleep(3000);
 		clickWhenClickable(providersPageLink);
 		sleep(3000);
 		clickWhenClickable(ehrTabLink);
 		sleep(1000);
-
 		clickWhenClickable(ehrRecordIcon);
 		sleep(1000);
-
 		clickWhenClickable(deleteEhrOption);
 		clickWhenClickable(confirmDeleteEhrButton);
 	}
@@ -2341,14 +2047,11 @@ public class providerpage {
 		sleep(3000);
 		clickWhenClickable(ehrTabLink);
 		sleep(1000);
-
 		clickWhenClickable(ehrRecordIcon);
 		sleep(1000);
-
 		clickWhenClickable(editEhrOption);
 		sleep(1000);
-
-		waitAndSendKeys(ehrNotesField, "Note");
+		driver.findElement(ehrNotesField).sendKeys(Hooks.prop.getProperty("ehr.notes"));
 		clickWhenClickable(saveProviderEhrButton);
 	}
 
@@ -2366,21 +2069,16 @@ public class providerpage {
 
 	public void verifyUserCanAddProviderEHR() {
 		sleep(3000);
-
 		clickWhenClickable(providersPageLink);
 		sleep(3000);
 		clickWhenClickable(ehrTabLink);
 		sleep(1000);
-
 		clickWhenClickable(newEhrButton);
 		sleep(1000);
-
 		clickWhenClickable(ehrDropdown);
 		sleep(1000);
-
 		selectDropdownByIndexWhenReady(ehrDropdown, 1);
 		sleep(3000);
-
 		clickWhenClickable(saveProviderEhrButton);
 	}
 
@@ -2412,10 +2110,8 @@ public class providerpage {
 		sleep(3000);
 		clickWhenClickable(serviceRecordIcon);
 		sleep(1000);
-
 		clickWhenClickable(deleteServiceOption);
 		sleep(1000);
-
 		clickWhenClickable(confirmDeleteServiceButton);
 	}
 
@@ -2437,11 +2133,9 @@ public class providerpage {
 		sleep(3000);
 		clickWhenClickable(serviceRecordIcon);
 		sleep(1000);
-
 		clickWhenClickable(editServiceOption);
 		sleep(1000);
-
-		waitAndSendKeys(serviceNotesField, "note");
+		driver.findElement(serviceNotesField).sendKeys(Hooks.prop.getProperty("service.notes"));
 		clickWhenClickable(saveProviderServiceButton);
 	}
 
@@ -2463,13 +2157,10 @@ public class providerpage {
 		sleep(3000);
 		clickWhenClickable(newServiceButton);
 		sleep(1000);
-
 		clickWhenClickable(serviceDropdownInput);
 		sleep(1000);
-
 		clickWhenClickable(serviceDropdownOption);
 		sleep(1000);
-
 		clickWhenClickable(saveProviderServiceButton);
 	}
 
@@ -2479,7 +2170,6 @@ public class providerpage {
 		sleep(3000);
 		clickWhenClickable(serviceTabLink);
 		sleep(2000);
-
 		assertElementPresent(serviceRecordIcon);
 	}
 
@@ -2500,16 +2190,15 @@ public class providerpage {
 		sleep(2000);
 
 	}
-	// Provider Executive
 
+	// Provider Executive
 	public void verifyUserCanResetProviderExecutivePasswords() {
 		sleep(3000);
 		clickWhenClickable(executiveRecordButton);
 		clickWhenClickable(resetPasswordOption);
 		sleep(3000);
-
-		waitAndSendKeys(newPasswordField, "Admin@1234");
-		waitAndSendKeys(confirmPasswordField, "Admin@1234");
+		driver.findElement(newPasswordField).sendKeys(Hooks.prop.getProperty("password.new"));
+		driver.findElement(confirmPasswordField).sendKeys(Hooks.prop.getProperty("password.confirm"));
 		clickWhenClickable(resetPasswordButton);
 	}
 
@@ -2521,12 +2210,10 @@ public class providerpage {
 
 	public void verifyUserCanViewProviderExecutiveRecords() {
 		sleep(3000);
-
 		clickWhenClickable(providersPageLink);
 		sleep(3000);
 		clickWhenClickable(executivesTabLink);
 		sleep(2000);
-
 		assertElementPresent(executiveRecordButton);
 	}
 
@@ -2549,7 +2236,6 @@ public class providerpage {
 	}
 
 	// DeDupe
-
 	public void userShouldNotBeAbleToUpdateDeDupeRecordsForProviderModule() {
 		sleep(3000);
 		List<WebElement> errorHeaders = driver.findElements(errorHeader);
@@ -2575,20 +2261,16 @@ public class providerpage {
 
 	public void userShouldBeAbleToUpdateDeDupeRecordsForProviderModule() {
 		sleep(3000);
-
 		clickWhenClickable(doctorLastNameCheckbox);
 		clickWhenClickable(doctorFirstNameCheckbox);
 		clickWhenClickable(findDuplicateButton);
 		sleep(2000);
-
 		clickWhenClickable(firstDuplicateCheckbox);
 		clickWhenClickable(secondDuplicateCheckbox);
 		clickWhenClickable(mergeButton);
 		sleep(2000);
-
 		clickWhenClickable(firstRecordCheckbox);
 		sleep(1000);
-
 		clickWhenClickable(nextButton);
 		sleep(1000);
 		clickWhenClickable(nextButton);
@@ -2690,7 +2372,7 @@ public class providerpage {
 		sleep(3000);
 		clickWhenClickable(editFileIcon);
 		sleep(1000);
-		waitAndSendKeys(fileNameTextBox, "file");
+		driver.findElement(fileNameTextBox).sendKeys(Hooks.prop.getProperty("file.name"));
 		clickWhenClickable(saveFileButton);
 	}
 
@@ -2772,7 +2454,7 @@ public class providerpage {
 		sleep(3000);
 		clickWhenClickable(editFolderIcon);
 		sleep(2000);
-		waitAndSendKeys(folderNameField, "Bucket");
+		driver.findElement(folderNameField).sendKeys(Hooks.prop.getProperty("folder.name"));
 		clickWhenClickable(saveFolderButton);
 	}
 
@@ -2780,7 +2462,7 @@ public class providerpage {
 		sleep(3000);
 		clickWhenClickable(addFolderButton);
 		sleep(2000);
-		waitAndSendKeys(folderNameField, "BucketFolder");
+		driver.findElement(folderNameField).sendKeys(Hooks.prop.getProperty("folder.name"));
 		clickWhenClickable(saveFolderButton);
 	}
 
@@ -2794,7 +2476,6 @@ public class providerpage {
 	}
 
 	// Referral Enrollment
-
 	public void userShouldBeAbleToDeleteReferralEnrollment() {
 		sleep(3000);
 		clickWhenClickable(referralEnrollmentOptionsMenu);
@@ -2824,7 +2505,7 @@ public class providerpage {
 		sleep(2000);
 		clickWhenClickable(referralEnrollmentEditOption);
 		sleep(2000);
-		waitAndSendKeys(referralEnrollmentNotesField, "Note");
+		driver.findElement(referralEnrollmentNotesField).sendKeys(Hooks.prop.getProperty("referral.enrollment.notes"));
 		clickWhenClickable(saveReferralEnrollmentButton);
 	}
 
@@ -2918,7 +2599,7 @@ public class providerpage {
 		sleep(1000);
 		clickWhenClickable(editOption);
 		sleep(2000);
-		waitAndSendKeys(productServiceField, "PA");
+		driver.findElement(productServiceField).sendKeys(Hooks.prop.getProperty("product.service"));
 		sleep(2000);
 		clickWhenClickable(saveExecutiveButton);
 	}
@@ -2949,9 +2630,9 @@ public class providerpage {
 		sleep(4000);
 		clickWhenClickable(newExecutiveButton);
 		sleep(3000);
-		waitAndSendKeys(lastNameField, "Selby");
-		waitAndSendKeys(firstNameField, "Teresa");
-		waitAndSendKeys(emailField, "TeresaJSelby@mailinator.com");
+		driver.findElement(lastNameField).sendKeys(Hooks.prop.getProperty("user.lastname"));
+		driver.findElement(firstNameField).sendKeys(Hooks.prop.getProperty("user.firstname"));
+		driver.findElement(emailField).sendKeys(Hooks.prop.getProperty("user.email"));
 		clickWhenClickable(profileDropdown);
 		selectDropdownByIndexWhenReady(profileDropdown, 2);
 		sleep(3000);
@@ -2982,7 +2663,6 @@ public class providerpage {
 	}
 
 	// Referrals
-
 	public void userShouldBeAbleToExportReferralsToExcelInProviderModule() {
 		sleep(3000);
 		clickWhenClickable(exportToExcelButton);
@@ -3015,8 +2695,8 @@ public class providerpage {
 		driver.get(fullUrl);
 		wait.until(ExpectedConditions.urlContains("/Prescriber/Home/Referrals"));
 	}
-	// Provider Communication
 
+	// Provider Communication
 	public void userShouldBeAbleToDeleteProviderCommunicationInProviderModule() {
 		sleep(3000);
 		clickWhenClickable(providerCommunicationDropdownButton);
@@ -3047,7 +2727,8 @@ public class providerpage {
 		sleep(1000);
 		clickWhenClickable(editProviderCommunicationOption);
 		sleep(1000);
-		waitAndSendKeys(providerCommunicationDescriptionField, "Communication");
+		driver.findElement(providerCommunicationDescriptionField)
+				.sendKeys(Hooks.prop.getProperty("provider.communication.description"));
 		clickWhenClickable(saveCommunicationButton);
 	}
 
@@ -3076,7 +2757,8 @@ public class providerpage {
 		sleep(3000);
 		clickWhenClickable(newCommunicationButton);
 		sleep(1000);
-		waitAndSendKeys(providerCommunicationDescriptionField, "Communication");
+		driver.findElement(providerCommunicationDescriptionField)
+				.sendKeys(Hooks.prop.getProperty("provider.communication.description"));
 		clickWhenClickable(saveCommunicationButton);
 	}
 
@@ -3095,8 +2777,8 @@ public class providerpage {
 		sleep(2000);
 
 	}
-	// Provider Address
 
+	// Provider Address
 	public void userShouldBeAbleToDeleteProviderAddressInProviderModule() {
 		sleep(3000);
 		clickWhenClickable(providerAddressDropdownButton);
@@ -3126,7 +2808,7 @@ public class providerpage {
 		sleep(1000);
 		clickWhenClickable(editProviderAddressOption);
 		sleep(1000);
-		waitAndSendKeys(providerFrontDeskNameField, "Emily Johnson");
+		driver.findElement(providerFrontDeskNameField).sendKeys(Hooks.prop.getProperty("provider.frontdesk.name"));
 		clickWhenClickable(saveAddressButton);
 	}
 
@@ -3155,11 +2837,11 @@ public class providerpage {
 		sleep(3000);
 		clickWhenClickable(newAddressButton);
 		sleep(1000);
-		waitAndSendKeys(providerStreetField, "123 Main St");
-		waitAndSendKeys(providerCityField, "Newark");
-		waitAndSendKeys(providerStateField, "NJ");
-		waitAndSendKeys(providerZipCodeField, "07102");
-		waitAndSendKeys(providerContactNumberField, "9735551234");
+		driver.findElement(providerStreetField).sendKeys(Hooks.prop.getProperty("provider.address.street"));
+		driver.findElement(providerCityField).sendKeys(Hooks.prop.getProperty("provider.address.city"));
+		driver.findElement(providerStateField).sendKeys(Hooks.prop.getProperty("provider.address.state"));
+		driver.findElement(providerZipCodeField).sendKeys(Hooks.prop.getProperty("provider.address.zip"));
+		driver.findElement(providerContactNumberField).sendKeys(Hooks.prop.getProperty("provider.contact.number"));
 		clickWhenClickable(saveAddressButton);
 	}
 
@@ -3179,7 +2861,6 @@ public class providerpage {
 	}
 
 	// Provider
-
 	public void userShouldBeAbleToViewProviderDetailsInProviderModule() {
 		sleep(3000);
 		assertElementPresent(providerDetailsIcon);
@@ -3224,7 +2905,7 @@ public class providerpage {
 		sleep(2000);
 		clickWhenClickable(providerEditOption);
 		sleep(2000);
-		waitAndSendKeys(providerCellPhoneField, "5454545454");
+		driver.findElement(providerCellPhoneField).sendKeys(Hooks.prop.getProperty("provider.cell.phone"));
 		clickWhenClickable(providerSaveButton);
 	}
 
@@ -3256,10 +2937,10 @@ public class providerpage {
 		sleep(3000);
 		clickWhenClickable(newProviderButton);
 		sleep(3000);
-		waitAndSendKeys(providerLastNameField, "Varner");
-		waitAndSendKeys(providerFirstNameField, "Carol");
-		waitAndSendKeys(providerZoneField, "200");
-		waitAndSendKeys(providerNpiNumberField, "1457382912");
+		driver.findElement(providerLastNameField).sendKeys(Hooks.prop.getProperty("provider.lastname"));
+		driver.findElement(providerFirstNameField).sendKeys(Hooks.prop.getProperty("provider.firstname"));
+		driver.findElement(providerZoneField).sendKeys(Hooks.prop.getProperty("provider.zone"));
+		driver.findElement(providerNpiNumberField).sendKeys(Hooks.prop.getProperty("provider.npi"));
 		clickWhenClickable(providerSaveButton);
 	}
 
@@ -3273,13 +2954,12 @@ public class providerpage {
 	}
 
 	// Text
-
 	public void userShouldBeAbleToSendVCardInProviderModule() {
 		sleep(3000);
 		clickWhenClickable(sendVCardButton);
 		sleep(3000);
-		waitAndSendKeys(vCardPhoneNumberField, "5478686879");
-		waitAndSendKeys(vCardBodyField, "Vcard");
+		driver.findElement(vCardPhoneNumberField).sendKeys(Hooks.prop.getProperty("vcard.phone.number"));
+		driver.findElement(vCardBodyField).sendKeys(Hooks.prop.getProperty("vcard.body"));
 		clickWhenClickable(sendVCardSubmitButton);
 	}
 
@@ -3296,7 +2976,7 @@ public class providerpage {
 		sleep(3000);
 		clickWhenClickable(quickTextButton);
 		sleep(1000);
-		waitAndSendKeys(providerNameFilter, "Apolo Pharmacy");
+		driver.findElement(providerNameFilter).sendKeys(Hooks.prop.getProperty("provider.name.filter"));
 		clickWhenClickable(searchButtontext);
 		sleep(3000);
 		clickWhenClickable(newProviderDropdown);
@@ -3307,7 +2987,7 @@ public class providerpage {
 		sleep(1000);
 		selectDropdownByIndexWhenReady(newProviderExecutiveDropdown, 0);
 		sleep(1000);
-		waitAndSendKeys(newPhoneNumberField, "(457) 547-5677");
+		driver.findElement(newPhoneNumberField).sendKeys(Hooks.prop.getProperty("phone.new"));
 		clickWhenClickable(saveButton);
 	}
 
@@ -3319,8 +2999,8 @@ public class providerpage {
 		sleep(2000);
 
 	}
-	// NPI Request
 
+	// NPI Request
 	public void userShouldBeAbleToApproveNPIRequestInProviderModule() {
 		sleep(3000);
 		clickWhenClickable(approveNpiRequestButton);
@@ -3348,11 +3028,10 @@ public class providerpage {
 		sleep(2000);
 
 	}
-	// Demand Request
 
+	// Demand Request
 	public void userShouldNotBeAbleToViewDemandRequestInProviderModule() {
 		sleep(3000);
-
 		List<WebElement> errorHeaders = driver.findElements(demandRequestErrorHeader);
 		if (!errorHeaders.isEmpty()) {
 			System.out.println("Error: Don't have proper access to requested page");
@@ -3383,11 +3062,10 @@ public class providerpage {
 		sleep(2000);
 
 	}
-	// Callback Request
 
+	// Callback Request
 	public void userShouldNotBeAbleToViewCallbackRequestInProviderModule() {
 		sleep(3000);
-
 		List<WebElement> errorHeaders = driver.findElements(callbackRequestErrorHeader);
 		if (!errorHeaders.isEmpty()) {
 			System.out.println("Error: Don't have proper access to requested page");
@@ -3533,12 +3211,6 @@ public class providerpage {
 				throw ex;
 			}
 		}
-	}
-
-	private void waitAndSendKeys(By locator, String value) {
-		WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-		element.clear();
-		element.sendKeys(value);
 	}
 
 	private void selectDropdownByIndexWhenReady(By locator, int index) {

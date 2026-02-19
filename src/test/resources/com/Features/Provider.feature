@@ -788,7 +788,6 @@ And the user should be able to delete Specialty in Provider Module
 And the user should not be able to add Specialty in Provider Module
 And the user should not be able to edit Specialty in Provider Module
 
-
 Scenario: User with View and Add access but no Edit or Delete for Service
 Given I log in as admin for Provider Module
 When I create a new user with email for Provider Module "testuser5_static@mailinator.com"
@@ -812,7 +811,6 @@ Then the user should be able to view Service in Provider Module
 And the user should be able to edit Service in Provider Module
 And the user should not be able to add Service in Provider Module
 And the user should not be able to delete Service in Provider Module
-
 
 Scenario: User with View and Delete access but no Add or Edit for Service
 Given I log in as admin for Provider Module
