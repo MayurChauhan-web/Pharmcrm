@@ -1243,6 +1243,10 @@ public class deliverypage {
 		wait.until(ExpectedConditions.elementToBeClickable(profilefilterButton)).click();
 	}
 
+	public void enterProfileName() {
+		enterProfileName(Hooks.prop.getProperty("profile.name.value"));
+	}
+
 	public void enterProfileName(String profileName) {
 		WebElement input = wait.until(ExpectedConditions.visibilityOfElementLocated(profileNameInput));
 		input.clear();

@@ -24,7 +24,7 @@ public class patientstep {
 	@And("I create a profile with View, Add, Edit, and Delete access to Patient Medication ColorCode Setting test")
 	public void createProfileWithFullAccessToPatientMedicationColorCodeSetting() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -82,7 +82,7 @@ public class patientstep {
 	@And("I create a profile with Add, Edit, and Delete access to Patient Appointment test")
 	public void addEditDeletePatientAppointment() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -131,7 +131,7 @@ public class patientstep {
 	@And("I create a profile with Add, Edit, and Delete access to Patient Vitals test")
 	public void createProfileWithAddEditDeleteAccessToPatientVitalsTest() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -179,7 +179,7 @@ public class patientstep {
 	@And("I create a profile with View, Add, and Delete access to Feedback Form test")
 	public void createProfileWithFeedbackFormViewAddDeleteAccess() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -225,7 +225,7 @@ public class patientstep {
 	@And("I create a profile with Add, Edit, and Delete access to Medical Health Card test")
 	public void createProfileWithMedicalHealthCardFullAccess() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -303,7 +303,7 @@ public class patientstep {
 	@And("I create a profile with Add, Edit, and Delete access to CareGiver Name test")
 	public void createProfileWithCareGiverFullAccess() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -317,7 +317,7 @@ public class patientstep {
 	@And("I create a profile with view access to Text test")
 	public void createProfileWithTextViewAccess() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -404,7 +404,7 @@ public class patientstep {
 	@And("I create a profile with full access to Patient Text test")
 	public void createFullAccessPatientTextProfile() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -417,7 +417,7 @@ public class patientstep {
 	@And("I create a profile with View access only to Patient Text test")
 	public void createViewPatientTextProfile() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -463,7 +463,7 @@ public class patientstep {
 	@And("I create a profile with Add access only to Generate New Access Code test")
 	public void createAddGenerateAccessCodeProfile() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -476,7 +476,7 @@ public class patientstep {
 	@And("I create a profile with no Add access to Generate New Access Code test")
 	public void createNoAddGenerateAccessCodeProfile() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -490,7 +490,7 @@ public class patientstep {
 	@And("I create a profile with Add access only to Patient Module Patient External Source test")
 	public void createAddPatientExternalSourceProfile() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -504,7 +504,7 @@ public class patientstep {
 	@And("I create a profile with Add, Edit, and Delete access to Patient Module Patient External Source test")
 	public void createAddEditDeletePatientExternalSourceProfile() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -520,7 +520,7 @@ public class patientstep {
 	@And("I create a profile with Add and Edit access to Patient Module Patient External Source test")
 	public void createAddEditPatientExternalSourceProfile() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -588,7 +588,7 @@ public class patientstep {
 	@And("I create a profile with Add and Delete access to Patient Module Patient Family test")
 	public void createAddDeletePatientFamilyProfile() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -610,7 +610,7 @@ public class patientstep {
 	@And("I create a profile with Add access only to Patient Module Patient Family test")
 	public void createPatientFamilyAddProfile() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -625,7 +625,7 @@ public class patientstep {
 	@And("I create a profile with Add access only to Patient Module Patient Communication test")
 	public void createProfileWithAddAccessToPatientCommunication() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -639,7 +639,7 @@ public class patientstep {
 	@And("I create a profile with Add and Edit access to Patient Module Patient Communication test")
 	public void createProfileWithAddEditPatientCommunication() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -653,7 +653,7 @@ public class patientstep {
 	@And("I create a profile with Add, Edit, and Delete access to Patient Module Patient Communication test")
 	public void createAddEditDeletePatientCommunicationProfile() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -772,7 +772,7 @@ public class patientstep {
 	@And("I create a profile with Add and Edit access to Patient Module Patient Physician test")
 	public void createProfileWithAddAndEditAccessToPatientPhysician() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -786,7 +786,7 @@ public class patientstep {
 	@And("I create a profile with Add, Edit, and Delete access to Patient Module Patient Physician test")
 	public void createProfileWithAddEditDeletePatientPhysician() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -802,7 +802,7 @@ public class patientstep {
 	@And("I create a profile with Add access only to Patient Module Patient Physician test")
 	public void createProfileWithAddAccessToPatientPhysician() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -817,7 +817,7 @@ public class patientstep {
 	@And("I create a profile with Add and Edit access to Patient Module Patient Pharmacy test")
 	public void createProfileWithAddAndEditAccessToPatientPharmacy() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -831,7 +831,7 @@ public class patientstep {
 	@And("I create a profile with Add, Edit, and Delete access to Patient Module Patient Pharmacy test")
 	public void createProfileWithAddEditDeletePatientPharmacy() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -907,7 +907,7 @@ public class patientstep {
 	@And("I create a profile with Add access only to Patient Module Patient Pharmacy test")
 	public void createProfileWithAddAccessToPatientPharmacy() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -922,7 +922,7 @@ public class patientstep {
 	@And("I create a profile with Add access only to Patient Module Patient Meds On Chart test")
 	public void createProfileWithAddAccessToPatientMeds() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -936,7 +936,7 @@ public class patientstep {
 	@And("I create a profile with Add and Edit access to Patient Module Patient Meds On Chart test")
 	public void createProfileWithAddAndEditPatientMeds() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -950,7 +950,7 @@ public class patientstep {
 	@And("I create a profile with Add, Edit, and Delete access to Patient Module Patient Meds On Chart test")
 	public void createProfileWithAddEditDeletePatientMeds() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -966,7 +966,7 @@ public class patientstep {
 	@And("I create a profile with Add, Edit, Delete, and Copied To Medication access to Patient Module Patient Meds On Chart test")
 	public void createProfileWithAddEditDeleteCopyPatientMeds() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -1202,7 +1202,7 @@ public class patientstep {
 	@And("I create a profile with Add access only to Patient Module Patient Claim Verification test")
 	public void createProfileWithAddAccessToPatientClaimVerification() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -1218,7 +1218,7 @@ public class patientstep {
 	@And("I create a profile with Add and Edit access to Patient Module Patient Claim Verification test")
 	public void testAddAndEditPatientClaimVerificationAccess() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -1234,7 +1234,7 @@ public class patientstep {
 	@And("I create a profile with Add, Edit, and Print access to Patient Module Patient Claim Verification test")
 	public void testAddEditPrintAccessPatientClaimVerification() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -1250,7 +1250,7 @@ public class patientstep {
 	@And("I create a profile with Add access only to Patient Module Patient Medication test")
 	public void testAddAccessPatientMedication() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -1264,7 +1264,7 @@ public class patientstep {
 	@And("I create a profile with Add and Edit access to Patient Module Patient Medication test")
 	public void testAddAndEditAccessPatientMedication() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -1278,7 +1278,7 @@ public class patientstep {
 	@And("I create a profile with Add, Edit, and Delete access to Patient Module Patient Medication test")
 	public void testAddEditDeleteAccessPatientMedication() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -1294,7 +1294,7 @@ public class patientstep {
 	@And("I create a profile with Add, Edit, Delete, View Gross Margin, Update Sync, and Update Gross Margin access to Patient Module Patient Medication test")
 	public void createProfileWithFullPatientMedicationAccessTest() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -1310,7 +1310,7 @@ public class patientstep {
 	@And("I create a profile with Add, Edit, Print, and Send For Signature access to Patient Module Patient Claim Verification test")
 	public void testAddEditPrintSendAccessPatientClaimVerification() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -1327,7 +1327,7 @@ public class patientstep {
 	@And("I create a profile with Add access only to Patient Module Patient Health Card test")
 	public void verifyProfileCreationWithPatientHealthCardAddAccess() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -1341,7 +1341,7 @@ public class patientstep {
 	@And("I create a profile with Add and Edit access to Patient Module Patient Health Card test")
 	public void verifyProfileCreationWithPatientHealthCardAddEditAccess() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -1357,7 +1357,7 @@ public class patientstep {
 	@And("I create a profile with Add, Edit, and Delete access to Patient Module Patient Health Card test")
 	public void verifyProfileCreationWithPatientHealthCardAddEditDeleteAccess() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -1373,7 +1373,7 @@ public class patientstep {
 	@And("I create a profile with Add access only to Patient Module Patient Intake Form test")
 	public void verifyProfileCreationWithPatientIntakeFormAddOnlyAccess() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -1387,7 +1387,7 @@ public class patientstep {
 	@And("I create a profile with Add and Edit access to Patient Module Patient Intake Form test")
 	public void verifyProfileCreationWithPatientIntakeFormAddEditAccess() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -1403,7 +1403,7 @@ public class patientstep {
 	@And("I create a profile with Add, Edit, and Print access to Patient Module Patient Intake Form test")
 	public void verifyProfileCreationWithPatientIntakeFormAddEditPrintSendAccess() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -1419,7 +1419,7 @@ public class patientstep {
 	@And("I create a profile with Add, Edit, Print, and Send For Signature access to Patient Module Patient Intake Form test")
 	public void verifyProfileCreationWithPatientIntakeFormAddEditPrintAccess() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -1547,7 +1547,7 @@ public class patientstep {
 	@And("I create a profile with View, Add Folder, Edit Folder, and Delete Folder access to Setup Module Bucket test")
 	public void createSetupModuleBucketProfileWithFullFolderAccess() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -1563,7 +1563,7 @@ public class patientstep {
 	@And("I create a profile with View, Add File, Edit File, Delete File, and Download File access to Setup Module Bucket test")
 	public void createProfileWithBucketPermissions() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -1660,7 +1660,7 @@ public class patientstep {
 	@And("I create a profile with View access only to Setup Module Enrollment test")
 	public void createSetupModuleEnrollmentProfileWithViewAccess() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -1674,7 +1674,7 @@ public class patientstep {
 	@And("I create a profile with View and Add access to Setup Module Enrollment test")
 	public void createSetupModuleEnrollmentProfileWithViewAndAddAccess() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -1688,7 +1688,7 @@ public class patientstep {
 	@And("I create a profile with View, Add, and Edit access to Setup Module Enrollment test")
 	public void createSetupModuleEnrollmentProfileWithViewAddEditAccess() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -1702,7 +1702,7 @@ public class patientstep {
 	@And("I create a profile with View, Add, Edit, and Delete access to Setup Module Enrollment test")
 	public void createSetupModuleEnrollmentProfileWithFullAccess() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -3440,7 +3440,7 @@ public class patientstep {
 	@And("I create a profile with View access only to Patient Module General Audit View test")
 	public void createProfileWithViewAccessOnlyToPatientModuleGeneralAuditView() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -3453,7 +3453,7 @@ public class patientstep {
 	@And("I create a profile with No access to Patient Module General Audit View test")
 	public void createProfileWithNoAccessToPatientModuleGeneralAuditViewTest() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -3467,7 +3467,7 @@ public class patientstep {
 	@And("I create a profile with View access only to Patient Module Patient test")
 	public void createProfileWithViewAccessOnlyToPatientModulePatient() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -3481,7 +3481,7 @@ public class patientstep {
 	@And("I create a profile with View and Add access to Patient Module Patient test")
 	public void createPatientModuleViewAndAddProfile() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -3495,7 +3495,7 @@ public class patientstep {
 	@And("I create a profile with View, Add, and Edit access to Patient Module Patient test")
 	public void createPatientProfileWithViewAddEditAccess() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -3509,7 +3509,7 @@ public class patientstep {
 	@And("I create a profile with full access to Patient Module Patient test")
 	public void createPatientProfileWithFullAccess() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -3523,7 +3523,7 @@ public class patientstep {
 	@And("I create a profile with Update access to Partners Module DeDupe test")
 	public void createProfileWithUpdateAccessForPartnersModuleDeDupe() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -3537,7 +3537,7 @@ public class patientstep {
 	@And("I create a profile without Update access to Partners Module DeDupe test")
 	public void createProfileWithoutUpdateAccessForPartnersModuleDeDupe() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -3551,7 +3551,7 @@ public class patientstep {
 	@And("I create a profile with View access only to Patient Module Tag test")
 	public void createProfileWithViewOnlyAccessForPatientTag() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -3565,7 +3565,7 @@ public class patientstep {
 	@And("I create a profile with View and Add access to Patient Module Tag test")
 	public void createPatientTagProfileWithViewAndAddAccess() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -3578,7 +3578,7 @@ public class patientstep {
 	@And("I create a profile with View, Add, and Edit access to Patient Module Tag test")
 	public void createPatientModuleTagProfile() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -3592,7 +3592,7 @@ public class patientstep {
 	@And("I create a profile with View, Add, Edit, and Delete access to Patient Module Tag test")
 	public void createPatientModuleTagProfileWithCRUDAccess() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -3605,7 +3605,7 @@ public class patientstep {
 	@And("I create a profile with View access only to Setup Module Review Category test")
 	public void createSetupModuleReviewCategoryProfileWithViewAccess() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -3619,7 +3619,7 @@ public class patientstep {
 	@And("I create a profile with View and Add access to Setup Module Review Category test")
 	public void createSetupModuleReviewCategoryProfileWithViewAndAddAccess() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -3633,7 +3633,7 @@ public class patientstep {
 	@And("I create a profile with View, Add, and Edit access to Setup Module Review Category test")
 	public void createSetupModuleReviewCategoryProfileWithViewAddEditAccess() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -3649,7 +3649,7 @@ public class patientstep {
 	@And("I create a profile with View, Add, Edit, and Delete access to Setup Module Review Category test")
 	public void createSetupModuleReviewCategoryProfileWithFullAccess() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -3665,7 +3665,7 @@ public class patientstep {
 	@And("I create a profile with View access only to Setup Module Referral Source test")
 	public void createSetupModuleReferralSourceProfileWithViewAccess() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -3679,7 +3679,7 @@ public class patientstep {
 	@And("I create a profile with View and Add access to Setup Module Referral Source test")
 	public void createSetupModuleReferralSourceProfileWithViewAndAddAccess() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -3693,7 +3693,7 @@ public class patientstep {
 	@And("I create a profile with View, Add, and Edit access to Setup Module Referral Source test")
 	public void createSetupModuleReferralSourceProfileWithViewAddEditAccess() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -3709,7 +3709,7 @@ public class patientstep {
 	@And("I create a profile with View, Add, Edit, and Delete access to Setup Module Referral Source test")
 	public void createSetupModuleReferralSourceProfileWithFullAccess() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();
@@ -3725,7 +3725,7 @@ public class patientstep {
 	@And("I create a profile with all additional access permissions disabled in Patient Module test")
 	public void createProfileWithAdditionalAccessDisabledInPatientModuleTest() {
 		patientPage.clickFilterButton();
-		patientPage.enterProfileName("Sunil");
+		patientPage.enterProfileName();
 		patientPage.clickSearchButton();
 		patientPage.clickActionMenu();
 		patientPage.clickEditButton();

@@ -472,10 +472,10 @@ public class providerpage {
 		String phoneNumber = Hooks.prop.getProperty("phonenumber");
 		String email = Hooks.prop.getProperty("email");
 		String faxNumber = Hooks.prop.getProperty("faxnumber");
-				wait.until(ExpectedConditions.elementToBeClickable(phoneNumberField)).sendKeys(phoneNumber);
+		wait.until(ExpectedConditions.elementToBeClickable(phoneNumberField)).sendKeys(phoneNumber);
 		wait.until(ExpectedConditions.elementToBeClickable(emailIdField)).sendKeys(email);
 		wait.until(ExpectedConditions.elementToBeClickable(faxNumberField)).sendKeys(faxNumber);
-				System.out.println("Phone: " + phoneNumber);
+		System.out.println("Phone: " + phoneNumber);
 		System.out.println("Email: " + email);
 		System.out.println("Fax: " + faxNumber);
 		Hooks.scenario.log("Phone: " + phoneNumber);
@@ -3147,6 +3147,10 @@ public class providerpage {
 	public void clickFilterButton() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		wait.until(ExpectedConditions.elementToBeClickable(profilefilterButton)).click();
+	}
+
+	public void enterProfileName() {
+		enterProfileName(Hooks.prop.getProperty("profile.name.value"));
 	}
 
 	public void enterProfileName(String profileName) {

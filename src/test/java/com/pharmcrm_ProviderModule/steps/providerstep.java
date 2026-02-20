@@ -626,14 +626,16 @@ public class providerstep {
 	@And("I create a profile with View and Delete access but no Add or Edit access to Provider Template in Provider Module test")
 	public void createProfileViewDeleteNoAddEditProviderTemplate() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.createProfileViewDeleteOnlyProviderTemplate();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println(
+				"Profile created with View and Delete access but no Add or Edit access to Provider Template in Provider Module test");
+		Hooks.scenario.log(
+				"Profile created with View and Delete access but no Add or Edit access to Provider Template in Provider Module test");
 
 	}
 
@@ -646,14 +648,16 @@ public class providerstep {
 	@And("I create a profile with View and Edit access but no Add or Delete access to Provider Template in Provider Module test")
 	public void createProfileViewEditNoAddDeleteProviderTemplate() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.createProfileViewEditOnlyProviderTemplate();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println(
+				"Profile created with View and Edit access but no Add or Delete access to Provider Template in Provider Module test");
+		Hooks.scenario.log(
+				"Profile created with View and Edit access but no Add or Delete access to Provider Template in Provider Module test");
 
 	}
 
@@ -691,14 +695,16 @@ public class providerstep {
 	@And("I create a profile with View and Add access but no Edit or Delete access to Provider Template in Provider Module test")
 	public void createProfileViewAddNoEditDeleteProviderTemplate() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.createProfileViewAddOnlyProviderTemplate();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println(
+				"Profile created with View and Add access but no Edit or Delete access to Provider Template in Provider Module test");
+		Hooks.scenario.log(
+				"Profile created with View and Add access but no Edit or Delete access to Provider Template in Provider Module test");
 
 	}
 
@@ -712,14 +718,16 @@ public class providerstep {
 	@And("I create a profile with View and Delete access but no Add or Edit access to Service in Provider Module test")
 	public void createProfileViewDeleteNoAddEditService() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.createProfileViewDeleteOnlyService();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println(
+				"Profile created with View and Delete access but no Add or Edit access to Service in Provider Module test");
+		Hooks.scenario.log(
+				"Profile created with View and Delete access but no Add or Edit access to Service in Provider Module test");
 
 	}
 
@@ -738,14 +746,16 @@ public class providerstep {
 	@And("I create a profile with View and Edit access but no Add or Delete access to Service in Provider Module test")
 	public void createProfileViewEditNoAddDeleteService() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.createProfileViewEditOnlyService();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println(
+				"Profile created with View and Edit access but no Add or Delete access to Service in Provider Module test");
+		Hooks.scenario.log(
+				"Profile created with View and Edit access but no Add or Delete access to Service in Provider Module test");
 
 	}
 
@@ -783,14 +793,16 @@ public class providerstep {
 	@And("I create a profile with View and Add access but no Edit or Delete access to Service in Provider Module test")
 	public void createProfileViewAddNoEditDeleteService() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.createProfileViewAddOnlyService();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println(
+				"Profile created with View and Add access but no Edit or Delete access to Service in Provider Module test");
+		Hooks.scenario.log(
+				"Profile created with View and Add access but no Edit or Delete access to Service in Provider Module test");
 
 	}
 
@@ -804,14 +816,16 @@ public class providerstep {
 	@And("I create a profile with View and Delete access but no Add or Edit access to Specialty in Provider Module test")
 	public void createProfileViewDeleteNoAddEditSpecialty() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.createProfileViewDeleteOnlySpecialty();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println(
+				"Profile created with View and Delete access but no Add or Edit access to Specialty in Provider Module test");
+		Hooks.scenario.log(
+				"Profile created with View and Delete access but no Add or Edit access to Specialty in Provider Module test");
 
 	}
 
@@ -830,14 +844,16 @@ public class providerstep {
 	@And("I create a profile with View and Edit access but no Add or Delete access to Specialty in Provider Module test")
 	public void createProfileViewEditNoAddDeleteSpecialty() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.createProfileViewEditOnlySpecialty();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println(
+				"Profile created with View and Edit access but no Add or Delete access to Specialty in Provider Module test");
+		Hooks.scenario.log(
+				"Profile created with View and Edit access but no Add or Delete access to Specialty in Provider Module test");
 
 	}
 
@@ -875,14 +891,16 @@ public class providerstep {
 	@And("I create a profile with View and Add access but no Edit or Delete access to Specialty in Provider Module test")
 	public void createProfileViewAddNoEditDeleteSpecialty() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.createProfileViewAddOnlySpecialty();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println(
+				"Profile created with View and Add access but no Edit or Delete access to Specialty in Provider Module test");
+		Hooks.scenario.log(
+				"Profile created with View and Add access but no Edit or Delete access to Specialty in Provider Module test");
 
 	}
 
@@ -896,14 +914,16 @@ public class providerstep {
 	@And("I create a profile with View and Delete access but no Add or Edit access to Category in Provider Module test")
 	public void createProfileViewDeleteNoAddEditCategory() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.createProfileViewDeleteOnlyCategory();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println(
+				"Profile created with View and Delete access but no Add or Edit access to Category in Provider Module test");
+		Hooks.scenario.log(
+				"Profile created with View and Delete access but no Add or Edit access to Category in Provider Module test");
 
 	}
 
@@ -922,14 +942,16 @@ public class providerstep {
 	@And("I create a profile with View and Edit access but no Add or Delete access to Category in Provider Module test")
 	public void createProfileViewEditNoAddDeleteCategory() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.createProfileViewEditOnlyCategory();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println(
+				"Profile created with View and Edit access but no Add or Delete access to Category in Provider Module test");
+		Hooks.scenario.log(
+				"Profile created with View and Edit access but no Add or Delete access to Category in Provider Module test");
 
 	}
 
@@ -949,14 +971,16 @@ public class providerstep {
 	@And("I create a profile with View and Add access but no Edit or Delete access to Category in Provider Module test")
 	public void createProfileViewAddNoEditDeleteCategory() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.createProfileViewAddOnlyCategory();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println(
+				"Profile created with View and Add access but no Edit or Delete access to Category in Provider Module test");
+		Hooks.scenario.log(
+				"Profile created with View and Add access but no Edit or Delete access to Category in Provider Module test");
 
 	}
 
@@ -964,14 +988,16 @@ public class providerstep {
 	@And("I create a profile with View and Delete access but no Add or Edit access to Provider Type in Provider Module test")
 	public void createProfileViewDeleteNoAddEditProviderType() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.createProfileViewDeleteOnlyProviderType();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println(
+				"Profile created with View and Delete access but no Add or Edit access to Provider Type in Provider Module test");
+		Hooks.scenario.log(
+				"Profile created with View and Delete access but no Add or Edit access to Provider Type in Provider Module test");
 
 	}
 
@@ -1014,14 +1040,16 @@ public class providerstep {
 	@And("I create a profile with View and Edit access but no Add or Delete access to Provider Type in Provider Module test")
 	public void createProfileViewEditNoAddDeleteProviderType() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.createProfileViewEditOnlyProviderType();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println(
+				"Profile created with View and Edit access but no Add or Delete access to Provider Type in Provider Module test");
+		Hooks.scenario.log(
+				"Profile created with View and Edit access but no Add or Delete access to Provider Type in Provider Module test");
 
 	}
 
@@ -1060,14 +1088,16 @@ public class providerstep {
 	@And("I create a profile with View and Add access but no Edit or Delete access to Provider Type in Provider Module test")
 	public void createProfileViewAddNoEditDeleteProviderType() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.createProfileViewAddOnlyProviderType();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println(
+				"Profile created with View and Add access but no Edit or Delete access to Provider Type in Provider Module test");
+		Hooks.scenario.log(
+				"Profile created with View and Add access but no Edit or Delete access to Provider Type in Provider Module test");
 
 	}
 
@@ -1081,14 +1111,14 @@ public class providerstep {
 	@And("I create a profile without Export Excel permission for Provider PA Details test")
 	public void createProfileNoExportExcelPermissionPADetails() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.createProfileNoExportExcelPermissionPADetails();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println("Profile created without Export Excel permission for Provider PA Details test");
+		Hooks.scenario.log("Profile created without Export Excel permission for Provider PA Details test");
 
 	}
 
@@ -1101,14 +1131,14 @@ public class providerstep {
 	@And("I create a profile with Export Excel permission for Provider PA Details test")
 	public void createProfileWithExportExcelPermissionProviderPADetails() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.createProfileWithExportExcelPermissionPADetails();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println("Profile created with Export Excel permission for Provider PA Details test");
+		Hooks.scenario.log("Profile created with Export Excel permission for Provider PA Details test");
 
 	}
 
@@ -1116,14 +1146,16 @@ public class providerstep {
 	@And("I create a profile without Download File permission for Provider Remote Monitoring Details test")
 	public void createProfileNoDownloadPermissionRemoteMonitoringDetails() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.createProfileNoDownloadPermissionRemoteMonitoringDetails();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println(
+				"Profile created without Download File permission for Provider Remote Monitoring Details test");
+		Hooks.scenario
+				.log("Profile created without Download File permission for Provider Remote Monitoring Details test");
 
 	}
 
@@ -1170,14 +1202,14 @@ public class providerstep {
 	@And("I create a profile with Download File permission for Provider Remote Monitoring Details test")
 	public void createProfileWithDownloadPermissionReferralRemoteMonitoringDetails() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.createProfileWithDownloadPermissionRemoteMonitoringDetails();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println("Profile created with Download File permission for Provider Remote Monitoring Details test");
+		Hooks.scenario.log("Profile created with Download File permission for Provider Remote Monitoring Details test");
 
 	}
 
@@ -1185,14 +1217,16 @@ public class providerstep {
 	@And("I create a profile without Download File permission for Provider Referral Outgoing Details test")
 	public void createProfileNoDownloadPermissionReferralOutgoingDetails() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.createProfileNoDownloadPermissionReferralOutgoingDetails();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println(
+				"Profile created without Download File permission for Provider Referral Outgoing Details test");
+		Hooks.scenario
+				.log("Profile created without Download File permission for Provider Referral Outgoing Details test");
 
 	}
 
@@ -1225,14 +1259,14 @@ public class providerstep {
 	@And("I create a profile with Download File permission for Provider Referral Outgoing Details test")
 	public void createProfileWithDownloadPermissionReferralOutgoingDetails() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.createProfileWithDownloadPermissionReferralOutgoingDetails();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println("Profile created with Download File permission for Provider Referral Outgoing Details test");
+		Hooks.scenario.log("Profile created with Download File permission for Provider Referral Outgoing Details test");
 
 	}
 
@@ -1246,14 +1280,16 @@ public class providerstep {
 	@And("I create a profile without Download File permission for Provider Referral Incoming Details test")
 	public void createProfileWithoutDownloadPermissionReferralIncomingDetails() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.createProfileNoDownloadPermissionReferralIncomingDetails();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println(
+				"Profile created without Download File permission for Provider Referral Incoming Details test");
+		Hooks.scenario
+				.log("Profile created without Download File permission for Provider Referral Incoming Details test");
 
 	}
 
@@ -1280,14 +1316,14 @@ public class providerstep {
 	@And("I create a profile with Download File permission for Provider Referral Incoming Details test")
 	public void createProfileWithDownloadFilePermissionProviderReferralIncomingDetails() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.createProfileWithDownloadPermissionReferralIncomingDetails();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println("Profile created with Download File permission for Provider Referral Incoming Details test");
+		Hooks.scenario.log("Profile created with Download File permission for Provider Referral Incoming Details test");
 
 	}
 
@@ -1301,14 +1337,16 @@ public class providerstep {
 	@And("I create a profile with View and Delete access but no Add or Edit access to Business Group Address in Provider Module test")
 	public void createProfileWithViewDeleteNoAddEditBGAddress() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.createProfileWithViewDeleteNoAddEditBGAddress();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println(
+				"Profile created with View and Delete access but no Add or Edit access to Business Group Address in Provider Module test");
+		Hooks.scenario.log(
+				"Profile created with View and Delete access but no Add or Edit access to Business Group Address in Provider Module test");
 
 	}
 
@@ -1327,14 +1365,16 @@ public class providerstep {
 	@And("I create a profile with View and Edit access but no Add or Delete access to Business Group Address in Provider Module test")
 	public void createProfileWithViewEditNoAddDeleteBusinessGroupAddress() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.createProfileWithViewEditNoAddDeleteBGAddress();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println(
+				"Profile created with View and Edit access but no Add or Delete access to Business Group Address in Provider Module test");
+		Hooks.scenario.log(
+				"Profile created with View and Edit access but no Add or Delete access to Business Group Address in Provider Module test");
 
 	}
 
@@ -1373,14 +1413,16 @@ public class providerstep {
 	@And("I create a profile with View and Add access but no Edit or Delete access to Business Group Address in Provider Module test")
 	public void createProfileWithViewAndAddAccessNoEditDeleteBusinessGroupAddressProviderModuleTest() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.createProfileWithViewAddNoEditDeleteBusinessGroupAddress();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println(
+				"Profile created with View and Add access but no Edit or Delete access to Business Group Address in Provider Module test");
+		Hooks.scenario.log(
+				"Profile created with View and Add access but no Edit or Delete access to Business Group Address in Provider Module test");
 
 	}
 
@@ -1394,14 +1436,16 @@ public class providerstep {
 	@And("I create a profile with View and Make Partner access but no Add, Edit or Delete access to Business Group in Provider Module test")
 	public void createProfileWithViewAndMakePartnerAccessWithoutAddEditDeleteBusinessGroupProviderModuleTest() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.createProfileWithViewAndPartnerAccessNoCrud();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println(
+				"Profile created with View and Make Partner access but no Add, Edit or Delete access to Business Group in Provider Module test");
+		Hooks.scenario.log(
+				"Profile created with View and Make Partner access but no Add, Edit or Delete access to Business Group in Provider Module test");
 
 	}
 
@@ -1414,28 +1458,32 @@ public class providerstep {
 	@And("I create a profile with View and Delete access but no Add, Edit or Make Partner access to Business Group in Provider Module test")
 	public void businessGroupProfileWithViewAndDeleteAccessNoAddNoEditNoMakePartner() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.businessGroupProfileViewDeleteOnly();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println(
+				"Profile created with View and Delete access but no Add, Edit or Make Partner access to Business Group in Provider Module test");
+		Hooks.scenario.log(
+				"Profile created with View and Delete access but no Add, Edit or Make Partner access to Business Group in Provider Module test");
 
 	}
 
 	@And("I create a profile with View and Edit access but no Add, Delete or Make Partner access to Business Group in Provider Module test")
 	public void businessGroupProfileWithViewAndEditAccessNoAddNoDeleteNoMakePartner() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.businessGroupProfileViewEditOnly();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println(
+				"Profile created with View and Edit access but no Add, Delete or Make Partner access to Business Group in Provider Module test");
+		Hooks.scenario.log(
+				"Profile created with View and Edit access but no Add, Delete or Make Partner access to Business Group in Provider Module test");
 
 	}
 
@@ -1491,14 +1539,16 @@ public class providerstep {
 	@And("I create a profile with View and Add access but no Edit, Delete or Make Partner access to Business Group in Provider Module test")
 	public void businessGroupProfileWithViewAndAddAccessNoEditNoDeleteNoMakePartner() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.businessGroupProfileViewAddOnly();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println(
+				"Profile created with View and Add access but no Edit, Delete or Make Partner access to Business Group in Provider Module test");
+		Hooks.scenario.log(
+				"Profile created with View and Add access but no Edit, Delete or Make Partner access to Business Group in Provider Module test");
 
 	}
 
@@ -1506,14 +1556,16 @@ public class providerstep {
 	@And("I create a profile with Delete access but no Add or Edit access to Provider EHR in Provider Module test")
 	public void providerEHRProfileWithDeleteAccessNoAddNoEdit() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.providerEHRProfileDeleteOnly();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println(
+				"Profile created with Delete access but no Add or Edit access to Provider EHR in Provider Module test");
+		Hooks.scenario.log(
+				"Profile created with Delete access but no Add or Edit access to Provider EHR in Provider Module test");
 
 	}
 
@@ -1577,28 +1629,32 @@ public class providerstep {
 	@And("I create a profile with Edit access but no Add or Delete access to Provider EHR in Provider Module test")
 	public void providerEHRProfileWithEditAccessNoAddNoDelete() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.providerEHRProfileRestrictedAddDelete();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println(
+				"Profile created with Edit access but no Add or Delete access to Provider EHR in Provider Module test");
+		Hooks.scenario.log(
+				"Profile created with Edit access but no Add or Delete access to Provider EHR in Provider Module test");
 
 	}
 
 	@And("I create a profile with Add access but no Edit or Delete access to Provider EHR in Provider Module test")
 	public void providerEHRProfileWithAddAccessNoEditNoDelete() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.providerEHRProfileAddOnly();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println(
+				"Profile created with Add access but no Edit or Delete access to Provider EHR in Provider Module test");
+		Hooks.scenario.log(
+				"Profile created with Add access but no Edit or Delete access to Provider EHR in Provider Module test");
 
 	}
 
@@ -1606,14 +1662,16 @@ public class providerstep {
 	@And("I create a profile with View and Delete access but no Add, Edit to Provider Service in Provider Module test")
 	public void providerServiceProfileWithViewAndDeleteAccessNoAddNoEdit() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.providerServiceProfileViewDeleteOnly();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println(
+				"Profile created with View and Delete access but no Add or Edit access to Provider Service in Provider Module test");
+		Hooks.scenario.log(
+				"Profile created with View and Delete access but no Add or Edit access to Provider Service in Provider Module test");
 
 	}
 
@@ -1638,14 +1696,16 @@ public class providerstep {
 	@And("I create a profile with View and Edit access but no Add, Delete to Provider Service in Provider Module test")
 	public void providerServiceProfileWithViewAndEditAccessNoAddNoDelete() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.providerServiceProfileViewEditOnly();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println(
+				"Profile created with View and Edit access but no Add or Delete access to Provider Service in Provider Module test");
+		Hooks.scenario.log(
+				"Profile created with View and Edit access but no Add or Delete access to Provider Service in Provider Module test");
 
 	}
 
@@ -1683,14 +1743,16 @@ public class providerstep {
 	@And("I create a profile with View and Add access but no Edit, Delete to Provider Service in Provider Module test")
 	public void providerServiceProfileWithViewAndAddAccessWithoutEditOrDelete() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.providerServiceProfileWithViewAndAddAccessNoEditNoDelete();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println(
+				"Profile created with View and Add access but no Edit or Delete access to Provider Service in Provider Module test");
+		Hooks.scenario.log(
+				"Profile created with View and Add access but no Edit or Delete access to Provider Service in Provider Module test");
 
 	}
 
@@ -1704,14 +1766,14 @@ public class providerstep {
 	@And("I create a profile with both View and Reset Password access to Provider Executive test")
 	public void providerExecutiveProfileWithViewAndResetPasswordAccess() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.providerExecutiveProfileWithViewAndResetPasswordAccessPermission();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println("Profile created with both View and Reset Password access to Provider Executive test");
+		Hooks.scenario.log("Profile created with both View and Reset Password access to Provider Executive test");
 
 	}
 
@@ -1737,14 +1799,16 @@ public class providerstep {
 	@And("I create a profile with View access but without Reset Password access to Provider Executive test")
 	public void providerExecutiveProfileViewAccessWithoutResetPassword() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.providerExecutiveProfileWithViewAccessWithoutResetPasswordPermission();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println(
+				"Profile created with View access but without Reset Password access to Provider Executive test");
+		Hooks.scenario
+				.log("Profile created with View access but without Reset Password access to Provider Executive test");
 
 	}
 
@@ -1764,14 +1828,14 @@ public class providerstep {
 	@And("I create a profile without Update access to Provider Module DeDupe test")
 	public void providerModuleDeDupeProfileNoUpdateAccess() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.providerModuleDeDupeProfileWithoutUpdatePermission();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println("Profile created without Update access to Provider Module DeDupe test");
+		Hooks.scenario.log("Profile created without Update access to Provider Module DeDupe test");
 
 	}
 
@@ -1791,14 +1855,14 @@ public class providerstep {
 	@And("I create a profile with Update access to Provider Module DeDupe test")
 	public void providerModuleDeDupeProfileUpdateAccess() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.providerModuleDeDupeProfileWithUpdatePermission();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println("Profile created with Update access to Provider Module DeDupe test");
+		Hooks.scenario.log("Profile created with Update access to Provider Module DeDupe test");
 
 	}
 
@@ -1812,14 +1876,14 @@ public class providerstep {
 	@And("I create a profile without Download File permission for Referral Patient History test")
 	public void referralPatientHistoryProfileNoFileDownload() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.referralPatientHistoryProfileWithoutFileDownloadPermission();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println("Profile created without Download File permission for Referral Patient History test");
+		Hooks.scenario.log("Profile created without Download File permission for Referral Patient History test");
 
 	}
 
@@ -1832,14 +1896,14 @@ public class providerstep {
 	@And("I create a profile with Download File permission for Referral Patient History test")
 	public void referralPatientHistoryProfileDownloadFileOnly() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.referralPatientHistoryProfileFileDownloadPermission();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println("Profile created with Download File permission for Referral Patient History test");
+		Hooks.scenario.log("Profile created with Download File permission for Referral Patient History test");
 
 	}
 
@@ -1921,14 +1985,14 @@ public class providerstep {
 	@And("I create a profile with full File permissions but no Folder permissions for Bucket test")
 	public void bucketTestProfileFileOnlyNoFolder() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.bucketTestProfileFileFullNoFolder();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println("Profile created with full File permissions but no Folder permissions for Bucket test");
+		Hooks.scenario.log("Profile created with full File permissions but no Folder permissions for Bucket test");
 
 	}
 
@@ -2023,14 +2087,14 @@ public class providerstep {
 	@And("I create a profile with full Folder permissions but no File permissions for Bucket test")
 	public void createProfileWithFullFolderPermissionsNoFilePermissionsBucketTest() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.bucketTestProfileFolderOnly();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println("Profile created with full Folder permissions but no File permissions for Bucket test");
+		Hooks.scenario.log("Profile created with full Folder permissions but no File permissions for Bucket test");
 
 	}
 
@@ -2056,28 +2120,32 @@ public class providerstep {
 	@And("I create a profile with View and Delete access but no Add or Edit access to Referral Enrollment test")
 	public void createProfileWithViewAndDeleteAccessOnlyForReferralEnrollmentTest() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.createReferralEnrollmentProfileViewDeleteAccessOnly();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println(
+				"Profile created with View and Delete access but no Add or Edit access to Referral Enrollment test");
+		Hooks.scenario.log(
+				"Profile created with View and Delete access but no Add or Edit access to Referral Enrollment test");
 
 	}
 
 	@And("I create a profile with View and Edit access but no Add or Delete access to Referral Enrollment test")
 	public void profileWithViewAndEditAccessReferralEnrollmentTest() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.setupProfileReferralEnrollmentTestViewEditAccess();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println(
+				"Profile created with View and Edit access but no Add or Delete access to Referral Enrollment test");
+		Hooks.scenario.log(
+				"Profile created with View and Edit access but no Add or Delete access to Referral Enrollment test");
 
 	}
 
@@ -2116,14 +2184,16 @@ public class providerstep {
 	@And("I create a profile with View and Add access but no Edit or Delete access to Referral Enrollment test")
 	public void profileWithViewAndAddAccessReferralEnrollmentTest() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.setupProfileReferralEnrollmentTestViewAddAccess();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println(
+				"Profile created with View and Add access but no Edit or Delete access to Referral Enrollment test");
+		Hooks.scenario.log(
+				"Profile created with View and Add access but no Edit or Delete access to Referral Enrollment test");
 
 	}
 
@@ -2149,28 +2219,28 @@ public class providerstep {
 	@And("I create a profile with View and Delete access but no Add or Edit access to Executives test")
 	public void profileWithViewAndDeleteAccessExecutivesTest() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.setupProfileExecutivesTestViewDeleteAccess();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println("Profile created with View and Delete access but no Add or Edit access to Executives test");
+		Hooks.scenario.log("Profile created with View and Delete access but no Add or Edit access to Executives test");
 
 	}
 
 	@And("I create a profile with View and Edit access but no Add or Delete access to Executives test")
 	public void profileWithViewAndEditAccessExecutivesTest() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.setupProfileExecutivesTestViewEditAccess();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println("Profile created with View and Edit access but no Add or Delete access to Executives test");
+		Hooks.scenario.log("Profile created with View and Edit access but no Add or Delete access to Executives test");
 
 	}
 
@@ -2209,14 +2279,14 @@ public class providerstep {
 	@And("I create a profile with View and Add access but no Edit or Delete access to Executives test")
 	public void createProfileWithViewAndAddAccessOnlyForExecutivesTest() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.createExecutivesTestProfileViewAddOnly();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println("Profile created with View and Add access but no Edit or Delete access to Executives test");
+		Hooks.scenario.log("Profile created with View and Add access but no Edit or Delete access to Executives test");
 
 	}
 
@@ -2236,14 +2306,14 @@ public class providerstep {
 	@And("I create a profile with both View and Export Excel access to Referrals Provider test")
 	public void userShouldViewAndExportExcelReferralsProviderInProviderModule() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.verifyViewAndExportExcelAccessToReferralsProviderInModule();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println("Profile created with both View and Export Excel access to Referrals Provider test");
+		Hooks.scenario.log("Profile created with both View and Export Excel access to Referrals Provider test");
 
 	}
 
@@ -2264,14 +2334,14 @@ public class providerstep {
 	@And("I create a profile with View access but no Export Excel access to Referrals Provider test")
 	public void userShouldViewButNotExportExcelReferralsProviderInProviderModule() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.verifyViewWithoutExportExcelAccessToReferralsProviderInModule();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println("Profile created with View access but no Export Excel access to Referrals Provider test");
+		Hooks.scenario.log("Profile created with View access but no Export Excel access to Referrals Provider test");
 
 	}
 
@@ -2285,14 +2355,16 @@ public class providerstep {
 	@And("I create a profile with View and Delete access but no Add or Edit access to Provider Communication in Provider Module test")
 	public void userShouldViewAndDeleteButNotAddOrEditProviderCommunicationInProviderModule() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.verifyViewAndDeleteWithoutAddOrEditAccessToProviderCommunicationInModule();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println(
+				"Profile created with View and Delete access but no Add or Edit access to Provider Communication in Provider Module test");
+		Hooks.scenario.log(
+				"Profile created with View and Delete access but no Add or Edit access to Provider Communication in Provider Module test");
 
 	}
 
@@ -2305,14 +2377,16 @@ public class providerstep {
 	@And("I create a profile with View and Edit access but no Add or Delete access to Provider Communication in Provider Module test")
 	public void userShouldViewAndEditButNotAddOrDeleteProviderCommunicationInProviderModule() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.verifyViewAndEditWithoutAddOrDeleteAccessToProviderCommunicationInModule();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println(
+				"Profile created with View and Edit access but no Add or Delete access to Provider Communication in Provider Module test");
+		Hooks.scenario.log(
+				"Profile created with View and Edit access but no Add or Delete access to Provider Communication in Provider Module test");
 
 	}
 
@@ -2357,14 +2431,16 @@ public class providerstep {
 	@And("I create a profile with View and Add access but no Edit or Delete access to Provider Communication in Provider Module test")
 	public void userShouldViewAndAddButNotEditOrDeleteProviderCommunicationInProviderModule() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.verifyViewAndAddWithoutEditOrDeleteAccessToProviderCommunicationInModule();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println(
+				"Profile created with View and Add access but no Edit or Delete access to Provider Communication in Provider Module test");
+		Hooks.scenario.log(
+				"Profile created with View and Add access but no Edit or Delete access to Provider Communication in Provider Module test");
 
 	}
 
@@ -2378,14 +2454,16 @@ public class providerstep {
 	@And("I create a profile with View and Delete access but no Add or Edit access to Provider Address in Provider Module test")
 	public void userShouldViewAndDeleteButNotAddOrEditProviderAddressInProviderModule() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.verifyViewAndDeleteWithoutAddOrEditAccessToProviderAddressInModule();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println(
+				"Profile created with View and Delete access but no Add or Edit access to Provider Address in Provider Module test");
+		Hooks.scenario.log(
+				"Profile created with View and Delete access but no Add or Edit access to Provider Address in Provider Module test");
 
 	}
 
@@ -2404,14 +2482,16 @@ public class providerstep {
 	@And("I create a profile with View and Edit access but no Add or Delete access to Provider Address in Provider Module test")
 	public void userShouldViewAndEditButNotAddOrDeleteProviderAddressInProviderModule() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.verifyViewAndEditWithoutAddOrDeleteAccessToProviderAddressInModule();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println(
+				"Profile created with View and Edit access but no Add or Delete access to Provider Address in Provider Module test");
+		Hooks.scenario.log(
+				"Profile created with View and Edit access but no Add or Delete access to Provider Address in Provider Module test");
 
 	}
 
@@ -2450,14 +2530,16 @@ public class providerstep {
 	@And("I create a profile with View and Add access but no Edit or Delete access to Provider Address in Provider Module test")
 	public void userShouldViewAndAddButNotEditOrDeleteProviderAddressInProviderModule() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.verifyViewAndAddWithoutEditOrDeleteAccessToProviderAddressInModule();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println(
+				"Profile created with View and Add access but no Edit or Delete access to Provider Address in Provider Module test");
+		Hooks.scenario.log(
+				"Profile created with View and Add access but no Edit or Delete access to Provider Address in Provider Module test");
 
 	}
 
@@ -2471,42 +2553,48 @@ public class providerstep {
 	@And("I create a profile with View and Detail access but no Add, Edit or Delete access to Provider in Provider Module test")
 	public void userShouldViewAndDetailButNotAddEditOrDeleteProviderInProviderModule() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.verifyViewAndDetailWithoutAddEditOrDeleteAccessToProviderInModule();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println(
+				"Profile created with View and Detail access but no Add, Edit or Delete access to Provider in Provider Module test");
+		Hooks.scenario.log(
+				"Profile created with View and Detail access but no Add, Edit or Delete access to Provider in Provider Module test");
 
 	}
 
 	@And("I create a profile with View and Delete access but no Add, Edit or Detail access to Provider in Provider Module test")
 	public void userShouldViewAndDeleteButNotAddEditOrDetailProviderInProviderModule() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.verifyViewAndDeleteWithoutAddEditOrDetailAccessToProviderInModule();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println(
+				"Profile created with View and Delete access but no Add, Edit or Detail access to Provider in Provider Module test");
+		Hooks.scenario.log(
+				"Profile created with View and Delete access but no Add, Edit or Detail access to Provider in Provider Module test");
 
 	}
 
 	@And("I create a profile with View and Edit access but no Add, Delete or Detail access to Provider in Provider Module test")
 	public void userShouldViewAndEditButNotAddDeleteOrDetailProviderInProviderModule() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.verifyViewAndEditWithoutAddDeleteOrDetailAccessToProviderInModule();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println(
+				"Profile created with View and Edit access but no Add, Delete or Detail access to Provider in Provider Module test");
+		Hooks.scenario.log(
+				"Profile created with View and Edit access but no Add, Delete or Detail access to Provider in Provider Module test");
 
 	}
 
@@ -2576,14 +2664,16 @@ public class providerstep {
 	@And("I create a profile with View and Add access but no Edit, Delete or Detail access to Provider in Provider Module test")
 	public void userShouldViewAndAddButNotEditDeleteOrDetailProviderInProviderModule() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.verifyViewAndAddWithoutEditDeleteOrDetailAccessToProviderInModule();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println(
+				"Profile created with View and Add access but no Edit, Delete or Detail access to Provider in Provider Module test");
+		Hooks.scenario.log(
+				"Profile created with View and Add access but no Edit, Delete or Detail access to Provider in Provider Module test");
 
 	}
 
@@ -2598,8 +2688,8 @@ public class providerstep {
 		providerPage.openProviderNpiPage(fullProviderNpiUrl);
 		Assert.assertTrue("Provider NPI Request page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/NPIRequests"));
-		System.out.println("User should be able to view NPI Request in Provider Module test");
-		Hooks.scenario.log("User should be able to view NPI Request in Provider Module test");
+		System.out.println("User should not be able to send VCard in Provider Module test");
+		Hooks.scenario.log("User should not be able to send VCard in Provider Module test");
 
 	}
 
@@ -2613,8 +2703,8 @@ public class providerstep {
 		providerPage.openProviderNpiPage(fullProviderNpiUrl);
 		Assert.assertTrue("Provider NPI Request page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/NPIRequests"));
-		System.out.println("User should be able to view NPI Request in Provider Module test");
-		Hooks.scenario.log("User should be able to view NPI Request in Provider Module test");
+		System.out.println("User should not be able to send Text in Provider Module test");
+		Hooks.scenario.log("User should not be able to send Text in Provider Module test");
 
 	}
 
@@ -2646,28 +2736,32 @@ public class providerstep {
 	@And("I create a profile with View and Send VCard access but no Send or Reply access to Provider Module Text test")
 	public void userShouldViewAndSendVcardButNotSendOrReplyTextInProviderModule() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.verifyViewAndVcardAccessWithoutSendOrReplyInProviderModuleText();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println(
+				"Profile created with View and Send VCard access but no Send or Reply access to Provider Module Text test");
+		Hooks.scenario.log(
+				"Profile created with View and Send VCard access but no Send or Reply access to Provider Module Text test");
 
 	}
 
 	@And("I create a profile with View and Send access but no Reply or Send VCard access to Provider Module Text test")
 	public void userShouldViewAndSendButNotReplyOrSendVcardInProviderModuleText() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.verifyViewAndSendWithoutReplyOrVcardAccessToProviderModuleText();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println(
+				"Profile created with View and Send access but no Reply or Send VCard access to Provider Module Text test");
+		Hooks.scenario.log(
+				"Profile created with View and Send access but no Reply or Send VCard access to Provider Module Text test");
 
 	}
 
@@ -2686,14 +2780,16 @@ public class providerstep {
 	@And("I create a profile with View and Approve access but no Merge access to Provider Module NPI Request test")
 	public void userShouldViewAndApproveButNotMergeNpiRequestInProviderModule() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.verifyViewAndApproveWithoutMergeAccessToNpiRequest();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println(
+				"Profile created with View and Approve access but no Merge access to Provider Module NPI Request test");
+		Hooks.scenario.log(
+				"Profile created with View and Approve access but no Merge access to Provider Module NPI Request test");
 
 	}
 
@@ -2724,14 +2820,16 @@ public class providerstep {
 	@And("I create a profile with View and Merge access but no Approve access to Provider Module NPI Request test")
 	public void userShouldViewAndMergeButNotApproveNpiRequestInProviderModule() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.verifyViewAndMergeWithoutApproveAccessToNpiRequest();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println(
+				"Profile created with View and Merge access but no Approve access to Provider Module NPI Request test");
+		Hooks.scenario.log(
+				"Profile created with View and Merge access but no Approve access to Provider Module NPI Request test");
 
 	}
 
@@ -2739,14 +2837,14 @@ public class providerstep {
 	@And("I create a profile with No access to Provider Module Demand Request test")
 	public void userShouldNotAccessDemandRequestInProviderModule() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.assertNoAccessToDemandRequestInProviderModule();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println("Profile created with No access to Provider Module Demand Request test");
+		Hooks.scenario.log("Profile created with No access to Provider Module Demand Request test");
 
 	}
 
@@ -2781,14 +2879,14 @@ public class providerstep {
 	@And("I create a profile with View access only to Provider Module Demand Request test")
 	public void verifyViewAccessToDemandRequestInProviderModule() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.userShouldViewDemandRequestInProviderModule();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println("Profile created with View access only to Provider Module Demand Request test");
+		Hooks.scenario.log("Profile created with View access only to Provider Module Demand Request test");
 
 	}
 
@@ -2796,14 +2894,14 @@ public class providerstep {
 	@And("I create a profile with No access to Provider Module Callback Request test")
 	public void userShouldNotAccessCallbackRequestInProviderModule() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.assertNoAccessToCallbackRequestInProviderModule();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println("Profile created with No access to Provider Module Callback Request test");
+		Hooks.scenario.log("Profile created with No access to Provider Module Callback Request test");
 
 	}
 
@@ -2836,14 +2934,14 @@ public class providerstep {
 	@And("I create a profile with View access only to Provider Module Callback Request test")
 	public void userShouldViewCallbackRequestButNotEdit() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.verifyViewAccessToCallbackRequest();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println("Profile created with View access only to Provider Module Callback Request test");
+		Hooks.scenario.log("Profile created with View access only to Provider Module Callback Request test");
 
 	}
 
@@ -2866,21 +2964,21 @@ public class providerstep {
 	@And("I create a profile with No access to Provider Module General Audit View test")
 	public void userShouldBeDeniedAccessToAuditView() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
 		providerPage.verifyNoAccessToProviderAuditView();
 		providerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only to Provider Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only to Provider Module General Audit View test");
+		System.out.println("Profile created with No access to Provider Module General Audit View test");
+		Hooks.scenario.log("Profile created with No access to Provider Module General Audit View test");
 
 	}
 
 	@And("I create a profile with View access only to Provider Module General Audit View test")
 	public void iCreateProfileWithViewAccessOnlyToProviderModuleGeneralAuditViewTest() {
 		providerPage.clickFilterButton();
-		providerPage.enterProfileName("Sunil");
+		providerPage.enterProfileName();
 		providerPage.clickSearchButton();
 		providerPage.clickActionMenu();
 		providerPage.clickEditButton();
@@ -2917,6 +3015,8 @@ public class providerstep {
 		Assert.assertTrue("Provider Home page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Prescriber/Home/Providers"));
 		providerPage.userShouldNotBeAbleToViewGeneralAuditViewSettingsInProviderModule();
+		System.out.println("User should not be able to view General Audit View settings in Provider Module test");
+		Hooks.scenario.log("User should not be able to view General Audit View settings in Provider Module test");
 
 	}
 
