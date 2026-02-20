@@ -13,7 +13,7 @@ public class clinicalstep {
 	@And("I create a profile with View access only to Device Usage Statistic Report in Clinical Module test")
 	public void shouldCreateProfileWithViewAccessOnlyToDeviceUsageStatisticReportInClinicalModule() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -27,7 +27,7 @@ public class clinicalstep {
 	@And("I create a profile with View and Export access to Device Usage Statistic Report in Clinical Module test")
 	public void shouldCreateProfileWithViewAndExportAccessToDeviceUsageStatisticReportInClinicalModule() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -124,7 +124,7 @@ public class clinicalstep {
 	@And("I create a profile with Delete access only to CPT Code in Clinical Module test")
 	public void shouldCreateProfileWithDeleteAccessOnlyToCPTCodeInClinicalModule() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -170,7 +170,7 @@ public class clinicalstep {
 	@And("I create a profile with Edit access only to CPT Code in Clinical Module test")
 	public void shouldCreateProfileWithEditAccessOnlyToCPTCodeInClinicalModule() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -184,7 +184,7 @@ public class clinicalstep {
 	@And("I create a profile with Add access only to CPT Code in Clinical Module test")
 	public void shouldCreateProfileWithAddAccessOnlyToCPTCodeInClinicalModule() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -223,7 +223,7 @@ public class clinicalstep {
 	@And("I create a profile with Download access only to Digital Signature in Clinical Module test")
 	public void shouldCreateProfileWithDownloadAccessOnlyToDigitalSignatureInClinicalModule() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -309,7 +309,7 @@ public class clinicalstep {
 	@And("I create a profile with Delete access only to Digital Signature in Clinical Module test")
 	public void shouldCreateProfileWithDeleteAccessOnlyToDigitalSignatureInClinicalModule() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -323,7 +323,7 @@ public class clinicalstep {
 	@And("I create a profile with Edit access only to Digital Signature in Clinical Module test")
 	public void shouldCreateProfileWithEditAccessOnlyToDigitalSignatureInClinicalModule() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -386,7 +386,7 @@ public class clinicalstep {
 	@And("I create a profile with Delete access only to PA Progress Step in Clinical Module test")
 	public void shouldCreateProfileWithDeleteAccessOnlyToPAProgressStepInClinicalModule() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -456,7 +456,7 @@ public class clinicalstep {
 	@And("I create a profile with Edit access only to PA Progress Step in Clinical Module test")
 	public void shouldCreateProfileWithEditAccessOnlyToPAProgressStepInClinicalModule() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -470,7 +470,7 @@ public class clinicalstep {
 	@And("I create a profile with Add access only to PA Progress Step in Clinical Module test")
 	public void createProfileWithLimitedClinicalAccessToPAProgressStep() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -485,7 +485,7 @@ public class clinicalstep {
 	@And("I create a profile with Delete access only to RPM Progress Step in Clinical Module test")
 	public void createRpmProgressStepDeleteProfile() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -499,7 +499,7 @@ public class clinicalstep {
 	@And("I create a profile with Edit access only to RPM Progress Step in Clinical Module test")
 	public void createRpmProgressStepEditProfile() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -513,7 +513,7 @@ public class clinicalstep {
 	@And("I create a profile with Add access only to RPM Progress Step in Clinical Module test")
 	public void createRpmProgressStepAddProfile() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -624,7 +624,7 @@ public class clinicalstep {
 	@And("I create a profile with Delete access only to RPM Status in Clinical Module test")
 	public void createRpmDeleteProfile() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -638,7 +638,7 @@ public class clinicalstep {
 	@And("I create a profile with Edit access only to RPM Status in Clinical Module test")
 	public void createRpmEditProfile() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -748,7 +748,7 @@ public class clinicalstep {
 	@And("I create a profile with Add access only to RPM Status in Clinical Module test")
 	public void createProfileWithAddAccessOnlyToRPMStatus() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -795,7 +795,7 @@ public class clinicalstep {
 	@And("I create a profile with all access for PA All PA test")
 	public void theUserShouldBeAbleToCreateProfileWithAllAccessForAllPA() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -809,7 +809,7 @@ public class clinicalstep {
 	@And("I create a profile with View access only to Reports Remote Monitoring Report in Clinical Module test")
 	public void theUserShouldBeAbleToCreateProfileWithViewAccessForRemoteMonitoringReportInClinicalModule() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -876,7 +876,7 @@ public class clinicalstep {
 	@And("I create a profile with all access for Reports Remote Monitoring Report test")
 	public void createProfileWithAllAccessForReportsRemoteMonitoringReportTest() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -1128,7 +1128,7 @@ public class clinicalstep {
 	@And("I create a profile with Delete access only to RPM Trigger Alert for Time in Clinical Module test")
 	public void iCreateAProfileWithDeleteAccessOnlyToRpmTriggerAlertForTimeInClinicalModule() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -1174,7 +1174,7 @@ public class clinicalstep {
 	@And("I create a profile with Edit access only to RPM Trigger Alert for Time in Clinical Module test")
 	public void createProfileWithEditAccessOnlyForRpmTriggerAlertForTimeInClinicalModule() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -1212,7 +1212,7 @@ public class clinicalstep {
 	@And("I create a profile with Add access only to RPM Trigger Alert for Time in Clinical Module test")
 	public void createProfileWithAddAccessOnlyForRpmTriggerAlertForTimeInClinicalModule() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -1227,7 +1227,7 @@ public class clinicalstep {
 	@And("I create a profile with Delete access only to RPM External Details for Alert in Clinical Module test")
 	public void createProfileWithDeleteAccessOnlyForRpmExternalDetailsForAlertInClinicalModule() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -1307,7 +1307,7 @@ public class clinicalstep {
 	@And("I create a profile with Edit access only to RPM External Details for Alert in Clinical Module test")
 	public void createProfileWithEditAccessOnlyForRpmExternalDetailsForAlertInClinicalModule() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -1323,7 +1323,7 @@ public class clinicalstep {
 	@And("I create a profile with Add access only to RPM External Details for Alert in Clinical Module test")
 	public void createProfileWithAddAccessOnlyForRpmExternalDetailsForAlertInClinicalModule() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -1362,7 +1362,7 @@ public class clinicalstep {
 	@And("I create a profile with no Edit access to RPM RMP Details in Clinical Module test")
 	public void createProfileWithNoEditAccessForRpmRmpDetailsInClinicalModule() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -1376,7 +1376,7 @@ public class clinicalstep {
 	@And("I create a profile with Edit access only to RPM RMP Details in Clinical Module test")
 	public void createProfileWithEditAccessOnlyForRpmRmpDetailsInClinicalModule() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -1391,7 +1391,7 @@ public class clinicalstep {
 	@And("I create a profile with Delete access only to RPM Remote Monitoring Parameter in Clinical Module test")
 	public void createProfileWithDeleteAccessOnlyForRpmRemoteMonitoringParameterInClinicalModule() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -1407,7 +1407,7 @@ public class clinicalstep {
 	@And("I create a profile with Edit access only to RPM Remote Monitoring Parameter in Clinical Module test")
 	public void createProfileWithEditAccessOnlyForRpmRemoteMonitoringParameterInClinicalModule() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -1551,7 +1551,7 @@ public class clinicalstep {
 	@And("I create a profile with Add access only to RPM Remote Monitoring Parameter in Clinical Module test")
 	public void createProfileWithAddOnlyAccessToRpmRemoteMonitoringParameterInClinicalModule() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -1568,7 +1568,7 @@ public class clinicalstep {
 	@And("I create a profile with Export Excel and Outgoing Call access in Clinical Module test")
 	public void iCreateAProfileWithExportExcelAndOutgoingCallAccessInClinicalModuleTest() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -1582,7 +1582,7 @@ public class clinicalstep {
 	@And("I create a profile with Delete access only to Remote Patient Monitoring RPM in Clinical Module test")
 	public void verifyUserHasDeleteAccessToRemotePatientMonitoringInClinicalModule() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -1598,7 +1598,7 @@ public class clinicalstep {
 	@And("I create a profile with Edit access only to Remote Patient Monitoring RPM in Clinical Module test")
 	public void userShouldHaveEditAccessToRemotePatientMonitoringInClinicalModule() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -1710,7 +1710,7 @@ public class clinicalstep {
 	@And("I create a profile with Add access only to Remote Patient Monitoring RPM in Clinical Module test")
 	public void verifyUserHasAddAccessToRemotePatientMonitoringInClinicalModule() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -1768,7 +1768,7 @@ public class clinicalstep {
 	@And("I create a profile with View access only to Reports MTM Encounter Log in Clinical Module test")
 	public void verifyUserHasViewAccessToReportsMTMEncounterLogInClinicalModule() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -1782,7 +1782,7 @@ public class clinicalstep {
 	@And("I create a profile with View, Export Excel, and Details access to Reports MTM Encounter Log in Clinical Module test")
 	public void verifyUserCanViewExportExcelAndAccessDetailsForReportsMTMEncounterLogInClinicalModule() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -1823,7 +1823,7 @@ public class clinicalstep {
 	@And("I create a profile with Delete access only to Med Recons Current Medication in Clinical Module test")
 	public void createProfileWithDeleteAccessOnlyToMedReconsCurrentMedicationInClinicalModuleTest() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -1863,7 +1863,7 @@ public class clinicalstep {
 	@And("I create a profile with Edit access only to Med Recons Current Medication in Clinical Module test")
 	public void iCreateAProfileWithEditAccessOnlyToMedReconsCurrentMedicationInClinicalModule() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -1877,7 +1877,7 @@ public class clinicalstep {
 	@And("I create a profile with Add access only to Med Recons Current Medication in Clinical Module test")
 	public void createProfileWithOnlyAddAccessToMedReconsCurrentMedicationInClinicalModule() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -1964,7 +1964,7 @@ public class clinicalstep {
 	@And("I create a profile with Delete access only to Med Recons Meds On Chart in Clinical Module test")
 	public void createProfileWithOnlyDeleteAccessToMedReconsMedsOnChartInClinicalModule() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -1978,7 +1978,7 @@ public class clinicalstep {
 	@And("I create a profile with Edit access only to Med Recons Meds On Chart in Clinical Module test")
 	public void createProfileWithOnlyEditAccessToMedReconsMedsOnChartInClinicalModule() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -2016,7 +2016,7 @@ public class clinicalstep {
 	@And("I create a profile with Add access only to Med Recons Meds On Chart in Clinical Module test")
 	public void createProfileWithOnlyAddAccessToMedReconsMedsOnChartInClinicalModule() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -2047,7 +2047,7 @@ public class clinicalstep {
 	@And("I create a profile with access only to Download File in Clinical Module test")
 	public void createProfileWithDownloadFileAccessOnlyInClinicalModule() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -2085,7 +2085,7 @@ public class clinicalstep {
 	@And("I create a profile with Delete access only to Med Recons in Clinical Module test")
 	public void createProfileWithOnlyDeleteAccessToMedReconsInClinicalModule() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -2099,7 +2099,7 @@ public class clinicalstep {
 	@And("I create a profile with Add access only to Med Recons in Clinical Module test")
 	public void createProfileWithOnlyAddAccessToMedReconsInClinicalModule() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -2241,7 +2241,7 @@ public class clinicalstep {
 	@And("I create a profile with full Acess to Prior Authorization in Clinical Module test")
 	public void createProfileWithFullAccessToPriorAuthorizationInClinicalModule() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -2255,7 +2255,7 @@ public class clinicalstep {
 	@And("I create a profile with Delete access only to Prior Authorization in Clinical Module test")
 	public void createProfileWithOnlyDeleteAccessToPriorAuthorizationInClinicalModule() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -2269,7 +2269,7 @@ public class clinicalstep {
 	@And("I create a profile with Edit access only to Prior Authorization in Clinical Module test")
 	public void createProfileWithOnlyEditAccessToPriorAuthorizationInClinicalModule() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -2307,7 +2307,7 @@ public class clinicalstep {
 	@And("I create a profile with Add access only to Prior Authorization in Clinical Module test")
 	public void createProfileWithOnlyAddAccessToPriorAuthorizationInClinicalModule() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -2346,7 +2346,7 @@ public class clinicalstep {
 	@And("I create a profile with Delete access only to CareGiver Name in Clinical Module test")
 	public void createProfileWithOnlyDeleteAccessToCareGiverNameInClinicalModule() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -2360,7 +2360,7 @@ public class clinicalstep {
 	@And("I create a profile with Edit access only to CareGiver Name in Clinical Module test")
 	public void createProfileWithEditAccessToCareGiverNameInClinicalModule() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -2422,7 +2422,7 @@ public class clinicalstep {
 	@And("I create a profile with Add access only to CareGiver Name in Clinical Module test")
 	public void createProfileWithAddAccessToCareGiverInClinicalModule() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -2497,7 +2497,7 @@ public class clinicalstep {
 	@And("I create a profile with View but no Referred To New Provider access to Patient Provider Referral test")
 	public void iCreateAProfileWithViewButNoReferredToNewProviderAccessToPatientProviderReferralTest() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -2513,7 +2513,7 @@ public class clinicalstep {
 	@And("I create a profile with View and Referred To New Provider access to Patient Provider Referral test")
 	public void iCreateAProfileWithViewAndReferredToNewProviderAccessToPatientProviderReferralTest() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -2528,7 +2528,7 @@ public class clinicalstep {
 	@And("I create a profile with View but no Download File access to Reports Call Log test")
 	public void iCreateAProfileWithViewButNoDownloadFileAccessToReportsCallLogTest() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -2542,7 +2542,7 @@ public class clinicalstep {
 	@And("I create a profile with View and Download File access to Reports Call Log test")
 	public void createProfileWithViewAndDownloadFileAccessToReportsCallLogTest() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -2598,7 +2598,7 @@ public class clinicalstep {
 	@And("I create a profile with View but no Download File access to Reports CCM Encounter Log test")
 	public void createProfileWithViewButNoDownloadFileAccessToReportsCCMEncounterLogTest() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -2614,7 +2614,7 @@ public class clinicalstep {
 	@And("I create a profile with View and Download File access to Reports CCM Encounter Log test")
 	public void createProfileWithViewAndDownloadFileAccessToReportsCCMEncounterLogTest() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -2662,7 +2662,7 @@ public class clinicalstep {
 	@And("I create a profile with View but no Download File access to Reports Medication Recommendation And Suggestions test")
 	public void iCreateAProfileWithViewAccessOnlyToReportsMedicationRecommendationAndSuggestionsTest() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -2679,7 +2679,7 @@ public class clinicalstep {
 	@And("I create a profile with View and Download File access to Reports Medication Recommendation And Suggestions test")
 	public void createProfileWithViewAndDownloadFileAccessToReportsMedicationRecommendationAndSuggestionsTest() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -2723,7 +2723,7 @@ public class clinicalstep {
 	@And("I create a profile with View but no Download File access to Reports Status Log test")
 	public void createProfileWithViewAccessWithoutDownloadToReportsStatusLog() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -2737,7 +2737,7 @@ public class clinicalstep {
 	@And("I create a profile with View and Download File access to Reports Status Log test")
 	public void createProfileWithViewAndDownloadFileAccessToReportsStatusLog() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -2783,7 +2783,7 @@ public class clinicalstep {
 	@And("I create a profile with No Access to Patients Clinical Encounter Review test")
 	public void createProfileWithNoAccessToPatientsClinicalEncounterReview() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -2797,7 +2797,7 @@ public class clinicalstep {
 	@And("I create a profile with View and View Star1 Drug access to Patients Clinical Encounter Review test")
 	public void createProfileWithViewAndViewStar1DrugAccessToPatientsClinicalEncounterReview() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -2856,7 +2856,7 @@ public class clinicalstep {
 	@And("I create a profile with Delete access only to Patients Clinical Encounter test")
 	public void createProfileWithDeleteAccessOnlyToPatientsClinicalEncounter() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -2870,7 +2870,7 @@ public class clinicalstep {
 	@And("I create a profile with Edit access only to Patients Clinical Encounter test")
 	public void createProfileWithEditAccessOnlyToPatientsClinicalEncounter() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -2932,7 +2932,7 @@ public class clinicalstep {
 	@And("I create a profile with Add access only to Patients Clinical Encounter test")
 	public void createProfileWithAddAccessOnlyToPatientsClinicalEncounter() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -2979,7 +2979,7 @@ public class clinicalstep {
 	@And("I create a profile with Delete access only to SOAP Components test")
 	public void createProfileWithDeleteAccessOnlyToSoapComponents() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -2993,7 +2993,7 @@ public class clinicalstep {
 	@And("I create a profile with Edit access only to SOAP Components test")
 	public void createProfileWithEditAccessOnlyToSoapComponents() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -3055,7 +3055,7 @@ public class clinicalstep {
 	@And("I create a profile with Add access only to SOAP Components test")
 	public void createProfileWithAddAccessOnlyToSoapComponents() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -3110,7 +3110,7 @@ public class clinicalstep {
 	@And("I create a profile with All Access to Clinical Module test")
 	public void createProfileWithAllAccessToClinicalModule() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -3148,7 +3148,7 @@ public class clinicalstep {
 	@And("I create a profile with Delete access only to Patients Module test")
 	public void createProfileWithDeleteAccessOnlyToPatientsModule() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -3162,7 +3162,7 @@ public class clinicalstep {
 	@And("I create a profile with Edit access only to Patients Module test")
 	public void createProfileWithEditAccessOnlyToPatientsModule() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -3176,7 +3176,7 @@ public class clinicalstep {
 	@And("I create a profile with Add access only to Patients Module test")
 	public void createProfileWithAddAccessOnlyToPatientsModule() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -3249,7 +3249,7 @@ public class clinicalstep {
 	@And("I create a profile with Delete access only to Clinical Module CPT Code test")
 	public void createProfileWithDeleteAccessOnlyToClinicalModuleCptCode() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -3263,7 +3263,7 @@ public class clinicalstep {
 	@And("I create a profile with Edit access only to Clinical Module CPT Code test")
 	public void createProfileWithEditAccessOnlyToClinicalModuleCptCode() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -3277,7 +3277,7 @@ public class clinicalstep {
 	@And("I create a profile with Add access only to Clinical Module CPT Code test")
 	public void createProfileWithAddAccessOnlyToClinicalModuleCptCode() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -3437,7 +3437,7 @@ public class clinicalstep {
 	@And("I create a profile with Delete access only to Clinical Module RPM Status test")
 	public void createProfileWithDeleteAccessToClinicalModuleRPMStatus() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -3451,7 +3451,7 @@ public class clinicalstep {
 	@And("I create a profile with Edit access only to Clinical Module RPM Status test")
 	public void createProfileWithEditAccessToClinicalModuleRPMStatus() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -3465,7 +3465,7 @@ public class clinicalstep {
 	@And("I create a profile with Add access only to Clinical Module RPM Status test")
 	public void createProfileWithAddAccessToClinicalModuleRPMStatus() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -3480,7 +3480,7 @@ public class clinicalstep {
 	@And("I create a profile with full access to Clinical Module Registered Device test")
 	public void createProfileWithFullAccessToClinicalModuleRegisteredDevice() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -3494,7 +3494,7 @@ public class clinicalstep {
 	@And("I create a profile with Delete access only to Clinical Module Registered Device test")
 	public void createProfileWithDeleteAccessOnlyToClinicalModuleRegisteredDevice() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -3508,7 +3508,7 @@ public class clinicalstep {
 	@And("I create a profile with Edit access only to Clinical Module Registered Device test")
 	public void createProfileWithEditAccessOnlyToClinicalModuleRegisteredDevice() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -3522,7 +3522,7 @@ public class clinicalstep {
 	@And("I create a profile with Add access only to Clinical Module Registered Device test")
 	public void createProfileWithAddAccessOnlyToClinicalModuleRegisteredDevice() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -3674,7 +3674,7 @@ public class clinicalstep {
 	@And("I create a profile with Edit access only to Clinical Module Device Master test")
 	public void createProfileWithEditAccessOnlyToClinicalModuleDeviceMaster() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -3696,7 +3696,7 @@ public class clinicalstep {
 	@And("I create a profile with View access only to Clinical Module Device Master test")
 	public void createProfileWithViewOnlyAccessForDeviceMasterTest() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -3735,7 +3735,7 @@ public class clinicalstep {
 	@And("I create a profile with Delete access only to Clinical Module Encounter Status test")
 	public void createProfileWithDeleteOnlyAccessForEncounterStatusTest() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -3773,7 +3773,7 @@ public class clinicalstep {
 	@And("I create a profile with Edit access only to Clinical Module Encounter Status test")
 	public void createProfileWithEditOnlyAccessForEncounterStatusTest() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -3787,7 +3787,7 @@ public class clinicalstep {
 	@And("I create a profile with Add access only to Clinical Module Encounter Status test")
 	public void createProfileWithAddOnlyAccessForEncounterStatusTest() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -3802,7 +3802,7 @@ public class clinicalstep {
 	@And("I create a profile with Delete access only to Clinical Module ROS Group Type test")
 	public void createProfileWithDeleteOnlyAccessForROSGroupTypeTest() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -3816,7 +3816,7 @@ public class clinicalstep {
 	@And("I create a profile with Edit access only to Clinical Module ROS Group Type test")
 	public void createProfileWithEditOnlyAccessForROSGroupTypeTest() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -3830,7 +3830,7 @@ public class clinicalstep {
 	@And("I create a profile with Add access only to Clinical Module ROS Group Type test")
 	public void createProfileWithAddOnlyAccessForROSGroupTypeTest() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -3967,7 +3967,7 @@ public class clinicalstep {
 	@And("I create a profile with Delete access only to Clinical Module RMP test")
 	public void createProfileWithDeleteOnlyAccessForRMPTest() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -3981,7 +3981,7 @@ public class clinicalstep {
 	@And("I create a profile with Edit access only to Clinical Module RMP test")
 	public void createProfileWithEditOnlyAccessForRMPTest() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -3995,7 +3995,7 @@ public class clinicalstep {
 	@And("I create a profile with Add access only to Clinical Module RMP test")
 	public void createProfileWithAddOnlyAccessForRMPTest() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -4131,7 +4131,7 @@ public class clinicalstep {
 	@And("I create a profile with Delete access only to Clinical Module Outcome Action test")
 	public void createProfileWithDeleteAccessForOutcomeActionTest() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -4145,7 +4145,7 @@ public class clinicalstep {
 	@And("I create a profile with Edit access only to Clinical Module Outcome Action test")
 	public void createProfileWithEditAccessForOutcomeActionTest() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -4159,7 +4159,7 @@ public class clinicalstep {
 	@And("I create a profile with Add access only to Clinical Module Outcome Action test")
 	public void createProfileWithAddAccessForOutcomeActionTest() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -4198,7 +4198,7 @@ public class clinicalstep {
 	@And("I create a profile with Delete access only to Clinical Module ROS test")
 	public void createProfileWithDeleteAccessForROSTest() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -4212,7 +4212,7 @@ public class clinicalstep {
 	@And("I create a profile with Edit access only to Clinical Module ROS test")
 	public void createProfileWithEditOnlyAccessForROSTest() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -4273,7 +4273,7 @@ public class clinicalstep {
 	@And("I create a profile with Add access only to Clinical Module ROS test")
 	public void createProfileWithAddAccessForROSTest() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -4383,7 +4383,7 @@ public class clinicalstep {
 	@And("I create a profile with Delete access only to Clinical Module Clinical Intervention test")
 	public void createProfileWithDeleteAccessForClinicalIntervention() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -4397,7 +4397,7 @@ public class clinicalstep {
 	@And("I create a profile with Edit access only to Clinical Module Clinical Intervention test")
 	public void createProfileWithEditAccessForClinicalIntervention() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -4411,7 +4411,7 @@ public class clinicalstep {
 	@And("I create a profile with Add access only to Clinical Module Clinical Intervention test")
 	public void createProfileWithAddAccessForClinicalIntervention() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -4426,7 +4426,7 @@ public class clinicalstep {
 	@And("I create a profile with Delete access only to Clinical Module Community Resource test")
 	public void createClinicalCommunityResourceProfileWithDeleteAccess() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -4512,7 +4512,7 @@ public class clinicalstep {
 	@And("I create a profile with Edit access only to Clinical Module Community Resource test")
 	public void createProfileWithEditAccessOnlyToClinicalCommunityResourceTest() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -4526,7 +4526,7 @@ public class clinicalstep {
 	@And("I create a profile with Add access only to Clinical Module Community Resource test")
 	public void createProfileWithAddAccessForClinicalCommunityResource() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -4541,7 +4541,7 @@ public class clinicalstep {
 	@And("I create a profile with Delete access only to Clinical Module Barriers test")
 	public void createProfileWithDeleteAccessForClinicalBarriers() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -4555,7 +4555,7 @@ public class clinicalstep {
 	@And("I create a profile with Edit access only to Clinical Module Barriers test")
 	public void createProfileWithEditAccessForClinicalBarriers() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -4569,7 +4569,7 @@ public class clinicalstep {
 	@And("I create a profile with Add access only to Clinical Module Barriers test")
 	public void createProfileWithAddAccessForClinicalBarriers() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -4656,7 +4656,7 @@ public class clinicalstep {
 	@And("I create a profile with View and Delete access only to Clinical Module Goals Of Treatment test")
 	public void createProfileWithViewAndDeleteAccessForClinicalGoalsOfTreatment() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -4672,7 +4672,7 @@ public class clinicalstep {
 	@And("I create a profile with View and Edit access only to Clinical Module Goals Of Treatment test")
 	public void createProfileWithViewAndEditAccessForClinicalGoalsOfTreatment() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -4688,7 +4688,7 @@ public class clinicalstep {
 	@And("I create a profile with View and Add access only to Clinical Module Goals Of Treatment test")
 	public void createProfileWithViewAndAddAccessForClinicalGoalsOfTreatment() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -4791,7 +4791,7 @@ public class clinicalstep {
 	@And("I create a profile with View and Delete access only to Clinical Module Prior Authorization Types test")
 	public void createProfileWithViewAndDeleteAccessForClinicalPriorAuthorizationTypes() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -4807,7 +4807,7 @@ public class clinicalstep {
 	@And("I create a profile with View and Edit access only to Clinical Module Prior Authorization Types test")
 	public void createProfileWithViewAndEditAccessForClinicalPriorAuthorizationTypes() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -4823,7 +4823,7 @@ public class clinicalstep {
 	@And("I create a profile with View and Add access only to Clinical Module Prior Authorization Types test")
 	public void createProfileViewAddAccessForPriorAuthorizationTypes() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -4964,7 +4964,7 @@ public class clinicalstep {
 	@And("I create a profile with Update access only to Clinical Module Component Information test")
 	public void createProfileWithUpdateAccessOnlyForClinicalComponentInformation() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -4978,8 +4978,7 @@ public class clinicalstep {
 	@And("I create a profile with No Update access to Clinical Module Component Information test")
 	public void createProfileNoUpdateAccessForClinicalComponent() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
-		clinicalPage.clickSearchButton();
+		clinicalPage.enterProfileName();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
 		clinicalPage.createNoUpdateProfileForClinicalComponent();
@@ -5009,7 +5008,7 @@ public class clinicalstep {
 	@And("I create a profile with No access to Clinical Module General Audit View test")
 	public void createProfileWithNoAccessToClinicalGeneralAuditView() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();
@@ -5023,7 +5022,7 @@ public class clinicalstep {
 	@And("I create a profile with View access only to Clinical Module General Audit View test")
 	public void createProfileWithViewAccessOnlyForClinicalModuleGeneralAuditViewTest() {
 		clinicalPage.clickFilterButton();
-		clinicalPage.enterProfileName("Sunil");
+		clinicalPage.enterProfileName();
 		clinicalPage.clickSearchButton();
 		clinicalPage.clickActionMenu();
 		clinicalPage.clickEditButton();

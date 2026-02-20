@@ -14,6 +14,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import hooks.Hooks;
+
 import org.junit.Assert;
 
 public class clinicalpage {
@@ -119,6 +121,7 @@ public class clinicalpage {
 			"//button[@id='btnSaveRemoteMonitoringStatus']//*[name()='svg']//*[name()='path' and @id='Path_23']");
 
 	// Reports / Remote Monitoring Report
+	public By patientIdFilterLocator = By.id("Filter_PatientId");
 	public By clinicalRemoteMonitorReportAllLabel = By.xpath("//label[@for='chkg33ClinicalRemoteMonitorReportAll']");
 	public By clinicalRemoteMonitorReportViewLabel = By.xpath("//label[@for='chkg33ClinicalRemoteMonitorReportView']");
 	public By newClinicalPABtn = By.xpath("//span[normalize-space()='New Clinical Prior Authorization']");
@@ -820,6 +823,10 @@ public class clinicalpage {
 		wait.until(ExpectedConditions.elementToBeClickable(profilefilterButton)).click();
 	}
 
+	public void enterProfileName() {
+		enterProfileName(Hooks.prop.getProperty("profile.name.value"));
+	}
+
 	public void enterProfileName(String profileName) {
 		WebElement input = wait.until(ExpectedConditions.visibilityOfElementLocated(profileNameInput));
 		input.clear();
@@ -965,7 +972,7 @@ public class clinicalpage {
 		sleep(2000);
 		wait.until(ExpectedConditions.elementToBeClickable(newPriorAuthButton)).click();
 		sleep(2000);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(priorAuthNameInput)).sendKeys("PA Type A");
+		driver.findElement(priorAuthNameInput).sendKeys(Hooks.prop.getProperty("priorauth.name"));
 		sleep(2000);
 		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
 	}
@@ -990,7 +997,7 @@ public class clinicalpage {
 		wait.until(ExpectedConditions.elementToBeClickable(actionMenuIcon)).click();
 		wait.until(ExpectedConditions.elementToBeClickable(editOption)).click();
 		wait.until(ExpectedConditions.visibilityOfElementLocated(goalInput)).clear();
-		wait.until(ExpectedConditions.visibilityOfElementLocated(goalInput)).sendKeys("Diabetes Mellitus");
+		driver.findElement(goalInput).sendKeys(Hooks.prop.getProperty("goal.value"));
 		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
 	}
 
@@ -1053,7 +1060,8 @@ public class clinicalpage {
 		sleep(2000);
 		wait.until(ExpectedConditions.elementToBeClickable(newGoalsButton)).click();
 		sleep(2000);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(diseaseNameInput)).sendKeys("Diabetes Mellitus");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(diseaseNameInput))
+				.sendKeys(Hooks.prop.getProperty("disease.value"));
 		sleep(2000);
 		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
 	}
@@ -1081,7 +1089,8 @@ public class clinicalpage {
 		wait.until(ExpectedConditions.elementToBeClickable(actionMenuIcon)).click();
 		wait.until(ExpectedConditions.elementToBeClickable(editOption)).click();
 		wait.until(ExpectedConditions.visibilityOfElementLocated(barrierNameInput)).clear();
-		wait.until(ExpectedConditions.visibilityOfElementLocated(barrierNameInput)).sendKeys("Transportation");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(barrierNameInput))
+				.sendKeys(Hooks.prop.getProperty("barrier.value"));
 		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
 	}
 
@@ -1097,7 +1106,8 @@ public class clinicalpage {
 		sleep(2000);
 		wait.until(ExpectedConditions.elementToBeClickable(newBarrierButton)).click();
 		sleep(2000);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(barrierNameInput)).sendKeys("Transportation");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(barrierNameInput))
+				.sendKeys(Hooks.prop.getProperty("barrier.value"));
 		sleep(2000);
 		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
 	}
@@ -1192,7 +1202,7 @@ public class clinicalpage {
 		wait.until(ExpectedConditions.elementToBeClickable(actionMenuIcon)).click();
 		wait.until(ExpectedConditions.elementToBeClickable(editOption)).click();
 		wait.until(ExpectedConditions.visibilityOfElementLocated(communityResourceNameInput)).clear();
-		driver.findElement(communityResourceNameInput).sendKeys("Transportation Services");
+		driver.findElement(communityResourceNameInput).sendKeys(Hooks.prop.getProperty("community.resource.value"));
 		driver.findElement(saveButton).click();
 	}
 
@@ -1209,7 +1219,7 @@ public class clinicalpage {
 		wait.until(ExpectedConditions.elementToBeClickable(newCommunityResourceButton)).click();
 		sleep(2000);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(communityResourceNameInput))
-				.sendKeys("Transportation Services");
+				.sendKeys(Hooks.prop.getProperty("community.resource.value"));
 		sleep(2000);
 		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
 	}
@@ -1239,12 +1249,6 @@ public class clinicalpage {
 		} catch (TimeoutException e) {
 			Assert.fail("Element not present after wait: " + locator.toString());
 		}
-	}
-
-	private void waitAndSendKeys(By locator, String value) {
-		WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-		element.clear();
-		element.sendKeys(value);
 	}
 
 	public void clickWhenClickable(By locator) {
@@ -1293,7 +1297,7 @@ public class clinicalpage {
 		wait.until(ExpectedConditions.elementToBeClickable(editOption)).click();
 		WebElement nameField = wait.until(ExpectedConditions.visibilityOfElementLocated(clinicalInterventionNameField));
 		nameField.clear();
-		nameField.sendKeys("Medication Adjustment - Updated");
+		nameField.sendKeys(Hooks.prop.getProperty("name.field.value"));
 		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
 	}
 
@@ -1346,7 +1350,7 @@ public class clinicalpage {
 		wait.until(ExpectedConditions.elementToBeClickable(newClinicalInterventionBtn)).click();
 		sleep(2000);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(clinicalInterventionNameField))
-				.sendKeys("Medication Adjustment");
+				.sendKeys(Hooks.prop.getProperty("clinical.intervention.value"));
 		sleep(2000);
 		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
 		sleep(2000);
@@ -1395,7 +1399,7 @@ public class clinicalpage {
 		wait.until(ExpectedConditions.elementToBeClickable(editOption)).click();
 		WebElement nameField = wait.until(ExpectedConditions.visibilityOfElementLocated(rosNameField));
 		nameField.clear();
-		nameField.sendKeys("Skin Rash on arms, itchy scalp - Updated");
+		nameField.sendKeys(Hooks.prop.getProperty("name.field.value"));
 		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
 	}
 
@@ -1426,7 +1430,7 @@ public class clinicalpage {
 		wait.until(ExpectedConditions.elementToBeClickable(newROSButton)).click();
 		sleep(2000);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(rosNameField))
-				.sendKeys("Skin Rash on arms, itchy scalp");
+				.sendKeys(Hooks.prop.getProperty("ros.name.value"));
 		sleep(2000);
 		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
 		sleep(2000);
@@ -1457,7 +1461,7 @@ public class clinicalpage {
 		wait.until(ExpectedConditions.elementToBeClickable(editOption)).click();
 		WebElement nameField = wait.until(ExpectedConditions.visibilityOfElementLocated(outcomeActionNameField));
 		nameField.clear();
-		nameField.sendKeys("Blood Pressure Monitoring - Updated");
+		nameField.sendKeys(Hooks.prop.getProperty("name.field.value"));
 		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
 	}
 
@@ -1506,7 +1510,7 @@ public class clinicalpage {
 		wait.until(ExpectedConditions.elementToBeClickable(newOutcomeActionButton)).click();
 		sleep(3000);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(outcomeActionNameField))
-				.sendKeys("Blood Pressure Monitoring");
+				.sendKeys(Hooks.prop.getProperty("outcome.action.value"));
 		sleep(3000);
 		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
 	}
@@ -1553,7 +1557,7 @@ public class clinicalpage {
 		wait.until(ExpectedConditions.elementToBeClickable(editOption)).click();
 		WebElement nameField = wait.until(ExpectedConditions.visibilityOfElementLocated(rmpNameField));
 		nameField.clear();
-		nameField.sendKeys("Blood Pressure Monitoring - Updated");
+		nameField.sendKeys(Hooks.prop.getProperty("name.field.value"));
 		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
 	}
 
@@ -1583,7 +1587,8 @@ public class clinicalpage {
 		sleep(4000);
 		wait.until(ExpectedConditions.elementToBeClickable(newRMPButton)).click();
 		sleep(2000);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(rmpNameField)).sendKeys("Blood Pressure Monitoring");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(rmpNameField))
+				.sendKeys(Hooks.prop.getProperty("rmp.name.value"));
 		sleep(2000);
 		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
 	}
@@ -1618,7 +1623,7 @@ public class clinicalpage {
 		wait.until(ExpectedConditions.elementToBeClickable(editOption)).click();
 		WebElement nameField = wait.until(ExpectedConditions.visibilityOfElementLocated(encounterStatusNameField));
 		nameField.clear();
-		nameField.sendKeys("Blood Pressure Monitoring - Updated");
+		nameField.sendKeys(Hooks.prop.getProperty("name.field.value"));
 		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
 	}
 
@@ -1668,7 +1673,7 @@ public class clinicalpage {
 		wait.until(ExpectedConditions.elementToBeClickable(editOption)).click();
 		WebElement nameField = wait.until(ExpectedConditions.visibilityOfElementLocated(rosGroupTypeNameField));
 		nameField.clear();
-		nameField.sendKeys("Blood Pressure Monitoring - Updated");
+		nameField.sendKeys(Hooks.prop.getProperty("name.field.value"));
 		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
 	}
 
@@ -1685,7 +1690,7 @@ public class clinicalpage {
 		wait.until(ExpectedConditions.elementToBeClickable(newROSGroupTypeButton)).click();
 		sleep(2000);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(rosGroupTypeNameField))
-				.sendKeys("Blood Pressure Monitoring");
+				.sendKeys(Hooks.prop.getProperty("ros.group.type.value"));
 		sleep(2000);
 		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
 	}
@@ -1731,7 +1736,7 @@ public class clinicalpage {
 		wait.until(ExpectedConditions.elementToBeClickable(newEncounterStatusButton)).click();
 		sleep(2000);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(encounterStatusNameField))
-				.sendKeys("Blood Pressure Monitoring");
+				.sendKeys(Hooks.prop.getProperty("encounter.status.value"));
 		sleep(2000);
 		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
 	}
@@ -1751,7 +1756,7 @@ public class clinicalpage {
 		WebElement descriptionField = wait
 				.until(ExpectedConditions.visibilityOfElementLocated(deviceMasterDescriptionField));
 		descriptionField.clear();
-		descriptionField.sendKeys("Blood Pressure Monitoring - Updated");
+		descriptionField.sendKeys(Hooks.prop.getProperty("description.field.value"));
 		wait.until(ExpectedConditions.elementToBeClickable(saveDeviceMasterButton)).click();
 	}
 
@@ -1891,10 +1896,10 @@ public class clinicalpage {
 		new Select(deviceSelect).selectByIndex(2);
 		WebElement imeiInput = wait.until(ExpectedConditions.visibilityOfElementLocated(imeiField));
 		imeiInput.clear();
-		imeiInput.sendKeys("356789012345678");
+		imeiInput.sendKeys(Hooks.prop.getProperty("imei.value"));
 		WebElement serialInput = wait.until(ExpectedConditions.visibilityOfElementLocated(serialNumberField));
 		serialInput.clear();
-		serialInput.sendKeys("RD-1001");
+		serialInput.sendKeys(Hooks.prop.getProperty("serial.value"));
 		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
 	}
 
@@ -1928,8 +1933,10 @@ public class clinicalpage {
 		WebElement deviceSelect = wait.until(ExpectedConditions.elementToBeClickable(deviceDropdown));
 		new Select(deviceSelect).selectByIndex(1);
 		sleep(2000);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(imeiField)).sendKeys("356789012345678");
-		wait.until(ExpectedConditions.visibilityOfElementLocated(serialNumberField)).sendKeys("RD-1001");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(imeiField))
+				.sendKeys(Hooks.prop.getProperty("imei.value"));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(serialNumberField))
+				.sendKeys(Hooks.prop.getProperty("serial.value"));
 		sleep(2000);
 		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
 	}
@@ -1966,7 +1973,8 @@ public class clinicalpage {
 		sleep(2000);
 		clickWhenClickable(editOption);
 		sleep(3000);
-		waitAndSendKeys(rpmStatusNameInput, "Active Monitoring Updated");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(rpmStatusNameInput))
+				.sendKeys(Hooks.prop.getProperty("rpm.status.name.value"));
 		clickWhenClickable(saveButton);
 		sleep(2000);
 	}
@@ -1983,7 +1991,8 @@ public class clinicalpage {
 		sleep(2000);
 		wait.until(ExpectedConditions.elementToBeClickable(newRPMStatusButton)).click();
 		sleep(2000);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(rpmStatusNameInput)).sendKeys("Active Monitoring");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(rpmStatusNameInput))
+				.sendKeys(Hooks.prop.getProperty("rpm.status.value"));
 		sleep(2000);
 		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
 	}
@@ -2078,10 +2087,11 @@ public class clinicalpage {
 		wait.until(ExpectedConditions.elementToBeClickable(actionMenuButton)).click();
 		wait.until(ExpectedConditions.elementToBeClickable(editOption)).click();
 		wait.until(ExpectedConditions.visibilityOfElementLocated(cptCodeField)).clear();
-		wait.until(ExpectedConditions.visibilityOfElementLocated(cptCodeField)).sendKeys("99213");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(cptCodeField))
+				.sendKeys(Hooks.prop.getProperty("cpt.code.value"));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(descriptionField)).clear();
 		wait.until(ExpectedConditions.visibilityOfElementLocated(descriptionField))
-				.sendKeys("Office Visit, Established Patient");
+				.sendKeys(Hooks.prop.getProperty("description.field.value"));
 		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
 	}
 
@@ -2113,9 +2123,12 @@ public class clinicalpage {
 		sleep(4000);
 		clickWhenClickable(newCptCodeBtn);
 		sleep(4000);
-		waitAndSendKeys(cptCodeNameInput, "99213");
-		waitAndSendKeys(cptCodeInput, "99213");
-		waitAndSendKeys(cptDescriptionInput, "Office Visit, Established Patient");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(cptCodeNameInput))
+				.sendKeys(Hooks.prop.getProperty("cpt.code.name.value"));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(cptCodeInput))
+				.sendKeys(Hooks.prop.getProperty("cpt.code.value"));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(cptDescriptionInput))
+				.sendKeys(Hooks.prop.getProperty("cpt.description.value"));
 		sleep(2000);
 		clickWhenClickable(saveCptBtn);
 	}
@@ -2218,8 +2231,10 @@ public class clinicalpage {
 		sleep(2000);
 		wait.until(ExpectedConditions.elementToBeClickable(newPatientButton)).click();
 		sleep(2000);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(lastNameField)).sendKeys("Riley");
-		wait.until(ExpectedConditions.visibilityOfElementLocated(firstNameField)).sendKeys("Blanche");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(lastNameField))
+				.sendKeys(Hooks.prop.getProperty("last.name.value"));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(firstNameField))
+				.sendKeys(Hooks.prop.getProperty("first.name.value"));
 		sleep(2000);
 		WebElement birthDate = wait.until(ExpectedConditions.elementToBeClickable(birthDateField));
 		birthDate.click();
@@ -2228,7 +2243,8 @@ public class clinicalpage {
 		sleep(2000);
 		wait.until(ExpectedConditions.elementToBeClickable(addNewPatientButton)).click();
 		sleep(2000);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(phoneNumberField)).sendKeys("1234567890");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(phoneNumberField))
+				.sendKeys(Hooks.prop.getProperty("phone.number.value"));
 		sleep(2000);
 		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
 	}
@@ -2237,8 +2253,10 @@ public class clinicalpage {
 		sleep(2000);
 		wait.until(ExpectedConditions.elementToBeClickable(newPatientButton)).click();
 		sleep(2000);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(lastNameField)).sendKeys("Riley");
-		wait.until(ExpectedConditions.visibilityOfElementLocated(firstNameField)).sendKeys("Blanche");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(lastNameField))
+				.sendKeys(Hooks.prop.getProperty("last.name.value"));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(firstNameField))
+				.sendKeys(Hooks.prop.getProperty("first.name.value"));
 		sleep(2000);
 		WebElement birthDate = wait.until(ExpectedConditions.elementToBeClickable(birthDateField));
 		birthDate.click();
@@ -2283,7 +2301,7 @@ public class clinicalpage {
 	}
 
 	public void verifyUserCanEditSoapComponentsInClinicalModule() {
-		String newName = "Allergies";
+		String newName = Hooks.prop.getProperty("name.field.value");
 		int newTypeIndex = 2;
 		wait.until(ExpectedConditions.elementToBeClickable(actionMenuButton)).click();
 		wait.until(ExpectedConditions.visibilityOfElementLocated(dropdownContainer));
@@ -2329,12 +2347,12 @@ public class clinicalpage {
 	}
 
 	public void addSoapComponent() {
-		String componentName = "Allergies";
 		int typeIndex = 1;
 		sleep(2000);
 		wait.until(ExpectedConditions.elementToBeClickable(newSoapComponentButton)).click();
 		sleep(2000);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(nameField)).sendKeys(componentName);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(nameField))
+				.sendKeys(Hooks.prop.getProperty("component.name.value"));
 		sleep(2000);
 		WebElement dropdown = wait.until(ExpectedConditions.elementToBeClickable(typeDropdown));
 		sleep(2000);
@@ -2713,7 +2731,8 @@ public class clinicalpage {
 		sleep(2000);
 		clickWhenClickable(selectProviderBtn);
 		sleep(2000);
-		waitAndSendKeys(referralIssueTxt, "Blood Pressure");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(referralIssueTxt))
+				.sendKeys(Hooks.prop.getProperty("referral.issue.value"));
 		sleep(1000);
 		selectDropdownByIndexWhenReady(referralCategoryDd, 2);
 		sleep(2000);
@@ -2803,8 +2822,10 @@ public class clinicalpage {
 		sleep(2000);
 		clickWhenClickable(editOption);
 		sleep(2000);
-		waitAndSendKeys(careGiverLastNameField, "Martin");
-		waitAndSendKeys(careGiverFirstNameField, "Brian");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(careGiverLastNameField))
+				.sendKeys(Hooks.prop.getProperty("caregiver.lastname.value"));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(careGiverFirstNameField))
+				.sendKeys(Hooks.prop.getProperty("caregiver.firstname.value"));
 		clickWhenClickable(saveCareGiverPopupButton);
 		sleep(1000);
 		clickWhenClickable(finalSaveButton);
@@ -2851,8 +2872,10 @@ public class clinicalpage {
 		sleep(3000);
 		clickWhenClickable(newPatientCareGiverNameOption);
 		sleep(2000);
-		waitAndSendKeys(careGiverLastNameField, "Martin");
-		waitAndSendKeys(careGiverFirstNameField, "Brian");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(careGiverLastNameField))
+				.sendKeys(Hooks.prop.getProperty("caregiver.lastname.value"));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(careGiverFirstNameField))
+				.sendKeys(Hooks.prop.getProperty("caregiver.firstname.value"));
 		clickWhenClickable(saveCareGiverPopupButton);
 		sleep(2000);
 		clickWhenClickable(finalSaveButton);
@@ -2884,7 +2907,8 @@ public class clinicalpage {
 		clickWhenClickable(progressStatusDropdown);
 		selectDropdownByIndexWhenReady(progressStatusDropdown, 1);
 		sleep(2000);
-		waitAndSendKeys(notesInput, "Note");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(notesInput))
+				.sendKeys(Hooks.prop.getProperty("notes.value"));
 		clickWhenClickable(saveOutcomeNoteButton);
 	}
 
@@ -2918,7 +2942,8 @@ public class clinicalpage {
 		sleep(2000);
 		clickWhenClickable(addPatientButton);
 		sleep(2000);
-		waitAndSendKeys(patientFilterInput, "0004406");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(patientFilterInput))
+				.sendKeys(Hooks.prop.getProperty("patient.filter.value"));
 		clickWhenClickable(searchPatientButton);
 		sleep(2000);
 		clickWhenClickable(selectFirstPatientRadio);
@@ -2927,7 +2952,8 @@ public class clinicalpage {
 		sleep(5000);
 		clickWhenClickable(addDrugButton);
 		sleep(3000);
-		waitAndSendKeys(drugFilterInput, "amoxilin");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(drugFilterInput))
+				.sendKeys(Hooks.prop.getProperty("drug.filter.value"));
 		clickWhenClickable(searchDrugButton);
 		sleep(2000);
 		clickWhenClickable(selectDrugRadio);
@@ -2944,7 +2970,8 @@ public class clinicalpage {
 		sleep(3000);
 		clickWhenClickable(fullSearchRadio);
 		sleep(3000);
-		waitAndSendKeys(partnerFilterInput, "Attorney");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(partnerFilterInput))
+				.sendKeys(Hooks.prop.getProperty("partner.filter.value"));
 		clickWhenClickable(searchPartnerButton);
 		sleep(3000);
 		clickWhenClickable(selectPartnerRadio);
@@ -2953,7 +2980,7 @@ public class clinicalpage {
 		sleep(3000);
 		WebElement receivedDate = driver.findElement(receivedDateInput);
 		receivedDate.clear();
-		receivedDate.sendKeys("10/09/2025");
+		receivedDate.sendKeys(Hooks.prop.getProperty("received.date.value"));
 		receivedDate.sendKeys(Keys.TAB);
 		sleep(2000);
 		clickWhenClickable(saveButton);
@@ -2968,10 +2995,11 @@ public class clinicalpage {
 		sleep(2000);
 		WebElement submissionDate = driver.findElement(submissionDateInput);
 		submissionDate.clear();
-		submissionDate.sendKeys("10/09/2025");
+		submissionDate.sendKeys(Hooks.prop.getProperty("submission.date.value"));
 		submissionDate.sendKeys(Keys.TAB);
 		sleep(2000);
-		waitAndSendKeys(submissionNoteInput, "Submission");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(submissionNoteInput))
+				.sendKeys(Hooks.prop.getProperty("submission.note.value"));
 		clickWhenClickable(saveSubmissionButton);
 	}
 
@@ -3127,7 +3155,8 @@ public class clinicalpage {
 		sleep(1000);
 		clickWhenClickable(addPatientPopupIcon);
 		sleep(2000);
-		waitAndSendKeys(patientIdFilterInput, "0004406");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(patientIdFilterInput))
+				.sendKeys(Hooks.prop.getProperty("patient.id.filter.value"));
 		clickWhenClickable(patientSearchButton);
 		sleep(2000);
 		clickWhenClickable(selectPatientRadioButton);
@@ -3158,7 +3187,8 @@ public class clinicalpage {
 		sleep(1000);
 		clickWhenClickable(addPatientPopupIcon);
 		sleep(2000);
-		waitAndSendKeys(patientIdFilterInput, "0004406");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(patientIdFilterInput))
+				.sendKeys(Hooks.prop.getProperty("patient.id.filter.value"));
 		clickWhenClickable(patientSearchButton);
 		sleep(2000);
 		clickWhenClickable(selectPatientRadioButton);
@@ -3168,7 +3198,8 @@ public class clinicalpage {
 		sleep(1000);
 		clickWhenClickable(addDrugPopupIcon);
 		sleep(1000);
-		waitAndSendKeys(drugNameFilterInput, "amoxilin");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(drugNameFilterInput))
+				.sendKeys(Hooks.prop.getProperty("drug.name.filter.value"));
 		clickWhenClickable(drugSearchButton);
 		sleep(1000);
 		clickWhenClickable(selectDrugRadioButton);
@@ -3206,7 +3237,8 @@ public class clinicalpage {
 		sleep(1000);
 		clickWhenClickable(addPatientPopupIcon);
 		sleep(2000);
-		waitAndSendKeys(patientIdFilterInput, "0004406");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(patientIdFilterInput))
+				.sendKeys(Hooks.prop.getProperty("patient.id.filter.value"));
 		clickWhenClickable(patientSearchButton);
 		sleep(2000);
 		clickWhenClickable(selectPatientRadioButton);
@@ -3216,7 +3248,8 @@ public class clinicalpage {
 		sleep(1000);
 		clickWhenClickable(addDrugPopupIcon);
 		sleep(1000);
-		waitAndSendKeys(drugNameFilterInput, "amoxilin");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(drugNameFilterInput))
+				.sendKeys(Hooks.prop.getProperty("drug.name.filter.value"));
 		clickWhenClickable(drugSearchButton);
 		sleep(1000);
 		clickWhenClickable(selectDrugRadioButton);
@@ -3225,7 +3258,8 @@ public class clinicalpage {
 		sleep(1000);
 		clickWhenClickable(editMedsOnChartButton);
 		sleep(1000);
-		waitAndSendKeys(directionInputFirstMed, "Morning");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(directionInputFirstMed))
+				.sendKeys(Hooks.prop.getProperty("direction.first.med.value"));
 		clickWhenClickable(editMedsOnChartButton);
 		sleep(1000);
 		clickWhenClickable(saveMedsOnChartButton);
@@ -3264,7 +3298,8 @@ public class clinicalpage {
 		sleep(1000);
 		clickWhenClickable(addPatientPopupIcon);
 		sleep(2000);
-		waitAndSendKeys(patientIdFilterInput, "0004406");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(patientIdFilterInput))
+				.sendKeys(Hooks.prop.getProperty("patient.id.filter.value"));
 		clickWhenClickable(patientSearchButton);
 		sleep(2000);
 		clickWhenClickable(selectPatientRadioButton);
@@ -3274,7 +3309,8 @@ public class clinicalpage {
 		sleep(1000);
 		clickWhenClickable(addDrugPopupIcon);
 		sleep(1000);
-		waitAndSendKeys(drugNameFilterInput, "amoxilin");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(drugNameFilterInput))
+				.sendKeys(Hooks.prop.getProperty("drug.name.filter.value"));
 		clickWhenClickable(drugSearchButton);
 		sleep(1000);
 		clickWhenClickable(selectDrugRadioButton);
@@ -3300,7 +3336,8 @@ public class clinicalpage {
 		sleep(1000);
 		clickWhenClickable(addPatientIcon);
 		sleep(2000);
-		waitAndSendKeys(patientSearchInput, "0004406");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(patientSearchInput))
+				.sendKeys(Hooks.prop.getProperty("patient.search.value"));
 		clickWhenClickable(patientSearchButton);
 		sleep(2000);
 		clickWhenClickable(patientSelectCheckbox);
@@ -3310,7 +3347,8 @@ public class clinicalpage {
 		sleep(1000);
 		clickWhenClickable(drugLookupIcon);
 		sleep(1000);
-		waitAndSendKeys(drugNameInput, "amoxilin");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(drugNameInput))
+				.sendKeys(Hooks.prop.getProperty("drug.name.value"));
 		clickWhenClickable(drugSearchButton);
 		sleep(1000);
 		clickWhenClickable(drugSelectCheckbox);
@@ -3355,7 +3393,8 @@ public class clinicalpage {
 		sleep(1000);
 		clickWhenClickable(patientPopupIcon);
 		sleep(2000);
-		waitAndSendKeys(patientIdInput, "0004406");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(patientIdInput))
+				.sendKeys(Hooks.prop.getProperty("patient.id.value"));
 		clickWhenClickable(patientSearchBtn);
 		sleep(2000);
 		clickWhenClickable(patientSelectCheckbox);
@@ -3365,7 +3404,8 @@ public class clinicalpage {
 		sleep(1000);
 		clickWhenClickable(drugLookupIcon);
 		sleep(1000);
-		waitAndSendKeys(drugNameInput, "amoxilin");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(drugNameInput))
+				.sendKeys(Hooks.prop.getProperty("drug.name.value"));
 		clickWhenClickable(drugSearchBtn);
 		sleep(1000);
 		clickWhenClickable(drugSelectCheckbox);
@@ -3373,7 +3413,8 @@ public class clinicalpage {
 		sleep(1000);
 		clickWhenClickable(editMedIcon);
 		sleep(1000);
-		waitAndSendKeys(directionInput, "Morning");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(directionInput))
+				.sendKeys(Hooks.prop.getProperty("direction.value"));
 		clickWhenClickable(editMedIcon);
 		sleep(1000);
 		clickWhenClickable(saveBtn);
@@ -3429,7 +3470,8 @@ public class clinicalpage {
 		sleep(1000);
 		clickWhenClickable(addPatientPopupIcon);
 		sleep(2000);
-		waitAndSendKeys(patientIdFilterInput, "0004406");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(patientIdFilterInput))
+				.sendKeys(Hooks.prop.getProperty("patient.id.filter.value"));
 		clickWhenClickable(searchPatientBtn);
 		sleep(2000);
 		clickWhenClickable(patientRadioBtn);
@@ -3439,7 +3481,8 @@ public class clinicalpage {
 		sleep(1000);
 		clickWhenClickable(addDrugPopupIcon);
 		sleep(1000);
-		waitAndSendKeys(drugNameFilterInput, "amoxilin");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(drugNameFilterInput))
+				.sendKeys(Hooks.prop.getProperty("drug.name.filter.value"));
 		clickWhenClickable(searchDrugBtn);
 		sleep(1000);
 		clickWhenClickable(drugRadioBtn);
@@ -3581,7 +3624,8 @@ public class clinicalpage {
 		sleep(1000);
 		selectDropdownByIndexWhenReady(progressStatusDropdown, 1);
 		sleep(2000);
-		waitAndSendKeys(noteTextarea, "Note");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(noteTextarea))
+				.sendKeys(Hooks.prop.getProperty("note.textarea.value"));
 		clickWhenClickable(saveNoteButton);
 		sleep(2000);
 		clickWhenClickable(submitLink);
@@ -3634,7 +3678,8 @@ public class clinicalpage {
 		sleep(2000);
 		clickWhenClickable(addPatientIcon);
 		sleep(2000);
-		waitAndSendKeys(By.id("Filter_PatientId"), "0004406");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(patientIdFilterLocator))
+				.sendKeys(Hooks.prop.getProperty("filter.patient.id.value"));
 		clickWhenClickable(searchButton);
 		sleep(2000);
 		clickWhenClickable(selectFirstPatientRadio);
@@ -3659,7 +3704,8 @@ public class clinicalpage {
 		clickWhenClickable(editOptionParameter);
 		clickWhenClickable(devicesTabParameter);
 		clickWhenClickable(editRpmParameterButtonParameter);
-		waitAndSendKeys(maxTriggerValueParameter, "4");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(maxTriggerValueParameter))
+				.sendKeys(Hooks.prop.getProperty("max.trigger.value.parameter"));
 		clickWhenClickable(saveRpmParameterButtonParameter);
 	}
 
@@ -3751,21 +3797,32 @@ public class clinicalpage {
 		sleep(2000);
 		WebElement startDate = driver.findElement(startDateField);
 		startDate.clear();
-		startDate.sendKeys("10/09/2025", Keys.TAB);
+		wait.until(ExpectedConditions.visibilityOf(startDate)).sendKeys(Hooks.prop.getProperty("start.date.value"),
+				Keys.TAB);
 		WebElement endDate = driver.findElement(endDateField);
 		endDate.clear();
-		endDate.sendKeys("10/09/2025", Keys.TAB);
+		endDate.sendKeys(Hooks.prop.getProperty("end.date.value"), Keys.TAB);
 		sleep(2000);
-		waitAndSendKeys(normalMin, "4");
-		waitAndSendKeys(normalMax, "4");
-		waitAndSendKeys(level1Min, "4");
-		waitAndSendKeys(level1Max, "4");
-		waitAndSendKeys(level2Min, "4");
-		waitAndSendKeys(level2Max, "4");
-		waitAndSendKeys(level3Min, "4");
-		waitAndSendKeys(level3Max, "4");
-		waitAndSendKeys(minTriggerValue, "4");
-		waitAndSendKeys(maxTriggerValue, "4");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(normalMin))
+				.sendKeys(Hooks.prop.getProperty("normal.min.value"));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(normalMax))
+				.sendKeys(Hooks.prop.getProperty("normal.max.value"));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(level1Min))
+				.sendKeys(Hooks.prop.getProperty("level1.min.value"));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(level1Max))
+				.sendKeys(Hooks.prop.getProperty("level1.max.value"));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(level2Min))
+				.sendKeys(Hooks.prop.getProperty("level2.min.value"));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(level2Max))
+				.sendKeys(Hooks.prop.getProperty("level2.max.value"));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(level3Min))
+				.sendKeys(Hooks.prop.getProperty("level3.min.value"));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(level3Max))
+				.sendKeys(Hooks.prop.getProperty("level3.max.value"));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(minTriggerValue))
+				.sendKeys(Hooks.prop.getProperty("min.trigger.value"));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(maxTriggerValue))
+				.sendKeys(Hooks.prop.getProperty("max.trigger.value"));
 		clickWhenClickable(addRpmParameterButtonParameter);
 		clickWhenClickable(submitButtonParameter);
 	}
@@ -3865,7 +3922,8 @@ public class clinicalpage {
 		clickWhenClickable(editOptionParameter);
 		clickWhenClickable(externalAlertsTabParameter);
 		clickWhenClickable(editExternalAlertIconParameter);
-		waitAndSendKeys(externalAlertRelationParameter, "Patient");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(externalAlertRelationParameter))
+				.sendKeys(Hooks.prop.getProperty("external.alert.relation.parameter"));
 		clickWhenClickable(saveExternalAlertPopupButtonParameter);
 	}
 
@@ -3899,9 +3957,12 @@ public class clinicalpage {
 		sleep(2000);
 		clickWhenClickable(externalAlertsTabParameter);
 		sleep(2000);
-		waitAndSendKeys(externalAlertNameParameter, "John Doe");
-		waitAndSendKeys(externalAlertEmailParameter, "johndoe_test@mailinator.com");
-		waitAndSendKeys(externalAlertPhoneParameter, "555-101-2020");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(externalAlertNameParameter))
+				.sendKeys(Hooks.prop.getProperty("external.alert.name.parameter"));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(externalAlertEmailParameter))
+				.sendKeys(Hooks.prop.getProperty("external.alert.email.parameter"));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(externalAlertPhoneParameter))
+				.sendKeys(Hooks.prop.getProperty("external.alert.phone.parameter"));
 		sleep(2000);
 		clickWhenClickable(saveExternalAlertButtonParameter);
 	}
@@ -3938,15 +3999,19 @@ public class clinicalpage {
 		sleep(2000);
 		selectDropdownByIndexWhenReady(signerDropdown, 1);
 		sleep(2000);
-		waitAndSendKeys(signerFullName, "Lisa Brooker");
-		waitAndSendKeys(signerEmail, "LisaJBrooker@mailinator.com");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(signerFullName))
+				.sendKeys(Hooks.prop.getProperty("signer.full.name"));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(signerEmail))
+				.sendKeys(Hooks.prop.getProperty("signer.email"));
 		clickWhenClickable(addManualSignerButton);
 		sleep(2000);
 		clickWhenClickable(nextButton);
 		sleep(2000);
 		clickWhenClickable(nextButton);
-		waitAndSendKeys(subjectInput, "Signature requested");
-		waitAndSendKeys(editorInput, "Signature requested");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(subjectInput))
+				.sendKeys(Hooks.prop.getProperty("subject.input.value"));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(editorInput))
+				.sendKeys(Hooks.prop.getProperty("editor.input.value"));
 		clickWhenClickable(finishButton);
 	}
 
@@ -4034,7 +4099,8 @@ public class clinicalpage {
 		clickWhenClickable(editOptionParameterTrigger);
 		clickWhenClickable(triggerAlertRowActionButtonParameter);
 		clickWhenClickable(editTriggerAlertOptionParameter);
-		waitAndSendKeys(triggerAlertMinutesInputParameter, "11");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(triggerAlertMinutesInputParameter))
+				.sendKeys(Hooks.prop.getProperty("trigger.alert.minutes.value"));
 		clickWhenClickable(saveTriggerAlertButtonParameter);
 	}
 
@@ -4078,7 +4144,7 @@ public class clinicalpage {
 		sleep(2000);
 		WebElement minutesInput = wait.until(ExpectedConditions.elementToBeClickable(triggerMinutesInputParameter));
 		minutesInput.clear();
-		minutesInput.sendKeys("10");
+		minutesInput.sendKeys(Hooks.prop.getProperty("minutes.input.value"));
 		sleep(2000);
 		clickWhenClickable(saveTriggerAlertButtonParameter);
 		sleep(2000);
@@ -4106,12 +4172,14 @@ public class clinicalpage {
 	public void userShouldBeAbleToSendPAInsuranceInClinicalModule() {
 		clickWhenClickable(newClinicalPABtn);
 		clickWhenClickable(addPatientIcon);
-		waitAndSendKeys(patientIdInput, "0004406");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(patientIdInput))
+				.sendKeys(Hooks.prop.getProperty("patient.id.value"));
 		clickWhenClickable(searchBtn);
 		clickWhenClickable(firstPatientRadio);
 		clickWhenClickable(selectPatientBtn);
 		clickWhenClickable(addDrugIcon);
-		waitAndSendKeys(drugNameInput, "amoxilin");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(drugNameInput))
+				.sendKeys(Hooks.prop.getProperty("drug.name.input.value"));
 		clickWhenClickable(searchBtn);
 		clickWhenClickable(drugRadio);
 		clickWhenClickable(selectDrugBtn);
@@ -4120,13 +4188,14 @@ public class clinicalpage {
 		clickWhenClickable(selectProviderBtn);
 		clickWhenClickable(addPartnerIcon);
 		clickWhenClickable(fullSearchRadio);
-		waitAndSendKeys(partnerNameInput, "Attorney");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(partnerNameInput))
+				.sendKeys(Hooks.prop.getProperty("partner.name.input.value"));
 		clickWhenClickable(searchBtn);
 		clickWhenClickable(partnerRadio);
 		clickWhenClickable(selectPartnerBtn);
 		WebElement receivedDate = driver.findElement(receivedDateInput);
 		receivedDate.clear();
-		receivedDate.sendKeys("10/09/2025");
+		receivedDate.sendKeys(Hooks.prop.getProperty("received.date.value"));
 		receivedDate.sendKeys(Keys.TAB);
 		clickWhenClickable(saveBtn);
 		clickWhenClickable(patientDetailsTab);
@@ -4137,26 +4206,32 @@ public class clinicalpage {
 		clickWhenClickable(pendingSaveBtn);
 		WebElement submissionDate = driver.findElement(submissionDateInput);
 		submissionDate.clear();
-		submissionDate.sendKeys("10/09/2025");
+		submissionDate.sendKeys(Hooks.prop.getProperty("submission.date.value"));
 		submissionDate.sendKeys(Keys.TAB);
-		waitAndSendKeys(submissionNoteInput, "Submission");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(submissionNoteInput))
+				.sendKeys(Hooks.prop.getProperty("submission.note.value"));
 		clickWhenClickable(saveSubmissionBtn);
 		clickWhenClickable(sendInsuranceBtn);
-		waitAndSendKeys(toEmailInput, "MarioLKlein@mailinator.com");
-		waitAndSendKeys(subjectInput, "Insurance");
-		waitAndSendKeys(emailBodyInput, "Insurance");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(toEmailInput))
+				.sendKeys(Hooks.prop.getProperty("to.email.input.value"));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(subjectInput))
+				.sendKeys(Hooks.prop.getProperty("subject.input.value"));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(emailBodyInput))
+				.sendKeys(Hooks.prop.getProperty("email.body.input.value"));
 		clickWhenClickable(sendEmailBtn);
 	}
 
 	public void deletePAChartNoteAttachmentInClinicalModule() {
 		clickWhenClickable(newClinicalPaBtn);
 		clickWhenClickable(addPatientIcon);
-		waitAndSendKeys(patientIdInput, "0004406");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(patientIdInput))
+				.sendKeys(Hooks.prop.getProperty("patient.id.value"));
 		clickWhenClickable(searchBtn);
 		clickWhenClickable(firstPatientRadio);
 		clickWhenClickable(selectPatientBtn);
 		clickWhenClickable(addDrugIcon);
-		waitAndSendKeys(drugNameInput, "amoxilin");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(drugNameInput))
+				.sendKeys(Hooks.prop.getProperty("drug.name.input.value"));
 		clickWhenClickable(searchBtn);
 		clickWhenClickable(drugRadio);
 		clickWhenClickable(selectDrugBtn);
@@ -4165,13 +4240,14 @@ public class clinicalpage {
 		clickWhenClickable(selectProviderBtn);
 		clickWhenClickable(addPartnerIcon);
 		clickWhenClickable(fullSearchRadio);
-		waitAndSendKeys(businessNameInput, "Attorney");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(businessNameInput))
+				.sendKeys(Hooks.prop.getProperty("business.name.input.value"));
 		clickWhenClickable(searchBtn);
 		clickWhenClickable(partnerRadio);
 		clickWhenClickable(selectPartnerBtn);
 		WebElement receivedDate = driver.findElement(receivedDateInput);
 		receivedDate.clear();
-		receivedDate.sendKeys("10/09/2025");
+		receivedDate.sendKeys(Hooks.prop.getProperty("received.date.value"));
 		receivedDate.sendKeys(Keys.TAB);
 		clickWhenClickable(saveBtn);
 		clickWhenClickable(patientDetailsTab);
@@ -4182,9 +4258,10 @@ public class clinicalpage {
 		clickWhenClickable(pendingSaveBtn);
 		WebElement submissionDate = driver.findElement(submissionDateInput);
 		submissionDate.clear();
-		submissionDate.sendKeys("10/09/2025");
+		submissionDate.sendKeys(Hooks.prop.getProperty("submission.date.value"));
 		submissionDate.sendKeys(Keys.TAB);
-		waitAndSendKeys(submissionNoteInput, "Submission");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(submissionNoteInput))
+				.sendKeys(Hooks.prop.getProperty("submission.note.value"));
 		clickWhenClickable(saveSubmissionBtn);
 		clickWhenClickable(deleteChartNoteAttachmentIcon);
 		clickWhenClickable(confirmChartNoteAttachmentDeleteBtn);
@@ -4193,12 +4270,14 @@ public class clinicalpage {
 	public void userShouldBeAbleToDeletePAChartNoteAttachmentInClinicalModule() {
 		clickWhenClickable(newClinicalPaBtn);
 		clickWhenClickable(addPatientIcon);
-		waitAndSendKeys(patientIdInput, "0004406");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(patientIdInput))
+				.sendKeys(Hooks.prop.getProperty("patient.id.value"));
 		clickWhenClickable(searchBtn);
 		clickWhenClickable(firstPatientRadio);
 		clickWhenClickable(selectPatientBtn);
 		clickWhenClickable(addDrugIcon);
-		waitAndSendKeys(drugNameInput, "amoxilin");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(drugNameInput))
+				.sendKeys(Hooks.prop.getProperty("drug.name.input.value"));
 		clickWhenClickable(searchBtn);
 		clickWhenClickable(drugRadio);
 		clickWhenClickable(selectDrugBtn);
@@ -4207,13 +4286,14 @@ public class clinicalpage {
 		clickWhenClickable(selectProviderBtn);
 		clickWhenClickable(addPartnerIcon);
 		clickWhenClickable(fullSearchRadio);
-		waitAndSendKeys(businessNameInput, "Attorney");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(businessNameInput))
+				.sendKeys(Hooks.prop.getProperty("business.name.input.value"));
 		clickWhenClickable(searchBtn);
 		clickWhenClickable(partnerRadio);
 		clickWhenClickable(selectPartnerBtn);
 		WebElement receivedDate = driver.findElement(receivedDateInput);
 		receivedDate.clear();
-		receivedDate.sendKeys("10/09/2025");
+		receivedDate.sendKeys(Hooks.prop.getProperty("received.date.value"));
 		receivedDate.sendKeys(Keys.TAB);
 		clickWhenClickable(saveBtn);
 		clickWhenClickable(patientDetailsTab);
@@ -4224,9 +4304,10 @@ public class clinicalpage {
 		clickWhenClickable(pendingSaveBtn);
 		WebElement submissionDate = driver.findElement(submissionDateInput);
 		submissionDate.clear();
-		submissionDate.sendKeys("10/09/2025");
+		submissionDate.sendKeys(Hooks.prop.getProperty("submission.date.value"));
 		submissionDate.sendKeys(Keys.TAB);
-		waitAndSendKeys(submissionNoteInput, "Submission");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(submissionNoteInput))
+				.sendKeys(Hooks.prop.getProperty("submission.note.value"));
 		clickWhenClickable(saveSubmissionBtn);
 		clickWhenClickable(deleteChartNoteAttachmentIcon);
 		clickWhenClickable(confirmChartNoteAttachmentDeleteBtn);
@@ -4235,12 +4316,14 @@ public class clinicalpage {
 	public void userShouldBeAbleToDeleteGeneratedIncomingAttachmentInClinicalModule() {
 		clickWhenClickable(newClinicalPaBtn);
 		clickWhenClickable(addPatientIcon);
-		waitAndSendKeys(patientIdInput, "0004406");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(patientIdInput))
+				.sendKeys(Hooks.prop.getProperty("patient.id.value"));
 		clickWhenClickable(searchBtn);
 		clickWhenClickable(firstPatientRadio);
 		clickWhenClickable(selectPatientBtn);
 		clickWhenClickable(addDrugIcon);
-		waitAndSendKeys(drugNameInput, "amoxilin");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(drugNameInput))
+				.sendKeys(Hooks.prop.getProperty("drug.name.input.value"));
 		clickWhenClickable(searchBtn);
 		clickWhenClickable(drugRadio);
 		clickWhenClickable(selectDrugBtn);
@@ -4249,13 +4332,14 @@ public class clinicalpage {
 		clickWhenClickable(selectProviderBtn);
 		clickWhenClickable(addPartnerIcon);
 		clickWhenClickable(fullSearchRadio);
-		waitAndSendKeys(businessNameInput, "Attorney");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(businessNameInput))
+				.sendKeys(Hooks.prop.getProperty("business.name.input.value"));
 		clickWhenClickable(searchBtn);
 		clickWhenClickable(partnerRadio);
 		clickWhenClickable(selectPartnerBtn);
 		WebElement receivedDate = driver.findElement(receivedDateInput);
 		receivedDate.clear();
-		receivedDate.sendKeys("10/09/2025");
+		receivedDate.sendKeys(Hooks.prop.getProperty("received.date.value"));
 		receivedDate.sendKeys(Keys.TAB);
 		clickWhenClickable(saveBtn);
 		clickWhenClickable(patientDetailsTab);
@@ -4266,9 +4350,10 @@ public class clinicalpage {
 		clickWhenClickable(pendingSaveBtn);
 		WebElement submissionDate = driver.findElement(submissionDateInput);
 		submissionDate.clear();
-		submissionDate.sendKeys("10/09/2025");
+		submissionDate.sendKeys(Hooks.prop.getProperty("submission.date.value"));
 		submissionDate.sendKeys(Keys.TAB);
-		waitAndSendKeys(submissionNoteInput, "Submission");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(drugNameInput))
+				.sendKeys(Hooks.prop.getProperty("drug.name.input.value"));
 		clickWhenClickable(saveSubmissionBtn);
 		clickWhenClickable(deleteGeneratedAttachmentIcon);
 		clickWhenClickable(confirmAttachmentDeleteBtn);
@@ -4277,12 +4362,14 @@ public class clinicalpage {
 	public void userShouldBeAbleToDeletePAOutcomeStatusInClinicalModule() {
 		clickWhenClickable(newClinicalPaBtn);
 		clickWhenClickable(addPatientIcon);
-		waitAndSendKeys(patientIdInput, "0004406");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(patientIdInput))
+				.sendKeys(Hooks.prop.getProperty("patient.id.value"));
 		clickWhenClickable(searchBtn);
 		clickWhenClickable(firstPatientRadio);
 		clickWhenClickable(selectPatientBtn);
 		clickWhenClickable(addDrugIcon);
-		waitAndSendKeys(drugNameInput, "amoxilin");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(drugNameInput))
+				.sendKeys(Hooks.prop.getProperty("drug.name.input.value"));
 		clickWhenClickable(searchBtn);
 		clickWhenClickable(drugRadio);
 		clickWhenClickable(selectDrugBtn);
@@ -4291,13 +4378,14 @@ public class clinicalpage {
 		clickWhenClickable(selectProviderBtn);
 		clickWhenClickable(addPartnerIcon);
 		clickWhenClickable(fullSearchRadio);
-		waitAndSendKeys(businessNameInput, "Attorney");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(businessNameInput))
+				.sendKeys(Hooks.prop.getProperty("business.name.input.value"));
 		clickWhenClickable(searchBtn);
 		clickWhenClickable(partnerRadio);
 		clickWhenClickable(selectPartnerBtn);
 		WebElement receivedDate = driver.findElement(receivedDateInput);
 		receivedDate.clear();
-		receivedDate.sendKeys("10/09/2025");
+		receivedDate.sendKeys(Hooks.prop.getProperty("received.date.value"));
 		receivedDate.sendKeys(Keys.TAB);
 		clickWhenClickable(saveBtn);
 		clickWhenClickable(patientDetailsTab);
@@ -4308,9 +4396,10 @@ public class clinicalpage {
 		clickWhenClickable(pendingSaveBtn);
 		WebElement submissionDate = driver.findElement(submissionDateInput);
 		submissionDate.clear();
-		submissionDate.sendKeys("10/09/2025");
+		submissionDate.sendKeys(Hooks.prop.getProperty("submission.date.value"));
 		submissionDate.sendKeys(Keys.TAB);
-		waitAndSendKeys(submissionNoteInput, "Submission");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(submissionNoteInput))
+				.sendKeys(Hooks.prop.getProperty("submission.note.value"));
 		clickWhenClickable(saveSubmissionBtn);
 		clickWhenClickable(outcomeActionMenu);
 		clickWhenClickable(deleteOutcomeOption);
@@ -4332,7 +4421,8 @@ public class clinicalpage {
 		sleep(2000);
 		clickWhenClickable(addPatientButton);
 		sleep(2000);
-		waitAndSendKeys(patientIdInput, "0004406");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(submissionNoteInput))
+				.sendKeys(Hooks.prop.getProperty("submission.note.value"));
 		clickWhenClickable(patientSearchButton);
 		sleep(2000);
 		clickWhenClickable(firstPatientRadio);
@@ -4341,7 +4431,8 @@ public class clinicalpage {
 		sleep(5000);
 		clickWhenClickable(addDrugButton);
 		sleep(3000);
-		waitAndSendKeys(drugNameInput, "amoxilin");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(drugNameInput))
+				.sendKeys(Hooks.prop.getProperty("drug.name.input.value"));
 		clickWhenClickable(drugSearchButton);
 		sleep(2000);
 		clickWhenClickable(selectDrugRadio);
@@ -4358,7 +4449,8 @@ public class clinicalpage {
 		sleep(3000);
 		clickWhenClickable(fullSearchRadio);
 		sleep(3000);
-		waitAndSendKeys(businessNameInput, "Attorney");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(businessNameInput))
+				.sendKeys(Hooks.prop.getProperty("business.name.input.value"));
 		clickWhenClickable(partnerSearchButton);
 		sleep(3000);
 		clickWhenClickable(selectPartnerRadio);
@@ -4367,7 +4459,7 @@ public class clinicalpage {
 		sleep(3000);
 		WebElement receivedDate = driver.findElement(receivedDateInput);
 		receivedDate.clear();
-		receivedDate.sendKeys("10/09/2025");
+		receivedDate.sendKeys(Hooks.prop.getProperty("received.date.value"));
 		receivedDate.sendKeys(Keys.TAB);
 		sleep(2000);
 		clickWhenClickable(saveButton);
@@ -4382,10 +4474,11 @@ public class clinicalpage {
 		sleep(2000);
 		WebElement submissionDate = driver.findElement(submissionDateInput);
 		submissionDate.clear();
-		submissionDate.sendKeys("10/09/2025");
+		submissionDate.sendKeys(Hooks.prop.getProperty("submission.date.value"));
 		submissionDate.sendKeys(Keys.TAB);
 		sleep(2000);
-		waitAndSendKeys(submissionNoteInput, "Submission");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(submissionNoteInput))
+				.sendKeys(Hooks.prop.getProperty("submission.note.value"));
 		clickWhenClickable(saveSubmissionButton);
 	}
 
@@ -4400,7 +4493,8 @@ public class clinicalpage {
 		sleep(2000);
 		clickWhenClickable(addPatientButton);
 		sleep(2000);
-		waitAndSendKeys(patientIdInput, "0004406");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(patientIdInput))
+				.sendKeys(Hooks.prop.getProperty("patient.id.value"));
 		clickWhenClickable(patientSearchButton);
 		sleep(2000);
 		clickWhenClickable(firstPatientRadio);
@@ -4409,7 +4503,8 @@ public class clinicalpage {
 		sleep(5000);
 		clickWhenClickable(addDrugButton);
 		sleep(3000);
-		waitAndSendKeys(drugNameInput, "amoxilin");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(drugNameInput))
+				.sendKeys(Hooks.prop.getProperty("drug.name.input.value"));
 		clickWhenClickable(drugSearchButton);
 		sleep(2000);
 		clickWhenClickable(selectDrugRadio);
@@ -4426,7 +4521,8 @@ public class clinicalpage {
 		sleep(3000);
 		clickWhenClickable(fullSearchRadio);
 		sleep(3000);
-		waitAndSendKeys(businessNameInput, "Attorney");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(businessNameInput))
+				.sendKeys(Hooks.prop.getProperty("business.name.input.value"));
 		clickWhenClickable(partnerSearchButton);
 		sleep(3000);
 		clickWhenClickable(selectPartnerRadio);
@@ -4435,7 +4531,7 @@ public class clinicalpage {
 		sleep(3000);
 		WebElement receivedDate = driver.findElement(receivedDateInput);
 		receivedDate.clear();
-		receivedDate.sendKeys("10/09/2025");
+		receivedDate.sendKeys(Hooks.prop.getProperty("received.date.value"));
 		receivedDate.sendKeys(Keys.TAB);
 		sleep(2000);
 		clickWhenClickable(saveButton);
@@ -4450,10 +4546,11 @@ public class clinicalpage {
 		sleep(2000);
 		WebElement submissionDate = driver.findElement(submissionDateInput);
 		submissionDate.clear();
-		submissionDate.sendKeys("10/09/2025");
+		submissionDate.sendKeys(Hooks.prop.getProperty("submission.date.value"));
 		submissionDate.sendKeys(Keys.TAB);
 		sleep(2000);
-		waitAndSendKeys(submissionNoteInput, "Submission");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(submissionNoteInput))
+				.sendKeys(Hooks.prop.getProperty("submission.note.value"));
 		clickWhenClickable(saveSubmissionButton);
 	}
 
@@ -4463,7 +4560,8 @@ public class clinicalpage {
 		sleep(2000);
 		clickWhenClickable(addPatientButton);
 		sleep(2000);
-		waitAndSendKeys(patientIdInput, "0004406");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(patientIdInput))
+				.sendKeys(Hooks.prop.getProperty("patient.id.value"));
 		clickWhenClickable(patientSearchButton);
 		sleep(2000);
 		clickWhenClickable(firstPatientRadio);
@@ -4472,7 +4570,8 @@ public class clinicalpage {
 		sleep(5000);
 		clickWhenClickable(addDrugButton);
 		sleep(3000);
-		waitAndSendKeys(drugNameInput, "amoxilin");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(drugNameInput))
+				.sendKeys(Hooks.prop.getProperty("drug.name.input.value"));
 		clickWhenClickable(drugSearchButton);
 		sleep(2000);
 		clickWhenClickable(selectDrugRadio);
@@ -4489,7 +4588,8 @@ public class clinicalpage {
 		sleep(3000);
 		clickWhenClickable(fullSearchRadio);
 		sleep(3000);
-		waitAndSendKeys(businessNameInput, "Attorney");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(businessNameInput))
+				.sendKeys(Hooks.prop.getProperty("business.name.input.value"));
 		clickWhenClickable(partnerSearchButton);
 		sleep(3000);
 		clickWhenClickable(selectPartnerRadio);
@@ -4498,7 +4598,7 @@ public class clinicalpage {
 		sleep(3000);
 		WebElement receivedDate = driver.findElement(receivedDateInput);
 		receivedDate.clear();
-		receivedDate.sendKeys("10/09/2025");
+		receivedDate.sendKeys(Hooks.prop.getProperty("received.date.value"));
 		receivedDate.sendKeys(Keys.TAB);
 		sleep(2000);
 		clickWhenClickable(saveButton);
@@ -4513,10 +4613,11 @@ public class clinicalpage {
 		sleep(2000);
 		WebElement submissionDate = driver.findElement(submissionDateInput);
 		submissionDate.clear();
-		submissionDate.sendKeys("10/09/2025");
+		submissionDate.sendKeys(Hooks.prop.getProperty("submission.date.value"));
 		submissionDate.sendKeys(Keys.TAB);
 		sleep(2000);
-		waitAndSendKeys(submissionNoteInput, "Submission");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(submissionNoteInput))
+				.sendKeys(Hooks.prop.getProperty("submission.note.value"));
 		clickWhenClickable(saveSubmissionButton);
 	}
 
@@ -4526,7 +4627,8 @@ public class clinicalpage {
 		sleep(2000);
 		clickWhenClickable(addPatientButton);
 		sleep(2000);
-		waitAndSendKeys(patientIdInput, "0004406");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(patientIdInput))
+				.sendKeys(Hooks.prop.getProperty("patient.id.value"));
 		clickWhenClickable(patientSearchButton);
 		sleep(2000);
 		clickWhenClickable(firstPatientRadio);
@@ -4535,7 +4637,8 @@ public class clinicalpage {
 		sleep(5000);
 		clickWhenClickable(addDrugButton);
 		sleep(3000);
-		waitAndSendKeys(drugNameInput, "amoxilin");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(drugNameInput))
+				.sendKeys(Hooks.prop.getProperty("drug.name.input.value"));
 		clickWhenClickable(drugSearchButton);
 		sleep(2000);
 		clickWhenClickable(selectDrugRadio);
@@ -4552,7 +4655,8 @@ public class clinicalpage {
 		sleep(3000);
 		clickWhenClickable(fullSearchRadio);
 		sleep(3000);
-		waitAndSendKeys(businessNameInput, "Attorney");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(businessNameInput))
+				.sendKeys(Hooks.prop.getProperty("business.name.input.value"));
 		clickWhenClickable(partnerSearchButton);
 		sleep(3000);
 		clickWhenClickable(selectPartnerRadio);
@@ -4561,7 +4665,7 @@ public class clinicalpage {
 		sleep(3000);
 		WebElement receivedDate = driver.findElement(receivedDateInput);
 		receivedDate.clear();
-		receivedDate.sendKeys("10/09/2025");
+		receivedDate.sendKeys(Hooks.prop.getProperty("received.date.value"));
 		receivedDate.sendKeys(Keys.TAB);
 		sleep(2000);
 		clickWhenClickable(saveButton);
@@ -4576,10 +4680,11 @@ public class clinicalpage {
 		sleep(2000);
 		WebElement submissionDate = driver.findElement(submissionDateInput);
 		submissionDate.clear();
-		submissionDate.sendKeys("10/09/2025");
+		submissionDate.sendKeys(Hooks.prop.getProperty("submission.date.value"));
 		submissionDate.sendKeys(Keys.TAB);
 		sleep(2000);
-		waitAndSendKeys(submissionNoteInput, "Submission");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(submissionNoteInput))
+				.sendKeys(Hooks.prop.getProperty("submission.note.value"));
 		clickWhenClickable(saveSubmissionButton);
 	}
 
@@ -4589,7 +4694,8 @@ public class clinicalpage {
 		sleep(2000);
 		clickWhenClickable(addPatientButton);
 		sleep(2000);
-		waitAndSendKeys(patientIdInput, "0004406");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(patientIdInput))
+				.sendKeys(Hooks.prop.getProperty("patient.id.value"));
 		clickWhenClickable(patientSearchButton);
 		sleep(2000);
 		clickWhenClickable(firstPatientRadio);
@@ -4598,7 +4704,8 @@ public class clinicalpage {
 		sleep(5000);
 		clickWhenClickable(addDrugButton);
 		sleep(3000);
-		waitAndSendKeys(drugNameInput, "amoxilin");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(drugNameInput))
+				.sendKeys(Hooks.prop.getProperty("drug.name.input.value"));
 		clickWhenClickable(drugSearchButton);
 		sleep(2000);
 		clickWhenClickable(selectDrugRadio);
@@ -4615,7 +4722,8 @@ public class clinicalpage {
 		sleep(3000);
 		clickWhenClickable(fullSearchRadio);
 		sleep(3000);
-		waitAndSendKeys(businessNameInput, "Attorney");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(businessNameInput))
+				.sendKeys(Hooks.prop.getProperty("business.name.input.value"));
 		clickWhenClickable(partnerSearchButton);
 		sleep(3000);
 		clickWhenClickable(selectPartnerRadio);
@@ -4624,7 +4732,7 @@ public class clinicalpage {
 		sleep(3000);
 		WebElement receivedDate = driver.findElement(receivedDateInput);
 		receivedDate.clear();
-		receivedDate.sendKeys("10/09/2025");
+		receivedDate.sendKeys(Hooks.prop.getProperty("received.date.value"));
 		receivedDate.sendKeys(Keys.TAB);
 		sleep(2000);
 		clickWhenClickable(saveButton);
@@ -4639,10 +4747,11 @@ public class clinicalpage {
 		sleep(2000);
 		WebElement submissionDate = driver.findElement(submissionDateInput);
 		submissionDate.clear();
-		submissionDate.sendKeys("10/09/2025");
+		submissionDate.sendKeys(Hooks.prop.getProperty("submission.date.value"));
 		submissionDate.sendKeys(Keys.TAB);
 		sleep(2000);
-		waitAndSendKeys(submissionNoteInput, "Submission");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(submissionNoteInput))
+				.sendKeys(Hooks.prop.getProperty("submission.note.value"));
 		clickWhenClickable(saveSubmissionButton);
 	}
 
@@ -4652,7 +4761,8 @@ public class clinicalpage {
 		sleep(2000);
 		clickWhenClickable(addPatientButton);
 		sleep(2000);
-		waitAndSendKeys(patientIdInput, "0004406");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(patientIdInput))
+				.sendKeys(Hooks.prop.getProperty("patient.id.value"));
 		clickWhenClickable(patientSearchButton);
 		sleep(2000);
 		clickWhenClickable(firstPatientRadio);
@@ -4661,7 +4771,8 @@ public class clinicalpage {
 		sleep(5000);
 		clickWhenClickable(addDrugButton);
 		sleep(3000);
-		waitAndSendKeys(drugNameInput, "amoxilin");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(drugNameInput))
+				.sendKeys(Hooks.prop.getProperty("drug.name.input.value"));
 		clickWhenClickable(drugSearchButton);
 		sleep(2000);
 		clickWhenClickable(selectDrugRadio);
@@ -4678,7 +4789,8 @@ public class clinicalpage {
 		sleep(3000);
 		clickWhenClickable(fullSearchRadio);
 		sleep(3000);
-		waitAndSendKeys(businessNameInput, "Attorney");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(businessNameInput))
+				.sendKeys(Hooks.prop.getProperty("business.name.input.value"));
 		clickWhenClickable(partnerSearchButton);
 		sleep(3000);
 		clickWhenClickable(selectPartnerRadio);
@@ -4687,7 +4799,7 @@ public class clinicalpage {
 		sleep(3000);
 		WebElement dateInput = driver.findElement(receivedDateInput);
 		dateInput.clear();
-		dateInput.sendKeys("10/09/2025");
+		dateInput.sendKeys(Hooks.prop.getProperty("date.input.value"));
 		dateInput.sendKeys(Keys.TAB);
 		sleep(2000);
 		clickWhenClickable(saveButton);
@@ -4702,10 +4814,11 @@ public class clinicalpage {
 		sleep(2000);
 		WebElement submissionDate = driver.findElement(submissionDateInput);
 		submissionDate.clear();
-		submissionDate.sendKeys("10/09/2025");
+		submissionDate.sendKeys(Hooks.prop.getProperty("submission.date.value"));
 		submissionDate.sendKeys(Keys.TAB);
 		sleep(2000);
-		waitAndSendKeys(submissionNoteInput, "Submission");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(submissionNoteInput))
+				.sendKeys(Hooks.prop.getProperty("submission.note.value"));
 		clickWhenClickable(saveSubmissionButton);
 	}
 
@@ -4792,7 +4905,8 @@ public class clinicalpage {
 		sleep(1000);
 		selectDropdownByIndexWhenReady(addRpmStatusDropdown, 1);
 		sleep(2000);
-		waitAndSendKeys(addRpmNoteField, "Note");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(addRpmNoteField))
+				.sendKeys(Hooks.prop.getProperty("rpm.note.value"));
 		clickWhenClickable(saveEditedButton);
 		sleep(2000);
 	}
@@ -4815,7 +4929,8 @@ public class clinicalpage {
 		sleep(1000);
 		selectDropdownByIndexWhenReady(rpmStatusDropdown, 1);
 		sleep(2000);
-		waitAndSendKeys(rpmNoteField, "Note");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(rpmNoteField))
+				.sendKeys(Hooks.prop.getProperty("rpm.note.value"));
 		clickWhenClickable(RPMStatussaveButton);
 		sleep(2000);
 	}
@@ -4896,7 +5011,8 @@ public class clinicalpage {
 		clickWhenClickable(editOption);
 		clickWhenClickable(progressStatusDropdownEdit);
 		selectDropdownByIndexWhenReady(progressStatusDropdownEdit, 1);
-		waitAndSendKeys(editNotesTextarea, "Note");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(editNotesTextarea))
+				.sendKeys(Hooks.prop.getProperty("edit.notes.value"));
 		clickWhenClickable(saveEditNoteButton);
 	}
 
@@ -4950,7 +5066,8 @@ public class clinicalpage {
 		clickWhenClickable(progressStatusDropdownStep);
 		selectDropdownByIndexWhenReady(progressStatusDropdownStep, 1);
 		sleep(2000);
-		waitAndSendKeys(notesTextarea, "Note");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(notesTextarea))
+				.sendKeys(Hooks.prop.getProperty("notes.textarea.value"));
 		clickWhenClickable(saveButtonStep);
 	}
 
@@ -5052,15 +5169,19 @@ public class clinicalpage {
 		clickWhenClickable(signerDropdown);
 		selectDropdownByIndexWhenReady(signerDropdown, 1);
 		sleep(2000);
-		waitAndSendKeys(signerFullNameInput, "Lisa Brooker");
-		waitAndSendKeys(signerEmailInput, "LisaJBrooker@mailinator.com");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(signerFullNameInput))
+				.sendKeys(Hooks.prop.getProperty("signer.fullname.value"));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(signerEmailInput))
+				.sendKeys(Hooks.prop.getProperty("signer.email.value"));
 		clickWhenClickable(addManualSignerButton);
 		sleep(2000);
 		clickWhenClickable(nextButtonRpm);
 		clickWhenClickable(nextButtonRpm);
 		sleep(2000);
-		waitAndSendKeys(subjectInput, "Signature requested");
-		waitAndSendKeys(emailEditor, "Signature requested");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(subjectInput))
+				.sendKeys(Hooks.prop.getProperty("email.subject.value"));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(emailEditor))
+				.sendKeys(Hooks.prop.getProperty("email.editor.value"));
 		sleep(2000);
 		clickWhenClickable(finishButton);
 	}
@@ -5141,7 +5262,8 @@ public class clinicalpage {
 		clickWhenClickable(cptApplyButton);
 		sleep(2000);
 		clickWhenClickable(editRpmCptCodeButton);
-		waitAndSendKeys(rpmCptCodeRepeatInput, "5");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(rpmCptCodeRepeatInput))
+				.sendKeys(Hooks.prop.getProperty("rpm.cpt.code.repeat.value"));
 		clickWhenClickable(saveRpmCptCodeButton);
 	}
 
@@ -5283,7 +5405,8 @@ public class clinicalpage {
 		sleep(1000);
 		selectDropdownByIndexWhenReady(addProgressStatusDropdown, 1);
 		sleep(2000);
-		waitAndSendKeys(addRemoteMonitoringNoteField, "Note");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(addRemoteMonitoringNoteField))
+				.sendKeys(Hooks.prop.getProperty("remote.monitoring.note.value"));
 		clickWhenClickable(saveEditedButton);
 		sleep(2000);
 	}
@@ -5306,7 +5429,8 @@ public class clinicalpage {
 		sleep(1000);
 		selectDropdownByIndexWhenReady(progressStatusDropdown, 1);
 		sleep(2000);
-		waitAndSendKeys(remoteMonitoringNoteField, "Note");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(remoteMonitoringNoteField))
+				.sendKeys(Hooks.prop.getProperty("remote.monitoring.note.value"));
 		clickWhenClickable(saveProgressButton);
 		sleep(2000);
 	}

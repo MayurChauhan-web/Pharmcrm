@@ -36,7 +36,7 @@ public class drugstep {
 	@And("I create a profile with View and Delete access to Program test")
 	public void createProfileWithViewAndDeleteAccessToProgramTest() {
 		drugPage.clickFilterButton();
-		drugPage.enterProfileName("Sunil");
+		drugPage.enterProfileName();
 		drugPage.clickSearchButton();
 		drugPage.clickActionMenu();
 		drugPage.clickEditButton();
@@ -73,7 +73,7 @@ public class drugstep {
 	@And("I create a profile with View and Add access to Program test")
 	public void createProfileWithViewAndAddAccessToProgramTest() {
 		drugPage.clickFilterButton();
-		drugPage.enterProfileName("Sunil");
+		drugPage.enterProfileName();
 		drugPage.clickSearchButton();
 		drugPage.clickActionMenu();
 		drugPage.clickEditButton();
@@ -111,7 +111,7 @@ public class drugstep {
 	@And("I create a profile with View and Delete access to Disease State test")
 	public void createProfileWithViewAndDeleteAccessToDiseaseStateTest() {
 		drugPage.clickFilterButton();
-		drugPage.enterProfileName("Sunil");
+		drugPage.enterProfileName();
 		drugPage.clickSearchButton();
 		drugPage.clickActionMenu();
 		drugPage.clickEditButton();
@@ -148,7 +148,7 @@ public class drugstep {
 	@And("I create a profile with View and Add access to Disease State test")
 	public void createDiseaseStateTestViewAndAddProfile() {
 		drugPage.clickFilterButton();
-		drugPage.enterProfileName("Sunil");
+		drugPage.enterProfileName();
 		drugPage.clickSearchButton();
 		drugPage.clickActionMenu();
 		drugPage.clickEditButton();
@@ -193,7 +193,7 @@ public class drugstep {
 	@And("I create a profile with View and Delete access to Drug Approved Indication test")
 	public void createDrugApprovedIndicationTestViewAndDeleteProfile() {
 		drugPage.clickFilterButton();
-		drugPage.enterProfileName("Sunil");
+		drugPage.enterProfileName();
 		drugPage.clickSearchButton();
 		drugPage.clickActionMenu();
 		drugPage.clickEditButton();
@@ -237,7 +237,7 @@ public class drugstep {
 	@And("I create a profile with View and Edit access to Drug Approved Indication test")
 	public void createDrugApprovedIndicationTestViewAndEditProfile() {
 		drugPage.clickFilterButton();
-		drugPage.enterProfileName("Sunil");
+		drugPage.enterProfileName();
 		drugPage.clickSearchButton();
 		drugPage.clickActionMenu();
 		drugPage.clickEditButton();
@@ -259,7 +259,7 @@ public class drugstep {
 	@And("I create a profile with View and Add access to Drug Approved Indication test")
 	public void createDrugApprovedIndicationTestViewAndAddProfile() {
 		drugPage.clickFilterButton();
-		drugPage.enterProfileName("Sunil");
+		drugPage.enterProfileName();
 		drugPage.clickSearchButton();
 		drugPage.clickActionMenu();
 		drugPage.clickEditButton();
@@ -319,7 +319,7 @@ public class drugstep {
 	@And("I create a profile with View and Delete access to Drug Family test")
 	public void createDrugFamilyTestViewAndDeleteProfile() {
 		drugPage.clickFilterButton();
-		drugPage.enterProfileName("Sunil");
+		drugPage.enterProfileName();
 		drugPage.clickSearchButton();
 		drugPage.clickActionMenu();
 		drugPage.clickEditButton();
@@ -363,7 +363,7 @@ public class drugstep {
 	@And("I create a profile with View and Edit access to Drug Family test")
 	public void createDrugFamilyTestViewAndEditProfile() {
 		drugPage.clickFilterButton();
-		drugPage.enterProfileName("Sunil");
+		drugPage.enterProfileName();
 		drugPage.clickSearchButton();
 		drugPage.clickActionMenu();
 		drugPage.clickEditButton();
@@ -377,7 +377,7 @@ public class drugstep {
 	@And("I create a profile with View and Add access to Drug Family test")
 	public void createDrugFamilyTestViewAndAddProfile() {
 		drugPage.clickFilterButton();
-		drugPage.enterProfileName("Sunil");
+		drugPage.enterProfileName();
 		drugPage.clickSearchButton();
 		drugPage.clickActionMenu();
 		drugPage.clickEditButton();
@@ -445,7 +445,7 @@ public class drugstep {
 	@And("I create a profile with View and Delete access to Drug Therapeutic test")
 	public void createDrugTherapeuticTestViewAndDeleteProfile() {
 		drugPage.clickFilterButton();
-		drugPage.enterProfileName("Sunil");
+		drugPage.enterProfileName();
 		drugPage.clickSearchButton();
 		drugPage.clickActionMenu();
 		drugPage.clickEditButton();
@@ -489,7 +489,7 @@ public class drugstep {
 	@And("I create a profile with View and Edit access to Drug Therapeutic test")
 	public void createDrugTherapeuticTestViewAndEditProfile() {
 		drugPage.clickFilterButton();
-		drugPage.enterProfileName("Sunil");
+		drugPage.enterProfileName();
 		drugPage.clickSearchButton();
 		drugPage.clickActionMenu();
 		drugPage.clickEditButton();
@@ -503,7 +503,7 @@ public class drugstep {
 	@And("I create a profile with View and Add access to Drug Therapeutic test")
 	public void createDrugTherapeuticTestViewAndAddProfile() {
 		drugPage.clickFilterButton();
-		drugPage.enterProfileName("Sunil");
+		drugPage.enterProfileName();
 		drugPage.clickSearchButton();
 		drugPage.clickActionMenu();
 		drugPage.clickEditButton();
@@ -573,7 +573,7 @@ public class drugstep {
 	@And("I create a profile with View and Delete access to ICD10 test")
 	public void assignICD10TestViewAndDeletePermissions() {
 		drugPage.clickFilterButton();
-		drugPage.enterProfileName("Sunil");
+		drugPage.enterProfileName();
 		drugPage.clickSearchButton();
 		drugPage.clickActionMenu();
 		drugPage.clickEditButton();
@@ -619,7 +619,7 @@ public class drugstep {
 	@And("I create a profile with View and Edit access to ICD10 test")
 	public void createICD10TestViewAndEditProfile() {
 		drugPage.clickFilterButton();
-		drugPage.enterProfileName("Sunil");
+		drugPage.enterProfileName();
 		drugPage.clickSearchButton();
 		drugPage.clickActionMenu();
 		drugPage.clickEditButton();
@@ -633,7 +633,7 @@ public class drugstep {
 	@And("I create a profile with View and Add access to ICD10 test")
 	public void createICD10TestViewAndAddProfile() {
 		drugPage.clickFilterButton();
-		drugPage.enterProfileName("Sunil");
+		drugPage.enterProfileName();
 		drugPage.clickSearchButton();
 		drugPage.clickActionMenu();
 		drugPage.clickEditButton();
@@ -702,7 +702,7 @@ public class drugstep {
 	@And("I create a profile with View access only to ICD10 test")
 	public void createICD10TestReadOnlyAccessProfile() {
 		drugPage.clickFilterButton();
-		drugPage.enterProfileName("Sunil");
+		drugPage.enterProfileName();
 		drugPage.clickSearchButton();
 		drugPage.clickActionMenu();
 		drugPage.clickEditButton();
@@ -751,7 +751,7 @@ public class drugstep {
 	@And("I create a profile with View and Export Excel access to Allergy test")
 	public void createAllergyTestViewAndExportExcelProfile() {
 		drugPage.clickFilterButton();
-		drugPage.enterProfileName("Sunil");
+		drugPage.enterProfileName();
 		drugPage.clickSearchButton();
 		drugPage.clickActionMenu();
 		drugPage.clickEditButton();
@@ -765,7 +765,7 @@ public class drugstep {
 	@And("I create a profile with View and Upload Excel access to Allergy test")
 	public void createAllergyTestViewAndUploadExcelProfile() {
 		drugPage.clickFilterButton();
-		drugPage.enterProfileName("Sunil");
+		drugPage.enterProfileName();
 		drugPage.clickSearchButton();
 		drugPage.clickActionMenu();
 		drugPage.clickEditButton();
@@ -881,7 +881,7 @@ public class drugstep {
 	@And("I create a profile with View and Download Template access to Allergy test")
 	public void createAllergyTestViewAndDownloadTemplateProfile() {
 		drugPage.clickFilterButton();
-		drugPage.enterProfileName("Sunil");
+		drugPage.enterProfileName();
 		drugPage.clickSearchButton();
 		drugPage.clickActionMenu();
 		drugPage.clickEditButton();
@@ -895,7 +895,7 @@ public class drugstep {
 	@And("I create a profile with View and Delete access to Allergy test")
 	public void createAllergyTestViewerWithDeletePermission() {
 		drugPage.clickFilterButton();
-		drugPage.enterProfileName("Sunil");
+		drugPage.enterProfileName();
 		drugPage.clickSearchButton();
 		drugPage.clickActionMenu();
 		drugPage.clickEditButton();
@@ -943,7 +943,7 @@ public class drugstep {
 	@And("I create a profile with View and Add access to Allergy test")
 	public void createAllergyViewAndAddProfile() {
 		drugPage.clickFilterButton();
-		drugPage.enterProfileName("Sunil");
+		drugPage.enterProfileName();
 		drugPage.clickSearchButton();
 		drugPage.clickActionMenu();
 		drugPage.clickEditButton();
@@ -957,7 +957,7 @@ public class drugstep {
 	@And("I create a profile with View access only to Allergy test")
 	public void createProfileWithViewAccessOnlyForAllergy() {
 		drugPage.clickFilterButton();
-		drugPage.enterProfileName("Sunil");
+		drugPage.enterProfileName();
 		drugPage.clickSearchButton();
 		drugPage.clickActionMenu();
 		drugPage.clickEditButton();
@@ -1005,7 +1005,7 @@ public class drugstep {
 	@And("I create a profile with View and Edit access to Star 2 Drug test")
 	public void createProfileWithViewAndEditAccessForStar2Drug() {
 		drugPage.clickFilterButton();
-		drugPage.enterProfileName("Sunil");
+		drugPage.enterProfileName();
 		drugPage.clickSearchButton();
 		drugPage.clickActionMenu();
 		drugPage.clickEditButton();
@@ -1019,7 +1019,7 @@ public class drugstep {
 	@And("I create a profile with View access only to Star 2 Drug test")
 	public void createStar2DrugProfileWithViewAccessOnly() {
 		drugPage.clickFilterButton();
-		drugPage.enterProfileName("Sunil");
+		drugPage.enterProfileName();
 		drugPage.clickSearchButton();
 		drugPage.clickActionMenu();
 		drugPage.clickEditButton();
@@ -1097,7 +1097,7 @@ public class drugstep {
 	@And("I create a profile with View and Edit access to Star 1 Drug test")
 	public void createProfileWithViewAndEditAccessForStar1Drug() {
 		drugPage.clickFilterButton();
-		drugPage.enterProfileName("Sunil");
+		drugPage.enterProfileName();
 		drugPage.clickSearchButton();
 		drugPage.clickActionMenu();
 		drugPage.clickEditButton();
@@ -1111,7 +1111,7 @@ public class drugstep {
 	@And("I create a profile with View access only to Star 1 Drug test")
 	public void createProfileWithViewAccessOnlyForStar1Drug() {
 		drugPage.clickFilterButton();
-		drugPage.enterProfileName("Sunil");
+		drugPage.enterProfileName();
 		drugPage.clickSearchButton();
 		drugPage.clickActionMenu();
 		drugPage.clickEditButton();
@@ -1187,7 +1187,7 @@ public class drugstep {
 	@And("I create a profile with View and Export Excel access to Drug test")
 	public void createProfileWithViewAndExportExcelAccessToDrugTest() {
 		drugPage.clickFilterButton();
-		drugPage.enterProfileName("Sunil");
+		drugPage.enterProfileName();
 		drugPage.clickSearchButton();
 		drugPage.clickActionMenu();
 		drugPage.clickEditButton();
@@ -1286,7 +1286,7 @@ public class drugstep {
 	@And("I create a profile with View and Upload Excel access to Drug test")
 	public void createProfileWithViewAndUploadExcelAccessToDrugTest() {
 		drugPage.clickFilterButton();
-		drugPage.enterProfileName("Sunil");
+		drugPage.enterProfileName();
 		drugPage.clickSearchButton();
 		drugPage.clickActionMenu();
 		drugPage.clickEditButton();
@@ -1300,7 +1300,7 @@ public class drugstep {
 	@And("I create a profile with View and Download Template access to Drug test")
 	public void createProfileWithViewAndDownloadTemplateAccessToDrugTest() {
 		drugPage.clickFilterButton();
-		drugPage.enterProfileName("Sunil");
+		drugPage.enterProfileName();
 		drugPage.clickSearchButton();
 		drugPage.clickActionMenu();
 		drugPage.clickEditButton();
@@ -1314,7 +1314,7 @@ public class drugstep {
 	@And("I create a profile with View and Delete access to Drug test")
 	public void createProfileWithViewAndDeleteAccessToDrugTest() {
 		drugPage.clickFilterButton();
-		drugPage.enterProfileName("Sunil");
+		drugPage.enterProfileName();
 		drugPage.clickSearchButton();
 		drugPage.clickActionMenu();
 		drugPage.clickEditButton();
@@ -1336,7 +1336,7 @@ public class drugstep {
 	@And("I create a profile with View and Add access to Drug test")
 	public void createProfileWithViewAndAddAccessToDrugTest() {
 		drugPage.clickFilterButton();
-		drugPage.enterProfileName("Sunil");
+		drugPage.enterProfileName();
 		drugPage.clickSearchButton();
 		drugPage.clickActionMenu();
 		drugPage.clickEditButton();
@@ -1350,7 +1350,7 @@ public class drugstep {
 	@And("I create a profile with View access only to Drug test")
 	public void createProfileWithViewAccessOnlyToDrugTest() {
 		drugPage.clickFilterButton();
-		drugPage.enterProfileName("Sunil");
+		drugPage.enterProfileName();
 		drugPage.clickSearchButton();
 		drugPage.clickActionMenu();
 		drugPage.clickEditButton();
@@ -1450,7 +1450,7 @@ public class drugstep {
 	@And("I create a profile with No access to Drug Module General Audit View test")
 	public void createProfileWithNoAccessToDrugGeneralAuditViewTest() {
 		drugPage.clickFilterButton();
-		drugPage.enterProfileName("Sunil");
+		drugPage.enterProfileName();
 		drugPage.clickSearchButton();
 		drugPage.clickActionMenu();
 		drugPage.clickEditButton();
@@ -1464,7 +1464,7 @@ public class drugstep {
 	@And("I create a profile with View access only to Drug Module General Audit View test")
 	public void createProfileWithViewAccessForDrugModuleGeneralAudit() {
 		drugPage.clickFilterButton();
-		drugPage.enterProfileName("Sunil");
+		drugPage.enterProfileName();
 		drugPage.clickSearchButton();
 		drugPage.clickActionMenu();
 		drugPage.clickEditButton();

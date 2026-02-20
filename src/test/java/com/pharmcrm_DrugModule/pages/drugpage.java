@@ -12,6 +12,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import hooks.Hooks;
+
 public class drugpage {
 	private WebDriver driver;
 	private WebDriverWait wait;
@@ -271,8 +273,8 @@ public class drugpage {
 		sleep(1000);
 		clickWhenClickable(editTherapeuticOption);
 		sleep(1000);
-		waitAndSendKeys(therapeuticClassInput, "Analgesics");
-		waitAndSendKeys(therapeuticClassCodeInput, "AN001");
+		driver.findElement(therapeuticClassInput).sendKeys(Hooks.prop.getProperty("therapeutic.class.name"));
+		driver.findElement(therapeuticClassCodeInput).sendKeys(Hooks.prop.getProperty("therapeutic.class.code"));
 		clickWhenClickable(saveTherapeuticButton);
 		sleep(1000);
 	}
@@ -322,8 +324,8 @@ public class drugpage {
 		sleep(1000);
 		clickWhenClickable(addTherapeuticButton);
 		sleep(1000);
-		waitAndSendKeys(therapeuticClassInput, "Analgesics");
-		waitAndSendKeys(therapeuticClassCodeInput, "AN001");
+		driver.findElement(therapeuticClassInput).sendKeys(Hooks.prop.getProperty("therapeutic.class.name"));
+		driver.findElement(therapeuticClassCodeInput).sendKeys(Hooks.prop.getProperty("therapeutic.class.code"));
 		clickWhenClickable(saveTherapeuticButton);
 		sleep(1000);
 	}
@@ -382,8 +384,8 @@ public class drugpage {
 		sleep(1000);
 		clickWhenClickable(editFamilyOption);
 		sleep(1000);
-		waitAndSendKeys(familyNameInput, "Antipsychotics");
-		waitAndSendKeys(familyCodeInput, "AP010");
+		driver.findElement(familyNameInput).sendKeys(Hooks.prop.getProperty("family.name"));
+		driver.findElement(familyCodeInput).sendKeys(Hooks.prop.getProperty("family.code"));
 		clickWhenClickable(saveFamilyButton);
 		sleep(1000);
 	}
@@ -417,8 +419,8 @@ public class drugpage {
 		sleep(1000);
 		clickWhenClickable(addFamilyButton);
 		sleep(1000);
-		waitAndSendKeys(familyNameInput, "Antipsychotics");
-		waitAndSendKeys(familyCodeInput, "AP010");
+		driver.findElement(familyNameInput).sendKeys(Hooks.prop.getProperty("family.name"));
+		driver.findElement(familyCodeInput).sendKeys(Hooks.prop.getProperty("family.code"));
 		clickWhenClickable(saveFamilyButton);
 		sleep(1000);
 	}
@@ -501,11 +503,11 @@ public class drugpage {
 		sleep(3000);
 		clickWhenClickable(newICD10Button);
 		sleep(2000);
-		waitAndSendKeys(icd10CodeInput, "M54.5");
-		waitAndSendKeys(icd10DiagnosisInput, "Low back pain");
+		driver.findElement(icd10CodeInput).sendKeys(Hooks.prop.getProperty("icd10.code"));
+		driver.findElement(icd10DiagnosisInput).sendKeys(Hooks.prop.getProperty("icd10.diagnosis"));
 		clickWhenClickable(addGoalPopupButton);
 		sleep(2000);
-		waitAndSendKeys(filterDiseaseNameInput, "Heart disease");
+		driver.findElement(filterDiseaseNameInput).sendKeys(Hooks.prop.getProperty("filter.disease.name"));
 		clickWhenClickable(icd10CodesearchButton);
 		sleep(2000);
 		clickWhenClickable(selectDiseaseCheckbox);
@@ -696,7 +698,7 @@ public class drugpage {
 		sleep(3000);
 		clickWhenClickable(addAllergyButton);
 		sleep(1000);
-		waitAndSendKeys(allergyNameInput, "Allergy");
+		driver.findElement(allergyNameInput).sendKeys(Hooks.prop.getProperty("allergy.name"));
 		clickWhenClickable(saveButtonAllergy);
 	}
 
@@ -875,6 +877,10 @@ public class drugpage {
 		wait.until(ExpectedConditions.elementToBeClickable(profilefilterButton)).click();
 	}
 
+	public void enterProfileName() {
+		enterProfileName(Hooks.prop.getProperty("profile.name.value"));
+	}
+
 	public void enterProfileName(String profileName) {
 		WebElement input = wait.until(ExpectedConditions.visibilityOfElementLocated(profileNameInput));
 		input.clear();
@@ -964,7 +970,7 @@ public class drugpage {
 		sleep(1000);
 		clickWhenClickable(editApprovedIndicationOption);
 		sleep(1000);
-		waitAndSendKeys(approvedIndicationInput, "High cholesterol");
+		driver.findElement(approvedIndicationInput).sendKeys(Hooks.prop.getProperty("approved.indication"));
 		clickWhenClickable(saveApprovedIndicationButton);
 		sleep(1000);
 	}
@@ -1015,7 +1021,7 @@ public class drugpage {
 		sleep(1000);
 		clickWhenClickable(addApprovedIndicationButton);
 		sleep(1000);
-		waitAndSendKeys(approvedIndicationInput, "Pain management");
+		driver.findElement(approvedIndicationInput).sendKeys(Hooks.prop.getProperty("approved.indication"));
 		clickWhenClickable(saveApprovedIndicationButton);
 		sleep(1000);
 	}
@@ -1128,8 +1134,8 @@ public class drugpage {
 		clickWhenClickable(newDrugButton);
 		sleep(2000);
 		clickWhenClickable(filterButton);
-		waitAndSendKeys(drugNameFilterInput, "Amoxilin500");
-		waitAndSendKeys(ndcFilterInput, "31133-2113-25");
+		driver.findElement(drugNameFilterInput).sendKeys(Hooks.prop.getProperty("drug.name.filter"));
+		driver.findElement(ndcFilterInput).sendKeys(Hooks.prop.getProperty("ndc.filter"));
 		clickWhenClickable(addNewDrugButton);
 		sleep(2000);
 		clickWhenClickable(saveButton);
@@ -1271,7 +1277,7 @@ public class drugpage {
 		sleep(1000);
 		clickWhenClickable(addDiseaseStateCheckbox);
 		sleep(1000);
-		waitAndSendKeys(diseaseStateNameInput, "Coronary Artery Disease");
+		driver.findElement(diseaseStateNameInput).sendKeys(Hooks.prop.getProperty("disease.state.name"));
 		clickWhenClickable(addDiseaseStateButton);
 		sleep(1000);
 		clickWhenClickable(saveDrugButton);
@@ -1338,7 +1344,7 @@ public class drugpage {
 		sleep(1000);
 		clickWhenClickable(addProgramInput);
 		sleep(1000);
-		waitAndSendKeys(programNameField, "Diabetes Management Program");
+		driver.findElement(programNameField).sendKeys(Hooks.prop.getProperty("program.name"));
 		clickWhenClickable(addProgramButtonIcon);
 		sleep(1000);
 		clickWhenClickable(saveButton);
@@ -1386,12 +1392,6 @@ public class drugpage {
 				throw ex;
 			}
 		}
-	}
-
-	private void waitAndSendKeys(By locator, String value) {
-		WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-		element.clear();
-		element.sendKeys(value);
 	}
 
 }

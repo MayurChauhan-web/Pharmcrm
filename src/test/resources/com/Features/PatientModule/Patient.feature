@@ -1146,7 +1146,6 @@ Then the user should be able to add patient external source test
 And the user should be able to edit patient external source test 
 And the user should be able to delete patient external source test
 
-#
 Scenario: User with Add only access for Generate New Access Code test
 Given user launch browser
 Then user click on the user type dropdown
