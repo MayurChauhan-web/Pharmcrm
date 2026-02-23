@@ -3,6 +3,8 @@ package com.pharmcrm_ClinicalModule.pages;
 import java.nio.file.Paths;
 import java.time.Duration;
 import java.util.List;
+import java.util.stream.Collectors;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.JavascriptExecutor;
@@ -22,6 +24,27 @@ public class clinicalpage {
 
 	private WebDriver driver;
 	private WebDriverWait wait;
+
+	// Patient
+	public By firstRowActionIcon = By.xpath("//tbody/tr[1]/td[10]/div[1]/div[1]/button[1]/i[1]");
+	public By filterFirstNameInput = By.xpath("//input[@id='Filter_FirstName']");
+	public By filterLastNameInput = By.xpath("//input[@id='Filter_LastName']");
+	public By filterBirthDateInput = By.xpath("//input[@id='Filter_BirthDate']");
+	public By filterPhoneNumberInput = By.xpath("//input[@id='Filter_PhoneNumber']");
+	public By filterCellNumberInput = By.xpath("//input[@id='Filter_CellNumber']");
+	public By filterZipCodeInput = By.xpath("//input[@id='Filter_ZipCode']");
+	public By filterEmailIdInput = By.xpath("//input[@id='Filter_EmailId']");
+	public By toastMessage = By.xpath("//div[@class='toast-message']");
+	public By patientEmailIdInput = By.xpath("//input[@id='Patient_EmailId']");
+	public By patientZipCodeInput = By.xpath("//input[@id='Patient_ZipCode']");
+	public By patientPhoneNumberInput = By.xpath("//input[@id='Patient_PhoneNumber']");
+	public By patientSecondaryPhoneNumberInput = By.xpath("//input[@id='Patient_SecondaryPhoneNumber']");
+	public By patientLegalGuardianPhoneInput = By.xpath("//input[@id='Patient_LegalGuardianPhonenumber']");
+	public By patientHeadOfHouseholdPhoneInput = By.xpath("//input[@id='Patient_HeadOfHouseholdPhonenumber']");
+	public By patientCellNumberInput = By.xpath("//input[@id='Patient_CellNumber']");
+	public By saveCareGiverNamePopupButton = By.xpath("//button[@id='btnSaveCareGiverNamePopup']");
+	public By patientCareGiverNamePhoneInput = By.xpath("//input[@id='PatientCareGiverName_PhoneNumber']");
+	public By encounterButton = By.xpath("//button[@id='btnEncounter']");
 
 	// RPM / RPM Status
 	public By patientRPMStatusEditLabel = By.xpath("//label[@for='chkg39PatientRPMStatusEdit']");
@@ -418,6 +441,11 @@ public class clinicalpage {
 	public By confirmDrugBtn = By.id("btnDrug");
 	public By addDrugToGridBtn = By.xpath("//td[@class='text-right']//a[1]//*[name()='svg']");
 	public By saveMedReconsBtn = By.id("btnSave");
+	public By pullMedsOnChartSpan = By.xpath("//span[normalize-space()='Pull Meds On Chart']");
+	public By pullCurrentMedicationSpan = By.xpath("//span[normalize-space()='Pull Current Medication']");
+	public By patientCareGiverNamePhoneNumberInput = By.xpath("//*[name()='path' and contains(@d,'M48 96V416')]");
+	public By firstRowActionSvgPath = By.xpath(
+			"//tr[@id='trCur_0']//td[@class='text-right']//a[1]//*[name()='svg']//*[name()='path' and contains(@d,'M48 96V416')]");
 
 	// Med Recons / Meds On Chart
 	public By confirmDeleteMedsOnChartButton = By.id("deletepatientmedsonchart");
@@ -775,6 +803,260 @@ public class clinicalpage {
 		this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	}
 
+	// Patient
+
+	public String clinicalEncounterBlankSubmissionValidation() {
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(firstRowActionIcon)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(editOption)).click();
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(clinicalEncountersBtn)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(addNewClinicalEncounterBtn)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(encounterButton)).click();
+
+		try {
+			wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(toastMessage, 0));
+			List<WebElement> toasts = driver.findElements(toastMessage);
+			StringBuilder allMessages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				if (toast.isDisplayed()) {
+					allMessages.append(toast.getText().trim()).append(" | ");
+				}
+			}
+			return "SUCCESS: Validations displayed -> " + allMessages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message(s) not displayed";
+		}
+
+	}
+
+	public String addPatientCaregiverInvalidPhoneValidation() {
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(firstRowActionIcon)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(editOption)).click();
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newPatientCareGiverNameOption)).click();
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(patientCareGiverNamePhoneInput))
+				.sendKeys(Hooks.prop.getProperty("patient.phonenumber.invalidvalue"));
+
+		wait.until(ExpectedConditions.elementToBeClickable(saveCareGiverNamePopupButton)).click();
+
+		try {
+			wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(toastMessage, 0));
+			List<WebElement> toasts = driver.findElements(toastMessage);
+			StringBuilder allMessages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				if (toast.isDisplayed()) {
+					allMessages.append(toast.getText().trim()).append(" | ");
+				}
+			}
+			return "SUCCESS: Validations displayed -> " + allMessages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message(s) not displayed";
+		}
+
+	}
+
+	public String caregiverNameBlankSubmissionValidation() {
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(firstRowActionIcon)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(editOption)).click();
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newPatientCareGiverNameOption)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(saveCareGiverNamePopupButton)).click();
+
+		try {
+			wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(toastMessage, 0));
+			List<WebElement> toasts = driver.findElements(toastMessage);
+			StringBuilder allMessages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				if (toast.isDisplayed()) {
+					allMessages.append(toast.getText().trim()).append(" | ");
+				}
+			}
+			return "SUCCESS: Validations displayed -> " + allMessages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message(s) not displayed";
+		}
+
+	}
+
+	public String invalidEmailPhoneCellZipValidation() {
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(firstRowActionIcon)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(editOption)).click();
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(patientEmailIdInput))
+				.sendKeys(Hooks.prop.getProperty("patient.emailid.invalidvalue"));
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(patientZipCodeInput))
+				.sendKeys(Hooks.prop.getProperty("patient.zipcode.invalidvalue"));
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(patientPhoneNumberInput))
+				.sendKeys(Hooks.prop.getProperty("patient.phonenumber.invalidvalue"));
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(patientSecondaryPhoneNumberInput))
+				.sendKeys(Hooks.prop.getProperty("patient.secondaryphonenumber.invalidvalue"));
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(patientLegalGuardianPhoneInput))
+				.sendKeys(Hooks.prop.getProperty("patient.legalguardianphone.invalidvalue"));
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(patientHeadOfHouseholdPhoneInput))
+				.sendKeys(Hooks.prop.getProperty("patient.headofhouseholdphone.invalidvalue"));
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(patientCellNumberInput))
+				.sendKeys(Hooks.prop.getProperty("patient.cellnumber.invalidvalue"));
+
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+
+		try {
+			wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(toastMessage, 0));
+			List<WebElement> toasts = driver.findElements(toastMessage);
+			StringBuilder allMessages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				if (toast.isDisplayed()) {
+					allMessages.append(toast.getText().trim()).append(" | ");
+				}
+			}
+			return "SUCCESS: Validations displayed -> " + allMessages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message(s) not displayed";
+		}
+
+	}
+
+	public String blankPatientSearchValidationSearchSelectAdd() {
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newPatientButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(findPatientButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(selectExistingPatientButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(addNewPatientButton)).click();
+
+		try {
+			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
+			String actualMessage = toast.getText().trim();
+			return "SUCCESS: Validation displayed -> " + actualMessage;
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+
+	}
+
+	public String filterValidationInvalidContactData() {
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(profilefilterButton)).click();
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(filterFirstNameInput))
+				.sendKeys(Hooks.prop.getProperty("filter.firstname.value"));
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(filterLastNameInput))
+				.sendKeys(Hooks.prop.getProperty("filter.lastname.value"));
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(filterBirthDateInput))
+				.sendKeys(Hooks.prop.getProperty("filter.birthdate.value"));
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(filterPhoneNumberInput))
+				.sendKeys(Hooks.prop.getProperty("filter.phonenumber.value"));
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(filterCellNumberInput))
+				.sendKeys(Hooks.prop.getProperty("filter.cellnumber.value"));
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(filterZipCodeInput))
+				.sendKeys(Hooks.prop.getProperty("filter.zipcode.value"));
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(filterEmailIdInput))
+				.sendKeys(Hooks.prop.getProperty("filter.emailid.value"));
+
+		wait.until(ExpectedConditions.elementToBeClickable(searchFilterButton)).click();
+
+		try {
+			wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(toastMessage, 0));
+			List<WebElement> toasts = driver.findElements(toastMessage);
+			StringBuilder allMessages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				if (toast.isDisplayed()) {
+					allMessages.append(toast.getText().trim()).append(" | ");
+				}
+			}
+			return "SUCCESS: Validations displayed -> " + allMessages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message(s) not displayed";
+		}
+
+	}
+
+	public String validationMessageShouldBeDisplayed() {
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(profilefilterButton)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(searchFilterButton)).click();
+
+		try {
+			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
+			String actualMessage = toast.getText().trim();
+			return "SUCCESS: Validation displayed -> " + actualMessage;
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+
+	}
+
 	// Audit View
 	public void openClinicalPriorAuthorizationsPage(String fullUrl) {
 		driver.get(fullUrl);
@@ -910,6 +1192,70 @@ public class clinicalpage {
 	}
 
 	// Prior Authorization Types
+	public String verifyBlankPriorAuthorizationError() {
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newClinicalPABtn)).click();
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+
+		try {
+			wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(toastMessage, 0));
+			List<WebElement> toasts = driver.findElements(toastMessage);
+			StringBuilder allMessages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				if (toast.isDisplayed()) {
+					allMessages.append(toast.getText().trim()).append(" | ");
+				}
+			}
+			return "SUCCESS: Validations displayed -> " + allMessages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message(s) not displayed";
+		}
+
+	}
+
+	public String clinicalSOAPRequiredFieldValidation() {
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newSoapComponentButton)).click();
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+
+		try {
+			wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(toastMessage, 0));
+			List<WebElement> toasts = driver.findElements(toastMessage);
+			StringBuilder allMessages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				if (toast.isDisplayed()) {
+					allMessages.append(toast.getText().trim()).append(" | ");
+				}
+			}
+			return "SUCCESS: Validations displayed -> " + allMessages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message(s) not displayed";
+		}
+
+	}
+
 	public void cannotAddOrEditPriorAuthorizationTypes() {
 		Assert.assertTrue("New Prior Authorization Type button should not be visible",
 				driver.findElements(newPriorAuthBtn).isEmpty());
@@ -3093,6 +3439,58 @@ public class clinicalpage {
 	}
 
 	// Med Recons
+	public String clinicalMedReconBlankSubmissionValidation() {
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(newClinicalMedRecons)).click();
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+		String messages = collectToastMessages();
+		if (messages != null) {
+			return "SUCCESS: Validations displayed -> " + messages;
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(addMedsOnChartButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(patientCareGiverNamePhoneNumberInput)).click();
+		messages = collectToastMessages();
+		if (messages != null) {
+			return "SUCCESS: Validations displayed -> " + messages;
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(addCurrentMedication)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(firstRowActionSvgPath)).click();
+		messages = collectToastMessages();
+		if (messages != null) {
+			return "SUCCESS: Validations displayed -> " + messages;
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(pullMedsOnChartSpan)).click();
+		messages = collectToastMessages();
+		if (messages != null) {
+			return "SUCCESS: Validations displayed -> " + messages;
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(pullCurrentMedicationSpan)).click();
+		messages = collectToastMessages();
+		if (messages != null) {
+			return "SUCCESS: Validations displayed -> " + messages;
+		}
+
+		return "ERROR: Validation toast message(s) not displayed";
+	}
+
+	private String collectToastMessages() {
+		try {
+			wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(toastMessage, 0));
+			List<WebElement> toasts = driver.findElements(toastMessage);
+			return toasts.stream().filter(WebElement::isDisplayed).map(t -> t.getText().trim())
+					.collect(Collectors.joining(" | "));
+		} catch (TimeoutException e) {
+			return null;
+		}
+	}
+
 	public void userShouldBeAbleToAccessDownloadFileInClinicalModule() {
 		clickWhenClickable(downloadFileButton);
 		sleep(3000);

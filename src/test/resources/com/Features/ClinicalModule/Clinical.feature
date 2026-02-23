@@ -1515,3 +1515,198 @@ Then the Clinical user should be able to view Profiles test
 And I create a profile with View access only to Device Usage Statistic Report in Clinical Module test
 Then the user should be able to view Device Usage Statistic Report in Clinical Module test
 And the user should not be able to export Device Usage Statistic Report in Clinical Module test
+
+##
+Scenario: Filter Validation text on blank search
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Validation message should have to display on blank search
+
+Scenario: Filter Validation for invalid Email id, Phone Number, Cell Number, Zipcode 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Validation message should have to show for invalid Email id , Phone Number , Cell Number, Zipcode
+
+Scenario: Add Patient Blank Search Validation for Search , Select Existing Patinet, Add New Patient
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Add Patient Blank Search Validation shold have to show for Search, Select Existing Patinet, Add New Patient
+
+Scenario: Add Patient Blank Search Validation for Search , Select Existing Patinet, Add New Patient
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Add Patient Blank Search Validation shold have to show for Search, Select Existing Patinet, Add New Patient
+
+Scenario: Edit Patient Validate Invalid Email, Phone Number, Cell Number , Zip code
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Validation Should have to show for invalid Email , Phone Number , Cell number , Zipcode 
+
+Scenario: Edit Patient Validate Add Patient Caregiver Name Blank Submission
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Validation Should have to show for Add Patient Caregiver Name Blank Submission
+
+Scenario: Edit Patient Validate Add Patient Caregiver Name invalid Phone Number
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Validation Should have to show for Add Patient Caregiver Name invalid Phone Number
+
+Scenario: Edit Patient Validate Clinical Encounter Create Encounters Blank Submission Validation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Validation Should have to show for Clinical Encounter Create Encounters Blank Submission Validation
+
+Scenario: Clinical SOAP Component Validation for required field
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Validation Should have to show for Clinical SOAP Component for required field
+
+Scenario: Clinical Prior Authorization Validation on Blank Submission
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Validation Should have to show for Clinical Prior Authorization on Blank Submission
+
+Scenario: Add Clinical MedRecon Validation on Blank Submission
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Validation Should have to show for Add Clinical MedRecon on Blank Submission
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

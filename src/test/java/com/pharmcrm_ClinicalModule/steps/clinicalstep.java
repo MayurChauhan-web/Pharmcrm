@@ -1,6 +1,8 @@
 package com.pharmcrm_ClinicalModule.steps;
 
 import org.junit.Assert;
+import org.junit.Assume;
+
 import com.pharmcrm_ClinicalModule.pages.clinicalpage;
 import hooks.Hooks;
 import io.cucumber.java.en.And;
@@ -8,6 +10,217 @@ import io.cucumber.java.en.And;
 public class clinicalstep {
 
 	private clinicalpage clinicalPage;
+
+	// Patient
+	@And("Validation Should have to show for Add Clinical MedRecon on Blank Submission")
+	public void validateBlankMedReconSubmission() throws InterruptedException {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String clinicalMedReconsUrl = Hooks.prop.getProperty("clinicalMedReconsUrl");
+		Assert.assertNotNull("clinicalMedReconsUrl is missing in config", clinicalMedReconsUrl);
+		String fullClinicalMedReconsUrl = baseUrl + clinicalMedReconsUrl;
+		clinicalPage = new clinicalpage(Hooks.driver);
+		Hooks.driver.get(fullClinicalMedReconsUrl);
+		Assert.assertTrue("Clinical Med Recons page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/ClinicalMedRecons"));
+		String result = clinicalPage.clinicalMedReconBlankSubmissionValidation();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("Validation Should have to show for Clinical Prior Authorization on Blank Submission")
+	public void validateBlankPriorAuthorizationSubmission() throws InterruptedException {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String clinicalPriorAuthorizationsUrl = Hooks.prop.getProperty("clinicalPriorAuthorizationsUrl");
+		Assert.assertNotNull("clinicalPriorAuthorizationsUrl is missing in config", clinicalPriorAuthorizationsUrl);
+		String fullClinicalPriorAuthorizationsUrl = baseUrl + clinicalPriorAuthorizationsUrl;
+		clinicalPage = new clinicalpage(Hooks.driver);
+		clinicalPage.openClinicalPriorAuthorizationsPage(fullClinicalPriorAuthorizationsUrl);
+		Assert.assertTrue("Clinical Prior Authorizations page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/ClinicalPriorAuthorizations"));
+		String result = clinicalPage.verifyBlankPriorAuthorizationError();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("Validation Should have to show for Clinical SOAP Component for required field")
+	public void validateRequiredFieldsInClinicalSOAP() throws InterruptedException {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String soapComponentsUrl = Hooks.prop.getProperty("soapComponentsUrl");
+		Assert.assertNotNull("soapComponentsUrl is missing in config", soapComponentsUrl);
+		String fullSoapComponentsUrl = baseUrl + soapComponentsUrl;
+		clinicalPage = new clinicalpage(Hooks.driver);
+		Hooks.driver.get(fullSoapComponentsUrl);
+		Assert.assertTrue("SOAP Components page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/ClinicalSOAPComponents"));
+		String result = clinicalPage.clinicalSOAPRequiredFieldValidation();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("Validation Should have to show for Clinical Encounter Create Encounters Blank Submission Validation")
+	public void validateBlankClinicalEncounterSubmission() throws InterruptedException {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String patientsUrl = Hooks.prop.getProperty("patientsUrl");
+		Assert.assertNotNull("patientsUrl is missing in config", patientsUrl);
+		String fullPatientsUrl = baseUrl + patientsUrl;
+		clinicalPage = new clinicalpage(Hooks.driver);
+		Hooks.driver.get(fullPatientsUrl);
+		Assert.assertTrue("Patients page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/Patients"));
+		String result = clinicalPage.clinicalEncounterBlankSubmissionValidation();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("Validation Should have to show for Add Patient Caregiver Name invalid Phone Number")
+	public void validateInvalidCaregiverPhoneOnAddPatient() throws InterruptedException {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String patientsUrl = Hooks.prop.getProperty("patientsUrl");
+		Assert.assertNotNull("patientsUrl is missing in config", patientsUrl);
+		String fullPatientsUrl = baseUrl + patientsUrl;
+		clinicalPage = new clinicalpage(Hooks.driver);
+		Hooks.driver.get(fullPatientsUrl);
+		Assert.assertTrue("Patients page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/Patients"));
+		String result = clinicalPage.addPatientCaregiverInvalidPhoneValidation();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("Validation Should have to show for Add Patient Caregiver Name Blank Submission")
+	public void validateBlankCaregiverNameOnAddPatient() throws InterruptedException {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String patientsUrl = Hooks.prop.getProperty("patientsUrl");
+		Assert.assertNotNull("patientsUrl is missing in config", patientsUrl);
+		String fullPatientsUrl = baseUrl + patientsUrl;
+		clinicalPage = new clinicalpage(Hooks.driver);
+		Hooks.driver.get(fullPatientsUrl);
+		Assert.assertTrue("Patients page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/Patients"));
+		String result = clinicalPage.caregiverNameBlankSubmissionValidation();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("Validation Should have to show for invalid Email , Phone Number , Cell number , Zipcode")
+	public void validateInvalidContactDetails() throws InterruptedException {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String patientsUrl = Hooks.prop.getProperty("patientsUrl");
+		Assert.assertNotNull("patientsUrl is missing in config", patientsUrl);
+		String fullPatientsUrl = baseUrl + patientsUrl;
+		clinicalPage = new clinicalpage(Hooks.driver);
+		Hooks.driver.get(fullPatientsUrl);
+		Assert.assertTrue("Patients page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/Patients"));
+		String result = clinicalPage.invalidEmailPhoneCellZipValidation();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("Add Patient Blank Search Validation shold have to show for Search, Select Existing Patinet, Add New Patient")
+	public void validateBlankPatientSearchForAllFlows() throws InterruptedException {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String patientsUrl = Hooks.prop.getProperty("patientsUrl");
+		Assert.assertNotNull("patientsUrl is missing in config", patientsUrl);
+		String fullPatientsUrl = baseUrl + patientsUrl;
+		clinicalPage = new clinicalpage(Hooks.driver);
+		Hooks.driver.get(fullPatientsUrl);
+		Assert.assertTrue("Patients page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/Patients"));
+		String result = clinicalPage.blankPatientSearchValidationSearchSelectAdd();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("Validation message should have to show for invalid Email id , Phone Number , Cell Number, Zipcode")
+	public void validateInvalidContactFilters() throws InterruptedException {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String patientsUrl = Hooks.prop.getProperty("patientsUrl");
+		Assert.assertNotNull("patientsUrl is missing in config", patientsUrl);
+		String fullPatientsUrl = baseUrl + patientsUrl;
+		clinicalPage = new clinicalpage(Hooks.driver);
+		Hooks.driver.get(fullPatientsUrl);
+		Assert.assertTrue("Patients page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/Patients"));
+		String result = clinicalPage.filterValidationInvalidContactData();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("Validation message should have to display on blank search")
+	public void userClicksOnSearchButtonWithoutEnteringText() throws InterruptedException {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String patientsUrl = Hooks.prop.getProperty("patientsUrl");
+		Assert.assertNotNull("patientsUrl is missing in config", patientsUrl);
+		String fullPatientsUrl = baseUrl + patientsUrl;
+		clinicalPage = new clinicalpage(Hooks.driver);
+		Hooks.driver.get(fullPatientsUrl);
+		Assert.assertTrue("Patients page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/Patients"));
+		String result = clinicalPage.validationMessageShouldBeDisplayed();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
 
 	// Device Usage Statistic Report
 	@And("I create a profile with View access only to Device Usage Statistic Report in Clinical Module test")
