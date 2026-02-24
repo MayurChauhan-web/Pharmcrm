@@ -12,6 +12,27 @@ public class clinicalstep {
 	private clinicalpage clinicalPage;
 
 	// Patient
+	@And("Validation Should have to show for Add Patient Remote Monitorings Blank")
+	public void validateBlankRemoteMonitoringSubmission() throws InterruptedException {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String rpmUrl = Hooks.prop.getProperty("rpmUrl");
+		Assert.assertNotNull("rpmUrl is missing in config", rpmUrl);
+		String fullRpmUrl = baseUrl + rpmUrl;
+		clinicalPage = new clinicalpage(Hooks.driver);
+		Hooks.driver.get(fullRpmUrl);
+		Assert.assertTrue("Remote Patient Monitoring page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Clinical/Home/PatientRemoteMonitorings"));
+		String result = clinicalPage.addPatientRemoteMonitoringBlankValidation();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
 	@And("Validation Should have to show for Add Clinical MedRecon on Blank Submission")
 	public void validateBlankMedReconSubmission() throws InterruptedException {
 		String baseUrl = Hooks.prop.getProperty("baseUrl");

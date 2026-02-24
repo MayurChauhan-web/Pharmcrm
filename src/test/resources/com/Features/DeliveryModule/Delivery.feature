@@ -525,3 +525,58 @@ Then the Delivery user should be able to view Profiles
 And I create a profile with View-only access to Delivery Module Delivery Statistic Report test
 Then the user should be able to view Delivery Statistic Report in Delivery Module test
 And the user should not be able to export Delivery Statistic Report in Delivery Module test
+
+Scenario: Add Package Blank validation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Validation Should have to show for Add Package on Blank form Submission
+
+Scenario: Add Package Invalid Email , Zipcode ,Contact Number Validation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Validation Should have to show for Invalid Email , Zipcode ,Contact Number
+
+Scenario: Add Customer Attestation Blank Validation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Validation Should have to show for Add Customer Attestation Blank Submission
+
+Scenario: Add Customer Attestation Validation for invalid Telephone
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Validation Should have to show for invalid Telephone
+
+Scenario: Save Package status Blank form Submission Validation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Validation Should have to show for Save Package status Blank form Submission
+
+Scenario: Add Manifest Blank form Submission Validation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Validation Should have to show for Add Manifest Blank form Submission
+

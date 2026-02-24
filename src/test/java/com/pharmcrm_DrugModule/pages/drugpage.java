@@ -18,6 +18,36 @@ public class drugpage {
 	private WebDriver driver;
 	private WebDriverWait wait;
 
+	public By selectExistingDrugButton = By.xpath("//button[normalize-space()='Select Existing Drug']");
+	public By toastMessage = By.xpath("//div[@class='toast-message']");
+
+	public String newDrugBlankSubmissionValidation() {
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newDrugButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(selectExistingDrugButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(addNewDrugButton)).click();
+
+		try {
+			wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(toastMessage, 0));
+			List<WebElement> toasts = driver.findElements(toastMessage);
+			StringBuilder allMessages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				if (toast.isDisplayed()) {
+					allMessages.append(toast.getText().trim()).append(" | ");
+				}
+			}
+			return "SUCCESS: Validations displayed -> " + allMessages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message(s) not displayed";
+		}
+
+	}
+
 	// Program
 	public By drugProgramDeleteLabel = By.xpath("//label[@for='chkg29DrugProgramDelete']");
 	public By drugProgramAllLabel = By.xpath("//label[@for='chkg29DrugProgramAll']");

@@ -9,6 +9,93 @@ public class deliverystep {
 
 	private deliverypage deliveryPage;
 
+	// Package
+	@And("Validation Should have to show for Add Manifest Blank form Submission")
+	public void validateBlankManifestSubmission() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String deliveryManifestUrl = Hooks.prop.getProperty("deliveryManifestUrl");
+		Assert.assertNotNull("deliveryManifestUrl is missing in config", deliveryManifestUrl);
+		String fullDeliveryManifestUrl = baseUrl + deliveryManifestUrl;
+		deliveryPage = new deliverypage(Hooks.driver);
+		deliveryPage.openDeliveryManifestPage(fullDeliveryManifestUrl);
+		Assert.assertTrue("Delivery Manifest page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Delivery/Home/Manifests"));
+
+		deliveryPage.addManifestBlankFormValidation();
+	}
+
+	@And("Validation Should have to show for Save Package status Blank form Submission")
+	public void validateBlankDeliveredPackageStatusSubmission() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String deliveredPackagesPath = Hooks.prop.getProperty("deliveredPackagesPath");
+		Assert.assertNotNull("Delivered Packages page path is missing in config", deliveredPackagesPath);
+
+		String fullDeliveredPackagesUrl = baseUrl + deliveredPackagesPath;
+		deliveryPage = new deliverypage(Hooks.driver);
+		deliveryPage.deliveredPackages(fullDeliveredPackagesUrl);
+
+		Assert.assertTrue("Delivered Packages page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Delivery/Home/Packages?category=3"));
+
+		deliveryPage.savePackageStatusBlankFormValidation();
+	}
+
+	@And("Validation Should have to show for invalid Telephone")
+	public void validateInvalidTelephoneNumber() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String packagesPagePath = Hooks.prop.getProperty("packagesPagePath");
+		Assert.assertNotNull("Packages page path is missing in config", packagesPagePath);
+		String fullPackagesPageUrl = baseUrl + packagesPagePath;
+		deliveryPage = new deliverypage(Hooks.driver);
+		deliveryPage.packagesPagePath(fullPackagesPageUrl);
+		Assert.assertTrue("Packages page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Delivery/Home/Packages?category=1"));
+		deliveryPage.telephoneInvalidValidation();
+
+	}
+
+	@And("Validation Should have to show for Add Customer Attestation Blank Submission")
+	public void validateBlankCustomerAttestationSubmission() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String packagesPagePath = Hooks.prop.getProperty("packagesPagePath");
+		Assert.assertNotNull("Packages page path is missing in config", packagesPagePath);
+		String fullPackagesPageUrl = baseUrl + packagesPagePath;
+		deliveryPage = new deliverypage(Hooks.driver);
+		deliveryPage.packagesPagePath(fullPackagesPageUrl);
+		Assert.assertTrue("Packages page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Delivery/Home/Packages?category=1"));
+		deliveryPage.addCustomerAttestationBlankValidation();
+
+	}
+
+	@And("Validation Should have to show for Invalid Email , Zipcode ,Contact Number")
+	public void validateInvalidEmailZipContactNumber() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String packagesPagePath = Hooks.prop.getProperty("packagesPagePath");
+		Assert.assertNotNull("Packages page path is missing in config", packagesPagePath);
+		String fullPackagesPageUrl = baseUrl + packagesPagePath;
+		deliveryPage = new deliverypage(Hooks.driver);
+		deliveryPage.packagesPagePath(fullPackagesPageUrl);
+		Assert.assertTrue("Packages page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Delivery/Home/Packages?category=1"));
+		deliveryPage.invalidEmailZipContactValidation();
+
+	}
+
+	@And("Validation Should have to show for Add Package on Blank form Submission")
+	public void validateBlankPackageSubmission() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String packagesPagePath = Hooks.prop.getProperty("packagesPagePath");
+		Assert.assertNotNull("Packages page path is missing in config", packagesPagePath);
+		String fullPackagesPageUrl = baseUrl + packagesPagePath;
+		deliveryPage = new deliverypage(Hooks.driver);
+		deliveryPage.packagesPagePath(fullPackagesPageUrl);
+		Assert.assertTrue("Packages page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Delivery/Home/Packages?category=1"));
+		deliveryPage.addPackageBlankFormValidation();
+
+	}
+
 	// Delivery Statistic Report
 	@And("I create a profile with View-only access to Delivery Module Delivery Statistic Report test")
 	public void createProfileWithViewOnlyDeliveryStatisticReportTest() {

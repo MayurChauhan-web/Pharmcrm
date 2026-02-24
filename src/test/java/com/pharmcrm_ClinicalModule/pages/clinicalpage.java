@@ -804,7 +804,6 @@ public class clinicalpage {
 	}
 
 	// Patient
-
 	public String clinicalEncounterBlankSubmissionValidation() {
 
 		try {
@@ -856,10 +855,8 @@ public class clinicalpage {
 		}
 
 		wait.until(ExpectedConditions.elementToBeClickable(newPatientCareGiverNameOption)).click();
-
 		wait.until(ExpectedConditions.visibilityOfElementLocated(patientCareGiverNamePhoneInput))
 				.sendKeys(Hooks.prop.getProperty("patient.phonenumber.invalidvalue"));
-
 		wait.until(ExpectedConditions.elementToBeClickable(saveCareGiverNamePopupButton)).click();
 
 		try {
@@ -894,7 +891,6 @@ public class clinicalpage {
 		}
 
 		wait.until(ExpectedConditions.elementToBeClickable(newPatientCareGiverNameOption)).click();
-
 		wait.until(ExpectedConditions.elementToBeClickable(saveCareGiverNamePopupButton)).click();
 
 		try {
@@ -930,25 +926,18 @@ public class clinicalpage {
 
 		wait.until(ExpectedConditions.visibilityOfElementLocated(patientEmailIdInput))
 				.sendKeys(Hooks.prop.getProperty("patient.emailid.invalidvalue"));
-
 		wait.until(ExpectedConditions.visibilityOfElementLocated(patientZipCodeInput))
 				.sendKeys(Hooks.prop.getProperty("patient.zipcode.invalidvalue"));
-
 		wait.until(ExpectedConditions.visibilityOfElementLocated(patientPhoneNumberInput))
 				.sendKeys(Hooks.prop.getProperty("patient.phonenumber.invalidvalue"));
-
 		wait.until(ExpectedConditions.visibilityOfElementLocated(patientSecondaryPhoneNumberInput))
 				.sendKeys(Hooks.prop.getProperty("patient.secondaryphonenumber.invalidvalue"));
-
 		wait.until(ExpectedConditions.visibilityOfElementLocated(patientLegalGuardianPhoneInput))
 				.sendKeys(Hooks.prop.getProperty("patient.legalguardianphone.invalidvalue"));
-
 		wait.until(ExpectedConditions.visibilityOfElementLocated(patientHeadOfHouseholdPhoneInput))
 				.sendKeys(Hooks.prop.getProperty("patient.headofhouseholdphone.invalidvalue"));
-
 		wait.until(ExpectedConditions.visibilityOfElementLocated(patientCellNumberInput))
 				.sendKeys(Hooks.prop.getProperty("patient.cellnumber.invalidvalue"));
-
 		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
 
 		try {
@@ -997,28 +986,20 @@ public class clinicalpage {
 		}
 
 		wait.until(ExpectedConditions.elementToBeClickable(profilefilterButton)).click();
-
 		wait.until(ExpectedConditions.visibilityOfElementLocated(filterFirstNameInput))
 				.sendKeys(Hooks.prop.getProperty("filter.firstname.value"));
-
 		wait.until(ExpectedConditions.visibilityOfElementLocated(filterLastNameInput))
 				.sendKeys(Hooks.prop.getProperty("filter.lastname.value"));
-
 		wait.until(ExpectedConditions.visibilityOfElementLocated(filterBirthDateInput))
 				.sendKeys(Hooks.prop.getProperty("filter.birthdate.value"));
-
 		wait.until(ExpectedConditions.visibilityOfElementLocated(filterPhoneNumberInput))
 				.sendKeys(Hooks.prop.getProperty("filter.phonenumber.value"));
-
 		wait.until(ExpectedConditions.visibilityOfElementLocated(filterCellNumberInput))
 				.sendKeys(Hooks.prop.getProperty("filter.cellnumber.value"));
-
 		wait.until(ExpectedConditions.visibilityOfElementLocated(filterZipCodeInput))
 				.sendKeys(Hooks.prop.getProperty("filter.zipcode.value"));
-
 		wait.until(ExpectedConditions.visibilityOfElementLocated(filterEmailIdInput))
 				.sendKeys(Hooks.prop.getProperty("filter.emailid.value"));
-
 		wait.until(ExpectedConditions.elementToBeClickable(searchFilterButton)).click();
 
 		try {
@@ -1044,7 +1025,6 @@ public class clinicalpage {
 		} catch (Exception ignored) {
 		}
 		wait.until(ExpectedConditions.elementToBeClickable(profilefilterButton)).click();
-
 		wait.until(ExpectedConditions.elementToBeClickable(searchFilterButton)).click();
 
 		try {
@@ -1076,7 +1056,6 @@ public class clinicalpage {
 		try {
 			boolean createdDateVisible = driver.findElements(createdDateColumn).size() > 0;
 			Assert.assertFalse("Created Date column should not be visible", createdDateVisible);
-
 			boolean updatedByVisible = driver.findElements(updatedByColumn).size() > 0;
 			Assert.assertFalse("Updated By column should not be visible", updatedByVisible);
 
@@ -1862,6 +1841,39 @@ public class clinicalpage {
 	}
 
 	// Remote Monitoring Parameters (RMP)
+
+	public String addPatientRemoteMonitoringBlankValidation() {
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newRpmButton)).click();
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(nextButtonrm)).click();
+
+		try {
+			wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(toastMessage, 0));
+			List<WebElement> toasts = driver.findElements(toastMessage);
+			StringBuilder allMessages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				if (toast.isDisplayed()) {
+					allMessages.append(toast.getText().trim()).append(" | ");
+				}
+			}
+			return "SUCCESS: Validations displayed -> " + allMessages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message(s) not displayed";
+		}
+
+	}
+
 	public void verifyUserCannotAddOrEditRMP() {
 		assertElementNotPresent(newRMPButton);
 		wait.until(ExpectedConditions.elementToBeClickable(bucketMenuIcon)).click();
@@ -2853,10 +2865,8 @@ public class clinicalpage {
 
 	// Patients / Clinical Encounter Review
 	public void verifyUserCannotAccessPatientsClinicalEncounterReviewInClinicalModule() {
-
 		wait.until(ExpectedConditions.elementToBeClickable(patientActionMenuButton)).click();
 		wait.until(ExpectedConditions.elementToBeClickable(patientEditOption)).click();
-
 		if (!driver.findElements(clinicalEncountersButton).isEmpty()) {
 			throw new AssertionError("Clinical Encounters button is visible but should NOT be accessible");
 		}
@@ -2882,7 +2892,6 @@ public class clinicalpage {
 
 	public void verifyStar1DrugIsVisible() {
 		sleep(2000);
-
 		wait.until(ExpectedConditions.visibilityOfElementLocated(star1DrugHeading));
 		if (!driver.findElements(star1DrugHeading).isEmpty()) {
 			System.out.println("Star1 Drug section is visible");
@@ -3476,7 +3485,6 @@ public class clinicalpage {
 		if (messages != null) {
 			return "SUCCESS: Validations displayed -> " + messages;
 		}
-
 		return "ERROR: Validation toast message(s) not displayed";
 	}
 
@@ -5255,7 +5263,6 @@ public class clinicalpage {
 
 	public void deleteRpmStatusAllowed() {
 		sleep(3000);
-
 		clickWhenClickable(bucketDropdownIcon);
 		sleep(2000);
 		clickWhenClickable(editOption);

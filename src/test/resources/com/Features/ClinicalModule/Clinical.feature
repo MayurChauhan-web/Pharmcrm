@@ -1516,7 +1516,6 @@ And I create a profile with View access only to Device Usage Statistic Report in
 Then the user should be able to view Device Usage Statistic Report in Clinical Module test
 And the user should not be able to export Device Usage Statistic Report in Clinical Module test
 
-##
 Scenario: Filter Validation text on blank search
 Given user launch browser
 Then user click on the user type dropdown
@@ -1616,97 +1615,11 @@ And user enter the organization password
 When user click on the go button
 Then Validation Should have to show for Add Clinical MedRecon on Blank Submission
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Scenario: Add Patient Remote Monitorings Blank Validation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Validation Should have to show for Add Patient Remote Monitorings Blank

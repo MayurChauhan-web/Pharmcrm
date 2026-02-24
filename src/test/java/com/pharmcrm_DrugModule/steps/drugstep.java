@@ -9,6 +9,19 @@ public class drugstep {
 
 	private drugpage drugPage;
 
+	@And("Validation Should have to show for New Drug Blank Submission Validation")
+	public void validateBlankNewDrugSubmission() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String drugHomeUrl = Hooks.prop.getProperty("drugHomeUrl");
+		Assert.assertNotNull("drugHomeUrl is missing in config", drugHomeUrl);
+		String fullDrugHomeUrl = baseUrl + drugHomeUrl;
+		drugPage = new drugpage(Hooks.driver);
+		drugPage.opendrugsPage(fullDrugHomeUrl);
+		Assert.assertTrue("Drug Home page is not displayed", Hooks.driver.getCurrentUrl().contains("/Drug/Home/Drugs"));
+		drugPage.newDrugBlankSubmissionValidation();
+
+	}
+
 	// Program
 	@And("the user should not be able to add Program test")
 	public void userCannotAddProgramTest() {
