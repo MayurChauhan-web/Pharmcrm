@@ -20,8 +20,10 @@ public class deliverystep {
 		deliveryPage.openDeliveryManifestPage(fullDeliveryManifestUrl);
 		Assert.assertTrue("Delivery Manifest page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Delivery/Home/Manifests"));
-
 		deliveryPage.addManifestBlankFormValidation();
+		System.out.println("Error validation triggered: Add Manifest form cannot be submitted blank");
+		Hooks.scenario.log("Error validation triggered: Add Manifest form cannot be submitted blank");
+
 	}
 
 	@And("Validation Should have to show for Save Package status Blank form Submission")
@@ -29,15 +31,15 @@ public class deliverystep {
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String deliveredPackagesPath = Hooks.prop.getProperty("deliveredPackagesPath");
 		Assert.assertNotNull("Delivered Packages page path is missing in config", deliveredPackagesPath);
-
 		String fullDeliveredPackagesUrl = baseUrl + deliveredPackagesPath;
 		deliveryPage = new deliverypage(Hooks.driver);
 		deliveryPage.deliveredPackages(fullDeliveredPackagesUrl);
-
 		Assert.assertTrue("Delivered Packages page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Delivery/Home/Packages?category=3"));
-
 		deliveryPage.savePackageStatusBlankFormValidation();
+		System.out.println("Error validation triggered: Save Package status form cannot be submitted blank");
+		Hooks.scenario.log("Error validation triggered: Save Package status form cannot be submitted blank");
+
 	}
 
 	@And("Validation Should have to show for invalid Telephone")
@@ -51,6 +53,8 @@ public class deliverystep {
 		Assert.assertTrue("Packages page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Delivery/Home/Packages?category=1"));
 		deliveryPage.telephoneInvalidValidation();
+		System.out.println("Error validation triggered: Telephone number format is invalid");
+		Hooks.scenario.log("Error validation triggered: Telephone number format is invalid");
 
 	}
 
@@ -65,6 +69,8 @@ public class deliverystep {
 		Assert.assertTrue("Packages page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Delivery/Home/Packages?category=1"));
 		deliveryPage.addCustomerAttestationBlankValidation();
+		System.out.println("Error validation triggered: Customer Attestation form cannot be submitted blank");
+		Hooks.scenario.log("Error validation triggered: Customer Attestation form cannot be submitted blank");
 
 	}
 
@@ -79,6 +85,8 @@ public class deliverystep {
 		Assert.assertTrue("Packages page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Delivery/Home/Packages?category=1"));
 		deliveryPage.invalidEmailZipContactValidation();
+		System.out.println("Error validation triggered: Email format, Zipcode, or Contact Number is invalid");
+		Hooks.scenario.log("Error validation triggered: Email format, Zipcode, or Contact Number is invalid");
 
 	}
 
@@ -93,6 +101,8 @@ public class deliverystep {
 		Assert.assertTrue("Packages page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Delivery/Home/Packages?category=1"));
 		deliveryPage.addPackageBlankFormValidation();
+		System.out.println("Error validation triggered: Add Package form cannot be submitted blank");
+		Hooks.scenario.log("Error validation triggered: Add Package form cannot be submitted blank");
 
 	}
 

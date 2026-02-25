@@ -436,15 +436,65 @@ And user enter the organization password
 When user click on the go button
 Then Validation Should have to show for New Drug Blank Submission Validation
 
+Scenario: Edit Drug Disease State and Program Choose and Add Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Edit Drug Disease State and Program Choose and Add Validation should have to display
 
+Scenario: Edit Drug Therapeutic, Family, Approved Indications Blank Field Validation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Edit Drug Therapeutic, Family, Approved Indications Blank Field Validation should have to display
 
+Scenario: ICD10s Blank Field Validation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then ICD10s Blank Field Validation should have to display
 
+Scenario: Star1Drugs filter Blank Validation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Star1Drugs filter Blank Validation should have to Display
 
+Scenario: Star2 Drugs filter Blank Validation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Star2 Drugs filter Blank Validation should have to Display
 
+Scenario: Star2 to Star1 Drugs filter Blank Validation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Star2 to Star1 Drugs filter Blank Validation should have to display
 
-
-
-
-
-
-
+Scenario: Allergies Blank field validation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Allergies Blank field validation should have to display

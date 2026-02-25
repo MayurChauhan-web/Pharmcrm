@@ -477,37 +477,26 @@ public class deliverypage {
 		}
 
 		wait.until(ExpectedConditions.elementToBeClickable(addCustomerAttestationButton)).click();
-
 		wait.until(ExpectedConditions.visibilityOfElementLocated(packageCustomerAttestationRxNumberInput))
 				.sendKeys(Hooks.prop.getProperty("package.customerattestation.rxnumber.value"));
-
 		wait.until(ExpectedConditions.visibilityOfElementLocated(packageCustomerAttestationPatientNameInput))
 				.sendKeys(Hooks.prop.getProperty("package.customerattestation.patientname.value"));
-
 		wait.until(ExpectedConditions.visibilityOfElementLocated(packageCustomerAttestationMedicationInput))
 				.sendKeys(Hooks.prop.getProperty("package.customerattestation.medication.value"));
-
 		wait.until(ExpectedConditions.visibilityOfElementLocated(packageCustomerAttestationReceivedFromInput))
 				.sendKeys(Hooks.prop.getProperty("package.customerattestation.receivedfrom.value"));
-
 		wait.until(ExpectedConditions.visibilityOfElementLocated(packageCustomerAttestationFilledDateInput))
 				.sendKeys(Hooks.prop.getProperty("package.customerattestation.filleddate.value"));
-
 		wait.until(ExpectedConditions.visibilityOfElementLocated(packageCustomerAttestationReceivedDateInput))
 				.sendKeys(Hooks.prop.getProperty("package.customerattestation.receiveddate.value"));
-
 		wait.until(ExpectedConditions.visibilityOfElementLocated(packageCustomerAttestationAddressReceiverInput))
 				.sendKeys(Hooks.prop.getProperty("package.customerattestation.addressreceiver.value"));
-
 		wait.until(ExpectedConditions.visibilityOfElementLocated(packageCustomerAttestationReceiverNameInput))
 				.sendKeys(Hooks.prop.getProperty("package.customerattestation.receivername.value"));
-
 		wait.until(ExpectedConditions.visibilityOfElementLocated(packageCustomerAttestationPatientRelationInput))
 				.sendKeys(Hooks.prop.getProperty("package.customerattestation.patientrelation.value"));
-
 		wait.until(ExpectedConditions.visibilityOfElementLocated(packageCustomerAttestationPhoneNumberInput))
 				.sendKeys(Hooks.prop.getProperty("package.customerattestation.phonenumber.invalidvalue"));
-
 		wait.until(ExpectedConditions.elementToBeClickable(savePackageCustomerAttestationButton)).click();
 
 		try {

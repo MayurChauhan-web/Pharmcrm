@@ -1841,7 +1841,6 @@ public class clinicalpage {
 	}
 
 	// Remote Monitoring Parameters (RMP)
-
 	public String addPatientRemoteMonitoringBlankValidation() {
 
 		try {
