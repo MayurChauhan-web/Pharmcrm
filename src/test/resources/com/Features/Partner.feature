@@ -1,4 +1,3 @@
-@Partner
 Feature: Partner Module scenarios
 
 Scenario: User with View only access for General Audit View
@@ -29,6 +28,7 @@ And I log in using the new user for Partner Module
 Then the user should be able to add Partner Type in Partner Module
 And the user should not be able to edit or delete Partner Type in Partner Module
 
+
 Scenario: User with Edit access for Partner Module General Audit View
 Given I log in as admin for Partner Module
 When I create a new user with email for Partner Module "testuser3_static@mailinator.com"
@@ -38,6 +38,7 @@ And I reset the user's password for Partner Module
 And I log in using the new user for Partner Module
 Then the user should be able to edit Partner Type in Partner Module
 And the user should not be able to add or delete Partner Type in Partner Module
+
 
 Scenario: User with Delete access for Partner Module Partner Type
 Given I log in as admin for Partner Module
@@ -49,6 +50,7 @@ And I log in using the new user for Partner Module
 Then the user should be able to delete Partner Type in Partner Module
 And the user should not be able to add or edit Partner Type in Partner Module 
 
+
 Scenario: User with Add access for Partner Module Special Service
 Given I log in as admin for Partner Module
 When I create a new user with email for Partner Module "testuser5_static@mailinator.com"
@@ -58,6 +60,7 @@ And I reset the user's password for Partner Module
 And I log in using the new user for Partner Module
 Then the user should be able to add Special Service in Partner Module
 And the user should not be able to edit Special Service in Partner Module
+
 
 Scenario: User with Edit access for Partner Module Special Service
 Given I log in as admin for Partner Module
@@ -69,6 +72,7 @@ And I log in using the new user for Partner Module
 Then the user should be able to edit Special Service in Partner Module
 And the user should not be able to add Special Service in Partner Module
 
+
 Scenario: User with Add access for Partner Module Custom Partners
 Given I log in as admin for Partner Module
 When I create a new user with email for Partner Module "testuser2_static@mailinator.com"
@@ -78,6 +82,7 @@ And I reset the user's password for Partner Module
 And I log in using the new user for Partner Module
 Then the user should be able to add Custom Partners in Partner Module
 And the user should not be able to edit or delete Custom Partners in Partner Module
+
 
 Scenario: User with Edit access for Partner Module Custom Partners
 Given I log in as admin for Partner Module
@@ -89,6 +94,7 @@ And I log in using the new user for Partner Module
 Then the user should be able to edit Custom Partners in Partner Module
 And the user should not be able to add or delete Custom Partners in Partner Module
 
+
 Scenario: User with Delete access for Partner Module Custom Partners
 Given I log in as admin for Partner Module
 When I create a new user with email for Partner Module "testuser6_static@mailinator.com"
@@ -99,6 +105,7 @@ And I log in using the new user for Partner Module
 Then the user should be able to delete Custom Partners in Partner Module
 And the user should not be able to add or edit Custom Partners in Partner Module
 
+#
 Scenario: User with View and Details access for Partner Module Custom Partners
 Given I log in as admin for Partner Module
 When I create a new user with email for Partner Module "testuser7_static@mailinator.com"
