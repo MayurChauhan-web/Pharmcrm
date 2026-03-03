@@ -105,7 +105,6 @@ And I log in using the new user for Partner Module
 Then the user should be able to delete Custom Partners in Partner Module
 And the user should not be able to add or edit Custom Partners in Partner Module
 
-#
 Scenario: User with View and Details access for Partner Module Custom Partners
 Given I log in as admin for Partner Module
 When I create a new user with email for Partner Module "testuser7_static@mailinator.com"
@@ -126,6 +125,7 @@ And I log in using the new user for Partner Module
 Then the user should be able to add Business Address in Partner Module
 And the user should not be able to edit or delete Business Address in Partner Module
 
+
 Scenario: User with Edit access for Partner Module Business Address
 Given I log in as admin for Partner Module
 When I create a new user with email for Partner Module "testuser2_static@mailinator.com"
@@ -135,6 +135,7 @@ And I reset the user's password for Partner Module
 And I log in using the new user for Partner Module
 Then the user should be able to edit Business Address in Partner Module
 And the user should not be able to add or delete Business Address in Partner Module
+
 
 Scenario: User with Delete access for Partner Module Business Address
 Given I log in as admin for Partner Module
@@ -146,6 +147,7 @@ And I log in using the new user for Partner Module
 Then the user should be able to delete Business Address in Partner Module
 And the user should not be able to add or edit Business Address in Partner Module
 
+
 Scenario: User with Add access for Partner Module Mailing Address
 Given I log in as admin for Partner Module
 When I create a new user with email for Partner Module "testuser6_static@mailinator.com"
@@ -155,6 +157,7 @@ And I reset the user's password for Partner Module
 And I log in using the new user for Partner Module
 Then the user should be able to add Mailing Address in Partner Module
 And the user should not be able to edit or delete Mailing Address in Partner Module
+
 
 Scenario: User with Edit access for Partner Module Mailing Address
 Given I log in as admin for Partner Module
@@ -166,6 +169,7 @@ And I log in using the new user for Partner Module
 Then the user should be able to edit Mailing Address in Partner Module
 And the user should not be able to add or delete Mailing Address in Partner Module
 
+
 Scenario: User with Delete access for Partner Module Mailing Address
 Given I log in as admin for Partner Module
 When I create a new user with email for Partner Module "testuser2_static@mailinator.com"
@@ -176,6 +180,7 @@ And I log in using the new user for Partner Module
 Then the user should be able to delete Mailing Address in Partner Module
 And the user should not be able to add or edit Mailing Address in Partner Module
 
+
 Scenario: User with Add access for Partner Module Executive
 Given I log in as admin for Partner Module
 When I create a new user with email for Partner Module "testuser3_static@mailinator.com"
@@ -185,6 +190,7 @@ And I reset the user's password for Partner Module
 And I log in using the new user for Partner Module
 Then the user should be able to add Executive in Partner Module
 And the user should not be able to edit or delete Executive in Partner Module
+
 
 Scenario: User with Edit access for Partner Module Executive
 Given I log in as admin for Partner Module
@@ -217,6 +223,7 @@ Then the user should be able to view Executive in Partner Module
 And the user should be able to reset password for Executive in Partner Module
 And the user should not be able to add, edit, or delete Executive in Partner Module
 
+#
 Scenario: User with all Folder permissions but no File permissions in Bucket Partner Module
 Given I log in as admin for Partner Module
 When I create a new user with email for Partner Module "testuser3_static@mailinator.com"

@@ -18,6 +18,465 @@ public class partnerpage {
 	private WebDriver driver;
 	private WebDriverWait wait;
 
+	// Bucket
+	// Bucket
+
+	// Executive
+	public By enableLoginOption = By.xpath(
+			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Enable Login')]");
+
+	public By resetPasswordOption = By.xpath(
+			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Reset Password')]");
+
+	public By newPasswordField = By.id("newPassword");
+	public By confirmPasswordField = By.id("confirmPassword");
+
+	public By resetPasswordButton = By.id("btnResetPassword");
+
+	public By confirmDeleteExecutiveButton = By.id("deletePartnerExecutive");
+	public By contactPersonCheckbox = By.xpath("//label[normalize-space()='Contact Person']");
+
+	public By executiveMenuIcon = By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']");
+
+	public By editExecutiveOption = By.xpath("//span[normalize-space()='Edit']");
+
+	public By deleteExecutiveOption = By.xpath("//span[normalize-space()='Delete']");
+	public By executivesTab = By.xpath("//a[normalize-space()='Executives']");
+
+	public By newExecutiveButton = By.xpath("//span[normalize-space()='New Executive']");
+
+	public By lastNameField = By.id("PartnerExecutive_LastName");
+	public By firstNameField = By.id("PartnerExecutive_FirstName");
+	public By emailField = By.id("PartnerExecutive_EmailId");
+
+	public By saveExecutiveButton = By.id("btnSavePartnerExecutivePopup");
+
+	// Mailing Address
+	public By editMailingAddressIcon = By.xpath(
+			"(//div[@id='partner-address-list-mailing']//a[contains(@onclick,'editPartnerAddress') and contains(@data-original-title,'Edit Partner Care Giver Name')])[1]");
+	public By deleteMailingAddressIcon = By.xpath(
+			"(//div[@id='partner-address-list-mailing']//a[@id='btnDeletePartnerAddress' and contains(@data-original-title,'Delete Partner Address')])[1]");
+	public By newMailingAddressButton = By.xpath("//span[normalize-space()='New Mailing Address']");
+
+	// Business Address
+	public By editBusinessAddressIcon = By.xpath("(//a[contains(@onclick,'editPartnerAddress')])[1]");
+	public By deleteBusinessAddressIcon = By.xpath("(//a[@id='btnDeletePartnerAddress'])[1]");
+	public By newBusinessAddressOption = By.xpath("//span[normalize-space()='New Business Addresses']");
+	public By streetField = By.id("PartnerAddress_Street");
+	public By cityField = By.id("PartnerAddress_City");
+	public By stateField = By.id("PartnerAddress_State");
+	public By zipCodeField = By.id("PartnerAddress_ZipCode");
+	public By saveButtonAddress = By.id("btnSavePartnerAddressPopup");
+	public By primaryAddressCheckbox = By.xpath("//label[normalize-space()='Primary Address']");
+	public By newBusinessAddressButton = By.xpath("//span[normalize-space()='New Business Addresses']");
+
+	// Custom Partners
+	public By viewCustomPartnerIcon = By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]");
+	public By wednesdayCheckbox = By.xpath("//label[normalize-space()='Wednesday']");
+	public By newPartnerButton = By.xpath("//span[normalize-space()='New Partner']");
+	public By partnerBusinessNameField = By.id("Partner_BusinessName");
+	public By partnerPhoneNumberField = By.id("Partner_PhoneNumber");
+
+	// Special Service
+	public By editSpecialServiceIcon = By.xpath("//tbody/tr[1]/td[4]/div[1]/a[1]/img[1]");
+	public By newSpecialServiceButton = By.xpath("//span[normalize-space()='New Special Service']");
+	public By specialServiceTitleField = By.id("SpecialService_Title");
+
+	// Partner Type
+	public By confirmDeleteButton = By.xpath("//div[@id='genericmodal']//button[@id='btnDeleteConfirm']");
+	public By bucketDropdownIcon = By.xpath("(//button[@id='bucketDrop']/i)[1]");
+	public By editOption = By.xpath("//div[contains(@class,'bucket-dropdown-content')]//span[contains(text(),'Edit')]");
+	public By deleteOption = By
+			.xpath("//div[contains(@class,'bucket-dropdown-content')]//span[contains(text(),'Delete')]");
+	public By newPartnerTypeButton = By.xpath("//span[normalize-space()='New Partner Type']");
+	public By partnerTypeNameField = By.id("PartnerType_Name");
+	public By partnerTypeLabelField = By.id("PartnerType_Label");
+	public By saveButton = By.xpath("//button[@id='btnSave']");
+
+	// General
+	public By createdByColumn = By.xpath("//a[normalize-space()='Created By']");
+	public By createdDateColumn = By.xpath("//a[normalize-space()='Created Date']");
+	public By errorHeader = By.xpath("//h2[normalize-space()='Error']");
+
+	// Profile
+	public By preloader = By.cssSelector("div.preloader");
+	public By profileNameInput = By.xpath("//input[@id='Filter_Name']");
+	public By searchButton = By.xpath("//i[@class='fa-solid fa-magnifying-glass']");
+	public By actionMenu = By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']");
+	public By editButton = By.xpath("//span[normalize-space()='Edit']");
+	public By selectAllModuleLabel = By.xpath("//label[normalize-space()='Select All Module']");
+	public By submitButton = By.xpath("//button[@id='btnSave']");
+	public By profilefilterButton = By.xpath("//*[name()='path' and @id='Union_73']");
+	public By firstPatientLink = By.xpath("(//a[@class='gridLinkButton'])[1]");
+	public By vitalsTab = By.xpath("//a[normalize-space()='Vitals']");
+	public By addVitalsButton = By.xpath("//span[normalize-space()='Add Vitals']");
+	public By bpInputField = By.xpath("//input[@id='PatientVital_BP']");
+	public By saveVitalsButton = By.xpath("//button[@id='btnSaveVital']");
+	public By updatedDateColumn = By.xpath("//th[normalize-space()='Updated Date']");
+	public By priorAuthorizationProcessAllLabel = By.xpath("//label[@for='chkg23PriorAuthorizationProcessAll']");
+	public By priorAuthorizationGenerateAddLabel = By.xpath("//label[@for='chkg23PriorAuthorizationGenerateAdd']");
+
+	// Executive
+	public void verifyUserCannotAddEditOrDeleteExecutiveInPartnerModule() {
+
+		sleep(3000);
+
+		Assert.assertTrue(driver.findElements(newExecutiveButton).size() == 0);
+
+		driver.findElement(executiveMenuIcon).click();
+
+		Assert.assertTrue(driver.findElements(editExecutiveOption).size() == 0);
+
+		Assert.assertTrue(driver.findElements(deleteExecutiveOption).size() == 0);
+	}
+
+	public void verifyUserCanResetPasswordForExecutiveInPartnerModule() {
+
+		sleep(3000);
+
+		driver.findElement(viewCustomPartnerIcon).click();
+		sleep(3000);
+
+		driver.findElement(executivesTab).click();
+		sleep(3000);
+
+		driver.findElement(executiveMenuIcon).click();
+		sleep(3000);
+
+		driver.findElement(enableLoginOption).click();
+		sleep(3000);
+
+		driver.findElement(executiveMenuIcon).click();
+		sleep(3000);
+
+		driver.findElement(resetPasswordOption).click();
+		sleep(3000);
+
+		driver.findElement(newPasswordField).sendKeys("Admin@123");
+		driver.findElement(confirmPasswordField).sendKeys("Admin@123");
+
+		driver.findElement(resetPasswordButton).click();
+	}
+
+	public void verifyUserCanViewExecutiveInPartnerModule() {
+
+		sleep(3000);
+
+		Assert.assertTrue(driver.findElements(createdByColumn).size() > 0);
+		Assert.assertTrue(driver.findElements(createdDateColumn).size() > 0);
+	}
+
+	public void createProfileViewResetExecutiveAccess() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCannotAddOrEditExecutiveInPartnerModule() {
+
+		sleep(3000);
+
+		Assert.assertTrue(driver.findElements(newExecutiveButton).size() == 0);
+
+		driver.findElement(executiveMenuIcon).click();
+
+		Assert.assertTrue(driver.findElements(editExecutiveOption).size() == 0);
+	}
+
+	public void verifyUserCanDeleteExecutiveInPartnerModule() {
+
+		sleep(3000);
+
+		driver.findElement(viewCustomPartnerIcon).click();
+		sleep(3000);
+
+		driver.findElement(executivesTab).click();
+		sleep(3000);
+
+		driver.findElement(executiveMenuIcon).click();
+		sleep(3000);
+
+		driver.findElement(deleteExecutiveOption).click();
+		sleep(3000);
+
+		driver.findElement(confirmDeleteExecutiveButton).click();
+	}
+
+	public void createProfileDeleteExecutive() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCannotAddOrDeleteExecutiveInPartnerModule() {
+
+		sleep(3000);
+
+		Assert.assertTrue(driver.findElements(newExecutiveButton).size() == 0);
+
+		driver.findElement(executiveMenuIcon).click();
+
+		Assert.assertTrue(driver.findElements(deleteExecutiveOption).size() == 0);
+	}
+
+	public void verifyUserCanEditExecutiveInPartnerModule() {
+
+		sleep(3000);
+
+		driver.findElement(viewCustomPartnerIcon).click();
+		sleep(3000);
+
+		driver.findElement(executivesTab).click();
+		sleep(3000);
+
+		driver.findElement(executiveMenuIcon).click();
+		sleep(3000);
+
+		driver.findElement(editExecutiveOption).click();
+		sleep(3000);
+
+		driver.findElement(contactPersonCheckbox).click();
+
+		driver.findElement(saveExecutiveButton).click();
+	}
+
+	public void createProfileEditExecutive() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCannotEditOrDeleteExecutiveInPartnerModule() {
+
+		sleep(3000);
+
+		driver.findElement(executiveMenuIcon).click();
+
+		Assert.assertTrue(driver.findElements(editExecutiveOption).size() == 0);
+		Assert.assertTrue(driver.findElements(deleteExecutiveOption).size() == 0);
+	}
+
+	public void verifyUserCanAddExecutiveInPartnerModule() {
+
+		sleep(3000);
+
+		driver.findElement(viewCustomPartnerIcon).click();
+		sleep(3000);
+
+		driver.findElement(executivesTab).click();
+		sleep(3000);
+
+		driver.findElement(newExecutiveButton).click();
+		sleep(3000);
+
+		driver.findElement(lastNameField).sendKeys("Garrett");
+		driver.findElement(firstNameField).sendKeys("Stephanie");
+		driver.findElement(emailField).sendKeys("Stephanie@mailinator.com");
+
+		driver.findElement(saveExecutiveButton).click();
+	}
+
+	public void createProfileAddExecutive() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	// Mailing Address
+
+	public void verifyUserCannotAddOrEditMailingAddressInPartnerModule() {
+
+		sleep(3000);
+
+		Assert.assertTrue(driver.findElements(newMailingAddressButton).size() == 0);
+		Assert.assertTrue(driver.findElements(editMailingAddressIcon).size() == 0);
+	}
+
+	public void verifyUserCanDeleteMailingAddressInPartnerModule() {
+
+		sleep(3000);
+
+		driver.findElement(viewCustomPartnerIcon).click();
+		sleep(3000);
+
+		driver.findElement(deleteMailingAddressIcon).click();
+		sleep(3000);
+
+		driver.findElement(confirmDeleteButton).click();
+	}
+
+	public void createProfileDeleteMailingAddress() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCannotAddOrDeleteMailingAddressInPartnerModule() {
+
+		sleep(3000);
+
+		Assert.assertTrue(driver.findElements(newMailingAddressButton).size() == 0);
+		Assert.assertTrue(driver.findElements(deleteMailingAddressIcon).size() == 0);
+	}
+
+	public void verifyUserCanEditMailingAddressInPartnerModule() {
+
+		sleep(3000);
+
+		driver.findElement(viewCustomPartnerIcon).click();
+		sleep(3000);
+
+		driver.findElement(editMailingAddressIcon).click();
+		sleep(3000);
+
+		driver.findElement(zipCodeField).clear();
+		driver.findElement(zipCodeField).sendKeys("10003");
+
+		driver.findElement(saveButton).click();
+	}
+
+	public void createProfileEditMailingAddress() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCannotEditOrDeleteMailingAddressInPartnerModule() {
+
+		sleep(3000);
+
+		Assert.assertTrue(driver.findElements(editMailingAddressIcon).size() == 0);
+		Assert.assertTrue(driver.findElements(deleteMailingAddressIcon).size() == 0);
+	}
+
+	public void verifyUserCanAddMailingAddressInPartnerModule() {
+
+		sleep(3000);
+
+		driver.findElement(viewCustomPartnerIcon).click();
+		sleep(3000);
+
+		driver.findElement(newMailingAddressButton).click();
+		sleep(3000);
+
+		driver.findElement(streetField).sendKeys("789 Broadway Ave");
+		driver.findElement(cityField).sendKeys("New York");
+		driver.findElement(stateField).sendKeys("NY");
+		driver.findElement(zipCodeField).sendKeys("10003");
+
+		driver.findElement(saveButton).click();
+	}
+
+	// Business Address
+
+	public void verifyUserCannotAddOrEditBusinessAddressInPartnerModule() {
+
+		sleep(3000);
+
+		Assert.assertTrue(driver.findElements(newBusinessAddressButton).size() == 0);
+		Assert.assertTrue(driver.findElements(editBusinessAddressIcon).size() == 0);
+	}
+
+	public void verifyUserCanDeleteBusinessAddressInPartnerModule() {
+
+		sleep(3000);
+
+		driver.findElement(viewCustomPartnerIcon).click();
+		sleep(3000);
+
+		driver.findElement(deleteBusinessAddressIcon).click();
+		sleep(3000);
+
+		driver.findElement(confirmDeleteButton).click();
+	}
+
+	public void verifyUserCannotAddOrDeleteBusinessAddressInPartnerModule() {
+		sleep(3000);
+		Assert.assertTrue(driver.findElements(newBusinessAddressButton).size() == 0);
+		Assert.assertTrue(driver.findElements(deleteBusinessAddressIcon).size() == 0);
+	}
+
+	public void verifyUserCanEditBusinessAddressInPartnerModule() {
+		sleep(3000);
+		driver.findElement(viewCustomPartnerIcon).click();
+		sleep(3000);
+		driver.findElement(editBusinessAddressIcon).click();
+		sleep(3000);
+		driver.findElement(primaryAddressCheckbox).click();
+		driver.findElement(saveButton).click();
+	}
+
+	public void verifyUserCannotEditOrDeleteBusinessAddressInPartnerModule() {
+		sleep(3000);
+		Assert.assertTrue(driver.findElements(editBusinessAddressIcon).size() == 0);
+		Assert.assertTrue(driver.findElements(deleteBusinessAddressIcon).size() == 0);
+	}
+
+	public void verifyUserCanAddBusinessAddressInPartnerModule() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.elementToBeClickable(viewCustomPartnerIcon)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(newBusinessAddressOption)).click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(streetField)).sendKeys("789 Broadway Ave");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(cityField)).sendKeys("New York");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(stateField)).sendKeys("NY");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(zipCodeField)).sendKeys("10003");
+		wait.until(ExpectedConditions.elementToBeClickable(saveButtonAddress)).click();
+	}
+
+	public void createProfileAddBusinessAddress() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void createProfileAddMailingAddress() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void createProfileDeleteBusinessAddress() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void createProfileEditBusinessAddress() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
 	// Custom Partners
 	public void verifyUserCannotAddEditOrDeleteCustomPartnersInPartnerModule() {
 
@@ -160,6 +619,12 @@ public class partnerpage {
 		}
 	}
 
+	public void openAttorneyPartnersUrl(String fullUrl) {
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions
+				.urlContains("/Partner/Home/Partners?partnerTypeId=85a7a8a7-803c-4801-8bfa-ef64491be0fd"));
+	}
+
 	public void openCustomPartnersUrl(String fullUrl) {
 		driver.get(fullUrl);
 		wait.until(ExpectedConditions
@@ -174,52 +639,6 @@ public class partnerpage {
 		driver.findElement(partnerPhoneNumberField).sendKeys("(312) 555-0198");
 		driver.findElement(saveButton).click();
 	}
-
-	// Custom Partners
-	public By viewCustomPartnerIcon = By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]");
-	public By wednesdayCheckbox = By.xpath("//label[normalize-space()='Wednesday']");
-	public By newPartnerButton = By.xpath("//span[normalize-space()='New Partner']");
-	public By partnerBusinessNameField = By.id("Partner_BusinessName");
-	public By partnerPhoneNumberField = By.id("Partner_PhoneNumber");
-
-	// Special Service
-	public By editSpecialServiceIcon = By.xpath("//tbody/tr[1]/td[4]/div[1]/a[1]/img[1]");
-	public By newSpecialServiceButton = By.xpath("//span[normalize-space()='New Special Service']");
-	public By specialServiceTitleField = By.id("SpecialService_Title");
-
-	// Partner Type
-	public By confirmDeleteButton = By.xpath("//div[@id='genericmodal']//button[@id='btnDeleteConfirm']");
-	public By bucketDropdownIcon = By.xpath("(//button[@id='bucketDrop']/i)[1]");
-	public By editOption = By.xpath("//div[contains(@class,'bucket-dropdown-content')]//span[contains(text(),'Edit')]");
-	public By deleteOption = By
-			.xpath("//div[contains(@class,'bucket-dropdown-content')]//span[contains(text(),'Delete')]");
-	public By newPartnerTypeButton = By.xpath("//span[normalize-space()='New Partner Type']");
-	public By partnerTypeNameField = By.id("PartnerType_Name");
-	public By partnerTypeLabelField = By.id("PartnerType_Label");
-	public By saveButton = By.xpath("//button[@id='btnSave']");
-
-	// General
-	public By createdByColumn = By.xpath("//a[normalize-space()='Created By']");
-	public By createdDateColumn = By.xpath("//a[normalize-space()='Created Date']");
-	public By errorHeader = By.xpath("//h2[normalize-space()='Error']");
-
-	// Profile
-	public By preloader = By.cssSelector("div.preloader");
-	public By profileNameInput = By.xpath("//input[@id='Filter_Name']");
-	public By searchButton = By.xpath("//i[@class='fa-solid fa-magnifying-glass']");
-	public By actionMenu = By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']");
-	public By editButton = By.xpath("//span[normalize-space()='Edit']");
-	public By selectAllModuleLabel = By.xpath("//label[normalize-space()='Select All Module']");
-	public By submitButton = By.xpath("//button[@id='btnSave']");
-	public By profilefilterButton = By.xpath("//*[name()='path' and @id='Union_73']");
-	public By firstPatientLink = By.xpath("(//a[@class='gridLinkButton'])[1]");
-	public By vitalsTab = By.xpath("//a[normalize-space()='Vitals']");
-	public By addVitalsButton = By.xpath("//span[normalize-space()='Add Vitals']");
-	public By bpInputField = By.xpath("//input[@id='PatientVital_BP']");
-	public By saveVitalsButton = By.xpath("//button[@id='btnSaveVital']");
-	public By updatedDateColumn = By.xpath("//th[normalize-space()='Updated Date']");
-	public By priorAuthorizationProcessAllLabel = By.xpath("//label[@for='chkg23PriorAuthorizationProcessAll']");
-	public By priorAuthorizationGenerateAddLabel = By.xpath("//label[@for='chkg23PriorAuthorizationGenerateAdd']");
 
 	// Special Service
 
