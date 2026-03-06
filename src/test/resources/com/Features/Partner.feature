@@ -223,7 +223,6 @@ Then the user should be able to view Executive in Partner Module
 And the user should be able to reset password for Executive in Partner Module
 And the user should not be able to add, edit, or delete Executive in Partner Module
 
-#
 Scenario: User with all Folder permissions but no File permissions in Bucket Partner Module
 Given I log in as admin for Partner Module
 When I create a new user with email for Partner Module "testuser3_static@mailinator.com"
@@ -242,6 +241,7 @@ And the user should not be able to edit File in Bucket for Partner Module
 And the user should not be able to delete File in Bucket for Partner Module
 And the user should not be able to favourite File in Bucket for Partner Module
 And the user should not be able to download File in Bucket for Partner Module
+
 
 Scenario: User with all File permissions but no Folder permissions in Bucket Partner Module
 Given I log in as admin for Partner Module
@@ -273,6 +273,7 @@ Then the user should be able to add Attorney in Partner Module
 And the user should not be able to edit or delete Attorney in Partner Module
 And the user should not be able to view Attorney details in Partner Module
 
+
 Scenario: User with Edit access for Partner Module Attorney
 Given I log in as admin for Partner Module
 When I create a new user with email for Partner Module "testuser1_static@mailinator.com"
@@ -295,6 +296,7 @@ Then the user should be able to delete Attorney in Partner Module
 And the user should not be able to add or edit Attorney in Partner Module
 And the user should not be able to view Attorney details in Partner Module
 
+
 Scenario: User with Details access for Partner Module Attorney
 Given I log in as admin for Partner Module
 When I create a new user with email for Partner Module "testuser3_static@mailinator.com"
@@ -304,6 +306,7 @@ And I reset the user's password for Partner Module
 And I log in using the new user for Partner Module
 Then the user should be able to view Attorney details in Partner Module
 And the user should not be able to add, edit, or delete Attorney in Partner Module
+
 
 Scenario: User with Add access for Partner Module Pharmacies
 Given I log in as admin for Partner Module
@@ -317,6 +320,7 @@ And the user should not be able to edit or delete Pharmacies in Partner Module
 And the user should not be able to view Pharmacies details in Partner Module
 And the user should not be able to access Pharmacy Vetting in Partner Module
 
+
 Scenario: User with Edit access for Partner Module Pharmacies
 Given I log in as admin for Partner Module
 When I create a new user with email for Partner Module "testuser6_static@mailinator.com"
@@ -328,6 +332,7 @@ Then the user should be able to edit Pharmacies in Partner Module
 And the user should not be able to add or delete Pharmacies in Partner Module
 And the user should not be able to view Pharmacies details in Partner Module
 And the user should not be able to access Pharmacy Vetting in Partner Module
+
 
 Scenario: User with Delete access for Partner Module Pharmacies
 Given I log in as admin for Partner Module
@@ -341,6 +346,7 @@ And the user should not be able to add or edit Pharmacies in Partner Module
 And the user should not be able to view Pharmacies details in Partner Module
 And the user should not be able to access Pharmacy Vetting in Partner Module
 
+
 Scenario: User with Details access for Partner Module Pharmacies
 Given I log in as admin for Partner Module
 When I create a new user with email for Partner Module "testuser9_static@mailinator.com"
@@ -352,6 +358,7 @@ Then the user should be able to view Pharmacies details in Partner Module
 And the user should not be able to add, edit, or delete Pharmacies in Partner Module
 And the user should not be able to access Pharmacy Vetting in Partner Module
 
+#
 Scenario: User with Pharmacy Vetting access for Partner Module Pharmacies
 Given I log in as admin for Partner Module
 When I create a new user with email for Partner Module "testuser10_static@mailinator.com"

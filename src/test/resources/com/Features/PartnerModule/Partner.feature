@@ -280,18 +280,605 @@ Then user enter the organization emailid
 And user enter the organization password
 When user click on the go button
 Then the Partner user should be able to view Profiles test
-And I create a profile with full Folder permissions but no File permissions for Bucket in Partner Module
-Then the user should be able to view Folder in Bucket for Partner Module
-And the user should be able to add Folder in Bucket for Partner Module
-And the user should be able to edit Folder in Bucket for Partner Module
-And the user should be able to delete Folder in Bucket for Partner Module
-And the user should be able to favourite Folder in Bucket for Partner Module
-And the user should not be able to view File in Bucket for Partner Module
-And the user should not be able to add File in Bucket for Partner Module
-And the user should not be able to edit File in Bucket for Partner Module
-And the user should not be able to delete File in Bucket for Partner Module
-And the user should not be able to favourite File in Bucket for Partner Module
-And the user should not be able to download File in Bucket for Partner Module
+And I create a profile with full Folder permissions but no File permissions for Bucket in Partner Module test
+Then the user should be able to view Folder in Bucket for Partner Module test
+And the user should be able to add Folder in Bucket for Partner Module test
+And the user should be able to edit Folder in Bucket for Partner Module test
+And the user should be able to delete Folder in Bucket for Partner Module test
+And the user should be able to favourite Folder in Bucket for Partner Module test
+And the user should not be able to view File in Bucket for Partner Module test
+And the user should not be able to add File in Bucket for Partner Module test
+And the user should not be able to edit File in Bucket for Partner Module test
+And the user should not be able to delete File in Bucket for Partner Module test
+And the user should not be able to favourite File in Bucket for Partner Module test
+And the user should not be able to download File in Bucket for Partner Module test
+
+Scenario: User with all File permissions but no Folder permissions in Bucket Partner Module
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Partner user should be able to view Profiles test
+And I create a profile with full File permissions but no Folder permissions for Bucket in Partner Module test
+Then the user should be able to view File in Bucket for Partner Module test
+And the user should be able to add File in Bucket for Partner Module test
+And the user should be able to edit File in Bucket for Partner Module test
+And the user should be able to delete File in Bucket for Partner Module test
+And the user should be able to favourite File in Bucket for Partner Module test
+And the user should be able to download File in Bucket for Partner Module test
+And the user should not be able to view Folder in Bucket for Partner Module test
+And the user should not be able to add Folder in Bucket for Partner Module test
+And the user should not be able to edit Folder in Bucket for Partner Module test
+And the user should not be able to delete Folder in Bucket for Partner Module test
+And the user should not be able to favourite Folder in Bucket for Partner Module test
+
+# Attorney
+Scenario: User with Add access for Partner Module Attorney test
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Partner user should be able to view Profiles test
+And I create a profile with Add access only to Attorney in Partner Module test
+Then the user should be able to add Attorney in Partner Module test
+And the user should not be able to edit or delete Attorney in Partner Module test
+And the user should not be able to view Attorney details in Partner Module test
+
+Scenario: User with Edit access for Partner Module Attorney
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Partner user should be able to view Profiles test
+And I create a profile with Edit access only to Attorney in Partner Module test
+Then the user should be able to edit Attorney in Partner Module test
+And the user should not be able to add or delete Attorney in Partner Module test
+And the user should not be able to view Attorney details in Partner Module test
+
+Scenario: User with Delete access for Partner Module Attorney
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Partner user should be able to view Profiles test
+And I create a profile with Delete access only to Attorney in Partner Module test
+Then the user should be able to delete Attorney in Partner Module test
+And the user should not be able to add or edit Attorney in Partner Module test
+And the user should not be able to view Attorney details in Partner Module test
+
+Scenario: User with Details access for Partner Module Attorney
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Partner user should be able to view Profiles test
+And I create a profile with Details access only to Attorney in Partner Module test
+Then the user should be able to view Attorney details in Partner Module test
+And the user should not be able to add, edit, or delete Attorney in Partner Module test
+
+# Pharmacies
+Scenario: User with Add access for Partner Module Pharmacies
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Partner user should be able to view Profiles test
+And I create a profile with Add access only to Pharmacies in Partner Module test
+Then the user should be able to add Pharmacies in Partner Module test
+And the user should not be able to edit or delete Pharmacies in Partner Module test
+And the user should not be able to view Pharmacies details in Partner Module test
+And the user should not be able to access Pharmacy Vetting in Partner Module test
+
+Scenario: User with Edit access for Partner Module Pharmacies
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Partner user should be able to view Profiles test
+And I create a profile with Edit access only to Pharmacies in Partner Module test
+Then the user should be able to edit Pharmacies in Partner Module test
+And the user should not be able to add or delete Pharmacies in Partner Module test
+And the user should not be able to view Pharmacies details in Partner Module test
+And the user should not be able to access Pharmacy Vetting in Partner Module test
+
+Scenario: User with Delete access for Partner Module Pharmacies
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Partner user should be able to view Profiles test
+And I create a profile with Delete access only to Pharmacies in Partner Module test
+Then the user should be able to delete Pharmacies in Partner Module test
+And the user should not be able to add or edit Pharmacies in Partner Module test
+And the user should not be able to view Pharmacies details in Partner Module test
+And the user should not be able to access Pharmacy Vetting in Partner Module test
+
+Scenario: User with Details access for Partner Module Pharmacies
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Partner user should be able to view Profiles test
+And I create a profile with Details access only to Pharmacies in Partner Module test
+Then the user should be able to view Pharmacies details in Partner Module test
+And the user should not be able to add, edit, or delete Pharmacies in Partner Module test
+And the user should not be able to access Pharmacy Vetting in Partner Module test
+
+Scenario: User with Pharmacy Vetting access for Partner Module Pharmacies
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Partner user should be able to view Profiles test
+And I create a profile with Pharmacy Vetting access only to Pharmacies in Partner Module test
+Then the user should be able to access Pharmacy Vetting in Partner Module test
+And the user should not be able to add, edit, delete, or view Pharmacies details in Partner Module test
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

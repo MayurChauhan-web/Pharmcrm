@@ -2,15 +2,14 @@ package com.pharmcrm_PartnerModule.pages;
 
 import java.time.Duration;
 import java.util.List;
-
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import hooks.Hooks;
 
 public class partnerpage {
@@ -18,8 +17,245 @@ public class partnerpage {
 	private WebDriver driver;
 	private WebDriverWait wait;
 
+	// Pharmacies
+
+	public void userShouldNotBeAbleToAddEditOrDeletePharmaciesInPartnerModule() {
+
+		sleep(5000);
+
+		List<WebElement> newPartnerButtons = driver.findElements(newPartnerButton);
+		Assert.assertTrue(newPartnerButtons.isEmpty());
+
+		wait.until(ExpectedConditions.elementToBeClickable(pharmaciesMenuIcon)).click();
+
+		sleep(1000);
+
+		List<WebElement> editOptions = driver.findElements(editPharmaciesOption);
+		Assert.assertTrue(editOptions.isEmpty());
+
+		List<WebElement> deleteOptions = driver.findElements(deletePharmaciesOption);
+		Assert.assertTrue(deleteOptions.isEmpty());
+	}
+
+	public void userShouldBeAbleToViewPharmaciesDetailsInPartnerModule() {
+
+		sleep(5000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(viewPharmaciesDetailsIcon)).click();
+
+		sleep(3000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(pharmacyVettingButton)).click();
+	}
+
+	public void verifyPharmaciesDetailsOnlyAccessInPartnerModuleProfile() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void userShouldNotBeAbleToAddOrEditPharmaciesInPartnerModule() {
+
+		sleep(5000);
+
+		List<WebElement> newPartnerButtons = driver.findElements(newPartnerButton);
+		Assert.assertTrue(newPartnerButtons.isEmpty());
+
+		wait.until(ExpectedConditions.elementToBeClickable(pharmaciesMenuIcon)).click();
+
+		sleep(1000);
+
+		List<WebElement> editOptions = driver.findElements(editPharmaciesOption);
+		Assert.assertTrue(editOptions.isEmpty());
+	}
+
+	public void userShouldBeAbleToDeletePharmaciesInPartnerModule() {
+
+		sleep(5000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(pharmaciesMenuIcon)).click();
+
+		sleep(1000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(deletePharmaciesOption)).click();
+
+		sleep(1000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(confirmDeletePharmaciesButton)).click();
+	}
+
+	public void testPartnerModulePharmaciesDeleteAccessRestriction() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void userShouldNotBeAbleToAddOrDeletePharmaciesInPartnerModule() {
+
+		sleep(5000);
+
+		List<WebElement> newPartnerButtons = driver.findElements(newPartnerButton);
+		Assert.assertTrue(newPartnerButtons.isEmpty());
+
+		wait.until(ExpectedConditions.elementToBeClickable(pharmaciesMenuIcon)).click();
+
+		sleep(1000);
+
+		List<WebElement> deleteOptions = driver.findElements(deletePharmaciesOption);
+		Assert.assertTrue(deleteOptions.isEmpty());
+	}
+
+	public void userShouldBeAbleToEditPharmaciesInPartnerModule() {
+
+		sleep(5000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(pharmaciesMenuIcon)).click();
+
+		sleep(3000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(editPharmaciesOption)).click();
+
+		sleep(3000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(wednesdayCheckbox)).click();
+
+		sleep(3000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(savePharmaciesButton)).click();
+	}
+
+	public void testPartnerModulePharmaciesEditAccessRestriction() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void userShouldNotBeAbleToAccessPharmacyVettingInPartnerModule() {
+
+		sleep(3000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(viewPharmacyDetailsIcon)).click();
+
+		sleep(3000);
+
+		List<WebElement> vettingButtons = driver.findElements(pharmacyVettingButton);
+		Assert.assertTrue(vettingButtons.isEmpty());
+	}
+
+	public void userShouldNotBeAbleToViewPharmaciesDetailsInPartnerModule() {
+
+		sleep(3000);
+
+		driver.navigate().refresh();
+
+		sleep(3000);
+
+		List<WebElement> viewIcons = driver.findElements(viewPharmaciesDetailsIcon);
+		Assert.assertTrue(viewIcons.isEmpty());
+	}
+
+	public void userShouldNotBeAbleToEditOrDeletePharmaciesInPartnerModule() {
+
+		sleep(5000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(pharmaciesMenuIcon)).click();
+
+		sleep(2000);
+
+		List<WebElement> editOptions = driver.findElements(editPharmaciesOption);
+		Assert.assertTrue(editOptions.isEmpty());
+
+		List<WebElement> deleteOptions = driver.findElements(deletePharmaciesOption);
+		Assert.assertTrue(deleteOptions.isEmpty());
+	}
+
+	public void userShouldBeAbleToAddPharmaciesInPartnerModule() {
+
+		sleep(5000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(newPartnerButton)).click();
+
+		sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(businessNameField)).sendKeys("Kim Bounds");
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(phoneNumberField)).sendKeys("7798798798");
+
+		wait.until(ExpectedConditions.elementToBeClickable(savePartnerButton)).click();
+	}
+
+	public void testPartnerModulePharmaciesAddAccessRestriction() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	// Pharmacies
+	public By confirmDeletePharmaciesButton = By
+			.xpath("//div[@id='deletePartnerModel']//button[@id='btnDeleteConfirm']");
+	public By savePharmaciesButton = By.xpath("//button[@id='btnSave']");
+	public By viewPharmacyDetailsIcon = By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]");
+	public By pharmacyVettingButton = By.xpath("//button[@id='btnPartnerSignature']");
+	public By viewPharmaciesDetailsIcon = By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]");
+	public By pharmaciesMenuIcon = By.xpath("//tbody/tr[1]/td[9]/div[1]/div[1]/button[1]/i[1]");
+	public By editPharmaciesOption = By.xpath(
+			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]");
+	public By deletePharmaciesOption = By.xpath(
+			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]");
+
+	// Attorney
+	public By viewAttorneyDetailsIcon = By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]");
+	public By deleteAttorneyConfirmButton = By.xpath("//div[@id='deletePartnerModel']//button[@id='btnDeleteConfirm']");
+	public By companyAttorneyCheckbox = By.xpath("//label[normalize-space()='Company Attorney?']");
+	public By saveAttorneyButton = By.xpath("//button[@id='btnSave']");
+	public By viewAttorneyIcon = By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]");
+	public By attorneyMenuIcon = By.xpath("//tbody/tr[1]/td[9]/div[1]/div[1]/button[1]/i[1]");
+	public By editAttorneyOption = By.xpath(
+			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]");
+	public By deleteAttorneyOption = By.xpath(
+			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]");
+	public By businessNameField = By.id("Partner_BusinessName");
+	public By phoneNumberField = By.id("Partner_PhoneNumber");
+	public By savePartnerButton = By.xpath("//button[@id='btnSave']");
+
 	// Bucket
-	// Bucket
+	public By folderBucketIcon = By.xpath("//*[name()='path' and contains(@d,'M575.8 255')]");
+	public By confirmDeleteFileButton = By.xpath("//button[@id='btnDeleteFileConfirm']");
+	public By fileNameTextBox = By.id("fileNameTextBox");
+	public By closeEditFileButton = By
+			.xpath("//button[@onclick='javascript: ClosePartnerAddDocumentFile();']//i[@class='fa fa-times']");
+	public By uploadFileInput = By.xpath("// div[@class='model-inp']//input[@id='file-3']");
+	public By saveFileButton = By.xpath("//button[@id='btnSaveFile']");
+	public By partnerFolderIcon = By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]");
+	public By closeViewerButton = By.xpath("//button[@onclick='CloseDocViewer();']//i[@class='fa fa-times']");
+	public By downloadFileIcon = By.xpath("//img[@class='permitions']");
+	public By favouriteFileIcon = By.xpath("//img[@src='/Content/img/black-bookmark.png']");
+	public By deleteFileIcon = By.xpath("//a[@id='btnDeleteFile']//img");
+	public By addFileButton = By.xpath("//a[@id='btnAddFile']");
+	public By editFileIcon = By.xpath("//img[@class='edit']");
+	public By fileInBucket = By.id("fileBucketId");
+	public By favouriteFolderIcon = By.xpath("//img[@src='/Content/img/black-bookmark.png']");
+	public By deleteFolderIcon = By.xpath("//a[@id='btnDeleteFolder']//img");
+	public By confirmDeleteFolderButton = By.xpath("//div[@id='deleteFolderModel']//button[@id='btnDeleteConfirm']");
+	public By editFolderIcon = By.xpath("//img[@class='aaa']");
+	public By addFolderButton = By.id("btnAddFolder");
+	public By folderNameField = By.id("BucketFolder_FolderName");
+	public By folderTypeDropdown = By.id("BucketFolder_Type");
+	public By saveFolderButton = By.id("btnSave");
+	public By firstPartnerFolderIcon = By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]");
+	public By bucketFolder = By.xpath("//a[@id='93d2dd6a-73cf-423d-815b-43a8ff5886c8']");
 
 	// Executive
 	public By enableLoginOption = By.xpath(
@@ -115,6 +351,368 @@ public class partnerpage {
 	public By updatedDateColumn = By.xpath("//th[normalize-space()='Updated Date']");
 	public By priorAuthorizationProcessAllLabel = By.xpath("//label[@for='chkg23PriorAuthorizationProcessAll']");
 	public By priorAuthorizationGenerateAddLabel = By.xpath("//label[@for='chkg23PriorAuthorizationGenerateAdd']");
+
+	// Attorney
+	public void userShouldNotBeAbleToAddEditOrDeleteAttorneyInPartnerModule() {
+
+		sleep(3000);
+
+		List<WebElement> newPartnerButtons = driver.findElements(newPartnerButton);
+		Assert.assertTrue(newPartnerButtons.isEmpty());
+
+		wait.until(ExpectedConditions.elementToBeClickable(attorneyMenuIcon)).click();
+
+		sleep(2000);
+
+		List<WebElement> editOptions = driver.findElements(editAttorneyOption);
+		Assert.assertTrue(editOptions.isEmpty());
+
+		List<WebElement> deleteOptions = driver.findElements(deleteAttorneyOption);
+		Assert.assertTrue(deleteOptions.isEmpty());
+	}
+
+	public void userShouldBeAbleToViewAttorneyDetailsInPartnerModule() {
+
+		sleep(3000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(viewAttorneyDetailsIcon)).click();
+	}
+
+	public void testPartnerModuleAttorneyDetailsAccessRestriction() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void userShouldNotBeAbleToAddOrEditAttorneyInPartnerModule() {
+
+		sleep(3000);
+
+		List<WebElement> newPartnerButtons = driver.findElements(newPartnerButton);
+		Assert.assertTrue(newPartnerButtons.isEmpty());
+
+		sleep(1000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(attorneyMenuIcon)).click();
+
+		sleep(1000);
+
+		List<WebElement> editOptions = driver.findElements(editAttorneyOption);
+		Assert.assertTrue(editOptions.isEmpty());
+	}
+
+	public void userShouldBeAbleToDeleteAttorneyInPartnerModule() {
+
+		sleep(3000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(attorneyMenuIcon)).click();
+
+		sleep(2000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(deleteAttorneyOption)).click();
+
+		sleep(2000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(deleteAttorneyConfirmButton)).click();
+	}
+
+	public void testPartnerModuleAttorneyDeleteAccessRestriction() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void userShouldNotBeAbleToAddOrDeleteAttorneyInPartnerModule() {
+
+		List<WebElement> newPartner = driver.findElements(newPartnerButton);
+		Assert.assertTrue(newPartner.isEmpty());
+
+		wait.until(ExpectedConditions.elementToBeClickable(attorneyMenuIcon)).click();
+
+		List<WebElement> deleteOptions = driver.findElements(deleteAttorneyOption);
+		Assert.assertTrue(deleteOptions.isEmpty());
+	}
+
+	public void userShouldBeAbleToEditAttorneyInPartnerModule() {
+
+		wait.until(ExpectedConditions.elementToBeClickable(attorneyMenuIcon)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(editAttorneyOption)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(companyAttorneyCheckbox)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(saveAttorneyButton)).click();
+	}
+
+	public void verifyAttorneyEditOnlyAccessInPartnerModuleProfile() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void userShouldNotBeAbleToViewAttorneyDetailsInPartnerModule() {
+
+		List<WebElement> viewOptions = driver.findElements(viewAttorneyIcon);
+		Assert.assertTrue(viewOptions.isEmpty());
+	}
+
+	public void userShouldNotBeAbleToEditOrDeleteAttorneyInPartnerModule() {
+
+		wait.until(ExpectedConditions.elementToBeClickable(attorneyMenuIcon)).click();
+
+		List<WebElement> editOptions = driver.findElements(editAttorneyOption);
+		Assert.assertTrue(editOptions.isEmpty());
+
+		List<WebElement> deleteOptions = driver.findElements(deleteAttorneyOption);
+		Assert.assertTrue(deleteOptions.isEmpty());
+	}
+
+	public void userShouldBeAbleToAddAttorneyInPartnerModule() {
+
+		wait.until(ExpectedConditions.elementToBeClickable(newPartnerButton)).click();
+
+		WebElement businessName = wait.until(ExpectedConditions.visibilityOfElementLocated(businessNameField));
+		businessName.sendKeys("Kim Bounds");
+
+		WebElement phoneNumber = wait.until(ExpectedConditions.visibilityOfElementLocated(phoneNumberField));
+		phoneNumber.sendKeys("7798798798");
+
+		wait.until(ExpectedConditions.elementToBeClickable(savePartnerButton)).click();
+	}
+
+	public void testPartnerModuleAttorneyAddAccessRestriction() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyAttorneyAddOnlyAccessInPartnerModuleProfile() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	// Bucket
+
+	public void userShouldNotBeAbleToFavouriteFolderInBucketForPartnerModule() {
+
+		List<WebElement> favouriteFolderIcons = driver.findElements(favouriteFolderIcon);
+
+		Assert.assertTrue(favouriteFolderIcons.isEmpty());
+	}
+
+	public void userShouldNotBeAbleToDeleteFolderInBucketForPartnerModule() {
+
+		List<WebElement> deleteFolderIcons = driver.findElements(deleteFolderIcon);
+
+		Assert.assertTrue(deleteFolderIcons.isEmpty());
+	}
+
+	public void userShouldNotBeAbleToEditFolderInBucketForPartnerModule() {
+
+		List<WebElement> editFolderIcons = driver.findElements(editFolderIcon);
+
+		Assert.assertTrue(editFolderIcons.isEmpty());
+	}
+
+	public void userShouldNotBeAbleToAddFolderInBucketForPartnerModule() {
+
+		List<WebElement> addFolderButtons = driver.findElements(addFolderButton);
+
+		Assert.assertTrue(addFolderButtons.isEmpty());
+	}
+
+	public void userShouldNotBeAbleToViewFolderInBucketForPartnerModule() {
+
+		wait.until(ExpectedConditions.elementToBeClickable(folderBucketIcon)).click();
+
+		List<WebElement> editIcons = driver.findElements(editFolderIcon);
+
+		Assert.assertTrue(editIcons.isEmpty());
+	}
+
+	public void userShouldBeAbleToDownloadFileInBucketForPartnerModule() {
+
+		wait.until(ExpectedConditions.elementToBeClickable(downloadFileIcon)).click();
+
+	}
+
+	public void userShouldBeAbleToFavouriteFileInBucketForPartnerModule() {
+
+		wait.until(ExpectedConditions.elementToBeClickable(favouriteFileIcon)).click();
+
+	}
+
+	public void userShouldBeAbleToDeleteFileInBucketForPartnerModule() {
+
+		wait.until(ExpectedConditions.elementToBeClickable(deleteFileIcon)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(confirmDeleteFileButton)).click();
+	}
+
+	public void userShouldBeAbleToEditFileInBucketForPartnerModule() {
+
+		wait.until(ExpectedConditions.elementToBeClickable(editFileIcon)).click();
+
+		WebElement fileName = wait.until(ExpectedConditions.visibilityOfElementLocated(fileNameTextBox));
+		fileName.clear();
+		fileName.sendKeys("3.pdf");
+
+		wait.until(ExpectedConditions.elementToBeClickable(saveFileButton)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(closeEditFileButton)).click();
+	}
+
+	public void userShouldBeAbleToAddFileInBucketForPartnerModule() {
+
+		wait.until(ExpectedConditions.elementToBeClickable(addFileButton)).click();
+
+		String filePath = System.getProperty("user.dir") + "/src/test/resources/Documents/dummy.pdf";
+
+		WebElement fileInput = wait.until(ExpectedConditions.visibilityOfElementLocated(uploadFileInput));
+		fileInput.sendKeys(filePath);
+
+		wait.until(ExpectedConditions.elementToBeClickable(saveFileButton)).click();
+	}
+
+	public void userShouldBeAbleToViewFileInBucketForPartnerModule() {
+
+		wait.until(ExpectedConditions.elementToBeClickable(partnerFolderIcon)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(bucketFolder)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(editFileIcon)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(closeViewerButton)).click();
+	}
+
+	public void testPartnerModuleBucketProfileFileOnlyPermissions() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void userShouldNotBeAbleToDownloadFileInBucketForPartnerModule() {
+
+		List<WebElement> downloadFileIcons = driver.findElements(downloadFileIcon);
+
+		Assert.assertTrue(downloadFileIcons.isEmpty());
+	}
+
+	public void userShouldNotBeAbleToFavouriteFileInBucketForPartnerModule() {
+
+		List<WebElement> favouriteFileIcons = driver.findElements(favouriteFileIcon);
+
+		Assert.assertTrue(favouriteFileIcons.isEmpty());
+	}
+
+	public void userShouldNotBeAbleToDeleteFileInBucketForPartnerModule() {
+
+		List<WebElement> deleteFileIcons = driver.findElements(deleteFileIcon);
+
+		Assert.assertTrue(deleteFileIcons.isEmpty());
+	}
+
+	public void userShouldNotBeAbleToEditFileInBucketForPartnerModule() {
+
+		List<WebElement> editFileIcons = driver.findElements(editFileIcon);
+
+		Assert.assertTrue(editFileIcons.isEmpty());
+	}
+
+	public void userShouldNotBeAbleToAddFileInBucketForPartnerModule() {
+
+		List<WebElement> addFileButtons = driver.findElements(addFileButton);
+
+		Assert.assertTrue(addFileButtons.isEmpty());
+	}
+
+	public void userShouldNotBeAbleToViewFileInBucketForPartnerModule() {
+
+		wait.until(ExpectedConditions.elementToBeClickable(bucketFolder)).click();
+
+		List<WebElement> editIcons = driver.findElements(editFileIcon);
+
+		Assert.assertTrue(editIcons.isEmpty());
+	}
+
+	public void userShouldBeAbleToFavouriteFolderInBucketForPartnerModule() {
+
+		wait.until(ExpectedConditions.elementToBeClickable(favouriteFolderIcon)).click();
+
+	}
+
+	public void userShouldBeAbleToDeleteFolderInBucketForPartnerModule() {
+
+		wait.until(ExpectedConditions.elementToBeClickable(deleteFolderIcon)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(confirmDeleteFolderButton)).click();
+	}
+
+	public void userShouldBeAbleToEditFolderInBucketForPartnerModule() {
+
+		wait.until(ExpectedConditions.elementToBeClickable(editFolderIcon)).click();
+
+		WebElement folderName = wait.until(ExpectedConditions.visibilityOfElementLocated(folderNameField));
+		folderName.clear();
+		folderName.sendKeys("Garrett");
+
+		wait.until(ExpectedConditions.elementToBeClickable(saveFolderButton)).click();
+	}
+
+	public void userShouldBeAbleToAddFolderInBucketForPartnerModule() {
+
+		wait.until(ExpectedConditions.elementToBeClickable(addFolderButton)).click();
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(folderNameField)).sendKeys("Garrett");
+
+		wait.until(ExpectedConditions.elementToBeClickable(folderTypeDropdown)).click();
+
+		WebElement dropdown = wait.until(ExpectedConditions.visibilityOfElementLocated(folderTypeDropdown));
+		Select select = new Select(dropdown);
+		select.selectByIndex(1);
+
+		wait.until(ExpectedConditions.elementToBeClickable(saveFolderButton)).click();
+	}
+
+	public void verifyBucketProfileWithFolderOnlyPermissionsInPartnerModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void userShouldBeAbleToViewFolderInBucketForPartnerModule() {
+
+		wait.until(ExpectedConditions
+				.urlContains("/Partner/Home/Partners?partnerTypeId=6b73f9ca-5250-4d9c-8772-c2d33f5c5850"));
+
+		wait.until(ExpectedConditions.elementToBeClickable(firstPartnerFolderIcon)).click();
+
+		WebElement folderElement = wait.until(ExpectedConditions.visibilityOfElementLocated(bucketFolder));
+
+		Assert.assertTrue(folderElement.isDisplayed());
+	}
 
 	// Executive
 	public void verifyUserCannotAddEditOrDeleteExecutiveInPartnerModule() {
