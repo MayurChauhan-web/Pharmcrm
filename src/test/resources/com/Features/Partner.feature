@@ -358,7 +358,7 @@ Then the user should be able to view Pharmacies details in Partner Module
 And the user should not be able to add, edit, or delete Pharmacies in Partner Module
 And the user should not be able to access Pharmacy Vetting in Partner Module
 
-#
+
 Scenario: User with Pharmacy Vetting access for Partner Module Pharmacies
 Given I log in as admin for Partner Module
 When I create a new user with email for Partner Module "testuser10_static@mailinator.com"
@@ -368,6 +368,7 @@ And I reset the user's password for Partner Module
 And I log in using the new user for Partner Module
 Then the user should be able to access Pharmacy Vetting in Partner Module
 And the user should not be able to add, edit, delete, or view Pharmacies details in Partner Module
+
 
 Scenario: User with Add access for Partner Module DME Provider
 Given I log in as admin for Partner Module
@@ -379,6 +380,7 @@ And I log in using the new user for Partner Module
 Then the user should be able to add DME Provider in Partner Module
 And the user should not be able to edit or delete DME Provider in Partner Module
 And the user should not be able to view DME Provider details in Partner Module
+
 
 Scenario: User with Edit access for Partner Module DME Provider
 Given I log in as admin for Partner Module
@@ -423,6 +425,7 @@ Then the user should be able to add Rx HUB in Partner Module
 And the user should not be able to edit or delete Rx HUB in Partner Module
 And the user should not be able to view Rx HUB details in Partner Module
 
+
 Scenario: User with Edit access for Partner Module Rx HUB
 Given I log in as admin for Partner Module
 When I create a new user with email for Partner Module "testuser6_static@mailinator.com"
@@ -455,6 +458,7 @@ And I log in using the new user for Partner Module
 Then the user should be able to view Rx HUB details in Partner Module
 And the user should not be able to add, edit, or delete Rx HUB in Partner Module
 
+
 Scenario: User with Add access for Partner Module Federal and State Government
 Given I log in as admin for Partner Module
 When I create a new user with email for Partner Module "testuser9_static@mailinator.com"
@@ -465,6 +469,7 @@ And I log in using the new user for Partner Module
 Then the user should be able to add Federal and State Government in Partner Module
 And the user should not be able to edit or delete Federal and State Government in Partner Module
 And the user should not be able to view Federal and State Government details in Partner Module
+
 
 Scenario: User with Edit access for Partner Module Federal and State Government
 Given I log in as admin for Partner Module
@@ -488,6 +493,7 @@ Then the user should be able to delete Federal and State Government in Partner M
 And the user should not be able to add or edit Federal and State Government in Partner Module
 And the user should not be able to view Federal and State Government details in Partner Module
 
+
 Scenario: User with Details access for Partner Module Federal and State Government
 Given I log in as admin for Partner Module
 When I create a new user with email for Partner Module "testuser3_static@mailinator.com"
@@ -497,6 +503,7 @@ And I reset the user's password for Partner Module
 And I log in using the new user for Partner Module
 Then the user should be able to view Federal and State Government details in Partner Module
 And the user should not be able to add, edit, or delete Federal and State Government in Partner Module
+
 
 Scenario: User with Add access for Partner Module Employers
 Given I log in as admin for Partner Module
@@ -520,6 +527,7 @@ Then the user should be able to edit Employers in Partner Module
 And the user should not be able to add or delete Employers in Partner Module
 And the user should not be able to view Employers details in Partner Module
 
+
 Scenario: User with Delete access for Partner Module Employers
 Given I log in as admin for Partner Module
 When I create a new user with email for Partner Module "testuser6_static@mailinator.com"
@@ -530,6 +538,7 @@ And I log in using the new user for Partner Module
 Then the user should be able to delete Employers in Partner Module
 And the user should not be able to add or edit Employers in Partner Module
 And the user should not be able to view Employers details in Partner Module
+
 
 Scenario: User with Details access for Partner Module Employers
 Given I log in as admin for Partner Module
@@ -551,6 +560,7 @@ And I log in using the new user for Partner Module
 Then the user should be able to add Referral Enrollment in Partner Module
 And the user should not be able to edit or delete Referral Enrollment in Partner Module
 
+
 Scenario: User with Edit access for Partner Module Referral Enrollment
 Given I log in as admin for Partner Module
 When I create a new user with email for Partner Module "testuser2_static@mailinator.com"
@@ -560,6 +570,7 @@ And I reset the user's password for Partner Module
 And I log in using the new user for Partner Module
 Then the user should be able to edit Referral Enrollment in Partner Module
 And the user should not be able to add or delete Referral Enrollment in Partner Module
+
 
 Scenario: User with Delete access for Partner Module Referral Enrollment
 Given I log in as admin for Partner Module
@@ -571,6 +582,7 @@ And I log in using the new user for Partner Module
 Then the user should be able to delete Referral Enrollment in Partner Module
 And the user should not be able to add or edit Referral Enrollment in Partner Module
 
+
 Scenario: User with Download File access for Partner Module Referral Patient History
 Given I log in as admin for Partner Module
 When I create a new user with email for Partner Module "testuser4_static@mailinator.com"
@@ -580,6 +592,7 @@ And I reset the user's password for Partner Module
 And I log in using the new user for Partner Module
 Then the user should be able to download files in Referral Patient History in Partner Module
 
+#
 Scenario: User without Download File access for Partner Module Referral Patient History
 Given I log in as admin for Partner Module
 When I create a new user with email for Partner Module "testuser5_static@mailinator.com"
@@ -880,288 +893,5 @@ And I assign the profile and workspace to the user for Partner Module
 And I reset the user's password for Partner Module
 And I log in using the new user for Partner Module
 Then the user should not be able to update DeDupe records in Partners Module via UI or direct URL
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
