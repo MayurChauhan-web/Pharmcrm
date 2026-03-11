@@ -592,7 +592,7 @@ And I reset the user's password for Partner Module
 And I log in using the new user for Partner Module
 Then the user should be able to download files in Referral Patient History in Partner Module
 
-#
+
 Scenario: User without Download File access for Partner Module Referral Patient History
 Given I log in as admin for Partner Module
 When I create a new user with email for Partner Module "testuser5_static@mailinator.com"
@@ -601,6 +601,7 @@ And I assign the profile and workspace to the user for Partner Module
 And I reset the user's password for Partner Module
 And I log in using the new user for Partner Module
 Then the user should not be able to download files in Referral Patient History in Partner Module
+
 
 Scenario: User with Download File access for Partner Module Referral Incoming Details
 Given I log in as admin for Partner Module
@@ -611,6 +612,7 @@ And I reset the user's password for Partner Module
 And I log in using the new user for Partner Module
 Then the user should be able to download files in Referral Incoming Details in Partner Module
 
+
 Scenario: User without Download File access for Partner Module Referral Incoming Details
 Given I log in as admin for Partner Module
 When I create a new user with email for Partner Module "testuser7_static@mailinator.com"
@@ -619,6 +621,7 @@ And I assign the profile and workspace to the user for Partner Module
 And I reset the user's password for Partner Module
 And I log in using the new user for Partner Module
 Then the user should not be able to download files in Referral Incoming Details in Partner Module
+
 
 Scenario: User with Download File access for Partner Module Referral Outgoing Details
 Given I log in as admin for Partner Module
@@ -629,6 +632,7 @@ And I reset the user's password for Partner Module
 And I log in using the new user for Partner Module
 Then the user should be able to download files in Referral Outgoing Details in Partner Module
 
+
 Scenario: User without Download File access for Partner Module Referral Outgoing Details
 Given I log in as admin for Partner Module
 When I create a new user with email for Partner Module "testuser9_static@mailinator.com"
@@ -637,6 +641,7 @@ And I assign the profile and workspace to the user for Partner Module
 And I reset the user's password for Partner Module
 And I log in using the new user for Partner Module
 Then the user should not be able to download files in Referral Outgoing Details in Partner Module
+
 
 Scenario: User with Export Excel access for Partner Module Partner PA Details
 Given I log in as admin for Partner Module
@@ -667,6 +672,7 @@ Then the user should be able to add Funding Company in Partner Module
 And the user should not be able to edit or delete Funding Company in Partner Module
 And the user should not be able to view Funding Company details in Partner Module
 
+
 Scenario: User with Edit access for Partner Module Funding Company
 Given I log in as admin for Partner Module
 When I create a new user with email for Partner Module "testuser5_static@mailinator.com"
@@ -677,6 +683,7 @@ And I log in using the new user for Partner Module
 Then the user should be able to edit Funding Company in Partner Module
 And the user should not be able to add or delete Funding Company in Partner Module
 And the user should not be able to view Funding Company details in Partner Module
+
 
 Scenario: User with Delete access for Partner Module Funding Company
 Given I log in as admin for Partner Module
@@ -699,6 +706,7 @@ And I log in using the new user for Partner Module
 Then the user should be able to view Funding Company details in Partner Module
 And the user should not be able to add, edit, or delete Funding Company in Partner Module
 
+
 Scenario: User with Add access for Partner Module Partner License
 Given I log in as admin for Partner Module
 When I create a new user with email for Partner Module "testuser1_static@mailinator.com"
@@ -710,6 +718,7 @@ Then the user should be able to add Partner License in Partner Module
 And the user should not be able to edit or delete Partner License in Partner Module
 And the user should not be able to view Partner License details in Partner Module
 And the user should not be able to download files in Partner License in Partner Module
+
 
 Scenario: User with Edit access for Partner Module Partner License
 Given I log in as admin for Partner Module
@@ -723,6 +732,7 @@ And the user should not be able to add or delete Partner License in Partner Modu
 And the user should not be able to view Partner License details in Partner Module
 And the user should not be able to download files in Partner License in Partner Module
 
+
 Scenario: User with Delete access for Partner Module Partner License
 Given I log in as admin for Partner Module
 When I create a new user with email for Partner Module "testuser5_static@mailinator.com"
@@ -734,6 +744,7 @@ Then the user should be able to delete Partner License in Partner Module
 And the user should not be able to add or edit Partner License in Partner Module
 And the user should not be able to view Partner License details in Partner Module
 And the user should not be able to download files in Partner License in Partner Module
+
 
 Scenario: User with Details access for Partner Module Partner License
 Given I log in as admin for Partner Module
@@ -756,6 +767,7 @@ And I log in using the new user for Partner Module
 Then the user should be able to download files in Partner License in Partner Module
 And the user should not be able to add, delete Partner License in Partner Module
 
+
 Scenario: User with Add access for Partner Module Partner Special Event
 Given I log in as admin for Partner Module
 When I create a new user with email for Partner Module "testuser1_static@mailinator.com"
@@ -765,6 +777,7 @@ And I reset the user's password for Partner Module
 And I log in using the new user for Partner Module
 Then the user should be able to add Partner Special Event in Partner Module
 And the user should not be able to edit or delete Partner Special Event in Partner Module
+
 
 Scenario: User with Edit access for Partner Module Partner Special Event
 Given I log in as admin for Partner Module
@@ -776,6 +789,7 @@ And I log in using the new user for Partner Module
 Then the user should be able to edit Partner Special Event in Partner Module
 And the user should not be able to add or delete Partner Special Event in Partner Module
 
+
 Scenario: User with Delete access for Partner Module Partner Special Event
 Given I log in as admin for Partner Module
 When I create a new user with email for Partner Module "testuser3_static@mailinator.com"
@@ -786,6 +800,7 @@ And I log in using the new user for Partner Module
 Then the user should be able to delete Partner Special Event in Partner Module
 And the user should not be able to add or edit Partner Special Event in Partner Module
 
+#
 Scenario: User with Add access for Partner Module Partner Special Service
 Given I log in as admin for Partner Module
 When I create a new user with email for Partner Module "testuser4_static@mailinator.com"

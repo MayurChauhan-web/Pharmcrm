@@ -18,48 +18,40 @@ public class partnerpage {
 	private WebDriver driver;
 	private WebDriverWait wait;
 
-	// Referral Patient History
+	// Partner Special Service
 
-	public void verifyUserCannotDownloadReferralPatientHistoryFile() throws InterruptedException {
+	public void verifyUserCannotEditOrDeletePartnerSpecialService() throws InterruptedException {
 
-		Thread.sleep(5000);
-
-		wait.until(ExpectedConditions.elementToBeClickable(firstPartnerEditIcon)).click();
 		Thread.sleep(3000);
 
-		wait.until(ExpectedConditions.elementToBeClickable(referralTab)).click();
-		Thread.sleep(2000);
-
-		if (driver.findElements(downloadFileIcon).size() > 0) {
-			throw new AssertionError("Download file icon should not be present!");
+		if (driver.findElements(editSpecialServiceButton).size() > 0) {
+			throw new AssertionError("Edit Special Service button should not be visible!");
 		}
-		Thread.sleep(2000);
+
+		if (driver.findElements(deleteSpecialServiceButton).size() > 0) {
+			throw new AssertionError("Delete Partner Special Service button should not be visible!");
+		}
 	}
 
-	public void userShouldNotBeAbleToDownloadFilesInReferralPatientHistory() {
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-		sleep(2000);
-		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
-		allModules.click();
-		sleep(2000);
-
-	}
-
-	public void verifyUserCanDownloadReferralPatientHistoryFile() throws InterruptedException {
+	public void verifyUserCanAddPartnerSpecialService() throws InterruptedException {
 
 		Thread.sleep(5000);
 
-		wait.until(ExpectedConditions.elementToBeClickable(firstPartnerEditIcon)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(partnerDetailsIcon)).click();
 		Thread.sleep(3000);
 
-		wait.until(ExpectedConditions.elementToBeClickable(referralTab)).click();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(specialServiceTab)).click();
+		Thread.sleep(3000);
 
-		wait.until(ExpectedConditions.elementToBeClickable(downloadFileIcon)).click();
-		Thread.sleep(2000);
+		WebElement dropdown = wait.until(ExpectedConditions.visibilityOfElementLocated(specialServiceDropdown));
+		Select select = new Select(dropdown);
+		select.selectByIndex(1);
+		Thread.sleep(1000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(saveSpecialServiceButton)).click();
 	}
 
-	public void userShouldBeAbleToDownloadReferralPatientHistory() {
+	public void grantAddAccessToPartnerSpecialService() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
 		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
@@ -67,7 +59,51 @@ public class partnerpage {
 		sleep(2000);
 
 	}
-	// Referral Patient History
+
+	// Partner Special Service
+	private By specialServiceTab = By.xpath("//a[normalize-space()='Special Service']");
+	private By specialServiceDropdown = By.id("Partner_SpecialService");
+	private By saveSpecialServiceButton = By.xpath("//img[@class='v-align-middle']");
+	private By editSpecialServiceButton = By.xpath("(//a[@data-original-title='Edit Special Service'])[1]");
+	private By deleteSpecialServiceButton = By.xpath("(//a[@data-original-title='Delete Partner Special Service'])[1]");
+
+	// Partner Special Event
+	private By editSpecialEventButton = By.xpath("(//a[@data-original-title='Edit Special Event'])[1]");
+	private By deleteSpecialEventButton = By.xpath("(//a[@data-original-title='Delete Partner Special Event'])[1]");
+	private By specialEventTab = By.xpath("//a[normalize-space()='Special Event']");
+	private By newSpecialEventButton = By.xpath("//span[normalize-space()='New Special Event']");
+	private By specialEventTitleInput = By.id("PartnerSpecialEvent_Title");
+	private By saveSpecialEventButton = By.id("btnSavePartnerSpecialEventPopup");
+
+	// Partner License
+	private By partnerDetailsIcon = By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]");
+	private By viewPartnerDetailsIcon = By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]");
+	private By licenseNumberInput = By.id("PartnerLicense_LicenseNumber");
+	private By newPartnerLicenseButton = By.xpath("//span[normalize-space()='New Partner License']");
+	private By downloadPartnerLicenseButton = By.xpath("(//a[@id='btneditPartnerLicense'])[1]");
+	private By viewPartnerLicenseDetailsButton = By.xpath("(//a[@id='btneditPartnerLicense'])[1]");
+	private By partnerLicenseTab = By.xpath("//a[normalize-space()='Partner License']");
+	private By editPartnerLicenseButton = By.xpath("(//a[@id='btneditPartnerLicense'])[1]");
+	private By deletePartnerLicenseButton = By.xpath("(//a[@id='btnDeletePartnerLicense'])[1]");
+
+	// Funding Company
+	private By viewFundingCompanyDetailsIcon = By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]");
+	private By fundingCompanyDetailsIcon = By.xpath(
+			"//tbody/tr/td/div[@class='gridListIconsFlex justify-content-end']/a[@id='liPartners_d4211063-cc31-48bd-a4bc-e856ff2ab7d8']/img[1]");
+	private By actionsMenuIcon = By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']");
+	private By businessNameInput = By.id("Partner_BusinessName");
+	private By phoneNumberInput = By.id("Partner_PhoneNumber");
+
+	// Partner PA Details
+	private By historyTab = By.xpath("//a[normalize-space()='History']");
+	private By viewAllPAButton = By.xpath("//span[normalize-space()='View All PA']");
+
+	// Partner Referral Outgoing Details
+	private By outgoingTab = By.xpath("//a[normalize-space()='Outgoing']");
+
+	// Partner Referral Incoming Details
+	private By viewAllReferralsButton = By.xpath("//span[normalize-space()='View All Referrals']");
+	private By exportToExcelButton = By.xpath("//span[normalize-space()='Export to Excel']");
 
 	// Referral Enrollment
 	private By firstPartnerEditIcon = By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]");
@@ -259,6 +295,776 @@ public class partnerpage {
 	public By updatedDateColumn = By.xpath("//th[normalize-space()='Updated Date']");
 	public By priorAuthorizationProcessAllLabel = By.xpath("//label[@for='chkg23PriorAuthorizationProcessAll']");
 	public By priorAuthorizationGenerateAddLabel = By.xpath("//label[@for='chkg23PriorAuthorizationGenerateAdd']");
+
+	// Partner Special Event
+
+	public void verifyUserCannotAddOrEditPartnerSpecialEvent() throws InterruptedException {
+
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(specialEventTab)).click();
+		Thread.sleep(3000);
+
+		if (driver.findElements(newSpecialEventButton).size() > 0) {
+			throw new AssertionError("New Special Event button should not be visible!");
+		}
+
+		if (driver.findElements(editSpecialEventButton).size() > 0) {
+			throw new AssertionError("Edit Special Event button should not be visible!");
+		}
+	}
+
+	public void verifyUserCanDeletePartnerSpecialEvent() throws InterruptedException {
+
+		Thread.sleep(5000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(partnerDetailsIcon)).click();
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(specialEventTab)).click();
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(deleteSpecialEventButton)).click();
+		Thread.sleep(1000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(confirmDeleteButton)).click();
+	}
+
+	public void grantDeleteAccessToPartnerSpecialEvent() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCannotAddOrDeletePartnerSpecialEvent() throws InterruptedException {
+
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(specialEventTab)).click();
+		Thread.sleep(3000);
+
+		if (driver.findElements(newSpecialEventButton).size() > 0) {
+			throw new AssertionError("New Special Event button should not be visible!");
+		}
+
+		if (driver.findElements(deleteSpecialEventButton).size() > 0) {
+			throw new AssertionError("Delete Partner Special Event button should not be visible!");
+		}
+	}
+
+	public void verifyUserCanEditPartnerSpecialEvent() throws InterruptedException {
+
+		Thread.sleep(5000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(partnerDetailsIcon)).click();
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(specialEventTab)).click();
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(editSpecialEventButton)).click();
+		Thread.sleep(1000);
+
+		WebElement titleInput = wait.until(ExpectedConditions.visibilityOfElementLocated(specialEventTitleInput));
+		titleInput.clear();
+		titleInput.sendKeys("Event");
+
+		wait.until(ExpectedConditions.elementToBeClickable(saveSpecialEventButton)).click();
+	}
+
+	public void grantEditAccessToPartnerSpecialEvent() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCannotEditOrDeletePartnerSpecialEvent() throws InterruptedException {
+
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(specialEventTab)).click();
+		Thread.sleep(3000);
+
+		if (driver.findElements(editSpecialEventButton).size() > 0) {
+			throw new AssertionError("Edit Special Event button should not be visible!");
+		}
+
+		if (driver.findElements(deleteSpecialEventButton).size() > 0) {
+			throw new AssertionError("Delete Partner Special Event button should not be visible!");
+		}
+	}
+
+	public void verifyUserCanAddPartnerSpecialEvent() throws InterruptedException {
+
+		Thread.sleep(5000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(partnerDetailsIcon)).click();
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(specialEventTab)).click();
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(newSpecialEventButton)).click();
+		Thread.sleep(1000);
+
+		WebElement titleInput = wait.until(ExpectedConditions.visibilityOfElementLocated(specialEventTitleInput));
+		titleInput.clear();
+		titleInput.sendKeys("Event");
+
+		wait.until(ExpectedConditions.elementToBeClickable(saveSpecialEventButton)).click();
+	}
+
+	public void grantAddAccessToPartnerSpecialEvent() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	// Partner License
+
+	public void verifyUserCannotAddOrDeletePartnerLicense() throws InterruptedException {
+
+		Thread.sleep(3000);
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+		wait.until(ExpectedConditions.elementToBeClickable(partnerLicenseTab)).click();
+		Thread.sleep(1000);
+
+		if (driver.findElements(newPartnerLicenseButton).size() > 0) {
+			throw new AssertionError("New Partner License button should not be visible!");
+		}
+
+		if (driver.findElements(deletePartnerLicenseButton).size() > 0) {
+			throw new AssertionError("Delete Partner License button should not be visible!");
+		}
+	}
+
+	public void verifyUserCanDownloadFilesInPartnerLicenseInPartnerModule() throws InterruptedException {
+
+		Thread.sleep(5000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(partnerDetailsIcon)).click();
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(partnerLicenseTab)).click();
+		Thread.sleep(2000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(editPartnerLicenseButton)).click();
+		Thread.sleep(2000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(downloadFileIcon)).click();
+	}
+
+	public void grantDownloadAccessToPartnerLicense() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCannotAddEditOrDeletePartnerLicenseInPartnerModule() throws InterruptedException {
+
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(partnerLicenseTab)).click();
+		Thread.sleep(1000);
+
+		if (driver.findElements(newPartnerLicenseButton).size() > 0) {
+			throw new AssertionError("New Partner License button should not be visible!");
+		}
+
+		if (driver.findElements(editPartnerLicenseButton).size() > 0) {
+			throw new AssertionError("Edit Partner License button should not be visible!");
+		}
+
+		if (driver.findElements(deletePartnerLicenseButton).size() > 0) {
+			throw new AssertionError("Delete Partner License button should not be visible!");
+		}
+	}
+
+	public void verifyUserCanViewPartnerLicenseDetailsInPartnerModule() throws InterruptedException {
+
+		Thread.sleep(5000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(partnerDetailsIcon)).click();
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(partnerLicenseTab)).click();
+		Thread.sleep(2000);
+	}
+
+	public void grantDetailsAccessToPartnerLicense() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCannotAddOrEditPartnerLicenseInPartnerModule() throws InterruptedException {
+
+		Thread.sleep(3000);
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+		wait.until(ExpectedConditions.elementToBeClickable(partnerLicenseTab)).click();
+		Thread.sleep(1000);
+
+		if (driver.findElements(newPartnerLicenseButton).size() > 0) {
+			throw new AssertionError("New Partner License button should not be visible!");
+		}
+
+		if (driver.findElements(editPartnerLicenseButton).size() > 0) {
+			throw new AssertionError("Edit Partner License button should not be visible!");
+		}
+	}
+
+	public void verifyUserCanDeletePartnerLicenseInPartnerModule() throws InterruptedException {
+
+		Thread.sleep(5000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(partnerDetailsIcon)).click();
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(partnerLicenseTab)).click();
+		Thread.sleep(2000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(deletePartnerLicenseButton)).click();
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(confirmDeleteButton)).click();
+	}
+
+	public void grantDeleteAccessToPartnerLicense() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCannotAddOrDeletePartnerLicenseInPartnerModule() throws InterruptedException {
+
+		Thread.sleep(3000);
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+		wait.until(ExpectedConditions.elementToBeClickable(partnerLicenseTab)).click();
+
+		Thread.sleep(1000);
+
+		if (driver.findElements(newPartnerLicenseButton).size() > 0) {
+			throw new AssertionError("New Partner License button should not be visible!");
+		}
+
+		if (driver.findElements(deletePartnerLicenseButton).size() > 0) {
+			throw new AssertionError("Delete Partner License button should not be visible!");
+		}
+	}
+
+	public void verifyUserCanEditPartnerLicenseInPartnerModule() throws InterruptedException {
+
+		Thread.sleep(5000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(viewPartnerDetailsIcon)).click();
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(partnerLicenseTab)).click();
+		Thread.sleep(2000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(editPartnerLicenseButton)).click();
+		Thread.sleep(3000);
+
+		WebElement licenseNumber = wait.until(ExpectedConditions.visibilityOfElementLocated(licenseNumberInput));
+		licenseNumber.clear();
+		licenseNumber.sendKeys("55");
+
+		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
+	}
+
+	public void grantEditAccessToPartnerLicense() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCannotDownloadFilesInPartnerLicenseInPartnerModule() throws InterruptedException {
+
+		Thread.sleep(3000);
+
+		if (driver.findElements(downloadPartnerLicenseButton).size() > 0) {
+			throw new AssertionError("Download option in Partner License should not be visible!");
+		}
+	}
+
+	public void verifyUserCannotViewPartnerLicenseDetailsInPartnerModule() throws InterruptedException {
+
+		Thread.sleep(3000);
+
+		if (driver.findElements(viewPartnerLicenseDetailsButton).size() > 0) {
+			throw new AssertionError("Partner License details button should not be visible!");
+		}
+	}
+
+	public void verifyUserCannotEditOrDeletePartnerLicenseInPartnerModule() throws InterruptedException {
+
+		Thread.sleep(3000);
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+		wait.until(ExpectedConditions.elementToBeClickable(partnerLicenseTab)).click();
+		Thread.sleep(1000);
+
+		if (driver.findElements(editPartnerLicenseButton).size() > 0) {
+			throw new AssertionError("Edit Partner License button should not be visible!");
+		}
+
+		if (driver.findElements(deletePartnerLicenseButton).size() > 0) {
+			throw new AssertionError("Delete Partner License button should not be visible!");
+		}
+	}
+
+	public void verifyUserCanAddPartnerLicenseInPartnerModule() throws InterruptedException {
+
+		Thread.sleep(5000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(newPartnerButton)).click();
+		Thread.sleep(3000);
+
+		WebElement businessName = wait.until(ExpectedConditions.visibilityOfElementLocated(businessNameInput));
+		businessName.clear();
+		businessName.sendKeys("Kim Bounds");
+
+		WebElement phoneNumber = wait.until(ExpectedConditions.visibilityOfElementLocated(phoneNumberInput));
+		phoneNumber.clear();
+		phoneNumber.sendKeys("7798798798");
+
+		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
+	}
+
+	public void grantAddAccessToPartnerLicense() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	// Funding Company
+
+	public void verifyUserCannotAddEditOrDeleteFundingCompany() throws InterruptedException {
+
+		Thread.sleep(5000);
+
+		if (driver.findElements(newPartnerButton).size() > 0) {
+			throw new AssertionError("'New Partner' button should not be visible!");
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(actionsMenuIcon)).click();
+		Thread.sleep(1000);
+
+		if (driver.findElements(editOption).size() > 0) {
+			throw new AssertionError("'Edit' option should not be visible!");
+		}
+
+		if (driver.findElements(deleteOption).size() > 0) {
+			throw new AssertionError("'Delete' option should not be visible!");
+		}
+	}
+
+	public void verifyUserCanViewFundingCompanyDetails() throws InterruptedException {
+
+		Thread.sleep(5000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(viewFundingCompanyDetailsIcon)).click();
+
+		Thread.sleep(3000);
+	}
+
+	public void grantDetailsAccessToFundingCompany() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCannotAddOrEditFundingCompany() throws InterruptedException {
+
+		Thread.sleep(5000);
+
+		if (driver.findElements(newPartnerButton).size() > 0) {
+			throw new AssertionError("'New Partner' button should not be visible!");
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(actionsMenuIcon)).click();
+		Thread.sleep(1000);
+
+		if (driver.findElements(editOption).size() > 0) {
+			throw new AssertionError("'Edit' option should not be visible!");
+		}
+	}
+
+	public void verifyUserCanDeleteFundingCompany() throws InterruptedException {
+
+		Thread.sleep(5000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(actionsMenuIcon)).click();
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(deleteOption)).click();
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(confirmDeleteButton)).click();
+	}
+
+	public void grantDeleteAccessToFundingCompany() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCannotAddOrDeleteFundingCompany() throws InterruptedException {
+
+		Thread.sleep(5000);
+
+		if (driver.findElements(newPartnerButton).size() > 0) {
+			throw new AssertionError("'New Partner' button should not be visible!");
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(actionsMenuIcon)).click();
+		Thread.sleep(1000);
+
+		if (driver.findElements(deleteOption).size() > 0) {
+			throw new AssertionError("'Delete' option should not be visible!");
+		}
+	}
+
+	public void verifyUserCanEditFundingCompany() throws InterruptedException {
+
+		Thread.sleep(5000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(actionsMenuIcon)).click();
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(editOption)).click();
+		Thread.sleep(3000);
+
+		WebElement businessName = wait.until(ExpectedConditions.visibilityOfElementLocated(businessNameInput));
+		businessName.clear();
+		businessName.sendKeys("Kim Bounds");
+
+		WebElement phoneNumber = wait.until(ExpectedConditions.visibilityOfElementLocated(phoneNumberInput));
+		phoneNumber.clear();
+		phoneNumber.sendKeys("7798798798");
+
+		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
+	}
+
+	public void grantEditAccessToFundingCompany() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCannotViewFundingCompanyDetails() throws InterruptedException {
+		Thread.sleep(3000);
+
+		driver.navigate().refresh();
+		Thread.sleep(2000);
+
+		if (driver.findElements(fundingCompanyDetailsIcon).size() > 0) {
+			throw new AssertionError("Funding Company details icon should not be visible!");
+		}
+	}
+
+	public void verifyUserCannotEditOrDeleteFundingCompany() throws InterruptedException {
+
+		Thread.sleep(5000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(actionsMenuIcon)).click();
+		Thread.sleep(1000);
+
+		if (driver.findElements(editOption).size() > 0) {
+			throw new AssertionError("'Edit' option should not be present!");
+		}
+
+		if (driver.findElements(deleteOption).size() > 0) {
+			throw new AssertionError("'Delete' option should not be present!");
+		}
+	}
+
+	public void verifyUserCanAddFundingCompany() throws InterruptedException {
+
+		Thread.sleep(5000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(newPartnerButton)).click();
+		Thread.sleep(3000);
+
+		WebElement businessName = wait.until(ExpectedConditions.visibilityOfElementLocated(businessNameInput));
+		businessName.clear();
+		businessName.sendKeys("Kim Bounds");
+
+		WebElement phoneNumber = wait.until(ExpectedConditions.visibilityOfElementLocated(phoneNumberInput));
+		phoneNumber.clear();
+		phoneNumber.sendKeys("7798798798");
+
+		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
+	}
+
+	public void userShouldBeAbleToAddFundingCompany() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	// Partner PA Details
+
+	public void verifyUserCannotExportExcelInPartnerPADetails() throws InterruptedException {
+
+		Thread.sleep(5000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(firstPartnerEditIcon)).click();
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(historyTab)).click();
+		Thread.sleep(2000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(viewAllPAButton)).click();
+		Thread.sleep(3000);
+
+		if (driver.findElements(exportToExcelButton).size() > 0) {
+			throw new AssertionError("'Export to Excel' button should not be present!");
+		}
+		Thread.sleep(3000);
+	}
+
+	public void userShouldNotBeAbleToExportExcelInPartnerPADetails() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCanExportExcelInPartnerPADetails() throws InterruptedException {
+
+		Thread.sleep(5000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(firstPartnerEditIcon)).click();
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(historyTab)).click();
+		Thread.sleep(2000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(viewAllPAButton)).click();
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(exportToExcelButton)).click();
+		Thread.sleep(3000);
+	}
+
+	public void userShouldBeAbleToExportExcelInPartnerPADetails() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	// Partner Referral Outgoing Details
+
+	public void verifyUserCannotDownloadReferralOutgoingDetailsFile() throws InterruptedException {
+
+		Thread.sleep(5000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(firstPartnerEditIcon)).click();
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(referralTab)).click();
+		Thread.sleep(2000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(viewAllReferralsButton)).click();
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(outgoingTab)).click();
+		Thread.sleep(3000);
+
+		if (driver.findElements(downloadFileIcon).size() > 0) {
+			throw new AssertionError("Download file icon should not be present!");
+		}
+	}
+
+	public void userShouldNotBeAbleToDownloadFilesInReferralOutgoingDetails() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCanDownloadReferralOutgoingDetailsFile() throws InterruptedException {
+
+		Thread.sleep(5000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(firstPartnerEditIcon)).click();
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(referralTab)).click();
+		Thread.sleep(2000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(viewAllReferralsButton)).click();
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(outgoingTab)).click();
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(downloadFileIcon)).click();
+	}
+
+	public void userShouldBeAbleToDownloadFilesInReferralOutgoingDetails() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	// Referral Patient History
+
+	public void verifyUserCannotDownloadReferralPatientHistoryFile() throws InterruptedException {
+
+		Thread.sleep(5000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(firstPartnerEditIcon)).click();
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(referralTab)).click();
+		Thread.sleep(2000);
+
+		if (driver.findElements(downloadFileIcon).size() > 0) {
+			throw new AssertionError("Download file icon should not be present!");
+		}
+		Thread.sleep(2000);
+	}
+
+	public void userShouldNotBeAbleToDownloadFilesInReferralPatientHistory() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCanDownloadReferralPatientHistoryFile() throws InterruptedException {
+
+		Thread.sleep(5000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(firstPartnerEditIcon)).click();
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(referralTab)).click();
+		Thread.sleep(2000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(downloadFileIcon)).click();
+		Thread.sleep(2000);
+	}
+
+	public void userShouldBeAbleToDownloadReferralPatientHistory() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	// Partner Referral Incoming Details
+
+	public void verifyUserCannotDownloadReferralIncomingDetailsFile() throws InterruptedException {
+
+		Thread.sleep(5000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(firstPartnerEditIcon)).click();
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(referralTab)).click();
+		Thread.sleep(2000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(viewAllReferralsButton)).click();
+		Thread.sleep(2000);
+
+		if (driver.findElements(downloadFileIcon).size() > 0) {
+			throw new AssertionError("Download file icon should not be present!");
+		}
+	}
+
+	public void userShouldNotBeAbleToDownloadFilesInReferralIncomingDetails() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCanDownloadReferralIncomingDetailsFile() throws InterruptedException {
+
+		Thread.sleep(5000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(firstPartnerEditIcon)).click();
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(referralTab)).click();
+		Thread.sleep(2000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(viewAllReferralsButton)).click();
+		Thread.sleep(2000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(exportToExcelButton)).click();
+	}
+
+	public void userShouldBeAbleToDownloadFilesInReferralIncomingDetails() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
 
 	// Referral Enrollment
 

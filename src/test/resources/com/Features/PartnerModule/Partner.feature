@@ -690,6 +690,382 @@ Then the Partner user should be able to view Profiles test
 And I create a profile without Download File access to Referral Patient History in Partner Module test
 Then the user should not be able to download files in Referral Patient History in Partner Module test
 
+# Partner Referral Incoming Details
+Scenario: User with Download File access for Partner Module Referral Incoming Details
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Partner user should be able to view Profiles test
+And I create a profile with Download File access only to Referral Incoming Details in Partner Module test
+Then the user should be able to download files in Referral Incoming Details in Partner Module test
+
+Scenario: User without Download File access for Partner Module Referral Incoming Details
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Partner user should be able to view Profiles test
+And I create a profile without Download File access to Referral Incoming Details in Partner Module test
+Then the user should not be able to download files in Referral Incoming Details in Partner Module test
+
+# Partner Referral Outgoing Details
+Scenario: User with Download File access for Partner Module Referral Outgoing Details
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Partner user should be able to view Profiles test
+And I create a profile with Download File access only to Referral Outgoing Details in Partner Module test
+Then the user should be able to download files in Referral Outgoing Details in Partner Module test
+
+Scenario: User without Download File access for Partner Module Referral Outgoing Details
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Partner user should be able to view Profiles test
+And I create a profile without Download File access to Referral Outgoing Details in Partner Module test
+Then the user should not be able to download files in Referral Outgoing Details in Partner Module test
+
+# Partner PA Details
+Scenario: User with Export Excel access for Partner Module Partner PA Details
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Partner user should be able to view Profiles test
+And I create a profile with Export Excel access only to Partner PA Details in Partner Module test
+Then the user should be able to export Excel files in Partner PA Details in Partner Module test
+
+Scenario: User without Export Excel access for Partner Module Partner PA Details
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Partner user should be able to view Profiles test
+And I create a profile without Export Excel access to Partner PA Details in Partner Module test
+Then the user should not be able to export Excel files in Partner PA Details in Partner Module test
+
+# Funding Company
+Scenario: User with Add access for Partner Module Funding Company
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Partner user should be able to view Profiles test
+And I create a profile with Add access only to Funding Company in Partner Module test
+Then the user should be able to add Funding Company in Partner Module test
+And the user should not be able to edit or delete Funding Company in Partner Module test
+And the user should not be able to view Funding Company details in Partner Module test
+
+Scenario: User with Edit access for Partner Module Funding Company
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Partner user should be able to view Profiles test
+And I create a profile with Edit access only to Funding Company in Partner Module test
+Then the user should be able to edit Funding Company in Partner Module test
+And the user should not be able to add or delete Funding Company in Partner Module test
+And the user should not be able to view Funding Company details in Partner Module test
+
+Scenario: User with Delete access for Partner Module Funding Company
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Partner user should be able to view Profiles test
+And I create a profile with Delete access only to Funding Company in Partner Module test
+Then the user should be able to delete Funding Company in Partner Module test
+And the user should not be able to add or edit Funding Company in Partner Module test
+And the user should not be able to view Funding Company details in Partner Module test
+
+Scenario: User with Details access for Partner Module Funding Company
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Partner user should be able to view Profiles test
+And I create a profile with Details access only to Funding Company in Partner Module test
+Then the user should be able to view Funding Company details in Partner Module test
+And the user should not be able to add, edit, or delete Funding Company in Partner Module test
+
+# Partner License
+Scenario: User with Add access for Partner Module Partner License
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Partner user should be able to view Profiles test
+And I create a profile with Add access only to Partner License in Partner Module test
+Then the user should be able to add Partner License in Partner Module test
+And the user should not be able to edit or delete Partner License in Partner Module test
+And the user should not be able to view Partner License details in Partner Module test
+And the user should not be able to download files in Partner License in Partner Module test
+
+Scenario: User with Edit access for Partner Module Partner License
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Partner user should be able to view Profiles test
+And I create a profile with Edit access only to Partner License in Partner Module test
+Then the user should be able to edit Partner License in Partner Module test
+And the user should not be able to add or delete Partner License in Partner Module test
+And the user should not be able to view Partner License details in Partner Module test
+And the user should not be able to download files in Partner License in Partner Module test
+
+Scenario: User with Delete access for Partner Module Partner License
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Partner user should be able to view Profiles test
+And I create a profile with Delete access only to Partner License in Partner Module test
+Then the user should be able to delete Partner License in Partner Module test
+And the user should not be able to add or edit Partner License in Partner Module test
+And the user should not be able to view Partner License details in Partner Module test
+And the user should not be able to download files in Partner License in Partner Module test
+
+Scenario: User with Details access for Partner Module Partner License
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Partner user should be able to view Profiles test
+And I create a profile with Details access only to Partner License in Partner Module test
+Then the user should be able to view Partner License details in Partner Module test
+And the user should not be able to add, edit, or delete Partner License in Partner Module test
+And the user should not be able to download files in Partner License in Partner Module test
+
+Scenario: User with Download File access for Partner Module Partner License
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Partner user should be able to view Profiles test
+And I create a profile with Download File access only to Partner License in Partner Module test
+Then the user should be able to download files in Partner License in Partner Module test
+And the user should not be able to add, delete Partner License in Partner Module test
+
+# Partner Special Event
+Scenario: User with Add access for Partner Module Partner Special Event
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Partner user should be able to view Profiles test
+And I create a profile with Add access only to Partner Special Event in Partner Module test
+Then the user should be able to add Partner Special Event in Partner Module test
+And the user should not be able to edit or delete Partner Special Event in Partner Module test
+
+Scenario: User with Edit access for Partner Module Partner Special Event
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Partner user should be able to view Profiles test
+And I create a profile with Edit access only to Partner Special Event in Partner Module test
+Then the user should be able to edit Partner Special Event in Partner Module test
+And the user should not be able to add or delete Partner Special Event in Partner Module test
+
+Scenario: User with Delete access for Partner Module Partner Special Event
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Partner user should be able to view Profiles test
+And I create a profile with Delete access only to Partner Special Event in Partner Module test
+Then the user should be able to delete Partner Special Event in Partner Module test
+And the user should not be able to add or edit Partner Special Event in Partner Module test
+
+# Partner Special Service
+Scenario: User with Add access for Partner Module Partner Special Service
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Partner user should be able to view Profiles test
+And I create a profile with Add access only to Partner Special Service in Partner Module test
+Then the user should be able to add Partner Special Service in Partner Module test
+And the user should not be able to edit or delete Partner Special Service in Partner Module test
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
