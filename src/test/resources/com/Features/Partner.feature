@@ -262,6 +262,7 @@ And the user should not be able to edit Folder in Bucket for Partner Module
 And the user should not be able to delete Folder in Bucket for Partner Module
 And the user should not be able to favourite Folder in Bucket for Partner Module
 
+
 Scenario: User with Add access for Partner Module Attorney
 Given I log in as admin for Partner Module
 When I create a new user with email for Partner Module "testuser10_static@mailinator.com"
@@ -414,6 +415,7 @@ And I log in using the new user for Partner Module
 Then the user should be able to view DME Provider details in Partner Module
 And the user should not be able to add, edit, or delete DME Provider in Partner Module
 
+
 Scenario: User with Add access for Partner Module Rx HUB
 Given I log in as admin for Partner Module
 When I create a new user with email for Partner Module "testuser5_static@mailinator.com"
@@ -550,6 +552,7 @@ And I log in using the new user for Partner Module
 Then the user should be able to view Employers details in Partner Module
 And the user should not be able to add, edit, or delete Employers in Partner Module
 
+
 Scenario: User with Add access for Partner Module Referral Enrollment
 Given I log in as admin for Partner Module
 When I create a new user with email for Partner Module "testuser1_static@mailinator.com"
@@ -660,6 +663,7 @@ And I assign the profile and workspace to the user for Partner Module
 And I reset the user's password for Partner Module
 And I log in using the new user for Partner Module
 Then the user should not be able to export Excel files in Partner PA Details in Partner Module
+
 
 Scenario: User with Add access for Partner Module Funding Company
 Given I log in as admin for Partner Module
@@ -800,7 +804,6 @@ And I log in using the new user for Partner Module
 Then the user should be able to delete Partner Special Event in Partner Module
 And the user should not be able to add or edit Partner Special Event in Partner Module
 
-#
 Scenario: User with Add access for Partner Module Partner Special Service
 Given I log in as admin for Partner Module
 When I create a new user with email for Partner Module "testuser4_static@mailinator.com"
@@ -821,6 +824,7 @@ And I log in using the new user for Partner Module
 Then the user should be able to edit Partner Special Service in Partner Module
 And the user should not be able to add or delete Partner Special Service in Partner Module
 
+
 Scenario: User with Delete access for Partner Module Partner Special Service
 Given I log in as admin for Partner Module
 When I create a new user with email for Partner Module "testuser6_static@mailinator.com"
@@ -830,6 +834,7 @@ And I reset the user's password for Partner Module
 And I log in using the new user for Partner Module
 Then the user should be able to delete Partner Special Service in Partner Module
 And the user should not be able to add or edit Partner Special Service in Partner Module
+
 
 Scenario: User with Add access for Partner Module Partner Special Hour
 Given I log in as admin for Partner Module
@@ -841,6 +846,7 @@ And I log in using the new user for Partner Module
 Then the user should be able to add Partner Special Hour in Partner Module
 And the user should not be able to edit or delete Partner Special Hour in Partner Module
 
+
 Scenario: User with Edit access for Partner Module Partner Special Hour
 Given I log in as admin for Partner Module
 When I create a new user with email for Partner Module "testuser8_static@mailinator.com"
@@ -850,6 +856,7 @@ And I reset the user's password for Partner Module
 And I log in using the new user for Partner Module
 Then the user should be able to edit Partner Special Hour in Partner Module
 And the user should not be able to add or delete Partner Special Hour in Partner Module
+
 
 Scenario: User with Delete access for Partner Module Partner Special Hour
 Given I log in as admin for Partner Module
@@ -861,6 +868,7 @@ And I log in using the new user for Partner Module
 Then the user should be able to delete Partner Special Hour in Partner Module
 And the user should not be able to add or edit Partner Special Hour in Partner Module
 
+#
 Scenario: User with Add access for Partner Module Partner Agreement
 Given I log in as admin for Partner Module
 When I create a new user with email for Partner Module "testuser1_static@mailinator.com"
@@ -870,6 +878,7 @@ And I reset the user's password for Partner Module
 And I log in using the new user for Partner Module
 Then the user should be able to add Partner Agreement in Partner Module
 And the user should not be able to edit or delete Partner Agreement in Partner Module
+
 
 Scenario: User with Edit access for Partner Module Partner Agreement
 Given I log in as admin for Partner Module
@@ -881,6 +890,7 @@ And I log in using the new user for Partner Module
 Then the user should be able to edit Partner Agreement in Partner Module
 And the user should not be able to add or delete Partner Agreement in Partner Module
 
+
 Scenario: User with Delete access for Partner Module Partner Agreement
 Given I log in as admin for Partner Module
 When I create a new user with email for Partner Module "testuser3_static@mailinator.com"
@@ -890,6 +900,7 @@ And I reset the user's password for Partner Module
 And I log in using the new user for Partner Module
 Then the user should be able to delete Partner Agreement in Partner Module
 And the user should not be able to add or edit Partner Agreement in Partner Module
+
 
 Scenario: Create user with Update access to DeDupe in Partners Module and check permissions
 Given I log in as admin for Partner Module
@@ -908,5 +919,7 @@ And I assign the profile and workspace to the user for Partner Module
 And I reset the user's password for Partner Module
 And I log in using the new user for Partner Module
 Then the user should not be able to update DeDupe records in Partners Module via UI or direct URL
+
+
 
 
