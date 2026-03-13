@@ -1,6 +1,7 @@
 package com.pharmcrm_PartnerModule.steps;
 
 import org.junit.Assert;
+import org.junit.Assume;
 import com.pharmcrm_PartnerModule.pages.partnerpage;
 import hooks.Hooks;
 import io.cucumber.java.en.And;
@@ -9,24 +10,354 @@ public class partnerstep {
 
 	private partnerpage partnerPage;
 
-	// DeDupe
-	@And("the user should not be able to update DeDupe records in Partners Module via UI or direct URL test")
-	public void verifyDeDupeRecordsUpdateBlocked() throws InterruptedException {
+	// Partner
+	@And("Validation should have to show for Special Service Blank Field")
+	public void verifySpecialServiceBlankFieldValidation() throws InterruptedException {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String partnerAddAttorneyPartnersUrl = Hooks.prop.getProperty("partnerAddAttorneyPartnersUrl");
+		Assert.assertNotNull("partnerAddCustomPartnersUrl is missing in config", partnerAddAttorneyPartnersUrl);
+		String fullAttorneyPartnerUrl = baseUrl + partnerAddAttorneyPartnersUrl;
+		partnerPage = new partnerpage(Hooks.driver);
+		partnerPage.openAttorneyPartnersUrl(fullAttorneyPartnerUrl);
+		Assert.assertTrue("Custom Partners page is not displayed", Hooks.driver.getCurrentUrl()
+				.contains("/Partner/Home/Partners?partnerTypeId=85a7a8a7-803c-4801-8bfa-ef64491be0fd"));
+		String result = partnerPage.validateSpecialServiceBlankFields();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
 
+	}
+
+	@And("Validation should have to show for Add Special Event Blank Field")
+	public void verifyAddSpecialEventBlankFieldValidation() throws InterruptedException {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String partnerAddAttorneyPartnersUrl = Hooks.prop.getProperty("partnerAddAttorneyPartnersUrl");
+		Assert.assertNotNull("partnerAddCustomPartnersUrl is missing in config", partnerAddAttorneyPartnersUrl);
+		String fullAttorneyPartnerUrl = baseUrl + partnerAddAttorneyPartnersUrl;
+		partnerPage = new partnerpage(Hooks.driver);
+		partnerPage.openAttorneyPartnersUrl(fullAttorneyPartnerUrl);
+		Assert.assertTrue("Custom Partners page is not displayed", Hooks.driver.getCurrentUrl()
+				.contains("/Partner/Home/Partners?partnerTypeId=85a7a8a7-803c-4801-8bfa-ef64491be0fd"));
+		String result = partnerPage.validateAddSpecialEventBlankFields();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("Validation should have to show for Invalid Url, Original Date and Expiry Date")
+	public void verifyInvalidUrlAndDateValidation() throws InterruptedException {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String partnerAddAttorneyPartnersUrl = Hooks.prop.getProperty("partnerAddAttorneyPartnersUrl");
+		Assert.assertNotNull("partnerAddCustomPartnersUrl is missing in config", partnerAddAttorneyPartnersUrl);
+		String fullAttorneyPartnerUrl = baseUrl + partnerAddAttorneyPartnersUrl;
+		partnerPage = new partnerpage(Hooks.driver);
+		partnerPage.openAttorneyPartnersUrl(fullAttorneyPartnerUrl);
+		Assert.assertTrue("Custom Partners page is not displayed", Hooks.driver.getCurrentUrl()
+				.contains("/Partner/Home/Partners?partnerTypeId=85a7a8a7-803c-4801-8bfa-ef64491be0fd"));
+		String result = partnerPage.validateInvalidUrlOriginalAndExpiryDate();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("Validation should have to show for Add Partner License Blank Field")
+	public void verifyAddPartnerLicenseBlankFieldValidation() throws InterruptedException {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String partnerAddAttorneyPartnersUrl = Hooks.prop.getProperty("partnerAddAttorneyPartnersUrl");
+		Assert.assertNotNull("partnerAddCustomPartnersUrl is missing in config", partnerAddAttorneyPartnersUrl);
+		String fullAttorneyPartnerUrl = baseUrl + partnerAddAttorneyPartnersUrl;
+		partnerPage = new partnerpage(Hooks.driver);
+		partnerPage.openAttorneyPartnersUrl(fullAttorneyPartnerUrl);
+		Assert.assertTrue("Custom Partners page is not displayed", Hooks.driver.getCurrentUrl()
+				.contains("/Partner/Home/Partners?partnerTypeId=85a7a8a7-803c-4801-8bfa-ef64491be0fd"));
+		String result = partnerPage.validateAddPartnerLicenseBlankFields();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("Validation should have to show for Invalid Phone Number, Email Id")
+	public void verifyInvalidPhoneAndEmailValidation() throws InterruptedException {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String partnerAddAttorneyPartnersUrl = Hooks.prop.getProperty("partnerAddAttorneyPartnersUrl");
+		Assert.assertNotNull("partnerAddCustomPartnersUrl is missing in config", partnerAddAttorneyPartnersUrl);
+		String fullAttorneyPartnerUrl = baseUrl + partnerAddAttorneyPartnersUrl;
+		partnerPage = new partnerpage(Hooks.driver);
+		partnerPage.openAttorneyPartnersUrl(fullAttorneyPartnerUrl);
+		Assert.assertTrue("Custom Partners page is not displayed", Hooks.driver.getCurrentUrl()
+				.contains("/Partner/Home/Partners?partnerTypeId=85a7a8a7-803c-4801-8bfa-ef64491be0fd"));
+		String result = partnerPage.validateInvalidPhoneEmailFields();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("Validation should have to show for Add Referral Enrollment")
+	public void verifyAddReferralEnrollmentValidation() throws InterruptedException {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String partnerAddAttorneyPartnersUrl = Hooks.prop.getProperty("partnerAddAttorneyPartnersUrl");
+		Assert.assertNotNull("partnerAddCustomPartnersUrl is missing in config", partnerAddAttorneyPartnersUrl);
+		String fullAttorneyPartnerUrl = baseUrl + partnerAddAttorneyPartnersUrl;
+		partnerPage = new partnerpage(Hooks.driver);
+		partnerPage.openAttorneyPartnersUrl(fullAttorneyPartnerUrl);
+		Assert.assertTrue("Custom Partners page is not displayed", Hooks.driver.getCurrentUrl()
+				.contains("/Partner/Home/Partners?partnerTypeId=85a7a8a7-803c-4801-8bfa-ef64491be0fd"));
+		String result = partnerPage.validateAddReferralEnrollment();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("Validation should have to show for Invalid Phone Number,Cell Number,Email Id")
+	public void validateInvalidPhoneCellAndEmail() throws InterruptedException {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String partnerAddAttorneyPartnersUrl = Hooks.prop.getProperty("partnerAddAttorneyPartnersUrl");
+		Assert.assertNotNull("partnerAddCustomPartnersUrl is missing in config", partnerAddAttorneyPartnersUrl);
+		String fullAttorneyPartnerUrl = baseUrl + partnerAddAttorneyPartnersUrl;
+		partnerPage = new partnerpage(Hooks.driver);
+		partnerPage.openAttorneyPartnersUrl(fullAttorneyPartnerUrl);
+		Assert.assertTrue("Custom Partners page is not displayed", Hooks.driver.getCurrentUrl()
+				.contains("/Partner/Home/Partners?partnerTypeId=85a7a8a7-803c-4801-8bfa-ef64491be0fd"));
+		String result = partnerPage.verifyInvalidContactInfoValidation();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("Validation should have to show for Add Executive Blank Submission")
+	public void verifyAddExecutiveBlankSubmissionValidation() throws InterruptedException {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String partnerAddAttorneyPartnersUrl = Hooks.prop.getProperty("partnerAddAttorneyPartnersUrl");
+		Assert.assertNotNull("partnerAddCustomPartnersUrl is missing in config", partnerAddAttorneyPartnersUrl);
+		String fullAttorneyPartnerUrl = baseUrl + partnerAddAttorneyPartnersUrl;
+		partnerPage = new partnerpage(Hooks.driver);
+		partnerPage.openAttorneyPartnersUrl(fullAttorneyPartnerUrl);
+		Assert.assertTrue("Custom Partners page is not displayed", Hooks.driver.getCurrentUrl()
+				.contains("/Partner/Home/Partners?partnerTypeId=85a7a8a7-803c-4801-8bfa-ef64491be0fd"));
+		String result = partnerPage.validateAddExecutiveBlankSubmission();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("Validation should have to show Mailing Address Invalid Zipcode")
+	public void verifyMailingAddressInvalidZipcodeValidation() throws InterruptedException {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String partnerAddAttorneyPartnersUrl = Hooks.prop.getProperty("partnerAddAttorneyPartnersUrl");
+		Assert.assertNotNull("partnerAddCustomPartnersUrl is missing in config", partnerAddAttorneyPartnersUrl);
+		String fullAttorneyPartnerUrl = baseUrl + partnerAddAttorneyPartnersUrl;
+		partnerPage = new partnerpage(Hooks.driver);
+		partnerPage.openAttorneyPartnersUrl(fullAttorneyPartnerUrl);
+		Assert.assertTrue("Custom Partners page is not displayed", Hooks.driver.getCurrentUrl()
+				.contains("/Partner/Home/Partners?partnerTypeId=85a7a8a7-803c-4801-8bfa-ef64491be0fd"));
+		String result = partnerPage.validateMailingAddressInvalidZipcode();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("Validation should have to show for Mailing Address Blank Submission")
+	public void verifyMailingAddressBlankSubmissionValidation() throws InterruptedException {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String partnerAddAttorneyPartnersUrl = Hooks.prop.getProperty("partnerAddAttorneyPartnersUrl");
+		Assert.assertNotNull("partnerAddCustomPartnersUrl is missing in config", partnerAddAttorneyPartnersUrl);
+		String fullAttorneyPartnerUrl = baseUrl + partnerAddAttorneyPartnersUrl;
+		partnerPage = new partnerpage(Hooks.driver);
+		partnerPage.openAttorneyPartnersUrl(fullAttorneyPartnerUrl);
+		Assert.assertTrue("Custom Partners page is not displayed", Hooks.driver.getCurrentUrl()
+				.contains("/Partner/Home/Partners?partnerTypeId=85a7a8a7-803c-4801-8bfa-ef64491be0fd"));
+		String result = partnerPage.validateMailingAddressBlankSubmission();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("Validation should have to show Invalid Zipcode")
+	public void verifyInvalidZipcodeValidation() throws InterruptedException {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String partnerAddAttorneyPartnersUrl = Hooks.prop.getProperty("partnerAddAttorneyPartnersUrl");
+		Assert.assertNotNull("partnerAddCustomPartnersUrl is missing in config", partnerAddAttorneyPartnersUrl);
+		String fullAttorneyPartnerUrl = baseUrl + partnerAddAttorneyPartnersUrl;
+		partnerPage = new partnerpage(Hooks.driver);
+		partnerPage.openAttorneyPartnersUrl(fullAttorneyPartnerUrl);
+		Assert.assertTrue("Custom Partners page is not displayed", Hooks.driver.getCurrentUrl()
+				.contains("/Partner/Home/Partners?partnerTypeId=85a7a8a7-803c-4801-8bfa-ef64491be0fd"));
+		String result = partnerPage.validateInvalidZipcodeEntry();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("Validation should have to show for Add Business Address")
+	public void verifyAddBusinessAddressValidation() throws InterruptedException {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String partnerAddAttorneyPartnersUrl = Hooks.prop.getProperty("partnerAddAttorneyPartnersUrl");
+		Assert.assertNotNull("partnerAddCustomPartnersUrl is missing in config", partnerAddAttorneyPartnersUrl);
+		String fullAttorneyPartnerUrl = baseUrl + partnerAddAttorneyPartnersUrl;
+		partnerPage = new partnerpage(Hooks.driver);
+		partnerPage.openAttorneyPartnersUrl(fullAttorneyPartnerUrl);
+		Assert.assertTrue("Custom Partners page is not displayed", Hooks.driver.getCurrentUrl()
+				.contains("/Partner/Home/Partners?partnerTypeId=85a7a8a7-803c-4801-8bfa-ef64491be0fd"));
+		String result = partnerPage.validateAddBusinessAddressSubmission();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("Validation should have to show for New Special Hour Blank Submission")
+	public void verifyNewSpecialHourBlankSubmissionValidation() throws InterruptedException {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String partnerAddAttorneyPartnersUrl = Hooks.prop.getProperty("partnerAddAttorneyPartnersUrl");
+		Assert.assertNotNull("partnerAddCustomPartnersUrl is missing in config", partnerAddAttorneyPartnersUrl);
+		String fullAttorneyPartnerUrl = baseUrl + partnerAddAttorneyPartnersUrl;
+		partnerPage = new partnerpage(Hooks.driver);
+		partnerPage.openAttorneyPartnersUrl(fullAttorneyPartnerUrl);
+		Assert.assertTrue("Custom Partners page is not displayed", Hooks.driver.getCurrentUrl()
+				.contains("/Partner/Home/Partners?partnerTypeId=85a7a8a7-803c-4801-8bfa-ef64491be0fd"));
+		String result = partnerPage.validateNewSpecialHourBlankSubmission();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("Validation for Invalid Phone Number, Alternate Phone Number, Email Id should have to display")
+	public void verifyInvalidContactDetailsValidation() throws InterruptedException {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String partnerAddAttorneyPartnersUrl = Hooks.prop.getProperty("partnerAddAttorneyPartnersUrl");
+		Assert.assertNotNull("partnerAddCustomPartnersUrl is missing in config", partnerAddAttorneyPartnersUrl);
+		String fullAttorneyPartnerUrl = baseUrl + partnerAddAttorneyPartnersUrl;
+		partnerPage = new partnerpage(Hooks.driver);
+		partnerPage.openAttorneyPartnersUrl(fullAttorneyPartnerUrl);
+		Assert.assertTrue("Custom Partners page is not displayed", Hooks.driver.getCurrentUrl()
+				.contains("/Partner/Home/Partners?partnerTypeId=85a7a8a7-803c-4801-8bfa-ef64491be0fd"));
+		String result = partnerPage.validateInvalidPhoneAlternatePhoneAndEmail();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("New Partner Blank Submission Validation should have to show")
+	public void verifyNewPartnerBlankSubmissionValidation() throws InterruptedException {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String partnerAddAttorneyPartnersUrl = Hooks.prop.getProperty("partnerAddAttorneyPartnersUrl");
+		Assert.assertNotNull("partnerAddCustomPartnersUrl is missing in config", partnerAddAttorneyPartnersUrl);
+		String fullAttorneyPartnerUrl = baseUrl + partnerAddAttorneyPartnersUrl;
+		partnerPage = new partnerpage(Hooks.driver);
+		partnerPage.openAttorneyPartnersUrl(fullAttorneyPartnerUrl);
+		Assert.assertTrue("Custom Partners page is not displayed", Hooks.driver.getCurrentUrl()
+				.contains("/Partner/Home/Partners?partnerTypeId=85a7a8a7-803c-4801-8bfa-ef64491be0fd"));
+		String result = partnerPage.validateNewPartnerBlankSubmission();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	// DeDupe
+	@And("Checkbox Validation should have to show if not selected test")
+	public void verifyCheckboxValidationIfNotSelected() throws InterruptedException {
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnerDeDupeUrl = Hooks.prop.getProperty("partnerDeDupeUrl");
-
 		Assert.assertNotNull("partnerDeDupeUrl is missing in config", partnerDeDupeUrl);
-
 		String fullDeDupePartnerUrl = baseUrl + partnerDeDupeUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openAttorneyPartnersUrl(fullDeDupePartnerUrl);
-
 		Assert.assertTrue("DeDupe Partners page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Partner/Home/DeDupePartners"));
+		String result = partnerPage.validateCheckbox();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
 
+	}
+
+	@And("the user should not be able to update DeDupe records in Partners Module via UI or direct URL test")
+	public void verifyDeDupeRecordsUpdateBlocked() throws InterruptedException {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String partnerDeDupeUrl = Hooks.prop.getProperty("partnerDeDupeUrl");
+		Assert.assertNotNull("partnerDeDupeUrl is missing in config", partnerDeDupeUrl);
+		String fullDeDupePartnerUrl = baseUrl + partnerDeDupeUrl;
+		partnerPage = new partnerpage(Hooks.driver);
+		partnerPage.openAttorneyPartnersUrl(fullDeDupePartnerUrl);
+		Assert.assertTrue("DeDupe Partners page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Partner/Home/DeDupePartners"));
 		partnerPage.userShouldNotBeAbleToUpdateDeDupeRecordsInPartnersModule();
 	}
 
@@ -39,28 +370,19 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.checkDeDupeUpdatePermissionDenied();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	@And("the user should be able to update DeDupe records in Partners Module test")
 	public void verifyDeDupeRecordsUpdatable() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnerDeDupeUrl = Hooks.prop.getProperty("partnerDeDupeUrl");
-
 		Assert.assertNotNull("partnerDeDupeUrl is missing in config", partnerDeDupeUrl);
-
 		String fullDeDupePartnerUrl = baseUrl + partnerDeDupeUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openAttorneyPartnersUrl(fullDeDupePartnerUrl);
-
 		Assert.assertTrue("DeDupe Partners page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Partner/Home/DeDupePartners"));
-
 		partnerPage.userShouldBeAbleToUpdateDeDupeRecordsInPartnersModule();
 	}
 
@@ -73,35 +395,25 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.checkDeDupeUpdatePermission();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	// Partner Agreement
 	@And("the user should not be able to add or edit Partner Agreement in Partner Module test")
 	public void verifyPartnerAgreementAddEditRestricted() throws InterruptedException {
-
 		partnerPage.verifyUserCannotAddOrEditPartnerAgreement();
 	}
 
 	@And("the user should be able to delete Partner Agreement in Partner Module test")
 	public void verifyPartnerAgreementDeletable() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnersPharmacyUrl = Hooks.prop.getProperty("partnersPharmacyUrl");
-
 		Assert.assertNotNull("partnersPharmacyUrl is missing in config", partnersPharmacyUrl);
-
 		String fullPartnersPharmacyUrl = baseUrl + partnersPharmacyUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openAttorneyPartnersUrl(fullPartnersPharmacyUrl);
-
 		Assert.assertTrue("Partners (Pharmacy) page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=78a126b3-70ec-4a77-9551-33f01f1cf676"));
-
 		partnerPage.verifyUserCanDeletePartnerAgreement();
 	}
 
@@ -114,34 +426,24 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.checkPartnerAgreementDeletePermission();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	@And("the user should not be able to add or delete Partner Agreement in Partner Module test")
 	public void verifyPartnerAgreementAddDeleteRestricted() throws InterruptedException {
-
 		partnerPage.verifyUserCannotAddOrDeletePartnerAgreement();
 	}
 
 	@And("the user should be able to edit Partner Agreement in Partner Module test")
 	public void verifyPartnerAgreementEditable() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnersPharmacyUrl = Hooks.prop.getProperty("partnersPharmacyUrl");
-
 		Assert.assertNotNull("partnersPharmacyUrl is missing in config", partnersPharmacyUrl);
-
 		String fullPartnersPharmacyUrl = baseUrl + partnersPharmacyUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openAttorneyPartnersUrl(fullPartnersPharmacyUrl);
-
 		Assert.assertTrue("Partners (Pharmacy) page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=78a126b3-70ec-4a77-9551-33f01f1cf676"));
-
 		partnerPage.verifyUserCanEditPartnerAgreement();
 	}
 
@@ -154,34 +456,24 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.checkPartnerAgreementEditPermission();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	@And("the user should not be able to edit or delete Partner Agreement in Partner Module test")
 	public void verifyPartnerAgreementEditDeleteRestricted() throws InterruptedException {
-
 		partnerPage.verifyUserCannotEditOrDeletePartnerAgreement();
 	}
 
 	@And("the user should be able to add Partner Agreement in Partner Module test")
 	public void verifyPartnerAgreementCanAdd() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnersPharmacyUrl = Hooks.prop.getProperty("partnersPharmacyUrl");
-
 		Assert.assertNotNull("partnersPharmacyUrl is missing in config", partnersPharmacyUrl);
-
 		String fullPartnersPharmacyUrl = baseUrl + partnersPharmacyUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openAttorneyPartnersUrl(fullPartnersPharmacyUrl);
-
 		Assert.assertTrue("Partners (Pharmacy) page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=78a126b3-70ec-4a77-9551-33f01f1cf676"));
-
 		partnerPage.verifyUserCanAddPartnerAgreement();
 	}
 
@@ -195,34 +487,24 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.verifyPartnerAgreementAddable();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	@And("the user should not be able to add or edit Partner Special Hour in Partner Module test")
 	public void verifyPartnerSpecialHourAddEditRestricted() throws InterruptedException {
-
 		partnerPage.verifyUserCannotAddOrEditPartnerSpecialHour();
 	}
 
 	@And("the user should be able to delete Partner Special Hour in Partner Module test")
 	public void verifyPartnerSpecialHourDeletable() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnersPharmacyUrl = Hooks.prop.getProperty("partnersPharmacyUrl");
-
 		Assert.assertNotNull("partnersPharmacyUrl is missing in config", partnersPharmacyUrl);
-
 		String fullPartnersPharmacyUrl = baseUrl + partnersPharmacyUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openAttorneyPartnersUrl(fullPartnersPharmacyUrl);
-
 		Assert.assertTrue("Partners (Pharmacy) page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=78a126b3-70ec-4a77-9551-33f01f1cf676"));
-
 		partnerPage.verifyUserCanDeletePartnerSpecialHour();
 	}
 
@@ -235,34 +517,24 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.checkPartnerSpecialHourDeletePermission();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	@And("the user should not be able to add or delete Partner Special Hour in Partner Module test")
 	public void verifyPartnerSpecialHourAddDeleteRestricted() throws InterruptedException {
-
 		partnerPage.verifyUserCannotAddOrDeletePartnerSpecialHour();
 	}
 
 	@And("the user should be able to edit Partner Special Hour in Partner Module test")
 	public void verifyPartnerSpecialHourEditable() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnersPharmacyUrl = Hooks.prop.getProperty("partnersPharmacyUrl");
-
 		Assert.assertNotNull("partnersPharmacyUrl is missing in config", partnersPharmacyUrl);
-
 		String fullPartnersPharmacyUrl = baseUrl + partnersPharmacyUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openAttorneyPartnersUrl(fullPartnersPharmacyUrl);
-
 		Assert.assertTrue("Partners (Pharmacy) page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=78a126b3-70ec-4a77-9551-33f01f1cf676"));
-
 		partnerPage.verifyUserCanEditPartnerSpecialHour();
 	}
 
@@ -275,34 +547,24 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.checkPartnerSpecialHourEditPermissions();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	@And("the user should not be able to edit or delete Partner Special Hour in Partner Module test")
 	public void verifyPartnerSpecialHourIsReadOnly() throws InterruptedException {
-
 		partnerPage.verifyUserCannotEditOrDeletePartnerSpecialHour();
 	}
 
 	@And("the user should be able to add Partner Special Hour in Partner Module test")
 	public void userShouldBeAbleToAddPartnerSpecialHour() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnersPharmacyUrl = Hooks.prop.getProperty("partnersPharmacyUrl");
-
 		Assert.assertNotNull("partnersPharmacyUrl is missing in config", partnersPharmacyUrl);
-
 		String fullPartnersPharmacyUrl = baseUrl + partnersPharmacyUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openAttorneyPartnersUrl(fullPartnersPharmacyUrl);
-
 		Assert.assertTrue("Partners (Pharmacy) page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=78a126b3-70ec-4a77-9551-33f01f1cf676"));
-
 		partnerPage.verifyUserCanAddPartnerSpecialHour();
 	}
 
@@ -315,35 +577,25 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.grantAddAccessToPartnerSpecialHour();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	// Partner Special Service
 	@And("the user should not be able to add or edit Partner Special Service in Partner Module test")
 	public void userShouldNotBeAbleToAddOrEditPartnerSpecialService() throws InterruptedException {
-
 		partnerPage.verifyUserCannotAddOrEditPartnerSpecialService();
 	}
 
 	@And("the user should be able to delete Partner Special Service in Partner Module test")
 	public void userShouldBeAbleToDeletePartnerSpecialService() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnersPharmacyUrl = Hooks.prop.getProperty("partnersPharmacyUrl");
-
 		Assert.assertNotNull("partnersPharmacyUrl is missing in config", partnersPharmacyUrl);
-
 		String fullPartnersPharmacyUrl = baseUrl + partnersPharmacyUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openAttorneyPartnersUrl(fullPartnersPharmacyUrl);
-
 		Assert.assertTrue("Partners (Pharmacy) page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=78a126b3-70ec-4a77-9551-33f01f1cf676"));
-
 		partnerPage.verifyUserCanDeletePartnerSpecialService();
 	}
 
@@ -356,34 +608,24 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.grantDeleteAccessToPartnerSpecialService();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	@And("the user should not be able to add or delete Partner Special Service in Partner Module test")
 	public void userShouldNotBeAbleToAddOrDeletePartnerSpecialService() throws InterruptedException {
-
 		partnerPage.verifyUserCannotAddOrDeletePartnerSpecialService();
 	}
 
 	@And("the user should be able to edit Partner Special Service in Partner Module test")
 	public void userShouldBeAbleToEditPartnerSpecialService() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnersPharmacyUrl = Hooks.prop.getProperty("partnersPharmacyUrl");
-
 		Assert.assertNotNull("partnersPharmacyUrl is missing in config", partnersPharmacyUrl);
-
 		String fullPartnersPharmacyUrl = baseUrl + partnersPharmacyUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openAttorneyPartnersUrl(fullPartnersPharmacyUrl);
-
 		Assert.assertTrue("Partners (Pharmacy) page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=78a126b3-70ec-4a77-9551-33f01f1cf676"));
-
 		partnerPage.verifyUserCanEditPartnerSpecialService();
 	}
 
@@ -396,34 +638,24 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.grantEditAccessToPartnerSpecialService();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	@And("the user should not be able to edit or delete Partner Special Service in Partner Module test")
 	public void userShouldNotBeAbleToEditOrDeletePartnerSpecialService() throws InterruptedException {
-
 		partnerPage.verifyUserCannotEditOrDeletePartnerSpecialService();
 	}
 
 	@And("the user should be able to add Partner Special Service in Partner Module test")
 	public void userShouldBeAbleToAddPartnerSpecialService() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnersPharmacyUrl = Hooks.prop.getProperty("partnersPharmacyUrl");
-
 		Assert.assertNotNull("partnersPharmacyUrl is missing in config", partnersPharmacyUrl);
-
 		String fullPartnersPharmacyUrl = baseUrl + partnersPharmacyUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openAttorneyPartnersUrl(fullPartnersPharmacyUrl);
-
 		Assert.assertTrue("Partners (Pharmacy) page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=78a126b3-70ec-4a77-9551-33f01f1cf676"));
-
 		partnerPage.verifyUserCanAddPartnerSpecialService();
 	}
 
@@ -436,35 +668,25 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.grantAddAccessToPartnerSpecialService();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	// Partner Special Event
 	@And("the user should not be able to add or edit Partner Special Event in Partner Module test")
 	public void userShouldNotBeAbleToAddOrEditPartnerSpecialEvent() throws InterruptedException {
-
 		partnerPage.verifyUserCannotAddOrEditPartnerSpecialEvent();
 	}
 
 	@And("the user should be able to delete Partner Special Event in Partner Module test")
 	public void userShouldBeAbleToDeletePartnerSpecialEvent() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnersPharmacyUrl = Hooks.prop.getProperty("partnersPharmacyUrl");
-
 		Assert.assertNotNull("partnersPharmacyUrl is missing in config", partnersPharmacyUrl);
-
 		String fullPartnersPharmacyUrl = baseUrl + partnersPharmacyUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openAttorneyPartnersUrl(fullPartnersPharmacyUrl);
-
 		Assert.assertTrue("Partners (Pharmacy) page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=78a126b3-70ec-4a77-9551-33f01f1cf676"));
-
 		partnerPage.verifyUserCanDeletePartnerSpecialEvent();
 	}
 
@@ -477,34 +699,24 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.grantDeleteAccessToPartnerSpecialEvent();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	@And("the user should not be able to add or delete Partner Special Event in Partner Module test")
 	public void userShouldNotBeAbleToAddOrDeletePartnerSpecialEvent() throws InterruptedException {
-
 		partnerPage.verifyUserCannotAddOrDeletePartnerSpecialEvent();
 	}
 
 	@And("the user should be able to edit Partner Special Event in Partner Module test")
 	public void userShouldBeAbleToEditPartnerSpecialEvent() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnersPharmacyUrl = Hooks.prop.getProperty("partnersPharmacyUrl");
-
 		Assert.assertNotNull("partnersPharmacyUrl is missing in config", partnersPharmacyUrl);
-
 		String fullPartnersPharmacyUrl = baseUrl + partnersPharmacyUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openAttorneyPartnersUrl(fullPartnersPharmacyUrl);
-
 		Assert.assertTrue("Partners (Pharmacy) page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=78a126b3-70ec-4a77-9551-33f01f1cf676"));
-
 		partnerPage.verifyUserCanEditPartnerSpecialEvent();
 	}
 
@@ -517,34 +729,24 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.grantEditAccessToPartnerSpecialEvent();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	@And("the user should not be able to edit or delete Partner Special Event in Partner Module test")
 	public void userShouldNotBeAbleToEditOrDeletePartnerSpecialEvent() throws InterruptedException {
-
 		partnerPage.verifyUserCannotEditOrDeletePartnerSpecialEvent();
 	}
 
 	@And("the user should be able to add Partner Special Event in Partner Module test")
 	public void userShouldBeAbleToAddPartnerSpecialEvent() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnersPharmacyUrl = Hooks.prop.getProperty("partnersPharmacyUrl");
-
 		Assert.assertNotNull("partnersPharmacyUrl is missing in config", partnersPharmacyUrl);
-
 		String fullPartnersPharmacyUrl = baseUrl + partnersPharmacyUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openAttorneyPartnersUrl(fullPartnersPharmacyUrl);
-
 		Assert.assertTrue("Partners (Pharmacy) page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=78a126b3-70ec-4a77-9551-33f01f1cf676"));
-
 		partnerPage.verifyUserCanAddPartnerSpecialEvent();
 	}
 
@@ -557,36 +759,25 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.grantAddAccessToPartnerSpecialEvent();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	// Partner License
-
 	@And("the user should not be able to add, delete Partner License in Partner Module test")
 	public void verifyUserCannotAddOrDeletePartnerLicense() throws InterruptedException {
-
 		partnerPage.verifyUserCannotAddOrDeletePartnerLicense();
 	}
 
 	@And("the user should be able to download files in Partner License in Partner Module test")
 	public void userShouldBeAbleToDownloadFilesInPartnerLicense() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnersPharmacyUrl = Hooks.prop.getProperty("partnersPharmacyUrl");
-
 		Assert.assertNotNull("partnersPharmacyUrl is missing in config", partnersPharmacyUrl);
-
 		String fullPartnersPharmacyUrl = baseUrl + partnersPharmacyUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openAttorneyPartnersUrl(fullPartnersPharmacyUrl);
-
 		Assert.assertTrue("Partners (Pharmacy) page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=78a126b3-70ec-4a77-9551-33f01f1cf676"));
-
 		partnerPage.verifyUserCanDownloadFilesInPartnerLicenseInPartnerModule();
 	}
 
@@ -599,34 +790,24 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.grantDownloadAccessToPartnerLicense();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	@And("the user should not be able to add, edit, or delete Partner License in Partner Module test")
 	public void userShouldNotBeAbleToAddEditOrDeletePartnerLicense() throws InterruptedException {
-
 		partnerPage.verifyUserCannotAddEditOrDeletePartnerLicenseInPartnerModule();
 	}
 
 	@And("the user should be able to view Partner License details in Partner Module test")
 	public void userShouldBeAbleToViewPartnerLicenseDetails() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnersPharmacyUrl = Hooks.prop.getProperty("partnersPharmacyUrl");
-
 		Assert.assertNotNull("partnersPharmacyUrl is missing in config", partnersPharmacyUrl);
-
 		String fullPartnersPharmacyUrl = baseUrl + partnersPharmacyUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openAttorneyPartnersUrl(fullPartnersPharmacyUrl);
-
 		Assert.assertTrue("Partners (Pharmacy) page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=78a126b3-70ec-4a77-9551-33f01f1cf676"));
-
 		partnerPage.verifyUserCanViewPartnerLicenseDetailsInPartnerModule();
 	}
 
@@ -639,34 +820,24 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.grantDetailsAccessToPartnerLicense();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	@And("the user should not be able to add or edit Partner License in Partner Module test")
 	public void userShouldNotBeAbleToAddOrEditPartnerLicense() throws InterruptedException {
-
 		partnerPage.verifyUserCannotAddOrEditPartnerLicenseInPartnerModule();
 	}
 
 	@And("the user should be able to delete Partner License in Partner Module test")
 	public void userShouldBeAbleToDeletePartnerLicense() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnersPharmacyUrl = Hooks.prop.getProperty("partnersPharmacyUrl");
-
 		Assert.assertNotNull("partnersPharmacyUrl is missing in config", partnersPharmacyUrl);
-
 		String fullPartnersPharmacyUrl = baseUrl + partnersPharmacyUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openAttorneyPartnersUrl(fullPartnersPharmacyUrl);
-
 		Assert.assertTrue("Partners (Pharmacy) page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=78a126b3-70ec-4a77-9551-33f01f1cf676"));
-
 		partnerPage.verifyUserCanDeletePartnerLicenseInPartnerModule();
 	}
 
@@ -679,34 +850,24 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.grantDeleteAccessToPartnerLicense();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	@And("the user should not be able to add or delete Partner License in Partner Module test")
 	public void userShouldNotBeAbleToAddOrDeletePartnerLicense() throws InterruptedException {
-
 		partnerPage.verifyUserCannotAddOrDeletePartnerLicenseInPartnerModule();
 	}
 
 	@And("the user should be able to edit Partner License in Partner Module test")
 	public void userShouldBeAbleToEditPartnerLicense() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnersPharmacyUrl = Hooks.prop.getProperty("partnersPharmacyUrl");
-
 		Assert.assertNotNull("partnersPharmacyUrl is missing in config", partnersPharmacyUrl);
-
 		String fullPartnersPharmacyUrl = baseUrl + partnersPharmacyUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openAttorneyPartnersUrl(fullPartnersPharmacyUrl);
-
 		Assert.assertTrue("Partners (Pharmacy) page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=78a126b3-70ec-4a77-9551-33f01f1cf676"));
-
 		partnerPage.verifyUserCanEditPartnerLicenseInPartnerModule();
 	}
 
@@ -719,46 +880,34 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.grantEditAccessToPartnerLicense();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	@And("the user should not be able to download files in Partner License in Partner Module test")
 	public void userShouldNotBeAbleToDownloadFilesInPartnerLicense() throws InterruptedException {
-
 		partnerPage.verifyUserCannotDownloadFilesInPartnerLicenseInPartnerModule();
 	}
 
 	@And("the user should not be able to view Partner License details in Partner Module test")
 	public void userShouldNotBeAbleToViewPartnerLicenseDetails() throws InterruptedException {
-
 		partnerPage.verifyUserCannotViewPartnerLicenseDetailsInPartnerModule();
 	}
 
 	@And("the user should not be able to edit or delete Partner License in Partner Module test")
 	public void userShouldNotBeAbleToEditOrDeletePartnerLicense() throws InterruptedException {
-
 		partnerPage.verifyUserCannotEditOrDeletePartnerLicenseInPartnerModule();
 	}
 
 	@And("the user should be able to add Partner License in Partner Module test")
 	public void userShouldBeAbleToAddPartnerLicense() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnersPharmacyUrl = Hooks.prop.getProperty("partnersPharmacyUrl");
-
 		Assert.assertNotNull("partnersPharmacyUrl is missing in config", partnersPharmacyUrl);
-
 		String fullPartnersPharmacyUrl = baseUrl + partnersPharmacyUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openAttorneyPartnersUrl(fullPartnersPharmacyUrl);
-
 		Assert.assertTrue("Partners (Pharmacy) page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=78a126b3-70ec-4a77-9551-33f01f1cf676"));
-
 		partnerPage.verifyUserCanAddPartnerLicenseInPartnerModule();
 	}
 
@@ -771,36 +920,25 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.grantAddAccessToPartnerLicense();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	// Funding Company
-
 	@And("the user should not be able to add, edit, or delete Funding Company in Partner Module test")
 	public void userShouldNotBeAbleToAddEditOrDeleteFundingCompany() throws InterruptedException {
-
 		partnerPage.verifyUserCannotAddEditOrDeleteFundingCompany();
 	}
 
 	@And("the user should be able to view Funding Company details in Partner Module test")
 	public void userShouldBeAbleToViewFundingCompanyDetails() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnersFundingCompanyUrl = Hooks.prop.getProperty("partnersFundingCompanyUrl");
-
 		Assert.assertNotNull("partnersFundingCompanyUrl is missing in config", partnersFundingCompanyUrl);
-
 		String fullPartnersFundingCompanyUrl = baseUrl + partnersFundingCompanyUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openAttorneyPartnersUrl(fullPartnersFundingCompanyUrl);
-
 		Assert.assertTrue("Partners (Funding Company) page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=d4211063-cc31-48bd-a4bc-e856ff2ab7d8"));
-
 		partnerPage.verifyUserCanViewFundingCompanyDetails();
 	}
 
@@ -813,34 +951,24 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.grantDetailsAccessToFundingCompany();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	@And("the user should not be able to add or edit Funding Company in Partner Module test")
 	public void userShouldNotBeAbleToAddOrEditFundingCompany() throws InterruptedException {
-
 		partnerPage.verifyUserCannotAddOrEditFundingCompany();
 	}
 
 	@And("the user should be able to delete Funding Company in Partner Module test")
 	public void userShouldBeAbleToDeleteFundingCompany() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnersFundingCompanyUrl = Hooks.prop.getProperty("partnersFundingCompanyUrl");
-
 		Assert.assertNotNull("partnersFundingCompanyUrl is missing in config", partnersFundingCompanyUrl);
-
 		String fullPartnersFundingCompanyUrl = baseUrl + partnersFundingCompanyUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openAttorneyPartnersUrl(fullPartnersFundingCompanyUrl);
-
 		Assert.assertTrue("Partners (Funding Company) page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=d4211063-cc31-48bd-a4bc-e856ff2ab7d8"));
-
 		partnerPage.verifyUserCanDeleteFundingCompany();
 	}
 
@@ -853,34 +981,24 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.grantDeleteAccessToFundingCompany();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	@And("the user should not be able to add or delete Funding Company in Partner Module test")
 	public void userShouldNotBeAbleToAddOrDeleteFundingCompany() throws InterruptedException {
-
 		partnerPage.verifyUserCannotAddOrDeleteFundingCompany();
 	}
 
 	@And("the user should be able to edit Funding Company in Partner Module test")
 	public void userShouldBeAbleToEditFundingCompany() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnersFundingCompanyUrl = Hooks.prop.getProperty("partnersFundingCompanyUrl");
-
 		Assert.assertNotNull("partnersFundingCompanyUrl is missing in config", partnersFundingCompanyUrl);
-
 		String fullPartnersFundingCompanyUrl = baseUrl + partnersFundingCompanyUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openAttorneyPartnersUrl(fullPartnersFundingCompanyUrl);
-
 		Assert.assertTrue("Partners (Funding Company) page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=d4211063-cc31-48bd-a4bc-e856ff2ab7d8"));
-
 		partnerPage.verifyUserCanEditFundingCompany();
 	}
 
@@ -893,40 +1011,29 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.grantEditAccessToFundingCompany();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	@And("the user should not be able to view Funding Company details in Partner Module test")
 	public void userShouldNotBeAbleToViewFundingCompanyDetails() throws InterruptedException {
-
 		partnerPage.verifyUserCannotViewFundingCompanyDetails();
 	}
 
 	@And("the user should not be able to edit or delete Funding Company in Partner Module test")
 	public void userShouldNotBeAbleToEditOrDeleteFundingCompany() throws InterruptedException {
-
 		partnerPage.verifyUserCannotEditOrDeleteFundingCompany();
 	}
 
 	@And("the user should be able to add Funding Company in Partner Module test")
 	public void userShouldBeAbleToAddFundingCompany() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnersFundingCompanyUrl = Hooks.prop.getProperty("partnersFundingCompanyUrl");
-
 		Assert.assertNotNull("partnersFundingCompanyUrl is missing in config", partnersFundingCompanyUrl);
-
 		String fullPartnersFundingCompanyUrl = baseUrl + partnersFundingCompanyUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openAttorneyPartnersUrl(fullPartnersFundingCompanyUrl);
-
 		Assert.assertTrue("Partners (Funding Company) page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=d4211063-cc31-48bd-a4bc-e856ff2ab7d8"));
-
 		partnerPage.verifyUserCanAddFundingCompany();
 	}
 
@@ -939,29 +1046,20 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.userShouldBeAbleToAddFundingCompany();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	// Partner PA Details
 	@And("the user should not be able to export Excel files in Partner PA Details in Partner Module test")
 	public void userShouldNotBeAbleToExportExcelInPartnerPADetails() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnersPharmacyUrl = Hooks.prop.getProperty("partnersPharmacyUrl");
-
 		Assert.assertNotNull("partnersPharmacyUrl is missing in config", partnersPharmacyUrl);
-
 		String fullPartnersPharmacyUrl = baseUrl + partnersPharmacyUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openAttorneyPartnersUrl(fullPartnersPharmacyUrl);
-
 		Assert.assertTrue("Partners (Pharmacy) page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=78a126b3-70ec-4a77-9551-33f01f1cf676"));
-
 		partnerPage.verifyUserCannotExportExcelInPartnerPADetails();
 	}
 
@@ -974,28 +1072,19 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.userShouldNotBeAbleToExportExcelInPartnerPADetails();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	@And("the user should be able to export Excel files in Partner PA Details in Partner Module test")
 	public void userShouldBeAbleToExportExcelInPartnerPADetails() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnersPharmacyUrl = Hooks.prop.getProperty("partnersPharmacyUrl");
-
 		Assert.assertNotNull("partnersPharmacyUrl is missing in config", partnersPharmacyUrl);
-
 		String fullPartnersPharmacyUrl = baseUrl + partnersPharmacyUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openAttorneyPartnersUrl(fullPartnersPharmacyUrl);
-
 		Assert.assertTrue("Partners (Pharmacy) page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=78a126b3-70ec-4a77-9551-33f01f1cf676"));
-
 		partnerPage.verifyUserCanExportExcelInPartnerPADetails();
 	}
 
@@ -1008,29 +1097,20 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.userShouldBeAbleToExportExcelInPartnerPADetails();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	// Partner Referral Outgoing Details
 	@And("the user should not be able to download files in Referral Outgoing Details in Partner Module test")
 	public void userShouldNotBeAbleToDownloadFilesInReferralOutgoingDetails() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnersPharmacyUrl = Hooks.prop.getProperty("partnersPharmacyUrl");
-
 		Assert.assertNotNull("partnersPharmacyUrl is missing in config", partnersPharmacyUrl);
-
 		String fullPartnersPharmacyUrl = baseUrl + partnersPharmacyUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openAttorneyPartnersUrl(fullPartnersPharmacyUrl);
-
 		Assert.assertTrue("Partners (Pharmacy) page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=78a126b3-70ec-4a77-9551-33f01f1cf676"));
-
 		partnerPage.verifyUserCannotDownloadReferralOutgoingDetailsFile();
 	}
 
@@ -1043,28 +1123,19 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.userShouldNotBeAbleToDownloadFilesInReferralOutgoingDetails();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	@And("the user should be able to download files in Referral Outgoing Details in Partner Module test")
 	public void userShouldBeAbleToDownloadFilesInReferralOutgoingDetails() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnersPharmacyUrl = Hooks.prop.getProperty("partnersPharmacyUrl");
-
 		Assert.assertNotNull("partnersPharmacyUrl is missing in config", partnersPharmacyUrl);
-
 		String fullPartnersPharmacyUrl = baseUrl + partnersPharmacyUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openAttorneyPartnersUrl(fullPartnersPharmacyUrl);
-
 		Assert.assertTrue("Partners (Pharmacy) page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=78a126b3-70ec-4a77-9551-33f01f1cf676"));
-
 		partnerPage.verifyUserCanDownloadReferralOutgoingDetailsFile();
 	}
 
@@ -1077,29 +1148,20 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.userShouldBeAbleToDownloadFilesInReferralOutgoingDetails();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	// Partner Referral Incoming Details
 	@And("the user should not be able to download files in Referral Incoming Details in Partner Module test")
 	public void userShouldNotBeAbleToDownloadFilesInReferralIncomingDetails() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnersPharmacyUrl = Hooks.prop.getProperty("partnersPharmacyUrl");
-
 		Assert.assertNotNull("partnersPharmacyUrl is missing in config", partnersPharmacyUrl);
-
 		String fullPartnersPharmacyUrl = baseUrl + partnersPharmacyUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openAttorneyPartnersUrl(fullPartnersPharmacyUrl);
-
 		Assert.assertTrue("Partners (Pharmacy) page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=78a126b3-70ec-4a77-9551-33f01f1cf676"));
-
 		partnerPage.verifyUserCannotDownloadReferralIncomingDetailsFile();
 	}
 
@@ -1112,28 +1174,19 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.userShouldNotBeAbleToDownloadFilesInReferralIncomingDetails();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	@And("the user should be able to download files in Referral Incoming Details in Partner Module test")
 	public void userShouldBeAbleToDownloadFilesInReferralIncomingDetails() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnersPharmacyUrl = Hooks.prop.getProperty("partnersPharmacyUrl");
-
 		Assert.assertNotNull("partnersPharmacyUrl is missing in config", partnersPharmacyUrl);
-
 		String fullPartnersPharmacyUrl = baseUrl + partnersPharmacyUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openAttorneyPartnersUrl(fullPartnersPharmacyUrl);
-
 		Assert.assertTrue("Partners (Pharmacy) page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=78a126b3-70ec-4a77-9551-33f01f1cf676"));
-
 		partnerPage.verifyUserCanDownloadReferralIncomingDetailsFile();
 	}
 
@@ -1146,29 +1199,20 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.userShouldBeAbleToDownloadFilesInReferralIncomingDetails();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	// Referral Patient History
 	@And("the user should not be able to download files in Referral Patient History in Partner Module test")
 	public void userShouldNotBeAbleToDownloadFilesInReferralPatientHistory() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnersPharmacyUrl = Hooks.prop.getProperty("partnersPharmacyUrl");
-
 		Assert.assertNotNull("partnersPharmacyUrl is missing in config", partnersPharmacyUrl);
-
 		String fullPartnersPharmacyUrl = baseUrl + partnersPharmacyUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openAttorneyPartnersUrl(fullPartnersPharmacyUrl);
-
 		Assert.assertTrue("Partners (Pharmacy) page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=78a126b3-70ec-4a77-9551-33f01f1cf676"));
-
 		partnerPage.verifyUserCannotDownloadReferralPatientHistoryFile();
 	}
 
@@ -1181,28 +1225,19 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.userShouldNotBeAbleToDownloadFilesInReferralPatientHistory();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	@And("the user should be able to download files in Referral Patient History in Partner Module test")
 	public void userShouldBeAbleToDownloadFilesInReferralPatientHistory() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnersPharmacyUrl = Hooks.prop.getProperty("partnersPharmacyUrl");
-
 		Assert.assertNotNull("partnersPharmacyUrl is missing in config", partnersPharmacyUrl);
-
 		String fullPartnersPharmacyUrl = baseUrl + partnersPharmacyUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openAttorneyPartnersUrl(fullPartnersPharmacyUrl);
-
 		Assert.assertTrue("Partners (Pharmacy) page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=78a126b3-70ec-4a77-9551-33f01f1cf676"));
-
 		partnerPage.verifyUserCanDownloadReferralPatientHistoryFile();
 	}
 
@@ -1215,36 +1250,25 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.userShouldBeAbleToDownloadReferralPatientHistory();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	// Referral Enrollment.
-
 	@And("the user should not be able to add or edit Referral Enrollment in Partner Module test")
 	public void userShouldNotBeAbleToAddOrEditReferralEnrollment() throws InterruptedException {
-
 		partnerPage.verifyUserCannotAddOrEditReferralEnrollment();
 	}
 
 	@And("the user should be able to delete Referral Enrollment in Partner Module test")
 	public void userShouldBeAbleToDeleteReferralEnrollment() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnerAddAttorneyPartnersUrl = Hooks.prop.getProperty("partnerAddAttorneyPartnersUrl");
-
 		Assert.assertNotNull("partnerAddCustomPartnersUrl is missing in config", partnerAddAttorneyPartnersUrl);
-
 		String fullAttorneyPartnerUrl = baseUrl + partnerAddAttorneyPartnersUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openAttorneyPartnersUrl(fullAttorneyPartnerUrl);
-
 		Assert.assertTrue("Custom Partners page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=85a7a8a7-803c-4801-8bfa-ef64491be0fd"));
-
 		partnerPage.verifyUserCanDeleteReferralEnrollment();
 	}
 
@@ -1257,34 +1281,24 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.grantDeleteAccessToReferralEnrollment();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	@And("the user should not be able to add or delete Referral Enrollment in Partner Module test")
 	public void userShouldNotBeAbleToAddOrDeleteReferralEnrollment() throws InterruptedException {
-
 		partnerPage.verifyUserCannotAddOrDeleteReferralEnrollment();
 	}
 
 	@And("the user should be able to edit Referral Enrollment in Partner Module test")
 	public void userShouldBeAbleToEditReferralEnrollment() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnerAddAttorneyPartnersUrl = Hooks.prop.getProperty("partnerAddAttorneyPartnersUrl");
-
 		Assert.assertNotNull("partnerAddCustomPartnersUrl is missing in config", partnerAddAttorneyPartnersUrl);
-
 		String fullAttorneyPartnerUrl = baseUrl + partnerAddAttorneyPartnersUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openAttorneyPartnersUrl(fullAttorneyPartnerUrl);
-
 		Assert.assertTrue("Custom Partners page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=85a7a8a7-803c-4801-8bfa-ef64491be0fd"));
-
 		partnerPage.verifyUserCanEditReferralEnrollment();
 	}
 
@@ -1297,34 +1311,24 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.grantEditAccessToReferralEnrollment();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	@And("the user should not be able to edit or delete Referral Enrollment in Partner Module test")
 	public void userShouldNotBeAbleToEditOrDeleteReferralEnrollmentInPartnerModule() throws InterruptedException {
-
 		partnerPage.verifyUserCannotEditOrDeleteReferralEnrollment();
 	}
 
 	@And("the user should be able to add Referral Enrollment in Partner Module test")
 	public void userShouldBeAbleToAddReferralEnrollmentInPartnerModule() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnerAddAttorneyPartnersUrl = Hooks.prop.getProperty("partnerAddAttorneyPartnersUrl");
-
 		Assert.assertNotNull("partnerAddCustomPartnersUrl is missing in config", partnerAddAttorneyPartnersUrl);
-
 		String fullAttorneyPartnerUrl = baseUrl + partnerAddAttorneyPartnersUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openAttorneyPartnersUrl(fullAttorneyPartnerUrl);
-
 		Assert.assertTrue("Custom Partners page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=85a7a8a7-803c-4801-8bfa-ef64491be0fd"));
-
 		partnerPage.verifyUserCanAddReferralEnrollment();
 	}
 
@@ -1337,35 +1341,25 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.createProfileWithAddAccessForReferralEnrollment();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	// Employers
 	@And("the user should not be able to add, edit, or delete Employers in Partner Module test")
 	public void userShouldNotBeAbleToAddEditOrDeleteEmployersInPartnerModule() throws InterruptedException {
-
 		partnerPage.verifyUserCannotAddEditOrDeleteEmployersInPartnerModule();
 	}
 
 	@And("the user should be able to view Employers details in Partner Module test")
 	public void userShouldBeAbleToViewEmployersDetailsInPartnerModule() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnersEmployersUrl = Hooks.prop.getProperty("partnersEmployersUrl");
-
 		Assert.assertNotNull("partnersEmployersUrl is missing in config", partnersEmployersUrl);
-
 		String fullPartnersEmployersUrl = baseUrl + partnersEmployersUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openAttorneyPartnersUrl(fullPartnersEmployersUrl);
-
 		Assert.assertTrue("Partners (Employers) page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=13a6a03f-50fa-4ddc-8893-48a77f74efc7"));
-
 		partnerPage.verifyUserCanViewEmployersDetailsInPartnerModule();
 	}
 
@@ -1378,34 +1372,24 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.createProfileWithDetailsAccessForEmployers();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	@And("the user should not be able to add or edit Employers in Partner Module test")
 	public void userShouldNotBeAbleToAddOrEditEmployersInPartnerModule() throws InterruptedException {
-
 		partnerPage.userShouldNotBeAbleToAddOrEditEmployersInPartnerModule();
 	}
 
 	@And("the user should be able to delete Employers in Partner Module test")
 	public void userShouldBeAbleToDeleteEmployersInPartnerModule() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnersEmployersUrl = Hooks.prop.getProperty("partnersEmployersUrl");
-
 		Assert.assertNotNull("partnersEmployersUrl is missing in config", partnersEmployersUrl);
-
 		String fullPartnersEmployersUrl = baseUrl + partnersEmployersUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openAttorneyPartnersUrl(fullPartnersEmployersUrl);
-
 		Assert.assertTrue("Partners (Employers) page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=13a6a03f-50fa-4ddc-8893-48a77f74efc7"));
-
 		partnerPage.userShouldBeAbleToDeleteEmployersInPartnerModule();
 	}
 
@@ -1418,34 +1402,24 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.createProfileWithDeleteAccessForEmployers();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	@And("the user should not be able to add or delete Employers in Partner Module test")
 	public void userShouldNotBeAbleToAddOrDeleteEmployersInPartnerModule() throws InterruptedException {
-
 		partnerPage.userShouldNotBeAbleToAddOrDeleteEmployersInPartnerModule();
 	}
 
 	@And("the user should be able to edit Employers in Partner Module test")
 	public void userShouldBeAbleToEditEmployersInPartnerModule() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnersEmployersUrl = Hooks.prop.getProperty("partnersEmployersUrl");
-
 		Assert.assertNotNull("partnersEmployersUrl is missing in config", partnersEmployersUrl);
-
 		String fullPartnersEmployersUrl = baseUrl + partnersEmployersUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openAttorneyPartnersUrl(fullPartnersEmployersUrl);
-
 		Assert.assertTrue("Partners (Employers) page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=13a6a03f-50fa-4ddc-8893-48a77f74efc7"));
-
 		partnerPage.userShouldBeAbleToEditEmployersInPartnerModule();
 	}
 
@@ -1458,40 +1432,29 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.createProfileWithEditAccessForEmployers();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	@And("the user should not be able to view Employers details in Partner Module test")
 	public void userShouldNotBeAbleToViewEmployersDetailsInPartnerModule() throws InterruptedException {
-
 		partnerPage.userShouldNotBeAbleToViewEmployersDetailsInPartnerModule();
 	}
 
 	@And("the user should not be able to edit or delete Employers in Partner Module test")
 	public void userShouldNotBeAbleToEditOrDeleteEmployersInPartnerModule() throws InterruptedException {
-
 		partnerPage.userShouldNotBeAbleToEditOrDeleteEmployersInPartnerModule();
 	}
 
 	@And("the user should be able to add Employers in Partner Module test")
 	public void userShouldBeAbleToAddEmployersInPartnerModule() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnersEmployersUrl = Hooks.prop.getProperty("partnersEmployersUrl");
-
 		Assert.assertNotNull("partnersEmployersUrl is missing in config", partnersEmployersUrl);
-
 		String fullPartnersEmployersUrl = baseUrl + partnersEmployersUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openAttorneyPartnersUrl(fullPartnersEmployersUrl);
-
 		Assert.assertTrue("Partners (Employers) page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=13a6a03f-50fa-4ddc-8893-48a77f74efc7"));
-
 		partnerPage.userShouldBeAbleToAddEmployersInPartnerModule();
 	}
 
@@ -1504,8 +1467,6 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.createProfileWithAddAccessForEmployers();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
@@ -1513,28 +1474,20 @@ public class partnerstep {
 	@And("the user should not be able to add, edit, or delete Federal and State Government in Partner Module test")
 	public void userShouldNotBeAbleToAddEditOrDeleteFederalAndStateGovernmentInPartnerModule()
 			throws InterruptedException {
-
 		partnerPage.userShouldNotBeAbleToAddEditOrDeleteFederalAndStateGovernmentInPartnerModule();
 	}
 
 	@And("the user should be able to view Federal and State Government details in Partner Module test")
 	public void userShouldBeAbleToViewFederalAndStateGovernmentDetailsInPartnerModule() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnersFederalAndStateGovernmentUrl = Hooks.prop.getProperty("partnersFederalAndStateGovernmentUrl");
-
 		Assert.assertNotNull("partnersFederalAndStateGovernmentUrl is missing in config",
 				partnersFederalAndStateGovernmentUrl);
-
 		String fullPartnersFederalAndStateGovernmentUrl = baseUrl + partnersFederalAndStateGovernmentUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openAttorneyPartnersUrl(fullPartnersFederalAndStateGovernmentUrl);
-
 		Assert.assertTrue("Partners (Federal and State Government) page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=780319d7-d45a-40af-b6a7-c6ee68aa3125"));
-
 		partnerPage.userShouldBeAbleToViewFederalAndStateGovernmentDetailsInPartnerModule();
 	}
 
@@ -1547,35 +1500,25 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.createProfileWithDetailsAccessForFederalAndStateGovernment();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	@And("the user should not be able to add or edit Federal and State Government in Partner Module test")
 	public void userShouldNotBeAbleToAddOrEditFederalAndStateGovernmentInPartnerModule() throws InterruptedException {
-
 		partnerPage.userShouldNotBeAbleToAddOrEditFederalAndStateGovernmentInPartnerModule();
 	}
 
 	@And("the user should be able to delete Federal and State Government in Partner Module test")
 	public void userShouldBeAbleToDeleteFederalAndStateGovernmentInPartnerModule() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnersFederalAndStateGovernmentUrl = Hooks.prop.getProperty("partnersFederalAndStateGovernmentUrl");
-
 		Assert.assertNotNull("partnersFederalAndStateGovernmentUrl is missing in config",
 				partnersFederalAndStateGovernmentUrl);
-
 		String fullPartnersFederalAndStateGovernmentUrl = baseUrl + partnersFederalAndStateGovernmentUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openAttorneyPartnersUrl(fullPartnersFederalAndStateGovernmentUrl);
-
 		Assert.assertTrue("Partners (Federal and State Government) page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=780319d7-d45a-40af-b6a7-c6ee68aa3125"));
-
 		partnerPage.userShouldBeAbleToDeleteFederalAndStateGovernmentInPartnerModule();
 	}
 
@@ -1588,41 +1531,30 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.createProfileWithDeleteAccessForFederalAndStateGovernment();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	@And("the user should not be able to view Federal and State Government details in Partner Module test")
 	public void userShouldNotBeAbleToViewFederalAndStateGovernmentDetailsInPartnerModule() throws InterruptedException {
-
 		partnerPage.userShouldNotBeAbleToViewFederalAndStateGovernmentDetailsInPartnerModule();
 	}
 
 	@And("the user should not be able to add or delete Federal and State Government in Partner Module test")
 	public void userShouldNotBeAbleToAddOrDeleteFederalAndStateGovernmentInPartnerModule() throws InterruptedException {
-
 		partnerPage.userShouldNotBeAbleToAddOrDeleteFederalAndStateGovernmentInPartnerModule();
 	}
 
 	@And("the user should be able to edit Federal and State Government in Partner Module test")
 	public void userShouldBeAbleToEditFederalAndStateGovernmentInPartnerModule() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnersFederalAndStateGovernmentUrl = Hooks.prop.getProperty("partnersFederalAndStateGovernmentUrl");
-
 		Assert.assertNotNull("partnersFederalAndStateGovernmentUrl is missing in config",
 				partnersFederalAndStateGovernmentUrl);
-
 		String fullPartnersFederalAndStateGovernmentUrl = baseUrl + partnersFederalAndStateGovernmentUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openAttorneyPartnersUrl(fullPartnersFederalAndStateGovernmentUrl);
-
 		Assert.assertTrue("Partners (Federal and State Government) page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=780319d7-d45a-40af-b6a7-c6ee68aa3125"));
-
 		partnerPage.userShouldBeAbleToEditFederalAndStateGovernmentInPartnerModule();
 	}
 
@@ -1635,36 +1567,26 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.createProfileWithEditAccessForFederalAndStateGovernment();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	@And("the user should not be able to edit or delete Federal and State Government in Partner Module test")
 	public void userShouldNotBeAbleToEditOrDeleteFederalAndStateGovernmentInPartnerModule()
 			throws InterruptedException {
-
 		partnerPage.userShouldNotBeAbleToEditOrDeleteFederalAndStateGovernmentInPartnerModule();
 	}
 
 	@And("the user should be able to add Federal and State Government in Partner Module test")
 	public void userShouldBeAbleToAddFederalAndStateGovernmentInPartnerModule() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnersFederalAndStateGovernmentUrl = Hooks.prop.getProperty("partnersFederalAndStateGovernmentUrl");
-
 		Assert.assertNotNull("partnersFederalAndStateGovernmentUrl is missing in config",
 				partnersFederalAndStateGovernmentUrl);
-
 		String fullPartnersFederalAndStateGovernmentUrl = baseUrl + partnersFederalAndStateGovernmentUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openAttorneyPartnersUrl(fullPartnersFederalAndStateGovernmentUrl);
-
 		Assert.assertTrue("Partners (Federal and State Government) page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=780319d7-d45a-40af-b6a7-c6ee68aa3125"));
-
 		partnerPage.userShouldBeAbleToAddFederalAndStateGovernmentInPartnerModule();
 	}
 
@@ -1677,15 +1599,12 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.createProfileWithAddAccessForFederalAndStateGovernment();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	// Rx HUB
 	@And("the user should not be able to add or edit Rx HUB in Partner Module test")
 	public void userShouldNotBeAbleToAddOrEditRxHubInPartnerModule() throws InterruptedException {
-
 		partnerPage.userShouldNotBeAbleToAddOrEditRxHUBInPartnerModule();
 	}
 
@@ -1694,18 +1613,12 @@ public class partnerstep {
 
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnersRxHubUrl = Hooks.prop.getProperty("partnersRxHubUrl");
-
 		Assert.assertNotNull("partnersRxHubUrl is missing in config", partnersRxHubUrl);
-
 		String fullPartnersRxHubUrl = baseUrl + partnersRxHubUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openAttorneyPartnersUrl(fullPartnersRxHubUrl);
-
 		Assert.assertTrue("Partners (Rx HUB) page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=5a0f3a81-56b8-403d-ad0e-1a493a3f8ab9"));
-
 		partnerPage.userShouldBeAbleToDeleteRxHUBInPartnerModule();
 	}
 
@@ -1718,35 +1631,25 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.createProfileWithDeleteAccessForRxHub();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	@And("the user should not be able to add or delete Rx HUB in Partner Module test")
 	public void userShouldNotBeAbleToAddOrDeleteRxHubInPartnerModule() throws InterruptedException {
-
 		partnerPage.userShouldNotBeAbleToAddOrDeleteRxHUBInPartnerModule();
 
 	}
 
 	@And("the user should be able to edit Rx HUB in Partner Module test")
 	public void userShouldBeAbleToEditRxHubInPartnerModule() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnersRxHubUrl = Hooks.prop.getProperty("partnersRxHubUrl");
-
 		Assert.assertNotNull("partnersRxHubUrl is missing in config", partnersRxHubUrl);
-
 		String fullPartnersRxHubUrl = baseUrl + partnersRxHubUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openAttorneyPartnersUrl(fullPartnersRxHubUrl);
-
 		Assert.assertTrue("Partners (Rx HUB) page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=5a0f3a81-56b8-403d-ad0e-1a493a3f8ab9"));
-
 		partnerPage.userShouldBeAbleToEditRxHUBInPartnerModule();
 	}
 
@@ -1759,40 +1662,29 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.createProfileWithEditAccessForRxHub();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	@And("the user should not be able to view Rx HUB details in Partner Module test")
 	public void userShouldNotBeAbleToViewRxHubDetailsInPartnerModule() throws InterruptedException {
-
 		partnerPage.userShouldNotBeAbleToViewRxHUBDetailsInPartnerModule();
 	}
 
 	@And("the user should not be able to edit or delete Rx HUB in Partner Module test")
 	public void userShouldNotBeAbleToEditOrDeleteRxHubInPartnerModule() throws InterruptedException {
-
 		partnerPage.userShouldNotBeAbleToEditOrDeleteRxHUBInPartnerModule();
 	}
 
 	@And("the user should be able to add Rx HUB in Partner Module test")
 	public void userShouldBeAbleToAddRxHubInPartnerModule() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnersRxHubUrl = Hooks.prop.getProperty("partnersRxHubUrl");
-
 		Assert.assertNotNull("partnersRxHubUrl is missing in config", partnersRxHubUrl);
-
 		String fullPartnersRxHubUrl = baseUrl + partnersRxHubUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openAttorneyPartnersUrl(fullPartnersRxHubUrl);
-
 		Assert.assertTrue("Partners (Rx HUB) page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=5a0f3a81-56b8-403d-ad0e-1a493a3f8ab9"));
-
 		partnerPage.userShouldBeAbleToAddRxHUBInPartnerModule();
 	}
 
@@ -1805,35 +1697,25 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.createProfileWithAddAccessForRxHub();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	// DME Provider
 	@And("the user should not be able to add, edit, or delete DME Provider in Partner Module test")
 	public void userShouldNotBeAbleToAddEditOrDeleteDmeProviderInPartnerModule() throws InterruptedException {
-
 		partnerPage.userShouldNotBeAbleToAddEditOrDeleteDMEProviderInPartnerModule();
 	}
 
 	@And("the user should be able to view DME Provider details in Partner Module test")
 	public void userShouldBeAbleToViewDmeProviderDetailsInPartnerModule() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnersDmeProviderUrl = Hooks.prop.getProperty("partnersDmeProviderUrl");
-
 		Assert.assertNotNull("partnersDmeProviderUrl is missing in config", partnersDmeProviderUrl);
-
 		String fullPartnersDmeProviderUrl = baseUrl + partnersDmeProviderUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openAttorneyPartnersUrl(fullPartnersDmeProviderUrl);
-
 		Assert.assertTrue("Partners (DME Provider) page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=0aea0bb9-656c-4982-8dd5-608af9a00d18"));
-
 		partnerPage.userShouldBeAbleToViewDMEProviderDetailsInPartnerModule();
 	}
 
@@ -1846,34 +1728,24 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.createProfileWithDetailsAccessForDmeProvider();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	@And("the user should not be able to add or edit DME Provider in Partner Module test")
 	public void userShouldNotBeAbleToAddOrEditDmeProviderInPartnerModule() throws InterruptedException {
-
 		partnerPage.userShouldNotBeAbleToAddOrEditDMEProviderInPartnerModule();
 	}
 
 	@And("the user should be able to delete DME Provider in Partner Module test")
 	public void userShouldBeAbleToDeleteDmeProviderInPartnerModule() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnersDmeProviderUrl = Hooks.prop.getProperty("partnersDmeProviderUrl");
-
 		Assert.assertNotNull("partnersDmeProviderUrl is missing in config", partnersDmeProviderUrl);
-
 		String fullPartnersDmeProviderUrl = baseUrl + partnersDmeProviderUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openAttorneyPartnersUrl(fullPartnersDmeProviderUrl);
-
 		Assert.assertTrue("Partners (DME Provider) page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=0aea0bb9-656c-4982-8dd5-608af9a00d18"));
-
 		partnerPage.userShouldBeAbleToDeleteDMEProviderInPartnerModule();
 	}
 
@@ -1886,34 +1758,24 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.createProfileWithDeleteAccessForDmeProvider();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	@And("the user should not be able to add or delete DME Provider in Partner Module test")
 	public void userShouldNotBeAbleToAddOrDeleteDmeProviderInPartnerModule() throws InterruptedException {
-
 		partnerPage.userShouldNotBeAbleToAddOrDeleteDMEProviderInPartnerModule();
 	}
 
 	@And("the user should be able to edit DME Provider in Partner Module test")
 	public void userShouldBeAbleToEditDmeProviderInPartnerModule() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnersDmeProviderUrl = Hooks.prop.getProperty("partnersDmeProviderUrl");
-
 		Assert.assertNotNull("partnersDmeProviderUrl is missing in config", partnersDmeProviderUrl);
-
 		String fullPartnersDmeProviderUrl = baseUrl + partnersDmeProviderUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openAttorneyPartnersUrl(fullPartnersDmeProviderUrl);
-
 		Assert.assertTrue("Partners (DME Provider) page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=0aea0bb9-656c-4982-8dd5-608af9a00d18"));
-
 		partnerPage.userShouldBeAbleToEditDMEProviderInPartnerModule();
 	}
 
@@ -1926,40 +1788,29 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.createProfileWithEditAccessForDmeProvider();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	@And("the user should not be able to view DME Provider details in Partner Module test")
 	public void userShouldNotBeAbleToViewDmeProviderDetailsInPartnerModule() throws InterruptedException {
-
 		partnerPage.userShouldNotBeAbleToViewDMEProviderDetailsInPartnerModule();
 	}
 
 	@And("the user should not be able to edit or delete DME Provider in Partner Module test")
 	public void userShouldNotBeAbleToEditOrDeleteDmeProviderInPartnerModule() throws InterruptedException {
-
 		partnerPage.userShouldNotBeAbleToEditOrDeleteDMEProviderInPartnerModule();
 	}
 
 	@And("the user should be able to add DME Provider in Partner Module test")
 	public void userShouldBeAbleToAddDmeProviderInPartnerModule() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnersDmeProviderUrl = Hooks.prop.getProperty("partnersDmeProviderUrl");
-
 		Assert.assertNotNull("partnersDmeProviderUrl is missing in config", partnersDmeProviderUrl);
-
 		String fullPartnersDmeProviderUrl = baseUrl + partnersDmeProviderUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openAttorneyPartnersUrl(fullPartnersDmeProviderUrl);
-
 		Assert.assertTrue("Partners (DME Provider) page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=0aea0bb9-656c-4982-8dd5-608af9a00d18"));
-
 		partnerPage.userShouldBeAbleToAddDMEProviderInPartnerModule();
 	}
 
@@ -1972,35 +1823,25 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.createProfileWithAddAccessForDmeProvider();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	// Pharmacies
 	@And("the user should not be able to add, edit, delete, or view Pharmacies details in Partner Module test")
 	public void userShouldNotBeAbleToManagePharmaciesDetailsInPartnerModule() throws InterruptedException {
-
 		partnerPage.userShouldNotBeAbleToAddEditDeleteOrViewPharmaciesDetailsInPartnerModule();
 	}
 
 	@And("the user should be able to access Pharmacy Vetting in Partner Module test")
 	public void userShouldBeAbleToAccessPharmacyVettingInPartnerModule() {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnersPharmacyUrl = Hooks.prop.getProperty("partnersPharmacyUrl");
-
 		Assert.assertNotNull("partnersPharmacyUrl is missing in config", partnersPharmacyUrl);
-
 		String fullPartnersPharmacyUrl = baseUrl + partnersPharmacyUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openAttorneyPartnersUrl(fullPartnersPharmacyUrl);
-
 		Assert.assertTrue("Partners (Pharmacy) page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=78a126b3-70ec-4a77-9551-33f01f1cf676"));
-
 		partnerPage.userShouldBeAbleToAccessPharmacyVettingInPartnerModule();
 	}
 
@@ -2013,34 +1854,24 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.createProfileWithPharmacyVettingAccessForPharmacies();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	@And("the user should not be able to add, edit, or delete Pharmacies in Partner Module test")
 	public void userCannotAddEditOrDeletePharmaciesInPartnerModuleTest() {
-
 		partnerPage.userShouldNotBeAbleToAddEditOrDeletePharmaciesInPartnerModule();
 	}
 
 	@And("the user should be able to view Pharmacies details in Partner Module test")
 	public void userCanViewPharmaciesDetailsInPartnerModuleTest() {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnersPharmacyUrl = Hooks.prop.getProperty("partnersPharmacyUrl");
-
 		Assert.assertNotNull("partnersPharmacyUrl is missing in config", partnersPharmacyUrl);
-
 		String fullPartnersPharmacyUrl = baseUrl + partnersPharmacyUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openAttorneyPartnersUrl(fullPartnersPharmacyUrl);
-
 		Assert.assertTrue("Partners (Pharmacy) page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=78a126b3-70ec-4a77-9551-33f01f1cf676"));
-
 		partnerPage.userShouldBeAbleToViewPharmaciesDetailsInPartnerModule();
 	}
 
@@ -2053,34 +1884,24 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.verifyPharmaciesDetailsOnlyAccessInPartnerModuleProfile();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	@And("the user should not be able to add or edit Pharmacies in Partner Module test")
 	public void userCannotAddOrEditPharmaciesInPartnerModuleTest() {
-
 		partnerPage.userShouldNotBeAbleToAddOrEditPharmaciesInPartnerModule();
 	}
 
 	@And("the user should be able to delete Pharmacies in Partner Module test")
 	public void userCanDeletePharmaciesInPartnerModuleTest() {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnersPharmacyUrl = Hooks.prop.getProperty("partnersPharmacyUrl");
-
 		Assert.assertNotNull("partnersPharmacyUrl is missing in config", partnersPharmacyUrl);
-
 		String fullPartnersPharmacyUrl = baseUrl + partnersPharmacyUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openAttorneyPartnersUrl(fullPartnersPharmacyUrl);
-
 		Assert.assertTrue("Partners (Pharmacy) page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=78a126b3-70ec-4a77-9551-33f01f1cf676"));
-
 		partnerPage.userShouldBeAbleToDeletePharmaciesInPartnerModule();
 	}
 
@@ -2093,34 +1914,24 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.testPartnerModulePharmaciesDeleteAccessRestriction();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	@And("the user should not be able to add or delete Pharmacies in Partner Module test")
 	public void userCannotAddOrDeletePharmaciesInPartnerModuleTest() {
-
 		partnerPage.userShouldNotBeAbleToAddOrDeletePharmaciesInPartnerModule();
 	}
 
 	@And("the user should be able to edit Pharmacies in Partner Module test")
 	public void userCanEditPharmaciesInPartnerModuleTest() {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnersPharmacyUrl = Hooks.prop.getProperty("partnersPharmacyUrl");
-
 		Assert.assertNotNull("partnersPharmacyUrl is missing in config", partnersPharmacyUrl);
-
 		String fullPartnersPharmacyUrl = baseUrl + partnersPharmacyUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openAttorneyPartnersUrl(fullPartnersPharmacyUrl);
-
 		Assert.assertTrue("Partners (Pharmacy) page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=78a126b3-70ec-4a77-9551-33f01f1cf676"));
-
 		partnerPage.userShouldBeAbleToEditPharmaciesInPartnerModule();
 	}
 
@@ -2133,46 +1944,34 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.testPartnerModulePharmaciesEditAccessRestriction();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	@And("the user should not be able to access Pharmacy Vetting in Partner Module test")
 	public void verifyPharmacyVettingNotAccessibleInPartnerModule() {
-
 		partnerPage.userShouldNotBeAbleToAccessPharmacyVettingInPartnerModule();
 	}
 
 	@And("the user should not be able to view Pharmacies details in Partner Module test")
 	public void userCannotViewPharmaciesDetailsInPartnerModuleTest() {
-
 		partnerPage.userShouldNotBeAbleToViewPharmaciesDetailsInPartnerModule();
 	}
 
 	@And("the user should not be able to edit or delete Pharmacies in Partner Module test")
 	public void userCannotEditOrDeletePharmaciesInPartnerModuleTest() {
-
 		partnerPage.userShouldNotBeAbleToEditOrDeletePharmaciesInPartnerModule();
 	}
 
 	@And("the user should be able to add Pharmacies in Partner Module test")
 	public void userCanAddPharmaciesInPartnerModuleTest() {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnersPharmacyUrl = Hooks.prop.getProperty("partnersPharmacyUrl");
-
 		Assert.assertNotNull("partnersPharmacyUrl is missing in config", partnersPharmacyUrl);
-
 		String fullPartnersPharmacyUrl = baseUrl + partnersPharmacyUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openAttorneyPartnersUrl(fullPartnersPharmacyUrl);
-
 		Assert.assertTrue("Partners (Pharmacy) page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=78a126b3-70ec-4a77-9551-33f01f1cf676"));
-
 		partnerPage.userShouldBeAbleToAddPharmaciesInPartnerModule();
 	}
 
@@ -2185,35 +1984,25 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.testPartnerModulePharmaciesAddAccessRestriction();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	// Attorney
 	@And("the user should not be able to add, edit, or delete Attorney in Partner Module test")
 	public void userCannotAddEditOrDeleteAttorneyInPartnerModuleTest() {
-
 		partnerPage.userShouldNotBeAbleToAddEditOrDeleteAttorneyInPartnerModule();
 	}
 
 	@And("the user should be able to view Attorney details in Partner Module test")
 	public void userCanViewAttorneyDetailsInPartnerModuleTest() {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnerAddAttorneyPartnersUrl = Hooks.prop.getProperty("partnerAddAttorneyPartnersUrl");
-
 		Assert.assertNotNull("partnerAddCustomPartnersUrl is missing in config", partnerAddAttorneyPartnersUrl);
-
 		String fullAttorneyPartnerUrl = baseUrl + partnerAddAttorneyPartnersUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openAttorneyPartnersUrl(fullAttorneyPartnerUrl);
-
 		Assert.assertTrue("Custom Partners page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=85a7a8a7-803c-4801-8bfa-ef64491be0fd"));
-
 		partnerPage.userShouldBeAbleToViewAttorneyDetailsInPartnerModule();
 	}
 
@@ -2226,34 +2015,24 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.testPartnerModuleAttorneyDetailsAccessRestriction();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	@And("the user should not be able to add or edit Attorney in Partner Module test")
 	public void userCannotAddOrEditAttorneyInPartnerModuleTest() {
-
 		partnerPage.userShouldNotBeAbleToAddOrEditAttorneyInPartnerModule();
 	}
 
 	@And("the user should be able to delete Attorney in Partner Module test")
 	public void userCanDeleteAttorneyInPartnerModuleTest() {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnerAddAttorneyPartnersUrl = Hooks.prop.getProperty("partnerAddAttorneyPartnersUrl");
-
 		Assert.assertNotNull("partnerAddCustomPartnersUrl is missing in config", partnerAddAttorneyPartnersUrl);
-
 		String fullAttorneyPartnerUrl = baseUrl + partnerAddAttorneyPartnersUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openAttorneyPartnersUrl(fullAttorneyPartnerUrl);
-
 		Assert.assertTrue("Custom Partners page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=85a7a8a7-803c-4801-8bfa-ef64491be0fd"));
-
 		partnerPage.userShouldBeAbleToDeleteAttorneyInPartnerModule();
 	}
 
@@ -2266,34 +2045,24 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.testPartnerModuleAttorneyDeleteAccessRestriction();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	@And("the user should not be able to add or delete Attorney in Partner Module test")
 	public void userCannotAddOrDeleteAttorneyInPartnerModuleTest() {
-
 		partnerPage.userShouldNotBeAbleToAddOrDeleteAttorneyInPartnerModule();
 	}
 
 	@And("the user should be able to edit Attorney in Partner Module test")
 	public void userCanEditAttorneyInPartnerModuleTest() {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnerAddAttorneyPartnersUrl = Hooks.prop.getProperty("partnerAddAttorneyPartnersUrl");
-
 		Assert.assertNotNull("partnerAddCustomPartnersUrl is missing in config", partnerAddAttorneyPartnersUrl);
-
 		String fullAttorneyPartnerUrl = baseUrl + partnerAddAttorneyPartnersUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openAttorneyPartnersUrl(fullAttorneyPartnerUrl);
-
 		Assert.assertTrue("Custom Partners page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=85a7a8a7-803c-4801-8bfa-ef64491be0fd"));
-
 		partnerPage.userShouldBeAbleToEditAttorneyInPartnerModule();
 	}
 
@@ -2306,40 +2075,29 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.verifyAttorneyEditOnlyAccessInPartnerModuleProfile();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	@And("the user should not be able to view Attorney details in Partner Module test")
 	public void userCannotViewAttorneyDetailsInPartnerModuleTest() {
-
 		partnerPage.userShouldNotBeAbleToViewAttorneyDetailsInPartnerModule();
 	}
 
 	@And("the user should not be able to edit or delete Attorney in Partner Module test")
 	public void userCannotEditOrDeleteAttorneyInPartnerModuleTest() {
-
 		partnerPage.userShouldNotBeAbleToEditOrDeleteAttorneyInPartnerModule();
 	}
 
 	@And("the user should be able to add Attorney in Partner Module test")
 	public void userCanAddAttorneyInPartnerModuleTest() {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnerAddAttorneyPartnersUrl = Hooks.prop.getProperty("partnerAddAttorneyPartnersUrl");
-
 		Assert.assertNotNull("partnerAddCustomPartnersUrl is missing in config", partnerAddAttorneyPartnersUrl);
-
 		String fullAttorneyPartnerUrl = baseUrl + partnerAddAttorneyPartnersUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openAttorneyPartnersUrl(fullAttorneyPartnerUrl);
-
 		Assert.assertTrue("Custom Partners page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=85a7a8a7-803c-4801-8bfa-ef64491be0fd"));
-
 		partnerPage.userShouldBeAbleToAddAttorneyInPartnerModule();
 	}
 
@@ -2352,89 +2110,70 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.verifyAttorneyAddOnlyAccessInPartnerModuleProfile();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	// Bucket
 	@And("the user should not be able to favourite Folder in Bucket for Partner Module test")
 	public void userCannotFavouriteFolderInBucketForPartnerModuleTest() {
-
 		partnerPage.userShouldNotBeAbleToFavouriteFolderInBucketForPartnerModule();
 	}
 
 	@And("the user should not be able to delete Folder in Bucket for Partner Module test")
 	public void userCannotDeleteFolderInBucketForPartnerModuleTest() {
-
 		partnerPage.userShouldNotBeAbleToDeleteFolderInBucketForPartnerModule();
 	}
 
 	@And("the user should not be able to edit Folder in Bucket for Partner Module test")
 	public void userCannotEditFolderInBucketForPartnerModuleTest() {
-
 		partnerPage.userShouldNotBeAbleToEditFolderInBucketForPartnerModule();
 	}
 
 	@And("the user should not be able to add Folder in Bucket for Partner Module test")
 	public void shouldRestrictAddingFolderInBucketPartnerModule() {
-
 		partnerPage.userShouldNotBeAbleToAddFolderInBucketForPartnerModule();
 	}
 
 	@And("the user should not be able to view Folder in Bucket for Partner Module test")
 	public void userCannotViewFolderInBucketForPartnerModuleTest() {
-
 		partnerPage.userShouldNotBeAbleToViewFolderInBucketForPartnerModule();
 	}
 
 	@And("the user should be able to download File in Bucket for Partner Module test")
 	public void userCanDownloadFileInBucketForPartnerModuleTest() {
-
 		partnerPage.userShouldBeAbleToDownloadFileInBucketForPartnerModule();
 	}
 
 	@And("the user should be able to favourite File in Bucket for Partner Module test")
 	public void userCanFavouriteFileInBucketForPartnerModuleTest() {
-
 		partnerPage.userShouldBeAbleToFavouriteFileInBucketForPartnerModule();
 	}
 
 	@And("the user should be able to delete File in Bucket for Partner Module test")
 	public void userCanDeleteFileInBucketForPartnerModuleTest() {
-
 		partnerPage.userShouldBeAbleToDeleteFileInBucketForPartnerModule();
 	}
 
 	@And("the user should be able to edit File in Bucket for Partner Module test")
 	public void userCanEditFileInBucketForPartnerModuleTest() {
-
 		partnerPage.userShouldBeAbleToEditFileInBucketForPartnerModule();
 	}
 
 	@And("the user should be able to add File in Bucket for Partner Module test")
 	public void userCanAddFileInBucketForPartnerModuleTest() {
-
 		partnerPage.userShouldBeAbleToAddFileInBucketForPartnerModule();
 	}
 
 	@And("the user should be able to view File in Bucket for Partner Module test")
 	public void userCanViewFileInBucketForPartnerModuleTest() {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnerAddCustomPartnersUrl = Hooks.prop.getProperty("partnerAddCustomPartnersUrl");
-
 		Assert.assertNotNull("partnerAddCustomPartnersUrl is missing in config", partnerAddCustomPartnersUrl);
-
 		String fullCustomPartnerUrl = baseUrl + partnerAddCustomPartnersUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openCustomPartnersUrl(fullCustomPartnerUrl);
-
 		Assert.assertTrue("Custom Partners page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=6b73f9ca-5250-4d9c-8772-c2d33f5c5850"));
-
 		partnerPage.userShouldBeAbleToViewFileInBucketForPartnerModule();
 	}
 
@@ -2447,68 +2186,56 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.testPartnerModuleBucketProfileFileOnlyPermissions();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	@And("the user should not be able to download File in Bucket for Partner Module test")
 	public void userCannotDownloadFileInBucketForPartnerModuleTest() {
-
 		partnerPage.userShouldNotBeAbleToDownloadFileInBucketForPartnerModule();
 	}
 
 	@And("the user should not be able to favourite File in Bucket for Partner Module test")
 	public void userCannotFavouriteFileInBucketForPartnerModuleTest() {
-
 		partnerPage.userShouldNotBeAbleToFavouriteFileInBucketForPartnerModule();
 	}
 
 	@And("the user should not be able to delete File in Bucket for Partner Module test")
 	public void userCannotDeleteFileInBucketForPartnerModuleTest() {
-
 		partnerPage.userShouldNotBeAbleToDeleteFileInBucketForPartnerModule();
 	}
 
 	@And("the user should not be able to edit File in Bucket for Partner Module test")
 	public void userCannotEditFileInBucketForPartnerModuleTest() {
-
 		partnerPage.userShouldNotBeAbleToEditFileInBucketForPartnerModule();
 	}
 
 	@And("the user should not be able to add File in Bucket for Partner Module test")
 	public void userCannotAddFileInBucketForPartnerModuleTest() {
-
 		partnerPage.userShouldNotBeAbleToAddFileInBucketForPartnerModule();
 	}
 
 	@And("the user should not be able to view File in Bucket for Partner Module test")
 	public void userCannotViewFileInBucketForPartnerModuleTest() {
-
 		partnerPage.userShouldNotBeAbleToViewFileInBucketForPartnerModule();
 	}
 
 	@And("the user should be able to favourite Folder in Bucket for Partner Module test")
 	public void userCanFavouriteFolderInBucketForPartnerModuleTest() {
-
 		partnerPage.userShouldBeAbleToFavouriteFolderInBucketForPartnerModule();
 	}
 
 	@And("the user should be able to delete Folder in Bucket for Partner Module test")
 	public void userCanDeleteFolderInBucketForPartnerModuleTest() {
-
 		partnerPage.userShouldBeAbleToDeleteFolderInBucketForPartnerModule();
 	}
 
 	@And("the user should be able to edit Folder in Bucket for Partner Module test")
 	public void userCanEditFolderInBucketForPartnerModuleTest() {
-
 		partnerPage.userShouldBeAbleToEditFolderInBucketForPartnerModule();
 	}
 
 	@And("the user should be able to add Folder in Bucket for Partner Module test")
 	public void userCanAddFolderInBucketForPartnerModuleTest() {
-
 		partnerPage.userShouldBeAbleToAddFolderInBucketForPartnerModule();
 	}
 
@@ -2521,62 +2248,43 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.verifyBucketProfileWithFolderOnlyPermissionsInPartnerModule();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	@And("the user should be able to view Folder in Bucket for Partner Module test")
 	public void userCanViewFolderInBucketForPartnerModuleTest() {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnerAddCustomPartnersUrl = Hooks.prop.getProperty("partnerAddCustomPartnersUrl");
-
 		Assert.assertNotNull("partnerAddCustomPartnersUrl is missing in config", partnerAddCustomPartnersUrl);
-
 		String fullCustomPartnerUrl = baseUrl + partnerAddCustomPartnersUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openCustomPartnersUrl(fullCustomPartnerUrl);
-
 		Assert.assertTrue("Custom Partners page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=6b73f9ca-5250-4d9c-8772-c2d33f5c5850"));
-
 		partnerPage.userShouldBeAbleToViewFolderInBucketForPartnerModule();
 	}
 
 	// Executive
-
 	@And("the user should not be able to add, edit, or delete Executive in Partner Module test")
 	public void cannotAddEditOrDeleteExecutive() {
-
 		partnerPage.verifyUserCannotAddEditOrDeleteExecutiveInPartnerModule();
 	}
 
 	@And("the user should be able to reset password for Executive in Partner Module test")
 	public void resetPasswordForExecutive() {
-
 		partnerPage.verifyUserCanResetPasswordForExecutiveInPartnerModule();
 	}
 
 	@And("the user should be able to view Executive in Partner Module test")
 	public void viewExecutiveInPartnerModule() {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnerAddAttorneyPartnersUrl = Hooks.prop.getProperty("partnerAddAttorneyPartnersUrl");
-
 		Assert.assertNotNull("partnerAddCustomPartnersUrl is missing in config", partnerAddAttorneyPartnersUrl);
-
 		String fullAttorneyPartnerUrl = baseUrl + partnerAddAttorneyPartnersUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openAttorneyPartnersUrl(fullAttorneyPartnerUrl);
-
 		Assert.assertTrue("Custom Partners page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=85a7a8a7-803c-4801-8bfa-ef64491be0fd"));
-
 		partnerPage.verifyUserCanViewExecutiveInPartnerModule();
 	}
 
@@ -2589,34 +2297,24 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.createProfileViewResetExecutiveAccess();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	@And("the user should not be able to add or edit Executive in Partner Module test")
 	public void cannotAddOrEditExecutive() {
-
 		partnerPage.verifyUserCannotAddOrEditExecutiveInPartnerModule();
 	}
 
 	@And("the user should be able to delete Executive in Partner Module test")
 	public void deleteExecutiveInPartnerModule() {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnerAddCustomPartnersUrl = Hooks.prop.getProperty("partnerAddCustomPartnersUrl");
-
 		Assert.assertNotNull("partnerAddCustomPartnersUrl is missing in config", partnerAddCustomPartnersUrl);
-
 		String fullCustomPartnerUrl = baseUrl + partnerAddCustomPartnersUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openCustomPartnersUrl(fullCustomPartnerUrl);
-
 		Assert.assertTrue("Custom Partners page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=6b73f9ca-5250-4d9c-8772-c2d33f5c5850"));
-
 		partnerPage.verifyUserCanDeleteExecutiveInPartnerModule();
 	}
 
@@ -2629,34 +2327,24 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.createProfileDeleteExecutive();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	@And("the user should not be able to add or delete Executive in Partner Module test")
 	public void cannotAddOrDeleteExecutive() {
-
 		partnerPage.verifyUserCannotAddOrDeleteExecutiveInPartnerModule();
 	}
 
 	@And("the user should be able to edit Executive in Partner Module test")
 	public void editExecutiveInPartnerModule() {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnerAddCustomPartnersUrl = Hooks.prop.getProperty("partnerAddCustomPartnersUrl");
-
 		Assert.assertNotNull("partnerAddCustomPartnersUrl is missing in config", partnerAddCustomPartnersUrl);
-
 		String fullCustomPartnerUrl = baseUrl + partnerAddCustomPartnersUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openCustomPartnersUrl(fullCustomPartnerUrl);
-
 		Assert.assertTrue("Custom Partners page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=6b73f9ca-5250-4d9c-8772-c2d33f5c5850"));
-
 		partnerPage.verifyUserCanEditExecutiveInPartnerModule();
 	}
 
@@ -2669,48 +2357,32 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.createProfileEditExecutive();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	@And("the user should not be able to edit or delete Executive in Partner Module test")
 	public void cannotEditOrDeleteExecutive() {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnerAddCustomPartnersUrl = Hooks.prop.getProperty("partnerAddCustomPartnersUrl");
-
 		Assert.assertNotNull("partnerAddCustomPartnersUrl is missing in config", partnerAddCustomPartnersUrl);
-
 		String fullCustomPartnerUrl = baseUrl + partnerAddCustomPartnersUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openCustomPartnersUrl(fullCustomPartnerUrl);
-
 		Assert.assertTrue("Custom Partners page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=6b73f9ca-5250-4d9c-8772-c2d33f5c5850"));
-
 		partnerPage.verifyUserCannotEditOrDeleteExecutiveInPartnerModule();
 	}
 
 	@And("the user should be able to add Executive in Partner Module test")
 	public void addExecutiveInPartnerModule() {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnerAddCustomPartnersUrl = Hooks.prop.getProperty("partnerAddCustomPartnersUrl");
-
 		Assert.assertNotNull("partnerAddCustomPartnersUrl is missing in config", partnerAddCustomPartnersUrl);
-
 		String fullCustomPartnerUrl = baseUrl + partnerAddCustomPartnersUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openCustomPartnersUrl(fullCustomPartnerUrl);
-
 		Assert.assertTrue("Custom Partners page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=6b73f9ca-5250-4d9c-8772-c2d33f5c5850"));
-
 		partnerPage.verifyUserCanAddExecutiveInPartnerModule();
 	}
 
@@ -2723,35 +2395,25 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.createProfileAddExecutive();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	// Mailing Address
 	@And("the user should not be able to add or edit Mailing Address in Partner Module test")
 	public void cannotAddOrEditMailingAddress() {
-
 		partnerPage.verifyUserCannotAddOrEditMailingAddressInPartnerModule();
 	}
 
 	@And("the user should be able to delete Mailing Address in Partner Module test")
 	public void deleteMailingAddressInPartnerModule() {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnerAddCustomPartnersUrl = Hooks.prop.getProperty("partnerAddCustomPartnersUrl");
-
 		Assert.assertNotNull("partnerAddCustomPartnersUrl is missing in config", partnerAddCustomPartnersUrl);
-
 		String fullCustomPartnerUrl = baseUrl + partnerAddCustomPartnersUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openCustomPartnersUrl(fullCustomPartnerUrl);
-
 		Assert.assertTrue("Custom Partners page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=6b73f9ca-5250-4d9c-8772-c2d33f5c5850"));
-
 		partnerPage.verifyUserCanDeleteMailingAddressInPartnerModule();
 	}
 
@@ -2764,34 +2426,24 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.createProfileDeleteMailingAddress();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	@And("the user should not be able to add or delete Mailing Address in Partner Module test")
 	public void cannotAddOrDeleteMailingAddress() {
-
 		partnerPage.verifyUserCannotAddOrDeleteMailingAddressInPartnerModule();
 	}
 
 	@And("the user should be able to edit Mailing Address in Partner Module test")
 	public void editMailingAddressInPartnerModule() {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnerAddCustomPartnersUrl = Hooks.prop.getProperty("partnerAddCustomPartnersUrl");
-
 		Assert.assertNotNull("partnerAddCustomPartnersUrl is missing in config", partnerAddCustomPartnersUrl);
-
 		String fullCustomPartnerUrl = baseUrl + partnerAddCustomPartnersUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openCustomPartnersUrl(fullCustomPartnerUrl);
-
 		Assert.assertTrue("Custom Partners page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=6b73f9ca-5250-4d9c-8772-c2d33f5c5850"));
-
 		partnerPage.verifyUserCanEditMailingAddressInPartnerModule();
 	}
 
@@ -2804,14 +2456,11 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.createProfileEditMailingAddress();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	@And("the user should not be able to edit or delete Mailing Address in Partner Module test")
 	public void cannotEditOrDeleteMailingAddress() {
-
 		partnerPage.verifyUserCannotEditOrDeleteMailingAddressInPartnerModule();
 	}
 
@@ -2824,55 +2473,38 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.createProfileAddMailingAddress();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	@And("the user should be able to add Mailing Address in Partner Module test")
 	public void addMailingAddressInPartnerModule() {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnerAddCustomPartnersUrl = Hooks.prop.getProperty("partnerAddCustomPartnersUrl");
-
 		Assert.assertNotNull("partnerAddCustomPartnersUrl is missing in config", partnerAddCustomPartnersUrl);
-
 		String fullCustomPartnerUrl = baseUrl + partnerAddCustomPartnersUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openCustomPartnersUrl(fullCustomPartnerUrl);
-
 		Assert.assertTrue("Custom Partners page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=6b73f9ca-5250-4d9c-8772-c2d33f5c5850"));
-
 		partnerPage.verifyUserCanAddMailingAddressInPartnerModule();
 	}
 
 	// Business Address
 	@And("the user should not be able to add or edit Business Address in Partner test")
 	public void cannotAddOrEditBusinessAddress() {
-
 		partnerPage.verifyUserCannotAddOrEditBusinessAddressInPartnerModule();
 	}
 
 	@And("the user should be able to delete Business Address in Partner Module test")
 	public void deleteBusinessAddressInPartnerModule() {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnerAddCustomPartnersUrl = Hooks.prop.getProperty("partnerAddCustomPartnersUrl");
-
 		Assert.assertNotNull("partnerAddCustomPartnersUrl is missing in config", partnerAddCustomPartnersUrl);
-
 		String fullCustomPartnerUrl = baseUrl + partnerAddCustomPartnersUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openCustomPartnersUrl(fullCustomPartnerUrl);
-
 		Assert.assertTrue("Custom Partners page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=6b73f9ca-5250-4d9c-8772-c2d33f5c5850"));
-
 		partnerPage.verifyUserCanDeleteBusinessAddressInPartnerModule();
 	}
 
@@ -2885,34 +2517,24 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.createProfileDeleteBusinessAddress();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	@And("the user should not be able to add or delete Business Address in Partner Module test")
 	public void cannotAddOrDeleteBusinessAddress() {
-
 		partnerPage.verifyUserCannotAddOrDeleteBusinessAddressInPartnerModule();
 	}
 
 	@And("the user should be able to edit Business Address in Partner Module test")
 	public void editBusinessAddressInPartnerModule() {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnerAddCustomPartnersUrl = Hooks.prop.getProperty("partnerAddCustomPartnersUrl");
-
 		Assert.assertNotNull("partnerAddCustomPartnersUrl is missing in config", partnerAddCustomPartnersUrl);
-
 		String fullCustomPartnerUrl = baseUrl + partnerAddCustomPartnersUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openCustomPartnersUrl(fullCustomPartnerUrl);
-
 		Assert.assertTrue("Custom Partners page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=6b73f9ca-5250-4d9c-8772-c2d33f5c5850"));
-
 		partnerPage.verifyUserCanEditBusinessAddressInPartnerModule();
 	}
 
@@ -2925,34 +2547,24 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.createProfileEditBusinessAddress();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	@And("the user should not be able to edit or delete Business Address in Partner Module test")
 	public void cannotEditOrDeleteBusinessAddress() {
-
 		partnerPage.verifyUserCannotEditOrDeleteBusinessAddressInPartnerModule();
 	}
 
 	@And("the user should be able to add Business Address in Partner Module test")
 	public void addBusinessAddressInPartnerModule() {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnerAddCustomPartnersUrl = Hooks.prop.getProperty("partnerAddCustomPartnersUrl");
-
 		Assert.assertNotNull("partnerAddCustomPartnersUrl is missing in config", partnerAddCustomPartnersUrl);
-
 		String fullCustomPartnerUrl = baseUrl + partnerAddCustomPartnersUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openCustomPartnersUrl(fullCustomPartnerUrl);
-
 		Assert.assertTrue("Custom Partners page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=6b73f9ca-5250-4d9c-8772-c2d33f5c5850"));
-
 		partnerPage.verifyUserCanAddBusinessAddressInPartnerModule();
 	}
 
@@ -2965,35 +2577,25 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.createProfileAddBusinessAddress();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
-	// Custom Partners
 
+	// Custom Partners
 	@And("the user should not be able to add, edit, or delete Custom Partners in Partner Module test")
 	public void verifyUserCannotAddEditOrDeleteCustomPartnersInPartnerModule() {
-
 		partnerPage.verifyUserCannotAddEditOrDeleteCustomPartnersInPartnerModule();
 	}
 
 	@And("the user should be able to view and see details of Custom Partners in Partner Module test")
 	public void verifyUserCanViewCustomPartnersDetailsInPartnerModule() {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnerAddCustomPartnersUrl = Hooks.prop.getProperty("partnerAddCustomPartnersUrl");
-
 		Assert.assertNotNull("partnerAddCustomPartnersUrl is missing in config", partnerAddCustomPartnersUrl);
-
 		String fullCustomPartnerUrl = baseUrl + partnerAddCustomPartnersUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openCustomPartnersUrl(fullCustomPartnerUrl);
-
 		Assert.assertTrue("Custom Partners page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=6b73f9ca-5250-4d9c-8772-c2d33f5c5850"));
-
 		partnerPage.verifyUserCanViewAndSeeDetailsOfCustomPartnersInPartnerModule();
 	}
 
@@ -3006,34 +2608,24 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.verifyViewOnlyAccessToCustomPartnersProfile();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	@And("the user should not be able to add or edit Custom Partners in Partner Module test")
 	public void verifyUserCannotAddOrEditCustomPartnersInPartnerModule() {
-
 		partnerPage.verifyUserCannotAddOrEditCustomPartnersInPartnerModule();
 	}
 
 	@And("the user should be able to delete Custom Partners in Partner Module test")
 	public void verifyUserCanDeleteCustomPartnersInPartnerModule() {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnerAddCustomPartnersUrl = Hooks.prop.getProperty("partnerAddCustomPartnersUrl");
-
 		Assert.assertNotNull("partnerAddCustomPartnersUrl is missing in config", partnerAddCustomPartnersUrl);
-
 		String fullCustomPartnerUrl = baseUrl + partnerAddCustomPartnersUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openCustomPartnersUrl(fullCustomPartnerUrl);
-
 		Assert.assertTrue("Custom Partners page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=6b73f9ca-5250-4d9c-8772-c2d33f5c5850"));
-
 		partnerPage.verifyUserCanDeleteCustomPartnersInPartnerModule();
 	}
 
@@ -3046,14 +2638,11 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.verifyDeleteOnlyAccessToCustomPartnersProfile();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	@And("the user should not be able to add or delete Custom Partners in Partner Module test")
 	public void verifyUserCannotAddOrDeleteCustomPartnersInPartnerModule() {
-
 		partnerPage.verifyUserCannotAddOrDeleteCustomPartnersInPartnerModule();
 	}
 
@@ -3066,54 +2655,37 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.verifyEditOnlyAccessToCustomPartnersProfile();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	@And("the user should not be able to edit or delete Custom Partners in Partner Module test")
 	public void verifyUserCannotEditOrDeleteCustomPartnersInPartnerModule() {
-
 		partnerPage.verifyUserCannotEditOrDeleteCustomPartnersInPartnerModule();
 	}
 
 	@And("the user should be able to edit Custom Partners in Partner Module test")
 	public void verifyUserCanEditCustomPartnersInPartnerModule() {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnerAddCustomPartnersUrl = Hooks.prop.getProperty("partnerAddCustomPartnersUrl");
-
 		Assert.assertNotNull("partnerAddCustomPartnersUrl is missing in config", partnerAddCustomPartnersUrl);
-
 		String fullCustomPartnerUrl = baseUrl + partnerAddCustomPartnersUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openCustomPartnersUrl(fullCustomPartnerUrl);
-
 		Assert.assertTrue("Custom Partners page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=6b73f9ca-5250-4d9c-8772-c2d33f5c5850"));
-
 		partnerPage.verifyUserCanEditCustomPartnersInPartnerModule();
 	}
 
 	@And("the user should be able to add Custom Partners in Partner Module test")
 	public void verifyUserCanAddCustomPartnersInPartnerModule() {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnerAddCustomPartnersUrl = Hooks.prop.getProperty("partnerAddCustomPartnersUrl");
-
 		Assert.assertNotNull("partnerAddCustomPartnersUrl is missing in config", partnerAddCustomPartnersUrl);
-
 		String fullCustomPartnerUrl = baseUrl + partnerAddCustomPartnersUrl;
-
 		partnerPage = new partnerpage(Hooks.driver);
-
 		partnerPage.openCustomPartnersUrl(fullCustomPartnerUrl);
-
 		Assert.assertTrue("Custom Partners page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=6b73f9ca-5250-4d9c-8772-c2d33f5c5850"));
-
 		partnerPage.verifyUserCanAddCustomPartnersInPartnerModule();
 	}
 
@@ -3126,8 +2698,6 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.verifyAddOnlyAccessToCustomPartnersProfile();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
@@ -3141,14 +2711,11 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.verifyUserWithEditOnlyAccessCanEditSpecialServiceInPartnerModule();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	@And("the user should not be able to add Special Service in Partner Module test")
 	public void verifyUserCannotAddSpecialServiceInPartnerModule() {
-
 		partnerPage.verifyUserCannotAddSpecialServiceInPartnerModule();
 	}
 
@@ -3192,13 +2759,10 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.verifyAddOnlyAccessToSpecialServiceProfile();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
 	// Partner Type
-
 	@And("the user should not be able to add or edit Partner Type in Partner Module test")
 	public void verifyUserCannotAddOrEditPartnerTypeInPartnerModule() {
 		partnerPage.verifyUserCannotAddOrEditPartnerTypeInPartnerModule();
@@ -3226,8 +2790,6 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.verifyDeleteOnlyAccessToPartnerTypeProfile();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
@@ -3258,8 +2820,6 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.verifyUserWithEditOnlyAccessCanEditPartnerTypeInPartnerModule();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
@@ -3291,8 +2851,6 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.testAddAccessOnlyForPartnerType();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
@@ -3305,8 +2863,6 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.verifyNoAccessToGeneralAuditView();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
@@ -3319,8 +2875,6 @@ public class partnerstep {
 		partnerPage.clickEditButton();
 		partnerPage.ToPartnerModuleGeneral();
 		partnerPage.clickSubmitButton();
-		System.out.println("Profile created with View access only for Clinical Module General Audit View test");
-		Hooks.scenario.log("Profile created with View access only for Clinical Module General Audit View test");
 
 	}
 
@@ -3349,7 +2903,8 @@ public class partnerstep {
 		Assert.assertTrue("General Audit View page is not displayed", Hooks.driver.getCurrentUrl()
 				.contains("/Partner/Home/Partners?partnerTypeId=85a7a8a7-803c-4801-8bfa-ef64491be0fd"));
 		partnerPage.verifyUserCannotViewGeneralAuditViewInPartnerModule();
-
+		System.out.println("The user should not be able to view General Audit View settings in Partner Module test");
+		Hooks.scenario.log("The user should not be able to view General Audit View settings in Partner Module test");
 	}
 
 	// Profile

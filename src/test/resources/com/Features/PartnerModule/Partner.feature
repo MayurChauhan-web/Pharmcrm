@@ -1050,3 +1050,157 @@ Then the Partner user should be able to view Profiles test
 And I create a profile without Update access to DeDupe in Partners Module test
 Then the user should not be able to update DeDupe records in Partners Module via UI or direct URL test
 
+Scenario: DeDupe Find Duplicate Checkbox Validation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Checkbox Validation should have to show if not selected test
+
+# Partners 
+Scenario: New Partner Blank Submission Validation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then New Partner Blank Submission Validation should have to show
+
+Scenario: New Partner Validation for Invalid Phone Number,Alternate Phone Number,Email Id
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Validation for Invalid Phone Number, Alternate Phone Number, Email Id should have to display
+
+Scenario: New Special Hour Blank Submission Validation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Validation should have to show for New Special Hour Blank Submission
+
+Scenario: Add Business Address Blank Submission Validation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Validation should have to show for Add Business Address
+
+Scenario: Add Business Address Invalid Zipcode Submission Validation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Validation should have to show Invalid Zipcode
+
+Scenario: Add Mailing Address Blank Submission Validation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Validation should have to show for Mailing Address Blank Submission
+
+Scenario: Add Mailing Address Invalid Zipcode Submission Validation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Validation should have to show Mailing Address Invalid Zipcode
+
+Scenario: Add Executive Blank Submission Validation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Validation should have to show for Add Executive Blank Submission
+
+Scenario: Add Executive Invalid Phone Number,Cell Number,Email Id Validation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Validation should have to show for Invalid Phone Number,Cell Number,Email Id
+
+Scenario: Add Referral Enrollment Blank Submission Validation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Validation should have to show for Add Referral Enrollment
+
+Scenario: Add Referral Enrollment Invalid Phone Number, Email Id Validation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Validation should have to show for Invalid Phone Number, Email Id
+
+Scenario: Add Partner License Blank Field Validation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Validation should have to show for Add Partner License Blank Field
+
+Scenario: Add Partner License Validation for Invalid Url, Original Date and Expiry Date
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Validation should have to show for Invalid Url, Original Date and Expiry Date
+
+Scenario: Add Partner License Validation for Invalid Url, Original Date and Expiry Date
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Validation should have to show for Invalid Url, Original Date and Expiry Date
+
+Scenario: Add Special Event Blank Field Validation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Validation should have to show for Add Special Event Blank Field
+
+Scenario: Special Service Blank Field Validation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Validation should have to show for Special Service Blank Field
+

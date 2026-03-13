@@ -3,6 +3,7 @@ package com.pharmcrm_PartnerModule.pages;
 import java.time.Duration;
 import java.util.List;
 import org.junit.Assert;
+import org.junit.Assume;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.TimeoutException;
@@ -11,7 +12,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.pharmcrm_ProviderModule.pages.providerpage;
+
 import hooks.Hooks;
+import io.cucumber.java.en.And;
 
 public class partnerpage {
 
@@ -19,90 +24,97 @@ public class partnerpage {
 	private WebDriverWait wait;
 
 	// DeDupe
-	private By phoneNumberLabel = By.xpath("//label[normalize-space()='Phone Number']");
-	private By findDuplicateButton = By.xpath("//span[normalize-space()='Find Duplicate']");
-	private By firstDuplicateCheckboxLabel = By.xpath("(//label[starts-with(@for,'ckhg_')])[1]");
-	private By secondDuplicateCheckboxLabel = By.xpath("(//label[starts-with(@for,'ckhg_')])[2]");
-	private By sortByColumnLink = By.xpath("//table[1]//thead[1]//tr[1]//th[8]//a[1]");
-	private By firstRecordCheckbox = By.xpath("(//input[starts-with(@id,'chkg_')])[1]");
-	private By nextButton = By.xpath("//a[normalize-space()='Next']");
-	private By finishButton = By.xpath("//a[normalize-space()='Finish']");
+	public By savePartnerAddressButton = By.xpath("//button[@id='btnSavePartnerAddressPopup']");
+	public By savePartnerSpecialHourButton = By.xpath("//button[@id='btnSavePartnerSpecialHourPopup']");
+	public By partnerBusinessName = By.xpath("//input[@id='Partner_BusinessName']");
+	public By partnerPhoneNumber = By.xpath("//input[@id='Partner_PhoneNumber']");
+	public By partnerAlternatePhoneNumber = By.xpath("//input[@id='Partner_AlternatePhoneNumber']");
+	public By partnerEmailId = By.xpath("//input[@id='Partner_EmailId']");
+	public By toastMessage = By.xpath("//div[@class='toast-message']");
+	public By phoneNumberLabel = By.xpath("//label[normalize-space()='Phone Number']");
+	public By findDuplicateButton = By.xpath("//span[normalize-space()='Find Duplicate']");
+	public By firstDuplicateCheckboxLabel = By.xpath("(//label[starts-with(@for,'ckhg_')])[1]");
+	public By secondDuplicateCheckboxLabel = By.xpath("(//label[starts-with(@for,'ckhg_')])[2]");
+	public By sortByColumnLink = By.xpath("//table[1]//thead[1]//tr[1]//th[8]//a[1]");
+	public By firstRecordCheckbox = By.xpath("(//input[starts-with(@id,'chkg_')])[1]");
+	public By nextButton = By.xpath("//a[normalize-space()='Next']");
+	public By finishButton = By.xpath("//a[normalize-space()='Finish']");
 
 	// Partner Agreement
-	private By endDateInputField = By.id("PartnerAgreement_EndDate");
-	private By savePartnerAgreementButton = By.xpath("//button[@id='btnSavePartnerAgreementPopup']");
-	private By addPartnerAgreementButton = By.xpath("//img[@id='btnAddPartnerAgreement']");
-	private By firstPartnerActionIcon = By.xpath("//tbody/tr[1]/td[9]/div[1]/div[1]/button[1]/i[1]");
-	private By editDropdownOption = By.xpath(
+	public By endDateInputField = By.id("PartnerAgreement_EndDate");
+	public By savePartnerAgreementButton = By.xpath("//button[@id='btnSavePartnerAgreementPopup']");
+	public By addPartnerAgreementButton = By.xpath("//img[@id='btnAddPartnerAgreement']");
+	public By firstPartnerActionIcon = By.xpath("//tbody/tr[1]/td[9]/div[1]/div[1]/button[1]/i[1]");
+	public By editDropdownOption = By.xpath(
 			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Edit')]");
-	private By endDateInput = By.id("Partner_PartnerAgreement_EndDate");
-	private By addAgreementButton = By.xpath("//img[@id='btnAddPartnerAgreement']");
-	private By editPartnerAgreementButton = By
+	public By endDateInput = By.id("Partner_PartnerAgreement_EndDate");
+	public By addAgreementButton = By.xpath("//img[@id='btnAddPartnerAgreement']");
+	public By editPartnerAgreementButton = By
 			.xpath("(//a[contains(@onclick, 'editPartnerAgreement') and contains(@class, 'user-access')])[1]");
-	private By deletePartnerAgreementButton = By.xpath("(//a[@id='btnDeletePartnerAgreement'])[1]");
+	public By deletePartnerAgreementButton = By.xpath("(//a[@id='btnDeletePartnerAgreement'])[1]");
 
 	// Partner Special Hour
-	private By dateFieldInput = By.id("PartnerSpecialHour_SpecialDay");
-	private By closedCheckbox = By.xpath("//label[normalize-space()='Closed?']");
-	private By editSpecialHourButton = By.xpath("(//a[contains(@data-original-title,'Edit Special Hour')])[1]");
-	private By deleteSpecialHourButton = By.xpath("(//a[@id='btnDeletePartnerSpecialHour'])[1]");
-	private By newSpecialHourButton = By.xpath("//span[normalize-space()='New Special Hour']");
-	private By specialHourDateField = By.id("PartnerSpecialHour_SpecialDay");
-	private By saveSpecialHourButton = By.id("btnSavePartnerSpecialHourPopup");
+	public By dateFieldInput = By.id("PartnerSpecialHour_SpecialDay");
+	public By closedCheckbox = By.xpath("//label[normalize-space()='Closed?']");
+	public By editSpecialHourButton = By.xpath("(//a[contains(@data-original-title,'Edit Special Hour')])[1]");
+	public By deleteSpecialHourButton = By.xpath("(//a[@id='btnDeletePartnerSpecialHour'])[1]");
+	public By newSpecialHourButton = By.xpath("//span[normalize-space()='New Special Hour']");
+	public By specialHourDateField = By.id("PartnerSpecialHour_SpecialDay");
+	public By saveSpecialHourButton = By.id("btnSavePartnerSpecialHourPopup");
 
 	// Partner Special Service
-	private By specialServiceStatusDropdown = By.id("PartnerSpecialService_Status");
-	private By specialServiceTab = By.xpath("//a[normalize-space()='Special Service']");
-	private By specialServiceDropdown = By.id("Partner_SpecialService");
-	private By saveSpecialServiceButton = By.xpath("//img[@class='v-align-middle']");
-	private By editSpecialServiceButton = By.xpath("(//a[@data-original-title='Edit Special Service'])[1]");
-	private By deleteSpecialServiceButton = By.xpath("(//a[@data-original-title='Delete Partner Special Service'])[1]");
+	public By specialServiceStatusDropdown = By.id("PartnerSpecialService_Status");
+	public By specialServiceTab = By.xpath("//a[normalize-space()='Special Service']");
+	public By specialServiceDropdown = By.id("Partner_SpecialService");
+	public By saveSpecialServiceButton = By.xpath("//img[@class='v-align-middle']");
+	public By editSpecialServiceButton = By.xpath("(//a[@data-original-title='Edit Special Service'])[1]");
+	public By deleteSpecialServiceButton = By.xpath("(//a[@data-original-title='Delete Partner Special Service'])[1]");
 
 	// Partner Special Event
-	private By editSpecialEventButton = By.xpath("(//a[@data-original-title='Edit Special Event'])[1]");
-	private By deleteSpecialEventButton = By.xpath("(//a[@data-original-title='Delete Partner Special Event'])[1]");
-	private By specialEventTab = By.xpath("//a[normalize-space()='Special Event']");
-	private By newSpecialEventButton = By.xpath("//span[normalize-space()='New Special Event']");
-	private By specialEventTitleInput = By.id("PartnerSpecialEvent_Title");
-	private By saveSpecialEventButton = By.id("btnSavePartnerSpecialEventPopup");
+	public By editSpecialEventButton = By.xpath("(//a[@data-original-title='Edit Special Event'])[1]");
+	public By deleteSpecialEventButton = By.xpath("(//a[@data-original-title='Delete Partner Special Event'])[1]");
+	public By specialEventTab = By.xpath("//a[normalize-space()='Special Event']");
+	public By newSpecialEventButton = By.xpath("//span[normalize-space()='New Special Event']");
+	public By specialEventTitleInput = By.id("PartnerSpecialEvent_Title");
+	public By saveSpecialEventButton = By.id("btnSavePartnerSpecialEventPopup");
 
 	// Partner License
-	private By partnerDetailsIcon = By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]");
-	private By viewPartnerDetailsIcon = By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]");
-	private By licenseNumberInput = By.id("PartnerLicense_LicenseNumber");
-	private By newPartnerLicenseButton = By.xpath("//span[normalize-space()='New Partner License']");
-	private By downloadPartnerLicenseButton = By.xpath("(//a[@id='btneditPartnerLicense'])[1]");
-	private By viewPartnerLicenseDetailsButton = By.xpath("(//a[@id='btneditPartnerLicense'])[1]");
-	private By partnerLicenseTab = By.xpath("//a[normalize-space()='Partner License']");
-	private By editPartnerLicenseButton = By.xpath("(//a[@id='btneditPartnerLicense'])[1]");
-	private By deletePartnerLicenseButton = By.xpath("(//a[@id='btnDeletePartnerLicense'])[1]");
+	public By partnerDetailsIcon = By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]");
+	public By viewPartnerDetailsIcon = By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]");
+	public By licenseNumberInput = By.id("PartnerLicense_LicenseNumber");
+	public By newPartnerLicenseButton = By.xpath("//span[normalize-space()='New Partner License']");
+	public By downloadPartnerLicenseButton = By.xpath("(//a[@id='btneditPartnerLicense'])[1]");
+	public By viewPartnerLicenseDetailsButton = By.xpath("(//a[@id='btneditPartnerLicense'])[1]");
+	public By partnerLicenseTab = By.xpath("//a[normalize-space()='Partner License']");
+	public By editPartnerLicenseButton = By.xpath("(//a[@id='btneditPartnerLicense'])[1]");
+	public By deletePartnerLicenseButton = By.xpath("(//a[@id='btnDeletePartnerLicense'])[1]");
 
 	// Funding Company
-	private By viewFundingCompanyDetailsIcon = By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]");
-	private By fundingCompanyDetailsIcon = By.xpath(
+	public By viewFundingCompanyDetailsIcon = By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]");
+	public By fundingCompanyDetailsIcon = By.xpath(
 			"//tbody/tr/td/div[@class='gridListIconsFlex justify-content-end']/a[@id='liPartners_d4211063-cc31-48bd-a4bc-e856ff2ab7d8']/img[1]");
-	private By actionsMenuIcon = By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']");
-	private By businessNameInput = By.id("Partner_BusinessName");
-	private By phoneNumberInput = By.id("Partner_PhoneNumber");
+	public By actionsMenuIcon = By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']");
+	public By businessNameInput = By.id("Partner_BusinessName");
+	public By phoneNumberInput = By.id("Partner_PhoneNumber");
 
 	// Partner PA Details
-	private By historyTab = By.xpath("//a[normalize-space()='History']");
-	private By viewAllPAButton = By.xpath("//span[normalize-space()='View All PA']");
+	public By historyTab = By.xpath("//a[normalize-space()='History']");
+	public By viewAllPAButton = By.xpath("//span[normalize-space()='View All PA']");
 
 	// Partner Referral Outgoing Details
-	private By outgoingTab = By.xpath("//a[normalize-space()='Outgoing']");
+	public By outgoingTab = By.xpath("//a[normalize-space()='Outgoing']");
 
 	// Partner Referral Incoming Details
-	private By viewAllReferralsButton = By.xpath("//span[normalize-space()='View All Referrals']");
-	private By exportToExcelButton = By.xpath("//span[normalize-space()='Export to Excel']");
+	public By viewAllReferralsButton = By.xpath("//span[normalize-space()='View All Referrals']");
+	public By exportToExcelButton = By.xpath("//span[normalize-space()='Export to Excel']");
 
 	// Referral Enrollment
-	private By firstPartnerEditIcon = By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]");
-	private By startDateInput = By.id("PartnerReferralEnrollment_StartDate");
-	private By emailInput = By.id("PartnerReferralEnrollment_EmailId");
-	private By editReferralEnrollmentIcon = By.xpath(
+	public By firstPartnerEditIcon = By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]");
+	public By startDateInput = By.id("PartnerReferralEnrollment_StartDate");
+	public By emailInput = By.id("PartnerReferralEnrollment_EmailId");
+	public By editReferralEnrollmentIcon = By.xpath(
 			"(//div[@class='gridListIconsFlex justify-content-end']//a[contains(@onclick,'editPartnerReferralEnrollment')])[1]");
-	private By deleteReferralEnrollmentIcon = By.xpath(
+	public By deleteReferralEnrollmentIcon = By.xpath(
 			"(//div[@class='gridListIconsFlex justify-content-end']//a[@id='btnDeletePartnerReferralEnrollment'])[1]");
 	public By partnerViewIcon = By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]");
 	public By referralTab = By.xpath("//a[@role='tab'][normalize-space()='Referral']");
@@ -146,7 +158,6 @@ public class partnerpage {
 	public By editPartnerOption = By.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Edit')]");
 	public By deletePartnerOption = By
 			.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Delete')]");
-
 	public By firstPartnerPharmacyVettingIcon = By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]");
 	public By confirmDeletePharmaciesButton = By
 			.xpath("//div[@id='deletePartnerModel']//button[@id='btnDeleteConfirm']");
@@ -161,6 +172,28 @@ public class partnerpage {
 			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]");
 
 	// Attorney
+	public By path3092 = By.xpath("//*[name()='path' and @id='Path_3092']");
+	public By savePartnerSpecialEventButton = By.xpath("//button[@id='btnSavePartnerSpecialEventPopup']");
+	public By partnerLicenseNumber = By.xpath("//input[@id='PartnerLicense_LicenseNumber']");
+	public By partnerLicenseUrl = By.xpath("//input[@id='PartnerLicense_Url']");
+	public By partnerLicenseOriginalDate = By.xpath("//input[@id='PartnerLicense_OriginalDate']");
+	public By partnerLicenseExpiryDate = By.xpath("//input[@id='PartnerLicense_ExpiryDate']");
+	public By saveButtonInModal = By
+			.xpath("//div[@class='modal-dialog modal-dialog-centered modalLaptopCenter']//button[@id='btnSave']");
+	public By partnerReferralEnrollmentPhoneNumber = By.xpath("//input[@id='PartnerReferralEnrollment_PhoneNumber']");
+	public By partnerReferralEnrollmentEmailId = By.xpath("//input[@id='PartnerReferralEnrollment_EmailId']");
+	public By savePartnerReferralEnrollmentButton = By.xpath("//button[@id='btnSavePartnerReferralEnrollmentPopup']");
+	public By referralLink = By.xpath("//a[normalize-space()='Referral']");
+	public By partnerExecutiveLastName = By.xpath("//input[@id='PartnerExecutive_LastName']");
+	public By partnerExecutiveFirstName = By.xpath("//input[@id='PartnerExecutive_FirstName']");
+	public By partnerExecutivePhoneNumber = By.xpath("//input[@id='PartnerExecutive_PhoneNumber']");
+	public By partnerExecutiveCellNumber = By.xpath("//input[@id='PartnerExecutive_CellNumber']");
+	public By partnerExecutiveEmailId = By.xpath("//input[@id='PartnerExecutive_EmailId']");
+	public By savePartnerExecutiveButton = By.xpath("//button[@id='btnSavePartnerExecutivePopup']");
+	public By partnerAddressStreet = By.xpath("//input[@id='PartnerAddress_Street']");
+	public By partnerAddressCity = By.xpath("//input[@id='PartnerAddress_City']");
+	public By partnerAddressState = By.xpath("//input[@id='PartnerAddress_State']");
+	public By partnerAddressZipCode = By.xpath("//input[@id='PartnerAddress_ZipCode']");
 	public By viewAttorneyDetailsIcon = By.xpath("//tbody/tr[1]/td[9]/div[1]/a[1]/img[1]");
 	public By deleteAttorneyConfirmButton = By.xpath("//div[@id='deletePartnerModel']//button[@id='btnDeleteConfirm']");
 	public By companyAttorneyCheckbox = By.xpath("//label[normalize-space()='Company Attorney?']");
@@ -287,8 +320,588 @@ public class partnerpage {
 	public By priorAuthorizationProcessAllLabel = By.xpath("//label[@for='chkg23PriorAuthorizationProcessAll']");
 	public By priorAuthorizationGenerateAddLabel = By.xpath("//label[@for='chkg23PriorAuthorizationGenerateAdd']");
 
-	// DeDupe
+	// Partner
+		public String validateSpecialServiceBlankFields() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
 
+		wait.until(ExpectedConditions.elementToBeClickable(partnerDetailsIcon)).click();
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(specialServiceTab)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(path3092)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+
+			StringBuilder messages = new StringBuilder();
+
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+
+			return "SUCCESS: Toast messages -> " + messages.toString();
+
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String validateAddSpecialEventBlankFields() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(partnerDetailsIcon)).click();
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(specialEventTab)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(newSpecialEventButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(savePartnerSpecialEventButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+
+			StringBuilder messages = new StringBuilder();
+
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+
+			return "SUCCESS: Toast messages -> " + messages.toString();
+
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String validateInvalidUrlOriginalAndExpiryDate() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(partnerDetailsIcon)).click();
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(partnerLicenseTab)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(newPartnerLicenseButton)).click();
+		String partnerLicenseNumberValue = Hooks.prop.getProperty("partnerLicenseNumber");
+		WebElement partnerLicenseNumberInput = driver.findElement(partnerLicenseNumber);
+		partnerLicenseNumberInput.sendKeys(partnerLicenseNumberValue);
+		String partnerLicenseUrlValue = Hooks.prop.getProperty("partnerLicenseUrl");
+		WebElement partnerLicenseUrlInput = driver.findElement(partnerLicenseUrl);
+		partnerLicenseUrlInput.sendKeys(partnerLicenseUrlValue);
+		String partnerLicenseOriginalDateValue = Hooks.prop.getProperty("partnerLicenseOriginalDate");
+		WebElement partnerLicenseOriginalDateInput = driver.findElement(partnerLicenseOriginalDate);
+		partnerLicenseOriginalDateInput.sendKeys(partnerLicenseOriginalDateValue);
+		String partnerLicenseExpiryDateValue = Hooks.prop.getProperty("partnerLicenseExpiryDate");
+		WebElement partnerLicenseExpiryDateInput = driver.findElement(partnerLicenseExpiryDate);
+		partnerLicenseExpiryDateInput.sendKeys(partnerLicenseExpiryDateValue);
+		wait.until(ExpectedConditions.elementToBeClickable(saveButtonInModal)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+
+			StringBuilder messages = new StringBuilder();
+
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+
+			return "SUCCESS: Toast messages -> " + messages.toString();
+
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String validateAddPartnerLicenseBlankFields() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(partnerDetailsIcon)).click();
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(partnerLicenseTab)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(newPartnerLicenseButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(saveButtonInModal)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+
+			StringBuilder messages = new StringBuilder();
+
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+
+			return "SUCCESS: Toast messages -> " + messages.toString();
+
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String validateInvalidPhoneEmailFields() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(partnerDetailsIcon)).click();
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(referralLink)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(newReferralEnrollmentButton)).click();
+		String partnerReferralEnrollmentPhoneNumberValue = Hooks.prop
+				.getProperty("partnerReferralEnrollmentPhoneNumber");
+		WebElement partnerReferralEnrollmentPhoneNumberInput = driver.findElement(partnerReferralEnrollmentPhoneNumber);
+		partnerReferralEnrollmentPhoneNumberInput.sendKeys(partnerReferralEnrollmentPhoneNumberValue);
+		String partnerReferralEnrollmentEmailIdValue = Hooks.prop.getProperty("partnerReferralEnrollmentEmailId");
+		WebElement partnerReferralEnrollmentEmailIdInput = driver.findElement(partnerReferralEnrollmentEmailId);
+		partnerReferralEnrollmentEmailIdInput.sendKeys(partnerReferralEnrollmentEmailIdValue);
+		wait.until(ExpectedConditions.elementToBeClickable(savePartnerReferralEnrollmentButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+
+			StringBuilder messages = new StringBuilder();
+
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+
+			return "SUCCESS: Toast messages -> " + messages.toString();
+
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String validateAddReferralEnrollment() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(partnerDetailsIcon)).click();
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(referralLink)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(newReferralEnrollmentButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(savePartnerReferralEnrollmentButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+
+			StringBuilder messages = new StringBuilder();
+
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+
+			return "SUCCESS: Toast messages -> " + messages.toString();
+
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String verifyInvalidContactInfoValidation() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(partnerDetailsIcon)).click();
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(executivesTab)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(newExecutiveButton)).click();
+		String partnerExecutiveLastNameValue = Hooks.prop.getProperty("partnerExecutiveLastName");
+		WebElement partnerExecutiveLastNameInput = driver.findElement(partnerExecutiveLastName);
+		partnerExecutiveLastNameInput.sendKeys(partnerExecutiveLastNameValue);
+		String partnerExecutiveFirstNameValue = Hooks.prop.getProperty("partnerExecutiveFirstName");
+		WebElement partnerExecutiveFirstNameInput = driver.findElement(partnerExecutiveFirstName);
+		partnerExecutiveFirstNameInput.sendKeys(partnerExecutiveFirstNameValue);
+		String partnerExecutivePhoneNumberValue = Hooks.prop.getProperty("partnerExecutivePhoneNumber");
+		WebElement partnerExecutivePhoneNumberInput = driver.findElement(partnerExecutivePhoneNumber);
+		partnerExecutivePhoneNumberInput.sendKeys(partnerExecutivePhoneNumberValue);
+		String partnerExecutiveCellNumberValue = Hooks.prop.getProperty("partnerExecutiveCellNumber");
+		WebElement partnerExecutiveCellNumberInput = driver.findElement(partnerExecutiveCellNumber);
+		partnerExecutiveCellNumberInput.sendKeys(partnerExecutiveCellNumberValue);
+		String partnerExecutiveEmailIdValue = Hooks.prop.getProperty("partnerExecutiveEmailId");
+		WebElement partnerExecutiveEmailIdInput = driver.findElement(partnerExecutiveEmailId);
+		partnerExecutiveEmailIdInput.sendKeys(partnerExecutiveEmailIdValue);
+		wait.until(ExpectedConditions.elementToBeClickable(savePartnerExecutiveButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+
+			StringBuilder messages = new StringBuilder();
+
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+
+			return "SUCCESS: Toast messages -> " + messages.toString();
+
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String validateAddExecutiveBlankSubmission() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(partnerDetailsIcon)).click();
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(executivesTab)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(newExecutiveButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(savePartnerExecutiveButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+
+			StringBuilder messages = new StringBuilder();
+
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+
+			return "SUCCESS: Toast messages -> " + messages.toString();
+
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String validateMailingAddressInvalidZipcode() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(partnerDetailsIcon)).click();
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newMailingAddressButton)).click();
+		String partnerAddressStreetValue = Hooks.prop.getProperty("partnerAddressStreet");
+		WebElement partnerAddressStreetInput = driver.findElement(partnerAddressStreet);
+		partnerAddressStreetInput.sendKeys(partnerAddressStreetValue);
+		String partnerAddressCityValue = Hooks.prop.getProperty("partnerAddressCity");
+		WebElement partnerAddressCityInput = driver.findElement(partnerAddressCity);
+		partnerAddressCityInput.sendKeys(partnerAddressCityValue);
+		String partnerAddressStateValue = Hooks.prop.getProperty("partnerAddressState");
+		WebElement partnerAddressStateInput = driver.findElement(partnerAddressState);
+		partnerAddressStateInput.sendKeys(partnerAddressStateValue);
+		String partnerAddressZipCodeValue = Hooks.prop.getProperty("partnerAddressZipCode");
+		WebElement partnerAddressZipCodeInput = driver.findElement(partnerAddressZipCode);
+		partnerAddressZipCodeInput.sendKeys(partnerAddressZipCodeValue);
+		wait.until(ExpectedConditions.elementToBeClickable(savePartnerAddressButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+
+			StringBuilder messages = new StringBuilder();
+
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+
+			return "SUCCESS: Toast messages -> " + messages.toString();
+
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String validateMailingAddressBlankSubmission() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(partnerDetailsIcon)).click();
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newMailingAddressButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(savePartnerAddressButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+
+			StringBuilder messages = new StringBuilder();
+
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+
+			return "SUCCESS: Toast messages -> " + messages.toString();
+
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String validateInvalidZipcodeEntry() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(partnerDetailsIcon)).click();
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(newBusinessAddressOption)).click();
+		String partnerAddressStreetValue = Hooks.prop.getProperty("partnerAddressStreet");
+		WebElement partnerAddressStreetInput = driver.findElement(partnerAddressStreet);
+		partnerAddressStreetInput.sendKeys(partnerAddressStreetValue);
+		String partnerAddressCityValue = Hooks.prop.getProperty("partnerAddressCity");
+		WebElement partnerAddressCityInput = driver.findElement(partnerAddressCity);
+		partnerAddressCityInput.sendKeys(partnerAddressCityValue);
+		String partnerAddressStateValue = Hooks.prop.getProperty("partnerAddressState");
+		WebElement partnerAddressStateInput = driver.findElement(partnerAddressState);
+		partnerAddressStateInput.sendKeys(partnerAddressStateValue);
+		String partnerAddressZipCodeValue = Hooks.prop.getProperty("partnerAddressZipCode");
+		WebElement partnerAddressZipCodeInput = driver.findElement(partnerAddressZipCode);
+		partnerAddressZipCodeInput.sendKeys(partnerAddressZipCodeValue);
+		wait.until(ExpectedConditions.elementToBeClickable(savePartnerAddressButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+
+			StringBuilder messages = new StringBuilder();
+
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+
+			return "SUCCESS: Toast messages -> " + messages.toString();
+
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String validateAddBusinessAddressSubmission() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(partnerDetailsIcon)).click();
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(newBusinessAddressOption)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(savePartnerAddressButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+
+			StringBuilder messages = new StringBuilder();
+
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+
+			return "SUCCESS: Toast messages -> " + messages.toString();
+
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String validateNewSpecialHourBlankSubmission() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(partnerDetailsIcon)).click();
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(newSpecialHourButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(savePartnerSpecialHourButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+
+			StringBuilder messages = new StringBuilder();
+
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+
+			return "SUCCESS: Toast messages -> " + messages.toString();
+
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String validateInvalidPhoneAlternatePhoneAndEmail() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(newPartnerButton)).click();
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		String partnerBusinessNameValue = Hooks.prop.getProperty("partnerBusinessName");
+		WebElement partnerBusinessNameInput = driver.findElement(partnerBusinessName);
+		partnerBusinessNameInput.sendKeys(partnerBusinessNameValue);
+		String partnerPhoneNumberValue = Hooks.prop.getProperty("partnerPhoneNumber");
+		WebElement partnerPhoneNumberInput = driver.findElement(partnerPhoneNumber);
+		partnerPhoneNumberInput.sendKeys(partnerPhoneNumberValue);
+		String partnerAlternatePhoneNumberValue = Hooks.prop.getProperty("partnerAlternatePhoneNumber");
+		WebElement partnerAlternatePhoneNumberInput = driver.findElement(partnerAlternatePhoneNumber);
+		partnerAlternatePhoneNumberInput.sendKeys(partnerAlternatePhoneNumberValue);
+		String partnerEmailIdValue = Hooks.prop.getProperty("partnerEmailId");
+		WebElement partnerEmailIdInput = driver.findElement(partnerEmailId);
+		partnerEmailIdInput.sendKeys(partnerEmailIdValue);
+		wait.until(ExpectedConditions.elementToBeClickable(savePharmaciesButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+
+			StringBuilder messages = new StringBuilder();
+
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+
+			return "SUCCESS: Toast messages -> " + messages.toString();
+
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String validateNewPartnerBlankSubmission() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(newPartnerButton)).click();
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(savePharmaciesButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+
+			StringBuilder messages = new StringBuilder();
+
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+
+			return "SUCCESS: Toast messages -> " + messages.toString();
+
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String validateCheckbox() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(findDuplicateButton)).click();
+		try {
+			WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
+			String actualMessage = toast.getText().trim();
+			return "SUCCESS: Validation displayed -> " + actualMessage;
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	// DeDupe
 	public void userShouldNotBeAbleToUpdateDeDupeRecordsInPartnersModule() throws InterruptedException {
 		Thread.sleep(3000);
 
@@ -310,27 +923,20 @@ public class partnerpage {
 	}
 
 	public void userShouldBeAbleToUpdateDeDupeRecordsInPartnersModule() throws InterruptedException {
-
 		Thread.sleep(2000);
-
 		driver.findElement(phoneNumberLabel).click();
 		driver.findElement(findDuplicateButton).click();
 		Thread.sleep(2000);
-
 		driver.findElement(firstDuplicateCheckboxLabel).click();
 		driver.findElement(secondDuplicateCheckboxLabel).click();
 		driver.findElement(sortByColumnLink).click();
 		Thread.sleep(2000);
-
 		driver.findElement(firstRecordCheckbox).click();
 		Thread.sleep(1000);
-
 		driver.findElement(nextButton).click();
 		Thread.sleep(1000);
-
 		driver.findElement(nextButton).click();
 		Thread.sleep(1000);
-
 		driver.findElement(finishButton).click();
 	}
 
@@ -344,10 +950,8 @@ public class partnerpage {
 	}
 
 	// Partner Agreement
-
 	public void verifyUserCannotAddOrEditPartnerAgreement() throws InterruptedException {
 		Thread.sleep(3000);
-
 		boolean isAddPresent = !driver.findElements(addPartnerAgreementButton).isEmpty();
 		if (isAddPresent) {
 			throw new AssertionError("Add Partner Agreement button is present!");
@@ -360,17 +964,13 @@ public class partnerpage {
 	}
 
 	public void verifyUserCanDeletePartnerAgreement() throws InterruptedException {
-
 		Thread.sleep(5000);
 		driver.findElement(firstPartnerActionIcon).click();
 		Thread.sleep(3000);
-
 		driver.findElement(editDropdownOption).click();
 		Thread.sleep(3000);
-
 		driver.findElement(deletePartnerAgreementButton).click();
 		Thread.sleep(1000);
-
 		driver.findElement(confirmDeleteButton).click();
 	}
 
@@ -385,7 +985,6 @@ public class partnerpage {
 
 	public void verifyUserCannotAddOrDeletePartnerAgreement() throws InterruptedException {
 		Thread.sleep(3000);
-
 		boolean isAddPresent = !driver.findElements(addPartnerAgreementButton).isEmpty();
 		if (isAddPresent) {
 			throw new AssertionError("Add Partner Agreement button is present!");
@@ -398,25 +997,18 @@ public class partnerpage {
 	}
 
 	public void verifyUserCanEditPartnerAgreement() throws InterruptedException {
-
 		Thread.sleep(5000);
-
 		driver.findElement(firstPartnerActionIcon).click();
 		Thread.sleep(3000);
-
 		driver.findElement(editDropdownOption).click();
 		Thread.sleep(3000);
-
 		driver.findElement(editPartnerAgreementButton).click();
 		Thread.sleep(2000);
-
 		String endDateValue = Hooks.prop.getProperty("endDate");
-
 		WebElement endDateInput = driver.findElement(endDateInputField);
 		endDateInput.clear();
 		endDateInput.sendKeys(endDateValue);
 		endDateInput.sendKeys(Keys.ENTER);
-
 		driver.findElement(savePartnerAgreementButton).click();
 	}
 
@@ -431,7 +1023,6 @@ public class partnerpage {
 
 	public void verifyUserCannotEditOrDeletePartnerAgreement() throws InterruptedException {
 		Thread.sleep(3000);
-
 		boolean isEditPresent = !driver.findElements(editPartnerAgreementButton).isEmpty();
 		if (isEditPresent) {
 			throw new AssertionError("Edit Partner Agreement button is present!");
@@ -444,28 +1035,21 @@ public class partnerpage {
 	}
 
 	public void verifyUserCanAddPartnerAgreement() throws InterruptedException {
-
 		Thread.sleep(5000);
-
 		driver.findElement(firstPartnerActionIcon).click();
 		Thread.sleep(3000);
-
 		driver.findElement(editDropdownOption).click();
 		Thread.sleep(3000);
-
 		String startDateValue = Hooks.prop.getProperty("startDate");
 		String endDateValue = Hooks.prop.getProperty("endDate");
-
 		WebElement startDate = driver.findElement(startDateInput);
 		startDate.clear();
 		startDate.sendKeys(startDateValue);
 		startDate.sendKeys(Keys.ENTER);
-
 		WebElement endDate = driver.findElement(endDateInput);
 		endDate.clear();
 		endDate.sendKeys(endDateValue);
 		endDate.sendKeys(Keys.ENTER);
-
 		driver.findElement(addAgreementButton).click();
 	}
 
@@ -479,10 +1063,8 @@ public class partnerpage {
 	}
 
 	// Partner Special Hour
-
 	public void verifyUserCannotAddOrEditPartnerSpecialHour() throws InterruptedException {
 		Thread.sleep(3000);
-
 		boolean isNewSpecialHourPresent = !driver.findElements(newSpecialHourButton).isEmpty();
 		if (isNewSpecialHourPresent) {
 			throw new AssertionError("New Special Hour button is present!");
@@ -495,15 +1077,11 @@ public class partnerpage {
 	}
 
 	public void verifyUserCanDeletePartnerSpecialHour() throws InterruptedException {
-
 		Thread.sleep(5000);
-
 		driver.findElement(firstPartnerEditIcon).click();
 		Thread.sleep(3000);
-
 		driver.findElement(deleteSpecialHourButton).click();
 		Thread.sleep(1000);
-
 		driver.findElement(confirmDeleteButton).click();
 	}
 
@@ -518,7 +1096,6 @@ public class partnerpage {
 
 	public void verifyUserCannotAddOrDeletePartnerSpecialHour() throws InterruptedException {
 		Thread.sleep(3000);
-
 		boolean isNewSpecialHourPresent = !driver.findElements(newSpecialHourButton).isEmpty();
 		if (isNewSpecialHourPresent) {
 			throw new AssertionError("New Special Hour button is present!");
@@ -531,24 +1108,17 @@ public class partnerpage {
 	}
 
 	public void verifyUserCanEditPartnerSpecialHour() throws InterruptedException {
-
 		Thread.sleep(5000);
-
 		driver.findElement(firstPartnerEditIcon).click();
 		Thread.sleep(3000);
-
 		driver.findElement(editSpecialHourButton).click();
 		Thread.sleep(3000);
-
 		String dateValue = Hooks.prop.getProperty("dateField");
-
 		WebElement dateField = driver.findElement(dateFieldInput);
 		dateField.clear();
 		dateField.sendKeys(dateValue);
 		dateField.sendKeys(Keys.TAB);
-
 		driver.findElement(closedCheckbox).click();
-
 		driver.findElement(saveButton).click();
 	}
 
@@ -563,7 +1133,6 @@ public class partnerpage {
 
 	public void verifyUserCannotEditOrDeletePartnerSpecialHour() throws InterruptedException {
 		Thread.sleep(3000);
-
 		boolean isEditPresent = !driver.findElements(editSpecialHourButton).isEmpty();
 		boolean isDeletePresent = !driver.findElements(deleteSpecialHourButton).isEmpty();
 
@@ -576,24 +1145,17 @@ public class partnerpage {
 	}
 
 	public void verifyUserCanAddPartnerSpecialHour() throws InterruptedException {
-
 		Thread.sleep(5000);
-
 		wait.until(ExpectedConditions.elementToBeClickable(partnerDetailsIcon)).click();
 		Thread.sleep(3000);
-
 		wait.until(ExpectedConditions.elementToBeClickable(newSpecialHourButton)).click();
 		Thread.sleep(3000);
-
 		String specialHourDate = Hooks.prop.getProperty("specialHourDate");
-
 		WebElement dateField = wait.until(ExpectedConditions.visibilityOfElementLocated(specialHourDateField));
 		dateField.clear();
 		dateField.sendKeys(specialHourDate);
 		dateField.sendKeys(Keys.TAB);
-
 		Thread.sleep(500);
-
 		wait.until(ExpectedConditions.elementToBeClickable(saveSpecialHourButton)).click();
 	}
 
@@ -607,11 +1169,8 @@ public class partnerpage {
 	}
 
 	// Partner Special Service
-
 	public void verifyUserCannotAddOrEditPartnerSpecialService() throws InterruptedException {
-
 		Thread.sleep(3000);
-
 		if (driver.findElements(saveSpecialServiceButton).size() > 0) {
 			throw new AssertionError("Save/Add Special Service button should not be visible!");
 		}
@@ -622,18 +1181,13 @@ public class partnerpage {
 	}
 
 	public void verifyUserCanDeletePartnerSpecialService() throws InterruptedException {
-
 		Thread.sleep(5000);
-
 		wait.until(ExpectedConditions.elementToBeClickable(partnerDetailsIcon)).click();
 		Thread.sleep(3000);
-
 		wait.until(ExpectedConditions.elementToBeClickable(specialServiceTab)).click();
 		Thread.sleep(3000);
-
 		wait.until(ExpectedConditions.elementToBeClickable(deleteSpecialServiceButton)).click();
 		Thread.sleep(1000);
-
 		wait.until(ExpectedConditions.elementToBeClickable(confirmDeleteButton)).click();
 	}
 
@@ -647,9 +1201,7 @@ public class partnerpage {
 	}
 
 	public void verifyUserCannotAddOrDeletePartnerSpecialService() throws InterruptedException {
-
 		Thread.sleep(3000);
-
 		if (driver.findElements(saveSpecialServiceButton).size() > 0) {
 			throw new AssertionError("Save/Add Special Service button should not be visible!");
 		}
@@ -660,23 +1212,17 @@ public class partnerpage {
 	}
 
 	public void verifyUserCanEditPartnerSpecialService() throws InterruptedException {
-
 		Thread.sleep(5000);
-
 		wait.until(ExpectedConditions.elementToBeClickable(partnerDetailsIcon)).click();
 		Thread.sleep(3000);
-
 		wait.until(ExpectedConditions.elementToBeClickable(specialServiceTab)).click();
 		Thread.sleep(3000);
-
 		wait.until(ExpectedConditions.elementToBeClickable(editSpecialServiceButton)).click();
 		Thread.sleep(1000);
-
 		WebElement dropdown = wait.until(ExpectedConditions.visibilityOfElementLocated(specialServiceStatusDropdown));
 		Select select = new Select(dropdown);
 		select.selectByIndex(1);
 		Thread.sleep(1000);
-
 		wait.until(ExpectedConditions.elementToBeClickable(saveSpecialServiceButton)).click();
 	}
 
@@ -690,9 +1236,7 @@ public class partnerpage {
 	}
 
 	public void verifyUserCannotEditOrDeletePartnerSpecialService() throws InterruptedException {
-
 		Thread.sleep(3000);
-
 		if (driver.findElements(editSpecialServiceButton).size() > 0) {
 			throw new AssertionError("Edit Special Service button should not be visible!");
 		}
@@ -703,20 +1247,15 @@ public class partnerpage {
 	}
 
 	public void verifyUserCanAddPartnerSpecialService() throws InterruptedException {
-
 		Thread.sleep(5000);
-
 		wait.until(ExpectedConditions.elementToBeClickable(partnerDetailsIcon)).click();
 		Thread.sleep(3000);
-
 		wait.until(ExpectedConditions.elementToBeClickable(specialServiceTab)).click();
 		Thread.sleep(3000);
-
 		WebElement dropdown = wait.until(ExpectedConditions.visibilityOfElementLocated(specialServiceDropdown));
 		Select select = new Select(dropdown);
 		select.selectByIndex(1);
 		Thread.sleep(1000);
-
 		wait.until(ExpectedConditions.elementToBeClickable(saveSpecialServiceButton)).click();
 	}
 
@@ -730,11 +1269,8 @@ public class partnerpage {
 	}
 
 	// Partner Special Event
-
 	public void verifyUserCannotAddOrEditPartnerSpecialEvent() throws InterruptedException {
-
 		Thread.sleep(3000);
-
 		wait.until(ExpectedConditions.elementToBeClickable(specialEventTab)).click();
 		Thread.sleep(3000);
 
@@ -748,18 +1284,13 @@ public class partnerpage {
 	}
 
 	public void verifyUserCanDeletePartnerSpecialEvent() throws InterruptedException {
-
 		Thread.sleep(5000);
-
 		wait.until(ExpectedConditions.elementToBeClickable(partnerDetailsIcon)).click();
 		Thread.sleep(3000);
-
 		wait.until(ExpectedConditions.elementToBeClickable(specialEventTab)).click();
 		Thread.sleep(3000);
-
 		wait.until(ExpectedConditions.elementToBeClickable(deleteSpecialEventButton)).click();
 		Thread.sleep(1000);
-
 		wait.until(ExpectedConditions.elementToBeClickable(confirmDeleteButton)).click();
 	}
 
@@ -773,12 +1304,9 @@ public class partnerpage {
 	}
 
 	public void verifyUserCannotAddOrDeletePartnerSpecialEvent() throws InterruptedException {
-
 		Thread.sleep(3000);
-
 		wait.until(ExpectedConditions.elementToBeClickable(specialEventTab)).click();
 		Thread.sleep(3000);
-
 		if (driver.findElements(newSpecialEventButton).size() > 0) {
 			throw new AssertionError("New Special Event button should not be visible!");
 		}
@@ -789,24 +1317,17 @@ public class partnerpage {
 	}
 
 	public void verifyUserCanEditPartnerSpecialEvent() throws InterruptedException {
-
 		Thread.sleep(5000);
-
 		wait.until(ExpectedConditions.elementToBeClickable(partnerDetailsIcon)).click();
 		Thread.sleep(3000);
-
 		wait.until(ExpectedConditions.elementToBeClickable(specialEventTab)).click();
 		Thread.sleep(3000);
-
 		wait.until(ExpectedConditions.elementToBeClickable(editSpecialEventButton)).click();
 		Thread.sleep(1000);
-
 		String eventTitle = Hooks.prop.getProperty("specialEventTitle");
-
 		WebElement titleInput = wait.until(ExpectedConditions.visibilityOfElementLocated(specialEventTitleInput));
 		titleInput.clear();
 		titleInput.sendKeys(eventTitle);
-
 		wait.until(ExpectedConditions.elementToBeClickable(saveSpecialEventButton)).click();
 	}
 
@@ -820,12 +1341,9 @@ public class partnerpage {
 	}
 
 	public void verifyUserCannotEditOrDeletePartnerSpecialEvent() throws InterruptedException {
-
 		Thread.sleep(3000);
-
 		wait.until(ExpectedConditions.elementToBeClickable(specialEventTab)).click();
 		Thread.sleep(3000);
-
 		if (driver.findElements(editSpecialEventButton).size() > 0) {
 			throw new AssertionError("Edit Special Event button should not be visible!");
 		}
@@ -836,24 +1354,17 @@ public class partnerpage {
 	}
 
 	public void verifyUserCanAddPartnerSpecialEvent() throws InterruptedException {
-
 		Thread.sleep(5000);
-
 		wait.until(ExpectedConditions.elementToBeClickable(partnerDetailsIcon)).click();
 		Thread.sleep(3000);
-
 		wait.until(ExpectedConditions.elementToBeClickable(specialEventTab)).click();
 		Thread.sleep(3000);
-
 		wait.until(ExpectedConditions.elementToBeClickable(newSpecialEventButton)).click();
 		Thread.sleep(1000);
-
 		String specialEventTitle = Hooks.prop.getProperty("specialEventTitle");
-
 		WebElement titleInput = wait.until(ExpectedConditions.visibilityOfElementLocated(specialEventTitleInput));
 		titleInput.clear();
 		titleInput.sendKeys(specialEventTitle);
-
 		wait.until(ExpectedConditions.elementToBeClickable(saveSpecialEventButton)).click();
 	}
 
@@ -872,7 +1383,6 @@ public class partnerpage {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.elementToBeClickable(partnerLicenseTab)).click();
 		Thread.sleep(1000);
-
 		if (driver.findElements(newPartnerLicenseButton).size() > 0) {
 			throw new AssertionError("New Partner License button should not be visible!");
 		}
@@ -906,7 +1416,6 @@ public class partnerpage {
 		Thread.sleep(3000);
 		wait.until(ExpectedConditions.elementToBeClickable(partnerLicenseTab)).click();
 		Thread.sleep(1000);
-
 		if (driver.findElements(newPartnerLicenseButton).size() > 0) {
 			throw new AssertionError("New Partner License button should not be visible!");
 		}
@@ -942,7 +1451,6 @@ public class partnerpage {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.elementToBeClickable(partnerLicenseTab)).click();
 		Thread.sleep(1000);
-
 		if (driver.findElements(newPartnerLicenseButton).size() > 0) {
 			throw new AssertionError("New Partner License button should not be visible!");
 		}
@@ -977,7 +1485,6 @@ public class partnerpage {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.elementToBeClickable(partnerLicenseTab)).click();
 		Thread.sleep(1000);
-
 		if (driver.findElements(newPartnerLicenseButton).size() > 0) {
 			throw new AssertionError("New Partner License button should not be visible!");
 		}
@@ -1013,7 +1520,6 @@ public class partnerpage {
 
 	public void verifyUserCannotDownloadFilesInPartnerLicenseInPartnerModule() throws InterruptedException {
 		Thread.sleep(3000);
-
 		if (driver.findElements(downloadPartnerLicenseButton).size() > 0) {
 			throw new AssertionError("Download option in Partner License should not be visible!");
 		}
@@ -1021,7 +1527,6 @@ public class partnerpage {
 
 	public void verifyUserCannotViewPartnerLicenseDetailsInPartnerModule() throws InterruptedException {
 		Thread.sleep(3000);
-
 		if (driver.findElements(viewPartnerLicenseDetailsButton).size() > 0) {
 			throw new AssertionError("Partner License details button should not be visible!");
 		}
@@ -1032,7 +1537,6 @@ public class partnerpage {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.elementToBeClickable(partnerLicenseTab)).click();
 		Thread.sleep(1000);
-
 		if (driver.findElements(editPartnerLicenseButton).size() > 0) {
 			throw new AssertionError("Edit Partner License button should not be visible!");
 		}
@@ -1069,14 +1573,11 @@ public class partnerpage {
 	// Funding Company
 	public void verifyUserCannotAddEditOrDeleteFundingCompany() throws InterruptedException {
 		Thread.sleep(5000);
-
 		if (driver.findElements(newPartnerButton).size() > 0) {
 			throw new AssertionError("'New Partner' button should not be visible!");
 		}
-
 		wait.until(ExpectedConditions.elementToBeClickable(actionsMenuIcon)).click();
 		Thread.sleep(1000);
-
 		if (driver.findElements(editOption).size() > 0) {
 			throw new AssertionError("'Edit' option should not be visible!");
 		}
@@ -3135,7 +3636,7 @@ public class partnerpage {
 		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
 	}
 
-	private void sleep(long millis) {
+	public void sleep(long millis) {
 		try {
 			Thread.sleep(millis);
 		} catch (InterruptedException e) {
