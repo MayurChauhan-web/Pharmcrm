@@ -1,5 +1,5 @@
-@Setup
 Feature: Setup Module scenarios
+
 
   Scenario: Create user with log-only access and check login
   Given I log in as admin for Setup Module
@@ -10,6 +10,7 @@ Feature: Setup Module scenarios
   And I log in using the new user for Setup Module 
   Then I should see only log access for the new user
   
+  
   Scenario: Create user without Setup Module access and check restrictions
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser2_static@mailinator.com"
@@ -18,7 +19,8 @@ Feature: Setup Module scenarios
   And I reset the user's password for Setup Module
   And I log in using the new user for Setup Module   
   Then the user should have no Setup access via UI or direct URL   
-     
+    
+  
   Scenario: Create user without Patient Module access and check restrictions
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser3_static@mailinator.com"
@@ -27,6 +29,7 @@ Feature: Setup Module scenarios
   And I reset the user's password for Setup Module
   And I log in using the new user for Setup Module
   Then the user should have no patient access via UI or direct URL
+  
   
   Scenario: Create user without Delivery Module access and check restrictions
   Given I log in as admin for Setup Module
@@ -37,6 +40,7 @@ Feature: Setup Module scenarios
   And I log in using the new user for Setup Module
   Then the user should have no Delivery access via UI or direct URL 
   
+  
   Scenario: Create user without Drug Module access and check restrictions
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser5_static@mailinator.com"
@@ -46,6 +50,7 @@ Feature: Setup Module scenarios
   And I log in using the new user for Setup Module
   Then the user should have no Drug access via UI or direct URL   
   
+  
   Scenario: Create user without Workflow Module access and check restrictions
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser6_static@mailinator.com"
@@ -54,6 +59,7 @@ Feature: Setup Module scenarios
   And I reset the user's password for Setup Module
   And I log in using the new user for Setup Module
   Then the user should have no Workflow access via UI or direct URL    
+  
   
   Scenario: User with only 'View' permission for Profile
   Given I log in as admin for Setup Module
@@ -65,6 +71,7 @@ Feature: Setup Module scenarios
   Then the user should be able to view profiles  
   And the user should not be able to add, edit, or delete any profiles 
  
+ 
   Scenario: User with full access (View, Add, Edit, Delete) for Profile
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser1_static@mailinator.com"
@@ -73,6 +80,7 @@ Feature: Setup Module scenarios
   And I reset the user's password for Setup Module
   And I log in using the new user for Setup Module
   Then the user should be able to view, add, edit, and delete profiles   
+ 
  
   Scenario: User with View only access for User
   Given I log in as admin for Setup Module
@@ -95,6 +103,7 @@ Feature: Setup Module scenarios
   And the user should be able to add a new user 
   But the user should not be able to edit or delete users  
   
+  
   Scenario: User with View, Add, and Edit access for User
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser3_static@mailinator.com"
@@ -106,6 +115,7 @@ Feature: Setup Module scenarios
   And the user should be able to add a new user
   And the user should be able to edit an existing user  
   But the user should not be able to delete users 
+
 
   Scenario: User with full access (View, Add, Edit, Delete) for User
   Given I log in as admin for Setup Module
@@ -119,6 +129,7 @@ Feature: Setup Module scenarios
   And the user should be able to edit an existing user
   And the user should be able to delete a user 
   
+  
   Scenario: User with View only access for Text Template
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser2_static@mailinator.com"
@@ -128,6 +139,7 @@ Feature: Setup Module scenarios
   And I log in using the new user for Setup Module
   Then the user should be able to view text templates 
   But the user should not be able to add, edit, or delete any text template 
+
 
   Scenario: User with View and Add access for Text Template
   Given I log in as admin for Setup Module
@@ -164,6 +176,7 @@ Feature: Setup Module scenarios
   And the user should be able to edit an existing text template
   And the user should be able to delete a text template 
   
+  
   Scenario: User with View only access for BOT Call Template
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser1_static@mailinator.com"
@@ -174,6 +187,7 @@ Feature: Setup Module scenarios
   Then the user should be able to view BOT call templates 
   But the user should not be able to add, edit, or delete any BOT call template 
   
+  #
   Scenario: User with View and Add access for BOT Call Template
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser3_static@mailinator.com"
@@ -1394,18 +1408,5 @@ Feature: Setup Module scenarios
   And I reset the user's password for Setup Module
   And I log in using the new user for Setup Module
   Then the user should not see the Privacy Policy & Terms of Use section
-  
-  
-  
-  
-  
-    
-
-  
-  
-  
-   
-  
-  
   
   
