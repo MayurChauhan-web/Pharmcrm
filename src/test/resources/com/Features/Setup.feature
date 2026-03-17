@@ -187,7 +187,6 @@ Feature: Setup Module scenarios
   Then the user should be able to view BOT call templates 
   But the user should not be able to add, edit, or delete any BOT call template 
   
-  #
   Scenario: User with View and Add access for BOT Call Template
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser3_static@mailinator.com"
@@ -223,6 +222,7 @@ Feature: Setup Module scenarios
   And the user should be able to edit an existing BOT call template
   And the user should be able to delete a BOT call template 
   
+  
   Scenario: User with View only access for Mail Template
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser1_static@mailinator.com"
@@ -243,6 +243,7 @@ Feature: Setup Module scenarios
   Then the user should be able to view mail templates
   And the user should be able to add a new mail template  
   But the user should not be able to edit or delete any mail template  
+
 
   Scenario: User with View, Add, and Edit access for Mail Template
   Given I log in as admin for Setup Module
@@ -268,6 +269,7 @@ Feature: Setup Module scenarios
   And the user should be able to edit an existing mail template
   And the user should be able to delete a mail template  
 
+
   Scenario: User with View only access for Fax Template
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser1_static@mailinator.com"
@@ -289,6 +291,7 @@ Feature: Setup Module scenarios
   And the user should be able to add a new fax template  
   But the user should not be able to edit or delete any fax template  
   
+  
   Scenario: User with View, Add, and Edit access for Fax Template
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser6_static@mailinator.com"
@@ -300,6 +303,7 @@ Feature: Setup Module scenarios
   And the user should be able to add a new fax template
   And the user should be able to edit an existing fax template   
   But the user should not be able to delete any fax template   
+
 
   Scenario: User with full access (View, Add, Edit, Delete) for Fax Template
   Given I log in as admin for Setup Module
@@ -323,6 +327,7 @@ Feature: Setup Module scenarios
   Then the user should be able to view patient signature templates  
   But the user should not be able to add, edit, or delete any patient signature template  
   
+
   Scenario: User with View and Add access for Patient Signature Template
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser4_static@mailinator.com"
@@ -334,6 +339,7 @@ Feature: Setup Module scenarios
   And the user should be able to add a new patient signature template   
   But the user should not be able to edit or delete any patient signature template  
   
+
   Scenario: User with View, Add, and Edit access for Patient Signature Template
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser6_static@mailinator.com"
@@ -346,6 +352,7 @@ Feature: Setup Module scenarios
   And the user should be able to edit an existing patient signature template  
   But the user should not be able to delete any patient signature template  
   
+
   Scenario: User with full access (View, Add, Edit, Delete) for Patient Signature Template
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser3_static@mailinator.com"
@@ -368,6 +375,7 @@ Feature: Setup Module scenarios
   Then the user should be able to view feedback forms  
   But the user should not be able to add, edit, or delete any feedback form  
   
+
   Scenario: User with View and Add access for Feedback Form
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser3_static@mailinator.com"
@@ -378,6 +386,7 @@ Feature: Setup Module scenarios
   Then the user should be able to view feedback forms
   And the user should be able to add a new feedback form  
   But the user should not be able to edit or delete any feedback form  
+
 
   Scenario: User with View, Add, and Edit access for Feedback Form
   Given I log in as admin for Setup Module
@@ -403,6 +412,7 @@ Feature: Setup Module scenarios
   And the user should be able to edit an existing feedback form
   And the user should be able to delete a feedback form  
   
+  
   Scenario: Create user without Update access to Default Mail Template and check restrictions
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser22_static@mailinator.com"
@@ -412,6 +422,7 @@ Feature: Setup Module scenarios
   And I log in using the new user for Setup Module
   Then the user should have no Default Mail Template access via UI or direct URL     
 
+
   Scenario: Create user without Update access to Default Fax Template and check restrictions
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser23_static@mailinator.com"
@@ -420,6 +431,7 @@ Feature: Setup Module scenarios
   And I reset the user's password for Setup Module
   And I log in using the new user for Setup Module
   Then the user should have no Default Fax Template access via UI or direct URL   
+  
   
   Scenario: User with View only access for Organization Bucket
   Given I log in as admin for Setup Module
@@ -442,6 +454,8 @@ Feature: Setup Module scenarios
   And the user should be able to add a new file  
   But the user should not be able to edit, delete, or download any files  
 
+
+
   Scenario: User with View, Add File, and Edit File access for Organization Bucket
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser3_static@mailinator.com"
@@ -453,6 +467,7 @@ Feature: Setup Module scenarios
   And the user should be able to add a new file
   And the user should be able to edit an existing file 
   But the user should not be able to delete or download any files  
+
 
   Scenario: User with View, Add File, Edit File, and Delete File access for Organization Bucket
   Given I log in as admin for Setup Module
@@ -467,6 +482,7 @@ Feature: Setup Module scenarios
   And the user should be able to delete a file 
   But the user should not be able to download any file  
 
+
   Scenario: User with full access (View, Add, Edit, Delete, Download) for Organization Bucket
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser8_static@mailinator.com"
@@ -480,6 +496,7 @@ Feature: Setup Module scenarios
   And the user should be able to delete a file
   And the user should be able to download a file 
   
+  #
   Scenario: Create user without Update access to Bucket Setting and check restrictions
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser24_static@mailinator.com"
