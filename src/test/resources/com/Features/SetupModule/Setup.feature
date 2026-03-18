@@ -599,330 +599,234 @@ Then the Setup user should be able to view Profiles test
 And I create a profile without Update access to Setup Module → Bucket Setting test 
 Then the user should have no Bucket Setting access via UI or direct URL test
 
+# Reminders
+Scenario: User with View only access for Reminders
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with only View access to Setup Module → Reminders test
+Then the user should be able to view reminders test
+But the user should not see any action buttons for reminders test
 
-
-
-
-
-
-
+Scenario: User with View and Action View access for Reminders
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with View and Action View access to Setup Module → Reminders test
+Then the user should be able to view reminders test
+And the user should see action buttons and perform allowed reminder actions test
   
-  
-
-
-
-
-  
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-  
- 
- 
- 
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-
-
-
-
-
-
-  
-  
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  
-  
-
-
-
-
-
-
-
-
-  
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# Application Status
+Scenario: Create user without Update access to Setup Module → Application Status and check restrictions
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile without Update access to Setup Module → Application Status test
+Then the user should have no Application Status update access via UI or direct URL test
+
+# Brand Management
+Scenario: Create user without Update access to Setup Module → Brand Management and check restrictions
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile without Update access to Setup Module → Brand Management test
+Then the user should have no Brand Management update access via UI or direct URL test
+
+Scenario: Create user without Send VCard access to Setup Module → Brand Management and check restrictions
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile without Send VCard access to Setup Module → Brand Management test
+Then the user should not see the Send VCard option in Brand Management test
+
+# Organization Calendar
+Scenario: User with only View access to Organization Calendar
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with only View access to Organization Calendar test
+Then the user should be able to view Organization Calendar entries test
+But the user should not be able to edit any Organization Calendar entry test
+
+Scenario: User with View and Edit access to Organization Calendar
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with View and Edit access to Organization Calendar test
+Then the user should be able to view Organization Calendar entries test
+And the user should be able to edit an Organization Calendar entry test
+
+# Technical Setting
+Scenario: User without Update access to Technical Setting
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+When I create a profile without Update access to Technical Setting test
+Then the user should have no Technical Setting update access via UI or direct URL test
+
+# Notification Setting
+Scenario: User without Update access to Notification Setting
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+When I create a profile without Update access to Notification Setting test
+Then the user should have no Notification Setting update access via UI or direct URL test
+
+# Text Forward Setting
+Scenario: User without Update access to Text Forward Setting
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+When I create a profile without Update access to Text Forward Setting test
+Then the user should have no Text Forward Setting update access via UI or direct URL test
+
+# EHR Types
+Scenario: User with View only access to EHR Types
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with View access only to EHR Types test
+Then the user should be able to view EHR Types test
+But the user should not be able to add, edit, or delete any EHR Types test
+
+Scenario: User with View and Add access to EHR Types
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with View and Add access to EHR Types test
+Then the user should be able to view EHR Types test
+And the user should be able to add a new EHR Type test
+But the user should not be able to edit or delete any EHR Types test
+
+Scenario: User with View, Add, and Edit access to EHR Types
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with View, Add, and Edit access to EHR Types test
+Then the user should be able to view EHR Types test
+And the user should be able to add a new EHR Type test
+And the user should be able to edit an existing EHR Type test  
+But the user should not be able to delete any EHR Types test
+
+Scenario: User with View, Add, Edit, and Delete access to EHR Types
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with View, Add, Edit, and Delete access to EHR Types test   
+Then the user should be able to view EHR Types test
+And the user should be able to add a new EHR Type test
+And the user should be able to edit an existing EHR Type test
+And the user should be able to delete an EHR Type test
+
+# Progress Step
+Scenario: User with View only access for Progress Step
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with View access only to Progress Step test
+Then the user should be able to view entries in the Progress Step test
+But the user should not be able to add, edit, or delete any Progress Step entries test
+
+Scenario: User with View and Add access for Progress Step
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with View and Add access to Progress Step test
+Then the user should be able to view entries in the Progress Step test
+And the user should be able to add a new Progress Step entry test
+But the user should not be able to edit or delete any Progress Step entries test
+
+Scenario: User with View, Add, and Edit access for Progress Step
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with View, Add, and Edit access to Progress Step test
+Then the user should be able to view entries in the Progress Step test
+And the user should be able to add a new Progress Step entry test
+And the user should be able to edit an existing Progress Step entry test 
+But the user should not be able to delete any Progress Step entries test
+
+Scenario: User with full access to Progress Step
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with View, Add, Edit, and Delete access to Progress Step test
+Then the user should be able to view entries in the Progress Step test
+And the user should be able to add a new Progress Step entry test
+And the user should be able to edit an existing Progress Step entry test
+And the user should be able to delete a Progress Step entry test
 
 
 

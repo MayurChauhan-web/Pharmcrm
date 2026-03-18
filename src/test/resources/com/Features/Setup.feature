@@ -496,7 +496,7 @@ Feature: Setup Module scenarios
   And the user should be able to delete a file
   And the user should be able to download a file 
   
-  #
+  
   Scenario: Create user without Update access to Bucket Setting and check restrictions
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser24_static@mailinator.com"
@@ -505,6 +505,7 @@ Feature: Setup Module scenarios
   And I reset the user's password for Setup Module
   And I log in using the new user for Setup Module
   Then the user should have no Bucket Setting access via UI or direct URL    
+
 
   Scenario: User with View only access for Reminders
   Given I log in as admin for Setup Module
@@ -516,6 +517,7 @@ Feature: Setup Module scenarios
   Then the user should be able to view reminders  
   But the user should not see any action buttons for reminders 
 
+
   Scenario: User with View and Action View access for Reminders
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser26_static@mailinator.com"
@@ -526,6 +528,7 @@ Feature: Setup Module scenarios
   Then the user should be able to view reminders
   And the user should see action buttons and perform allowed reminder actions   
 
+
   Scenario: Create user without Update access to Setup Module → Application Status and check restrictions
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser1_static@mailinator.com"
@@ -534,6 +537,7 @@ Feature: Setup Module scenarios
   And I reset the user's password for Setup Module
   And I log in using the new user for Setup Module
   Then the user should have no Application Status update access via UI or direct URL 
+  
   
   Scenario: Create user without Update access to Setup Module → Brand Management and check restrictions
   Given I log in as admin for Setup Module
@@ -553,6 +557,7 @@ Feature: Setup Module scenarios
   And I log in using the new user for Setup Module
   Then the user should not see the Send VCard option in Brand Management 
   
+  
   Scenario: User with only View access to Organization Calendar
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser5_static@mailinator.com"
@@ -562,6 +567,7 @@ Feature: Setup Module scenarios
   And I log in using the new user for Setup Module
   Then the user should be able to view Organization Calendar entries 
   But the user should not be able to edit any Organization Calendar entry 
+
 
   Scenario: User with View and Edit access to Organization Calendar
   Given I log in as admin for Setup Module
@@ -591,6 +597,7 @@ Feature: Setup Module scenarios
   And I log in using the new user for Setup Module
   Then the user should have no Notification Setting update access via UI or direct URL 
 
+  
   Scenario: User without Update access to Text Forward Setting
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser9_static@mailinator.com"
@@ -599,6 +606,7 @@ Feature: Setup Module scenarios
   And I reset the user's password for Setup Module   
   And I log in using the new user for Setup Module
   Then the user should have no Text Forward Setting update access via UI or direct URL
+
 
   Scenario: User with View only access to EHR Types
   Given I log in as admin for Setup Module
@@ -610,6 +618,7 @@ Feature: Setup Module scenarios
   Then the user should be able to view EHR Types   
   But the user should not be able to add, edit, or delete any EHR Types 
 
+
   Scenario: User with View and Add access to EHR Types
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser11_static@mailinator.com"
@@ -620,6 +629,7 @@ Feature: Setup Module scenarios
   Then the user should be able to view EHR Types
   And the user should be able to add a new EHR Type 
   But the user should not be able to edit or delete any EHR Types 
+
 
   Scenario: User with View, Add, and Edit access to EHR Types
   Given I log in as admin for Setup Module
@@ -633,6 +643,7 @@ Feature: Setup Module scenarios
   And the user should be able to edit an existing EHR Type  
   But the user should not be able to delete any EHR Types 
 
+
   Scenario: User with View, Add, Edit, and Delete access to EHR Types
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser15_static@mailinator.com"
@@ -645,6 +656,7 @@ Feature: Setup Module scenarios
   And the user should be able to edit an existing EHR Type
   And the user should be able to delete an EHR Type 
 
+
   Scenario: User with View only access for Progress Step
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser16_static@mailinator.com"
@@ -654,6 +666,7 @@ Feature: Setup Module scenarios
   And I log in using the new user for Setup Module
   Then the user should be able to view entries in the Progress Step 
   But the user should not be able to add, edit, or delete any Progress Step entries 
+
 
   Scenario: User with View and Add access for Progress Step
   Given I log in as admin for Setup Module
@@ -665,6 +678,7 @@ Feature: Setup Module scenarios
   Then the user should be able to view entries in the Progress Step
   And the user should be able to add a new Progress Step entry 
   But the user should not be able to edit or delete any Progress Step entries 
+
 
   Scenario: User with View, Add, and Edit access for Progress Step
   Given I log in as admin for Setup Module
@@ -678,6 +692,7 @@ Feature: Setup Module scenarios
   And the user should be able to edit an existing Progress Step entry 
   But the user should not be able to delete any Progress Step entries 
 
+#
   Scenario: User with full access to Progress Step
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser34_static@mailinator.com"

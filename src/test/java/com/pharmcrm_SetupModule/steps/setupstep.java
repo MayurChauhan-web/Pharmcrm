@@ -9,6 +9,507 @@ public class setupstep {
 
 	private setuppage setupPage;
 
+	// Progress Step
+	@And("the user should be able to delete a Progress Step entry test")
+	public void userShouldBeAbleToDeleteAProgressStepEntry() throws InterruptedException {
+		setupPage.verifyUserCanDeleteProgressStepEntry();
+
+	}
+
+	@And("I create a profile with View, Add, Edit, and Delete access to Progress Step test")
+	public void userCreatesProfileWithViewAddEditAndDeleteAccessToProgressStep() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.userCanViewAddEditDeleteProgressSteps();
+		setupPage.clickSubmitButton();
+
+	}
+
+	@And("the user should not be able to delete any Progress Step entries test")
+	public void userShouldNotBeAbleToDeleteAnyProgressStepEntries() throws InterruptedException {
+		setupPage.verifyUserCannotDeleteProgressStepEntries();
+
+	}
+
+	@And("the user should be able to edit an existing Progress Step entry test")
+	public void userShouldBeAbleToEditAnExistingProgressStepEntry() throws InterruptedException {
+		setupPage.verifyUserCanEditExistingProgressStepEntry();
+
+	}
+
+	@And("I create a profile with View, Add, and Edit access to Progress Step test")
+	public void userCreatesProfileWithViewAddAndEditAccessToProgressStep() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.userCanViewAddAndEditProgressSteps();
+		setupPage.clickSubmitButton();
+
+	}
+
+	@And("the user should not be able to edit or delete any Progress Step entries test")
+	public void userShouldNotBeAbleToEditOrDeleteAnyProgressStepEntries() throws InterruptedException {
+		setupPage.verifyUserCannotEditOrDeleteProgressStepEntries();
+
+	}
+
+	@And("the user should be able to add a new Progress Step entry test")
+	public void userShouldBeAbleToAddANewProgressStepEntry() throws InterruptedException {
+		setupPage.verifyUserCanAddNewProgressStepEntry();
+
+	}
+
+	@And("I create a profile with View and Add access to Progress Step test")
+	public void userCreatesProfileWithViewAndAddAccessToProgressStep() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.userCanViewAndAddProgressSteps();
+		setupPage.clickSubmitButton();
+
+	}
+
+	@And("the user should not be able to add, edit, or delete any Progress Step entries test")
+	public void userShouldNotBeAbleToAddEditOrDeleteAnyProgressStepEntries() throws InterruptedException {
+		setupPage.verifyUserCannotAddEditOrDeleteProgressStepEntries();
+
+	}
+
+	@And("the user should be able to view entries in the Progress Step test")
+	public void userShouldBeAbleToViewEntriesInTheProgressStep() throws InterruptedException {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String progressStepPageUrl = Hooks.prop.getProperty("progressStepPageUrl");
+
+		Assert.assertNotNull("progressStepPageUrl is missing in config", progressStepPageUrl);
+
+		String fullUrl = baseUrl + progressStepPageUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+
+		setupPage.openProgressStepPage(fullUrl);
+
+		Assert.assertTrue("Progress Step page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/ProgressStatuses"));
+	}
+
+	@And("I create a profile with View access only to Progress Step test")
+	public void userCreatesProfileWithViewAccessOnlyToProgressStep() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.verifyViewOnlyAccessOnProgressStep();
+		setupPage.clickSubmitButton();
+
+	}
+
+	// EHR Types
+
+	@And("the user should be able to delete an EHR Type test")
+	public void userShouldBeAbleToDeleteAnEhrType() throws InterruptedException {
+		setupPage.verifyUserCanDeleteEHRType();
+
+	}
+
+	@And("I create a profile with View, Add, Edit, and Delete access to EHR Types test")
+	public void userCreatesProfileWithViewAddEditAndDeleteAccessToEhrTypes() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.verifyFullAccessOnEhrTypes();
+		setupPage.clickSubmitButton();
+
+	}
+
+	@And("the user should not be able to delete any EHR Types test")
+	public void userShouldNotBeAbleToDeleteAnyEhrTypes() throws InterruptedException {
+		setupPage.verifyUserCannotDeleteEHRTypes();
+
+	}
+
+	@And("the user should be able to edit an existing EHR Type test")
+	public void userShouldBeAbleToEditAnExistingEhrType() throws InterruptedException {
+		setupPage.verifyUserCanEditEHRType();
+
+	}
+
+	@And("I create a profile with View, Add, and Edit access to EHR Types test")
+	public void userCreatesProfileWithViewAddAndEditAccessToEhrTypes() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.profileHasViewAddEditAccessForEhrTypes();
+		setupPage.clickSubmitButton();
+
+	}
+
+	@And("the user should not be able to edit or delete any EHR Types test")
+	public void userShouldNotBeAbleToEditOrDeleteAnyEhrTypes() throws InterruptedException {
+		setupPage.verifyUserCannotEditOrDeleteEHRTypes();
+
+	}
+
+	@And("the user should be able to add a new EHR Type test")
+	public void userShouldBeAbleToAddANewEhrType() throws InterruptedException {
+		setupPage.verifyUserCanAddNewEHRType();
+
+	}
+
+	@And("I create a profile with View and Add access to EHR Types test")
+	public void userCreatesProfileWithViewAndAddAccessToEhrTypes() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.profileHasViewAndAddAccessForEhrTypes();
+		setupPage.clickSubmitButton();
+
+	}
+
+	@And("the user should not be able to add, edit, or delete any EHR Types test")
+	public void userShouldNotBeAbleToAddEditOrDeleteAnyEhrTypes() throws InterruptedException {
+		setupPage.verifyUserCannotAddEditDeleteEHRTypes();
+
+	}
+
+	@And("the user should be able to view EHR Types test")
+	public void userShouldBeAbleToViewEhrTypes() throws InterruptedException {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String ehrTypesPageUrl = Hooks.prop.getProperty("ehrTypesPageUrl");
+
+		Assert.assertNotNull("ehrTypesPageUrl is missing in config", ehrTypesPageUrl);
+
+		String fullUrl = baseUrl + ehrTypesPageUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+
+		setupPage.openEhrTypesPage(fullUrl);
+
+		Assert.assertTrue("EHR Types page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/ExternalSources"));
+	}
+
+	@And("I create a profile with View access only to EHR Types test")
+	public void userCreatesProfileWithViewAccessOnlyToEhrTypes() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.userRestrictedToViewOnlyInEhrTypes();
+		setupPage.clickSubmitButton();
+
+	}
+
+	// Text Forward Setting
+	@And("the user should have no Text Forward Setting update access via UI or direct URL test")
+	public void userShouldHaveNoTextForwardSettingUpdateAccessViaUiOrDirectUrl() throws InterruptedException {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String textForwardSettingPageUrl = Hooks.prop.getProperty("textForwardSettingPageUrl");
+
+		Assert.assertNotNull("textForwardSettingPageUrl is missing in config", textForwardSettingPageUrl);
+
+		String fullUrl = baseUrl + textForwardSettingPageUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+
+		setupPage.openTextForwardSettingPage(fullUrl);
+
+		Assert.assertTrue("Text Forward Setting page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/TextForwardSetting"));
+	}
+
+	@And("I create a profile without Update access to Text Forward Setting test")
+	public void userCreatesProfileWithoutUpdateAccessToTextForwardSetting() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.userRestrictedFromUpdatingTextForwardSetting();
+		setupPage.clickSubmitButton();
+
+	}
+
+	// Notification Setting
+	@And("the user should have no Notification Setting update access via UI or direct URL test")
+	public void userShouldHaveNoNotificationSettingUpdateAccessViaUiOrDirectUrl() throws InterruptedException {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String notificationSettingPageUrl = Hooks.prop.getProperty("notificationSettingPageUrl");
+
+		Assert.assertNotNull("notificationSettingPageUrl is missing in config", notificationSettingPageUrl);
+
+		String fullUrl = baseUrl + notificationSettingPageUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+
+		setupPage.openNotificationSettingPage(fullUrl);
+
+		setupPage.verifyUserHasNoUpdateAccessToNotificationSetting();
+
+	}
+
+	@And("I create a profile without Update access to Notification Setting test")
+	public void userCreatesProfileWithoutUpdateAccessToNotificationSetting() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.verifyNoUpdateAccessOnNotificationSetting();
+		setupPage.clickSubmitButton();
+
+	}
+
+	// Technical Setting
+	@And("the user should have no Technical Setting update access via UI or direct URL test")
+	public void userShouldHaveNoTechnicalSettingUpdateAccessViaUiOrDirectUrl() throws InterruptedException {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String technicalSettingPageUrl = Hooks.prop.getProperty("technicalSettingPageUrl");
+
+		Assert.assertNotNull("technicalSettingPageUrl is missing in config", technicalSettingPageUrl);
+
+		String fullUrl = baseUrl + technicalSettingPageUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+
+		setupPage.openTechnicalSettingPage(fullUrl);
+
+		setupPage.verifyUserHasNoUpdateAccessToTechnicalSetting();
+
+	}
+
+	@And("I create a profile without Update access to Technical Setting test")
+	public void userCreatesProfileWithoutUpdateAccessToTechnicalSetting() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.createProfileWithoutUpdateAccessToTechnicalSetting();
+		setupPage.clickSubmitButton();
+
+	}
+
+	// Organization Calendar
+	@And("the user should be able to edit an Organization Calendar entry test")
+	public void userShouldBeAbleToEditAnOrganizationCalendarEntry() throws InterruptedException {
+		setupPage.verifyUserCanEditOrganizationCalendarEntry();
+
+	}
+
+	@And("I create a profile with View and Edit access to Organization Calendar test")
+	public void userCreatesProfileWithViewAndEditAccessToOrganizationCalendar() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.createProfileWithViewAndEditAccessToOrganizationCalendar();
+		setupPage.clickSubmitButton();
+
+	}
+
+	@And("the user should not be able to edit any Organization Calendar entry test")
+	public void userShouldNotBeAbleToEditAnyOrganizationCalendarEntry() throws InterruptedException {
+		setupPage.verifyUserCannotEditOrganizationCalendarEntries();
+
+	}
+
+	@And("the user should be able to view Organization Calendar entries test")
+	public void userShouldBeAbleToViewOrganizationCalendarEntries() throws InterruptedException {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String organizationCalendarPageUrl = Hooks.prop.getProperty("organizationCalendarPageUrl");
+
+		Assert.assertNotNull("organizationCalendarPageUrl is missing in config", organizationCalendarPageUrl);
+
+		String fullUrl = baseUrl + organizationCalendarPageUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+
+		setupPage.openOrganizationCalendarPage(fullUrl);
+
+		Assert.assertTrue("Organization Calendar page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/OrganizationCalendarSetting"));
+	}
+
+	@And("I create a profile with only View access to Organization Calendar test")
+	public void userCreatesProfileWithOnlyViewAccessToOrganizationCalendar() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.createProfileWithViewAccessToOrganizationCalendar();
+		setupPage.clickSubmitButton();
+
+	}
+
+	// Brand Management
+
+	@And("the user should not see the Send VCard option in Brand Management test")
+	public void userShouldNotSeeSendVcardOptionInBrandManagement() throws InterruptedException {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String brandManagementPageUrl = Hooks.prop.getProperty("brandManagementPageUrl");
+
+		Assert.assertNotNull("brandManagementPageUrl is missing in config", brandManagementPageUrl);
+
+		String fullUrl = baseUrl + brandManagementPageUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+
+		setupPage.openBrandManagementPage(fullUrl);
+
+		setupPage.verifySendVCardOptionIsNotVisibleInBrandManagement();
+
+	}
+
+	@And("I create a profile without Send VCard access to Setup Module → Brand Management test")
+	public void userCreatesProfileWithoutSendVcardAccessToBrandManagement() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.createProfileWithoutSendVcardAccessToBrandManagement();
+		setupPage.clickSubmitButton();
+
+	}
+
+	@And("the user should have no Brand Management update access via UI or direct URL test")
+	public void userShouldHaveNoBrandManagementUpdateAccessViaUiOrDirectUrl() throws InterruptedException {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String brandManagementPageUrl = Hooks.prop.getProperty("brandManagementPageUrl");
+
+		Assert.assertNotNull("brandManagementPageUrl is missing in config", brandManagementPageUrl);
+
+		String fullUrl = baseUrl + brandManagementPageUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+
+		setupPage.openBrandManagementPage(fullUrl);
+
+		setupPage.verifyNoUpdateAccessToBrandManagement();
+
+	}
+
+	@And("I create a profile without Update access to Setup Module → Brand Management test")
+	public void userCreatesProfileWithoutUpdateAccessToBrandManagement() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.createProfileWithoutUpdateAccessToBrandManagement();
+		setupPage.clickSubmitButton();
+
+	}
+
+	// Reminders
+	@And("the user should have no Application Status update access via UI or direct URL test")
+	public void userShouldHaveNoApplicationStatusUpdateAccessViaUiOrDirectUrl() throws InterruptedException {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String applicationStatusPageUrl = Hooks.prop.getProperty("applicationStatusPageUrl");
+
+		Assert.assertNotNull("applicationStatusPageUrl is missing in config", applicationStatusPageUrl);
+
+		String fullUrl = baseUrl + applicationStatusPageUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+
+		setupPage.openApplicationStatusPage(fullUrl);
+
+		setupPage.verifyNoUpdateAccessToApplicationStatus();
+	}
+
+	@And("I create a profile without Update access to Setup Module → Application Status test")
+	public void userCreatesProfileWithoutUpdateAccessToApplicationStatus() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.profileHasNoUpdateAccessForApplicationStatus();
+		setupPage.clickSubmitButton();
+
+	}
+
+	@And("the user should see action buttons and perform allowed reminder actions test")
+	public void userShouldSeeActionButtonsAndPerformAllowedReminderActions() throws InterruptedException {
+		setupPage.UserCanSeeAndPerformReminderActionsWithActionViewAccess();
+
+	}
+
+	@And("I create a profile with View and Action View access to Setup Module → Reminders test")
+	public void userCreatesProfileWithViewAndActionViewAccessToReminders() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.createProfileWithViewAndActionAccessToReminders();
+		setupPage.clickSubmitButton();
+
+	}
+
+	@And("the user should not see any action buttons for reminders test")
+	public void userShouldNotSeeAnyActionButtonsForReminders() throws InterruptedException {
+		setupPage.UserCannotSeeReminderActionButtonsWithoutActionViewAccess();
+
+	}
+
+	@And("the user should be able to view reminders test")
+	public void userShouldBeAbleToViewRemindersPage() throws InterruptedException {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String remindersPageUrl = Hooks.prop.getProperty("remindersPageUrl");
+
+		Assert.assertNotNull("remindersPageUrl is missing in config", remindersPageUrl);
+
+		String fullUrl = baseUrl + remindersPageUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+
+		setupPage.openRemindersPage(fullUrl);
+
+		Assert.assertTrue("Reminders page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/Reminders"));
+	}
+
+	@And("I create a profile with only View access to Setup Module → Reminders test")
+	public void userCreatesProfileWithViewAccessToReminders() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.profileRestrictedToViewAccessInReminders();
+		setupPage.clickSubmitButton();
+
+	}
+
 	// Bucket Setting
 
 	@And("the user should have no Bucket Setting access via UI or direct URL test")
@@ -181,8 +682,7 @@ public class setupstep {
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openDefaultFaxTemplatePage(fullDefaultFaxTemplateUrl);
 
-		Assert.assertTrue("Default Fax Template page is not displayed",
-				Hooks.driver.getCurrentUrl().contains("/Setup/Home/DefaultFaxTemplate"));
+		setupPage.UserWithNoAccessCannotViewOrAccessDefaultFaxTemplate();
 	}
 
 	@And("I create a profile without Update access to Setup Module → Default Fax Template test")

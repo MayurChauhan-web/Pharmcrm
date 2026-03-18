@@ -4,6 +4,7 @@ import java.time.Duration;
 import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -17,28 +18,33 @@ public class setuppage {
 	private WebDriver driver;
 	private WebDriverWait wait;
 
-	// Bucket Setting
+	// Progress Step
 
-	public void openBucketSettingsPage(String fullUrl) {
-		sleep(2000);
-		driver.get(fullUrl);
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/BucketSettings"));
-	}
+	public void verifyUserCanDeleteProgressStepEntry() {
 
-	public void userWithNoAccessCannotViewOrAccessBucketSetting() throws InterruptedException {
+		try {
+			WebElement menuButton = wait.until(ExpectedConditions.elementToBeClickable(actionMenuButton));
+			menuButton.click();
 
-		Thread.sleep(2000);
+			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
 
-		List<WebElement> errorElements = driver.findElements(errorHeader);
+			if (deleteExists) {
+				System.out.println("PASS: Delete option is visible as expected.");
 
-		if (!errorElements.isEmpty()) {
-			System.out.println("PASS: User cannot access Bucket Settings page.");
-		} else {
-			System.out.println("FAIL: Page loaded successfully, user should not have access.");
+				wait.until(ExpectedConditions.elementToBeClickable(deleteOption)).click();
+
+				wait.until(ExpectedConditions.elementToBeClickable(confirmDeleteButton)).click();
+
+			} else {
+				Assert.fail("FAIL: Delete option is not visible, but it should be.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			Assert.fail("FAIL: Could not open the action menu to verify Delete option.");
 		}
 	}
 
-	public void bucketSettingProfileWithoutUpdatePermission() {
+	public void userCanViewAddEditDeleteProgressSteps() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
 		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
@@ -47,7 +53,185 @@ public class setuppage {
 
 	}
 
-	// Bucket Setting
+	public void verifyUserCannotDeleteProgressStepEntries() {
+
+		try {
+			WebElement menuButton = wait.until(ExpectedConditions.elementToBeClickable(actionMenuButton));
+			menuButton.click();
+
+			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
+
+			if (deleteExists) {
+				Assert.fail("FAIL: Delete option is visible, but it should not be.");
+			} else {
+				System.out.println("PASS: Delete option is not visible, as expected.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			Assert.fail("FAIL: Could not open action menu to verify Delete option.");
+		}
+	}
+
+	public void verifyUserCanEditExistingProgressStepEntry() {
+
+		String profileName = Hooks.prop.getProperty("profile.name.value");
+
+		try {
+			WebElement menuButton = wait.until(ExpectedConditions.elementToBeClickable(actionMenuButton));
+			menuButton.click();
+
+			boolean editExists = !driver.findElements(editOption).isEmpty();
+
+			if (editExists) {
+				System.out.println("PASS: Edit option is visible as expected.");
+
+				wait.until(ExpectedConditions.elementToBeClickable(editOption)).click();
+
+				wait.until(ExpectedConditions.visibilityOfElementLocated(notesField));
+				driver.findElement(notesField).clear();
+				driver.findElement(notesField).sendKeys(profileName);
+
+				wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
+
+			} else {
+				Assert.fail("FAIL: Edit option is not visible, but it should be.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			Assert.fail("FAIL: Could not open the action menu to verify Edit option.");
+		}
+	}
+
+	public void userCanViewAddAndEditProgressSteps() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCannotEditOrDeleteProgressStepEntries() {
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+		WebElement menuButton = wait.until(ExpectedConditions.presenceOfElementLocated(actionMenuButton));
+
+		try {
+			wait.until(ExpectedConditions.elementToBeClickable(menuButton)).click();
+
+			boolean editExists = !driver.findElements(editOption).isEmpty();
+			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
+
+			if (!editExists && !deleteExists) {
+				System.out.println("PASS: Edit/Delete options are not visible as expected.");
+			} else {
+				Assert.fail("FAIL: Edit and/or Delete option is visible, but it should not be.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			System.out.println("PASS: Action menu is not accessible due to permission restrictions.");
+		}
+	}
+
+	public void verifyUserCanAddNewProgressStepEntry() {
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+		String profileName = Hooks.prop.getProperty("profile.name.value");
+
+		wait.until(ExpectedConditions.elementToBeClickable(newProgressStepButton)).click();
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(nameField));
+		driver.findElement(nameField).clear();
+		driver.findElement(nameField).sendKeys(profileName);
+
+		driver.findElement(priorityField).clear();
+		driver.findElement(priorityField).sendKeys("1");
+
+		WebElement dropdown = wait.until(ExpectedConditions.visibilityOfElementLocated(featureTypeDropdown));
+		Select select = new Select(dropdown);
+		select.selectByIndex(2);
+
+		driver.findElement(notesField).clear();
+		driver.findElement(notesField).sendKeys(profileName);
+
+		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
+	}
+
+	public void userCanViewAndAddProgressSteps() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCannotAddEditOrDeleteProgressStepEntries() {
+
+		sleep(3000);
+
+		Assert.assertTrue(driver.findElements(newProgressStepButton).isEmpty(),
+				"FAIL: 'New Progress Step' button should not be visible");
+
+		WebElement menuButton = driver.findElement(actionMenuButton);
+
+		try {
+			menuButton.click();
+			sleep(1000);
+
+			boolean editExists = !driver.findElements(editOption).isEmpty();
+			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
+
+			if (!editExists && !deleteExists) {
+				System.out.println("PASS: User cannot see Edit/Delete options for Progress Step.");
+			} else {
+				Assert.fail("FAIL: User should not see Edit/Delete options for Progress Step.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			System.out.println("PASS: Action menu is not accessible due to permission restrictions.");
+		}
+	}
+
+	public void openProgressStepPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/ProgressStatuses"));
+	}
+
+	public void verifyViewOnlyAccessOnProgressStep() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	// Progress Step
+	private By priorityField = By.id("ProgressStatus_Priority");
+	private By notesField = By.id("ProgressStatus_Notes");
+
+	// Save button
+
+	private By newProgressStepButton = By.xpath("//span[normalize-space()='New Progress Step']");
+
+	// EHR Types
+	By nameField = By.id("ExternalSource_Name");
+	By descriptionField = By.id("ExternalSource_Description");
+	By newEhrTypeBtn = By.xpath("//span[normalize-space()='New EHR Type']");
+	By actionMenuBtn = By.xpath("//tbody/tr[1]/td[5]/div[1]/div[1]/button[1]/i[1]");
+
+	// Organization Calendar
+	By calendarEditBtn = By.cssSelector("button[onclick='return SubmitCalendarSetting()']");
+
+	// Brand Management
+	By sendVCardBtn = By.xpath("//button[normalize-space()='Send VCard']");
+
+	// Reminders
+	By reminderActionBtn = By.xpath("//tbody/tr[1]/td[2]/a[1]");
 
 	// Organization Bucket
 	By fileNameField = By.id("fileNameTextBox");
@@ -155,6 +339,462 @@ public class setuppage {
 	public setuppage(WebDriver driver) {
 		this.driver = driver;
 		this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	}
+
+	// EHR Types
+
+	public void verifyUserCanDeleteEHRType() throws InterruptedException {
+
+		Thread.sleep(3000);
+
+		try {
+			Thread.sleep(1000);
+
+			List<WebElement> deleteElements = driver.findElements(deleteOption);
+
+			if (!deleteElements.isEmpty()) {
+				System.out.println("PASS: Delete option is visible as expected.");
+
+				deleteElements.get(0).click();
+
+				WebElement confirmBtn = driver.findElement(confirmDeleteBtn);
+				confirmBtn.click();
+
+			} else {
+				Assert.fail("FAIL: Delete option is not visible, but it should be.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			Assert.fail("FAIL: Could not verify or click Delete option.");
+		}
+	}
+
+	public void verifyFullAccessOnEhrTypes() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCannotDeleteEHRTypes() throws InterruptedException {
+
+		Thread.sleep(3000);
+
+		try {
+			Thread.sleep(1000);
+
+			List<WebElement> deleteElements = driver.findElements(deleteOption);
+
+			if (!deleteElements.isEmpty()) {
+				Assert.fail("FAIL: Delete option is visible, but it should NOT be.");
+			} else {
+				System.out.println("PASS: Delete option is not visible, as expected.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			Assert.fail("FAIL: Could not verify Delete option.");
+		}
+	}
+
+	public void verifyUserCanEditEHRType() throws InterruptedException {
+
+		Thread.sleep(3000);
+
+		try {
+			WebElement menuButton = driver.findElement(actionMenuBtn);
+
+			Thread.sleep(1000);
+			menuButton.click();
+
+			Thread.sleep(1000);
+
+			List<WebElement> editElements = driver.findElements(editOption);
+
+			if (!editElements.isEmpty()) {
+				System.out.println("PASS: Edit option is visible as expected.");
+
+				editElements.get(0).click();
+
+				String profileName = Hooks.prop.getProperty("profile.name.value");
+
+				WebElement descField = driver.findElement(descriptionField);
+				descField.clear();
+				descField.sendKeys(profileName);
+
+				WebElement saveButton = driver.findElement(saveBtn);
+				saveButton.click();
+
+			} else {
+				Assert.fail("FAIL: Edit option is not visible, but it should be.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			Assert.fail("FAIL: Could not open the action menu to verify Edit option.");
+		}
+	}
+
+	public void profileHasViewAddEditAccessForEhrTypes() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCannotEditOrDeleteEHRTypes() throws InterruptedException {
+
+		Thread.sleep(3000);
+
+		try {
+			WebElement menuButton = driver.findElement(actionMenuBtn);
+			menuButton.click();
+
+			Thread.sleep(1000);
+
+			boolean editExists = !driver.findElements(editOption).isEmpty();
+			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
+
+			if (!editExists && !deleteExists) {
+				System.out.println("PASS: Delete and Edit options are not visible as expected.");
+			} else {
+				Assert.fail("FAIL: Delete and/or Edit option is visible, but it should not be.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			System.out.println("PASS: Action menu exists but cannot be opened (no permissions).");
+		}
+	}
+
+	public void verifyUserCanAddNewEHRType() throws InterruptedException {
+
+		Thread.sleep(3000);
+
+		driver.findElement(newEhrTypeBtn).click();
+
+		Thread.sleep(1000);
+
+		String profileName = Hooks.prop.getProperty("profile.name.value");
+
+		driver.findElement(nameField).clear();
+		driver.findElement(nameField).sendKeys(profileName);
+
+		driver.findElement(descriptionField).clear();
+		driver.findElement(descriptionField).sendKeys(profileName);
+
+		Thread.sleep(3000);
+
+		driver.findElement(saveBtn).click();
+	}
+
+	public void profileHasViewAndAddAccessForEhrTypes() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCannotAddEditDeleteEHRTypes() throws InterruptedException {
+
+		Thread.sleep(3000);
+
+		List<WebElement> newBtn = driver.findElements(newEhrTypeBtn);
+		Assert.assertTrue(newBtn.isEmpty(), "FAIL: 'New EHR Type' button should NOT be visible");
+
+		try {
+			WebElement menuButton = driver.findElement(actionMenuBtn);
+			menuButton.click();
+			Thread.sleep(1000);
+
+			boolean editExists = !driver.findElements(editOption).isEmpty();
+			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
+
+			if (!editExists && !deleteExists) {
+				System.out.println("PASS: User cannot see Edit/Delete options.");
+			} else {
+				Assert.fail("FAIL: User should not see Edit/Delete options.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			System.out.println("PASS: Action menu exists but cannot be opened (no permissions).");
+		}
+	}
+
+	public void openEhrTypesPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/ExternalSources"));
+	}
+
+	public void userRestrictedToViewOnlyInEhrTypes() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	// Organization Calendar
+
+	public void verifyUserCanEditOrganizationCalendarEntry() {
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+		try {
+			WebElement editBtn = wait.until(ExpectedConditions.elementToBeClickable(calendarEditBtn));
+
+			System.out.println("PASS: Edit option is visible as expected.");
+			editBtn.click();
+
+		} catch (TimeoutException e) {
+			Assert.fail("FAIL: Edit option is not visible or clickable.");
+		}
+	}
+
+	public void createProfileWithViewAndEditAccessToOrganizationCalendar() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCannotEditOrganizationCalendarEntries() throws InterruptedException {
+
+		Thread.sleep(3000);
+
+		List<WebElement> elements = driver.findElements(calendarEditBtn);
+		Assert.assertTrue(elements.isEmpty(), "Calendar edit button is visible, but it should NOT be");
+	}
+
+	public void openOrganizationCalendarPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/OrganizationCalendarSetting"));
+	}
+
+	public void createProfileWithViewAccessToOrganizationCalendar() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	// Technical Setting
+	public void openTechnicalSettingPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/TechnicalSetting"));
+	}
+
+	public void createProfileWithoutUpdateAccessToTechnicalSetting() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	// Text Forward Setting
+	public void openTextForwardSettingPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/TextForwardSetting"));
+	}
+
+	public void userRestrictedFromUpdatingTextForwardSetting() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	// Notification Setting
+
+	public void verifyUserHasNoUpdateAccessToNotificationSetting() {
+
+		List<WebElement> errorHeaders = driver.findElements(errorHeader);
+
+		Assert.assertTrue(!errorHeaders.isEmpty(), "User has access to Notification Setting page, but should NOT");
+	}
+
+	public void verifyUserHasNoUpdateAccessToTechnicalSetting() throws InterruptedException {
+
+		List<WebElement> errorHeaders = driver.findElements(errorHeader);
+
+		if (!errorHeaders.isEmpty()) {
+			System.out.println("Error: Don't have proper access to requested page");
+		} else {
+			System.out.println("No error. Page loaded successfully.");
+		}
+	}
+
+	public void verifyNoUpdateAccessOnNotificationSetting() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void openNotificationSettingPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/NotificationSetting"));
+	}
+
+	// Brand Management
+
+	public void verifySendVCardOptionIsNotVisibleInBrandManagement() throws InterruptedException {
+
+		Thread.sleep(3000);
+
+		List<WebElement> elements = driver.findElements(sendVCardBtn);
+		Assert.assertTrue(elements.isEmpty(), "Send VCard button is visible, but it should NOT be");
+	}
+
+	public void createProfileWithoutSendVcardAccessToBrandManagement() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyNoUpdateAccessToApplicationStatus() throws InterruptedException {
+
+		List<WebElement> errorHeaders = driver.findElements(errorHeader);
+
+		if (!errorHeaders.isEmpty()) {
+			System.out.println("Error: Don't have proper access to requested page");
+		} else {
+			System.out.println("No error. Page loaded successfully.");
+		}
+	}
+
+	public void verifyNoUpdateAccessToBrandManagement() throws InterruptedException {
+
+		List<WebElement> errorHeaders = driver.findElements(errorHeader);
+
+		if (!errorHeaders.isEmpty()) {
+			System.out.println("Error: Don't have proper access to requested page");
+		} else {
+			System.out.println("No error. Page loaded successfully.");
+		}
+	}
+
+	public void openBrandManagementPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/BrandManagement"));
+	}
+
+	public void createProfileWithoutUpdateAccessToBrandManagement() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	// Bucket Setting
+
+	public void openBucketSettingsPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/BucketSettings"));
+	}
+
+	public void userWithNoAccessCannotViewOrAccessBucketSetting() throws InterruptedException {
+
+		Thread.sleep(2000);
+
+		List<WebElement> errorElements = driver.findElements(errorHeader);
+
+		if (!errorElements.isEmpty()) {
+			System.out.println("PASS: User cannot access Bucket Settings page.");
+		} else {
+			System.out.println("FAIL: Page loaded successfully, user should not have access.");
+		}
+	}
+
+	public void bucketSettingProfileWithoutUpdatePermission() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	// Reminders
+	public void openApplicationStatusPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/ApplicationStatus"));
+	}
+
+	public void profileHasNoUpdateAccessForApplicationStatus() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void UserCanSeeAndPerformReminderActionsWithActionViewAccess() {
+
+		WebElement actionBtn = wait.until(ExpectedConditions.elementToBeClickable(reminderActionBtn));
+		actionBtn.click();
+
+		WebElement saveButton = wait.until(ExpectedConditions.elementToBeClickable(saveBtn));
+		saveButton.click();
+	}
+
+	public void createProfileWithViewAndActionAccessToReminders() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void UserCannotSeeReminderActionButtonsWithoutActionViewAccess() throws InterruptedException {
+		Thread.sleep(3000);
+
+		List<WebElement> elements = driver.findElements(reminderActionBtn);
+		Assert.assertTrue(elements.isEmpty(), "Reminder action button should not be visible");
+	}
+
+	public void profileRestrictedToViewAccessInReminders() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void openRemindersPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/Reminders"));
 	}
 
 	// Organization Bucket
@@ -392,6 +1032,18 @@ public class setuppage {
 	}
 
 	// Default Fax Template
+
+	public void UserWithNoAccessCannotViewOrAccessDefaultFaxTemplate() throws InterruptedException {
+
+		List<WebElement> errorHeaders = driver.findElements(errorHeader);
+
+		if (!errorHeaders.isEmpty()) {
+			System.out.println("Error: Don't have proper access to requested page");
+		} else {
+			System.out.println("No error. Page loaded successfully.");
+		}
+	}
+
 	public void openDefaultFaxTemplatePage(String fullUrl) {
 		sleep(2000);
 		driver.get(fullUrl);
