@@ -13,7 +13,7 @@ public class deliverystep {
 	@And("I create a profile with View-only access to Delivery Module Delivery Statistic Report test")
 	public void createProfileWithViewOnlyDeliveryStatisticReportTest() {
 		deliveryPage.clickFilterButton();
-		deliveryPage.enterProfileName("Sunil");
+		deliveryPage.enterProfileName();
 		deliveryPage.clickSearchButton();
 		deliveryPage.clickActionMenu();
 		deliveryPage.clickEditButton();
@@ -27,7 +27,7 @@ public class deliverystep {
 	@And("I create a profile with View and Export access to Delivery Module Delivery Statistic Report test")
 	public void createProfileWithViewAndExportDeliveryStatisticReportTest() {
 		deliveryPage.clickFilterButton();
-		deliveryPage.enterProfileName("Sunil");
+		deliveryPage.enterProfileName();
 		deliveryPage.clickSearchButton();
 		deliveryPage.clickActionMenu();
 		deliveryPage.clickEditButton();
@@ -76,7 +76,7 @@ public class deliverystep {
 	@And("I create a profile with View-only access to Delivery Module Manifest Summary Report test")
 	public void createProfileWithViewOnlyManifestSummaryReportTest() {
 		deliveryPage.clickFilterButton();
-		deliveryPage.enterProfileName("Sunil");
+		deliveryPage.enterProfileName();
 		deliveryPage.clickSearchButton();
 		deliveryPage.clickActionMenu();
 		deliveryPage.clickEditButton();
@@ -90,7 +90,7 @@ public class deliverystep {
 	@And("I create a profile with View and Export access to Delivery Module Manifest Summary Report test")
 	public void createProfileWithViewAndExportManifestSummaryReportTest() {
 		deliveryPage.clickFilterButton();
-		deliveryPage.enterProfileName("Sunil");
+		deliveryPage.enterProfileName();
 		deliveryPage.clickSearchButton();
 		deliveryPage.clickActionMenu();
 		deliveryPage.clickEditButton();
@@ -138,7 +138,7 @@ public class deliverystep {
 	@And("I create a profile with View-only access to Delivery Module Delivery Report test")
 	public void createProfileWithViewOnlyDeliveryReportTest() {
 		deliveryPage.clickFilterButton();
-		deliveryPage.enterProfileName("Sunil");
+		deliveryPage.enterProfileName();
 		deliveryPage.clickSearchButton();
 		deliveryPage.clickActionMenu();
 		deliveryPage.clickEditButton();
@@ -152,7 +152,7 @@ public class deliverystep {
 	@And("I create a profile with View and Export access to Delivery Module Delivery Report test")
 	public void createProfileWithViewAndExportDeliveryReportTest() {
 		deliveryPage.clickFilterButton();
-		deliveryPage.enterProfileName("Sunil");
+		deliveryPage.enterProfileName();
 		deliveryPage.clickSearchButton();
 		deliveryPage.clickActionMenu();
 		deliveryPage.clickEditButton();
@@ -262,7 +262,7 @@ public class deliverystep {
 	@And("I create a profile with Edit access only to Delivery Module Delivery Job Setting test")
 	public void testCreateProfileWithEditAccessToDeliveryJobSetting() {
 		deliveryPage.clickFilterButton();
-		deliveryPage.enterProfileName("Sunil");
+		deliveryPage.enterProfileName();
 		deliveryPage.clickSearchButton();
 		deliveryPage.clickActionMenu();
 		deliveryPage.clickEditButton();
@@ -276,7 +276,7 @@ public class deliverystep {
 	@And("I create a profile with Run Trigger access only to Delivery Module Delivery Job Setting test")
 	public void createProfileWithRunTriggerAccessOnlyForDeliveryJobSetting() {
 		deliveryPage.clickFilterButton();
-		deliveryPage.enterProfileName("Sunil");
+		deliveryPage.enterProfileName();
 		deliveryPage.clickSearchButton();
 		deliveryPage.clickActionMenu();
 		deliveryPage.clickEditButton();
@@ -291,7 +291,7 @@ public class deliverystep {
 	@And("I create a profile with Print and Send for Signature access to Delivery Module Customer Attestation test")
 	public void testCreateProfileWithPrintAndSendForSignatureAccessToCustomerAttestation() {
 		deliveryPage.clickFilterButton();
-		deliveryPage.enterProfileName("Sunil");
+		deliveryPage.enterProfileName();
 		deliveryPage.clickSearchButton();
 		deliveryPage.clickActionMenu();
 		deliveryPage.clickEditButton();
@@ -427,7 +427,7 @@ public class deliverystep {
 	@And("I create a profile with Edit access only to Delivery Module Customer Attestation test")
 	public void testCreateProfileWithDeleteAccessToCustomerAttestation() {
 		deliveryPage.clickFilterButton();
-		deliveryPage.enterProfileName("Sunil");
+		deliveryPage.enterProfileName();
 		deliveryPage.clickSearchButton();
 		deliveryPage.clickActionMenu();
 		deliveryPage.clickEditButton();
@@ -441,7 +441,7 @@ public class deliverystep {
 	@And("I create a profile with Delete access only to Delivery Module Customer Attestation test")
 	public void testCreateProfileWithEditAccessToCustomerAttestation() {
 		deliveryPage.clickFilterButton();
-		deliveryPage.enterProfileName("Sunil");
+		deliveryPage.enterProfileName();
 		deliveryPage.clickSearchButton();
 		deliveryPage.clickActionMenu();
 		deliveryPage.clickEditButton();
@@ -455,7 +455,7 @@ public class deliverystep {
 	@And("I create a profile with Add access only to Delivery Module Customer Attestation test")
 	public void testCreateProfileWithAddAccessToCustomerAttestation() {
 		deliveryPage.clickFilterButton();
-		deliveryPage.enterProfileName("Sunil");
+		deliveryPage.enterProfileName();
 		deliveryPage.clickSearchButton();
 		deliveryPage.clickActionMenu();
 		deliveryPage.clickEditButton();
@@ -470,7 +470,7 @@ public class deliverystep {
 	@And("I create a profile with Full Access for Manifest to Delivery Module Manifest test")
 	public void testCreateProfileWithFullAccessToDeliveryManifest() {
 		deliveryPage.clickFilterButton();
-		deliveryPage.enterProfileName("Sunil");
+		deliveryPage.enterProfileName();
 		deliveryPage.clickSearchButton();
 		deliveryPage.clickActionMenu();
 		deliveryPage.clickEditButton();
@@ -484,7 +484,7 @@ public class deliverystep {
 	@And("I create a profile with View and Delete access only to Delivery Module Manifest test")
 	public void testCreateProfileWithViewAndDeleteAccessToDeliveryManifest() {
 		deliveryPage.clickFilterButton();
-		deliveryPage.enterProfileName("Sunil");
+		deliveryPage.enterProfileName();
 		deliveryPage.clickSearchButton();
 		deliveryPage.clickActionMenu();
 		deliveryPage.clickEditButton();
@@ -498,7 +498,7 @@ public class deliverystep {
 	@And("I create a profile with View and Edit access only to Delivery Module Manifest test")
 	public void testCreateProfileWithViewAndEditAccessToDeliveryManifest() {
 		deliveryPage.clickFilterButton();
-		deliveryPage.enterProfileName("Sunil");
+		deliveryPage.enterProfileName();
 		deliveryPage.clickSearchButton();
 		deliveryPage.clickActionMenu();
 		deliveryPage.clickEditButton();
@@ -512,7 +512,7 @@ public class deliverystep {
 	@And("I create a profile with View and Add access only to Delivery Module Manifest test")
 	public void testCreateProfileWithViewAndAddAccessToDeliveryManifest() {
 		deliveryPage.clickFilterButton();
-		deliveryPage.enterProfileName("Sunil");
+		deliveryPage.enterProfileName();
 		deliveryPage.clickSearchButton();
 		deliveryPage.clickActionMenu();
 		deliveryPage.clickEditButton();
@@ -694,7 +694,7 @@ public class deliverystep {
 	@And("I create a profile without access to Delivery Module Delivery Identifier test")
 	public void testCreateProfileWithoutDeliveryModuleAccess() {
 		deliveryPage.clickFilterButton();
-		deliveryPage.enterProfileName("Sunil");
+		deliveryPage.enterProfileName();
 		deliveryPage.clickSearchButton();
 		deliveryPage.clickActionMenu();
 		deliveryPage.clickEditButton();
@@ -708,7 +708,7 @@ public class deliverystep {
 	@And("I create a profile with View-only access to Delivery Module Delivery Identifier test")
 	public void testCreateProfileWithViewOnlyAccessToDeliveryModule() {
 		deliveryPage.clickFilterButton();
-		deliveryPage.enterProfileName("Sunil");
+		deliveryPage.enterProfileName();
 		deliveryPage.clickSearchButton();
 		deliveryPage.clickActionMenu();
 		deliveryPage.clickEditButton();
@@ -762,7 +762,7 @@ public class deliverystep {
 	@And("I create a profile without access to Delivery Module Package Plan Restriction test")
 	public void createProfileWithoutPackagePlanRestrictionAccess() {
 		deliveryPage.clickFilterButton();
-		deliveryPage.enterProfileName("Sunil");
+		deliveryPage.enterProfileName();
 		deliveryPage.clickSearchButton();
 		deliveryPage.clickActionMenu();
 		deliveryPage.clickEditButton();
@@ -792,7 +792,7 @@ public class deliverystep {
 	@And("I create a profile with View and Update access to Delivery Module Package Plan Restriction test")
 	public void createProfileWithViewAndUpdateAccessToPackagePlanRestriction() {
 		deliveryPage.clickFilterButton();
-		deliveryPage.enterProfileName("Sunil");
+		deliveryPage.enterProfileName();
 		deliveryPage.clickSearchButton();
 		deliveryPage.clickActionMenu();
 		deliveryPage.clickEditButton();
@@ -809,7 +809,7 @@ public class deliverystep {
 	@And("I create a profile without access to Delivery Module Delivery Setting test")
 	public void createProfileWithoutDeliverySettingsAccess() {
 		deliveryPage.clickFilterButton();
-		deliveryPage.enterProfileName("Sunil");
+		deliveryPage.enterProfileName();
 		deliveryPage.clickSearchButton();
 		deliveryPage.clickActionMenu();
 		deliveryPage.clickEditButton();
@@ -823,7 +823,7 @@ public class deliverystep {
 	@And("I create a profile with View and Update access to Delivery Module Delivery Setting test")
 	public void createProfileWithViewAndUpdateAccessToDeliverySettings() {
 		deliveryPage.clickFilterButton();
-		deliveryPage.enterProfileName("Sunil");
+		deliveryPage.enterProfileName();
 		deliveryPage.clickSearchButton();
 		deliveryPage.clickActionMenu();
 		deliveryPage.clickEditButton();
@@ -997,7 +997,7 @@ public class deliverystep {
 	@And("I create a profile with Full Access for Package to Delivery Module Package test")
 	public void createProfileWithFullPackageAccess() {
 		deliveryPage.clickFilterButton();
-		deliveryPage.enterProfileName("Sunil");
+		deliveryPage.enterProfileName();
 		deliveryPage.clickSearchButton();
 		deliveryPage.clickActionMenu();
 		deliveryPage.clickEditButton();
@@ -1083,7 +1083,7 @@ public class deliverystep {
 	@And("I create a profile with View and Delete access only to Delivery Module Package test")
 	public void profileViewDelete() {
 		deliveryPage.clickFilterButton();
-		deliveryPage.enterProfileName("Sunil");
+		deliveryPage.enterProfileName();
 		deliveryPage.clickSearchButton();
 		deliveryPage.clickActionMenu();
 		deliveryPage.clickEditButton();
@@ -1097,7 +1097,7 @@ public class deliverystep {
 	@And("I create a profile with View and Edit access only to Delivery Module Package test")
 	public void createDeliveryProfileViewEdit() {
 		deliveryPage.clickFilterButton();
-		deliveryPage.enterProfileName("Sunil");
+		deliveryPage.enterProfileName();
 		deliveryPage.clickSearchButton();
 		deliveryPage.clickActionMenu();
 		deliveryPage.clickEditButton();
@@ -1111,7 +1111,7 @@ public class deliverystep {
 	@And("I create a profile with View and Add access only to Delivery Module Package test")
 	public void createProfileWithViewAndAddAccessForDeliveryModule() {
 		deliveryPage.clickFilterButton();
-		deliveryPage.enterProfileName("Sunil");
+		deliveryPage.enterProfileName();
 		deliveryPage.clickSearchButton();
 		deliveryPage.clickActionMenu();
 		deliveryPage.clickEditButton();
@@ -1198,7 +1198,7 @@ public class deliverystep {
 	@And("I create a profile with View and Add access only to Delivery Module Delivery Marker test")
 	public void createProfileWithViewAndAddAccess() {
 		deliveryPage.clickFilterButton();
-		deliveryPage.enterProfileName("Sunil");
+		deliveryPage.enterProfileName();
 		deliveryPage.clickSearchButton();
 		deliveryPage.clickActionMenu();
 		deliveryPage.clickEditButton();
@@ -1212,7 +1212,7 @@ public class deliverystep {
 	@And("I create a profile with View and Edit access only to Delivery Module Delivery Marker test")
 	public void createProfileWithViewAndEditDeliveryMarker() {
 		deliveryPage.clickFilterButton();
-		deliveryPage.enterProfileName("Sunil");
+		deliveryPage.enterProfileName();
 		deliveryPage.clickSearchButton();
 		deliveryPage.clickActionMenu();
 		deliveryPage.clickEditButton();
@@ -1226,7 +1226,7 @@ public class deliverystep {
 	@And("I create a profile with View and Delete access only to Delivery Module Delivery Marker test")
 	public void createProfileWithViewAndDeleteDeliveryMarker() {
 		deliveryPage.clickFilterButton();
-		deliveryPage.enterProfileName("Sunil");
+		deliveryPage.enterProfileName();
 		deliveryPage.clickSearchButton();
 		deliveryPage.clickActionMenu();
 		deliveryPage.clickEditButton();
@@ -1243,7 +1243,7 @@ public class deliverystep {
 	@And("I create a profile with View and Edit access only to Delivery Module Logistic Company test")
 	public void createProfileWithViewAndEditAccessToLogisticCompany() {
 		deliveryPage.clickFilterButton();
-		deliveryPage.enterProfileName("Sunil");
+		deliveryPage.enterProfileName();
 		deliveryPage.clickSearchButton();
 		deliveryPage.clickActionMenu();
 		deliveryPage.clickEditButton();
@@ -1259,7 +1259,7 @@ public class deliverystep {
 	@And("I create a profile with View and Delete access only to Delivery Module Logistic Company test")
 	public void createProfileWithViewAndDeleteAccessToLogisticCompany() {
 		deliveryPage.clickFilterButton();
-		deliveryPage.enterProfileName("Sunil");
+		deliveryPage.enterProfileName();
 		deliveryPage.clickSearchButton();
 		deliveryPage.clickActionMenu();
 		deliveryPage.clickEditButton();
@@ -1275,7 +1275,7 @@ public class deliverystep {
 	@And("I create a profile with View and Add access only to Delivery Module Logistic Company test")
 	public void createProfileWithViewAndAddAccessToLogisticCompany() {
 		deliveryPage.clickFilterButton();
-		deliveryPage.enterProfileName("Sunil");
+		deliveryPage.enterProfileName();
 		deliveryPage.clickSearchButton();
 		deliveryPage.clickActionMenu();
 		deliveryPage.clickEditButton();
@@ -1370,7 +1370,7 @@ public class deliverystep {
 	@And("I create a profile with View and Delete access only to Delivery Module Delivery Distances test")
 	public void createProfileWithViewAndDeleteAccessToDeliveryDistances() {
 		deliveryPage.clickFilterButton();
-		deliveryPage.enterProfileName("Sunil");
+		deliveryPage.enterProfileName();
 		deliveryPage.clickSearchButton();
 		deliveryPage.clickActionMenu();
 		deliveryPage.clickEditButton();
@@ -1386,7 +1386,7 @@ public class deliverystep {
 	@And("I create a profile with View and Edit access only to Delivery Module Delivery Distances test")
 	public void createProfileWithViewAndEditAccessToDeliveryDistances() {
 		deliveryPage.clickFilterButton();
-		deliveryPage.enterProfileName("Sunil");
+		deliveryPage.enterProfileName();
 		deliveryPage.clickSearchButton();
 		deliveryPage.clickActionMenu();
 		deliveryPage.clickEditButton();
@@ -1402,7 +1402,7 @@ public class deliverystep {
 	@And("I create a profile with View and Add access only to Delivery Module Delivery Distances test")
 	public void createProfileWithViewAndAddAccessToDeliveryDistances() {
 		deliveryPage.clickFilterButton();
-		deliveryPage.enterProfileName("Sunil");
+		deliveryPage.enterProfileName();
 		deliveryPage.clickSearchButton();
 		deliveryPage.clickActionMenu();
 		deliveryPage.clickEditButton();
@@ -1491,7 +1491,7 @@ public class deliverystep {
 	@And("I create a profile with View and Add access to Delivery Module Package Restriction test")
 	public void createProfileWithViewAndAddAccessToDeliveryModulePackageRestriction() {
 		deliveryPage.clickFilterButton();
-		deliveryPage.enterProfileName("Sunil");
+		deliveryPage.enterProfileName();
 		deliveryPage.clickSearchButton();
 		deliveryPage.clickActionMenu();
 		deliveryPage.clickEditButton();
@@ -1553,7 +1553,7 @@ public class deliverystep {
 	@And("I create a profile with View and Delete Package Restriction State access to Delivery Module Package Restriction test")
 	public void createProfileWithViewAndDeletePackageRestrictionStateAccessToDeliveryModule() {
 		deliveryPage.clickFilterButton();
-		deliveryPage.enterProfileName("Sunil");
+		deliveryPage.enterProfileName();
 		deliveryPage.clickSearchButton();
 		deliveryPage.clickActionMenu();
 		deliveryPage.clickEditButton();
@@ -1569,7 +1569,7 @@ public class deliverystep {
 	@And("I create a profile with View and Delete Package Restriction Plan access to Delivery Module Package Restriction test")
 	public void createProfileWithViewAndDeletePackageRestrictionPlanAccessToDeliveryModule() {
 		deliveryPage.clickFilterButton();
-		deliveryPage.enterProfileName("Sunil");
+		deliveryPage.enterProfileName();
 		deliveryPage.clickSearchButton();
 		deliveryPage.clickActionMenu();
 		deliveryPage.clickEditButton();
@@ -1586,7 +1586,7 @@ public class deliverystep {
 	@And("I create a profile with Update access only to Delivery Module Package Settings test")
 	public void createProfileWithUpdateOnlyAccessToDeliveryModulePackageSettings() {
 		deliveryPage.clickFilterButton();
-		deliveryPage.enterProfileName("Sunil");
+		deliveryPage.enterProfileName();
 		deliveryPage.clickSearchButton();
 		deliveryPage.clickActionMenu();
 		deliveryPage.clickEditButton();
@@ -1600,7 +1600,7 @@ public class deliverystep {
 	@And("I create a profile with No access to Delivery Module Package Settings test")
 	public void createProfileWithNoAccessToDeliveryModulePackageSettings() {
 		deliveryPage.clickFilterButton();
-		deliveryPage.enterProfileName("Sunil");
+		deliveryPage.enterProfileName();
 		deliveryPage.clickSearchButton();
 		deliveryPage.clickActionMenu();
 		deliveryPage.clickEditButton();
@@ -1679,7 +1679,7 @@ public class deliverystep {
 	@And("I create a profile with View access only to Delivery Module General Audit View test")
 	public void profileHasViewOnlyAccessToDeliveryModuleGeneralAuditView() {
 		deliveryPage.clickFilterButton();
-		deliveryPage.enterProfileName("Sunil");
+		deliveryPage.enterProfileName();
 		deliveryPage.clickSearchButton();
 		deliveryPage.clickActionMenu();
 		deliveryPage.clickEditButton();
@@ -1693,7 +1693,7 @@ public class deliverystep {
 	@And("I create a profile with No access to Delivery Module General Audit View test")
 	public void createProfileWithNoAccessToDeliveryModuleGeneralAuditView() {
 		deliveryPage.clickFilterButton();
-		deliveryPage.enterProfileName("Sunil");
+		deliveryPage.enterProfileName();
 		deliveryPage.clickSearchButton();
 		deliveryPage.clickActionMenu();
 		deliveryPage.clickEditButton();
