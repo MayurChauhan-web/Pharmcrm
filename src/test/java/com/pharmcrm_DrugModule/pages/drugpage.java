@@ -18,6 +18,18 @@ public class drugpage {
 	private WebDriver driver;
 	private WebDriverWait wait;
 
+	// Drug
+	public By closeFamilyModalButton = By
+			.xpath("//button[@onclick='javascript: CloseFamilyModal();']//i[@class='fa fa-times']");
+	public By chooseProgramInput = By.xpath("//input[@id='chooseprogram']");
+	public By selectExistingDrugButton = By.xpath("//button[normalize-space()='Select Existing Drug']");
+	public By toastMessage = By.xpath("//div[@class='toast-message']");
+	public By chooseDiseaseStateInput = By.xpath("//input[@id='choosediseasestate']");
+	public By addProgramIconImage = By.xpath("//div[@id='btnAddProgram']//img[@class='v-align-middle']");
+	public By searchCollapseSvgIcon = By.xpath("//a[@id='searchcollapse']//*[name()='svg']");
+	public By closeTherapeuticModalButton = By
+			.xpath("//button[@onclick='javascript: CloseTherapeuticModal();']//i[@class='fa fa-times']");
+
 	// Program
 	public By drugProgramDeleteLabel = By.xpath("//label[@for='chkg29DrugProgramDelete']");
 	public By drugProgramAllLabel = By.xpath("//label[@for='chkg29DrugProgramAll']");
@@ -775,6 +787,11 @@ public class drugpage {
 
 	}
 
+	public void Star2toStar1Drugs(String fullUrl) {
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Drug/Home/Star2toStar1Drugs"));
+	}
+
 	public void openStar2DrugsPage(String fullUrl) {
 		driver.get(fullUrl);
 		wait.until(ExpectedConditions.urlContains("/Drug/Home/Star2Drugs"));
@@ -1027,6 +1044,216 @@ public class drugpage {
 	}
 
 	// Drug
+	public String allergiesBlankFieldValidation() {
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(addAllergyButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(saveICD10Button)).click();
+		String result1 = captureToastMessages();
+		if (result1.startsWith("ERROR"))
+			return result1;
+
+		return captureToastMessages();
+	}
+
+	public String star2ToStar1DrugsFilterBlankValidation() {
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(searchButton)).click();
+		String result1 = captureToastMessages();
+		if (result1.startsWith("ERROR"))
+			return result1;
+
+		return captureToastMessages();
+	}
+
+	public String star2DrugsFilterBlankValidation() {
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(searchButton)).click();
+		String result1 = captureToastMessages();
+		if (result1.startsWith("ERROR"))
+			return result1;
+
+		return captureToastMessages();
+	}
+
+	public String star1DrugsFilterBlankValidation() {
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(searchCollapseSvgIcon)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(searchButton)).click();
+		String result1 = captureToastMessages();
+		if (result1.startsWith("ERROR"))
+			return result1;
+
+		return captureToastMessages();
+	}
+
+	public String icd10BlankFieldValidation() {
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newICD10Button)).click();
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(saveICD10Button)).click();
+
+		String result1 = captureToastMessages();
+		if (result1.startsWith("ERROR"))
+			return result1;
+
+		return captureToastMessages();
+	}
+
+	public String editDrugTherapeuticFamilyIndicationsBlankValidation() {
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(firstRowActionIcon)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(editOptionAllergy)).click();
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(addTherapeuticButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(saveTherapeuticButton)).click();
+
+		String result1 = captureToastMessages();
+		if (result1.startsWith("ERROR"))
+			return result1;
+		wait.until(ExpectedConditions.elementToBeClickable(closeTherapeuticModalButton)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(addFamilyButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(saveFamilyButton)).click();
+
+		String result2 = captureToastMessages();
+		if (result2.startsWith("ERROR"))
+			return result2;
+
+		wait.until(ExpectedConditions.elementToBeClickable(closeFamilyModalButton)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(addApprovedIndicationButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(saveApprovedIndicationButton)).click();
+
+		String result3 = captureToastMessages();
+		if (result3.startsWith("ERROR"))
+			return result3;
+
+		return captureToastMessages();
+	}
+
+	public String editDrugDiseaseStateBlankValidation() {
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(firstRowActionIcon)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(editOptionAllergy)).click();
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(chooseDiseaseStateInput)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(addDiseaseStateButtonIcon)).click();
+		String result1 = captureToastMessages();
+		if (result1.startsWith("ERROR"))
+			return result1;
+
+		wait.until(ExpectedConditions.elementToBeClickable(addDiseaseStateInput)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(addDiseaseStateButtonIcon)).click();
+		String result2 = captureToastMessages();
+		if (result2.startsWith("ERROR"))
+			return result2;
+
+		wait.until(ExpectedConditions.elementToBeClickable(chooseProgramInput)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(addProgramButtonIcon)).click();
+		String result3 = captureToastMessages();
+		if (result3.startsWith("ERROR"))
+			return result3;
+
+		wait.until(ExpectedConditions.elementToBeClickable(addProgramInput)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(addProgramIconImage)).click();
+		String result4 = captureToastMessages();
+		if (result4.startsWith("ERROR"))
+			return result4;
+
+		return captureToastMessages();
+	}
+
+	private String captureToastMessages() {
+		try {
+			wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(toastMessage, 0));
+			List<WebElement> toasts = driver.findElements(toastMessage);
+			StringBuilder allMessages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				if (toast.isDisplayed()) {
+					allMessages.append(toast.getText().trim()).append(" | ");
+				}
+			}
+			return "SUCCESS: Validations displayed -> " + allMessages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message(s) not displayed";
+		}
+	}
+
+	public String newDrugBlankSubmissionValidation() {
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newDrugButton)).click();
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(selectExistingDrugButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(addNewDrugButton)).click();
+
+		try {
+			wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(toastMessage, 0));
+			List<WebElement> toasts = driver.findElements(toastMessage);
+			StringBuilder allMessages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				if (toast.isDisplayed()) {
+					allMessages.append(toast.getText().trim()).append(" | ");
+				}
+			}
+			return "SUCCESS: Validations displayed -> " + allMessages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message(s) not displayed";
+		}
+
+	}
+
 	public void opendrugsPage(String fullUrl) {
 		driver.get(fullUrl);
 		wait.until(ExpectedConditions.urlContains("/Drug/Home/Drugs"));
