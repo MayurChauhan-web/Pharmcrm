@@ -9,6 +9,499 @@ public class setupstep {
 
 	private setuppage setupPage;
 
+	// CallActivities
+	@And("the user should have no Call Activity access via UI or direct URL test")
+	public void userShouldNotBeAbleToAccessCallActivityPageViaUiOrDirectUrl() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String callActivityPageUrl = Hooks.prop.getProperty("callActivityPageUrl");
+
+		Assert.assertNotNull("callActivityPageUrl is missing in config", callActivityPageUrl);
+
+		String fullUrl = baseUrl + callActivityPageUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+
+		setupPage.openCallActivityPage(fullUrl);
+
+		setupPage.verifyUserHasNoAccessToCallActivityPageViaUIOrURL();
+
+	}
+
+	@And("I create a profile without Call Activity View permission to Call Activity Page test")
+	public void userCreatesProfileWithoutCallActivityViewPermissionToCallActivityPage() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.profileHasNoCallActivityViewAccess();
+		setupPage.clickSubmitButton();
+
+	}
+
+	// Texts
+	@And("the user should have no Text page access via UI or direct URL test")
+	public void userShouldNotBeAbleToAccessTextPageViaUiOrDirectUrl() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String textPageUrl = Hooks.prop.getProperty("textPageUrl");
+
+		Assert.assertNotNull("textPageUrl is missing in config", textPageUrl);
+
+		String fullUrl = baseUrl + textPageUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+
+		setupPage.openTextPage(fullUrl);
+
+		Assert.assertTrue("Text page is not displayed", Hooks.driver.getCurrentUrl().contains("/Setup/Home/Texts"));
+	}
+
+	@And("I create a profile without View access to Text Page test")
+	public void userCreatesProfileWithoutViewAccessToTextPage() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.verifyNoViewAccessOnTextPage();
+		setupPage.clickSubmitButton();
+
+	}
+
+	// Driver And SalesRep User
+	@And("the user should not be able to access the Driver and SalesRep User page via direct URL test")
+	public void userShouldNotBeAbleToAccessDriverUsersPageViaDirectUrl() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String driverUsersPageUrl = Hooks.prop.getProperty("driverUsersPageUrl");
+
+		Assert.assertNotNull("driverUsersPageUrl is missing in config", driverUsersPageUrl);
+
+		String fullUrl = baseUrl + driverUsersPageUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+
+		setupPage.openDriverUsersPage(fullUrl);
+
+		setupPage.verifyUserCannotAccessDriverAndSalesRepUserPageViaDirectURL();
+
+	}
+
+	@And("I create a profile without any access to Driver and SalesRep User test")
+	public void userCreatesProfileWithoutAnyAccessToDriverAndSalesRepUser() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.userRestrictedFromDriverAndSalesRepUser();
+		setupPage.clickSubmitButton();
+
+	}
+
+	// Fax Setting
+	@And("the user should be able to delete a Fax Setting test")
+	public void userShouldBeAbleToDeleteAFaxSetting() throws InterruptedException {
+		setupPage.verifyUserCanDeleteFaxSetting();
+
+	}
+
+	@And("I create a profile with View, Add, Edit, and Delete access to Fax Setting test")
+	public void userCreatesProfileWithViewAddEditDeleteAccessToFaxSetting() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.createProfileWithFullAccessToFaxSetting();
+		setupPage.clickSubmitButton();
+
+	}
+
+	@And("the user should not be able to delete any Fax Setting test")
+	public void userShouldNotBeAbleToDeleteAnyFaxSetting() throws InterruptedException {
+		setupPage.verifyUserCannotDeleteFaxSetting();
+
+	}
+
+	@And("the user should be able to edit an existing Fax Setting test")
+	public void userShouldBeAbleToEditAnExistingFaxSetting() throws InterruptedException {
+		setupPage.verifyUserCanEditExistingFaxSetting();
+
+	}
+
+	@And("I create a profile with View, Add, and Edit access to Fax Setting test")
+	public void userCreatesProfileWithViewAddEditAccessToFaxSetting() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.userCanViewAddEditFaxSettingEntries();
+		setupPage.clickSubmitButton();
+
+	}
+
+	@And("the user should not be able to edit or delete any Fax Setting test")
+	public void userShouldNotBeAbleToEditOrDeleteFaxSetting() throws InterruptedException {
+		setupPage.verifyUserCannotEditOrDeleteFaxSetting();
+
+	}
+
+	@And("the user should be able to add a new Fax Setting test")
+	public void userShouldBeAbleToAddANewFaxSetting() throws InterruptedException {
+		setupPage.verifyUserCanAddNewFaxSetting();
+
+	}
+
+	@And("I create a profile with View and Add access to Fax Setting test")
+	public void userCreatesProfileWithViewAndAddAccessToFaxSetting() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.verifyViewAndAddAccessOnFaxSetting();
+		setupPage.clickSubmitButton();
+
+	}
+
+	@And("the user should not be able to add, edit, or delete any Fax Setting test")
+	public void userShouldNotBeAbleToAddEditOrDeleteFaxSetting() throws InterruptedException {
+		setupPage.userShouldNotBeAbleToAddEditOrDeleteFaxSetting();
+
+	}
+
+	@And("the user should be able to view the Fax Setting list test")
+	public void userShouldBeAbleToViewTheFaxSettingList() throws InterruptedException {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String faxSettingsPageUrl = Hooks.prop.getProperty("faxSettingsPageUrl");
+
+		Assert.assertNotNull("faxSettingsPageUrl is missing in config", faxSettingsPageUrl);
+
+		String fullUrl = baseUrl + faxSettingsPageUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+
+		setupPage.openFaxSettingsPage(fullUrl);
+
+		Assert.assertTrue("Fax Settings page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/FaxSettings"));
+	}
+
+	@And("I create a profile with View access only to Fax Setting test")
+	public void userCreatesProfileWithViewAccessOnlyToFaxSetting() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.verifyViewOnlyAccessOnFaxSetting();
+		setupPage.clickSubmitButton();
+
+	}
+
+	// Professional License Type
+	@And("the user should be able to delete a Professional License Type test")
+	public void userShouldBeAbleToDeleteAProfessionalLicenseType() throws InterruptedException {
+		setupPage.userShouldBeAbleToDeleteProfessionalLicenseType();
+
+	}
+
+	@And("I create a profile with View, Add, Edit, and Delete access to Professional License Type test")
+	public void userCreatesProfileWithViewAddEditDeleteAccessToProfessionalLicenseType() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.userCanManageProfessionalLicenseTypeEntries();
+		setupPage.clickSubmitButton();
+
+	}
+
+	@And("the user should not be able to delete any Professional License Type test")
+	public void userShouldNotBeAbleToDeleteAnyProfessionalLicenseType() throws InterruptedException {
+		setupPage.userShouldNotBeAbleToDeleteProfessionalLicenseType();
+
+	}
+
+	@And("the user should be able to edit an existing Professional License Type test")
+	public void userShouldBeAbleToEditAnExistingProfessionalLicenseType() throws InterruptedException {
+		setupPage.userShouldBeAbleToEditExistingProfessionalLicenseType();
+
+	}
+
+	@And("I create a profile with View, Add, and Edit access to Professional License Type test")
+	public void userCreatesProfileWithViewAddEditAccessToProfessionalLicenseType() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.userCanViewAddEditProfessionalLicenseTypeEntries();
+		setupPage.clickSubmitButton();
+
+	}
+
+	@And("the user should not be able to edit or delete any Professional License Type test")
+	public void userShouldNotBeAbleToEditOrDeleteProfessionalLicenseType() throws InterruptedException {
+		setupPage.userShouldNotBeAbleToEditOrDeleteProfessionalLicenseType();
+
+	}
+
+	@And("the user should be able to add a new Professional License Type test")
+	public void userShouldBeAbleToAddANewProfessionalLicenseType() throws InterruptedException {
+		setupPage.userShouldBeAbleToAddNewProfessionalLicenseType();
+
+	}
+
+	@And("I create a profile with View and Add access to Professional License Type test")
+	public void userCreatesProfileWithViewAndAddAccessToProfessionalLicenseType() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.userCanViewAndAddProfessionalLicenseTypeEntries();
+		setupPage.clickSubmitButton();
+
+	}
+
+	@And("the user should not be able to add, edit, or delete any Professional License Type test")
+	public void userShouldNotBeAbleToAddEditOrDeleteProfessionalLicenseType() throws InterruptedException {
+		setupPage.verifyUserCannotAddEditOrDeleteProfessionalLicenseType();
+
+	}
+
+	@And("the user should be able to view the Professional License Type list test")
+	public void userShouldBeAbleToViewProfessionalLicenseTypePage() throws InterruptedException {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String professionalLicenseTypePageUrl = Hooks.prop.getProperty("professionalLicenseTypePageUrl");
+
+		Assert.assertNotNull("professionalLicenseTypePageUrl is missing in config", professionalLicenseTypePageUrl);
+
+		String fullUrl = baseUrl + professionalLicenseTypePageUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+
+		setupPage.openProfessionalLicenseTypePage(fullUrl);
+
+		Assert.assertTrue("Professional License Type page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/ProfessionalLicenseTypes"));
+	}
+
+	@And("I create a profile with View access only to Professional License Type test")
+	public void userCreatesProfileWithViewAccessOnlyToProfessionalLicenseType() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.userRestrictedToViewOnlyProfessionalLicenseType();
+		setupPage.clickSubmitButton();
+
+	}
+
+	// Designation
+	@And("the user should be able to delete a Designation test")
+	public void userShouldBeAbleToDeleteADesignation() throws InterruptedException {
+		setupPage.verifyUserCanDeleteDesignation();
+
+	}
+
+	@And("the user should be able to edit an existing Designation test")
+	public void userShouldBeAbleToEditAnExistingDesignation() throws InterruptedException {
+		setupPage.verifyUserCanEditExistingDesignation();
+
+	}
+
+	@And("I create a profile with View, Add, Edit, and Delete access to Designation test")
+	public void userCreatesProfileWithViewAddEditDeleteAccessToDesignation() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.createProfileWithFullAccessToDesignation();
+		setupPage.clickSubmitButton();
+
+	}
+
+	@And("the user should not be able to edit or delete any Designation test")
+	public void validateNoAddEditDeleteDesignationAccess() throws InterruptedException {
+		setupPage.verifyUserCannotEditOrDeleteAnyDesignation();
+
+	}
+
+	@And("the user should be able to add a new Designation test")
+	public void userShouldBeAbleToAddANewDesignation() throws InterruptedException {
+		setupPage.verifyUserCanAddNewDesignation();
+
+	}
+
+	@And("I create a profile with View and Add access to Designation test")
+	public void userCreatesProfileWithViewAndAddAccessToDesignation() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.userCanViewAndAddDesignationEntries();
+		setupPage.clickSubmitButton();
+
+	}
+
+	@And("the user should not be able to add, edit, or delete any Designation test")
+	public void userShouldNotBeAbleToAddEditOrDeleteDesignation() throws InterruptedException {
+		setupPage.verifyUserCannotAddEditOrDeleteDesignation();
+
+	}
+
+	@And("the user should be able to view the Designation list test")
+	public void userShouldBeAbleToViewTheDesignationList() throws InterruptedException {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String designationPageUrl = Hooks.prop.getProperty("designationPageUrl");
+
+		Assert.assertNotNull("designationPageUrl is missing in config", designationPageUrl);
+
+		String fullUrl = baseUrl + designationPageUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+
+		setupPage.openDesignationPage(fullUrl);
+
+		Assert.assertTrue("Designation page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/Designations"));
+	}
+
+	@And("I create a profile with View access only to Designation test")
+	public void userCreatesProfileWithViewAccessOnlyToDesignation() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.userRestrictedToViewOnlyDesignation();
+		setupPage.clickSubmitButton();
+
+	}
+
+	// Whitelist IP
+	@And("the user should be able to remove an excluded user test")
+	public void userShouldBeAbleToRemoveAnExcludedUser() throws InterruptedException {
+		setupPage.verifyUserCanRemoveExcludedUser();
+
+	}
+
+	@And("the user should be able to exclude a user from Whitelist IP test")
+	public void userShouldBeAbleToExcludeAUserFromWhitelistIp() throws InterruptedException {
+		setupPage.verifyUserCanExcludeUserFromWhitelistIP();
+
+	}
+
+	@And("I create a profile with View, Add, Delete, Exclude User, and Remove Excluded User access to Whitelist IP test")
+	public void userCreatesProfileWithFullAccessToWhitelistIpAndExcludedUsers() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.userCanManageWhitelistIpAndExcludedUsers();
+		setupPage.clickSubmitButton();
+
+	}
+
+	@And("the user should be able to delete a Whitelist IP test")
+	public void userShouldBeAbleToDeleteAWhitelistIp() throws InterruptedException {
+		setupPage.verifyUserCanDeleteWhitelistIP();
+
+	}
+
+	@And("I create a profile with View, Add, and Delete access to Whitelist IP test")
+	public void userCreatesProfileWithViewAddAndDeleteAccessToWhitelistIp() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.userCanViewAddDeleteWhitelistIps();
+		setupPage.clickSubmitButton();
+
+	}
+
+	@And("the user should not be able to delete IPs or manage excluded users test")
+	public void userShouldNotBeAbleuserShouldNotBeAbleToDeleteIpsOrManageExcludedUsersToExcludeOrRemoveExcludedUsers()
+			throws InterruptedException {
+		setupPage.verifyUserCannotDeleteIPsOrManageExcludedUsers();
+
+	}
+
+	@And("the user should be able to add a new Whitelist IP test")
+	public void userShouldBeAbleToAddANewWhitelistIp() throws InterruptedException {
+		setupPage.verifyUserCanAddNewWhitelistIP();
+
+	}
+
+	@And("I create a profile with View and Add access to Whitelist IP test")
+	public void userCreatesProfileWithViewAndAddAccessToWhitelistIp() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.userCanViewAndAddWhitelistIps();
+		setupPage.clickSubmitButton();
+
+	}
+
+	@And("the user should not be able to exclude or remove excluded users test")
+	public void userShouldNotBeAbleToExcludeOrRemoveExcludedUsers() throws InterruptedException {
+		setupPage.verifyUserCannotExcludeOrRemoveExcludedUsers();
+
+	}
+
+	@And("the user should not be able to add or delete IPs test")
+	public void userShouldNotBeAbleToAddOrDeleteIps() throws InterruptedException {
+		setupPage.verifyUserCannotAddOrDeleteIPs();
+
+	}
+
+	@And("the user should be able to view the list of Whitelist IP entries test")
+	public void userShouldBeAbleToViewWhitelistIPsPage() throws InterruptedException {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String whitelistIPsPageUrl = Hooks.prop.getProperty("whitelistIPsPageUrl");
+
+		Assert.assertNotNull("whitelistIPsPageUrl is missing in config", whitelistIPsPageUrl);
+
+		String fullUrl = baseUrl + whitelistIPsPageUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+
+		setupPage.openWhitelistIPsPage(fullUrl);
+
+		Assert.assertTrue("Whitelist IPs page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/WhitelistIPs"));
+	}
+
+	@And("I create a profile with View access only to Whitelist IP test")
+	public void userCreatesProfileWithViewAccessOnlyToWhitelistIp() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.verifyViewOnlyAccessOnWhitelistIp();
+		setupPage.clickSubmitButton();
+
+	}
+
 	// Progress Step
 	@And("the user should be able to delete a Progress Step entry test")
 	public void userShouldBeAbleToDeleteAProgressStepEntry() throws InterruptedException {

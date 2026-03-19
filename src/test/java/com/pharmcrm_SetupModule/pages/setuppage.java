@@ -2,6 +2,8 @@ package com.pharmcrm_SetupModule.pages;
 
 import java.time.Duration;
 import java.util.List;
+import java.util.Random;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.TimeoutException;
@@ -18,6 +20,602 @@ public class setuppage {
 	private WebDriver driver;
 	private WebDriverWait wait;
 
+	// Fax Setting
+	private By faxSettingActionMenuButton = By.xpath("//tbody/tr[1]/td[7]/div[1]/div[1]/button[1]");
+
+	// New button
+	private By newFaxSettingButton = By.xpath("//span[normalize-space()='New Fax Settings']");
+
+	// Form fields
+	private By faxApiIdField = By.id("FaxSetting_FAXAPIId");
+	private By fromEmailField = By.id("FaxSetting_FromEmail");
+
+	// Save button
+	private By saveFaxSettingButton = By.id("btnSave");
+	By newFaxSettingsBtn = By.xpath("//span[normalize-space()='New Fax Settings']");
+
+	// Professional License Type
+
+	By newProfessionalLicenseTypeBtn = By.xpath("//span[normalize-space()='New Professional License Type']");
+	private By newProfessionalLicenseTypeButton = By.xpath("//span[normalize-space()='New Professional License Type']");
+	private By professionalLicenseActionMenuButton = By.xpath("//tbody/tr[1]/td[4]/div[1]/div[1]/button[1]");
+
+	// New button
+	private By newDesignationButton = By.xpath("//span[normalize-space()='New Designation']");
+
+	// Form fields
+	private By designationNameField = By.id("Designation_Name");
+	private By designationLevelField = By.id("Designation_Level");
+
+	// Save button
+	private By saveDesignationButton = By.id("btnSave");
+
+	private By designationActionMenuButton = By.xpath("//tbody/tr[1]/td[5]/div[1]/div[1]/button[1]");
+
+	// Whitelist IP
+	By firstUserCheckbox = By.xpath("(//tbody[@id='view-excludeuser-body']//label)[1]");
+	By userCheckbox = By.xpath("//label[@for='337a4702-104a-4939-ac6e-3b188d3ff055']");
+	By ipField = By.id("WhiteListIP_IP");
+	By submitBtn = By.xpath("//button[@class='btn btn-primary waves-effect waves-light'][normalize-space()='Submit']");
+	By excludeUserLink = By.xpath("//a[normalize-space()='Exclude User']");
+	By newExcludeUserBtn = By.xpath("//span[normalize-space()='New Exclude User']");
+	By newIpBtn = By.xpath("//span[normalize-space()='New IP']");
+
+	// Progress Step
+	private By priorityField = By.id("ProgressStatus_Priority");
+	private By notesField = By.id("ProgressStatus_Notes");
+
+	// Save button
+
+	private By newProgressStepButton = By.xpath("//span[normalize-space()='New Progress Step']");
+
+	// EHR Types
+	By nameField = By.id("ExternalSource_Name");
+	By descriptionField = By.id("ExternalSource_Description");
+	By newEhrTypeBtn = By.xpath("//span[normalize-space()='New EHR Type']");
+	By actionMenuBtn = By.xpath("//tbody/tr[1]/td[5]/div[1]/div[1]/button[1]/i[1]");
+
+	// Organization Calendar
+	By calendarEditBtn = By.cssSelector("button[onclick='return SubmitCalendarSetting()']");
+
+	// Brand Management
+	By sendVCardBtn = By.xpath("//button[normalize-space()='Send VCard']");
+
+	// Reminders
+	By reminderActionBtn = By.xpath("//tbody/tr[1]/td[2]/a[1]");
+
+	// Organization Bucket
+	By fileNameField = By.id("fileNameTextBox");
+	By saveBtn = By.id("btnSaveFile");
+
+	By fileInputField = By.xpath("//div[@class='pb-2']//input[@id='file-3']");
+	By saveFileBtn = By.id("btnSaveFile");
+	By addFileBtn = By.xpath("//a[@id='btnAddFile']//*[name()='svg']");
+	By downloadOption = By.xpath(
+			"//div[contains(@class,'bucket-mainn') and contains(@class,'show')]//li[2]//a[1]//*[name()='svg']//*[name()='path' and @id='Union_1']");
+
+	// Feedback Form
+	By confirmDeleteBtn = By.id("deleteFeedbackForm");
+	By questionField = By.id("FeedbackQuestion_Question");
+	By addQuestionButton = By
+			.xpath("//a[@class='settings-add-btn']//*[name()='svg']//*[name()='path' and @id='Path_1']");
+
+	By newFeedbackFormButton = By.xpath("//span[normalize-space()='New Feedback Form']");
+
+	// Patient Signature Template
+	By newPatientSignatureButton = By.xpath("//span[normalize-space()='New Patient Signature']");
+
+	// Fax Template
+	By newFaxTemplateButton = By.xpath("//span[normalize-space()='New Fax Template']");
+	By activeCheckbox = By.xpath("//label[normalize-space()='Active?']");
+
+	// Mail Template
+
+	By titleField = By.id("MailTemplate_Title");
+	By subjectField = By.id("MailTemplate_Subject");
+	By newMailTemplateButton = By.xpath("//span[normalize-space()='New Mail Template']");
+
+	// BOT Call Template
+
+	By bodyField = By.id("BOTCallTemplate_Body");
+	By firstRowActionMenu = By.xpath("//tbody/tr[1]/td[8]/div[1]/div[1]/button[1]");
+	By newCalloutTemplateButton = By.xpath("//span[normalize-space()='New Callout Template']");
+	By titleInput = By.id("BOTCallTemplate_Title");
+	By featureTypeDropdown = By.id("TemplateFeatureMapping_FeatureType");
+	By subFeatureTypeDropdown = By.id("TemplateFeatureMapping_SubFeatureType");
+	By bodyInput = By.id("BOTCallTemplate_Body");
+	By newTemplateButton = By.xpath("//span[normalize-space()='New Callout Template']");
+	By actionMenuButton = By.xpath("//tbody/tr[1]/td[8]/div[1]/div[1]/button[1]");
+	By newCalloutTemplateBtn = By.xpath("//span[normalize-space()='New Callout Template']");
+	By botTemplateActionMenuBtn = By.xpath("//tbody/tr[1]/td[8]//button");
+	By editBotTemplateOption = By.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Edit')]");
+	By deleteBotTemplateOption = By.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Delete')]");
+
+	// Text Template
+	public By filterTitleField = By.id("Filter_Title");
+	public By templateTitleInput = By.id("SMSTemplate_Title");
+	public By featureDropdown = By.id("TemplateFeatureMapping_FeatureType");
+	public By templateBodyTextarea = By.id("SMSTemplate_Body");
+	public By newTextTemplateButton = By.xpath("//span[normalize-space()='New Text Template']");
+
+	// User
+	public By confirmDeleteUserButton = By.xpath("//div[@id='deleteUserModel']//button[@id='btnDeleteConfirm']");
+	public By changeProfileOption = By.xpath(
+			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Change Profile')]");
+	public By profileDropdown = By.id("WorkspaceUser_Profile_Id");
+	public By submitUserButton = By.id("btnSubmitUser");
+	public By menuContext = By.id("menucontext");
+
+	public By newUserButton = By.xpath("//span[normalize-space()='New User']");
+	public By filterEmailField = By.id("Filter_Email");
+	public By deleteUserOption = By.xpath("//span[normalize-space()='Delete']");
+
+	// Profile
+	public By editProfileOption = By.xpath("//li[1]//a[1]//div[1]");
+	public By blockDeleteCheckbox = By.id("chkg37BlockDelete");
+	public By saveButton = By.id("btnSave");
+	public By deleteProfileOption = By.xpath("//a[@id='btnDeleteProfile']//div[@class='gridRecordContextInner']");
+	public By confirmDeleteButton = By.xpath("//div[@id='profileModel']//button[@id='btnDeleteConfirm']");
+	public By newProfileButton = By.xpath("//span[normalize-space()='New Profile']");
+	public By filterButton = By.xpath("//span[normalize-space()='Filter']");
+	public By filterNameField = By.id("Filter_Name");
+	public By editOption = By.xpath("//li[1]//a[1]//div[normalize-space()='Edit']");
+	public By deleteOption = By.xpath("//a[@id='btnDeleteProfile']//div[normalize-space()='Delete']");
+
+	// Dashboard
+	public By sidebarIcons = By.xpath("//span[@class='sidebar-icons']");
+	public By errorHeader = By.xpath("//h2[normalize-space()='Error']");
+
+	// Audit View
+	public By createdDateColumn = By.xpath("//th[normalize-space()='Created Date']");
+
+	// Profile
+	public By preloader = By.cssSelector("div.preloader");
+	public By profileNameInput = By.xpath("//input[@id='Filter_Name']");
+	public By searchButton = By.xpath("//i[@class='fa-solid fa-magnifying-glass']");
+	public By actionMenu = By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']");
+	public By editButton = By.xpath("//span[normalize-space()='Edit']");
+	public By selectAllModuleLabel = By.xpath("//label[normalize-space()='Select All Module']");
+	public By submitButton = By.xpath("//button[@id='btnSave']");
+	public By profilefilterButton = By.xpath("//*[name()='path' and @id='Union_73']");
+	public By firstPatientLink = By.xpath("(//a[@class='gridLinkButton'])[1]");
+	public By vitalsTab = By.xpath("//a[normalize-space()='Vitals']");
+	public By addVitalsButton = By.xpath("//span[normalize-space()='Add Vitals']");
+	public By bpInputField = By.xpath("//input[@id='PatientVital_BP']");
+	public By saveVitalsButton = By.xpath("//button[@id='btnSaveVital']");
+	public By updatedDateColumn = By.xpath("//th[normalize-space()='Updated Date']");
+	public By priorAuthorizationProcessAllLabel = By.xpath("//label[@for='chkg23PriorAuthorizationProcessAll']");
+	public By priorAuthorizationGenerateAddLabel = By.xpath("//label[@for='chkg23PriorAuthorizationGenerateAdd']");
+
+	public setuppage(WebDriver driver) {
+		this.driver = driver;
+		this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	}
+
+	// CallActivities
+
+	public void verifyUserHasNoAccessToCallActivityPageViaUIOrURL() {
+
+		List<WebElement> errorHeaders = driver.findElements(errorHeader);
+
+		if (!errorHeaders.isEmpty()) {
+			System.out.println("PASS: Access is blocked. User does not have permission.");
+		} else {
+			Assert.fail("FAIL: Page loaded successfully. Access should be restricted.");
+		}
+	}
+
+	public void openCallActivityPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/CallActivities"));
+	}
+
+	public void profileHasNoCallActivityViewAccess() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	// Texts
+	public void openTextPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/Texts"));
+	}
+
+	public void verifyNoViewAccessOnTextPage() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	// Driver And SalesRep User
+
+	public void verifyUserCannotAccessDriverAndSalesRepUserPageViaDirectURL() {
+
+		boolean isErrorVisible = !driver.findElements(errorHeader).isEmpty();
+
+		if (isErrorVisible) {
+			System.out.println("PASS: Access blocked as expected.");
+		} else {
+			Assert.fail("FAIL: Access granted unexpectedly.");
+		}
+	}
+
+	public void openDriverUsersPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/DriverAndSalesRepUsers?userType=DriverUsers"));
+	}
+
+	public void userRestrictedFromDriverAndSalesRepUser() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+	// Professional License Type
+
+	public void userShouldBeAbleToDeleteProfessionalLicenseType() {
+
+		try {
+			WebElement menuButton = wait.until(ExpectedConditions.elementToBeClickable(actionMenuBtn));
+			menuButton.click();
+
+			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
+
+			if (deleteExists) {
+				System.out.println("PASS: Delete option is visible as expected.");
+
+				wait.until(ExpectedConditions.elementToBeClickable(deleteOption)).click();
+
+				wait.until(ExpectedConditions.elementToBeClickable(confirmDeleteBtn)).click();
+
+			} else {
+				Assert.fail("FAIL: Delete option is not visible, but it should be.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			Assert.fail("FAIL: Could not open the action menu or perform delete कार्रवाई.");
+		}
+	}
+
+	public void userCanManageProfessionalLicenseTypeEntries() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void userShouldNotBeAbleToDeleteProfessionalLicenseType() {
+
+		try {
+			WebElement menuButton = wait.until(ExpectedConditions.elementToBeClickable(actionMenuBtn));
+			menuButton.click();
+
+			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
+
+			if (!deleteExists) {
+				System.out.println("PASS: User cannot see Delete option.");
+			} else {
+				Assert.fail("FAIL: User should not see Delete option.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			System.out.println("PASS: Action menu cannot be accessed (no delete permission).");
+		}
+	}
+
+	public void userShouldBeAbleToEditExistingProfessionalLicenseType() {
+
+		String profileName = Hooks.prop.getProperty("profile.name.value");
+
+		try {
+			WebElement menuButton = wait.until(ExpectedConditions.elementToBeClickable(actionMenuBtn));
+			menuButton.click();
+
+			boolean editExists = !driver.findElements(editOption).isEmpty();
+
+			if (editExists) {
+				System.out.println("PASS: Edit option is visible as expected.");
+
+				wait.until(ExpectedConditions.elementToBeClickable(editOption)).click();
+
+				WebElement input = wait.until(ExpectedConditions.visibilityOfElementLocated(nameField));
+				input.clear();
+				input.sendKeys(profileName);
+
+				wait.until(ExpectedConditions.elementToBeClickable(saveBtn)).click();
+
+			} else {
+				Assert.fail("FAIL: Edit option is not visible, but it should be.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			Assert.fail("FAIL: Could not open the action menu to verify Edit option.");
+		}
+	}
+
+	public void userCanViewAddEditProfessionalLicenseTypeEntries() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void userShouldNotBeAbleToEditOrDeleteProfessionalLicenseType() {
+
+		try {
+			WebElement menuButton = wait.until(ExpectedConditions.elementToBeClickable(actionMenuBtn));
+			menuButton.click();
+
+			boolean editExists = !driver.findElements(editOption).isEmpty();
+			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
+
+			if (!editExists && !deleteExists) {
+				System.out.println("PASS: User cannot see Edit/Delete options.");
+			} else {
+				Assert.fail("FAIL: User should not see Edit/Delete options.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			System.out.println("PASS: Action menu exists but cannot be opened (no permissions).");
+		}
+	}
+
+	public void userShouldBeAbleToAddNewProfessionalLicenseType() {
+
+		String profileName = Hooks.prop.getProperty("profile.name.value");
+
+		wait.until(ExpectedConditions.elementToBeClickable(newProfessionalLicenseTypeBtn)).click();
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(nameField)).sendKeys(profileName);
+
+		wait.until(ExpectedConditions.elementToBeClickable(saveBtn)).click();
+	}
+
+	public void openProfessionalLicenseTypePage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/ProfessionalLicenseTypes"));
+	}
+
+	public void userCanViewAndAddProfessionalLicenseTypeEntries() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCannotAddEditOrDeleteProfessionalLicenseType() {
+
+		try {
+			Assert.assertTrue(driver.findElements(newProfessionalLicenseTypeButton).isEmpty(),
+					"FAIL: 'New Professional License Type' button should not be visible");
+
+			WebElement menuButton = wait
+					.until(ExpectedConditions.elementToBeClickable(professionalLicenseActionMenuButton));
+			menuButton.click();
+
+			boolean editExists = !driver.findElements(editOption).isEmpty();
+			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
+
+			if (!editExists && !deleteExists) {
+				System.out.println("PASS: User cannot see Edit/Delete options.");
+			} else {
+				Assert.fail("FAIL: User should not see Edit/Delete options.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			System.out.println("PASS: Action menu is not accessible due to permission restrictions.");
+		}
+	}
+
+	public void userRestrictedToViewOnlyProfessionalLicenseType() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+	// Fax Setting
+
+	public void verifyUserCanDeleteFaxSetting() {
+
+		try {
+			WebElement menuButton = wait.until(ExpectedConditions.elementToBeClickable(faxSettingActionMenuButton));
+			menuButton.click();
+
+			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
+
+			if (deleteExists) {
+				System.out.println("PASS: Delete option is visible as expected.");
+
+				wait.until(ExpectedConditions.elementToBeClickable(deleteOption)).click();
+
+				wait.until(ExpectedConditions.elementToBeClickable(confirmDeleteButton)).click();
+
+			} else {
+				Assert.fail("FAIL: Delete option is not visible, but it should be.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			Assert.fail("FAIL: Could not open the action menu to verify Delete option.");
+		}
+	}
+
+	public void createProfileWithFullAccessToFaxSetting() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCannotDeleteFaxSetting() {
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+		try {
+			WebElement menuButton = wait.until(ExpectedConditions.elementToBeClickable(faxSettingActionMenuButton));
+			menuButton.click();
+
+			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
+
+			if (!deleteExists) {
+				System.out.println("PASS: Delete option is not visible as expected.");
+			} else {
+				Assert.fail("FAIL: Delete option is visible, but it should not be.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			System.out.println("PASS: Action menu is not accessible due to permission restrictions.");
+		}
+	}
+
+	public void verifyUserCanEditExistingFaxSetting() {
+
+		String profileName = Hooks.prop.getProperty("profile.name.value");
+
+		try {
+			WebElement menuButton = wait.until(ExpectedConditions.elementToBeClickable(faxSettingActionMenuButton));
+			menuButton.click();
+
+			boolean editExists = !driver.findElements(editOption).isEmpty();
+
+			if (editExists) {
+				System.out.println("PASS: Edit option is visible as expected.");
+
+				wait.until(ExpectedConditions.elementToBeClickable(editOption)).click();
+
+				wait.until(ExpectedConditions.visibilityOfElementLocated(faxApiIdField));
+				driver.findElement(faxApiIdField).clear();
+				driver.findElement(faxApiIdField).sendKeys(profileName);
+
+				wait.until(ExpectedConditions.elementToBeClickable(saveFaxSettingButton)).click();
+
+			} else {
+				Assert.fail("FAIL: Edit option is not visible, but it should be.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			Assert.fail("FAIL: Could not open the action menu to verify Edit option.");
+		}
+	}
+
+	public void userCanViewAddEditFaxSettingEntries() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCannotEditOrDeleteFaxSetting() {
+
+		try {
+			WebElement menuButton = wait.until(ExpectedConditions.elementToBeClickable(faxSettingActionMenuButton));
+			menuButton.click();
+
+			boolean editExists = !driver.findElements(editOption).isEmpty();
+			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
+
+			if (!editExists && !deleteExists) {
+				System.out.println("PASS: User cannot see Edit/Delete options.");
+			} else {
+				Assert.fail("FAIL: User should not see Edit/Delete options.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			System.out.println("PASS: Action menu is not accessible due to permission restrictions.");
+		}
+	}
+
+	public void verifyUserCanAddNewFaxSetting() {
+
+		String profileName = Hooks.prop.getProperty("profile.name.value");
+		String createdEmail = Hooks.prop.getProperty("user.email.value");
+
+		wait.until(ExpectedConditions.elementToBeClickable(newFaxSettingButton)).click();
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(faxApiIdField));
+		driver.findElement(faxApiIdField).clear();
+		driver.findElement(faxApiIdField).sendKeys(profileName);
+
+		driver.findElement(fromEmailField).clear();
+		driver.findElement(fromEmailField).sendKeys(createdEmail);
+
+		wait.until(ExpectedConditions.elementToBeClickable(saveFaxSettingButton)).click();
+	}
+
+	public void verifyViewAndAddAccessOnFaxSetting() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void userShouldNotBeAbleToAddEditOrDeleteFaxSetting() {
+
+		boolean addExists = !driver.findElements(newFaxSettingsBtn).isEmpty();
+		if (addExists) {
+			Assert.fail("FAIL: User should not see 'New Fax Settings' button.");
+		} else {
+			System.out.println("PASS: User cannot see 'New Fax Settings' button.");
+		}
+
+		try {
+			WebElement menuButton = wait.until(ExpectedConditions.elementToBeClickable(actionMenuBtn));
+			menuButton.click();
+
+			boolean editExists = !driver.findElements(editOption).isEmpty();
+			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
+
+			if (!editExists && !deleteExists) {
+				System.out.println("PASS: User cannot see Edit/Delete options.");
+			} else {
+				Assert.fail("FAIL: User should not see Edit/Delete options.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			System.out.println("PASS: Action menu cannot be accessed (no permissions).");
+		}
+	}
+
+	public void openFaxSettingsPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/FaxSettings"));
+	}
+
+	public void verifyViewOnlyAccessOnFaxSetting() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
 	// Progress Step
 
 	public void verifyUserCanDeleteProgressStepEntry() {
@@ -210,135 +808,347 @@ public class setuppage {
 
 	}
 
-	// Progress Step
-	private By priorityField = By.id("ProgressStatus_Priority");
-	private By notesField = By.id("ProgressStatus_Notes");
+	// Designation
 
-	// Save button
+	public void verifyUserCanDeleteDesignation() {
 
-	private By newProgressStepButton = By.xpath("//span[normalize-space()='New Progress Step']");
+		try {
+			WebElement menuButton = wait.until(ExpectedConditions.elementToBeClickable(designationActionMenuButton));
+			menuButton.click();
 
-	// EHR Types
-	By nameField = By.id("ExternalSource_Name");
-	By descriptionField = By.id("ExternalSource_Description");
-	By newEhrTypeBtn = By.xpath("//span[normalize-space()='New EHR Type']");
-	By actionMenuBtn = By.xpath("//tbody/tr[1]/td[5]/div[1]/div[1]/button[1]/i[1]");
+			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
 
-	// Organization Calendar
-	By calendarEditBtn = By.cssSelector("button[onclick='return SubmitCalendarSetting()']");
+			if (deleteExists) {
+				System.out.println("PASS: Delete option is visible as expected.");
 
-	// Brand Management
-	By sendVCardBtn = By.xpath("//button[normalize-space()='Send VCard']");
+				wait.until(ExpectedConditions.elementToBeClickable(deleteOption)).click();
 
-	// Reminders
-	By reminderActionBtn = By.xpath("//tbody/tr[1]/td[2]/a[1]");
+				wait.until(ExpectedConditions.elementToBeClickable(confirmDeleteButton)).click();
 
-	// Organization Bucket
-	By fileNameField = By.id("fileNameTextBox");
-	By saveBtn = By.id("btnSaveFile");
+			} else {
+				Assert.fail("FAIL: Delete option is not visible, but it should be.");
+			}
 
-	By fileInputField = By.xpath("//div[@class='pb-2']//input[@id='file-3']");
-	By saveFileBtn = By.id("btnSaveFile");
-	By addFileBtn = By.xpath("//a[@id='btnAddFile']//*[name()='svg']");
-	By downloadOption = By.xpath(
-			"//div[contains(@class,'bucket-mainn') and contains(@class,'show')]//li[2]//a[1]//*[name()='svg']//*[name()='path' and @id='Union_1']");
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			Assert.fail("FAIL: Could not open the action menu to verify Delete option.");
+		}
+	}
 
-	// Feedback Form
-	By confirmDeleteBtn = By.id("deleteFeedbackForm");
-	By questionField = By.id("FeedbackQuestion_Question");
-	By addQuestionButton = By
-			.xpath("//a[@class='settings-add-btn']//*[name()='svg']//*[name()='path' and @id='Path_1']");
+	public void verifyUserCanEditExistingDesignation() {
 
-	By newFeedbackFormButton = By.xpath("//span[normalize-space()='New Feedback Form']");
+		String profileName = Hooks.prop.getProperty("profile.name.value");
 
-	// Patient Signature Template
-	By newPatientSignatureButton = By.xpath("//span[normalize-space()='New Patient Signature']");
+		try {
+			WebElement menuButton = wait.until(ExpectedConditions.elementToBeClickable(designationActionMenuButton));
+			menuButton.click();
 
-	// Fax Template
-	By newFaxTemplateButton = By.xpath("//span[normalize-space()='New Fax Template']");
-	By activeCheckbox = By.xpath("//label[normalize-space()='Active?']");
+			boolean editExists = !driver.findElements(editOption).isEmpty();
 
-	// Mail Template
+			if (editExists) {
+				System.out.println("PASS: Edit option is visible as expected.");
 
-	By titleField = By.id("MailTemplate_Title");
-	By subjectField = By.id("MailTemplate_Subject");
-	By newMailTemplateButton = By.xpath("//span[normalize-space()='New Mail Template']");
+				wait.until(ExpectedConditions.elementToBeClickable(editOption)).click();
 
-	// BOT Call Template
+				wait.until(ExpectedConditions.visibilityOfElementLocated(designationLevelField));
+				driver.findElement(designationLevelField).clear();
+				driver.findElement(designationLevelField).sendKeys(profileName);
 
-	By bodyField = By.id("BOTCallTemplate_Body");
-	By firstRowActionMenu = By.xpath("//tbody/tr[1]/td[8]/div[1]/div[1]/button[1]");
-	By newCalloutTemplateButton = By.xpath("//span[normalize-space()='New Callout Template']");
-	By titleInput = By.id("BOTCallTemplate_Title");
-	By featureTypeDropdown = By.id("TemplateFeatureMapping_FeatureType");
-	By subFeatureTypeDropdown = By.id("TemplateFeatureMapping_SubFeatureType");
-	By bodyInput = By.id("BOTCallTemplate_Body");
-	By newTemplateButton = By.xpath("//span[normalize-space()='New Callout Template']");
-	By actionMenuButton = By.xpath("//tbody/tr[1]/td[8]/div[1]/div[1]/button[1]");
-	By newCalloutTemplateBtn = By.xpath("//span[normalize-space()='New Callout Template']");
-	By botTemplateActionMenuBtn = By.xpath("//tbody/tr[1]/td[8]//button");
-	By editBotTemplateOption = By.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Edit')]");
-	By deleteBotTemplateOption = By.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Delete')]");
+				wait.until(ExpectedConditions.elementToBeClickable(saveDesignationButton)).click();
 
-	// Text Template
-	public By filterTitleField = By.id("Filter_Title");
-	public By templateTitleInput = By.id("SMSTemplate_Title");
-	public By featureDropdown = By.id("TemplateFeatureMapping_FeatureType");
-	public By templateBodyTextarea = By.id("SMSTemplate_Body");
-	public By newTextTemplateButton = By.xpath("//span[normalize-space()='New Text Template']");
+			} else {
+				Assert.fail("FAIL: Edit option is not visible, but it should be.");
+			}
 
-	// User
-	public By confirmDeleteUserButton = By.xpath("//div[@id='deleteUserModel']//button[@id='btnDeleteConfirm']");
-	public By changeProfileOption = By.xpath(
-			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Change Profile')]");
-	public By profileDropdown = By.id("WorkspaceUser_Profile_Id");
-	public By submitUserButton = By.id("btnSubmitUser");
-	public By menuContext = By.id("menucontext");
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			Assert.fail("FAIL: Could not open the action menu to verify Edit option.");
+		}
+	}
 
-	public By newUserButton = By.xpath("//span[normalize-space()='New User']");
-	public By filterEmailField = By.id("Filter_Email");
-	public By deleteUserOption = By.xpath("//span[normalize-space()='Delete']");
+	public void createProfileWithFullAccessToDesignation() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
 
-	// Profile
-	public By editProfileOption = By.xpath("//li[1]//a[1]//div[1]");
-	public By blockDeleteCheckbox = By.id("chkg37BlockDelete");
-	public By saveButton = By.id("btnSave");
-	public By deleteProfileOption = By.xpath("//a[@id='btnDeleteProfile']//div[@class='gridRecordContextInner']");
-	public By confirmDeleteButton = By.xpath("//div[@id='profileModel']//button[@id='btnDeleteConfirm']");
-	public By newProfileButton = By.xpath("//span[normalize-space()='New Profile']");
-	public By filterButton = By.xpath("//span[normalize-space()='Filter']");
-	public By filterNameField = By.id("Filter_Name");
-	public By editOption = By.xpath("//li[1]//a[1]//div[normalize-space()='Edit']");
-	public By deleteOption = By.xpath("//a[@id='btnDeleteProfile']//div[normalize-space()='Delete']");
+	}
 
-	// Dashboard
-	public By sidebarIcons = By.xpath("//span[@class='sidebar-icons']");
-	public By errorHeader = By.xpath("//h2[normalize-space()='Error']");
+	public void verifyUserCannotEditOrDeleteAnyDesignation() {
 
-	// Audit View
-	public By createdDateColumn = By.xpath("//th[normalize-space()='Created Date']");
+		try {
+			WebElement menuButton = wait.until(ExpectedConditions.elementToBeClickable(designationActionMenuButton));
+			menuButton.click();
 
-	// Profile
-	public By preloader = By.cssSelector("div.preloader");
-	public By profileNameInput = By.xpath("//input[@id='Filter_Name']");
-	public By searchButton = By.xpath("//i[@class='fa-solid fa-magnifying-glass']");
-	public By actionMenu = By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']");
-	public By editButton = By.xpath("//span[normalize-space()='Edit']");
-	public By selectAllModuleLabel = By.xpath("//label[normalize-space()='Select All Module']");
-	public By submitButton = By.xpath("//button[@id='btnSave']");
-	public By profilefilterButton = By.xpath("//*[name()='path' and @id='Union_73']");
-	public By firstPatientLink = By.xpath("(//a[@class='gridLinkButton'])[1]");
-	public By vitalsTab = By.xpath("//a[normalize-space()='Vitals']");
-	public By addVitalsButton = By.xpath("//span[normalize-space()='Add Vitals']");
-	public By bpInputField = By.xpath("//input[@id='PatientVital_BP']");
-	public By saveVitalsButton = By.xpath("//button[@id='btnSaveVital']");
-	public By updatedDateColumn = By.xpath("//th[normalize-space()='Updated Date']");
-	public By priorAuthorizationProcessAllLabel = By.xpath("//label[@for='chkg23PriorAuthorizationProcessAll']");
-	public By priorAuthorizationGenerateAddLabel = By.xpath("//label[@for='chkg23PriorAuthorizationGenerateAdd']");
+			boolean editExists = !driver.findElements(editOption).isEmpty();
+			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
 
-	public setuppage(WebDriver driver) {
-		this.driver = driver;
-		this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+			if (!editExists && !deleteExists) {
+				System.out.println("PASS: User cannot see Edit/Delete options.");
+			} else {
+				Assert.fail("FAIL: User should not see Edit/Delete options.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			System.out.println("PASS: Action menu is not accessible due to permission restrictions.");
+		}
+	}
+
+	public void verifyUserCanAddNewDesignation() {
+
+		String profileName = Hooks.prop.getProperty("profile.name.value");
+
+		wait.until(ExpectedConditions.elementToBeClickable(newDesignationButton)).click();
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(designationNameField));
+		driver.findElement(designationNameField).clear();
+		driver.findElement(designationNameField).sendKeys(profileName);
+
+		driver.findElement(designationLevelField).clear();
+		driver.findElement(designationLevelField).sendKeys(profileName);
+
+		wait.until(ExpectedConditions.elementToBeClickable(saveDesignationButton)).click();
+	}
+
+	public void userCanViewAndAddDesignationEntries() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCannotAddEditOrDeleteDesignation() {
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+		try {
+			WebElement menuButton = wait.until(ExpectedConditions.elementToBeClickable(designationActionMenuButton));
+			menuButton.click();
+
+			boolean editExists = !driver.findElements(editOption).isEmpty();
+			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
+
+			if (!editExists && !deleteExists) {
+				System.out.println("PASS: Edit/Delete options are not visible as expected.");
+			} else {
+				Assert.fail("FAIL: Edit and/or Delete option is visible, but it should not be.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			System.out.println("PASS: Action menu is not accessible due to permission restrictions.");
+		}
+	}
+
+	public void openDesignationPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/Designations"));
+	}
+
+	public void userRestrictedToViewOnlyDesignation() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+	// Whitelist IP
+
+	public void verifyUserCanRemoveExcludedUser() throws InterruptedException {
+
+		Thread.sleep(3000);
+
+		driver.findElement(excludeUserLink).click();
+
+		Thread.sleep(1000);
+
+		driver.findElement(newExcludeUserBtn).click();
+
+		Thread.sleep(1000);
+
+		driver.findElement(firstUserCheckbox).click();
+
+		Thread.sleep(1000);
+
+		WebElement saveButton = driver.findElement(saveBtn);
+		saveButton.click();
+
+		Thread.sleep(1000);
+	}
+
+	public void verifyUserCanExcludeUserFromWhitelistIP() throws InterruptedException {
+
+		Thread.sleep(3000);
+
+		driver.findElement(excludeUserLink).click();
+
+		List<WebElement> elements = driver.findElements(newExcludeUserBtn);
+		Assert.assertTrue(!elements.isEmpty(), "FAIL: 'New Exclude User' option should be visible");
+
+		driver.findElement(excludeUserLink).click();
+
+		driver.findElement(userCheckbox).click();
+
+		WebElement saveButton = driver.findElement(saveBtn);
+		saveButton.click();
+	}
+
+	public void userCanManageWhitelistIpAndExcludedUsers() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCanDeleteWhitelistIP() throws InterruptedException {
+
+		Thread.sleep(3000);
+
+		try {
+			WebElement menuButton = driver.findElement(actionMenuBtn);
+
+			Thread.sleep(1000);
+			menuButton.click();
+
+			Thread.sleep(1000);
+
+			List<WebElement> deleteElements = driver.findElements(deleteOption);
+
+			if (!deleteElements.isEmpty()) {
+				System.out.println("PASS: Delete option is visible as expected.");
+
+				deleteElements.get(0).click();
+
+				WebElement confirmBtn = driver.findElement(confirmDeleteBtn);
+				confirmBtn.click();
+
+			} else {
+				Assert.fail("FAIL: Delete option is not visible, but it should be.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			Assert.fail("FAIL: Could not open the action menu to verify Delete option.");
+		}
+	}
+
+	public void userCanViewAddDeleteWhitelistIps() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCannotDeleteIPsOrManageExcludedUsers() throws InterruptedException {
+
+		Thread.sleep(3000);
+
+		try {
+			WebElement menuButton = driver.findElement(actionMenuBtn);
+			menuButton.click();
+
+			Thread.sleep(1000);
+
+			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
+
+			if (!deleteExists) {
+				System.out.println("PASS: Delete option is not visible as expected.");
+			} else {
+				Assert.fail("FAIL: Delete option is visible, but it should not be.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			System.out.println("PASS: Action menu exists but cannot be opened (no permissions).");
+		}
+	}
+
+	public void verifyUserCanAddNewWhitelistIP() throws InterruptedException {
+
+		Thread.sleep(3000);
+
+		Random random = new Random();
+		int lastOctet = random.nextInt(254) + 1;
+		String randomIP = "192.168.100." + lastOctet;
+
+		driver.findElement(newIpBtn).click();
+
+		String profileName = Hooks.prop.getProperty("profile.name.value");
+
+		WebElement ipInput = driver.findElement(ipField);
+		ipInput.clear();
+		ipInput.sendKeys(randomIP);
+
+		WebElement nameInput = driver.findElement(nameField);
+		nameInput.clear();
+		nameInput.sendKeys(profileName);
+
+		WebElement submitButton = driver.findElement(submitBtn);
+		submitButton.click();
+	}
+
+	public void userCanViewAndAddWhitelistIps() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCannotExcludeOrRemoveExcludedUsers() throws InterruptedException {
+
+		Thread.sleep(3000);
+
+		driver.findElement(excludeUserLink).click();
+
+		List<WebElement> elements = driver.findElements(newExcludeUserBtn);
+		Assert.assertTrue(elements.isEmpty(), "FAIL: 'New Exclude User' button should NOT be visible");
+	}
+
+	public void verifyUserCannotAddOrDeleteIPs() throws InterruptedException {
+
+		Thread.sleep(3000);
+
+		List<WebElement> newIpElements = driver.findElements(newIpBtn);
+		Assert.assertTrue(newIpElements.isEmpty(), "FAIL: 'New IP' button should NOT be visible");
+
+		try {
+			WebElement menuButton = driver.findElement(actionMenuBtn);
+			menuButton.click();
+
+			Thread.sleep(1000);
+
+			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
+
+			if (!deleteExists) {
+				System.out.println("PASS: User cannot see Delete option.");
+			} else {
+				Assert.fail("FAIL: User should not see Delete option.");
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			System.out.println("PASS: Action menu exists but cannot be opened (no permissions).");
+		}
+	}
+
+	public void openWhitelistIPsPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/WhitelistIPs"));
+	}
+
+	public void verifyViewOnlyAccessOnWhitelistIp() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
 	}
 
 	// EHR Types

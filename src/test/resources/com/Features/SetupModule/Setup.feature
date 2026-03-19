@@ -828,8 +828,489 @@ And the user should be able to add a new Progress Step entry test
 And the user should be able to edit an existing Progress Step entry test
 And the user should be able to delete a Progress Step entry test
 
+# Whitelist IP
+Scenario: User with View only access for Whitelist IP
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with View access only to Whitelist IP test
+Then the user should be able to view the list of Whitelist IP entries test 
+But the user should not be able to add or delete IPs test
+And the user should not be able to exclude or remove excluded users test
+
+Scenario: User with View and Add access for Whitelist IP
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with View and Add access to Whitelist IP test
+Then the user should be able to view the list of Whitelist IP entries test
+And the user should be able to add a new Whitelist IP test
+But the user should not be able to delete IPs or manage excluded users test
+
+Scenario: User with View, Add, and Delete access for Whitelist IP
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with View, Add, and Delete access to Whitelist IP test
+Then the user should be able to view the list of Whitelist IP entries test
+And the user should be able to add a new Whitelist IP test
+And the user should be able to delete a Whitelist IP test
+But the user should not be able to exclude or remove excluded users test
+  
+Scenario: User with full access to Whitelist IP
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with View, Add, Delete, Exclude User, and Remove Excluded User access to Whitelist IP test
+Then the user should be able to view the list of Whitelist IP entries test
+And the user should be able to add a new Whitelist IP test
+And the user should be able to delete a Whitelist IP test
+And the user should be able to exclude a user from Whitelist IP test
+And the user should be able to remove an excluded user test
+
+# Designation
+Scenario: User with View only access to Designation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with View access only to Designation test
+Then the user should be able to view the Designation list test
+But the user should not be able to add, edit, or delete any Designation test
+
+Scenario: User with View and Add access to Designation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with View and Add access to Designation test
+Then the user should be able to view the Designation list test
+And the user should be able to add a new Designation test
+But the user should not be able to edit or delete any Designation test
+  
+Scenario: User with View, Add, and Edit access to Designation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with View and Add access to Designation test
+Then the user should be able to view the Designation list test
+And the user should be able to add a new Designation test
+But the user should not be able to edit or delete any Designation test  
+ 
+Scenario: User with full access to Designation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with View, Add, Edit, and Delete access to Designation test
+Then the user should be able to view the Designation list test
+And the user should be able to add a new Designation test
+And the user should be able to edit an existing Designation test
+And the user should be able to delete a Designation test
+
+# Professional License Type
+Scenario: User with View only access to Professional License Type
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with View access only to Professional License Type test
+Then the user should be able to view the Professional License Type list test
+But the user should not be able to add, edit, or delete any Professional License Type test
+
+Scenario: User with View and Add access to Professional License Type
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with View and Add access to Professional License Type test
+Then the user should be able to view the Professional License Type list test
+And the user should be able to add a new Professional License Type test
+But the user should not be able to edit or delete any Professional License Type test
+
+Scenario: User with View, Add, and Edit access to Professional License Type
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with View, Add, and Edit access to Professional License Type test
+Then the user should be able to view the Professional License Type list test
+And the user should be able to add a new Professional License Type test
+And the user should be able to edit an existing Professional License Type test
+But the user should not be able to delete any Professional License Type test
+ 
+Scenario: User with full access to Professional License Type
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with View, Add, Edit, and Delete access to Professional License Type test
+Then the user should be able to view the Professional License Type list test
+And the user should be able to add a new Professional License Type test
+And the user should be able to edit an existing Professional License Type test
+And the user should be able to delete a Professional License Type test
+
+# Fax Setting
+Scenario: User with View only access to Fax Setting
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with View access only to Fax Setting test
+Then the user should be able to view the Fax Setting list test
+But the user should not be able to add, edit, or delete any Fax Setting test
+
+Scenario: User with View and Add access to Fax Setting
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with View and Add access to Fax Setting test
+Then the user should be able to view the Fax Setting list test
+And the user should be able to add a new Fax Setting test
+But the user should not be able to edit or delete any Fax Setting test
+
+Scenario: User with View, Add, and Edit access to Fax Setting
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with View, Add, and Edit access to Fax Setting test
+Then the user should be able to view the Fax Setting list test
+And the user should be able to add a new Fax Setting test
+And the user should be able to edit an existing Fax Setting test
+But the user should not be able to delete any Fax Setting test
+
+Scenario: User with full access to Fax Setting
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with View, Add, Edit, and Delete access to Fax Setting test
+Then the user should be able to view the Fax Setting list test
+And the user should be able to add a new Fax Setting test
+And the user should be able to edit an existing Fax Setting test
+And the user should be able to delete a Fax Setting test
+
+# Driver And SalesRep User
+Scenario: User without access to Driver and SalesRep User
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+When I create a profile without any access to Driver and SalesRep User test
+Then the user should not be able to access the Driver and SalesRep User page via direct URL test
+
+# Texts
+Scenario: User without Text View permission should not see the Text page
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile without View access to Text Page test
+Then the user should have no Text page access via UI or direct URL test
+
+# CallActivities
+Scenario: User without Call Activity View permission should not see the Call Activity page
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile without Call Activity View permission to Call Activity Page test
+Then the user should have no Call Activity access via UI or direct URL test
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+ 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
 
 
   

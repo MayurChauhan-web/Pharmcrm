@@ -692,7 +692,7 @@ Feature: Setup Module scenarios
   And the user should be able to edit an existing Progress Step entry 
   But the user should not be able to delete any Progress Step entries 
 
-#
+
   Scenario: User with full access to Progress Step
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser34_static@mailinator.com"
@@ -705,6 +705,7 @@ Feature: Setup Module scenarios
   And the user should be able to edit an existing Progress Step entry
   And the user should be able to delete a Progress Step entry 
   
+  
   Scenario: User with View only access for Whitelist IP
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser1_static@mailinator.com"
@@ -715,6 +716,7 @@ Feature: Setup Module scenarios
   Then the user should be able to view the list of Whitelist IP entries 
   But the user should not be able to add or delete IPs 
   And the user should not be able to exclude or remove excluded users 
+  
   
   Scenario: User with View and Add access for Whitelist IP
   Given I log in as admin for Setup Module
@@ -727,6 +729,7 @@ Feature: Setup Module scenarios
   And the user should be able to add a new Whitelist IP 
   But the user should not be able to delete IPs or manage excluded users 
 
+
   Scenario: User with View, Add, and Delete access for Whitelist IP
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser4_static@mailinator.com"
@@ -738,6 +741,7 @@ Feature: Setup Module scenarios
   And the user should be able to add a new Whitelist IP
   And the user should be able to delete a Whitelist IP 
   But the user should not be able to exclude or remove excluded users
+
 
   Scenario: User with full access to Whitelist IP
   Given I log in as admin for Setup Module
@@ -752,6 +756,7 @@ Feature: Setup Module scenarios
   And the user should be able to exclude a user from Whitelist IP 
   And the user should be able to remove an excluded user 
   
+  
   Scenario: User with View only access to Designation
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser8_static@mailinator.com"
@@ -761,6 +766,7 @@ Feature: Setup Module scenarios
   And I log in using the new user for Setup Module
   Then the user should be able to view the Designation list 
   But the user should not be able to add, edit, or delete any Designation  
+
 
   Scenario: User with View and Add access to Designation
   Given I log in as admin for Setup Module
@@ -772,6 +778,7 @@ Feature: Setup Module scenarios
   Then the user should be able to view the Designation list
   And the user should be able to add a new Designation 
   But the user should not be able to edit or delete any Designation 
+
 
   Scenario: User with View, Add, and Edit access to Designation
   Given I log in as admin for Setup Module
@@ -785,6 +792,7 @@ Feature: Setup Module scenarios
   And the user should be able to edit an existing Designation 
   But the user should not be able to delete any Designation 
 
+
   Scenario: User with full access to Designation
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser12_static@mailinator.com"
@@ -797,6 +805,7 @@ Feature: Setup Module scenarios
   And the user should be able to edit an existing Designation
   And the user should be able to delete a Designation 
 
+
   Scenario: User with View only access to Professional License Type
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser13_static@mailinator.com"
@@ -806,6 +815,7 @@ Feature: Setup Module scenarios
   And I log in using the new user for Setup Module
   Then the user should be able to view the Professional License Type list 
   But the user should not be able to add, edit, or delete any Professional License Type 
+
 
   Scenario: User with View and Add access to Professional License Type
   Given I log in as admin for Setup Module
@@ -818,6 +828,7 @@ Feature: Setup Module scenarios
   And the user should be able to add a new Professional License Type 
   But the user should not be able to edit or delete any Professional License Type 
 
+
   Scenario: User with View, Add, and Edit access to Professional License Type
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser15_static@mailinator.com"
@@ -829,6 +840,7 @@ Feature: Setup Module scenarios
   And the user should be able to add a new Professional License Type
   And the user should be able to edit an existing Professional License Type 
   But the user should not be able to delete any Professional License Type 
+
 
   Scenario: User with full access to Professional License Type
   Given I log in as admin for Setup Module
@@ -852,6 +864,7 @@ Feature: Setup Module scenarios
   Then the user should be able to view the Fax Setting list 
   But the user should not be able to add, edit, or delete any Fax Setting 
 
+  
   Scenario: User with View and Add access to Fax Setting
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser18_static@mailinator.com"
@@ -862,6 +875,7 @@ Feature: Setup Module scenarios
   Then the user should be able to view the Fax Setting list
   And the user should be able to add a new Fax Setting 
   But the user should not be able to edit or delete any Fax Setting 
+
 
   Scenario: User with View, Add, and Edit access to Fax Setting
   Given I log in as admin for Setup Module
@@ -874,6 +888,7 @@ Feature: Setup Module scenarios
   And the user should be able to add a new Fax Setting
   And the user should be able to edit an existing Fax Setting 
   But the user should not be able to delete any Fax Setting 
+
 
   Scenario: User with full access to Fax Setting
   Given I log in as admin for Setup Module
@@ -896,6 +911,7 @@ Feature: Setup Module scenarios
   And I log in using the new user for Setup Module
   Then the user should not be able to access the Driver and SalesRep User page via direct URL  
 
+  
   Scenario: User without Text View permission should not see the Text page
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser27_static@mailinator.com"
@@ -905,6 +921,7 @@ Feature: Setup Module scenarios
   And I log in using the new user for Setup Module
   Then the user should have no Text page access via UI or direct URL    
   
+  #
   Scenario: User without Call Activity View permission should not see the Call Activity page
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser28_static@mailinator.com"
