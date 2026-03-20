@@ -921,7 +921,7 @@ Feature: Setup Module scenarios
   And I log in using the new user for Setup Module
   Then the user should have no Text page access via UI or direct URL    
   
-  #
+  
   Scenario: User without Call Activity View permission should not see the Call Activity page
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser28_static@mailinator.com"
@@ -931,6 +931,7 @@ Feature: Setup Module scenarios
   And I log in using the new user for Setup Module
   Then the user should have no Call Activity access via UI or direct URL  
 
+
   Scenario: User without BOT Call View permission should not see the BOT Call page
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser29_static@mailinator.com"
@@ -939,6 +940,7 @@ Feature: Setup Module scenarios
   And I reset the user's password for Setup Module
   And I log in using the new user for Setup Module
   Then the user should have no BOT Call View access via UI or direct URL  
+  
   
   Scenario: User without Fax View permission should not see the Fax page
   Given I log in as admin for Setup Module
@@ -958,6 +960,7 @@ Feature: Setup Module scenarios
   And I log in using the new user for Setup Module
   Then the user should have no Mail View access via UI or direct URL  
 
+
   Scenario: User with View Detail access only for Workspace User
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser32_static@mailinator.com"
@@ -967,6 +970,7 @@ Feature: Setup Module scenarios
   And I log in using the new user for Setup Module
   Then the user should be able to view workspace user details 
   But the user should not be able to reset password, change profile, link or delink employee to user 
+
 
   Scenario: User with View Detail and Reset Password access for Workspace User
   Given I log in as admin for Setup Module
@@ -978,6 +982,7 @@ Feature: Setup Module scenarios
   Then the user should be able to view workspace user details
   And the user should be able to reset password for a workspace user 
   But the user should not be able to change profile, link or delink employee to user 
+
 
   Scenario: User with View Detail, Reset Password, and Change Profile access for Workspace User
   Given I log in as admin for Setup Module
@@ -1003,6 +1008,7 @@ Feature: Setup Module scenarios
   And the user should be able to change profile for a workspace user
   And the user should be able to link and delink employee to a workspace user        
 
+  
   Scenario: User with View only access for Central PA Setting
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser2_static@mailinator.com"
@@ -1012,6 +1018,7 @@ Feature: Setup Module scenarios
   And I log in using the new user for Setup Module
   Then the user should be able to view Central PA Setting      
   But the user should not be able to add Central PA Setting  
+
 
   Scenario: User with View and Add access for Central PA Setting
   Given I log in as admin for Setup Module
@@ -1023,6 +1030,7 @@ Feature: Setup Module scenarios
   Then the user should be able to view Central PA Setting
   And the user should be able to add a new Central PA entry 
   
+  
   Scenario: Create user without Central PA Setting access and check restrictions
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser4_static@mailinator.com"
@@ -1032,6 +1040,7 @@ Feature: Setup Module scenarios
   And I log in using the new user for Setup Module
   Then the user should have no Central PA Setting access via UI or direct URL 
 
+
   Scenario: Create user without Mail Setting access and check restrictions
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser7_static@mailinator.com"
@@ -1040,6 +1049,7 @@ Feature: Setup Module scenarios
   And I reset the user's password for Setup Module
   And I log in using the new user for Setup Module
   Then the user should have no Mail Setting access via UI or direct URL 
+
 
   Scenario: User with View only access for Show On Dashboard
   Given I log in as admin for Setup Module
@@ -1051,6 +1061,7 @@ Feature: Setup Module scenarios
   Then the user should be able to view Show On Dashboard settings       
   But the user should not be able to add, edit, or delete Show On Dashboard settings 
   
+  
   Scenario: User with View and Add access for Show On Dashboard
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser10_static@mailinator.com"
@@ -1061,6 +1072,7 @@ Feature: Setup Module scenarios
   Then the user should be able to view Show On Dashboard settings
   And the user should be able to add a new Show On Dashboard entry 
   But the user should not be able to edit or delete Show On Dashboard settings  
+  
   
   Scenario: User with View, Add, and Edit access for Show On Dashboard
   Given I log in as admin for Setup Module
@@ -1074,6 +1086,7 @@ Feature: Setup Module scenarios
   And the user should be able to edit an existing Show On Dashboard entry   
   But the user should not be able to delete Show On Dashboard settings 
   
+  
   Scenario: User with full access (View, Add, Edit, Delete) for Show On Dashboard
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser13_static@mailinator.com"
@@ -1086,6 +1099,7 @@ Feature: Setup Module scenarios
   And the user should be able to edit an existing Show On Dashboard entry
   And the user should be able to delete a Show On Dashboard entry    
   
+  
   Scenario: User with View only access for Email Notification
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser14_static@mailinator.com"
@@ -1095,6 +1109,7 @@ Feature: Setup Module scenarios
   And I log in using the new user for Setup Module
   Then the user should be able to view Email Notification settings   
   But the user should not be able to add, edit, or delete Email Notification settings 
+
 
   Scenario: User with View and Add access for Email Notification
   Given I log in as admin for Setup Module
@@ -1106,6 +1121,7 @@ Feature: Setup Module scenarios
   Then the user should be able to view Email Notification settings
   And the user should be able to add a new Email Notification entry   
   But the user should not be able to edit or delete Email Notification settings 
+
 
   Scenario: User with View, Add, and Edit access for Email Notification
   Given I log in as admin for Setup Module
@@ -1119,6 +1135,7 @@ Feature: Setup Module scenarios
   And the user should be able to edit an existing Email Notification entry      
   But the user should not be able to delete Email Notification settings     
 
+
   Scenario: User with full access (View, Add, Edit, Delete) for Email Notification
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser20_static@mailinator.com"
@@ -1131,6 +1148,7 @@ Feature: Setup Module scenarios
   And the user should be able to edit an existing Email Notification entry
   And the user should be able to delete an Email Notification entry 
 
+
   Scenario: User with View only access for Auto Text
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser21_static@mailinator.com"
@@ -1140,6 +1158,7 @@ Feature: Setup Module scenarios
   And I log in using the new user for Setup Module
   Then the user should be able to view Auto Text settings 
   But the user should not be able to add, edit, or delete Auto Text entries   
+
 
   Scenario: User with View and Add access for Auto Text
   Given I log in as admin for Setup Module
@@ -1151,6 +1170,7 @@ Feature: Setup Module scenarios
   Then the user should be able to view Auto Text settings
   And the user should be able to add a new Auto Text entry 
   But the user should not be able to edit or delete Auto Text entries  
+
 
   Scenario: User with View, Add, and Edit access for Auto Text
   Given I log in as admin for Setup Module
@@ -1164,6 +1184,7 @@ Feature: Setup Module scenarios
   And the user should be able to edit an existing Auto Text entry 
   But the user should not be able to delete Auto Text entries 
 
+
   Scenario: User with full access (View, Add, Edit, Delete) for Auto Text
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser26_static@mailinator.com"
@@ -1176,6 +1197,7 @@ Feature: Setup Module scenarios
   And the user should be able to edit an existing Auto Text entry
   And the user should be able to delete an Auto Text entry 
 
+
   Scenario: User with View only access for Auto Call
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser27_static@mailinator.com"
@@ -1185,6 +1207,7 @@ Feature: Setup Module scenarios
   And I log in using the new user for Setup Module
   Then the user should be able to view Auto Call settings 
   But the user should not be able to add, edit, or delete Auto Call entries  
+
 
   Scenario: User with View and Add access for Auto Call
   Given I log in as admin for Setup Module
@@ -1196,6 +1219,7 @@ Feature: Setup Module scenarios
   Then the user should be able to view Auto Call settings
   And the user should be able to add a new Auto Call entry 
   But the user should not be able to edit or delete Auto Call entries 
+
 
   Scenario: User with View, Add, and Edit access for Auto Call
   Given I log in as admin for Setup Module
@@ -1209,6 +1233,7 @@ Feature: Setup Module scenarios
   And the user should be able to edit an existing Auto Call entry  
   But the user should not be able to delete Auto Call entries 
 
+
   Scenario: User with full access (View, Add, Edit, Delete) for Auto Call
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser33_static@mailinator.com"
@@ -1221,6 +1246,7 @@ Feature: Setup Module scenarios
   And the user should be able to edit an existing Auto Call entry
   And the user should be able to delete an Auto Call entry  
 
+
   Scenario: Create user without Connector App access and check restrictions
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser40_static@mailinator.com"
@@ -1229,6 +1255,7 @@ Feature: Setup Module scenarios
   And I reset the user's password for Setup Module
   And I log in using the new user for Setup Module
   Then the user should have no Connector App access via UI or direct URL  
+
 
   Scenario: User with View only access for Spam Email
   Given I log in as admin for Setup Module
@@ -1240,6 +1267,7 @@ Feature: Setup Module scenarios
   Then the user should be able to view Spam Email settings 
   But the user should not be able to delete Spam Email entries 
   
+  #
   Scenario: User with View and Delete access for Spam Email
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser2_static@mailinator.com"

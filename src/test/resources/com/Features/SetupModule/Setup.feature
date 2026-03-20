@@ -1081,8 +1081,663 @@ Then the Setup user should be able to view Profiles test
 And I create a profile without Call Activity View permission to Call Activity Page test
 Then the user should have no Call Activity access via UI or direct URL test
 
+# BOTCalls
+Scenario: User without BOT Call View permission should not see the BOT Call page
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile without BOT Call View permission to BOT Call Page test
+Then the user should have no BOT Call View access via UI or direct URL test
+
+# Faxes
+Scenario: User without Fax View permission should not see the Fax page
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile without Fax View permission to Fax Page test
+Then the user should have no Fax View access via UI or direct URL test
+
+# Mails
+Scenario: User without Mail View permission should not see the Mail page
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile without Mail View permission to Mail Page test
+Then the user should have no Mail View access via UI or direct URL test
+
+# WorkspaceUsers
+Scenario: User with View Detail access only for Workspace User
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with View Detail access only to Setup Module → Workspace User test
+Then the user should be able to view workspace user details test
+But the user should not be able to reset password, change profile, link or delink employee to user test
+
+Scenario: User with View Detail and Reset Password access for Workspace User
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with View Detail and Reset Password access to Setup Module → Workspace User test
+Then the user should be able to view workspace user details test
+And the user should be able to reset password for a workspace user test 
+But the user should not be able to change profile, link or delink employee to user test
+
+Scenario: User with View Detail, Reset Password, and Change Profile access for Workspace User
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with View Detail, Reset Password, and Change Profile access to Setup Module → Workspace User test
+Then the user should be able to view workspace user details test
+And the user should be able to reset password for a workspace user test     
+And the user should be able to change profile for a workspace user test
+But the user should not be able to link or delink employee to user test
+
+Scenario: User with full access for Workspace User
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with View Detail, Reset Password, Change Profile, Link Employee To User, and DeLink Employee To User access to Setup Module Workspace User test 
+Then the user should be able to view workspace user details test
+And the user should be able to reset password for a workspace user test
+And the user should be able to change profile for a workspace user test
+And the user should be able to link and delink employee to a workspace user test
+
+# CentralPASettings
+Scenario: User with View only access for Central PA Setting
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with View access only to Setup Module → Central PA Setting test
+Then the user should be able to view Central PA Setting test
+But the user should not be able to add Central PA Setting test
+
+Scenario: User with View and Add access for Central PA Setting
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with View and Add access to Setup Module → Central PA Setting test
+Then the user should be able to view Central PA Setting test
+And the user should be able to add a new Central PA entry test
+
+Scenario: Create user without Central PA Setting access and check restrictions
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile without Central PA Setting access test 
+Then the user should have no Central PA Setting access via UI or direct URL test
+
+# MailSetting
+Scenario: Create user without Mail Setting access and check restrictions
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile without Mail Setting access test
+Then the user should have no Mail Setting access via UI or direct URL test
+
+# Show On Dashboard
+Scenario: User with View only access for Show On Dashboard
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with View access only to Setup Module Show On Dashboard test
+Then the user should be able to view Show On Dashboard settings test
+But the user should not be able to add, edit, or delete Show On Dashboard settings test
+
+Scenario: User with View and Add access for Show On Dashboard
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with View and Add access to Setup Module Show On Dashboard test
+Then the user should be able to view Show On Dashboard settings test
+And the user should be able to add a new Show On Dashboard entry test
+But the user should not be able to edit or delete Show On Dashboard settings test
+
+Scenario: User with View, Add, and Edit access for Show On Dashboard
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with View, Add, and Edit access to Setup Module Show On Dashboard test
+Then the user should be able to view Show On Dashboard settings test
+And the user should be able to add a new Show On Dashboard entry test
+And the user should be able to edit an existing Show On Dashboard entry test 
+But the user should not be able to delete Show On Dashboard settings test
+
+Scenario: User with full access (View, Add, Edit, Delete) for Show On Dashboard
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with full access to Setup Module Show On Dashboard test
+Then the user should be able to view Show On Dashboard settings test
+And the user should be able to add a new Show On Dashboard entry test
+And the user should be able to edit an existing Show On Dashboard entry test
+And the user should be able to delete a Show On Dashboard entry test
+
+# Email Notification
+Scenario: User with View only access for Email Notification
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with View access only to Setup Module Email Notification test
+Then the user should be able to view Email Notification settings test
+But the user should not be able to add, edit, or delete Email Notification settings test
+
+Scenario: User with View and Add access for Email Notification
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with View and Add access to Setup Module Email Notification test
+Then the user should be able to view Email Notification settings test
+And the user should be able to add a new Email Notification entry test
+But the user should not be able to edit or delete Email Notification settings test
+
+Scenario: User with View, Add, and Edit access for Email Notification
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with View, Add, and Edit access to Setup Module Email Notification test
+Then the user should be able to view Email Notification settings test
+And the user should be able to add a new Email Notification entry test
+And the user should be able to edit an existing Email Notification entry test     
+But the user should not be able to delete Email Notification settings test
+ 
+Scenario: User with full access (View, Add, Edit, Delete) for Email Notification
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with full access to Setup Module Email Notification test
+Then the user should be able to view Email Notification settings test
+And the user should be able to add a new Email Notification entry test
+And the user should be able to edit an existing Email Notification entry test
+And the user should be able to delete an Email Notification entry test
+
+# Auto Text
+Scenario: User with View only access for Auto Text
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with View access only to Setup Module Auto Text test
+Then the user should be able to view Auto Text settings test
+But the user should not be able to add, edit, or delete Auto Text entries test
+
+Scenario: User with View and Add access for Auto Text
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with View and Add access to Setup Module Auto Text test
+Then the user should be able to view Auto Text settings test
+And the user should be able to add a new Auto Text entry test
+But the user should not be able to edit or delete Auto Text entries test
+
+Scenario: User with View, Add, and Edit access for Auto Text
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with View, Add, and Edit access to Setup Module Auto Text test
+Then the user should be able to view Auto Text settings test
+And the user should be able to add a new Auto Text entry test
+And the user should be able to edit an existing Auto Text entry test 
+But the user should not be able to delete Auto Text entries test
+  
+Scenario: User with full access (View, Add, Edit, Delete) for Auto Text
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with full access to Setup Module Auto Text test
+Then the user should be able to view Auto Text settings test
+And the user should be able to add a new Auto Text entry test
+And the user should be able to edit an existing Auto Text entry test
+And the user should be able to delete an Auto Text entry test
+
+# Auto Call
+Scenario: User with View only access for Auto Call
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with View access only to Setup Module Auto Call test
+Then the user should be able to view Auto Call settings test
+But the user should not be able to add, edit, or delete Auto Call entries test
+
+Scenario: User with View and Add access for Auto Call
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with View and Add access to Setup Module Auto Call test
+Then the user should be able to view Auto Call settings test
+And the user should be able to add a new Auto Call entry test
+But the user should not be able to edit or delete Auto Call entries test
+ 
+Scenario: User with View, Add, and Edit access for Auto Call
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with View, Add, and Edit access to Setup Module Auto Call test
+Then the user should be able to view Auto Call settings test
+And the user should be able to add a new Auto Call entry test
+And the user should be able to edit an existing Auto Call entry test
+But the user should not be able to delete Auto Call entries test
+
+Scenario: User with full access (View, Add, Edit, Delete) for Auto Call
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with full access to Setup Module Auto Call test
+Then the user should be able to view Auto Call settings test
+And the user should be able to add a new Auto Call entry test
+And the user should be able to edit an existing Auto Call entry test
+And the user should be able to delete an Auto Call entry test
+
+# Connector App
+Scenario: Create user without Connector App access and check restrictions
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile without Connector App access test
+Then the user should have no Connector App access via UI or direct URL test
+
+# Spam Email
+Scenario: User with View only access for Spam Email
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with View access only to Setup Module Spam Email test
+Then the user should be able to view Spam Email settings test
+But the user should not be able to delete Spam Email entries test
+
+Scenario: User with View and Delete access for Spam Email
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with View and Delete access to Setup Module Spam Email test
+Then the user should be able to view Spam Email settings test
+And the user should be able to delete a Spam Email entry test
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+ 
+ 
+ 
+  
+  
+
+
+
+ 
+ 
+  
+  
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+  
+    
+
+
+
+
+
+
+  
+  
+  
+
+
+
+ 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+  
+  
+
+  
+  
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+  
+
+
+
+  
+  
 
 
 

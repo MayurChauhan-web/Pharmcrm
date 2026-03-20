@@ -9,6 +9,813 @@ public class setupstep {
 
 	private setuppage setupPage;
 
+	// Spam Email
+	
+	@And("the user should be able to delete a Spam Email entry test")
+	public void userWithDeletePermissionCanRemoveSpamEmailEntry() throws InterruptedException {
+		setupPage.userShouldBeAbleToDeleteSpamEmailEntry();
+
+	}
+
+	@And("I create a profile with View and Delete access to Setup Module Spam Email test")
+	public void userWithViewAndDeletePermissionCanRemoveSpamEmailEntries() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.allowSpamEmailEntriesDeletionWithViewAndDeletePermission();
+		setupPage.clickSubmitButton();
+
+	}
+
+	@And("the user should not be able to delete Spam Email entries test")
+	public void userWithoutPermissionCannotDeleteSpamEmailEntries() throws InterruptedException {
+		setupPage.userShouldNotBeAbleToDeleteSpamEmailEntries();
+
+	}
+
+	@And("the user should be able to view Spam Email settings test")
+	public void userWithViewPermissionCanAccessSpamEmailSettings() throws InterruptedException {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String spamEmailPageUrl = Hooks.prop.getProperty("spamEmailPageUrl");
+
+		Assert.assertNotNull("spamEmailPageUrl is missing in config", spamEmailPageUrl);
+
+		String fullSpamEmailUrl = baseUrl + spamEmailPageUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+		setupPage.openSpamEmailPage(fullSpamEmailUrl);
+
+		Assert.assertTrue("Spam Email settings page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Web/Home/Spams"));
+	}
+
+	@And("I create a profile with View access only to Setup Module Spam Email test")
+	public void userWithViewOnlyPermissionCanAccessSpamEmailSettings() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.allowSpamEmailSettingsViewWithPermissionOnly();
+		setupPage.clickSubmitButton();
+
+	}
+
+	// Connector App
+	@And("the user should have no Connector App access via UI or direct URL test")
+	public void userWithoutConnectorAppAccessCannotOpenViaUIOrDirectURL() throws InterruptedException {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String connectorAppsPageUrl = Hooks.prop.getProperty("connectorAppsPageUrl");
+
+		Assert.assertNotNull("connectorAppsPageUrl is missing in config", connectorAppsPageUrl);
+
+		String fullConnectorAppsUrl = baseUrl + connectorAppsPageUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+		setupPage.openConnectorAppsPage(fullConnectorAppsUrl);
+
+		setupPage.verifyNoConnectorAppAccessUIOrURL();
+
+	}
+
+	@And("I create a profile without Connector App access test")
+	public void userWithoutConnectorAppAccessCannotUseConnectorFeatures() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.denyConnectorAppAccessWithoutPermission();
+		setupPage.clickSubmitButton();
+
+	}
+
+	// Auto Call
+	@And("the user should be able to delete an Auto Call entry test")
+	public void userWithDeletePermissionCanRemoveAutoCallEntry() throws InterruptedException {
+		setupPage.verifyUserCanDeleteAutoCallEntry();
+
+	}
+
+	@And("I create a profile with full access to Setup Module Auto Call test")
+	public void userWithFullAccessCanViewAddEditAndDeleteAutoCallEntries() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.allowFullAccessToAutoCallEntriesWithPermission();
+		setupPage.clickSubmitButton();
+
+	}
+
+	@And("the user should not be able to delete Auto Call entries test")
+	public void userWithoutPermissionCannotDeleteAutoCallEntries() throws InterruptedException {
+		setupPage.verifyUserCannotDeleteAutoCallEntries();
+
+	}
+
+	@And("the user should be able to edit an existing Auto Call entry test")
+	public void userWithEditPermissionCanModifyExistingAutoCallEntry() throws InterruptedException {
+		setupPage.verifyUserCanEditAutoCallEntry();
+
+	}
+
+	@And("I create a profile with View, Add, and Edit access to Setup Module Auto Call test")
+	public void userWithViewAddAndEditPermissionCanModifyAutoCallEntries() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.allowAutoCallEntriesViewAddAndEditWithPermission();
+		setupPage.clickSubmitButton();
+
+	}
+
+	@And("the user should not be able to edit or delete Auto Call entries test")
+	public void userWithoutPermissionCannotEditOrDeleteAutoCallEntries() throws InterruptedException {
+		setupPage.verifyUserCannotEditOrDeleteAutoCallEntries();
+
+	}
+
+	@And("the user should be able to add a new Auto Call entry test")
+	public void userWithAddPermissionCanCreateNewAutoCallEntry() throws InterruptedException {
+		setupPage.verifyUserCanAddNewAutoCallEntry();
+
+	}
+
+	@And("I create a profile with View and Add access to Setup Module Auto Call test")
+	public void userWithViewAndAddPermissionCanCreateAutoCallEntry() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.allowAutoCallEntryAdditionWithViewAndAddPermission();
+		setupPage.clickSubmitButton();
+
+	}
+
+	@And("the user should not be able to add, edit, or delete Auto Call entries test")
+	public void userWithoutPermissionCannotAddEditOrDeleteAutoCallEntries() throws InterruptedException {
+		setupPage.verifyUserCannotAddEditOrDeleteAutoCallEntries();
+
+	}
+
+	@And("the user should be able to view Auto Call settings test")
+	public void userWithViewPermissionCanAccessAutoCallSettings() throws InterruptedException {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String autoCallPageUrl = Hooks.prop.getProperty("autoCallPageUrl");
+
+		Assert.assertNotNull("autoCallPageUrl is missing in config", autoCallPageUrl);
+
+		String fullAutoCallUrl = baseUrl + autoCallPageUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+		setupPage.openAutoCallPage(fullAutoCallUrl);
+
+		Assert.assertTrue("Auto Call settings page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("#autocall"));
+	}
+
+	@And("I create a profile with View access only to Setup Module Auto Call test")
+	public void userWithViewOnlyPermissionCanAccessAutoCallSettings() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.allowAutoCallSettingsViewWithPermissionOnly();
+		setupPage.clickSubmitButton();
+
+	}
+
+	// Auto Text
+	@And("the user should be able to delete an Auto Text entry test")
+	public void userWithDeletePermissionCanRemoveAutoTextEntry() throws InterruptedException {
+		setupPage.verifyUserCanDeleteAutoTextEntry();
+
+	}
+
+	@And("I create a profile with full access to Setup Module Auto Text test")
+	public void userWithFullAccessCanViewAddEditAndDeleteAutoTextEntries() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.allowFullAccessToAutoTextEntriesWithPermission();
+		setupPage.clickSubmitButton();
+
+	}
+
+	@And("the user should not be able to delete Auto Text entries test")
+	public void userWithoutPermissionCannotDeleteAutoTextEntries() throws InterruptedException {
+		setupPage.verifyUserCannotDeleteAutoTextEntries();
+
+	}
+
+	@And("the user should be able to edit an existing Auto Text entry test")
+	public void userWithEditPermissionCanModifyExistingAutoTextEntry() throws InterruptedException {
+		setupPage.verifyUserCanEditAutoTextEntry();
+
+	}
+
+	@And("I create a profile with View, Add, and Edit access to Setup Module Auto Text test")
+	public void userWithViewAddAndEditPermissionCanModifyAutoTextEntries() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.allowAutoTextEntriesViewAddAndEditWithPermission();
+		setupPage.clickSubmitButton();
+
+	}
+
+	@And("the user should not be able to edit or delete Auto Text entries test")
+	public void userWithoutPermissionCannotEditOrDeleteAutoTextEntries() throws InterruptedException {
+		setupPage.verifyUserCannotEditOrDeleteAutoTextEntries();
+
+	}
+
+	@And("the user should be able to add a new Auto Text entry test")
+	public void userWithAddPermissionCanCreateNewAutoTextEntry() throws InterruptedException {
+		setupPage.verifyUserCanAddNewAutoTextEntry();
+
+	}
+
+	@And("I create a profile with View and Add access to Setup Module Auto Text test")
+	public void userWithViewAndAddPermissionCanCreateAutoTextEntry() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.allowAutoTextEntryAdditionWithViewAndAddPermission();
+		setupPage.clickSubmitButton();
+
+	}
+
+	@And("the user should not be able to add, edit, or delete Auto Text entries test")
+	public void userWithoutPermissionCannotAddEditOrDeleteAutoTextEntries() throws InterruptedException {
+		setupPage.verifyUserCannotAddEditOrDeleteAutoTextEntries();
+
+	}
+
+	@And("the user should be able to view Auto Text settings test")
+	public void userWithViewPermissionCanAccessAutoTextSettings() throws InterruptedException {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String autoTextPageUrl = Hooks.prop.getProperty("autoTextPageUrl");
+
+		Assert.assertNotNull("autoTextPageUrl is missing in config", autoTextPageUrl);
+
+		String fullAutoTextUrl = baseUrl + autoTextPageUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+		setupPage.openAutoTextPage(fullAutoTextUrl);
+
+		Assert.assertTrue("Auto Text settings page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("#autotext"));
+	}
+
+	@And("I create a profile with View access only to Setup Module Auto Text test")
+	public void userWithViewOnlyPermissionCanAccessAutoTextSettings() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.allowAutoTextSettingsViewWithPermissionOnly();
+		setupPage.clickSubmitButton();
+
+	}
+
+	// Email Notification
+	@And("the user should be able to delete an Email Notification entry test")
+	public void userWithDeletePermissionCanRemoveEmailNotificationEntry() throws InterruptedException {
+		setupPage.verifyEmailNotificationEntryCanBeDeletedByUser();
+
+	}
+
+	@And("I create a profile with full access to Setup Module Email Notification test")
+	public void userWithFullAccessCanViewAddEditAndDeleteEmailNotificationSettings() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.allowFullAccessToEmailNotificationSettingsWithPermission();
+		setupPage.clickSubmitButton();
+
+	}
+
+	@And("the user should not be able to delete Email Notification settings test")
+	public void userWithoutPermissionCannotDeleteEmailNotificationSettings() throws InterruptedException {
+		setupPage.verifyUserCannotDeleteEmailNotificationSettings();
+
+	}
+
+	@And("the user should be able to edit an existing Email Notification entry test")
+	public void userWithEditPermissionCanModifyExistingEmailNotificationEntry() throws InterruptedException {
+		setupPage.verifyUserCanEditEmailNotificationEntry();
+
+	}
+
+	@And("I create a profile with View, Add, and Edit access to Setup Module Email Notification test")
+	public void userWithViewAddAndEditPermissionCanModifyEmailNotificationSettings() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.allowEmailNotificationSettingsViewAddAndEditWithPermission();
+		setupPage.clickSubmitButton();
+
+	}
+
+	@And("the user should not be able to edit or delete Email Notification settings test")
+	public void userWithoutPermissionCannotEditOrDeleteEmailNotificationSettings() throws InterruptedException {
+		setupPage.verifyUserCannotEditOrDeleteEmailNotificationSettings();
+
+	}
+
+	@And("the user should be able to add a new Email Notification entry test")
+	public void userWithAddPermissionCanCreateNewEmailNotificationEntry() throws InterruptedException {
+		setupPage.verifyUserCanAddEmailNotificationEntry();
+
+	}
+
+	@And("I create a profile with View and Add access to Setup Module Email Notification test")
+	public void userWithViewAndAddPermissionCanCreateEmailNotificationSettings() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.allowEmailNotificationSettingsViewAndAddWithPermission();
+		setupPage.clickSubmitButton();
+
+	}
+
+	@And("the user should not be able to add, edit, or delete Email Notification settings test")
+	public void userWithoutPermissionCannotAddEditOrDeleteEmailNotificationSettings() throws InterruptedException {
+		setupPage.verifyUserCannotAddEditOrDeleteEmailNotificationSettings();
+
+	}
+
+	@And("the user should be able to view Email Notification settings test")
+	public void userWithViewPermissionCanAccessEmailNotificationSettings() throws InterruptedException {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String emailNotificationPageUrl = Hooks.prop.getProperty("emailNotificationPageUrl");
+
+		Assert.assertNotNull("emailNotificationPageUrl is missing in config", emailNotificationPageUrl);
+
+		String fullEmailNotificationUrl = baseUrl + emailNotificationPageUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+		setupPage.openEmailNotificationPage(fullEmailNotificationUrl);
+
+		Assert.assertTrue("Email Notification settings page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("#emailnotification"));
+	}
+
+	@And("I create a profile with View access only to Setup Module Email Notification test")
+	public void userWithViewOnlyPermissionCanAccessEmailNotificationSettings() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.allowEmailNotificationSettingsViewWithPermissionOnly();
+		setupPage.clickSubmitButton();
+
+	}
+
+	// Show On Dashboard
+	@And("the user should be able to delete a Show On Dashboard entry test")
+	public void userWithDeletePermissionCanRemoveShowOnDashboardEntry() throws InterruptedException {
+		setupPage.verifyUserCanDeleteShowOnDashboardEntry();
+
+	}
+
+	@And("I create a profile with full access to Setup Module Show On Dashboard test")
+	public void userWithFullAccessCanViewAddEditAndDeleteShowOnDashboardSettings() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.allowFullAccessToShowOnDashboardSettingsWithPermission();
+		setupPage.clickSubmitButton();
+
+	}
+
+	@And("the user should not be able to delete Show On Dashboard settings test")
+	public void userWithoutPermissionCannotDeleteShowOnDashboardSettings() throws InterruptedException {
+		setupPage.verifyUserCannotDeleteShowOnDashboardSettings();
+
+	}
+
+	@And("the user should be able to edit an existing Show On Dashboard entry test")
+	public void userWithEditPermissionCanModifyExistingShowOnDashboardEntry() throws InterruptedException {
+		setupPage.verifyUserCanEditShowOnDashboardEntry();
+
+	}
+
+	@And("I create a profile with View, Add, and Edit access to Setup Module Show On Dashboard test")
+	public void userWithViewAddAndEditPermissionCanModifyShowOnDashboardSettings() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.allowShowOnDashboardSettingsViewAddAndEditWithPermission();
+		setupPage.clickSubmitButton();
+
+	}
+
+	@And("the user should not be able to edit or delete Show On Dashboard settings test")
+	public void userWithoutPermissionCannotEditOrDeleteShowOnDashboardSettings() throws InterruptedException {
+		setupPage.verifyUserCannotEditOrDeleteShowOnDashboard();
+
+	}
+
+	@And("the user should be able to add a new Show On Dashboard entry test")
+	public void userWithAddPermissionCanCreateNewShowOnDashboardEntry() throws InterruptedException {
+		setupPage.verifyUserCanAddShowOnDashboardEntry();
+
+	}
+
+	@And("I create a profile with View and Add access to Setup Module Show On Dashboard test")
+	public void userWithViewAndAddPermissionCanCreateShowOnDashboardSettings() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.allowShowOnDashboardSettingsViewAndAddWithPermission();
+		setupPage.clickSubmitButton();
+
+	}
+
+	@And("the user should not be able to add, edit, or delete Show On Dashboard settings test")
+	public void userWithoutPermissionCannotAddEditOrDeleteShowOnDashboardSettings() throws InterruptedException {
+		setupPage.verifyUserCannotAddEditDeleteShowOnDashboardSettings();
+
+	}
+
+	@And("the user should be able to view Show On Dashboard settings test")
+	public void userWithViewPermissionCanAccessShowOnDashboardSettings() throws InterruptedException {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String reminderPageUrl = Hooks.prop.getProperty("reminderPageUrl");
+
+		Assert.assertNotNull("reminderPageUrl is missing in config", reminderPageUrl);
+
+		String fullReminderUrl = baseUrl + reminderPageUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+		setupPage.openReminderPage(fullReminderUrl);
+
+		Assert.assertTrue("Show On Dashboard settings page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/Reminder"));
+	}
+
+	@And("I create a profile with View access only to Setup Module Show On Dashboard test")
+	public void userWithViewOnlyPermissionCanAccessShowOnDashboard() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.allowShowOnDashboardViewWithPermissionOnly();
+		setupPage.clickSubmitButton();
+
+	}
+
+	// MailSetting
+	@And("the user should have no Mail Setting access via UI or direct URL test")
+	public void userWithoutAccessCannotOpenMailSettingViaUiOrUrl() throws InterruptedException {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String mailSettingPageUrl = Hooks.prop.getProperty("mailSettingPageUrl");
+
+		Assert.assertNotNull("mailSettingPageUrl is missing in config", mailSettingPageUrl);
+
+		String fullMailSettingUrl = baseUrl + mailSettingPageUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+		setupPage.openMailSettingPage(fullMailSettingUrl);
+
+		setupPage.verifyUserHasNoAccessToMailSetting();
+
+	}
+
+	@And("I create a profile without Mail Setting access test")
+	public void userWithoutMailSettingAccessCannotViewOrModifySettings() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.userCannotAccessMailSettingWithoutPermission();
+		setupPage.clickSubmitButton();
+
+	}
+
+	// CentralPASettings
+
+	@And("the user should have no Central PA Setting access via UI or direct URL test")
+	public void userWithoutAccessCannotOpenCentralPaSettingViaUiOrUrl() throws InterruptedException {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String centralPASettingsPageUrl = Hooks.prop.getProperty("centralPASettingsPageUrl");
+
+		Assert.assertNotNull("centralPASettingsPageUrl is missing in config", centralPASettingsPageUrl);
+
+		String fullCentralPASettingsUrl = baseUrl + centralPASettingsPageUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+		setupPage.openCentralPASettingsPage(fullCentralPASettingsUrl);
+
+		setupPage.verifyUserHasNoAccessToCentralPASetting();
+
+	}
+
+	@And("I create a profile without Central PA Setting access test")
+	public void userWithoutCentralPaSettingAccessCannotViewOrModifySettings() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.userCannotAccessCentralPaSettingWithoutPermission();
+		setupPage.clickSubmitButton();
+
+	}
+
+	@And("the user should be able to add a new Central PA entry test")
+	public void userWithAddPermissionCanCreateNewCentralPaEntry() throws InterruptedException {
+		setupPage.verifyUserCanAddCentralPAEntry();
+
+	}
+
+	@And("I create a profile with View and Add access to Setup Module → Central PA Setting test")
+	public void userWithViewAndAddPermissionCanCreateCentralPaSetting() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.allowCentralPaSettingViewAndAddWithPermission();
+		setupPage.clickSubmitButton();
+
+	}
+
+	@And("the user should not be able to add Central PA Setting test")
+	public void userWithoutPermissionCannotAddCentralPaSetting() throws InterruptedException {
+		setupPage.verifyUserCannotAddCentralPASetting();
+
+	}
+
+	@And("the user should be able to view Central PA Setting test")
+	public void userWithViewPermissionCanAccessCentralPaSetting() throws InterruptedException {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String centralPASettingsPageUrl = Hooks.prop.getProperty("centralPASettingsPageUrl");
+
+		Assert.assertNotNull("centralPASettingsPageUrl is missing in config", centralPASettingsPageUrl);
+
+		String fullCentralPASettingsUrl = baseUrl + centralPASettingsPageUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+		setupPage.openCentralPASettingsPage(fullCentralPASettingsUrl);
+
+		Assert.assertTrue("Central PA Settings page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Web/Home/CentralPASettings"));
+
+	}
+
+	@And("I create a profile with View access only to Setup Module → Central PA Setting test")
+	public void userWithViewOnlyPermissionCanAccessCentralPaSetting() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.allowCentralPaSettingViewWithPermissionOnly();
+		setupPage.clickSubmitButton();
+
+	}
+
+	// WorkspaceUsers
+	@And("the user should be able to link and delink employee to a workspace user test")
+	public void userWithLinkAndDelinkPermissionCanManageEmployeeAssignmentsToWorkspaceUser()
+			throws InterruptedException {
+		setupPage.verifyUserCanLinkEmployeeToWorkspaceUser();
+
+	}
+
+	@And("I create a profile with View Detail, Reset Password, Change Profile, Link Employee To User, and DeLink Employee To User access to Setup Module Workspace User test")
+	public void userWithAllWorkspaceUserPermissionsCanViewResetChangeAndLinkEmployee() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.allowWorkspaceUserFullAccessWithAllPermissions();
+		setupPage.clickSubmitButton();
+
+	}
+
+	@And("the user should not be able to link or delink employee to user test")
+	public void userWithoutPermissionCannotLinkOrDelinkEmployeeToWorkspaceUser() throws InterruptedException {
+		setupPage.verifyUserCannotLinkOrDelinkEmployeeToUser();
+
+	}
+
+	@And("the user should be able to change profile for a workspace user test")
+	public void userWithChangeProfilePermissionCanUpdateWorkspaceUserProfile() throws InterruptedException {
+		setupPage.verifyUserCanChangeProfileForWorkspaceUser();
+
+	}
+
+	@And("I create a profile with View Detail, Reset Password, and Change Profile access to Setup Module → Workspace User test")
+	public void userWithViewDetailResetPasswordAndChangeProfilePermissionCanAccessWorkspaceUser() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.allowWorkspaceUserViewResetPasswordAndProfileChange();
+		setupPage.clickSubmitButton();
+
+	}
+
+	@And("the user should not be able to change profile, link or delink employee to user test")
+	public void userWithoutPermissionCannotChangeProfileOrLinkEmployee() throws InterruptedException {
+		setupPage.verifyUserCannotChangeProfileOrLinkOrDelinkEmployee();
+
+	}
+
+	@And("the user should be able to reset password for a workspace user test")
+	public void userWithResetPasswordPermissionCanResetWorkspaceUserPassword() throws InterruptedException {
+		setupPage.verifyUserCanResetPasswordForWorkspaceUser();
+
+	}
+
+	@And("I create a profile with View Detail and Reset Password access to Setup Module → Workspace User test")
+	public void userWithViewDetailAndResetPasswordPermissionCanAccessWorkspaceUser() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.allowWorkspaceUserViewAndPasswordResetOnly();
+		setupPage.clickSubmitButton();
+
+	}
+
+	@And("the user should not be able to reset password, change profile, link or delink employee to user test")
+	public void userCannotResetPasswordChangeProfileOrLinkEmployee() throws InterruptedException {
+		setupPage.verifyUserCannotResetPasswordChangeProfileOrLinkEmployee();
+
+	}
+
+	@And("the user should be able to view workspace user details test")
+	public void userWithViewDetailPermissionCanAccessWorkspaceUserDetails() throws InterruptedException {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String workspaceUsersPageUrl = Hooks.prop.getProperty("workspaceUsersPageUrl");
+
+		Assert.assertNotNull("workspaceUsersPageUrl is missing in config", workspaceUsersPageUrl);
+
+		String fullWorkspaceUsersUrl = baseUrl + workspaceUsersPageUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+		setupPage.openWorkspaceUsersPage(fullWorkspaceUsersUrl);
+
+		Assert.assertTrue("Workspace Users page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/WorkspaceUsers"));
+
+		setupPage.verifyUserCanViewWorkspaceUserDetails();
+
+	}
+
+	@And("I create a profile with View Detail access only to Setup Module → Workspace User test")
+	public void userWithViewDetailOnlyPermissionCanAccessWorkspaceUser() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.userWithOnlyViewDetailPermissionRestrictedToWorkspaceUser();
+		setupPage.clickSubmitButton();
+
+	}
+
+	// Mails
+	@And("the user should have no Mail View access via UI or direct URL test")
+	public void denyMailPageAccessWithoutViewPermissionUiOrUrl() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String mailsPageUrl = Hooks.prop.getProperty("mailsPageUrl");
+
+		Assert.assertNotNull("mailsPageUrl is missing in config", mailsPageUrl);
+
+		String fullUrl = baseUrl + mailsPageUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+
+		setupPage.openMailsPage(fullUrl);
+
+		Assert.assertTrue("Mail Settings page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/Mails"));
+	}
+
+	@And("I create a profile without Mail View permission to Mail Page test")
+	public void userWithoutMailViewPermissionCannotAccessViaUiOrUrl() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.denyMailPageAccessWithoutViewPermissionUiOrUrl();
+		setupPage.clickSubmitButton();
+
+	}
+
+	// Faxes
+	@And("the user should have no Fax View access via UI or direct URL test")
+	public void userWithoutFaxViewPermissionCannotAccessViaUiOrUrl() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String faxesPageUrl = Hooks.prop.getProperty("faxesPageUrl");
+
+		Assert.assertNotNull("faxesPageUrl is missing in config", faxesPageUrl);
+
+		String fullUrl = baseUrl + faxesPageUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+
+		setupPage.openFaxesPage(fullUrl);
+
+		setupPage.verifyUserHasNoAccessToFaxPageViaUIOrURL();
+
+	}
+
+	@And("I create a profile without Fax View permission to Fax Page test")
+	public void userWithoutFaxViewPermissionCannotAccessFaxPage() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.denyFaxPageAccessWithoutViewPermission();
+		setupPage.clickSubmitButton();
+
+	}
+
+	// BOTCalls
+	@And("the user should have no BOT Call View access via UI or direct URL test")
+	public void userWithoutBotCallViewPermissionCannotAccessViaUiOrUrl() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String botCallsPageUrl = Hooks.prop.getProperty("botCallsPageUrl");
+
+		Assert.assertNotNull("botCallsPageUrl is missing in config", botCallsPageUrl);
+
+		String fullUrl = baseUrl + botCallsPageUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+
+		setupPage.openBotCallsPage(fullUrl);
+
+		setupPage.verifyUserHasNoAccessToBotCallPageViaUIOrURL();
+
+	}
+
+	@And("I create a profile without BOT Call View permission to BOT Call Page test")
+	public void testProfileWithoutBotCallViewPermission() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.userWithoutBotCallViewPermissionCannotAccessBotCallPage();
+		setupPage.clickSubmitButton();
+
+	}
+
 	// CallActivities
 	@And("the user should have no Call Activity access via UI or direct URL test")
 	public void userShouldNotBeAbleToAccessCallActivityPageViaUiOrDirectUrl() {

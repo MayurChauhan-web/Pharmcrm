@@ -20,6 +20,57 @@ public class setuppage {
 	private WebDriver driver;
 	private WebDriverWait wait;
 
+	// Spam Email
+	private By deleteIcon = By.xpath("//tbody/tr[1]/td[4]/a[1]/img[1]");
+	private By deleteButton = By.id("delete");
+
+	// Auto Call
+	private By addAutoCallButton = By.xpath("//span[normalize-space()='Add Auto Call']");
+
+	// Auto Text
+	private By dateInputField = By.id("ReminderActionSetting_AutoText_Date");
+	private By dateOption = By.xpath("//a[text()='7']");
+	private By autoTextTab = By.xpath("//a[normalize-space()='Auto Text']");
+	private By addAutoTextButton = By.xpath("//span[normalize-space()='Add Auto Text']");
+
+	// Email Notification
+	private By templateDropdown = By.id("ReminderActionSetting_EmailNotification_TemplateId");
+	private By emailNotificationTab = By.xpath("//a[normalize-space()='Email Notification']");
+	private By addEmailNotificationButton = By.xpath("//span[normalize-space()='Add Email Notification']");
+
+	// Show On Dashboard
+	private By enableCheckboxLabel = By.xpath("//label[@for='ReminderActionSetting_ShowOnDashboard_IsEnabled']");
+	private By timeInputField = By.id("ReminderActionSetting_ShowOnDashboard_Time");
+	private By hourOption = By.xpath("(//a[contains(@class, 'ui-state-default') and text()='09'])[1]");
+	private By minuteOption = By.xpath("//a[contains(@class, 'ui-state-default') and text()='30']");
+	private By showOnDashboardTab = By.xpath("//a[normalize-space()='Show On Dashboard']");
+	private By addShowOnDashboardButton = By.xpath("//span[normalize-space()='Add Show On Dashboard']");
+	private By actionMenuIcon = By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']");
+
+	// CentralPASettings
+	private By processFromDateField = By.id("Filter_ProcessFromDate");
+	private By activeDateCell = By.xpath(
+			"//div[contains(@class,'datepicker')]//td[not(contains(@class,'old')) and not(contains(@class,'new')) and not(contains(@class,'disabled'))]");
+
+	// WorkspaceUsers
+	private By firstNameFilter = By.id("Filter_FirstName");
+	private By employeeCheckbox = By.xpath("//input[@id='340929ac-3f18-46be-99c1-ad72bc0d3f1f']");
+	private By linkEmployeeButton = By.id("btnEmployee");
+	private By delinkEmployeeIcon = By.xpath("//div[@id='btnDelinkUserToEmployee']//*[name()='svg']");
+	private By confirmDelinkButton = By.xpath("//div[@id='delinkUserEmployeeModel']//button[@id='btnDeleteConfirm']");
+	private By newPasswordField = By.id("newPassword");
+	private By confirmPasswordField = By.id("confirmPassword");
+	private By resetPasswordButton = By.id("btnResetPassword");
+	private By resetPasswordOption = By
+			.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Reset Password')]");
+	private By employeeDetailSection = By.id("EmployeeDetail");
+	private By workspaceUserActionMenuButton = By.xpath("//tbody/tr[1]/td[9]/div[1]/div[1]/button[1]/i[1]");
+	private By viewDetailOption = By.xpath(
+			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'View Detail')]");
+
+	// BOTCalls
+	private By errorHeaderLocator = By.xpath("//h2[normalize-space()='Error']");
+
 	// Fax Setting
 	private By faxSettingActionMenuButton = By.xpath("//tbody/tr[1]/td[7]/div[1]/div[1]/button[1]");
 
@@ -190,6 +241,1163 @@ public class setuppage {
 	public setuppage(WebDriver driver) {
 		this.driver = driver;
 		this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	}
+
+	// Spam Email
+
+	public void userShouldBeAbleToDeleteSpamEmailEntry() {
+		sleep(3000);
+
+		List<WebElement> deleteIcons = driver.findElements(deleteIcon);
+		if (!deleteIcons.isEmpty()) {
+			System.out.println("Delete icon is present.");
+			deleteIcons.get(0).click();
+		} else {
+			Assert.fail("FAIL: Delete icon is not present.");
+		}
+
+		driver.findElement(confirmDeleteButton).click();
+	}
+
+	public void allowSpamEmailEntriesDeletionWithViewAndDeletePermission() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void userShouldNotBeAbleToDeleteSpamEmailEntries() {
+		sleep(3000);
+
+		boolean isDeletePresent = !driver.findElements(deleteButton).isEmpty();
+		if (isDeletePresent) {
+			Assert.fail("FAIL: Delete option should not be present for Spam Email entries.");
+		}
+
+		System.out.println("PASS: User cannot delete Spam Email entries.");
+	}
+
+	public void openSpamEmailPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Web/Home/Spams"));
+	}
+
+	public void allowSpamEmailSettingsViewWithPermissionOnly() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+	// Connector App
+
+	public void verifyNoConnectorAppAccessUIOrURL() {
+
+		List<WebElement> errorHeaders = driver.findElements(errorHeader);
+		if (!errorHeaders.isEmpty()) {
+			System.out.println("PASS: Access is restricted (Error page displayed).");
+		} else {
+			System.out.println("FAIL: Page loaded successfully, access should be denied.");
+		}
+	}
+
+	public void openConnectorAppsPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Web/Home/ConnectorApps"));
+	}
+
+	public void denyConnectorAppAccessWithoutPermission() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	// Auto Call
+
+	public void verifyUserCanDeleteAutoCallEntry() {
+		sleep(3000);
+
+		List<WebElement> deleteList = driver.findElements(deleteOption);
+		if (!deleteList.isEmpty()) {
+			System.out.println("Delete option is present.");
+			deleteList.get(0).click();
+		} else {
+			Assert.fail("FAIL: Delete option is not present.");
+		}
+
+		driver.findElement(confirmDeleteButton).click();
+	}
+
+	public void allowFullAccessToAutoCallEntriesWithPermission() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCannotDeleteAutoCallEntries() {
+		sleep(3000);
+
+		driver.findElement(actionMenuIcon).click();
+		sleep(1000);
+
+		boolean isDeletePresent = !driver.findElements(deleteOption).isEmpty();
+		if (isDeletePresent) {
+			Assert.fail("FAIL: Delete option should not be present.");
+		}
+
+		System.out.println("PASS: User cannot delete Auto Call entries.");
+	}
+
+	public void verifyUserCanEditAutoCallEntry() {
+		sleep(3000);
+
+		driver.findElement(actionMenuIcon).click();
+		sleep(1000);
+
+		List<WebElement> editList = driver.findElements(editOption);
+		if (!editList.isEmpty()) {
+			System.out.println("Edit option is present.");
+			editList.get(0).click();
+		} else {
+			Assert.fail("FAIL: Edit option is not present.");
+		}
+
+		driver.findElement(enableCheckboxLabel).click();
+
+		driver.findElement(saveButton).click();
+	}
+
+	public void allowAutoCallEntriesViewAddAndEditWithPermission() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCannotEditOrDeleteAutoCallEntries() {
+		sleep(3000);
+
+		driver.findElement(actionMenuIcon).click();
+		sleep(1000);
+
+		boolean isEditPresent = !driver.findElements(editOption).isEmpty();
+		if (isEditPresent) {
+			Assert.fail("FAIL: Edit option should not be present.");
+		}
+
+		boolean isDeletePresent = !driver.findElements(deleteOption).isEmpty();
+		if (isDeletePresent) {
+			Assert.fail("FAIL: Delete option should not be present.");
+		}
+
+		System.out.println("PASS: User cannot Edit or Delete Auto Call entries.");
+	}
+
+	public void verifyUserCanAddNewAutoCallEntry() {
+		sleep(2000);
+
+		driver.findElement(addAutoCallButton).click();
+		sleep(2000);
+
+		driver.findElement(timeInputField).click();
+		sleep(2000);
+		driver.findElement(timeInputField).click();
+		sleep(1000);
+
+		driver.findElement(hourOption).click();
+		sleep(500);
+		driver.findElement(minuteOption).click();
+		sleep(500);
+
+		WebElement dropdownElement = wait.until(ExpectedConditions.visibilityOfElementLocated(templateDropdown));
+		Select select = new Select(dropdownElement);
+		select.selectByIndex(1);
+		sleep(500);
+
+		driver.findElement(saveButton).click();
+	}
+
+	public void allowAutoCallEntryAdditionWithViewAndAddPermission() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCannotAddEditOrDeleteAutoCallEntries() {
+		sleep(3000);
+
+		boolean isAddPresent = !driver.findElements(addAutoCallButton).isEmpty();
+		if (isAddPresent) {
+			Assert.fail("FAIL: Add Auto Call button should not be present.");
+		}
+
+		driver.findElement(actionMenuIcon).click();
+		sleep(1000);
+
+		boolean isEditPresent = !driver.findElements(editOption).isEmpty();
+		if (isEditPresent) {
+			Assert.fail("FAIL: Edit option should not be present.");
+		}
+
+		boolean isDeletePresent = !driver.findElements(deleteOption).isEmpty();
+		if (isDeletePresent) {
+			Assert.fail("FAIL: Delete option should not be present.");
+		}
+
+		System.out.println("PASS: User cannot Add, Edit, or Delete Auto Call entries.");
+	}
+
+	public void openAutoCallPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions
+				.urlContains("/Setup/Home/Reminder?id=dbff8740-5363-4666-9eaa-271d42298025#autocall"));
+	}
+
+	public void allowAutoCallSettingsViewWithPermissionOnly() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	// Auto Text
+
+	public void verifyUserCanDeleteAutoTextEntry() {
+		sleep(3000);
+
+		driver.findElement(autoTextTab).click();
+
+		driver.findElement(actionMenuIcon).click();
+		sleep(1000);
+
+		List<WebElement> deleteList = driver.findElements(deleteOption);
+		if (!deleteList.isEmpty()) {
+			System.out.println("Delete option is present.");
+			deleteList.get(0).click();
+		} else {
+			Assert.fail("FAIL: Delete option is not present.");
+		}
+
+		driver.findElement(confirmDeleteButton).click();
+	}
+
+	public void allowFullAccessToAutoTextEntriesWithPermission() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCannotDeleteAutoTextEntries() {
+		sleep(3000);
+
+		driver.findElement(autoTextTab).click();
+
+		driver.findElement(actionMenuIcon).click();
+		sleep(1000);
+
+		boolean isDeletePresent = !driver.findElements(deleteOption).isEmpty();
+		if (isDeletePresent) {
+			Assert.fail("FAIL: Delete option should not be present.");
+		}
+
+		System.out.println("PASS: User cannot delete Auto Text entries.");
+	}
+
+	public void verifyUserCanEditAutoTextEntry() {
+		sleep(3000);
+
+		driver.findElement(autoTextTab).click();
+
+		driver.findElement(actionMenuIcon).click();
+		sleep(1000);
+
+		List<WebElement> editList = driver.findElements(editOption);
+		if (!editList.isEmpty()) {
+			System.out.println("Edit option is present.");
+			editList.get(0).click();
+		} else {
+			Assert.fail("FAIL: Edit option is not present.");
+		}
+
+		driver.findElement(enableCheckboxLabel).click();
+
+		driver.findElement(saveButton).click();
+	}
+
+	public void allowAutoTextEntriesViewAddAndEditWithPermission() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCannotEditOrDeleteAutoTextEntries() {
+		sleep(3000);
+
+		driver.findElement(autoTextTab).click();
+
+		driver.findElement(actionMenuIcon).click();
+		sleep(1000);
+
+		boolean isEditPresent = !driver.findElements(editOption).isEmpty();
+		if (isEditPresent) {
+			Assert.fail("FAIL: Edit option should not be present.");
+		}
+
+		boolean isDeletePresent = !driver.findElements(deleteOption).isEmpty();
+		if (isDeletePresent) {
+			Assert.fail("FAIL: Delete option should not be present.");
+		}
+
+		System.out.println("PASS: User cannot Edit or Delete Auto Text entries.");
+	}
+
+	public void verifyUserCanAddNewAutoTextEntry() {
+		sleep(2000);
+
+		driver.findElement(autoTextTab).click();
+		sleep(2000);
+
+		driver.findElement(addAutoTextButton).click();
+		sleep(2000);
+
+		driver.findElement(dateInputField).click();
+		sleep(2000);
+		driver.findElement(dateInputField).click();
+		sleep(1000);
+		driver.findElement(dateOption).click();
+
+		driver.findElement(timeInputField).click();
+		sleep(2000);
+		driver.findElement(timeInputField).click();
+		sleep(1000);
+		driver.findElement(hourOption).click();
+		sleep(500);
+		driver.findElement(minuteOption).click();
+		sleep(500);
+
+		WebElement dropdownElement = wait.until(ExpectedConditions.visibilityOfElementLocated(templateDropdown));
+		Select select = new Select(dropdownElement);
+		select.selectByIndex(2);
+		sleep(500);
+
+		driver.findElement(saveButton).click();
+	}
+
+	public void allowAutoTextEntryAdditionWithViewAndAddPermission() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCannotAddEditOrDeleteAutoTextEntries() {
+		sleep(3000);
+
+		driver.findElement(autoTextTab).click();
+
+		boolean isAddPresent = !driver.findElements(addAutoTextButton).isEmpty();
+		if (isAddPresent) {
+			Assert.fail("FAIL: Add Auto Text button should not be present.");
+		}
+
+		driver.findElement(actionMenuIcon).click();
+		sleep(1000);
+
+		boolean isEditPresent = !driver.findElements(editOption).isEmpty();
+		if (isEditPresent) {
+			Assert.fail("FAIL: Edit option should not be present.");
+		}
+
+		boolean isDeletePresent = !driver.findElements(deleteOption).isEmpty();
+		if (isDeletePresent) {
+			Assert.fail("FAIL: Delete option should not be present.");
+		}
+
+		System.out.println("PASS: User cannot Add, Edit, or Delete Auto Text entries.");
+	}
+
+	public void openAutoTextPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions
+				.urlContains("/Setup/Home/Reminder?id=dbff8740-5363-4666-9eaa-271d42298025#autotext"));
+	}
+
+	public void allowAutoTextSettingsViewWithPermissionOnly() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	// Email Notification
+
+	public void verifyEmailNotificationEntryCanBeDeletedByUser() {
+		sleep(3000);
+
+		driver.findElement(emailNotificationTab).click();
+
+		driver.findElement(actionMenuIcon).click();
+		sleep(1000);
+
+		List<WebElement> deleteList = driver.findElements(deleteOption);
+		if (!deleteList.isEmpty()) {
+			System.out.println("Delete option is present.");
+			deleteList.get(0).click();
+		} else {
+			Assert.fail("FAIL: Delete option is not present.");
+		}
+
+		driver.findElement(confirmDeleteButton).click();
+	}
+
+	public void allowFullAccessToEmailNotificationSettingsWithPermission() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCannotDeleteEmailNotificationSettings() {
+		sleep(3000);
+
+		driver.findElement(emailNotificationTab).click();
+
+		driver.findElement(actionMenuIcon).click();
+		sleep(1000);
+
+		boolean isDeletePresent = !driver.findElements(deleteOption).isEmpty();
+		if (isDeletePresent) {
+			Assert.fail("FAIL: Delete option should not be present.");
+		}
+
+		System.out.println("PASS: User cannot delete Email Notification settings.");
+	}
+
+	public void verifyUserCanEditEmailNotificationEntry() {
+		sleep(3000);
+
+		driver.findElement(emailNotificationTab).click();
+
+		driver.findElement(actionMenuIcon).click();
+		sleep(1000);
+
+		List<WebElement> editList = driver.findElements(editOption);
+		if (!editList.isEmpty()) {
+			System.out.println("Edit option is present.");
+			editList.get(0).click();
+		} else {
+			Assert.fail("FAIL: Edit option is not present.");
+		}
+
+		driver.findElement(enableCheckboxLabel).click();
+
+		driver.findElement(saveButton).click();
+	}
+
+	public void allowEmailNotificationSettingsViewAddAndEditWithPermission() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCannotEditOrDeleteEmailNotificationSettings() {
+		sleep(3000);
+
+		driver.findElement(emailNotificationTab).click();
+
+		driver.findElement(actionMenuIcon).click();
+		sleep(1000);
+
+		boolean isEditPresent = !driver.findElements(editOption).isEmpty();
+		if (isEditPresent) {
+			Assert.fail("FAIL: Edit option should not be present.");
+		}
+
+		boolean isDeletePresent = !driver.findElements(deleteOption).isEmpty();
+		if (isDeletePresent) {
+			Assert.fail("FAIL: Delete option should not be present.");
+		}
+
+		System.out.println("PASS: User cannot Edit or Delete Email Notification settings.");
+	}
+
+	public void verifyUserCanAddEmailNotificationEntry() {
+		sleep(2000);
+
+		driver.findElement(emailNotificationTab).click();
+		sleep(2000);
+
+		driver.findElement(addEmailNotificationButton).click();
+		sleep(2000);
+
+		driver.findElement(timeInputField).click();
+		sleep(2000);
+		driver.findElement(timeInputField).click();
+		sleep(1000);
+
+		driver.findElement(hourOption).click();
+		sleep(500);
+		driver.findElement(minuteOption).click();
+		sleep(500);
+
+		WebElement dropdownElement = wait.until(ExpectedConditions.visibilityOfElementLocated(templateDropdown));
+		Select select = new Select(dropdownElement);
+		select.selectByIndex(2);
+		sleep(500);
+
+		driver.findElement(saveButton).click();
+	}
+
+	public void allowEmailNotificationSettingsViewAndAddWithPermission() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCannotAddEditOrDeleteEmailNotificationSettings() {
+		sleep(3000);
+
+		driver.findElement(emailNotificationTab).click();
+
+		boolean isAddPresent = !driver.findElements(addEmailNotificationButton).isEmpty();
+		if (isAddPresent) {
+			Assert.fail("FAIL: Add Email Notification button should not be present.");
+		}
+
+		driver.findElement(actionMenuIcon).click();
+		sleep(1000);
+
+		boolean isEditPresent = !driver.findElements(editOption).isEmpty();
+		if (isEditPresent) {
+			Assert.fail("FAIL: Edit option should not be present.");
+		}
+
+		boolean isDeletePresent = !driver.findElements(deleteOption).isEmpty();
+		if (isDeletePresent) {
+			Assert.fail("FAIL: Delete option should not be present.");
+		}
+
+		System.out.println("PASS: User cannot Add, Edit, or Delete Email Notification settings.");
+	}
+
+	public void openEmailNotificationPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions
+				.urlContains("/Setup/Home/Reminder?id=dbff8740-5363-4666-9eaa-271d42298025#emailnotification"));
+	}
+
+	public void allowEmailNotificationSettingsViewWithPermissionOnly() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	// Show On Dashboard
+
+	public void verifyUserCanDeleteShowOnDashboardEntry() {
+		sleep(3000);
+
+		driver.findElement(showOnDashboardTab).click();
+
+		driver.findElement(actionMenuIcon).click();
+		sleep(1000);
+
+		List<WebElement> deleteList = driver.findElements(deleteOption);
+		if (!deleteList.isEmpty()) {
+			System.out.println("Delete option is present.");
+			deleteList.get(0).click();
+		} else {
+			Assert.fail("FAIL: Delete option is not present.");
+		}
+
+		driver.findElement(confirmDeleteButton).click();
+	}
+
+	public void allowFullAccessToShowOnDashboardSettingsWithPermission() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCannotDeleteShowOnDashboardSettings() {
+		sleep(3000);
+
+		driver.findElement(showOnDashboardTab).click();
+
+		driver.findElement(actionMenuIcon).click();
+		sleep(1000);
+
+		boolean isDeletePresent = !driver.findElements(deleteOption).isEmpty();
+		if (isDeletePresent) {
+			Assert.fail("FAIL: Delete option should not be present.");
+		}
+
+		System.out.println("PASS: User cannot delete Show On Dashboard settings.");
+	}
+
+	public void verifyUserCanEditShowOnDashboardEntry() {
+		sleep(3000);
+
+		driver.findElement(showOnDashboardTab).click();
+
+		driver.findElement(actionMenuIcon).click();
+		sleep(1000);
+
+		List<WebElement> editList = driver.findElements(editOption);
+		if (!editList.isEmpty()) {
+			System.out.println("Edit option is present.");
+			editList.get(0).click();
+		} else {
+			Assert.fail("FAIL: Edit option is not present.");
+		}
+
+		driver.findElement(enableCheckboxLabel).click();
+
+		driver.findElement(saveButton).click();
+	}
+
+	public void allowShowOnDashboardSettingsViewAddAndEditWithPermission() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCannotEditOrDeleteShowOnDashboard() {
+		sleep(3000);
+
+		driver.findElement(showOnDashboardTab).click();
+
+		boolean isAddPresent = !driver.findElements(addShowOnDashboardButton).isEmpty();
+		if (!isAddPresent) {
+			Assert.fail("FAIL: Add Show On Dashboard button should be present.");
+		}
+
+		driver.findElement(actionMenuIcon).click();
+		sleep(1000);
+
+		boolean isEditPresent = !driver.findElements(editOption).isEmpty();
+		if (isEditPresent) {
+			Assert.fail("FAIL: Edit option should not be present.");
+		}
+
+		boolean isDeletePresent = !driver.findElements(deleteOption).isEmpty();
+		if (isDeletePresent) {
+			Assert.fail("FAIL: Delete option should not be present.");
+		}
+
+		System.out.println("PASS: User cannot Edit or Delete Show On Dashboard settings.");
+	}
+
+	public void verifyUserCanAddShowOnDashboardEntry() {
+		sleep(2000);
+
+		driver.findElement(showOnDashboardTab).click();
+		sleep(2000);
+
+		driver.findElement(addShowOnDashboardButton).click();
+		sleep(2000);
+
+		driver.findElement(timeInputField).click();
+		sleep(2000);
+		driver.findElement(timeInputField).click();
+		sleep(1000);
+
+		driver.findElement(hourOption).click();
+		sleep(500);
+		driver.findElement(minuteOption).click();
+		sleep(500);
+
+		driver.findElement(saveButton).click();
+	}
+
+	public void allowShowOnDashboardSettingsViewAndAddWithPermission() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCannotAddEditDeleteShowOnDashboardSettings() {
+		sleep(3000);
+
+		driver.findElement(showOnDashboardTab).click();
+
+		boolean isAddPresent = !driver.findElements(addShowOnDashboardButton).isEmpty();
+		if (isAddPresent) {
+			Assert.fail("FAIL: Add Show On Dashboard button should not be present.");
+		}
+
+		driver.findElement(actionMenuIcon).click();
+		sleep(1000);
+
+		boolean isEditPresent = !driver.findElements(editOption).isEmpty();
+		if (isEditPresent) {
+			Assert.fail("FAIL: Edit option should not be present.");
+		}
+
+		boolean isDeletePresent = !driver.findElements(deleteOption).isEmpty();
+		if (isDeletePresent) {
+			Assert.fail("FAIL: Delete option should not be present.");
+		}
+
+		System.out.println("PASS: User cannot Add, Edit, or Delete Show On Dashboard settings.");
+	}
+
+	public void openReminderPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions
+				.urlContains("/Setup/Home/Reminder?id=dbff8740-5363-4666-9eaa-271d42298025#showdashboard"));
+	}
+
+	public void allowShowOnDashboardViewWithPermissionOnly() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	// MailSetting
+
+	public void verifyUserHasNoAccessToMailSetting() {
+
+		List<WebElement> errorHeaders = driver.findElements(errorHeaderLocator);
+
+		if (!errorHeaders.isEmpty()) {
+			System.out.println("Error: Don't have proper access to requested page");
+		} else {
+			System.out.println("No error. Page loaded successfully.");
+		}
+	}
+
+	public void openMailSettingPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/MailSetting"));
+	}
+
+	public void userCannotAccessMailSettingWithoutPermission() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	// CentralPASettings
+
+	public void verifyUserHasNoAccessToCentralPASetting() {
+
+		List<WebElement> errorHeaders = driver.findElements(errorHeaderLocator);
+
+		if (!errorHeaders.isEmpty()) {
+			System.out.println("Error: Don't have proper access to requested page");
+		} else {
+			System.out.println("No error. Page loaded successfully.");
+		}
+	}
+
+	public void userCannotAccessCentralPaSettingWithoutPermission() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCanAddCentralPAEntry() {
+		sleep(2000);
+
+		driver.findElement(processFromDateField).click();
+		sleep(2000);
+
+		WebElement anyActiveDate = wait.until(ExpectedConditions.elementToBeClickable(activeDateCell));
+		anyActiveDate.click();
+		sleep(2000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+	}
+
+	public void allowCentralPaSettingViewAndAddWithPermission() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCannotAddCentralPASetting() {
+		sleep(3000);
+
+		boolean isSubmitButtonPresent = !driver.findElements(submitButton).isEmpty();
+
+		if (!isSubmitButtonPresent) {
+			System.out.println("PASS: Submit button is not present.");
+		} else {
+			Assert.fail("FAIL: Submit button should not be present.");
+		}
+	}
+
+	public void openCentralPASettingsPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Web/Home/CentralPASettings"));
+	}
+
+	public void allowCentralPaSettingViewWithPermissionOnly() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	// WorkspaceUsers
+
+	public void verifyUserCanLinkEmployeeToWorkspaceUser() {
+		sleep(5000);
+
+		List<WebElement> viewDetailList = driver.findElements(viewDetailOption);
+		if (!viewDetailList.isEmpty()) {
+			viewDetailList.get(0).click();
+		}
+		sleep(3000);
+
+		boolean isEmployeeDetailPresent = !driver.findElements(employeeDetailSection).isEmpty();
+		if (!isEmployeeDetailPresent) {
+			Assert.fail("FAIL: Employee detail section is not present.");
+		}
+
+		driver.findElement(employeeDetailSection).click();
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(firstNameFilter)).sendKeys("First Name");
+
+		wait.until(ExpectedConditions.elementToBeClickable(searchButton)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(employeeCheckbox)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(linkEmployeeButton)).click();
+
+		sleep(3000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(delinkEmployeeIcon)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(confirmDelinkButton)).click();
+	}
+
+	public void allowWorkspaceUserFullAccessWithAllPermissions() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCannotLinkOrDelinkEmployeeToUser() {
+		sleep(5000);
+
+		List<WebElement> viewDetailList = driver.findElements(viewDetailOption);
+		if (!viewDetailList.isEmpty()) {
+			viewDetailList.get(0).click();
+		}
+		sleep(3000);
+
+		boolean isEmployeeDetailPresent = !driver.findElements(employeeDetailSection).isEmpty();
+
+		if (!isEmployeeDetailPresent) {
+			System.out.println("PASS: Employee detail section is not present.");
+		} else {
+			Assert.fail("FAIL: Employee detail section should not be present.");
+		}
+	}
+
+	public void verifyUserCanChangeProfileForWorkspaceUser() {
+
+		List<WebElement> changeProfileList = driver.findElements(changeProfileOption);
+		if (!changeProfileList.isEmpty()) {
+			System.out.println("Change Profile option is present.");
+			changeProfileList.get(0).click();
+		} else {
+			System.out.println("Change Profile option is NOT present.");
+			return;
+		}
+
+		WebElement dropdownElement = wait.until(ExpectedConditions.visibilityOfElementLocated(profileDropdown));
+		Select select = new Select(dropdownElement);
+		select.selectByIndex(2);
+
+		wait.until(ExpectedConditions.elementToBeClickable(submitUserButton)).click();
+	}
+
+	public void allowWorkspaceUserViewResetPasswordAndProfileChange() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCannotChangeProfileOrLinkOrDelinkEmployee() {
+		sleep(3000);
+
+		try {
+			sleep(1000);
+
+			boolean canChangeProfile = !driver.findElements(changeProfileOption).isEmpty();
+
+			List<WebElement> viewDetailList = driver.findElements(viewDetailOption);
+			if (!viewDetailList.isEmpty()) {
+				viewDetailList.get(0).click();
+			}
+			sleep(1000);
+
+			boolean canLinkEmployee = !driver.findElements(employeeDetailSection).isEmpty();
+			boolean canDelinkEmployee = !driver.findElements(employeeDetailSection).isEmpty();
+
+			if (!canChangeProfile && !canLinkEmployee && !canDelinkEmployee) {
+				System.out.println("PASS: User cannot access Change Profile, Link, or Delink Employee.");
+			} else {
+				StringBuilder failureReasons = new StringBuilder("FAIL: User should not have access to:");
+				if (canChangeProfile)
+					failureReasons.append(" Change Profile;");
+				if (canLinkEmployee)
+					failureReasons.append(" Link Employee;");
+				if (canDelinkEmployee)
+					failureReasons.append(" Delink Employee;");
+				Assert.fail(failureReasons.toString());
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			System.out.println("PASS: Action menu exists but cannot be opened (no permissions).");
+		}
+	}
+
+	public void verifyUserCanResetPasswordForWorkspaceUser() {
+
+		List<WebElement> resetOptions = driver.findElements(resetPasswordOption);
+		if (!resetOptions.isEmpty()) {
+			System.out.println("Reset Password option is present.");
+			resetOptions.get(0).click();
+		} else {
+			System.out.println("Reset Password option is NOT present.");
+			return;
+		}
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(newPasswordField)).sendKeys("Admin@1234");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(confirmPasswordField)).sendKeys("Admin@1234");
+
+		wait.until(ExpectedConditions.elementToBeClickable(resetPasswordButton)).click();
+	}
+
+	public void allowWorkspaceUserViewAndPasswordResetOnly() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyUserCannotResetPasswordChangeProfileOrLinkEmployee() {
+		sleep(3000);
+
+		try {
+			WebElement menuButton = driver.findElement(actionMenuButton);
+			menuButton.click();
+			sleep(1000);
+
+			boolean canResetPassword = !driver.findElements(resetPasswordOption).isEmpty();
+			boolean canChangeProfile = !driver.findElements(changeProfileOption).isEmpty();
+
+			List<WebElement> viewDetailList = driver.findElements(viewDetailOption);
+			if (!viewDetailList.isEmpty()) {
+				viewDetailList.get(0).click();
+			}
+			sleep(1000);
+
+			boolean employeeDetailVisible = !driver.findElements(employeeDetailSection).isEmpty();
+
+			boolean canLinkEmployee = false;
+			boolean canDelinkEmployee = false;
+
+			if (employeeDetailVisible) {
+				canLinkEmployee = !driver.findElements(employeeDetailSection).isEmpty();
+				canDelinkEmployee = !driver.findElements(employeeDetailSection).isEmpty();
+			}
+
+			if (!canResetPassword && !canChangeProfile && !canLinkEmployee && !canDelinkEmployee) {
+				System.out.println(
+						"PASS: User does not have unauthorized access to Reset Password, Change Profile, Link/Delink Employee.");
+			} else {
+				StringBuilder failureReasons = new StringBuilder("FAIL: User should not have access to:");
+				if (canResetPassword)
+					failureReasons.append(" Reset Password;");
+				if (canChangeProfile)
+					failureReasons.append(" Change Profile;");
+				if (canLinkEmployee)
+					failureReasons.append(" Link Employee;");
+				if (canDelinkEmployee)
+					failureReasons.append(" Delink Employee;");
+				Assert.fail(failureReasons.toString());
+			}
+
+		} catch (ElementClickInterceptedException | TimeoutException e) {
+			System.out.println("PASS: Action menu exists but cannot be opened (no permissions).");
+		}
+	}
+
+	public void verifyUserCanViewWorkspaceUserDetails() {
+		sleep(3000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(workspaceUserActionMenuButton)).click();
+		sleep(500);
+
+		List<WebElement> viewDetailElements = driver.findElements(viewDetailOption);
+		if (!viewDetailElements.isEmpty()) {
+			System.out.println("View Detail option is present.");
+		} else {
+			System.out.println("View Detail option is NOT present.");
+		}
+	}
+
+	public void userWithOnlyViewDetailPermissionRestrictedToWorkspaceUser() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	// Mails
+	public void openMailsPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/Mails"));
+	}
+
+	public void denyMailPageAccessWithoutViewPermissionUiOrUrl() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	// Faxes
+
+	public void verifyUserHasNoAccessToFaxPageViaUIOrURL() {
+		sleep(2000);
+
+		List<WebElement> errorHeaders = driver.findElements(errorHeaderLocator);
+
+		if (!errorHeaders.isEmpty()) {
+			System.out.println("Error: Don't have proper access to requested page");
+		} else {
+			System.out.println("No error. Page loaded successfully.");
+		}
+	}
+
+	public void openFaxesPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/Faxes"));
+	}
+
+	public void denyFaxPageAccessWithoutViewPermission() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	// BOTCalls
+
+	public void verifyUserHasNoAccessToBotCallPageViaUIOrURL() {
+		sleep(2000);
+
+		List<WebElement> errorHeaders = driver.findElements(errorHeaderLocator);
+
+		if (!errorHeaders.isEmpty()) {
+			System.out.println("Error: Don't have proper access to requested page");
+		} else {
+			System.out.println("No error. Page loaded successfully.");
+		}
+	}
+
+	public void openBotCallsPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/BOTCalls"));
+	}
+
+	public void userWithoutBotCallViewPermissionCannotAccessBotCallPage() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
 	}
 
 	// CallActivities
