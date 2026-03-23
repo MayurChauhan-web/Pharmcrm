@@ -1,11 +1,15 @@
 package com.pharmcrm_SetupModule.pages;
 
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -19,6 +23,41 @@ public class setuppage {
 
 	private WebDriver driver;
 	private WebDriverWait wait;
+
+	// Privacy Policy & Terms of Use
+	By errorLocator = By.xpath("//h2[normalize-space()='Error']");
+
+	// T&C
+	By editorLocator = By.xpath("//div[@aria-label='Editor editing area: main. Press Alt+0 for help.']");
+	By submitBtnLocator = By
+			.xpath("//button[@class='btn btn-primary waves-effect waves-light'][normalize-space()='Submit']");
+
+	// Dashboard
+	By deleteQuickLinkButtonLocator = By.xpath("//div[@id='page-wrapper']//button[2]//*[name()='svg']");
+	By loaderLocator = By.id("menucontext");
+	By editQuickLinkButtonLocator = By.xpath("//div[@class='sdql-title']//button[1]//*[name()='svg']");
+	By groupNameInputLocator = By.xpath("//input[@id='groupName']");
+	By saveButtonLocator = By.xpath("//button[@id='btnSaveQuickLinkGroup']");
+	By editIconLocator = By.xpath("//*[name()='path' and @id='Union_9']");
+	By quickLinkActionIconLocator = By.xpath("//*[name()='path' and contains(@d,'M256 80c0-')]");
+
+	// XFlow
+	By userMenuIconLocator = By.xpath("//a[@href='#']//span[@class='userTopIcon']//*[name()='svg']");
+	By settingsIconLocator = By
+			.xpath("//span[@class='co-settings']//*[name()='svg']//*[name()='path' and @id='Union_1']");
+	By downloadButtonLocator = By.xpath("//h6[normalize-space()='Click To Download']");
+
+	// Sender Authentication
+	By domainNameInputLocator = By.xpath("//input[@id='domainName']");
+	By addButtonLocator = By.xpath("//button[@id='btnDomainName']");
+	By newSenderAuthButtonLocator = By.xpath("//span[normalize-space()='New Sender Authentication']");
+	By actionMenuButtonLocator = By.xpath("//tbody/tr[1]/td[6]/div[1]/div[1]/button[1]/i[1]");
+	By deleteOptionLocator = By.xpath(
+			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]");
+
+	// Bounce Email
+	By confirmDeleteButtonLocator = By.xpath("//div[@id='deleteBounceModel']//button[@id='btnDeleteConfirm']");
+	By deleteIconLocator = By.xpath("//tbody/tr[1]/td[4]/a[1]/img[1]");
 
 	// Spam Email
 	private By deleteIcon = By.xpath("//tbody/tr[1]/td[4]/a[1]/img[1]");
@@ -202,6 +241,15 @@ public class setuppage {
 	public By deleteUserOption = By.xpath("//span[normalize-space()='Delete']");
 
 	// Profile
+	String dataAccessPattern = "chkg(daqla|ql_|referralcategory_|programall|stage).*";
+	By permissionContainerLocator = By.cssSelector(".col-lg-10.col-md-9");
+	By checkboxLocator = By
+			.xpath(".//input[@type='checkbox' and not(@id='allModulePermission') and not(contains(@id,'All'))]");
+	By menuContextLoader = By.id("menucontext");
+	By filterButtonLocator = By.xpath("//span[normalize-space()='Filter']");
+	By filterInputLocator = By.id("Filter_Name");
+	By searchIconLocator = By.xpath("//i[@class='fa-solid fa-magnifying-glass']");
+	By editOptionLocator = By.xpath("//span[normalize-space()='Edit']");
 	public By editProfileOption = By.xpath("//li[1]//a[1]//div[1]");
 	public By blockDeleteCheckbox = By.id("chkg37BlockDelete");
 	public By saveButton = By.id("btnSave");
@@ -241,6 +289,568 @@ public class setuppage {
 	public setuppage(WebDriver driver) {
 		this.driver = driver;
 		this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	}
+
+	// Privacy Policy & Terms of Use
+	public void verifyNoAccessForPrivacyAndTerms() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+
+		String[] pages = { Hooks.prop.getProperty("privacyPolicyPageUrl"),
+				Hooks.prop.getProperty("termsOfUsePageUrl") };
+
+		for (String page : pages) {
+
+			if (page == null) {
+				throw new AssertionError("Page URL is missing in config");
+			}
+
+			String fullUrl = baseUrl + page;
+			driver.get(fullUrl);
+
+			boolean redirected = driver.getCurrentUrl().contains("/Web/Home/Module");
+			boolean errorVisible = !driver.findElements(errorLocator).isEmpty();
+
+			if (!(redirected || errorVisible)) {
+				Assert.fail("User should not have access to: " + page);
+			} else {
+				System.out.println("Access correctly restricted for: " + page);
+			}
+		}
+	}
+
+	public void denyAllPrivacyPolicyAndTermsOfUseActionsWithoutAccess() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void handlePrivacyAndTerms(String profileName) {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+
+		String[] pages = { Hooks.prop.getProperty("privacyPolicyPageUrl"),
+				Hooks.prop.getProperty("termsOfUsePageUrl") };
+
+		for (String page : pages) {
+
+			if (page == null) {
+				throw new AssertionError("Page URL is missing in config");
+			}
+
+			String fullUrl = baseUrl + page;
+			driver.get(fullUrl);
+
+			if (driver.getCurrentUrl().contains("/Web/Home/Module")) {
+				System.out.println("Redirected to Module No access for: " + page);
+			} else {
+				wait.until(ExpectedConditions.visibilityOfElementLocated(editorLocator));
+				driver.findElement(editorLocator).sendKeys(profileName);
+
+				wait.until(ExpectedConditions.elementToBeClickable(submitBtnLocator));
+				driver.findElement(submitBtnLocator).click();
+
+				System.out.println("Content updated successfully for: " + page);
+			}
+		}
+	}
+
+	// T&C
+	public void allowViewingAndUpdatingOfPrivacyPolicyAndTermsOfUseWithPermission() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void verifyNoAccessForAllTC() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+
+		String[] pages = { Hooks.prop.getProperty("providerTCPageUrl"), Hooks.prop.getProperty("manufacturerTCPageUrl"),
+				Hooks.prop.getProperty("patientTCPageUrl"), Hooks.prop.getProperty("partnerTCPageUrl") };
+
+		By errorLocator = By.xpath("//h2[normalize-space()='Error']");
+
+		for (String page : pages) {
+
+			if (page == null) {
+				throw new AssertionError("T&C page URL is missing in config");
+			}
+
+			String fullUrl = baseUrl + page;
+			driver.get(fullUrl);
+
+			boolean redirected = driver.getCurrentUrl().contains("/Web/Home/Module");
+			boolean errorVisible = !driver.findElements(errorLocator).isEmpty();
+
+			if (!(redirected || errorVisible)) {
+				Assert.fail("User should not have access to: " + page);
+			} else {
+				System.out.println("Access correctly restricted for: " + page);
+			}
+		}
+	}
+
+	public void denyAllTnCActionsWithoutAnyAccessPermission() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void handleAllTCLabels(String profileName) {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+
+		String[] pages = { Hooks.prop.getProperty("providerTCPageUrl"), Hooks.prop.getProperty("manufacturerTCPageUrl"),
+				Hooks.prop.getProperty("patientTCPageUrl"), Hooks.prop.getProperty("partnerTCPageUrl") };
+
+		for (String page : pages) {
+
+			if (page == null) {
+				throw new AssertionError("T&C page URL is missing in config");
+			}
+
+			String fullUrl = baseUrl + page;
+			driver.get(fullUrl);
+
+			if (driver.getCurrentUrl().contains("/Web/Home/Module")) {
+				System.out.println("Redirected to Module No access for: " + page);
+			} else {
+				wait.until(ExpectedConditions.visibilityOfElementLocated(editorLocator));
+				driver.findElement(editorLocator).sendKeys(profileName);
+
+				wait.until(ExpectedConditions.elementToBeClickable(submitBtnLocator));
+				driver.findElement(submitBtnLocator).click();
+
+				System.out.println("T&C updated successfully for: " + page);
+			}
+		}
+	}
+
+	public void allowTermsAndConditionsViewingAndUpdatingWithPermission() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	// Dashboard
+
+	public void userShouldBeAbleToDeleteQuickLink() {
+
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(loaderLocator));
+
+		WebElement deleteButton = wait.until(ExpectedConditions.elementToBeClickable(deleteQuickLinkButtonLocator));
+		deleteButton.click();
+
+		WebElement confirmDeleteButton = wait
+				.until(ExpectedConditions.elementToBeClickable(confirmDeleteButtonLocator));
+		confirmDeleteButton.click();
+	}
+
+	public void userWithFullAccessCanManageQuickLinksModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void userShouldNotBeAbleToDeleteQuickLinks() {
+
+		List<WebElement> elements = driver.findElements(deleteIconLocator);
+		Assert.assertTrue(elements.isEmpty(), "Delete icon should NOT be present");
+	}
+
+	public void userShouldBeAbleToEditQuickLink() {
+		String profileName = Hooks.prop.getProperty("profile.name.value");
+
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(loaderLocator));
+
+		WebElement editButton = wait.until(ExpectedConditions.elementToBeClickable(editQuickLinkButtonLocator));
+		editButton.click();
+
+		WebElement groupNameInput = wait.until(ExpectedConditions.visibilityOfElementLocated(groupNameInputLocator));
+		groupNameInput.clear();
+		groupNameInput.sendKeys(profileName);
+
+		WebElement saveButton = wait.until(ExpectedConditions.elementToBeClickable(saveButtonLocator));
+		saveButton.click();
+	}
+
+	public void allowQuickLinksViewingCreationAndEditingWithPermission() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void userShouldNotBeAbleToEditOrDeleteQuickLinks() {
+
+		List<WebElement> editElements = driver.findElements(editIconLocator);
+		Assert.assertTrue(editElements.isEmpty(), "Edit icon should NOT be present");
+
+		List<WebElement> deleteElements = driver.findElements(deleteIconLocator);
+		Assert.assertTrue(deleteElements.isEmpty(), "Delete icon should NOT be present");
+	}
+
+	public void userShouldBeAbleToAddNewQuickLink() {
+		String profileName = Hooks.prop.getProperty("profile.name.value");
+
+		By addQuickLinkIconLocator = By.xpath("//*[name()='path' and contains(@d,'M256 80c0-')]");
+		By groupNameInputLocator = By.xpath("//input[@id='groupName']");
+		By saveButtonLocator = By.xpath("//button[@id='btnSaveQuickLinkGroup']");
+
+		WebElement addQuickLinkIcon = wait.until(ExpectedConditions.elementToBeClickable(addQuickLinkIconLocator));
+		addQuickLinkIcon.click();
+
+		WebElement groupNameInput = wait.until(ExpectedConditions.visibilityOfElementLocated(groupNameInputLocator));
+		groupNameInput.clear();
+		groupNameInput.sendKeys(profileName);
+
+		WebElement saveButton = wait.until(ExpectedConditions.elementToBeClickable(saveButtonLocator));
+		saveButton.click();
+	}
+
+	public void allowQuickLinksViewingAndAdditionWithPermission() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void userShouldNotBeAbleToAddEditOrDeleteQuickLinks() {
+
+		List<WebElement> elements = driver.findElements(quickLinkActionIconLocator);
+		Assert.assertTrue(elements.isEmpty(), "Quick link actions should NOT be present");
+	}
+
+	public void allowQuickLinksViewOnlyAccessWithPermission() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void allowQuickLinksSettingsViewWithPermission() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	// Profile
+	public void verifyAllModulePermissionCheckboxesSelected() {
+
+		WebElement permissionContainer = wait
+				.until(ExpectedConditions.visibilityOfElementLocated(permissionContainerLocator));
+
+		List<WebElement> checkboxes = permissionContainer.findElements(checkboxLocator);
+
+		Set<String> seenIds = new HashSet<>();
+		List<String> notSelected = new ArrayList<>();
+
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+
+		for (WebElement checkbox : checkboxes) {
+			String id = checkbox.getAttribute("id");
+
+			if (id == null || id.trim().isEmpty())
+				continue;
+
+			if (id.matches(dataAccessPattern))
+				continue;
+
+			if (!seenIds.add(id))
+				continue;
+
+			if (!checkbox.isDisplayed())
+				continue;
+
+			boolean byIsSelected = checkbox.isSelected();
+			String checkedAttr = checkbox.getAttribute("checked");
+			String ariaChecked = checkbox.getAttribute("aria-checked");
+			boolean byJs = Boolean.TRUE.equals(js.executeScript("return arguments[0].checked === true;", checkbox));
+
+			boolean isSelected = byIsSelected || (checkedAttr != null) || "true".equalsIgnoreCase(ariaChecked) || byJs;
+
+			if (!isSelected) {
+				notSelected.add(id);
+			}
+		}
+
+		Assert.assertTrue(notSelected.isEmpty(),
+				"Some permission checkboxes are not selected: " + String.join(", ", notSelected));
+	}
+
+	public void reopenProfileInEditMode() {
+		String profileName = Hooks.prop.getProperty("profile.name.value");
+
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(menuContextLoader));
+
+		WebElement filterButton = wait.until(ExpectedConditions.elementToBeClickable(filterButtonLocator));
+		filterButton.click();
+
+		WebElement filterInput = wait.until(ExpectedConditions.visibilityOfElementLocated(filterInputLocator));
+		filterInput.clear();
+		filterInput.sendKeys(profileName);
+
+		WebElement searchIcon = wait.until(ExpectedConditions.elementToBeClickable(searchIconLocator));
+		searchIcon.click();
+
+		By actionMenuLocator = By
+				.xpath("//tr[td[normalize-space()='" + profileName + "']]//td[@class='text-right']//button");
+
+		WebElement actionMenu = wait.until(ExpectedConditions.elementToBeClickable(actionMenuLocator));
+		actionMenu.click();
+
+		WebElement editOption = wait.until(ExpectedConditions.elementToBeClickable(editOptionLocator));
+		editOption.click();
+	}
+
+	public void allowCompleteSetupModulesManagementWithAllPermissions() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	// XFlow
+	public void userShouldNotBeAbleToViewOrDownloadFromXFlow() {
+
+		WebElement userMenuIcon = wait.until(ExpectedConditions.elementToBeClickable(userMenuIconLocator));
+		userMenuIcon.click();
+
+		List<WebElement> elements = driver.findElements(settingsIconLocator);
+		Assert.assertTrue(elements.isEmpty(), "Settings/Download option should NOT be present");
+	}
+
+	public void userWithoutAccessCannotOpenOrUseXFlowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void userShouldBeAbleToDownloadFromXFlow() {
+
+		WebElement downloadButton = wait.until(ExpectedConditions.elementToBeClickable(downloadButtonLocator));
+		downloadButton.click();
+	}
+
+	public void openXFlowPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Web/Home/XFlowVersions"));
+	}
+
+	public void allowXFlowSettingsDownloadWithPermission() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	// Sender Authentication
+	public void userShouldBeAbleToDeleteSenderAuthenticationEntry() {
+
+		WebElement actionMenuButton = wait.until(ExpectedConditions.elementToBeClickable(actionMenuButtonLocator));
+		actionMenuButton.click();
+
+		WebElement deleteOption = wait.until(ExpectedConditions.visibilityOfElementLocated(deleteOptionLocator));
+		Assert.assertTrue(deleteOption.isDisplayed(), "Delete option should be present");
+
+		deleteOption.click();
+
+		WebElement confirmDeleteButton = wait
+				.until(ExpectedConditions.elementToBeClickable(confirmDeleteButtonLocator));
+		confirmDeleteButton.click();
+	}
+
+	public void allowSenderAuthenticationEntriesManagementWithViewAddDeletePermission() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void userShouldNotBeAbleToDeleteSenderAuthenticationEntries() {
+
+		WebElement actionMenuButton = wait.until(ExpectedConditions.elementToBeClickable(actionMenuButtonLocator));
+		actionMenuButton.click();
+
+		List<WebElement> deleteOptions = driver.findElements(deleteOptionLocator);
+		Assert.assertTrue(deleteOptions.isEmpty(), "Delete option should NOT be present");
+	}
+
+	public void userShouldBeAbleToAddSenderAuthenticationEntry() {
+		String profileName = Hooks.prop.getProperty("profile.name.value");
+
+		WebElement newSenderAuthButton = wait
+				.until(ExpectedConditions.elementToBeClickable(newSenderAuthButtonLocator));
+		newSenderAuthButton.click();
+
+		WebElement domainInput = wait.until(ExpectedConditions.visibilityOfElementLocated(domainNameInputLocator));
+		domainInput.sendKeys(profileName);
+
+		WebElement addButton = wait.until(ExpectedConditions.elementToBeClickable(addButtonLocator));
+		addButton.click();
+	}
+
+	public void allowSenderAuthenticationEntryAdditionWithViewAndAddPermission() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void userShouldNotBeAbleToAddOrDeleteSenderAuthenticationEntries() {
+
+		List<WebElement> newSenderAuthElements = driver.findElements(newSenderAuthButtonLocator);
+		Assert.assertTrue(newSenderAuthElements.isEmpty(), "New Sender Authentication button should NOT be present");
+
+		WebElement actionMenuButton = wait.until(ExpectedConditions.elementToBeClickable(actionMenuButtonLocator));
+		actionMenuButton.click();
+
+		List<WebElement> deleteOptions = driver.findElements(deleteOptionLocator);
+		Assert.assertTrue(deleteOptions.isEmpty(), "Delete option should NOT be present");
+	}
+
+	public void openSenderAuthenticationPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Web/Home/SenderAuthentications"));
+	}
+
+	public void allowSenderAuthenticationSettingsViewWithPermissionOnly() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	// Block Email
+	public void userShouldBeAbleToDeleteBlockEmailEntry() {
+
+		WebElement deleteIcon = wait.until(ExpectedConditions.elementToBeClickable(deleteIconLocator));
+
+		Assert.assertTrue(deleteIcon.isDisplayed(), "Delete icon should be present");
+
+		deleteIcon.click();
+
+		WebElement confirmDeleteButton = wait
+				.until(ExpectedConditions.elementToBeClickable(confirmDeleteButtonLocator));
+		confirmDeleteButton.click();
+	}
+
+	public void allowBlockEmailEntriesDeletionWithViewAndDeletePermission() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void userShouldNotBeAbleToDeleteBlockEmailEntries() {
+
+		List<WebElement> elements = driver.findElements(deleteIconLocator);
+
+		Assert.assertTrue(elements.isEmpty(), "Delete icon should not be present");
+	}
+
+	public void openBlockEmailPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Web/Home/Blocks"));
+	}
+
+	public void allowBlockEmailSettingsViewWithPermissionOnly() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	// Bounce Email
+
+	public void userShouldBeAbleToDeleteBounceEmailEntry() {
+
+		WebElement deleteIcon = wait.until(ExpectedConditions.elementToBeClickable(deleteIconLocator));
+
+		Assert.assertTrue(deleteIcon.isDisplayed(), "Delete icon should be present");
+
+		deleteIcon.click();
+
+		WebElement confirmDeleteButton = wait
+				.until(ExpectedConditions.elementToBeClickable(confirmDeleteButtonLocator));
+		confirmDeleteButton.click();
+	}
+
+	public void allowBounceEmailEntriesDeletionWithViewAndDeletePermission() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+	}
+
+	public void userShouldNotBeAbleToDeleteBounceEmailEntries() throws InterruptedException {
+		Thread.sleep(3000);
+
+		List<WebElement> elements = driver.findElements(deleteIconLocator);
+
+		Assert.assertTrue(elements.isEmpty(), "Delete icon should not be present");
+	}
+
+	public void openBounceEmailPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Web/Home/Bounces"));
+	}
+
+	public void allowBounceEmailSettingsViewWithPermissionOnly() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
 	}
 
 	// Spam Email

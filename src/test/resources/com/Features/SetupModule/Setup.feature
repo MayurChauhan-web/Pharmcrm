@@ -1472,8 +1472,413 @@ And I create a profile with View and Delete access to Setup Module Spam Email te
 Then the user should be able to view Spam Email settings test
 And the user should be able to delete a Spam Email entry test
 
+# Bounce Email
+Scenario: User with View only access for Bounce Email
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with View access only to Setup Module Bounce Email test
+Then the user should be able to view Bounce Email settings test
+But the user should not be able to delete Bounce Email entries test
+
+Scenario: User with View and Delete access for Bounce Email
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with View and Delete access to Setup Module Bounce Email test
+Then the user should be able to view Bounce Email settings test
+And the user should be able to delete a Bounce Email entry test
+
+# Block Email
+Scenario: User with View only access for Block Email
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with View access only to Setup Module Block Email test
+Then the user should be able to view Block Email settings test
+But the user should not be able to delete Block Email entries test
+
+Scenario: User with View and Delete access for Block Email
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with View and Delete access to Setup Module Block Email test  
+Then the user should be able to view Block Email settings test
+And the user should be able to delete a Block Email entry test
+
+# Sender Authentication
+Scenario: User with View only access for Sender Authentication
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with View access only to Setup Module Sender Authentication test
+Then the user should be able to view Sender Authentication settings test
+But the user should not be able to add or delete Sender Authentication entries test
+
+Scenario: User with View and Add access for Sender Authentication
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with View and Add access to Setup Module Sender Authentication test   
+Then the user should be able to view Sender Authentication settings test
+And the user should be able to add a Sender Authentication entry test
+But the user should not be able to delete Sender Authentication entries test
+
+Scenario: User with View, Add, and Delete access for Sender Authentication
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with View, Add, and Delete access to Setup Module Sender Authentication test
+Then the user should be able to view Sender Authentication settings test
+And the user should be able to add a Sender Authentication entry test
+And the user should be able to delete a Sender Authentication entry test
+
+# XFlow
+Scenario: User with Download access for XFlow
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with Download access to Setup Module XFlow test 
+Then the user should be able to download from XFlow test
+
+Scenario: User with No access for XFlow
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with No access to Setup Module XFlow test
+Then the user should not be able to view or download from XFlow test 
+
+#Profile
+Scenario: Verify that Select All Module checkbox saves all permissions
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with all modules and all permissions selected test
+And I reopen the profile in edit mode test
+Then all module permission checkboxes should be selected test
+
+# Dashboard
+Scenario: User with View only access for Quick Links
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with View access only to Setup Module → Quick Links test
+Then the user should be able to view quick links test
+But the user should not be able to add, edit, or delete any quick link test
+
+Scenario: User with View and Add access for Quick Links
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with View and Add access to Setup Module → Quick Links test
+Then the user should be able to view quick links test
+And the user should be able to add a new quick link test
+But the user should not be able to edit or delete any quick link test 
+
+Scenario: User with View, Add, and Edit access for Quick Links
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with View, Add, and Edit access to Setup Module → Quick Links  test 
+Then the user should be able to view quick links test
+And the user should be able to add a new quick link test
+And the user should be able to edit an existing quick link test  
+But the user should not be able to delete any quick link test
+  
+Scenario: User with full access (View, Add, Edit, Delete) for Quick Links
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with full access to Setup Module → Quick Links test 
+Then the user should be able to view quick links test
+And the user should be able to add a new quick link test
+And the user should be able to edit an existing quick link test
+And the user should be able to delete a quick link test
+
+# T&C
+Scenario: User with View and Update access for T&C
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with View and Update access to Setup Module → T&C test
+Then the user should be able to view Provider, Manufacturer, Patient, and Partner T&C labels test
+
+Scenario: User with No access for T&C
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with no access to Setup Module → T&C test
+Then the user should not see the T&C section for Provider, Manufacturer, Patient, or Partner test
+
+# Privacy Policy & Terms of Use
+Scenario: User with View and Update access for Privacy Policy & Terms of Use
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with View and Update access to Setup Module Privacy Policy & Terms of Use test
+Then the user should be able to view and update Privacy Policy and Terms of Use content test
+
+Scenario: User with No access for Privacy Policy & Terms of Use
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Setup user should be able to view Profiles test
+And I create a profile with no access to Setup Module Privacy Policy & Terms of Use test
+Then the user should not see the Privacy Policy & Terms of Use section test
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+     
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+   
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+   
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+  
+   
+ 
+ 
+ 
+  
+  
+  
+
+
+
+
+
+
+
+  
+   
 
 
 

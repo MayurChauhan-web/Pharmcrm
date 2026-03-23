@@ -1267,7 +1267,7 @@ Feature: Setup Module scenarios
   Then the user should be able to view Spam Email settings 
   But the user should not be able to delete Spam Email entries 
   
-  #
+  
   Scenario: User with View and Delete access for Spam Email
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser2_static@mailinator.com"
@@ -1277,6 +1277,7 @@ Feature: Setup Module scenarios
   And I log in using the new user for Setup Module
   Then the user should be able to view Spam Email settings
   And the user should be able to delete a Spam Email entry  
+
 
   Scenario: User with View only access for Bounce Email
   Given I log in as admin for Setup Module
@@ -1288,6 +1289,7 @@ Feature: Setup Module scenarios
   Then the user should be able to view Bounce Email settings  
   But the user should not be able to delete Bounce Email entries  
 
+
   Scenario: User with View and Delete access for Bounce Email
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser4_static@mailinator.com"
@@ -1297,6 +1299,7 @@ Feature: Setup Module scenarios
   And I log in using the new user for Setup Module
   Then the user should be able to view Bounce Email settings
   And the user should be able to delete a Bounce Email entry 
+
 
   Scenario: User with View only access for Block Email
   Given I log in as admin for Setup Module
@@ -1308,6 +1311,7 @@ Feature: Setup Module scenarios
   Then the user should be able to view Block Email settings  
   But the user should not be able to delete Block Email entries  
 
+
   Scenario: User with View and Delete access for Block Email
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser6_static@mailinator.com"
@@ -1318,6 +1322,7 @@ Feature: Setup Module scenarios
   Then the user should be able to view Block Email settings
   And the user should be able to delete a Block Email entry  
 
+
   Scenario: User with View only access for Sender Authentication
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser7_static@mailinator.com"
@@ -1327,6 +1332,7 @@ Feature: Setup Module scenarios
   And I log in using the new user for Setup Module
   Then the user should be able to view Sender Authentication settings   
   But the user should not be able to add or delete Sender Authentication entries    
+
 
   Scenario: User with View and Add access for Sender Authentication
   Given I log in as admin for Setup Module
@@ -1339,6 +1345,7 @@ Feature: Setup Module scenarios
   And the user should be able to add a Sender Authentication entry    
   But the user should not be able to delete Sender Authentication entries   
 
+
   Scenario: User with View, Add, and Delete access for Sender Authentication
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser9_static@mailinator.com"
@@ -1350,6 +1357,7 @@ Feature: Setup Module scenarios
   And the user should be able to add a Sender Authentication entry
   And the user should be able to delete a Sender Authentication entry   
 
+
   Scenario: User with Download access for XFlow
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser10_static@mailinator.com"
@@ -1359,6 +1367,7 @@ Feature: Setup Module scenarios
   And I log in using the new user for Setup Module
   Then the user should be able to download from XFlow  
 
+
   Scenario: User with No access for XFlow
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser11_static@mailinator.com"
@@ -1367,6 +1376,7 @@ Feature: Setup Module scenarios
   And I reset the user's password for Setup Module
   And I log in using the new user for Setup Module
   Then the user should not be able to view or download from XFlow  
+
 
   Scenario: User with View only access for General (Audit View)
   Given I log in as admin for Setup Module
@@ -1398,12 +1408,14 @@ Feature: Setup Module scenarios
   And I navigate to the Profile page  
   When I repeatedly delete available profile entries
   
+  
   Scenario: Verify that Select All Module checkbox saves all permissions
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser1_static@mailinator.com"
   And I create a profile with all modules and all permissions selected  
   And I reopen the profile in edit mode  
   Then all module permission checkboxes should be selected     
+  
   
   Scenario: User with View only access for Quick Links
   Given I log in as admin for Setup Module
@@ -1415,6 +1427,7 @@ Feature: Setup Module scenarios
   Then the user should be able to view quick links 
   But the user should not be able to add, edit, or delete any quick link 
   
+  
   Scenario: User with View and Add access for Quick Links
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser3_static@mailinator.com"
@@ -1425,6 +1438,7 @@ Feature: Setup Module scenarios
   Then the user should be able to view quick links
   And the user should be able to add a new quick link  
   But the user should not be able to edit or delete any quick link   
+  
   
   Scenario: User with View, Add, and Edit access for Quick Links
   Given I log in as admin for Setup Module
@@ -1438,6 +1452,7 @@ Feature: Setup Module scenarios
   And the user should be able to edit an existing quick link   
   But the user should not be able to delete any quick link  
   
+  
   Scenario: User with full access (View, Add, Edit, Delete) for Quick Links
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser5_static@mailinator.com"
@@ -1449,6 +1464,7 @@ Feature: Setup Module scenarios
   And the user should be able to add a new quick link
   And the user should be able to edit an existing quick link
   And the user should be able to delete a quick link   
+  
   
   Scenario: User with View and Update access for T&C
   Given I log in as admin for Setup Module
@@ -1468,6 +1484,7 @@ Feature: Setup Module scenarios
   And I log in using the new user for Setup Module
   Then the user should not see the T&C section for Provider, Manufacturer, Patient, or Partner    
 
+
   Scenario: User with View and Update access for Privacy Policy & Terms of Use
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser1_static@mailinator.com"
@@ -1477,6 +1494,7 @@ Feature: Setup Module scenarios
   And I log in using the new user for Setup Module
   Then the user should be able to view and update Privacy Policy and Terms of Use content  
 
+#
   Scenario: User with No access for Privacy Policy & Terms of Use
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser3_static@mailinator.com"

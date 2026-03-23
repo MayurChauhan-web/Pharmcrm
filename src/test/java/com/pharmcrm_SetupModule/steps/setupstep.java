@@ -9,8 +9,472 @@ public class setupstep {
 
 	private setuppage setupPage;
 
-	// Spam Email
+	// Privacy Policy & Terms of Use
+
+	@And("the user should not see the Privacy Policy & Terms of Use section test")
+	public void userShouldNotSeePrivacyPolicyAndTermsOfUseSection() {
+
+	    setupPage = new setuppage(Hooks.driver);
+	    setupPage.verifyNoAccessForPrivacyAndTerms();
+	}
 	
+	@And("I create a profile with no access to Setup Module Privacy Policy & Terms of Use test")
+	public void userWithoutAccessCannotOpenOrUsePrivacyPolicyAndTermsOfUseModule() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.denyAllPrivacyPolicyAndTermsOfUseActionsWithoutAccess();
+		setupPage.clickSubmitButton();
+
+	}
+
+	@And("the user should be able to view and update Privacy Policy and Terms of Use content test")
+	public void userShouldBeAbleToViewAndUpdatePrivacyPolicyAndTermsOfUseContent() {
+
+		String profileName = Hooks.prop.getProperty("profile.name.value");
+
+		setupPage = new setuppage(Hooks.driver);
+		setupPage.handlePrivacyAndTerms(profileName);
+	}
+
+	// T&C
+
+	@And("I create a profile with View and Update access to Setup Module Privacy Policy & Terms of Use test")
+	public void userWithViewAndUpdatePermissionCanModifyPrivacyPolicyAndTermsOfUse() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.allowViewingAndUpdatingOfPrivacyPolicyAndTermsOfUseWithPermission();
+		setupPage.clickSubmitButton();
+
+	}
+
+	@And("the user should not see the T&C section for Provider, Manufacturer, Patient, or Partner test")
+	public void userWithoutAccessCannotViewProviderManufacturerPatientOrPartnerTnC() throws InterruptedException {
+
+		setupPage = new setuppage(Hooks.driver);
+		setupPage.verifyNoAccessForAllTC();
+
+	}
+
+	@And("I create a profile with no access to Setup Module → T&C test")
+	public void userWithoutAccessCannotOpenOrUseTermsAndConditionsModule() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.denyAllTnCActionsWithoutAnyAccessPermission();
+		setupPage.clickSubmitButton();
+
+	}
+
+	@And("the user should be able to view Provider, Manufacturer, Patient, and Partner T&C labels test")
+	public void allowViewingOfProviderManufacturerPatientAndPartnerTnCLabels() throws InterruptedException {
+
+		String profileName = Hooks.prop.getProperty("profile.name.value");
+
+		setupPage = new setuppage(Hooks.driver);
+		setupPage.handleAllTCLabels(profileName);
+
+	}
+
+	@And("I create a profile with View and Update access to Setup Module → T&C test")
+	public void userWithViewAndUpdatePermissionCanModifyTermsAndConditions() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.allowTermsAndConditionsViewingAndUpdatingWithPermission();
+		setupPage.clickSubmitButton();
+
+	}
+
+	// Dashboard
+	@And("the user should be able to delete a quick link test")
+	public void userWithDeletePermissionCanRemoveQuickLink() throws InterruptedException {
+		setupPage.userShouldBeAbleToDeleteQuickLink();
+
+	}
+
+	@And("I create a profile with full access to Setup Module → Quick Links test")
+	public void allowCompleteQuickLinksManagementWithAllPermissions() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.userWithFullAccessCanManageQuickLinksModule();
+		setupPage.clickSubmitButton();
+
+	}
+
+	@And("the user should not be able to delete any quick link test")
+	public void userCannotRemoveQuickLinksWithoutDeletePermission() throws InterruptedException {
+		setupPage.userShouldNotBeAbleToDeleteQuickLinks();
+
+	}
+
+	@And("the user should be able to edit an existing quick link test")
+	public void userWithEditPermissionCanModifyExistingQuickLink() throws InterruptedException {
+		setupPage.userShouldBeAbleToEditQuickLink();
+
+	}
+
+	@And("I create a profile with View, Add, and Edit access to Setup Module → Quick Links  test")
+	public void userWithViewAddAndEditPermissionCanManageQuickLinks() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.allowQuickLinksViewingCreationAndEditingWithPermission();
+		setupPage.clickSubmitButton();
+
+	}
+
+	@And("the user should not be able to edit or delete any quick link test")
+	public void userWithoutPermissionCannotEditOrDeleteQuickLinks() throws InterruptedException {
+		setupPage.userShouldNotBeAbleToEditOrDeleteQuickLinks();
+
+	}
+
+	@And("the user should be able to add a new quick link test")
+	public void userWithAddPermissionCanCreateNewQuickLink() throws InterruptedException {
+		setupPage.userShouldBeAbleToAddNewQuickLink();
+
+	}
+
+	@And("I create a profile with View and Add access to Setup Module → Quick Links test")
+	public void userWithViewAndAddPermissionCanCreateQuickLinks() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.allowQuickLinksViewingAndAdditionWithPermission();
+		setupPage.clickSubmitButton();
+
+	}
+
+	@And("the user should not be able to add, edit, or delete any quick link test")
+	public void userWithoutPermissionCannotModifyQuickLinks() throws InterruptedException {
+		setupPage.userShouldNotBeAbleToAddEditOrDeleteQuickLinks();
+
+	}
+
+	@And("the user should be able to view quick links test")
+	public void userWithViewPermissionCanSeeQuickLinks() throws InterruptedException {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String setupDashboardUrl = Hooks.prop.getProperty("dashboardPageUrl");
+
+		Assert.assertNotNull("dashboardPageUrl is missing in config", setupDashboardUrl);
+
+		String fullDashboardUrl = baseUrl + setupDashboardUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+		setupPage.openSetupDashboardPage(fullDashboardUrl);
+
+		Assert.assertTrue("XFlow settings page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/Dashboard"));
+
+	}
+
+	@And("I create a profile with View access only to Setup Module → Quick Links test")
+	public void userWithViewPermissionCanAccessQuickLinksSettings() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.allowQuickLinksSettingsViewWithPermission();
+		setupPage.clickSubmitButton();
+
+	}
+
+	// Profile
+	@And("all module permission checkboxes should be selected test")
+	public void allModulePermissionCheckboxesShouldBeSelectedForFullAccess() throws InterruptedException {
+		setupPage.verifyAllModulePermissionCheckboxesSelected();
+
+	}
+
+	@And("I reopen the profile in edit mode test")
+	public void userCanReopenProfileInEditMode() throws InterruptedException {
+		setupPage.reopenProfileInEditMode();
+
+	}
+
+	// XFlow
+	@And("I create a profile with all modules and all permissions selected test")
+	public void userWithFullAccessCanManageAllSetupModules() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.allowCompleteSetupModulesManagementWithAllPermissions();
+		setupPage.clickSubmitButton();
+
+	}
+
+	@And("the user should not be able to view or download from XFlow test")
+	public void userWithoutPermissionCannotViewOrDownloadFromXFlow() throws InterruptedException {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String xFlowPageUrl = Hooks.prop.getProperty("xFlowPageUrl");
+
+		Assert.assertNotNull("xFlowPageUrl is missing in config", xFlowPageUrl);
+
+		String fullXFlowUrl = baseUrl + xFlowPageUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+		setupPage.openXFlowPage(fullXFlowUrl);
+
+		setupPage.userShouldNotBeAbleToViewOrDownloadFromXFlow();
+
+	}
+
+	@And("I create a profile with No access to Setup Module XFlow test")
+	public void userWithoutAccessCannotOpenOrUseXFlowModule() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.userWithoutAccessCannotOpenOrUseXFlowModule();
+		setupPage.clickSubmitButton();
+
+	}
+
+	@And("the user should be able to download from XFlow test")
+	public void userWithDownloadPermissionCanExportFromXFlow() throws InterruptedException {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String xFlowPageUrl = Hooks.prop.getProperty("xFlowPageUrl");
+
+		Assert.assertNotNull("xFlowPageUrl is missing in config", xFlowPageUrl);
+
+		String fullXFlowUrl = baseUrl + xFlowPageUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+		setupPage.openXFlowPage(fullXFlowUrl);
+
+		Assert.assertTrue("XFlow settings page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Web/Home/XFlowVersions"));
+
+		setupPage.userShouldBeAbleToDownloadFromXFlow();
+
+	}
+
+	@And("I create a profile with Download access to Setup Module XFlow test")
+	public void userWithDownloadPermissionCanExportXFlowSettings() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.allowXFlowSettingsDownloadWithPermission();
+		setupPage.clickSubmitButton();
+
+	}
+
+	// Sender Authentication
+
+	@And("the user should be able to delete a Sender Authentication entry test")
+	public void userWithDeletePermissionCanRemoveSenderAuthenticationEntry() throws InterruptedException {
+		setupPage.userShouldBeAbleToDeleteSenderAuthenticationEntry();
+
+	}
+
+	@And("I create a profile with View, Add, and Delete access to Setup Module Sender Authentication test")
+	public void userWithViewAddAndDeletePermissionCanManageSenderAuthenticationEntries() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.allowSenderAuthenticationEntriesManagementWithViewAddDeletePermission();
+		setupPage.clickSubmitButton();
+
+	}
+
+	@And("the user should not be able to delete Sender Authentication entries test")
+	public void userWithoutPermissionCannotDeleteSenderAuthenticationEntries() throws InterruptedException {
+		setupPage.userShouldNotBeAbleToDeleteSenderAuthenticationEntries();
+
+	}
+
+	@And("the user should be able to add a Sender Authentication entry test")
+	public void userWithAddPermissionCanCreateSenderAuthenticationEntry() throws InterruptedException {
+		setupPage.userShouldBeAbleToAddSenderAuthenticationEntry();
+
+	}
+
+	@And("I create a profile with View and Add access to Setup Module Sender Authentication test")
+	public void userWithViewAndAddPermissionCanCreateSenderAuthenticationEntry() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.allowSenderAuthenticationEntryAdditionWithViewAndAddPermission();
+		setupPage.clickSubmitButton();
+
+	}
+
+	@And("the user should not be able to add or delete Sender Authentication entries test")
+	public void userWithoutPermissionCannotAddOrDeleteSenderAuthenticationEntries() throws InterruptedException {
+		setupPage.userShouldNotBeAbleToAddOrDeleteSenderAuthenticationEntries();
+
+	}
+
+	@And("the user should be able to view Sender Authentication settings test")
+	public void userWithViewPermissionCanAccessSenderAuthenticationSettings() throws InterruptedException {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String senderAuthenticationPageUrl = Hooks.prop.getProperty("senderAuthenticationPageUrl");
+
+		Assert.assertNotNull("senderAuthenticationPageUrl is missing in config", senderAuthenticationPageUrl);
+
+		String fullSenderAuthenticationUrl = baseUrl + senderAuthenticationPageUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+		setupPage.openSenderAuthenticationPage(fullSenderAuthenticationUrl);
+
+		Assert.assertTrue("Sender Authentication settings page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Web/Home/SenderAuthentications"));
+	}
+
+	@And("I create a profile with View access only to Setup Module Sender Authentication test")
+	public void userWithViewOnlyPermissionCanAccessSenderAuthenticationSettings() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.allowSenderAuthenticationSettingsViewWithPermissionOnly();
+		setupPage.clickSubmitButton();
+
+	}
+
+	// Block Email
+
+	@And("the user should be able to delete a Block Email entry test")
+	public void userWithDeletePermissionCanRemoveBlockEmailEntry() throws InterruptedException {
+		setupPage.userShouldBeAbleToDeleteBlockEmailEntry();
+
+	}
+
+	@And("I create a profile with View and Delete access to Setup Module Block Email test")
+	public void userWithViewAndDeletePermissionCanRemoveBlockEmailEntries() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.allowBlockEmailEntriesDeletionWithViewAndDeletePermission();
+		setupPage.clickSubmitButton();
+
+	}
+
+	@And("the user should not be able to delete Block Email entries test")
+	public void userWithoutPermissionCannotDeleteBlockEmailEntries() throws InterruptedException {
+		setupPage.userShouldNotBeAbleToDeleteBlockEmailEntries();
+
+	}
+
+	@And("the user should be able to view Block Email settings test")
+	public void userWithViewPermissionCanAccessBlockEmailSettings() throws InterruptedException {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String blockEmailPageUrl = Hooks.prop.getProperty("blockEmailPageUrl");
+
+		Assert.assertNotNull("blockEmailPageUrl is missing in config", blockEmailPageUrl);
+
+		String fullBlockEmailUrl = baseUrl + blockEmailPageUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+		setupPage.openBlockEmailPage(fullBlockEmailUrl);
+
+		Assert.assertTrue("Block Email settings page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Web/Home/Blocks"));
+	}
+
+	@And("I create a profile with View access only to Setup Module Block Email test")
+	public void userWithViewOnlyPermissionCanAccessBlockEmailSettings() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.allowBlockEmailSettingsViewWithPermissionOnly();
+		setupPage.clickSubmitButton();
+
+	}
+
+	// Bounce Email
+	@And("the user should be able to delete a Bounce Email entry test")
+	public void userWithDeletePermissionCanRemoveBounceEmailEntry() throws InterruptedException {
+		setupPage.userShouldBeAbleToDeleteBounceEmailEntry();
+
+	}
+
+	@And("I create a profile with View and Delete access to Setup Module Bounce Email test")
+	public void userWithViewAndDeletePermissionCanRemoveBounceEmailEntries() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.allowBounceEmailEntriesDeletionWithViewAndDeletePermission();
+		setupPage.clickSubmitButton();
+
+	}
+
+	@And("the user should not be able to delete Bounce Email entries test")
+	public void userWithoutPermissionCannotDeleteBounceEmailEntries() throws InterruptedException {
+		setupPage.userShouldNotBeAbleToDeleteBounceEmailEntries();
+
+	}
+
+	@And("the user should be able to view Bounce Email settings test")
+	public void userWithViewPermissionCanAccessBounceEmailSettings() throws InterruptedException {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String bounceEmailPageUrl = Hooks.prop.getProperty("bounceEmailPageUrl");
+
+		Assert.assertNotNull("bounceEmailPageUrl is missing in config", bounceEmailPageUrl);
+
+		String fullBounceEmailUrl = baseUrl + bounceEmailPageUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+		setupPage.openBounceEmailPage(fullBounceEmailUrl);
+
+		Assert.assertTrue("Bounce Email settings page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Web/Home/Bounces"));
+	}
+
+	@And("I create a profile with View access only to Setup Module Bounce Email test")
+	public void userWithViewOnlyPermissionCanAccessBounceEmailSettings() {
+		setupPage.clickFilterButton();
+		setupPage.enterProfileName();
+		setupPage.clickSearchButton();
+		setupPage.clickActionMenu();
+		setupPage.clickEditButton();
+		setupPage.allowBounceEmailSettingsViewWithPermissionOnly();
+		setupPage.clickSubmitButton();
+
+	}
+
+	// Spam Email
+
 	@And("the user should be able to delete a Spam Email entry test")
 	public void userWithDeletePermissionCanRemoveSpamEmailEntry() throws InterruptedException {
 		setupPage.userShouldBeAbleToDeleteSpamEmailEntry();
