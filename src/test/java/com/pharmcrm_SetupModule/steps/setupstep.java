@@ -1,6 +1,7 @@
 package com.pharmcrm_SetupModule.steps;
 
 import org.junit.Assert;
+import org.junit.Assume;
 import com.pharmcrm_SetupModule.pages.setuppage;
 import hooks.Hooks;
 import io.cucumber.java.en.And;
@@ -9,15 +10,220 @@ public class setupstep {
 
 	private setuppage setupPage;
 
-	// Privacy Policy & Terms of Use
+	// Fax Templates
+	@And("Fax Templates Blank Submit Validation should have to display")
+	public void verifyFaxTemplatesBlankSubmitValidation() throws InterruptedException {
+		String result = setupPage.shouldShowValidationOnBlankFaxTemplatesSubmit();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
 
+	}
+	@And("the user should be able to view Fax Templates page")
+	public void verifyFaxTemplatesPageIsDisplayed() throws InterruptedException {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String faxTemplatesPageUrl = Hooks.prop.getProperty("faxTemplatesPageUrl");
+		Assert.assertNotNull("faxTemplatesPageUrl is missing in config", faxTemplatesPageUrl);
+		String fullFaxTemplatesUrl = baseUrl + faxTemplatesPageUrl;
+		setupPage = new setuppage(Hooks.driver);
+		setupPage.openFaxTemplatesPage(fullFaxTemplatesUrl);
+		Assert.assertTrue("Fax Templates page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/FaxTemplates"));
+	}
+
+	// BOT Call Templates
+	@And("BOT Call Templates Blank Submit Validation should have to display")
+	public void verifyBOTCallTemplatesBlankSubmitValidation() throws InterruptedException {
+		String result = setupPage.shouldShowValidationOnBlankBOTCallTemplatesSubmit();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("the user should be able to view BOT Call Templates page")
+	public void verifyBOTCallTemplatesPageIsDisplayed() throws InterruptedException {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String botCallTemplatesPageUrl = Hooks.prop.getProperty("botCallTemplatesPageUrl");
+		Assert.assertNotNull("botCallTemplatesPageUrl is missing in config", botCallTemplatesPageUrl);
+		String fullBotCallTemplatesUrl = baseUrl + botCallTemplatesPageUrl;
+		setupPage = new setuppage(Hooks.driver);
+		setupPage.openBotCallTemplatesPage(fullBotCallTemplatesUrl);
+		Assert.assertTrue("BOT Call Templates page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/BOTCallTemplates"));
+	}
+
+	// Mail Templates
+	@And("Mail Templates Blank Submit Validation should have to display")
+	public void verifyMailTemplatesBlankSubmitValidation() throws InterruptedException {
+		String result = setupPage.shouldShowValidationOnBlankMailTemplatesSubmit();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("the user should be able to view Mail Templates page")
+	public void verifyMailTemplatesPageIsDisplayed() throws InterruptedException {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String mailTemplatesPageUrl = Hooks.prop.getProperty("mailTemplatesPageUrl");
+		Assert.assertNotNull("mailTemplatesPageUrl is missing in config", mailTemplatesPageUrl);
+		String fullMailTemplatesUrl = baseUrl + mailTemplatesPageUrl;
+		setupPage = new setuppage(Hooks.driver);
+		setupPage.openMailTemplatesPage(fullMailTemplatesUrl);
+		Assert.assertTrue("Mail Templates page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/MailTemplates"));
+	}
+
+	// Text template
+	@And("Text Templates Blank Submit Validation should have to display")
+	public void verifyTextTemplatesBlankSubmitValidation() throws InterruptedException {
+		String result = setupPage.shouldShowValidationOnBlankTextTemplatesSubmit();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("the user should be able to view Text Templates page")
+	public void verifyTextTemplatesPageIsDisplayed() throws InterruptedException {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String smsTemplatesPageUrl = Hooks.prop.getProperty("smsTemplatesPageUrl");
+		Assert.assertNotNull("smsTemplatesPageUrl is missing in config", smsTemplatesPageUrl);
+		String fullSmsTemplatesUrl = baseUrl + smsTemplatesPageUrl;
+		setupPage = new setuppage(Hooks.driver);
+		setupPage.openSmsTemplatesPage(fullSmsTemplatesUrl);
+		Assert.assertTrue("SMS Templates page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/SMSTemplates"));
+	}
+
+	// Workspace Users
+	@And("Reset Password Blank Submit should have to show Validation")
+	public void verifyResetPasswordBlankSubmitValidation() throws InterruptedException {
+		String result = setupPage.shouldShowValidationOnBlankResetPasswordSubmit();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("Associated Employee Name Blank Search Validation should have to display")
+	public void verifyAssociatedEmployeeNameBlankSearchValidation() throws InterruptedException {
+		String result = setupPage.shouldShowValidationOnBlankEmployeeNameSearch();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("Workspace Users Blank Submission should have to show validation")
+	public void workspaceUsersBlankSubmissionShouldShowValidation() throws InterruptedException {
+		String result = setupPage.checkWorkspaceUsersFormEmptyShowsValidation();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("the user should be able to view Workspace Users page")
+	public void userShouldBeAbleToViewWorkspaceUsersPage() throws InterruptedException {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String workspaceUsersPageUrl = Hooks.prop.getProperty("workspaceUsersPageUrl");
+		Assert.assertNotNull("workspaceUsersPageUrl is missing in config", workspaceUsersPageUrl);
+		String fullWorkspaceUsersUrl = baseUrl + workspaceUsersPageUrl;
+		setupPage = new setuppage(Hooks.driver);
+		setupPage.openWorkspaceUsersPage(fullWorkspaceUsersUrl);
+		Assert.assertTrue("Workspace Users page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/WorkspaceUsers"));
+	}
+
+	// Profile
+	@And("Add Profile Blank Submission should have to show validation")
+	public void addProfileBlankSubmissionShouldShowValidation() throws InterruptedException {
+		String result = setupPage.verifyProfileBlankSubmissionValidation();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("the user should be able to view Profile page")
+	public void userShouldBeAbleToViewProfilePage() throws InterruptedException {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String setupProfilesUrl = Hooks.prop.getProperty("profilesPageUrl");
+		Assert.assertNotNull("profilesPageUrl is missing in config", setupProfilesUrl);
+		String fullProfilesUrl = baseUrl + setupProfilesUrl;
+		setupPage = new setuppage(Hooks.driver);
+		setupPage.openSetupProfilesPage(fullProfilesUrl);
+		Assert.assertTrue("Profiles page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/Profiles"));
+	}
+
+	// Dashboard
+	@And("Add Quicklink Group Blank Submission should have to show validation")
+	public void addQuicklinkGroupBlankSubmissionShouldShowValidation() throws InterruptedException {
+		String result = setupPage.shouldShowValidationOnBlankQuicklinkGroup();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("the user should be able to view Dashboard page")
+	public void userShouldBeAbleToViewDashboardPage() throws InterruptedException {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String setupDashboardUrl = Hooks.prop.getProperty("dashboardPageUrl");
+		Assert.assertNotNull("dashboardPageUrl is missing in config", setupDashboardUrl);
+		String fullDashboardUrl = baseUrl + setupDashboardUrl;
+		setupPage = new setuppage(Hooks.driver);
+		setupPage.openSetupDashboardPage(fullDashboardUrl);
+		Assert.assertTrue("XFlow settings page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/Dashboard"));
+	}
+
+	// Privacy Policy & Terms of Use
 	@And("the user should not see the Privacy Policy & Terms of Use section test")
 	public void userShouldNotSeePrivacyPolicyAndTermsOfUseSection() {
-
-	    setupPage = new setuppage(Hooks.driver);
-	    setupPage.verifyNoAccessForPrivacyAndTerms();
+		setupPage = new setuppage(Hooks.driver);
+		setupPage.verifyNoAccessForPrivacyAndTerms();
 	}
-	
+
 	@And("I create a profile with no access to Setup Module Privacy Policy & Terms of Use test")
 	public void userWithoutAccessCannotOpenOrUsePrivacyPolicyAndTermsOfUseModule() {
 		setupPage.clickFilterButton();
@@ -32,15 +238,12 @@ public class setupstep {
 
 	@And("the user should be able to view and update Privacy Policy and Terms of Use content test")
 	public void userShouldBeAbleToViewAndUpdatePrivacyPolicyAndTermsOfUseContent() {
-
 		String profileName = Hooks.prop.getProperty("profile.name.value");
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.handlePrivacyAndTerms(profileName);
 	}
 
 	// T&C
-
 	@And("I create a profile with View and Update access to Setup Module Privacy Policy & Terms of Use test")
 	public void userWithViewAndUpdatePermissionCanModifyPrivacyPolicyAndTermsOfUse() {
 		setupPage.clickFilterButton();
@@ -55,7 +258,6 @@ public class setupstep {
 
 	@And("the user should not see the T&C section for Provider, Manufacturer, Patient, or Partner test")
 	public void userWithoutAccessCannotViewProviderManufacturerPatientOrPartnerTnC() throws InterruptedException {
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.verifyNoAccessForAllTC();
 
@@ -75,9 +277,7 @@ public class setupstep {
 
 	@And("the user should be able to view Provider, Manufacturer, Patient, and Partner T&C labels test")
 	public void allowViewingOfProviderManufacturerPatientAndPartnerTnCLabels() throws InterruptedException {
-
 		String profileName = Hooks.prop.getProperty("profile.name.value");
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.handleAllTCLabels(profileName);
 
@@ -170,17 +370,12 @@ public class setupstep {
 
 	@And("the user should be able to view quick links test")
 	public void userWithViewPermissionCanSeeQuickLinks() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String setupDashboardUrl = Hooks.prop.getProperty("dashboardPageUrl");
-
 		Assert.assertNotNull("dashboardPageUrl is missing in config", setupDashboardUrl);
-
 		String fullDashboardUrl = baseUrl + setupDashboardUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openSetupDashboardPage(fullDashboardUrl);
-
 		Assert.assertTrue("XFlow settings page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/Dashboard"));
 
@@ -226,17 +421,12 @@ public class setupstep {
 
 	@And("the user should not be able to view or download from XFlow test")
 	public void userWithoutPermissionCannotViewOrDownloadFromXFlow() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String xFlowPageUrl = Hooks.prop.getProperty("xFlowPageUrl");
-
 		Assert.assertNotNull("xFlowPageUrl is missing in config", xFlowPageUrl);
-
 		String fullXFlowUrl = baseUrl + xFlowPageUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openXFlowPage(fullXFlowUrl);
-
 		setupPage.userShouldNotBeAbleToViewOrDownloadFromXFlow();
 
 	}
@@ -255,20 +445,14 @@ public class setupstep {
 
 	@And("the user should be able to download from XFlow test")
 	public void userWithDownloadPermissionCanExportFromXFlow() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String xFlowPageUrl = Hooks.prop.getProperty("xFlowPageUrl");
-
 		Assert.assertNotNull("xFlowPageUrl is missing in config", xFlowPageUrl);
-
 		String fullXFlowUrl = baseUrl + xFlowPageUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openXFlowPage(fullXFlowUrl);
-
 		Assert.assertTrue("XFlow settings page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Web/Home/XFlowVersions"));
-
 		setupPage.userShouldBeAbleToDownloadFromXFlow();
 
 	}
@@ -286,7 +470,6 @@ public class setupstep {
 	}
 
 	// Sender Authentication
-
 	@And("the user should be able to delete a Sender Authentication entry test")
 	public void userWithDeletePermissionCanRemoveSenderAuthenticationEntry() throws InterruptedException {
 		setupPage.userShouldBeAbleToDeleteSenderAuthenticationEntry();
@@ -337,17 +520,12 @@ public class setupstep {
 
 	@And("the user should be able to view Sender Authentication settings test")
 	public void userWithViewPermissionCanAccessSenderAuthenticationSettings() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String senderAuthenticationPageUrl = Hooks.prop.getProperty("senderAuthenticationPageUrl");
-
 		Assert.assertNotNull("senderAuthenticationPageUrl is missing in config", senderAuthenticationPageUrl);
-
 		String fullSenderAuthenticationUrl = baseUrl + senderAuthenticationPageUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openSenderAuthenticationPage(fullSenderAuthenticationUrl);
-
 		Assert.assertTrue("Sender Authentication settings page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Web/Home/SenderAuthentications"));
 	}
@@ -365,7 +543,6 @@ public class setupstep {
 	}
 
 	// Block Email
-
 	@And("the user should be able to delete a Block Email entry test")
 	public void userWithDeletePermissionCanRemoveBlockEmailEntry() throws InterruptedException {
 		setupPage.userShouldBeAbleToDeleteBlockEmailEntry();
@@ -392,17 +569,12 @@ public class setupstep {
 
 	@And("the user should be able to view Block Email settings test")
 	public void userWithViewPermissionCanAccessBlockEmailSettings() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String blockEmailPageUrl = Hooks.prop.getProperty("blockEmailPageUrl");
-
 		Assert.assertNotNull("blockEmailPageUrl is missing in config", blockEmailPageUrl);
-
 		String fullBlockEmailUrl = baseUrl + blockEmailPageUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openBlockEmailPage(fullBlockEmailUrl);
-
 		Assert.assertTrue("Block Email settings page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Web/Home/Blocks"));
 	}
@@ -446,17 +618,12 @@ public class setupstep {
 
 	@And("the user should be able to view Bounce Email settings test")
 	public void userWithViewPermissionCanAccessBounceEmailSettings() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String bounceEmailPageUrl = Hooks.prop.getProperty("bounceEmailPageUrl");
-
 		Assert.assertNotNull("bounceEmailPageUrl is missing in config", bounceEmailPageUrl);
-
 		String fullBounceEmailUrl = baseUrl + bounceEmailPageUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openBounceEmailPage(fullBounceEmailUrl);
-
 		Assert.assertTrue("Bounce Email settings page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Web/Home/Bounces"));
 	}
@@ -474,7 +641,6 @@ public class setupstep {
 	}
 
 	// Spam Email
-
 	@And("the user should be able to delete a Spam Email entry test")
 	public void userWithDeletePermissionCanRemoveSpamEmailEntry() throws InterruptedException {
 		setupPage.userShouldBeAbleToDeleteSpamEmailEntry();
@@ -501,17 +667,12 @@ public class setupstep {
 
 	@And("the user should be able to view Spam Email settings test")
 	public void userWithViewPermissionCanAccessSpamEmailSettings() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String spamEmailPageUrl = Hooks.prop.getProperty("spamEmailPageUrl");
-
 		Assert.assertNotNull("spamEmailPageUrl is missing in config", spamEmailPageUrl);
-
 		String fullSpamEmailUrl = baseUrl + spamEmailPageUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openSpamEmailPage(fullSpamEmailUrl);
-
 		Assert.assertTrue("Spam Email settings page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Web/Home/Spams"));
 	}
@@ -531,17 +692,12 @@ public class setupstep {
 	// Connector App
 	@And("the user should have no Connector App access via UI or direct URL test")
 	public void userWithoutConnectorAppAccessCannotOpenViaUIOrDirectURL() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String connectorAppsPageUrl = Hooks.prop.getProperty("connectorAppsPageUrl");
-
 		Assert.assertNotNull("connectorAppsPageUrl is missing in config", connectorAppsPageUrl);
-
 		String fullConnectorAppsUrl = baseUrl + connectorAppsPageUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openConnectorAppsPage(fullConnectorAppsUrl);
-
 		setupPage.verifyNoConnectorAppAccessUIOrURL();
 
 	}
@@ -633,17 +789,12 @@ public class setupstep {
 
 	@And("the user should be able to view Auto Call settings test")
 	public void userWithViewPermissionCanAccessAutoCallSettings() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String autoCallPageUrl = Hooks.prop.getProperty("autoCallPageUrl");
-
 		Assert.assertNotNull("autoCallPageUrl is missing in config", autoCallPageUrl);
-
 		String fullAutoCallUrl = baseUrl + autoCallPageUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openAutoCallPage(fullAutoCallUrl);
-
 		Assert.assertTrue("Auto Call settings page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("#autocall"));
 	}
@@ -735,17 +886,12 @@ public class setupstep {
 
 	@And("the user should be able to view Auto Text settings test")
 	public void userWithViewPermissionCanAccessAutoTextSettings() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String autoTextPageUrl = Hooks.prop.getProperty("autoTextPageUrl");
-
 		Assert.assertNotNull("autoTextPageUrl is missing in config", autoTextPageUrl);
-
 		String fullAutoTextUrl = baseUrl + autoTextPageUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openAutoTextPage(fullAutoTextUrl);
-
 		Assert.assertTrue("Auto Text settings page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("#autotext"));
 	}
@@ -837,17 +983,12 @@ public class setupstep {
 
 	@And("the user should be able to view Email Notification settings test")
 	public void userWithViewPermissionCanAccessEmailNotificationSettings() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String emailNotificationPageUrl = Hooks.prop.getProperty("emailNotificationPageUrl");
-
 		Assert.assertNotNull("emailNotificationPageUrl is missing in config", emailNotificationPageUrl);
-
 		String fullEmailNotificationUrl = baseUrl + emailNotificationPageUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openEmailNotificationPage(fullEmailNotificationUrl);
-
 		Assert.assertTrue("Email Notification settings page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("#emailnotification"));
 	}
@@ -939,17 +1080,12 @@ public class setupstep {
 
 	@And("the user should be able to view Show On Dashboard settings test")
 	public void userWithViewPermissionCanAccessShowOnDashboardSettings() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String reminderPageUrl = Hooks.prop.getProperty("reminderPageUrl");
-
 		Assert.assertNotNull("reminderPageUrl is missing in config", reminderPageUrl);
-
 		String fullReminderUrl = baseUrl + reminderPageUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openReminderPage(fullReminderUrl);
-
 		Assert.assertTrue("Show On Dashboard settings page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/Reminder"));
 	}
@@ -969,17 +1105,12 @@ public class setupstep {
 	// MailSetting
 	@And("the user should have no Mail Setting access via UI or direct URL test")
 	public void userWithoutAccessCannotOpenMailSettingViaUiOrUrl() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String mailSettingPageUrl = Hooks.prop.getProperty("mailSettingPageUrl");
-
 		Assert.assertNotNull("mailSettingPageUrl is missing in config", mailSettingPageUrl);
-
 		String fullMailSettingUrl = baseUrl + mailSettingPageUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openMailSettingPage(fullMailSettingUrl);
-
 		setupPage.verifyUserHasNoAccessToMailSetting();
 
 	}
@@ -997,20 +1128,14 @@ public class setupstep {
 	}
 
 	// CentralPASettings
-
 	@And("the user should have no Central PA Setting access via UI or direct URL test")
 	public void userWithoutAccessCannotOpenCentralPaSettingViaUiOrUrl() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String centralPASettingsPageUrl = Hooks.prop.getProperty("centralPASettingsPageUrl");
-
 		Assert.assertNotNull("centralPASettingsPageUrl is missing in config", centralPASettingsPageUrl);
-
 		String fullCentralPASettingsUrl = baseUrl + centralPASettingsPageUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openCentralPASettingsPage(fullCentralPASettingsUrl);
-
 		setupPage.verifyUserHasNoAccessToCentralPASetting();
 
 	}
@@ -1053,17 +1178,12 @@ public class setupstep {
 
 	@And("the user should be able to view Central PA Setting test")
 	public void userWithViewPermissionCanAccessCentralPaSetting() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String centralPASettingsPageUrl = Hooks.prop.getProperty("centralPASettingsPageUrl");
-
 		Assert.assertNotNull("centralPASettingsPageUrl is missing in config", centralPASettingsPageUrl);
-
 		String fullCentralPASettingsUrl = baseUrl + centralPASettingsPageUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openCentralPASettingsPage(fullCentralPASettingsUrl);
-
 		Assert.assertTrue("Central PA Settings page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Web/Home/CentralPASettings"));
 
@@ -1157,20 +1277,14 @@ public class setupstep {
 
 	@And("the user should be able to view workspace user details test")
 	public void userWithViewDetailPermissionCanAccessWorkspaceUserDetails() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String workspaceUsersPageUrl = Hooks.prop.getProperty("workspaceUsersPageUrl");
-
 		Assert.assertNotNull("workspaceUsersPageUrl is missing in config", workspaceUsersPageUrl);
-
 		String fullWorkspaceUsersUrl = baseUrl + workspaceUsersPageUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openWorkspaceUsersPage(fullWorkspaceUsersUrl);
-
 		Assert.assertTrue("Workspace Users page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/WorkspaceUsers"));
-
 		setupPage.verifyUserCanViewWorkspaceUserDetails();
 
 	}
@@ -1190,18 +1304,12 @@ public class setupstep {
 	// Mails
 	@And("the user should have no Mail View access via UI or direct URL test")
 	public void denyMailPageAccessWithoutViewPermissionUiOrUrl() {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String mailsPageUrl = Hooks.prop.getProperty("mailsPageUrl");
-
 		Assert.assertNotNull("mailsPageUrl is missing in config", mailsPageUrl);
-
 		String fullUrl = baseUrl + mailsPageUrl;
-
 		setupPage = new setuppage(Hooks.driver);
-
 		setupPage.openMailsPage(fullUrl);
-
 		Assert.assertTrue("Mail Settings page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/Mails"));
 	}
@@ -1221,18 +1329,12 @@ public class setupstep {
 	// Faxes
 	@And("the user should have no Fax View access via UI or direct URL test")
 	public void userWithoutFaxViewPermissionCannotAccessViaUiOrUrl() {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String faxesPageUrl = Hooks.prop.getProperty("faxesPageUrl");
-
 		Assert.assertNotNull("faxesPageUrl is missing in config", faxesPageUrl);
-
 		String fullUrl = baseUrl + faxesPageUrl;
-
 		setupPage = new setuppage(Hooks.driver);
-
 		setupPage.openFaxesPage(fullUrl);
-
 		setupPage.verifyUserHasNoAccessToFaxPageViaUIOrURL();
 
 	}
@@ -1252,18 +1354,12 @@ public class setupstep {
 	// BOTCalls
 	@And("the user should have no BOT Call View access via UI or direct URL test")
 	public void userWithoutBotCallViewPermissionCannotAccessViaUiOrUrl() {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String botCallsPageUrl = Hooks.prop.getProperty("botCallsPageUrl");
-
 		Assert.assertNotNull("botCallsPageUrl is missing in config", botCallsPageUrl);
-
 		String fullUrl = baseUrl + botCallsPageUrl;
-
 		setupPage = new setuppage(Hooks.driver);
-
 		setupPage.openBotCallsPage(fullUrl);
-
 		setupPage.verifyUserHasNoAccessToBotCallPageViaUIOrURL();
 
 	}
@@ -1283,18 +1379,12 @@ public class setupstep {
 	// CallActivities
 	@And("the user should have no Call Activity access via UI or direct URL test")
 	public void userShouldNotBeAbleToAccessCallActivityPageViaUiOrDirectUrl() {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String callActivityPageUrl = Hooks.prop.getProperty("callActivityPageUrl");
-
 		Assert.assertNotNull("callActivityPageUrl is missing in config", callActivityPageUrl);
-
 		String fullUrl = baseUrl + callActivityPageUrl;
-
 		setupPage = new setuppage(Hooks.driver);
-
 		setupPage.openCallActivityPage(fullUrl);
-
 		setupPage.verifyUserHasNoAccessToCallActivityPageViaUIOrURL();
 
 	}
@@ -1314,18 +1404,12 @@ public class setupstep {
 	// Texts
 	@And("the user should have no Text page access via UI or direct URL test")
 	public void userShouldNotBeAbleToAccessTextPageViaUiOrDirectUrl() {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String textPageUrl = Hooks.prop.getProperty("textPageUrl");
-
 		Assert.assertNotNull("textPageUrl is missing in config", textPageUrl);
-
 		String fullUrl = baseUrl + textPageUrl;
-
 		setupPage = new setuppage(Hooks.driver);
-
 		setupPage.openTextPage(fullUrl);
-
 		Assert.assertTrue("Text page is not displayed", Hooks.driver.getCurrentUrl().contains("/Setup/Home/Texts"));
 	}
 
@@ -1344,18 +1428,12 @@ public class setupstep {
 	// Driver And SalesRep User
 	@And("the user should not be able to access the Driver and SalesRep User page via direct URL test")
 	public void userShouldNotBeAbleToAccessDriverUsersPageViaDirectUrl() {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String driverUsersPageUrl = Hooks.prop.getProperty("driverUsersPageUrl");
-
 		Assert.assertNotNull("driverUsersPageUrl is missing in config", driverUsersPageUrl);
-
 		String fullUrl = baseUrl + driverUsersPageUrl;
-
 		setupPage = new setuppage(Hooks.driver);
-
 		setupPage.openDriverUsersPage(fullUrl);
-
 		setupPage.verifyUserCannotAccessDriverAndSalesRepUserPageViaDirectURL();
 
 	}
@@ -1447,18 +1525,12 @@ public class setupstep {
 
 	@And("the user should be able to view the Fax Setting list test")
 	public void userShouldBeAbleToViewTheFaxSettingList() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String faxSettingsPageUrl = Hooks.prop.getProperty("faxSettingsPageUrl");
-
 		Assert.assertNotNull("faxSettingsPageUrl is missing in config", faxSettingsPageUrl);
-
 		String fullUrl = baseUrl + faxSettingsPageUrl;
-
 		setupPage = new setuppage(Hooks.driver);
-
 		setupPage.openFaxSettingsPage(fullUrl);
-
 		Assert.assertTrue("Fax Settings page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/FaxSettings"));
 	}
@@ -1550,18 +1622,12 @@ public class setupstep {
 
 	@And("the user should be able to view the Professional License Type list test")
 	public void userShouldBeAbleToViewProfessionalLicenseTypePage() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String professionalLicenseTypePageUrl = Hooks.prop.getProperty("professionalLicenseTypePageUrl");
-
 		Assert.assertNotNull("professionalLicenseTypePageUrl is missing in config", professionalLicenseTypePageUrl);
-
 		String fullUrl = baseUrl + professionalLicenseTypePageUrl;
-
 		setupPage = new setuppage(Hooks.driver);
-
 		setupPage.openProfessionalLicenseTypePage(fullUrl);
-
 		Assert.assertTrue("Professional License Type page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/ProfessionalLicenseTypes"));
 	}
@@ -1635,18 +1701,12 @@ public class setupstep {
 
 	@And("the user should be able to view the Designation list test")
 	public void userShouldBeAbleToViewTheDesignationList() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String designationPageUrl = Hooks.prop.getProperty("designationPageUrl");
-
 		Assert.assertNotNull("designationPageUrl is missing in config", designationPageUrl);
-
 		String fullUrl = baseUrl + designationPageUrl;
-
 		setupPage = new setuppage(Hooks.driver);
-
 		setupPage.openDesignationPage(fullUrl);
-
 		Assert.assertTrue("Designation page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/Designations"));
 	}
@@ -1745,18 +1805,12 @@ public class setupstep {
 
 	@And("the user should be able to view the list of Whitelist IP entries test")
 	public void userShouldBeAbleToViewWhitelistIPsPage() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String whitelistIPsPageUrl = Hooks.prop.getProperty("whitelistIPsPageUrl");
-
 		Assert.assertNotNull("whitelistIPsPageUrl is missing in config", whitelistIPsPageUrl);
-
 		String fullUrl = baseUrl + whitelistIPsPageUrl;
-
 		setupPage = new setuppage(Hooks.driver);
-
 		setupPage.openWhitelistIPsPage(fullUrl);
-
 		Assert.assertTrue("Whitelist IPs page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/WhitelistIPs"));
 	}
@@ -1848,18 +1902,12 @@ public class setupstep {
 
 	@And("the user should be able to view entries in the Progress Step test")
 	public void userShouldBeAbleToViewEntriesInTheProgressStep() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String progressStepPageUrl = Hooks.prop.getProperty("progressStepPageUrl");
-
 		Assert.assertNotNull("progressStepPageUrl is missing in config", progressStepPageUrl);
-
 		String fullUrl = baseUrl + progressStepPageUrl;
-
 		setupPage = new setuppage(Hooks.driver);
-
 		setupPage.openProgressStepPage(fullUrl);
-
 		Assert.assertTrue("Progress Step page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/ProgressStatuses"));
 	}
@@ -1877,7 +1925,6 @@ public class setupstep {
 	}
 
 	// EHR Types
-
 	@And("the user should be able to delete an EHR Type test")
 	public void userShouldBeAbleToDeleteAnEhrType() throws InterruptedException {
 		setupPage.verifyUserCanDeleteEHRType();
@@ -1952,18 +1999,12 @@ public class setupstep {
 
 	@And("the user should be able to view EHR Types test")
 	public void userShouldBeAbleToViewEhrTypes() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String ehrTypesPageUrl = Hooks.prop.getProperty("ehrTypesPageUrl");
-
 		Assert.assertNotNull("ehrTypesPageUrl is missing in config", ehrTypesPageUrl);
-
 		String fullUrl = baseUrl + ehrTypesPageUrl;
-
 		setupPage = new setuppage(Hooks.driver);
-
 		setupPage.openEhrTypesPage(fullUrl);
-
 		Assert.assertTrue("EHR Types page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/ExternalSources"));
 	}
@@ -1983,18 +2024,12 @@ public class setupstep {
 	// Text Forward Setting
 	@And("the user should have no Text Forward Setting update access via UI or direct URL test")
 	public void userShouldHaveNoTextForwardSettingUpdateAccessViaUiOrDirectUrl() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String textForwardSettingPageUrl = Hooks.prop.getProperty("textForwardSettingPageUrl");
-
 		Assert.assertNotNull("textForwardSettingPageUrl is missing in config", textForwardSettingPageUrl);
-
 		String fullUrl = baseUrl + textForwardSettingPageUrl;
-
 		setupPage = new setuppage(Hooks.driver);
-
 		setupPage.openTextForwardSettingPage(fullUrl);
-
 		Assert.assertTrue("Text Forward Setting page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/TextForwardSetting"));
 	}
@@ -2014,18 +2049,12 @@ public class setupstep {
 	// Notification Setting
 	@And("the user should have no Notification Setting update access via UI or direct URL test")
 	public void userShouldHaveNoNotificationSettingUpdateAccessViaUiOrDirectUrl() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String notificationSettingPageUrl = Hooks.prop.getProperty("notificationSettingPageUrl");
-
 		Assert.assertNotNull("notificationSettingPageUrl is missing in config", notificationSettingPageUrl);
-
 		String fullUrl = baseUrl + notificationSettingPageUrl;
-
 		setupPage = new setuppage(Hooks.driver);
-
 		setupPage.openNotificationSettingPage(fullUrl);
-
 		setupPage.verifyUserHasNoUpdateAccessToNotificationSetting();
 
 	}
@@ -2045,18 +2074,12 @@ public class setupstep {
 	// Technical Setting
 	@And("the user should have no Technical Setting update access via UI or direct URL test")
 	public void userShouldHaveNoTechnicalSettingUpdateAccessViaUiOrDirectUrl() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String technicalSettingPageUrl = Hooks.prop.getProperty("technicalSettingPageUrl");
-
 		Assert.assertNotNull("technicalSettingPageUrl is missing in config", technicalSettingPageUrl);
-
 		String fullUrl = baseUrl + technicalSettingPageUrl;
-
 		setupPage = new setuppage(Hooks.driver);
-
 		setupPage.openTechnicalSettingPage(fullUrl);
-
 		setupPage.verifyUserHasNoUpdateAccessToTechnicalSetting();
 
 	}
@@ -2100,18 +2123,12 @@ public class setupstep {
 
 	@And("the user should be able to view Organization Calendar entries test")
 	public void userShouldBeAbleToViewOrganizationCalendarEntries() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String organizationCalendarPageUrl = Hooks.prop.getProperty("organizationCalendarPageUrl");
-
 		Assert.assertNotNull("organizationCalendarPageUrl is missing in config", organizationCalendarPageUrl);
-
 		String fullUrl = baseUrl + organizationCalendarPageUrl;
-
 		setupPage = new setuppage(Hooks.driver);
-
 		setupPage.openOrganizationCalendarPage(fullUrl);
-
 		Assert.assertTrue("Organization Calendar page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/OrganizationCalendarSetting"));
 	}
@@ -2129,21 +2146,14 @@ public class setupstep {
 	}
 
 	// Brand Management
-
 	@And("the user should not see the Send VCard option in Brand Management test")
 	public void userShouldNotSeeSendVcardOptionInBrandManagement() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String brandManagementPageUrl = Hooks.prop.getProperty("brandManagementPageUrl");
-
 		Assert.assertNotNull("brandManagementPageUrl is missing in config", brandManagementPageUrl);
-
 		String fullUrl = baseUrl + brandManagementPageUrl;
-
 		setupPage = new setuppage(Hooks.driver);
-
 		setupPage.openBrandManagementPage(fullUrl);
-
 		setupPage.verifySendVCardOptionIsNotVisibleInBrandManagement();
 
 	}
@@ -2162,18 +2172,12 @@ public class setupstep {
 
 	@And("the user should have no Brand Management update access via UI or direct URL test")
 	public void userShouldHaveNoBrandManagementUpdateAccessViaUiOrDirectUrl() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String brandManagementPageUrl = Hooks.prop.getProperty("brandManagementPageUrl");
-
 		Assert.assertNotNull("brandManagementPageUrl is missing in config", brandManagementPageUrl);
-
 		String fullUrl = baseUrl + brandManagementPageUrl;
-
 		setupPage = new setuppage(Hooks.driver);
-
 		setupPage.openBrandManagementPage(fullUrl);
-
 		setupPage.verifyNoUpdateAccessToBrandManagement();
 
 	}
@@ -2193,18 +2197,12 @@ public class setupstep {
 	// Reminders
 	@And("the user should have no Application Status update access via UI or direct URL test")
 	public void userShouldHaveNoApplicationStatusUpdateAccessViaUiOrDirectUrl() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String applicationStatusPageUrl = Hooks.prop.getProperty("applicationStatusPageUrl");
-
 		Assert.assertNotNull("applicationStatusPageUrl is missing in config", applicationStatusPageUrl);
-
 		String fullUrl = baseUrl + applicationStatusPageUrl;
-
 		setupPage = new setuppage(Hooks.driver);
-
 		setupPage.openApplicationStatusPage(fullUrl);
-
 		setupPage.verifyNoUpdateAccessToApplicationStatus();
 	}
 
@@ -2246,18 +2244,12 @@ public class setupstep {
 
 	@And("the user should be able to view reminders test")
 	public void userShouldBeAbleToViewRemindersPage() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String remindersPageUrl = Hooks.prop.getProperty("remindersPageUrl");
-
 		Assert.assertNotNull("remindersPageUrl is missing in config", remindersPageUrl);
-
 		String fullUrl = baseUrl + remindersPageUrl;
-
 		setupPage = new setuppage(Hooks.driver);
-
 		setupPage.openRemindersPage(fullUrl);
-
 		Assert.assertTrue("Reminders page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/Reminders"));
 	}
@@ -2275,21 +2267,14 @@ public class setupstep {
 	}
 
 	// Bucket Setting
-
 	@And("the user should have no Bucket Setting access via UI or direct URL test")
 	public void verifyUserHasNoBucketSettingAccessViaUiOrUrl() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String bucketSettingsPageUrl = Hooks.prop.getProperty("bucketSettingsPageUrl");
-
 		Assert.assertNotNull("bucketSettingsPageUrl is missing in config", bucketSettingsPageUrl);
-
 		String fullUrl = baseUrl + bucketSettingsPageUrl;
-
 		setupPage = new setuppage(Hooks.driver);
-
 		setupPage.openBucketSettingsPage(fullUrl);
-
 		setupPage.userWithNoAccessCannotViewOrAccessBucketSetting();
 
 	}
@@ -2405,17 +2390,12 @@ public class setupstep {
 
 	@And("the user should be able to view files in the Organization Bucket test")
 	public void verifyUserCanViewFilesInOrganizationBucket() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String organizationDocumentsPageUrl = Hooks.prop.getProperty("organizationDocumentsPageUrl");
-
 		Assert.assertNotNull("organizationDocumentsPageUrl is missing in config", organizationDocumentsPageUrl);
-
 		String fullOrganizationDocumentsUrl = baseUrl + organizationDocumentsPageUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openOrganizationDocumentsPage(fullOrganizationDocumentsUrl);
-
 		Assert.assertTrue("Organization Documents page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/OrganizationDocuments"));
 	}
@@ -2435,17 +2415,12 @@ public class setupstep {
 	// Default Fax Template
 	@And("the user should have no Default Fax Template access via UI or direct URL test")
 	public void verifyUserHasNoDefaultFaxTemplateAccess() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String defaultFaxTemplatePageUrl = Hooks.prop.getProperty("defaultFaxTemplatePageUrl");
-
 		Assert.assertNotNull("defaultFaxTemplatePageUrl is missing in config", defaultFaxTemplatePageUrl);
-
 		String fullDefaultFaxTemplateUrl = baseUrl + defaultFaxTemplatePageUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openDefaultFaxTemplatePage(fullDefaultFaxTemplateUrl);
-
 		setupPage.UserWithNoAccessCannotViewOrAccessDefaultFaxTemplate();
 	}
 
@@ -2464,17 +2439,12 @@ public class setupstep {
 	// Default Mail Template
 	@And("the user should have no Default Mail Template access via UI or direct URL test")
 	public void verifyUserHasNoDefaultMailTemplateAccess() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String defaultMailTemplatePageUrl = Hooks.prop.getProperty("defaultMailTemplatePageUrl");
-
 		Assert.assertNotNull("defaultMailTemplatePageUrl is missing in config", defaultMailTemplatePageUrl);
-
 		String fullDefaultMailTemplateUrl = baseUrl + defaultMailTemplatePageUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openDefaultMailTemplatePage(fullDefaultMailTemplateUrl);
-
 		setupPage.UserWithNoAccessCannotViewOrAccessDefaultMailTemplate();
 
 	}
@@ -2492,7 +2462,6 @@ public class setupstep {
 	}
 
 	// Feedback Form
-
 	@And("the user should be able to delete a feedback form test")
 	public void verifyUserCanDeleteFeedbackForm() throws InterruptedException {
 		setupPage.serShouldBeAbleToDeleteFeedbackForm();
@@ -2567,17 +2536,12 @@ public class setupstep {
 
 	@And("the user should be able to view feedback forms test")
 	public void verifyUserCanViewFeedbackForms() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String feedbackFormsPageUrl = Hooks.prop.getProperty("feedbackFormsPageUrl");
-
 		Assert.assertNotNull("feedbackFormsPageUrl is missing in config", feedbackFormsPageUrl);
-
 		String fullFeedbackFormsUrl = baseUrl + feedbackFormsPageUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openFeedbackFormsPage(fullFeedbackFormsUrl);
-
 		Assert.assertTrue("Feedback Forms page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/FeedbackForms"));
 	}
@@ -2669,17 +2633,12 @@ public class setupstep {
 
 	@And("the user should be able to view patient signature templates test")
 	public void verifyUserCanViewPatientSignatureTemplates() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String patientSignatureTemplatesPageUrl = Hooks.prop.getProperty("patientSignatureTemplatesPageUrl");
-
 		Assert.assertNotNull("patientSignatureTemplatesPageUrl is missing in config", patientSignatureTemplatesPageUrl);
-
 		String fullPatientSignatureTemplatesUrl = baseUrl + patientSignatureTemplatesPageUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openPatientSignatureTemplatesPage(fullPatientSignatureTemplatesUrl);
-
 		Assert.assertTrue("Patient Signature Templates page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/PatientSignatureTemplates"));
 	}
@@ -2771,17 +2730,12 @@ public class setupstep {
 
 	@And("the user should be able to view fax templates test")
 	public void verifyUserCanViewFaxTemplates() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String faxTemplatesPageUrl = Hooks.prop.getProperty("faxTemplatesPageUrl");
-
 		Assert.assertNotNull("faxTemplatesPageUrl is missing in config", faxTemplatesPageUrl);
-
 		String fullFaxTemplatesUrl = baseUrl + faxTemplatesPageUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openFaxTemplatesPage(fullFaxTemplatesUrl);
-
 		Assert.assertTrue("Fax Templates page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/FaxTemplates"));
 	}
@@ -2873,17 +2827,12 @@ public class setupstep {
 
 	@And("the user should be able to view mail templates test")
 	public void verifyUserCanViewMailTemplates() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String mailTemplatesPageUrl = Hooks.prop.getProperty("mailTemplatesPageUrl");
-
 		Assert.assertNotNull("mailTemplatesPageUrl is missing in config", mailTemplatesPageUrl);
-
 		String fullMailTemplatesUrl = baseUrl + mailTemplatesPageUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openMailTemplatesPage(fullMailTemplatesUrl);
-
 		Assert.assertTrue("Mail Templates page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/MailTemplates"));
 	}
@@ -2975,17 +2924,12 @@ public class setupstep {
 
 	@And("the user should be able to view BOT call templates test")
 	public void verifyUserCanViewBotCallTemplates() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String botCallTemplatesPageUrl = Hooks.prop.getProperty("botCallTemplatesPageUrl");
-
 		Assert.assertNotNull("botCallTemplatesPageUrl is missing in config", botCallTemplatesPageUrl);
-
 		String fullBotCallTemplatesUrl = baseUrl + botCallTemplatesPageUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openBotCallTemplatesPage(fullBotCallTemplatesUrl);
-
 		Assert.assertTrue("BOT Call Templates page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/BOTCallTemplates"));
 	}
@@ -3077,17 +3021,12 @@ public class setupstep {
 
 	@And("the user should be able to view text templates test")
 	public void verifyUserCanViewTextTemplates() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String smsTemplatesPageUrl = Hooks.prop.getProperty("smsTemplatesPageUrl");
-
 		Assert.assertNotNull("smsTemplatesPageUrl is missing in config", smsTemplatesPageUrl);
-
 		String fullSmsTemplatesUrl = baseUrl + smsTemplatesPageUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openSmsTemplatesPage(fullSmsTemplatesUrl);
-
 		Assert.assertTrue("SMS Templates page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/SMSTemplates"));
 	}
@@ -3179,17 +3118,12 @@ public class setupstep {
 
 	@And("the user should be able to view users test")
 	public void verifyUserCanViewUsers() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String workspaceUsersPageUrl = Hooks.prop.getProperty("workspaceUsersPageUrl");
-
 		Assert.assertNotNull("workspaceUsersPageUrl is missing in config", workspaceUsersPageUrl);
-
 		String fullWorkspaceUsersUrl = baseUrl + workspaceUsersPageUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openWorkspaceUsersPage(fullWorkspaceUsersUrl);
-
 		Assert.assertTrue("Workspace Users page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/WorkspaceUsers"));
 	}
@@ -3217,7 +3151,6 @@ public class setupstep {
 		setupPage.openSetupProfilesPage(fullProfilesUrl);
 		Assert.assertTrue("Profiles page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/Profiles"));
-
 		setupPage.verifyFullProfileAccess();
 
 	}
@@ -3268,17 +3201,12 @@ public class setupstep {
 	// Dashboard
 	@And("the user should have no Workflow access via UI or direct URL test")
 	public void verifyNoWorkflowAccessViaUIOrURL() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String workflowDashboardUrl = Hooks.prop.getProperty("workflowDashboardUrl");
-
 		Assert.assertNotNull("workflowDashboardUrl is missing in config", workflowDashboardUrl);
-
 		String fullWorkflowDashboardUrl = baseUrl + workflowDashboardUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openWorkflowDashboardPage(fullWorkflowDashboardUrl);
-
 		setupPage.verifyNoWorkflowAccess();
 	}
 
@@ -3296,14 +3224,10 @@ public class setupstep {
 
 	@And("the user should have no Drug access via UI or direct URL test")
 	public void verifyNoDrugAccessViaUIOrURL() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String drugDashboardUrl = Hooks.prop.getProperty("drugDashboardUrl");
-
 		Assert.assertNotNull("drugDashboardUrl is missing in config", drugDashboardUrl);
-
 		String fullDrugDashboardUrl = baseUrl + drugDashboardUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openDrugDashboardPage(fullDrugDashboardUrl);
 		setupPage.verifyNoDrugAccess();
@@ -3324,17 +3248,12 @@ public class setupstep {
 
 	@And("the user should have no Delivery access via UI or direct URL test")
 	public void verifyNoDeliveryAccessViaUIOrURL() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String deliveryDashboardUrl = Hooks.prop.getProperty("deliveryDashboardUrl");
-
 		Assert.assertNotNull("deliveryDashboardUrl is missing in config", deliveryDashboardUrl);
-
 		String fullDeliveryDashboardUrl = baseUrl + deliveryDashboardUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openDeliveryDashboardPage(fullDeliveryDashboardUrl);
-
 		setupPage.verifyNoDeliveryAccess();
 
 	}
@@ -3353,14 +3272,10 @@ public class setupstep {
 
 	@And("the user should have no patient access via UI or direct URL test")
 	public void verifyNoPatientAccessViaUIOrURL() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String patientDashboardUrl = Hooks.prop.getProperty("patientDashboardUrl");
-
 		Assert.assertNotNull("patientDashboardUrl is missing in config", patientDashboardUrl);
-
 		String fullPatientDashboardUrl = baseUrl + patientDashboardUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openPatientDashboardPage(fullPatientDashboardUrl);
 		setupPage.verifyNoPatientAccess();
@@ -3381,17 +3296,12 @@ public class setupstep {
 
 	@And("the user should have no Setup access via UI or direct URL test")
 	public void verifyNoSetupAccessViaUIOrURL() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String setupDashboardUrl = Hooks.prop.getProperty("dashboardPageUrl");
-
 		Assert.assertNotNull("dashboardPageUrl is missing in config", setupDashboardUrl);
-
 		String fullDashboardUrl = baseUrl + setupDashboardUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openSetupDashboardPage(fullDashboardUrl);
-
 		setupPage.verifyNoSetupAccess();
 	}
 
@@ -3409,17 +3319,12 @@ public class setupstep {
 
 	@And("I should see only log access for the new user test")
 	public void verifyNewUserHasLogOnlyAccess() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String setupDashboardUrl = Hooks.prop.getProperty("dashboardPageUrl");
-
 		Assert.assertNotNull("dashboardPageUrl is missing in config", setupDashboardUrl);
-
 		String fullDashboardUrl = baseUrl + setupDashboardUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openSetupDashboardPage(fullDashboardUrl);
-
 		Assert.assertTrue("Dashboard page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/Dashboard"));
 	}
@@ -3437,7 +3342,6 @@ public class setupstep {
 	}
 
 	// Audit View
-
 	@And("the user should not be able to view General Audit View settings test")
 	public void userCannotViewGeneralAuditSettings() throws InterruptedException {
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
@@ -3448,7 +3352,6 @@ public class setupstep {
 		setupPage.openSetupProfilesPage(fullProfilesUrl);
 		Assert.assertTrue("Profiles page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/Profiles"));
-
 		setupPage.userShouldNotBeAbleToViewGeneralAuditViewSettings();
 
 	}

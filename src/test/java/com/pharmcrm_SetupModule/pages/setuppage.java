@@ -24,202 +24,218 @@ public class setuppage {
 	private WebDriver driver;
 	private WebDriverWait wait;
 
+	// Workspace Users
+	public By resetPassword = By.xpath(
+			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Reset Password')]");
+	public By searchEmployee = By.xpath("//button[normalize-space()='Search']");
+	public By employeeDetailSvg = By.xpath("//div[@id='EmployeeDetail']//*[name()='svg']");
+
+	// Profile
+	public By btnSaveProfile = By.xpath("//button[@id='btnSaveProfile']");
+
+	// Dashboard
+	public By toastMessage = By.xpath("//div[@class='toast-message']");
+	public By pathLocator = By.xpath("//*[name()='path' and contains(@d,'M256 80c0-')]");
+	public By btnSaveQuickLinkGroup = By.xpath("//button[@id='btnSaveQuickLinkGroup']");
+
 	// Privacy Policy & Terms of Use
-	By errorLocator = By.xpath("//h2[normalize-space()='Error']");
+	public By errorLocator = By.xpath("//h2[normalize-space()='Error']");
 
 	// T&C
-	By editorLocator = By.xpath("//div[@aria-label='Editor editing area: main. Press Alt+0 for help.']");
-	By submitBtnLocator = By
+	public By editorLocator = By.xpath("//div[@aria-label='Editor editing area: main. Press Alt+0 for help.']");
+	public By submitBtnLocator = By
 			.xpath("//button[@class='btn btn-primary waves-effect waves-light'][normalize-space()='Submit']");
 
 	// Dashboard
-	By deleteQuickLinkButtonLocator = By.xpath("//div[@id='page-wrapper']//button[2]//*[name()='svg']");
-	By loaderLocator = By.id("menucontext");
-	By editQuickLinkButtonLocator = By.xpath("//div[@class='sdql-title']//button[1]//*[name()='svg']");
-	By groupNameInputLocator = By.xpath("//input[@id='groupName']");
-	By saveButtonLocator = By.xpath("//button[@id='btnSaveQuickLinkGroup']");
-	By editIconLocator = By.xpath("//*[name()='path' and @id='Union_9']");
-	By quickLinkActionIconLocator = By.xpath("//*[name()='path' and contains(@d,'M256 80c0-')]");
+	public By deleteQuickLinkButtonLocator = By.xpath("//div[@id='page-wrapper']//button[2]//*[name()='svg']");
+	public By loaderLocator = By.id("menucontext");
+	public By editQuickLinkButtonLocator = By.xpath("//div[@class='sdql-title']//button[1]//*[name()='svg']");
+	public By groupNameInputLocator = By.xpath("//input[@id='groupName']");
+	public By saveButtonLocator = By.xpath("//button[@id='btnSaveQuickLinkGroup']");
+	public By editIconLocator = By.xpath("//*[name()='path' and @id='Union_9']");
+	public By quickLinkActionIconLocator = By.xpath("//*[name()='path' and contains(@d,'M256 80c0-')]");
 
 	// XFlow
-	By userMenuIconLocator = By.xpath("//a[@href='#']//span[@class='userTopIcon']//*[name()='svg']");
-	By settingsIconLocator = By
+	public By userMenuIconLocator = By.xpath("//a[@href='#']//span[@class='userTopIcon']//*[name()='svg']");
+	public By settingsIconLocator = By
 			.xpath("//span[@class='co-settings']//*[name()='svg']//*[name()='path' and @id='Union_1']");
-	By downloadButtonLocator = By.xpath("//h6[normalize-space()='Click To Download']");
+	public By downloadButtonLocator = By.xpath("//h6[normalize-space()='Click To Download']");
 
 	// Sender Authentication
-	By domainNameInputLocator = By.xpath("//input[@id='domainName']");
-	By addButtonLocator = By.xpath("//button[@id='btnDomainName']");
-	By newSenderAuthButtonLocator = By.xpath("//span[normalize-space()='New Sender Authentication']");
-	By actionMenuButtonLocator = By.xpath("//tbody/tr[1]/td[6]/div[1]/div[1]/button[1]/i[1]");
-	By deleteOptionLocator = By.xpath(
+	public By domainNameInputLocator = By.xpath("//input[@id='domainName']");
+	public By addButtonLocator = By.xpath("//button[@id='btnDomainName']");
+	public By newSenderAuthButtonLocator = By.xpath("//span[normalize-space()='New Sender Authentication']");
+	public By actionMenuButtonLocator = By.xpath("//tbody/tr[1]/td[6]/div[1]/div[1]/button[1]/i[1]");
+	public By deleteOptionLocator = By.xpath(
 			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]");
 
 	// Bounce Email
-	By confirmDeleteButtonLocator = By.xpath("//div[@id='deleteBounceModel']//button[@id='btnDeleteConfirm']");
-	By deleteIconLocator = By.xpath("//tbody/tr[1]/td[4]/a[1]/img[1]");
+	public By confirmDeleteButtonLocator = By.xpath("//div[@id='deleteBounceModel']//button[@id='btnDeleteConfirm']");
+	public By deleteIconLocator = By.xpath("//tbody/tr[1]/td[4]/a[1]/img[1]");
 
 	// Spam Email
-	private By deleteIcon = By.xpath("//tbody/tr[1]/td[4]/a[1]/img[1]");
-	private By deleteButton = By.id("delete");
+	public By deleteIcon = By.xpath("//tbody/tr[1]/td[4]/a[1]/img[1]");
+	public By deleteButton = By.id("delete");
 
 	// Auto Call
-	private By addAutoCallButton = By.xpath("//span[normalize-space()='Add Auto Call']");
+	public By addAutoCallButton = By.xpath("//span[normalize-space()='Add Auto Call']");
 
 	// Auto Text
-	private By dateInputField = By.id("ReminderActionSetting_AutoText_Date");
-	private By dateOption = By.xpath("//a[text()='7']");
-	private By autoTextTab = By.xpath("//a[normalize-space()='Auto Text']");
-	private By addAutoTextButton = By.xpath("//span[normalize-space()='Add Auto Text']");
+	public By dateInputField = By.id("ReminderActionSetting_AutoText_Date");
+	public By dateOption = By.xpath("//a[text()='7']");
+	public By autoTextTab = By.xpath("//a[normalize-space()='Auto Text']");
+	public By addAutoTextButton = By.xpath("//span[normalize-space()='Add Auto Text']");
 
 	// Email Notification
-	private By templateDropdown = By.id("ReminderActionSetting_EmailNotification_TemplateId");
-	private By emailNotificationTab = By.xpath("//a[normalize-space()='Email Notification']");
-	private By addEmailNotificationButton = By.xpath("//span[normalize-space()='Add Email Notification']");
+	public By templateDropdown = By.id("ReminderActionSetting_EmailNotification_TemplateId");
+	public By emailNotificationTab = By.xpath("//a[normalize-space()='Email Notification']");
+	public By addEmailNotificationButton = By.xpath("//span[normalize-space()='Add Email Notification']");
 
 	// Show On Dashboard
-	private By enableCheckboxLabel = By.xpath("//label[@for='ReminderActionSetting_ShowOnDashboard_IsEnabled']");
-	private By timeInputField = By.id("ReminderActionSetting_ShowOnDashboard_Time");
-	private By hourOption = By.xpath("(//a[contains(@class, 'ui-state-default') and text()='09'])[1]");
-	private By minuteOption = By.xpath("//a[contains(@class, 'ui-state-default') and text()='30']");
-	private By showOnDashboardTab = By.xpath("//a[normalize-space()='Show On Dashboard']");
-	private By addShowOnDashboardButton = By.xpath("//span[normalize-space()='Add Show On Dashboard']");
-	private By actionMenuIcon = By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']");
+	public By enableCheckboxLabel = By.xpath("//label[@for='ReminderActionSetting_ShowOnDashboard_IsEnabled']");
+	public By timeInputField = By.id("ReminderActionSetting_ShowOnDashboard_Time");
+	public By hourOption = By.xpath("(//a[contains(@class, 'ui-state-default') and text()='09'])[1]");
+	public By minuteOption = By.xpath("//a[contains(@class, 'ui-state-default') and text()='30']");
+	public By showOnDashboardTab = By.xpath("//a[normalize-space()='Show On Dashboard']");
+	public By addShowOnDashboardButton = By.xpath("//span[normalize-space()='Add Show On Dashboard']");
+	public By actionMenuIcon = By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']");
 
 	// CentralPASettings
-	private By processFromDateField = By.id("Filter_ProcessFromDate");
-	private By activeDateCell = By.xpath(
+	public By processFromDateField = By.id("Filter_ProcessFromDate");
+	public By activeDateCell = By.xpath(
 			"//div[contains(@class,'datepicker')]//td[not(contains(@class,'old')) and not(contains(@class,'new')) and not(contains(@class,'disabled'))]");
 
 	// WorkspaceUsers
-	private By firstNameFilter = By.id("Filter_FirstName");
-	private By employeeCheckbox = By.xpath("//input[@id='340929ac-3f18-46be-99c1-ad72bc0d3f1f']");
-	private By linkEmployeeButton = By.id("btnEmployee");
-	private By delinkEmployeeIcon = By.xpath("//div[@id='btnDelinkUserToEmployee']//*[name()='svg']");
-	private By confirmDelinkButton = By.xpath("//div[@id='delinkUserEmployeeModel']//button[@id='btnDeleteConfirm']");
-	private By newPasswordField = By.id("newPassword");
-	private By confirmPasswordField = By.id("confirmPassword");
-	private By resetPasswordButton = By.id("btnResetPassword");
-	private By resetPasswordOption = By
+	public By firstNameFilter = By.id("Filter_FirstName");
+	public By employeeCheckbox = By.xpath("//input[@id='340929ac-3f18-46be-99c1-ad72bc0d3f1f']");
+	public By linkEmployeeButton = By.id("btnEmployee");
+	public By delinkEmployeeIcon = By.xpath("//div[@id='btnDelinkUserToEmployee']//*[name()='svg']");
+	public By confirmDelinkButton = By.xpath("//div[@id='delinkUserEmployeeModel']//button[@id='btnDeleteConfirm']");
+	public By newPasswordField = By.id("newPassword");
+	public By confirmPasswordField = By.id("confirmPassword");
+	public By resetPasswordButton = By.id("btnResetPassword");
+	public By resetPasswordOption = By
 			.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Reset Password')]");
-	private By employeeDetailSection = By.id("EmployeeDetail");
-	private By workspaceUserActionMenuButton = By.xpath("//tbody/tr[1]/td[9]/div[1]/div[1]/button[1]/i[1]");
-	private By viewDetailOption = By.xpath(
+	public By employeeDetailSection = By.id("EmployeeDetail");
+	public By workspaceUserActionMenuButton = By.xpath("//tbody/tr[1]/td[9]/div[1]/div[1]/button[1]/i[1]");
+	public By viewDetailOption = By.xpath(
 			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'View Detail')]");
 
 	// BOTCalls
-	private By errorHeaderLocator = By.xpath("//h2[normalize-space()='Error']");
+	public By errorHeaderLocator = By.xpath("//h2[normalize-space()='Error']");
 
 	// Fax Setting
-	private By faxSettingActionMenuButton = By.xpath("//tbody/tr[1]/td[7]/div[1]/div[1]/button[1]");
+	public By faxSettingActionMenuButton = By.xpath("//tbody/tr[1]/td[7]/div[1]/div[1]/button[1]");
 
 	// New button
-	private By newFaxSettingButton = By.xpath("//span[normalize-space()='New Fax Settings']");
+	public By newFaxSettingButton = By.xpath("//span[normalize-space()='New Fax Settings']");
 
 	// Form fields
-	private By faxApiIdField = By.id("FaxSetting_FAXAPIId");
-	private By fromEmailField = By.id("FaxSetting_FromEmail");
+	public By faxApiIdField = By.id("FaxSetting_FAXAPIId");
+	public By fromEmailField = By.id("FaxSetting_FromEmail");
 
 	// Save button
-	private By saveFaxSettingButton = By.id("btnSave");
-	By newFaxSettingsBtn = By.xpath("//span[normalize-space()='New Fax Settings']");
+	public By saveFaxSettingButton = By.id("btnSave");
+	public By newFaxSettingsBtn = By.xpath("//span[normalize-space()='New Fax Settings']");
 
 	// Professional License Type
 
-	By newProfessionalLicenseTypeBtn = By.xpath("//span[normalize-space()='New Professional License Type']");
-	private By newProfessionalLicenseTypeButton = By.xpath("//span[normalize-space()='New Professional License Type']");
-	private By professionalLicenseActionMenuButton = By.xpath("//tbody/tr[1]/td[4]/div[1]/div[1]/button[1]");
+	public By newProfessionalLicenseTypeBtn = By.xpath("//span[normalize-space()='New Professional License Type']");
+	public By newProfessionalLicenseTypeButton = By.xpath("//span[normalize-space()='New Professional License Type']");
+	public By professionalLicenseActionMenuButton = By.xpath("//tbody/tr[1]/td[4]/div[1]/div[1]/button[1]");
 
 	// New button
-	private By newDesignationButton = By.xpath("//span[normalize-space()='New Designation']");
+	public By newDesignationButton = By.xpath("//span[normalize-space()='New Designation']");
 
 	// Form fields
-	private By designationNameField = By.id("Designation_Name");
-	private By designationLevelField = By.id("Designation_Level");
+	public By designationNameField = By.id("Designation_Name");
+	public By designationLevelField = By.id("Designation_Level");
 
 	// Save button
-	private By saveDesignationButton = By.id("btnSave");
+	public By saveDesignationButton = By.id("btnSave");
 
-	private By designationActionMenuButton = By.xpath("//tbody/tr[1]/td[5]/div[1]/div[1]/button[1]");
+	public By designationActionMenuButton = By.xpath("//tbody/tr[1]/td[5]/div[1]/div[1]/button[1]");
 
 	// Whitelist IP
-	By firstUserCheckbox = By.xpath("(//tbody[@id='view-excludeuser-body']//label)[1]");
-	By userCheckbox = By.xpath("//label[@for='337a4702-104a-4939-ac6e-3b188d3ff055']");
-	By ipField = By.id("WhiteListIP_IP");
-	By submitBtn = By.xpath("//button[@class='btn btn-primary waves-effect waves-light'][normalize-space()='Submit']");
-	By excludeUserLink = By.xpath("//a[normalize-space()='Exclude User']");
-	By newExcludeUserBtn = By.xpath("//span[normalize-space()='New Exclude User']");
-	By newIpBtn = By.xpath("//span[normalize-space()='New IP']");
+	public By firstUserCheckbox = By.xpath("(//tbody[@id='view-excludeuser-body']//label)[1]");
+	public By userCheckbox = By.xpath("//label[@for='337a4702-104a-4939-ac6e-3b188d3ff055']");
+	public By ipField = By.id("WhiteListIP_IP");
+	public By submitBtn = By
+			.xpath("//button[@class='btn btn-primary waves-effect waves-light'][normalize-space()='Submit']");
+	public By excludeUserLink = By.xpath("//a[normalize-space()='Exclude User']");
+	public By newExcludeUserBtn = By.xpath("//span[normalize-space()='New Exclude User']");
+	public By newIpBtn = By.xpath("//span[normalize-space()='New IP']");
 
 	// Progress Step
-	private By priorityField = By.id("ProgressStatus_Priority");
-	private By notesField = By.id("ProgressStatus_Notes");
+	public By priorityField = By.id("ProgressStatus_Priority");
+	public By notesField = By.id("ProgressStatus_Notes");
 
 	// Save button
 
-	private By newProgressStepButton = By.xpath("//span[normalize-space()='New Progress Step']");
+	public By newProgressStepButton = By.xpath("//span[normalize-space()='New Progress Step']");
 
 	// EHR Types
-	By nameField = By.id("ExternalSource_Name");
-	By descriptionField = By.id("ExternalSource_Description");
-	By newEhrTypeBtn = By.xpath("//span[normalize-space()='New EHR Type']");
-	By actionMenuBtn = By.xpath("//tbody/tr[1]/td[5]/div[1]/div[1]/button[1]/i[1]");
+	public By nameField = By.id("ExternalSource_Name");
+	public By descriptionField = By.id("ExternalSource_Description");
+	public By newEhrTypeBtn = By.xpath("//span[normalize-space()='New EHR Type']");
+	public By actionMenuBtn = By.xpath("//tbody/tr[1]/td[5]/div[1]/div[1]/button[1]/i[1]");
 
 	// Organization Calendar
-	By calendarEditBtn = By.cssSelector("button[onclick='return SubmitCalendarSetting()']");
+	public By calendarEditBtn = By.cssSelector("button[onclick='return SubmitCalendarSetting()']");
 
 	// Brand Management
-	By sendVCardBtn = By.xpath("//button[normalize-space()='Send VCard']");
+	public By sendVCardBtn = By.xpath("//button[normalize-space()='Send VCard']");
 
 	// Reminders
-	By reminderActionBtn = By.xpath("//tbody/tr[1]/td[2]/a[1]");
+	public By reminderActionBtn = By.xpath("//tbody/tr[1]/td[2]/a[1]");
 
 	// Organization Bucket
-	By fileNameField = By.id("fileNameTextBox");
-	By saveBtn = By.id("btnSaveFile");
+	public By fileNameField = By.id("fileNameTextBox");
+	public By saveBtn = By.id("btnSaveFile");
 
-	By fileInputField = By.xpath("//div[@class='pb-2']//input[@id='file-3']");
-	By saveFileBtn = By.id("btnSaveFile");
-	By addFileBtn = By.xpath("//a[@id='btnAddFile']//*[name()='svg']");
-	By downloadOption = By.xpath(
+	public By fileInputField = By.xpath("//div[@class='pb-2']//input[@id='file-3']");
+	public By saveFileBtn = By.id("btnSaveFile");
+	public By addFileBtn = By.xpath("//a[@id='btnAddFile']//*[name()='svg']");
+	public By downloadOption = By.xpath(
 			"//div[contains(@class,'bucket-mainn') and contains(@class,'show')]//li[2]//a[1]//*[name()='svg']//*[name()='path' and @id='Union_1']");
 
 	// Feedback Form
-	By confirmDeleteBtn = By.id("deleteFeedbackForm");
-	By questionField = By.id("FeedbackQuestion_Question");
-	By addQuestionButton = By
+	public By confirmDeleteBtn = By.id("deleteFeedbackForm");
+	public By questionField = By.id("FeedbackQuestion_Question");
+	public By addQuestionButton = By
 			.xpath("//a[@class='settings-add-btn']//*[name()='svg']//*[name()='path' and @id='Path_1']");
 
-	By newFeedbackFormButton = By.xpath("//span[normalize-space()='New Feedback Form']");
+	public By newFeedbackFormButton = By.xpath("//span[normalize-space()='New Feedback Form']");
 
 	// Patient Signature Template
-	By newPatientSignatureButton = By.xpath("//span[normalize-space()='New Patient Signature']");
+	public By newPatientSignatureButton = By.xpath("//span[normalize-space()='New Patient Signature']");
 
 	// Fax Template
-	By newFaxTemplateButton = By.xpath("//span[normalize-space()='New Fax Template']");
-	By activeCheckbox = By.xpath("//label[normalize-space()='Active?']");
+	public By newFaxTemplateButton = By.xpath("//span[normalize-space()='New Fax Template']");
+	public By activeCheckbox = By.xpath("//label[normalize-space()='Active?']");
 
 	// Mail Template
 
-	By titleField = By.id("MailTemplate_Title");
-	By subjectField = By.id("MailTemplate_Subject");
-	By newMailTemplateButton = By.xpath("//span[normalize-space()='New Mail Template']");
+	public By titleField = By.id("MailTemplate_Title");
+	public By subjectField = By.id("MailTemplate_Subject");
+	public By newMailTemplateButton = By.xpath("//span[normalize-space()='New Mail Template']");
 
 	// BOT Call Template
-
-	By bodyField = By.id("BOTCallTemplate_Body");
-	By firstRowActionMenu = By.xpath("//tbody/tr[1]/td[8]/div[1]/div[1]/button[1]");
-	By newCalloutTemplateButton = By.xpath("//span[normalize-space()='New Callout Template']");
-	By titleInput = By.id("BOTCallTemplate_Title");
-	By featureTypeDropdown = By.id("TemplateFeatureMapping_FeatureType");
-	By subFeatureTypeDropdown = By.id("TemplateFeatureMapping_SubFeatureType");
-	By bodyInput = By.id("BOTCallTemplate_Body");
-	By newTemplateButton = By.xpath("//span[normalize-space()='New Callout Template']");
-	By actionMenuButton = By.xpath("//tbody/tr[1]/td[8]/div[1]/div[1]/button[1]");
-	By newCalloutTemplateBtn = By.xpath("//span[normalize-space()='New Callout Template']");
-	By botTemplateActionMenuBtn = By.xpath("//tbody/tr[1]/td[8]//button");
-	By editBotTemplateOption = By.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Edit')]");
-	By deleteBotTemplateOption = By.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Delete')]");
+	public By bodyField = By.id("BOTCallTemplate_Body");
+	public By firstRowActionMenu = By.xpath("//tbody/tr[1]/td[8]/div[1]/div[1]/button[1]");
+	public By newCalloutTemplateButton = By.xpath("//span[normalize-space()='New Callout Template']");
+	public By titleInput = By.id("BOTCallTemplate_Title");
+	public By featureTypeDropdown = By.id("TemplateFeatureMapping_FeatureType");
+	public By subFeatureTypeDropdown = By.id("TemplateFeatureMapping_SubFeatureType");
+	public By bodyInput = By.id("BOTCallTemplate_Body");
+	public By newTemplateButton = By.xpath("//span[normalize-space()='New Callout Template']");
+	public By actionMenuButton = By.xpath("//tbody/tr[1]/td[8]/div[1]/div[1]/button[1]");
+	public By newCalloutTemplateBtn = By.xpath("//span[normalize-space()='New Callout Template']");
+	public By botTemplateActionMenuBtn = By.xpath("//tbody/tr[1]/td[8]//button");
+	public By editBotTemplateOption = By
+			.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Edit')]");
+	public By deleteBotTemplateOption = By
+			.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Delete')]");
 
 	// Text Template
 	public By filterTitleField = By.id("Filter_Title");
@@ -241,15 +257,15 @@ public class setuppage {
 	public By deleteUserOption = By.xpath("//span[normalize-space()='Delete']");
 
 	// Profile
-	String dataAccessPattern = "chkg(daqla|ql_|referralcategory_|programall|stage).*";
-	By permissionContainerLocator = By.cssSelector(".col-lg-10.col-md-9");
-	By checkboxLocator = By
+	public String dataAccessPattern = "chkg(daqla|ql_|referralcategory_|programall|stage).*";
+	public By permissionContainerLocator = By.cssSelector(".col-lg-10.col-md-9");
+	public By checkboxLocator = By
 			.xpath(".//input[@type='checkbox' and not(@id='allModulePermission') and not(contains(@id,'All'))]");
-	By menuContextLoader = By.id("menucontext");
-	By filterButtonLocator = By.xpath("//span[normalize-space()='Filter']");
-	By filterInputLocator = By.id("Filter_Name");
-	By searchIconLocator = By.xpath("//i[@class='fa-solid fa-magnifying-glass']");
-	By editOptionLocator = By.xpath("//span[normalize-space()='Edit']");
+	public By menuContextLoader = By.id("menucontext");
+	public By filterButtonLocator = By.xpath("//span[normalize-space()='Filter']");
+	public By filterInputLocator = By.id("Filter_Name");
+	public By searchIconLocator = By.xpath("//i[@class='fa-solid fa-magnifying-glass']");
+	public By editOptionLocator = By.xpath("//span[normalize-space()='Edit']");
 	public By editProfileOption = By.xpath("//li[1]//a[1]//div[1]");
 	public By blockDeleteCheckbox = By.id("chkg37BlockDelete");
 	public By saveButton = By.id("btnSave");
@@ -291,26 +307,268 @@ public class setuppage {
 		this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	}
 
+	// Fax Templates
+	public String shouldShowValidationOnBlankFaxTemplatesSubmit() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newFaxTemplateButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(submitBtnLocator)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+
+			StringBuilder messages = new StringBuilder();
+
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+
+			return "SUCCESS: Toast messages -> " + messages.toString();
+
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	// BOT Call Templates
+
+	public String shouldShowValidationOnBlankBOTCallTemplatesSubmit() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newCalloutTemplateButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(submitBtnLocator)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+
+			StringBuilder messages = new StringBuilder();
+
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+
+			return "SUCCESS: Toast messages -> " + messages.toString();
+
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	// Mail Templates
+	public String shouldShowValidationOnBlankMailTemplatesSubmit() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newMailTemplateButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(submitBtnLocator)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+
+			StringBuilder messages = new StringBuilder();
+
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+
+			return "SUCCESS: Toast messages -> " + messages.toString();
+
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	// Text template
+	public String shouldShowValidationOnBlankTextTemplatesSubmit() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newTextTemplateButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(submitBtnLocator)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+
+			StringBuilder messages = new StringBuilder();
+
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+
+			return "SUCCESS: Toast messages -> " + messages.toString();
+
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	// Workspace Users
+
+	public String shouldShowValidationOnBlankResetPasswordSubmit() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(workspaceUserActionMenuButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(resetPassword)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(resetPasswordButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+
+			StringBuilder messages = new StringBuilder();
+
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+
+			return "SUCCESS: Toast messages -> " + messages.toString();
+
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String shouldShowValidationOnBlankEmployeeNameSearch() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(workspaceUserActionMenuButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(viewDetailOption)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(employeeDetailSvg)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(searchEmployee)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+
+			StringBuilder messages = new StringBuilder();
+
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+
+			return "SUCCESS: Toast messages -> " + messages.toString();
+
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String checkWorkspaceUsersFormEmptyShowsValidation() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newUserButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(submitUserButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+
+			StringBuilder messages = new StringBuilder();
+
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+
+			return "SUCCESS: Toast messages -> " + messages.toString();
+
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	// Dashboard
+
+	public String shouldShowValidationOnBlankQuicklinkGroup() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(pathLocator)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(btnSaveQuickLinkGroup)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+
+			StringBuilder messages = new StringBuilder();
+
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+
+			return "SUCCESS: Toast messages -> " + messages.toString();
+
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	// Profile
+	public String verifyProfileBlankSubmissionValidation() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newProfileButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(btnSaveProfile)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+
+			StringBuilder messages = new StringBuilder();
+
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+
+			return "SUCCESS: Toast messages -> " + messages.toString();
+
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
 	// Privacy Policy & Terms of Use
 	public void verifyNoAccessForPrivacyAndTerms() {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
-
 		String[] pages = { Hooks.prop.getProperty("privacyPolicyPageUrl"),
 				Hooks.prop.getProperty("termsOfUsePageUrl") };
-
 		for (String page : pages) {
-
 			if (page == null) {
 				throw new AssertionError("Page URL is missing in config");
 			}
-
 			String fullUrl = baseUrl + page;
 			driver.get(fullUrl);
-
 			boolean redirected = driver.getCurrentUrl().contains("/Web/Home/Module");
 			boolean errorVisible = !driver.findElements(errorLocator).isEmpty();
-
 			if (!(redirected || errorVisible)) {
 				Assert.fail("User should not have access to: " + page);
 			} else {
@@ -329,30 +587,22 @@ public class setuppage {
 	}
 
 	public void handlePrivacyAndTerms(String profileName) {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
-
 		String[] pages = { Hooks.prop.getProperty("privacyPolicyPageUrl"),
 				Hooks.prop.getProperty("termsOfUsePageUrl") };
-
 		for (String page : pages) {
-
 			if (page == null) {
 				throw new AssertionError("Page URL is missing in config");
 			}
-
 			String fullUrl = baseUrl + page;
 			driver.get(fullUrl);
-
 			if (driver.getCurrentUrl().contains("/Web/Home/Module")) {
 				System.out.println("Redirected to Module No access for: " + page);
 			} else {
 				wait.until(ExpectedConditions.visibilityOfElementLocated(editorLocator));
 				driver.findElement(editorLocator).sendKeys(profileName);
-
 				wait.until(ExpectedConditions.elementToBeClickable(submitBtnLocator));
 				driver.findElement(submitBtnLocator).click();
-
 				System.out.println("Content updated successfully for: " + page);
 			}
 		}
@@ -369,26 +619,18 @@ public class setuppage {
 	}
 
 	public void verifyNoAccessForAllTC() {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
-
 		String[] pages = { Hooks.prop.getProperty("providerTCPageUrl"), Hooks.prop.getProperty("manufacturerTCPageUrl"),
 				Hooks.prop.getProperty("patientTCPageUrl"), Hooks.prop.getProperty("partnerTCPageUrl") };
-
 		By errorLocator = By.xpath("//h2[normalize-space()='Error']");
-
 		for (String page : pages) {
-
 			if (page == null) {
 				throw new AssertionError("T&C page URL is missing in config");
 			}
-
 			String fullUrl = baseUrl + page;
 			driver.get(fullUrl);
-
 			boolean redirected = driver.getCurrentUrl().contains("/Web/Home/Module");
 			boolean errorVisible = !driver.findElements(errorLocator).isEmpty();
-
 			if (!(redirected || errorVisible)) {
 				Assert.fail("User should not have access to: " + page);
 			} else {
@@ -407,30 +649,22 @@ public class setuppage {
 	}
 
 	public void handleAllTCLabels(String profileName) {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
-
 		String[] pages = { Hooks.prop.getProperty("providerTCPageUrl"), Hooks.prop.getProperty("manufacturerTCPageUrl"),
 				Hooks.prop.getProperty("patientTCPageUrl"), Hooks.prop.getProperty("partnerTCPageUrl") };
-
 		for (String page : pages) {
-
 			if (page == null) {
 				throw new AssertionError("T&C page URL is missing in config");
 			}
-
 			String fullUrl = baseUrl + page;
 			driver.get(fullUrl);
-
 			if (driver.getCurrentUrl().contains("/Web/Home/Module")) {
 				System.out.println("Redirected to Module No access for: " + page);
 			} else {
 				wait.until(ExpectedConditions.visibilityOfElementLocated(editorLocator));
 				driver.findElement(editorLocator).sendKeys(profileName);
-
 				wait.until(ExpectedConditions.elementToBeClickable(submitBtnLocator));
 				driver.findElement(submitBtnLocator).click();
-
 				System.out.println("T&C updated successfully for: " + page);
 			}
 		}
@@ -446,14 +680,10 @@ public class setuppage {
 	}
 
 	// Dashboard
-
 	public void userShouldBeAbleToDeleteQuickLink() {
-
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(loaderLocator));
-
 		WebElement deleteButton = wait.until(ExpectedConditions.elementToBeClickable(deleteQuickLinkButtonLocator));
 		deleteButton.click();
-
 		WebElement confirmDeleteButton = wait
 				.until(ExpectedConditions.elementToBeClickable(confirmDeleteButtonLocator));
 		confirmDeleteButton.click();
@@ -469,23 +699,18 @@ public class setuppage {
 	}
 
 	public void userShouldNotBeAbleToDeleteQuickLinks() {
-
 		List<WebElement> elements = driver.findElements(deleteIconLocator);
 		Assert.assertTrue(elements.isEmpty(), "Delete icon should NOT be present");
 	}
 
 	public void userShouldBeAbleToEditQuickLink() {
 		String profileName = Hooks.prop.getProperty("profile.name.value");
-
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(loaderLocator));
-
 		WebElement editButton = wait.until(ExpectedConditions.elementToBeClickable(editQuickLinkButtonLocator));
 		editButton.click();
-
 		WebElement groupNameInput = wait.until(ExpectedConditions.visibilityOfElementLocated(groupNameInputLocator));
 		groupNameInput.clear();
 		groupNameInput.sendKeys(profileName);
-
 		WebElement saveButton = wait.until(ExpectedConditions.elementToBeClickable(saveButtonLocator));
 		saveButton.click();
 	}
@@ -500,28 +725,22 @@ public class setuppage {
 	}
 
 	public void userShouldNotBeAbleToEditOrDeleteQuickLinks() {
-
 		List<WebElement> editElements = driver.findElements(editIconLocator);
 		Assert.assertTrue(editElements.isEmpty(), "Edit icon should NOT be present");
-
 		List<WebElement> deleteElements = driver.findElements(deleteIconLocator);
 		Assert.assertTrue(deleteElements.isEmpty(), "Delete icon should NOT be present");
 	}
 
 	public void userShouldBeAbleToAddNewQuickLink() {
 		String profileName = Hooks.prop.getProperty("profile.name.value");
-
 		By addQuickLinkIconLocator = By.xpath("//*[name()='path' and contains(@d,'M256 80c0-')]");
 		By groupNameInputLocator = By.xpath("//input[@id='groupName']");
 		By saveButtonLocator = By.xpath("//button[@id='btnSaveQuickLinkGroup']");
-
 		WebElement addQuickLinkIcon = wait.until(ExpectedConditions.elementToBeClickable(addQuickLinkIconLocator));
 		addQuickLinkIcon.click();
-
 		WebElement groupNameInput = wait.until(ExpectedConditions.visibilityOfElementLocated(groupNameInputLocator));
 		groupNameInput.clear();
 		groupNameInput.sendKeys(profileName);
-
 		WebElement saveButton = wait.until(ExpectedConditions.elementToBeClickable(saveButtonLocator));
 		saveButton.click();
 	}
@@ -536,7 +755,6 @@ public class setuppage {
 	}
 
 	public void userShouldNotBeAbleToAddEditOrDeleteQuickLinks() {
-
 		List<WebElement> elements = driver.findElements(quickLinkActionIconLocator);
 		Assert.assertTrue(elements.isEmpty(), "Quick link actions should NOT be present");
 	}
@@ -561,39 +779,27 @@ public class setuppage {
 
 	// Profile
 	public void verifyAllModulePermissionCheckboxesSelected() {
-
 		WebElement permissionContainer = wait
 				.until(ExpectedConditions.visibilityOfElementLocated(permissionContainerLocator));
-
 		List<WebElement> checkboxes = permissionContainer.findElements(checkboxLocator);
-
 		Set<String> seenIds = new HashSet<>();
 		List<String> notSelected = new ArrayList<>();
-
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-
 		for (WebElement checkbox : checkboxes) {
 			String id = checkbox.getAttribute("id");
-
 			if (id == null || id.trim().isEmpty())
 				continue;
-
 			if (id.matches(dataAccessPattern))
 				continue;
-
 			if (!seenIds.add(id))
 				continue;
-
 			if (!checkbox.isDisplayed())
 				continue;
-
 			boolean byIsSelected = checkbox.isSelected();
 			String checkedAttr = checkbox.getAttribute("checked");
 			String ariaChecked = checkbox.getAttribute("aria-checked");
 			boolean byJs = Boolean.TRUE.equals(js.executeScript("return arguments[0].checked === true;", checkbox));
-
 			boolean isSelected = byIsSelected || (checkedAttr != null) || "true".equalsIgnoreCase(ariaChecked) || byJs;
-
 			if (!isSelected) {
 				notSelected.add(id);
 			}
@@ -605,25 +811,18 @@ public class setuppage {
 
 	public void reopenProfileInEditMode() {
 		String profileName = Hooks.prop.getProperty("profile.name.value");
-
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(menuContextLoader));
-
 		WebElement filterButton = wait.until(ExpectedConditions.elementToBeClickable(filterButtonLocator));
 		filterButton.click();
-
 		WebElement filterInput = wait.until(ExpectedConditions.visibilityOfElementLocated(filterInputLocator));
 		filterInput.clear();
 		filterInput.sendKeys(profileName);
-
 		WebElement searchIcon = wait.until(ExpectedConditions.elementToBeClickable(searchIconLocator));
 		searchIcon.click();
-
 		By actionMenuLocator = By
 				.xpath("//tr[td[normalize-space()='" + profileName + "']]//td[@class='text-right']//button");
-
 		WebElement actionMenu = wait.until(ExpectedConditions.elementToBeClickable(actionMenuLocator));
 		actionMenu.click();
-
 		WebElement editOption = wait.until(ExpectedConditions.elementToBeClickable(editOptionLocator));
 		editOption.click();
 	}
@@ -639,10 +838,8 @@ public class setuppage {
 
 	// XFlow
 	public void userShouldNotBeAbleToViewOrDownloadFromXFlow() {
-
 		WebElement userMenuIcon = wait.until(ExpectedConditions.elementToBeClickable(userMenuIconLocator));
 		userMenuIcon.click();
-
 		List<WebElement> elements = driver.findElements(settingsIconLocator);
 		Assert.assertTrue(elements.isEmpty(), "Settings/Download option should NOT be present");
 	}
@@ -657,7 +854,6 @@ public class setuppage {
 	}
 
 	public void userShouldBeAbleToDownloadFromXFlow() {
-
 		WebElement downloadButton = wait.until(ExpectedConditions.elementToBeClickable(downloadButtonLocator));
 		downloadButton.click();
 	}
@@ -679,15 +875,11 @@ public class setuppage {
 
 	// Sender Authentication
 	public void userShouldBeAbleToDeleteSenderAuthenticationEntry() {
-
 		WebElement actionMenuButton = wait.until(ExpectedConditions.elementToBeClickable(actionMenuButtonLocator));
 		actionMenuButton.click();
-
 		WebElement deleteOption = wait.until(ExpectedConditions.visibilityOfElementLocated(deleteOptionLocator));
 		Assert.assertTrue(deleteOption.isDisplayed(), "Delete option should be present");
-
 		deleteOption.click();
-
 		WebElement confirmDeleteButton = wait
 				.until(ExpectedConditions.elementToBeClickable(confirmDeleteButtonLocator));
 		confirmDeleteButton.click();
@@ -703,24 +895,19 @@ public class setuppage {
 	}
 
 	public void userShouldNotBeAbleToDeleteSenderAuthenticationEntries() {
-
 		WebElement actionMenuButton = wait.until(ExpectedConditions.elementToBeClickable(actionMenuButtonLocator));
 		actionMenuButton.click();
-
 		List<WebElement> deleteOptions = driver.findElements(deleteOptionLocator);
 		Assert.assertTrue(deleteOptions.isEmpty(), "Delete option should NOT be present");
 	}
 
 	public void userShouldBeAbleToAddSenderAuthenticationEntry() {
 		String profileName = Hooks.prop.getProperty("profile.name.value");
-
 		WebElement newSenderAuthButton = wait
 				.until(ExpectedConditions.elementToBeClickable(newSenderAuthButtonLocator));
 		newSenderAuthButton.click();
-
 		WebElement domainInput = wait.until(ExpectedConditions.visibilityOfElementLocated(domainNameInputLocator));
 		domainInput.sendKeys(profileName);
-
 		WebElement addButton = wait.until(ExpectedConditions.elementToBeClickable(addButtonLocator));
 		addButton.click();
 	}
@@ -735,13 +922,10 @@ public class setuppage {
 	}
 
 	public void userShouldNotBeAbleToAddOrDeleteSenderAuthenticationEntries() {
-
 		List<WebElement> newSenderAuthElements = driver.findElements(newSenderAuthButtonLocator);
 		Assert.assertTrue(newSenderAuthElements.isEmpty(), "New Sender Authentication button should NOT be present");
-
 		WebElement actionMenuButton = wait.until(ExpectedConditions.elementToBeClickable(actionMenuButtonLocator));
 		actionMenuButton.click();
-
 		List<WebElement> deleteOptions = driver.findElements(deleteOptionLocator);
 		Assert.assertTrue(deleteOptions.isEmpty(), "Delete option should NOT be present");
 	}
@@ -763,13 +947,9 @@ public class setuppage {
 
 	// Block Email
 	public void userShouldBeAbleToDeleteBlockEmailEntry() {
-
 		WebElement deleteIcon = wait.until(ExpectedConditions.elementToBeClickable(deleteIconLocator));
-
 		Assert.assertTrue(deleteIcon.isDisplayed(), "Delete icon should be present");
-
 		deleteIcon.click();
-
 		WebElement confirmDeleteButton = wait
 				.until(ExpectedConditions.elementToBeClickable(confirmDeleteButtonLocator));
 		confirmDeleteButton.click();
@@ -785,9 +965,7 @@ public class setuppage {
 	}
 
 	public void userShouldNotBeAbleToDeleteBlockEmailEntries() {
-
 		List<WebElement> elements = driver.findElements(deleteIconLocator);
-
 		Assert.assertTrue(elements.isEmpty(), "Delete icon should not be present");
 	}
 
@@ -807,15 +985,10 @@ public class setuppage {
 	}
 
 	// Bounce Email
-
 	public void userShouldBeAbleToDeleteBounceEmailEntry() {
-
 		WebElement deleteIcon = wait.until(ExpectedConditions.elementToBeClickable(deleteIconLocator));
-
 		Assert.assertTrue(deleteIcon.isDisplayed(), "Delete icon should be present");
-
 		deleteIcon.click();
-
 		WebElement confirmDeleteButton = wait
 				.until(ExpectedConditions.elementToBeClickable(confirmDeleteButtonLocator));
 		confirmDeleteButton.click();
@@ -832,9 +1005,7 @@ public class setuppage {
 
 	public void userShouldNotBeAbleToDeleteBounceEmailEntries() throws InterruptedException {
 		Thread.sleep(3000);
-
 		List<WebElement> elements = driver.findElements(deleteIconLocator);
-
 		Assert.assertTrue(elements.isEmpty(), "Delete icon should not be present");
 	}
 
@@ -854,10 +1025,8 @@ public class setuppage {
 	}
 
 	// Spam Email
-
 	public void userShouldBeAbleToDeleteSpamEmailEntry() {
 		sleep(3000);
-
 		List<WebElement> deleteIcons = driver.findElements(deleteIcon);
 		if (!deleteIcons.isEmpty()) {
 			System.out.println("Delete icon is present.");
@@ -865,7 +1034,6 @@ public class setuppage {
 		} else {
 			Assert.fail("FAIL: Delete icon is not present.");
 		}
-
 		driver.findElement(confirmDeleteButton).click();
 	}
 
@@ -880,12 +1048,10 @@ public class setuppage {
 
 	public void userShouldNotBeAbleToDeleteSpamEmailEntries() {
 		sleep(3000);
-
 		boolean isDeletePresent = !driver.findElements(deleteButton).isEmpty();
 		if (isDeletePresent) {
 			Assert.fail("FAIL: Delete option should not be present for Spam Email entries.");
 		}
-
 		System.out.println("PASS: User cannot delete Spam Email entries.");
 	}
 
@@ -903,10 +1069,9 @@ public class setuppage {
 		sleep(2000);
 
 	}
+
 	// Connector App
-
 	public void verifyNoConnectorAppAccessUIOrURL() {
-
 		List<WebElement> errorHeaders = driver.findElements(errorHeader);
 		if (!errorHeaders.isEmpty()) {
 			System.out.println("PASS: Access is restricted (Error page displayed).");
@@ -931,10 +1096,8 @@ public class setuppage {
 	}
 
 	// Auto Call
-
 	public void verifyUserCanDeleteAutoCallEntry() {
 		sleep(3000);
-
 		List<WebElement> deleteList = driver.findElements(deleteOption);
 		if (!deleteList.isEmpty()) {
 			System.out.println("Delete option is present.");
@@ -942,7 +1105,6 @@ public class setuppage {
 		} else {
 			Assert.fail("FAIL: Delete option is not present.");
 		}
-
 		driver.findElement(confirmDeleteButton).click();
 	}
 
@@ -957,24 +1119,19 @@ public class setuppage {
 
 	public void verifyUserCannotDeleteAutoCallEntries() {
 		sleep(3000);
-
 		driver.findElement(actionMenuIcon).click();
 		sleep(1000);
-
 		boolean isDeletePresent = !driver.findElements(deleteOption).isEmpty();
 		if (isDeletePresent) {
 			Assert.fail("FAIL: Delete option should not be present.");
 		}
-
 		System.out.println("PASS: User cannot delete Auto Call entries.");
 	}
 
 	public void verifyUserCanEditAutoCallEntry() {
 		sleep(3000);
-
 		driver.findElement(actionMenuIcon).click();
 		sleep(1000);
-
 		List<WebElement> editList = driver.findElements(editOption);
 		if (!editList.isEmpty()) {
 			System.out.println("Edit option is present.");
@@ -982,9 +1139,7 @@ public class setuppage {
 		} else {
 			Assert.fail("FAIL: Edit option is not present.");
 		}
-
 		driver.findElement(enableCheckboxLabel).click();
-
 		driver.findElement(saveButton).click();
 	}
 
@@ -999,44 +1154,35 @@ public class setuppage {
 
 	public void verifyUserCannotEditOrDeleteAutoCallEntries() {
 		sleep(3000);
-
 		driver.findElement(actionMenuIcon).click();
 		sleep(1000);
-
 		boolean isEditPresent = !driver.findElements(editOption).isEmpty();
 		if (isEditPresent) {
 			Assert.fail("FAIL: Edit option should not be present.");
 		}
-
 		boolean isDeletePresent = !driver.findElements(deleteOption).isEmpty();
 		if (isDeletePresent) {
 			Assert.fail("FAIL: Delete option should not be present.");
 		}
-
 		System.out.println("PASS: User cannot Edit or Delete Auto Call entries.");
 	}
 
 	public void verifyUserCanAddNewAutoCallEntry() {
 		sleep(2000);
-
 		driver.findElement(addAutoCallButton).click();
 		sleep(2000);
-
 		driver.findElement(timeInputField).click();
 		sleep(2000);
 		driver.findElement(timeInputField).click();
 		sleep(1000);
-
 		driver.findElement(hourOption).click();
 		sleep(500);
 		driver.findElement(minuteOption).click();
 		sleep(500);
-
 		WebElement dropdownElement = wait.until(ExpectedConditions.visibilityOfElementLocated(templateDropdown));
 		Select select = new Select(dropdownElement);
 		select.selectByIndex(1);
 		sleep(500);
-
 		driver.findElement(saveButton).click();
 	}
 
@@ -1051,25 +1197,20 @@ public class setuppage {
 
 	public void verifyUserCannotAddEditOrDeleteAutoCallEntries() {
 		sleep(3000);
-
 		boolean isAddPresent = !driver.findElements(addAutoCallButton).isEmpty();
 		if (isAddPresent) {
 			Assert.fail("FAIL: Add Auto Call button should not be present.");
 		}
-
 		driver.findElement(actionMenuIcon).click();
 		sleep(1000);
-
 		boolean isEditPresent = !driver.findElements(editOption).isEmpty();
 		if (isEditPresent) {
 			Assert.fail("FAIL: Edit option should not be present.");
 		}
-
 		boolean isDeletePresent = !driver.findElements(deleteOption).isEmpty();
 		if (isDeletePresent) {
 			Assert.fail("FAIL: Delete option should not be present.");
 		}
-
 		System.out.println("PASS: User cannot Add, Edit, or Delete Auto Call entries.");
 	}
 
@@ -1090,15 +1231,11 @@ public class setuppage {
 	}
 
 	// Auto Text
-
 	public void verifyUserCanDeleteAutoTextEntry() {
 		sleep(3000);
-
 		driver.findElement(autoTextTab).click();
-
 		driver.findElement(actionMenuIcon).click();
 		sleep(1000);
-
 		List<WebElement> deleteList = driver.findElements(deleteOption);
 		if (!deleteList.isEmpty()) {
 			System.out.println("Delete option is present.");
@@ -1106,7 +1243,6 @@ public class setuppage {
 		} else {
 			Assert.fail("FAIL: Delete option is not present.");
 		}
-
 		driver.findElement(confirmDeleteButton).click();
 	}
 
@@ -1121,28 +1257,21 @@ public class setuppage {
 
 	public void verifyUserCannotDeleteAutoTextEntries() {
 		sleep(3000);
-
 		driver.findElement(autoTextTab).click();
-
 		driver.findElement(actionMenuIcon).click();
 		sleep(1000);
-
 		boolean isDeletePresent = !driver.findElements(deleteOption).isEmpty();
 		if (isDeletePresent) {
 			Assert.fail("FAIL: Delete option should not be present.");
 		}
-
 		System.out.println("PASS: User cannot delete Auto Text entries.");
 	}
 
 	public void verifyUserCanEditAutoTextEntry() {
 		sleep(3000);
-
 		driver.findElement(autoTextTab).click();
-
 		driver.findElement(actionMenuIcon).click();
 		sleep(1000);
-
 		List<WebElement> editList = driver.findElements(editOption);
 		if (!editList.isEmpty()) {
 			System.out.println("Edit option is present.");
@@ -1150,9 +1279,7 @@ public class setuppage {
 		} else {
 			Assert.fail("FAIL: Edit option is not present.");
 		}
-
 		driver.findElement(enableCheckboxLabel).click();
-
 		driver.findElement(saveButton).click();
 	}
 
@@ -1167,40 +1294,31 @@ public class setuppage {
 
 	public void verifyUserCannotEditOrDeleteAutoTextEntries() {
 		sleep(3000);
-
 		driver.findElement(autoTextTab).click();
-
 		driver.findElement(actionMenuIcon).click();
 		sleep(1000);
-
 		boolean isEditPresent = !driver.findElements(editOption).isEmpty();
 		if (isEditPresent) {
 			Assert.fail("FAIL: Edit option should not be present.");
 		}
-
 		boolean isDeletePresent = !driver.findElements(deleteOption).isEmpty();
 		if (isDeletePresent) {
 			Assert.fail("FAIL: Delete option should not be present.");
 		}
-
 		System.out.println("PASS: User cannot Edit or Delete Auto Text entries.");
 	}
 
 	public void verifyUserCanAddNewAutoTextEntry() {
 		sleep(2000);
-
 		driver.findElement(autoTextTab).click();
 		sleep(2000);
-
 		driver.findElement(addAutoTextButton).click();
 		sleep(2000);
-
 		driver.findElement(dateInputField).click();
 		sleep(2000);
 		driver.findElement(dateInputField).click();
 		sleep(1000);
 		driver.findElement(dateOption).click();
-
 		driver.findElement(timeInputField).click();
 		sleep(2000);
 		driver.findElement(timeInputField).click();
@@ -1209,12 +1327,10 @@ public class setuppage {
 		sleep(500);
 		driver.findElement(minuteOption).click();
 		sleep(500);
-
 		WebElement dropdownElement = wait.until(ExpectedConditions.visibilityOfElementLocated(templateDropdown));
 		Select select = new Select(dropdownElement);
 		select.selectByIndex(2);
 		sleep(500);
-
 		driver.findElement(saveButton).click();
 	}
 
@@ -1229,27 +1345,21 @@ public class setuppage {
 
 	public void verifyUserCannotAddEditOrDeleteAutoTextEntries() {
 		sleep(3000);
-
 		driver.findElement(autoTextTab).click();
-
 		boolean isAddPresent = !driver.findElements(addAutoTextButton).isEmpty();
 		if (isAddPresent) {
 			Assert.fail("FAIL: Add Auto Text button should not be present.");
 		}
-
 		driver.findElement(actionMenuIcon).click();
 		sleep(1000);
-
 		boolean isEditPresent = !driver.findElements(editOption).isEmpty();
 		if (isEditPresent) {
 			Assert.fail("FAIL: Edit option should not be present.");
 		}
-
 		boolean isDeletePresent = !driver.findElements(deleteOption).isEmpty();
 		if (isDeletePresent) {
 			Assert.fail("FAIL: Delete option should not be present.");
 		}
-
 		System.out.println("PASS: User cannot Add, Edit, or Delete Auto Text entries.");
 	}
 
@@ -1270,15 +1380,11 @@ public class setuppage {
 	}
 
 	// Email Notification
-
 	public void verifyEmailNotificationEntryCanBeDeletedByUser() {
 		sleep(3000);
-
 		driver.findElement(emailNotificationTab).click();
-
 		driver.findElement(actionMenuIcon).click();
 		sleep(1000);
-
 		List<WebElement> deleteList = driver.findElements(deleteOption);
 		if (!deleteList.isEmpty()) {
 			System.out.println("Delete option is present.");
@@ -1286,7 +1392,6 @@ public class setuppage {
 		} else {
 			Assert.fail("FAIL: Delete option is not present.");
 		}
-
 		driver.findElement(confirmDeleteButton).click();
 	}
 
@@ -1301,28 +1406,21 @@ public class setuppage {
 
 	public void verifyUserCannotDeleteEmailNotificationSettings() {
 		sleep(3000);
-
 		driver.findElement(emailNotificationTab).click();
-
 		driver.findElement(actionMenuIcon).click();
 		sleep(1000);
-
 		boolean isDeletePresent = !driver.findElements(deleteOption).isEmpty();
 		if (isDeletePresent) {
 			Assert.fail("FAIL: Delete option should not be present.");
 		}
-
 		System.out.println("PASS: User cannot delete Email Notification settings.");
 	}
 
 	public void verifyUserCanEditEmailNotificationEntry() {
 		sleep(3000);
-
 		driver.findElement(emailNotificationTab).click();
-
 		driver.findElement(actionMenuIcon).click();
 		sleep(1000);
-
 		List<WebElement> editList = driver.findElements(editOption);
 		if (!editList.isEmpty()) {
 			System.out.println("Edit option is present.");
@@ -1330,9 +1428,7 @@ public class setuppage {
 		} else {
 			Assert.fail("FAIL: Edit option is not present.");
 		}
-
 		driver.findElement(enableCheckboxLabel).click();
-
 		driver.findElement(saveButton).click();
 	}
 
@@ -1347,49 +1443,38 @@ public class setuppage {
 
 	public void verifyUserCannotEditOrDeleteEmailNotificationSettings() {
 		sleep(3000);
-
 		driver.findElement(emailNotificationTab).click();
-
 		driver.findElement(actionMenuIcon).click();
 		sleep(1000);
-
 		boolean isEditPresent = !driver.findElements(editOption).isEmpty();
 		if (isEditPresent) {
 			Assert.fail("FAIL: Edit option should not be present.");
 		}
-
 		boolean isDeletePresent = !driver.findElements(deleteOption).isEmpty();
 		if (isDeletePresent) {
 			Assert.fail("FAIL: Delete option should not be present.");
 		}
-
 		System.out.println("PASS: User cannot Edit or Delete Email Notification settings.");
 	}
 
 	public void verifyUserCanAddEmailNotificationEntry() {
 		sleep(2000);
-
 		driver.findElement(emailNotificationTab).click();
 		sleep(2000);
-
 		driver.findElement(addEmailNotificationButton).click();
 		sleep(2000);
-
 		driver.findElement(timeInputField).click();
 		sleep(2000);
 		driver.findElement(timeInputField).click();
 		sleep(1000);
-
 		driver.findElement(hourOption).click();
 		sleep(500);
 		driver.findElement(minuteOption).click();
 		sleep(500);
-
 		WebElement dropdownElement = wait.until(ExpectedConditions.visibilityOfElementLocated(templateDropdown));
 		Select select = new Select(dropdownElement);
 		select.selectByIndex(2);
 		sleep(500);
-
 		driver.findElement(saveButton).click();
 	}
 
@@ -1404,27 +1489,21 @@ public class setuppage {
 
 	public void verifyUserCannotAddEditOrDeleteEmailNotificationSettings() {
 		sleep(3000);
-
 		driver.findElement(emailNotificationTab).click();
-
 		boolean isAddPresent = !driver.findElements(addEmailNotificationButton).isEmpty();
 		if (isAddPresent) {
 			Assert.fail("FAIL: Add Email Notification button should not be present.");
 		}
-
 		driver.findElement(actionMenuIcon).click();
 		sleep(1000);
-
 		boolean isEditPresent = !driver.findElements(editOption).isEmpty();
 		if (isEditPresent) {
 			Assert.fail("FAIL: Edit option should not be present.");
 		}
-
 		boolean isDeletePresent = !driver.findElements(deleteOption).isEmpty();
 		if (isDeletePresent) {
 			Assert.fail("FAIL: Delete option should not be present.");
 		}
-
 		System.out.println("PASS: User cannot Add, Edit, or Delete Email Notification settings.");
 	}
 
@@ -1445,15 +1524,11 @@ public class setuppage {
 	}
 
 	// Show On Dashboard
-
 	public void verifyUserCanDeleteShowOnDashboardEntry() {
 		sleep(3000);
-
 		driver.findElement(showOnDashboardTab).click();
-
 		driver.findElement(actionMenuIcon).click();
 		sleep(1000);
-
 		List<WebElement> deleteList = driver.findElements(deleteOption);
 		if (!deleteList.isEmpty()) {
 			System.out.println("Delete option is present.");
@@ -1461,7 +1536,6 @@ public class setuppage {
 		} else {
 			Assert.fail("FAIL: Delete option is not present.");
 		}
-
 		driver.findElement(confirmDeleteButton).click();
 	}
 
@@ -1476,28 +1550,21 @@ public class setuppage {
 
 	public void verifyUserCannotDeleteShowOnDashboardSettings() {
 		sleep(3000);
-
 		driver.findElement(showOnDashboardTab).click();
-
 		driver.findElement(actionMenuIcon).click();
 		sleep(1000);
-
 		boolean isDeletePresent = !driver.findElements(deleteOption).isEmpty();
 		if (isDeletePresent) {
 			Assert.fail("FAIL: Delete option should not be present.");
 		}
-
 		System.out.println("PASS: User cannot delete Show On Dashboard settings.");
 	}
 
 	public void verifyUserCanEditShowOnDashboardEntry() {
 		sleep(3000);
-
 		driver.findElement(showOnDashboardTab).click();
-
 		driver.findElement(actionMenuIcon).click();
 		sleep(1000);
-
 		List<WebElement> editList = driver.findElements(editOption);
 		if (!editList.isEmpty()) {
 			System.out.println("Edit option is present.");
@@ -1505,9 +1572,7 @@ public class setuppage {
 		} else {
 			Assert.fail("FAIL: Edit option is not present.");
 		}
-
 		driver.findElement(enableCheckboxLabel).click();
-
 		driver.findElement(saveButton).click();
 	}
 
@@ -1522,49 +1587,38 @@ public class setuppage {
 
 	public void verifyUserCannotEditOrDeleteShowOnDashboard() {
 		sleep(3000);
-
 		driver.findElement(showOnDashboardTab).click();
-
 		boolean isAddPresent = !driver.findElements(addShowOnDashboardButton).isEmpty();
 		if (!isAddPresent) {
 			Assert.fail("FAIL: Add Show On Dashboard button should be present.");
 		}
-
 		driver.findElement(actionMenuIcon).click();
 		sleep(1000);
-
 		boolean isEditPresent = !driver.findElements(editOption).isEmpty();
 		if (isEditPresent) {
 			Assert.fail("FAIL: Edit option should not be present.");
 		}
-
 		boolean isDeletePresent = !driver.findElements(deleteOption).isEmpty();
 		if (isDeletePresent) {
 			Assert.fail("FAIL: Delete option should not be present.");
 		}
-
 		System.out.println("PASS: User cannot Edit or Delete Show On Dashboard settings.");
 	}
 
 	public void verifyUserCanAddShowOnDashboardEntry() {
 		sleep(2000);
-
 		driver.findElement(showOnDashboardTab).click();
 		sleep(2000);
-
 		driver.findElement(addShowOnDashboardButton).click();
 		sleep(2000);
-
 		driver.findElement(timeInputField).click();
 		sleep(2000);
 		driver.findElement(timeInputField).click();
 		sleep(1000);
-
 		driver.findElement(hourOption).click();
 		sleep(500);
 		driver.findElement(minuteOption).click();
 		sleep(500);
-
 		driver.findElement(saveButton).click();
 	}
 
@@ -1579,27 +1633,21 @@ public class setuppage {
 
 	public void verifyUserCannotAddEditDeleteShowOnDashboardSettings() {
 		sleep(3000);
-
 		driver.findElement(showOnDashboardTab).click();
-
 		boolean isAddPresent = !driver.findElements(addShowOnDashboardButton).isEmpty();
 		if (isAddPresent) {
 			Assert.fail("FAIL: Add Show On Dashboard button should not be present.");
 		}
-
 		driver.findElement(actionMenuIcon).click();
 		sleep(1000);
-
 		boolean isEditPresent = !driver.findElements(editOption).isEmpty();
 		if (isEditPresent) {
 			Assert.fail("FAIL: Edit option should not be present.");
 		}
-
 		boolean isDeletePresent = !driver.findElements(deleteOption).isEmpty();
 		if (isDeletePresent) {
 			Assert.fail("FAIL: Delete option should not be present.");
 		}
-
 		System.out.println("PASS: User cannot Add, Edit, or Delete Show On Dashboard settings.");
 	}
 
@@ -1620,11 +1668,8 @@ public class setuppage {
 	}
 
 	// MailSetting
-
 	public void verifyUserHasNoAccessToMailSetting() {
-
 		List<WebElement> errorHeaders = driver.findElements(errorHeaderLocator);
-
 		if (!errorHeaders.isEmpty()) {
 			System.out.println("Error: Don't have proper access to requested page");
 		} else {
@@ -1648,11 +1693,8 @@ public class setuppage {
 	}
 
 	// CentralPASettings
-
 	public void verifyUserHasNoAccessToCentralPASetting() {
-
 		List<WebElement> errorHeaders = driver.findElements(errorHeaderLocator);
-
 		if (!errorHeaders.isEmpty()) {
 			System.out.println("Error: Don't have proper access to requested page");
 		} else {
@@ -1671,14 +1713,11 @@ public class setuppage {
 
 	public void verifyUserCanAddCentralPAEntry() {
 		sleep(2000);
-
 		driver.findElement(processFromDateField).click();
 		sleep(2000);
-
 		WebElement anyActiveDate = wait.until(ExpectedConditions.elementToBeClickable(activeDateCell));
 		anyActiveDate.click();
 		sleep(2000);
-
 		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
 	}
 
@@ -1693,9 +1732,7 @@ public class setuppage {
 
 	public void verifyUserCannotAddCentralPASetting() {
 		sleep(3000);
-
 		boolean isSubmitButtonPresent = !driver.findElements(submitButton).isEmpty();
-
 		if (!isSubmitButtonPresent) {
 			System.out.println("PASS: Submit button is not present.");
 		} else {
@@ -1719,33 +1756,23 @@ public class setuppage {
 	}
 
 	// WorkspaceUsers
-
 	public void verifyUserCanLinkEmployeeToWorkspaceUser() {
 		sleep(5000);
-
 		List<WebElement> viewDetailList = driver.findElements(viewDetailOption);
 		if (!viewDetailList.isEmpty()) {
 			viewDetailList.get(0).click();
 		}
 		sleep(3000);
-
 		boolean isEmployeeDetailPresent = !driver.findElements(employeeDetailSection).isEmpty();
 		if (!isEmployeeDetailPresent) {
 			Assert.fail("FAIL: Employee detail section is not present.");
 		}
-
 		driver.findElement(employeeDetailSection).click();
-
 		wait.until(ExpectedConditions.visibilityOfElementLocated(firstNameFilter)).sendKeys("First Name");
-
 		wait.until(ExpectedConditions.elementToBeClickable(searchButton)).click();
-
 		wait.until(ExpectedConditions.elementToBeClickable(employeeCheckbox)).click();
-
 		wait.until(ExpectedConditions.elementToBeClickable(linkEmployeeButton)).click();
-
 		sleep(3000);
-
 		wait.until(ExpectedConditions.elementToBeClickable(delinkEmployeeIcon)).click();
 		wait.until(ExpectedConditions.elementToBeClickable(confirmDelinkButton)).click();
 	}
@@ -1761,15 +1788,12 @@ public class setuppage {
 
 	public void verifyUserCannotLinkOrDelinkEmployeeToUser() {
 		sleep(5000);
-
 		List<WebElement> viewDetailList = driver.findElements(viewDetailOption);
 		if (!viewDetailList.isEmpty()) {
 			viewDetailList.get(0).click();
 		}
 		sleep(3000);
-
 		boolean isEmployeeDetailPresent = !driver.findElements(employeeDetailSection).isEmpty();
-
 		if (!isEmployeeDetailPresent) {
 			System.out.println("PASS: Employee detail section is not present.");
 		} else {
@@ -1778,7 +1802,6 @@ public class setuppage {
 	}
 
 	public void verifyUserCanChangeProfileForWorkspaceUser() {
-
 		List<WebElement> changeProfileList = driver.findElements(changeProfileOption);
 		if (!changeProfileList.isEmpty()) {
 			System.out.println("Change Profile option is present.");
@@ -1787,11 +1810,9 @@ public class setuppage {
 			System.out.println("Change Profile option is NOT present.");
 			return;
 		}
-
 		WebElement dropdownElement = wait.until(ExpectedConditions.visibilityOfElementLocated(profileDropdown));
 		Select select = new Select(dropdownElement);
 		select.selectByIndex(2);
-
 		wait.until(ExpectedConditions.elementToBeClickable(submitUserButton)).click();
 	}
 
@@ -1806,21 +1827,16 @@ public class setuppage {
 
 	public void verifyUserCannotChangeProfileOrLinkOrDelinkEmployee() {
 		sleep(3000);
-
 		try {
 			sleep(1000);
-
 			boolean canChangeProfile = !driver.findElements(changeProfileOption).isEmpty();
-
 			List<WebElement> viewDetailList = driver.findElements(viewDetailOption);
 			if (!viewDetailList.isEmpty()) {
 				viewDetailList.get(0).click();
 			}
 			sleep(1000);
-
 			boolean canLinkEmployee = !driver.findElements(employeeDetailSection).isEmpty();
 			boolean canDelinkEmployee = !driver.findElements(employeeDetailSection).isEmpty();
-
 			if (!canChangeProfile && !canLinkEmployee && !canDelinkEmployee) {
 				System.out.println("PASS: User cannot access Change Profile, Link, or Delink Employee.");
 			} else {
@@ -1840,7 +1856,6 @@ public class setuppage {
 	}
 
 	public void verifyUserCanResetPasswordForWorkspaceUser() {
-
 		List<WebElement> resetOptions = driver.findElements(resetPasswordOption);
 		if (!resetOptions.isEmpty()) {
 			System.out.println("Reset Password option is present.");
@@ -1849,10 +1864,8 @@ public class setuppage {
 			System.out.println("Reset Password option is NOT present.");
 			return;
 		}
-
 		wait.until(ExpectedConditions.visibilityOfElementLocated(newPasswordField)).sendKeys("Admin@1234");
 		wait.until(ExpectedConditions.visibilityOfElementLocated(confirmPasswordField)).sendKeys("Admin@1234");
-
 		wait.until(ExpectedConditions.elementToBeClickable(resetPasswordButton)).click();
 	}
 
@@ -1867,23 +1880,18 @@ public class setuppage {
 
 	public void verifyUserCannotResetPasswordChangeProfileOrLinkEmployee() {
 		sleep(3000);
-
 		try {
 			WebElement menuButton = driver.findElement(actionMenuButton);
 			menuButton.click();
 			sleep(1000);
-
 			boolean canResetPassword = !driver.findElements(resetPasswordOption).isEmpty();
 			boolean canChangeProfile = !driver.findElements(changeProfileOption).isEmpty();
-
 			List<WebElement> viewDetailList = driver.findElements(viewDetailOption);
 			if (!viewDetailList.isEmpty()) {
 				viewDetailList.get(0).click();
 			}
 			sleep(1000);
-
 			boolean employeeDetailVisible = !driver.findElements(employeeDetailSection).isEmpty();
-
 			boolean canLinkEmployee = false;
 			boolean canDelinkEmployee = false;
 
@@ -1915,10 +1923,8 @@ public class setuppage {
 
 	public void verifyUserCanViewWorkspaceUserDetails() {
 		sleep(3000);
-
 		wait.until(ExpectedConditions.elementToBeClickable(workspaceUserActionMenuButton)).click();
 		sleep(500);
-
 		List<WebElement> viewDetailElements = driver.findElements(viewDetailOption);
 		if (!viewDetailElements.isEmpty()) {
 			System.out.println("View Detail option is present.");
@@ -1953,12 +1959,9 @@ public class setuppage {
 	}
 
 	// Faxes
-
 	public void verifyUserHasNoAccessToFaxPageViaUIOrURL() {
 		sleep(2000);
-
 		List<WebElement> errorHeaders = driver.findElements(errorHeaderLocator);
-
 		if (!errorHeaders.isEmpty()) {
 			System.out.println("Error: Don't have proper access to requested page");
 		} else {
@@ -1982,12 +1985,9 @@ public class setuppage {
 	}
 
 	// BOTCalls
-
 	public void verifyUserHasNoAccessToBotCallPageViaUIOrURL() {
 		sleep(2000);
-
 		List<WebElement> errorHeaders = driver.findElements(errorHeaderLocator);
-
 		if (!errorHeaders.isEmpty()) {
 			System.out.println("Error: Don't have proper access to requested page");
 		} else {
@@ -2011,11 +2011,8 @@ public class setuppage {
 	}
 
 	// CallActivities
-
 	public void verifyUserHasNoAccessToCallActivityPageViaUIOrURL() {
-
 		List<WebElement> errorHeaders = driver.findElements(errorHeader);
-
 		if (!errorHeaders.isEmpty()) {
 			System.out.println("PASS: Access is blocked. User does not have permission.");
 		} else {
@@ -2055,11 +2052,8 @@ public class setuppage {
 	}
 
 	// Driver And SalesRep User
-
 	public void verifyUserCannotAccessDriverAndSalesRepUserPageViaDirectURL() {
-
 		boolean isErrorVisible = !driver.findElements(errorHeader).isEmpty();
-
 		if (isErrorVisible) {
 			System.out.println("PASS: Access blocked as expected.");
 		} else {
@@ -2081,27 +2075,20 @@ public class setuppage {
 		sleep(2000);
 
 	}
+
 	// Professional License Type
-
 	public void userShouldBeAbleToDeleteProfessionalLicenseType() {
-
 		try {
 			WebElement menuButton = wait.until(ExpectedConditions.elementToBeClickable(actionMenuBtn));
 			menuButton.click();
-
 			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
-
 			if (deleteExists) {
 				System.out.println("PASS: Delete option is visible as expected.");
-
 				wait.until(ExpectedConditions.elementToBeClickable(deleteOption)).click();
-
 				wait.until(ExpectedConditions.elementToBeClickable(confirmDeleteBtn)).click();
-
 			} else {
 				Assert.fail("FAIL: Delete option is not visible, but it should be.");
 			}
-
 		} catch (ElementClickInterceptedException | TimeoutException e) {
 			Assert.fail("FAIL: Could not open the action menu or perform delete कार्रवाई.");
 		}
@@ -2117,45 +2104,33 @@ public class setuppage {
 	}
 
 	public void userShouldNotBeAbleToDeleteProfessionalLicenseType() {
-
 		try {
 			WebElement menuButton = wait.until(ExpectedConditions.elementToBeClickable(actionMenuBtn));
 			menuButton.click();
-
 			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
-
 			if (!deleteExists) {
 				System.out.println("PASS: User cannot see Delete option.");
 			} else {
 				Assert.fail("FAIL: User should not see Delete option.");
 			}
-
 		} catch (ElementClickInterceptedException | TimeoutException e) {
 			System.out.println("PASS: Action menu cannot be accessed (no delete permission).");
 		}
 	}
 
 	public void userShouldBeAbleToEditExistingProfessionalLicenseType() {
-
 		String profileName = Hooks.prop.getProperty("profile.name.value");
-
 		try {
 			WebElement menuButton = wait.until(ExpectedConditions.elementToBeClickable(actionMenuBtn));
 			menuButton.click();
-
 			boolean editExists = !driver.findElements(editOption).isEmpty();
-
 			if (editExists) {
 				System.out.println("PASS: Edit option is visible as expected.");
-
 				wait.until(ExpectedConditions.elementToBeClickable(editOption)).click();
-
 				WebElement input = wait.until(ExpectedConditions.visibilityOfElementLocated(nameField));
 				input.clear();
 				input.sendKeys(profileName);
-
 				wait.until(ExpectedConditions.elementToBeClickable(saveBtn)).click();
-
 			} else {
 				Assert.fail("FAIL: Edit option is not visible, but it should be.");
 			}
@@ -2175,33 +2150,25 @@ public class setuppage {
 	}
 
 	public void userShouldNotBeAbleToEditOrDeleteProfessionalLicenseType() {
-
 		try {
 			WebElement menuButton = wait.until(ExpectedConditions.elementToBeClickable(actionMenuBtn));
 			menuButton.click();
-
 			boolean editExists = !driver.findElements(editOption).isEmpty();
 			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
-
 			if (!editExists && !deleteExists) {
 				System.out.println("PASS: User cannot see Edit/Delete options.");
 			} else {
 				Assert.fail("FAIL: User should not see Edit/Delete options.");
 			}
-
 		} catch (ElementClickInterceptedException | TimeoutException e) {
 			System.out.println("PASS: Action menu exists but cannot be opened (no permissions).");
 		}
 	}
 
 	public void userShouldBeAbleToAddNewProfessionalLicenseType() {
-
 		String profileName = Hooks.prop.getProperty("profile.name.value");
-
 		wait.until(ExpectedConditions.elementToBeClickable(newProfessionalLicenseTypeBtn)).click();
-
 		wait.until(ExpectedConditions.visibilityOfElementLocated(nameField)).sendKeys(profileName);
-
 		wait.until(ExpectedConditions.elementToBeClickable(saveBtn)).click();
 	}
 
@@ -2221,24 +2188,19 @@ public class setuppage {
 	}
 
 	public void verifyUserCannotAddEditOrDeleteProfessionalLicenseType() {
-
 		try {
 			Assert.assertTrue(driver.findElements(newProfessionalLicenseTypeButton).isEmpty(),
 					"FAIL: 'New Professional License Type' button should not be visible");
-
 			WebElement menuButton = wait
 					.until(ExpectedConditions.elementToBeClickable(professionalLicenseActionMenuButton));
 			menuButton.click();
-
 			boolean editExists = !driver.findElements(editOption).isEmpty();
 			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
-
 			if (!editExists && !deleteExists) {
 				System.out.println("PASS: User cannot see Edit/Delete options.");
 			} else {
 				Assert.fail("FAIL: User should not see Edit/Delete options.");
 			}
-
 		} catch (ElementClickInterceptedException | TimeoutException e) {
 			System.out.println("PASS: Action menu is not accessible due to permission restrictions.");
 		}
@@ -2252,23 +2214,17 @@ public class setuppage {
 		sleep(2000);
 
 	}
+
 	// Fax Setting
-
 	public void verifyUserCanDeleteFaxSetting() {
-
 		try {
 			WebElement menuButton = wait.until(ExpectedConditions.elementToBeClickable(faxSettingActionMenuButton));
 			menuButton.click();
-
 			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
-
 			if (deleteExists) {
 				System.out.println("PASS: Delete option is visible as expected.");
-
 				wait.until(ExpectedConditions.elementToBeClickable(deleteOption)).click();
-
 				wait.until(ExpectedConditions.elementToBeClickable(confirmDeleteButton)).click();
-
 			} else {
 				Assert.fail("FAIL: Delete option is not visible, but it should be.");
 			}
@@ -2288,51 +2244,37 @@ public class setuppage {
 	}
 
 	public void verifyUserCannotDeleteFaxSetting() {
-
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
 		try {
 			WebElement menuButton = wait.until(ExpectedConditions.elementToBeClickable(faxSettingActionMenuButton));
 			menuButton.click();
-
 			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
-
 			if (!deleteExists) {
 				System.out.println("PASS: Delete option is not visible as expected.");
 			} else {
 				Assert.fail("FAIL: Delete option is visible, but it should not be.");
 			}
-
 		} catch (ElementClickInterceptedException | TimeoutException e) {
 			System.out.println("PASS: Action menu is not accessible due to permission restrictions.");
 		}
 	}
 
 	public void verifyUserCanEditExistingFaxSetting() {
-
 		String profileName = Hooks.prop.getProperty("profile.name.value");
-
 		try {
 			WebElement menuButton = wait.until(ExpectedConditions.elementToBeClickable(faxSettingActionMenuButton));
 			menuButton.click();
-
 			boolean editExists = !driver.findElements(editOption).isEmpty();
-
 			if (editExists) {
 				System.out.println("PASS: Edit option is visible as expected.");
-
 				wait.until(ExpectedConditions.elementToBeClickable(editOption)).click();
-
 				wait.until(ExpectedConditions.visibilityOfElementLocated(faxApiIdField));
 				driver.findElement(faxApiIdField).clear();
 				driver.findElement(faxApiIdField).sendKeys(profileName);
-
 				wait.until(ExpectedConditions.elementToBeClickable(saveFaxSettingButton)).click();
-
 			} else {
 				Assert.fail("FAIL: Edit option is not visible, but it should be.");
 			}
-
 		} catch (ElementClickInterceptedException | TimeoutException e) {
 			Assert.fail("FAIL: Could not open the action menu to verify Edit option.");
 		}
@@ -2348,39 +2290,30 @@ public class setuppage {
 	}
 
 	public void verifyUserCannotEditOrDeleteFaxSetting() {
-
 		try {
 			WebElement menuButton = wait.until(ExpectedConditions.elementToBeClickable(faxSettingActionMenuButton));
 			menuButton.click();
-
 			boolean editExists = !driver.findElements(editOption).isEmpty();
 			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
-
 			if (!editExists && !deleteExists) {
 				System.out.println("PASS: User cannot see Edit/Delete options.");
 			} else {
 				Assert.fail("FAIL: User should not see Edit/Delete options.");
 			}
-
 		} catch (ElementClickInterceptedException | TimeoutException e) {
 			System.out.println("PASS: Action menu is not accessible due to permission restrictions.");
 		}
 	}
 
 	public void verifyUserCanAddNewFaxSetting() {
-
 		String profileName = Hooks.prop.getProperty("profile.name.value");
 		String createdEmail = Hooks.prop.getProperty("user.email.value");
-
 		wait.until(ExpectedConditions.elementToBeClickable(newFaxSettingButton)).click();
-
 		wait.until(ExpectedConditions.visibilityOfElementLocated(faxApiIdField));
 		driver.findElement(faxApiIdField).clear();
 		driver.findElement(faxApiIdField).sendKeys(profileName);
-
 		driver.findElement(fromEmailField).clear();
 		driver.findElement(fromEmailField).sendKeys(createdEmail);
-
 		wait.until(ExpectedConditions.elementToBeClickable(saveFaxSettingButton)).click();
 	}
 
@@ -2394,7 +2327,6 @@ public class setuppage {
 	}
 
 	public void userShouldNotBeAbleToAddEditOrDeleteFaxSetting() {
-
 		boolean addExists = !driver.findElements(newFaxSettingsBtn).isEmpty();
 		if (addExists) {
 			Assert.fail("FAIL: User should not see 'New Fax Settings' button.");
@@ -2405,10 +2337,8 @@ public class setuppage {
 		try {
 			WebElement menuButton = wait.until(ExpectedConditions.elementToBeClickable(actionMenuBtn));
 			menuButton.click();
-
 			boolean editExists = !driver.findElements(editOption).isEmpty();
 			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
-
 			if (!editExists && !deleteExists) {
 				System.out.println("PASS: User cannot see Edit/Delete options.");
 			} else {
@@ -2434,23 +2364,17 @@ public class setuppage {
 		sleep(2000);
 
 	}
+
 	// Progress Step
-
 	public void verifyUserCanDeleteProgressStepEntry() {
-
 		try {
 			WebElement menuButton = wait.until(ExpectedConditions.elementToBeClickable(actionMenuButton));
 			menuButton.click();
-
 			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
-
 			if (deleteExists) {
 				System.out.println("PASS: Delete option is visible as expected.");
-
 				wait.until(ExpectedConditions.elementToBeClickable(deleteOption)).click();
-
 				wait.until(ExpectedConditions.elementToBeClickable(confirmDeleteButton)).click();
-
 			} else {
 				Assert.fail("FAIL: Delete option is not visible, but it should be.");
 			}
@@ -2470,13 +2394,10 @@ public class setuppage {
 	}
 
 	public void verifyUserCannotDeleteProgressStepEntries() {
-
 		try {
 			WebElement menuButton = wait.until(ExpectedConditions.elementToBeClickable(actionMenuButton));
 			menuButton.click();
-
 			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
-
 			if (deleteExists) {
 				Assert.fail("FAIL: Delete option is visible, but it should not be.");
 			} else {
@@ -2489,24 +2410,17 @@ public class setuppage {
 	}
 
 	public void verifyUserCanEditExistingProgressStepEntry() {
-
 		String profileName = Hooks.prop.getProperty("profile.name.value");
-
 		try {
 			WebElement menuButton = wait.until(ExpectedConditions.elementToBeClickable(actionMenuButton));
 			menuButton.click();
-
 			boolean editExists = !driver.findElements(editOption).isEmpty();
-
 			if (editExists) {
 				System.out.println("PASS: Edit option is visible as expected.");
-
 				wait.until(ExpectedConditions.elementToBeClickable(editOption)).click();
-
 				wait.until(ExpectedConditions.visibilityOfElementLocated(notesField));
 				driver.findElement(notesField).clear();
 				driver.findElement(notesField).sendKeys(profileName);
-
 				wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
 
 			} else {
@@ -2528,17 +2442,12 @@ public class setuppage {
 	}
 
 	public void verifyUserCannotEditOrDeleteProgressStepEntries() {
-
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
 		WebElement menuButton = wait.until(ExpectedConditions.presenceOfElementLocated(actionMenuButton));
-
 		try {
 			wait.until(ExpectedConditions.elementToBeClickable(menuButton)).click();
-
 			boolean editExists = !driver.findElements(editOption).isEmpty();
 			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
-
 			if (!editExists && !deleteExists) {
 				System.out.println("PASS: Edit/Delete options are not visible as expected.");
 			} else {
@@ -2551,27 +2460,19 @@ public class setuppage {
 	}
 
 	public void verifyUserCanAddNewProgressStepEntry() {
-
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
 		String profileName = Hooks.prop.getProperty("profile.name.value");
-
 		wait.until(ExpectedConditions.elementToBeClickable(newProgressStepButton)).click();
-
 		wait.until(ExpectedConditions.visibilityOfElementLocated(nameField));
 		driver.findElement(nameField).clear();
 		driver.findElement(nameField).sendKeys(profileName);
-
 		driver.findElement(priorityField).clear();
 		driver.findElement(priorityField).sendKeys("1");
-
 		WebElement dropdown = wait.until(ExpectedConditions.visibilityOfElementLocated(featureTypeDropdown));
 		Select select = new Select(dropdown);
 		select.selectByIndex(2);
-
 		driver.findElement(notesField).clear();
 		driver.findElement(notesField).sendKeys(profileName);
-
 		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
 	}
 
@@ -2585,21 +2486,15 @@ public class setuppage {
 	}
 
 	public void verifyUserCannotAddEditOrDeleteProgressStepEntries() {
-
 		sleep(3000);
-
 		Assert.assertTrue(driver.findElements(newProgressStepButton).isEmpty(),
 				"FAIL: 'New Progress Step' button should not be visible");
-
 		WebElement menuButton = driver.findElement(actionMenuButton);
-
 		try {
 			menuButton.click();
 			sleep(1000);
-
 			boolean editExists = !driver.findElements(editOption).isEmpty();
 			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
-
 			if (!editExists && !deleteExists) {
 				System.out.println("PASS: User cannot see Edit/Delete options for Progress Step.");
 			} else {
@@ -2627,22 +2522,15 @@ public class setuppage {
 	}
 
 	// Designation
-
 	public void verifyUserCanDeleteDesignation() {
-
 		try {
 			WebElement menuButton = wait.until(ExpectedConditions.elementToBeClickable(designationActionMenuButton));
 			menuButton.click();
-
 			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
-
 			if (deleteExists) {
 				System.out.println("PASS: Delete option is visible as expected.");
-
 				wait.until(ExpectedConditions.elementToBeClickable(deleteOption)).click();
-
 				wait.until(ExpectedConditions.elementToBeClickable(confirmDeleteButton)).click();
-
 			} else {
 				Assert.fail("FAIL: Delete option is not visible, but it should be.");
 			}
@@ -2653,24 +2541,17 @@ public class setuppage {
 	}
 
 	public void verifyUserCanEditExistingDesignation() {
-
 		String profileName = Hooks.prop.getProperty("profile.name.value");
-
 		try {
 			WebElement menuButton = wait.until(ExpectedConditions.elementToBeClickable(designationActionMenuButton));
 			menuButton.click();
-
 			boolean editExists = !driver.findElements(editOption).isEmpty();
-
 			if (editExists) {
 				System.out.println("PASS: Edit option is visible as expected.");
-
 				wait.until(ExpectedConditions.elementToBeClickable(editOption)).click();
-
 				wait.until(ExpectedConditions.visibilityOfElementLocated(designationLevelField));
 				driver.findElement(designationLevelField).clear();
 				driver.findElement(designationLevelField).sendKeys(profileName);
-
 				wait.until(ExpectedConditions.elementToBeClickable(saveDesignationButton)).click();
 
 			} else {
@@ -2692,38 +2573,29 @@ public class setuppage {
 	}
 
 	public void verifyUserCannotEditOrDeleteAnyDesignation() {
-
 		try {
 			WebElement menuButton = wait.until(ExpectedConditions.elementToBeClickable(designationActionMenuButton));
 			menuButton.click();
-
 			boolean editExists = !driver.findElements(editOption).isEmpty();
 			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
-
 			if (!editExists && !deleteExists) {
 				System.out.println("PASS: User cannot see Edit/Delete options.");
 			} else {
 				Assert.fail("FAIL: User should not see Edit/Delete options.");
 			}
-
 		} catch (ElementClickInterceptedException | TimeoutException e) {
 			System.out.println("PASS: Action menu is not accessible due to permission restrictions.");
 		}
 	}
 
 	public void verifyUserCanAddNewDesignation() {
-
 		String profileName = Hooks.prop.getProperty("profile.name.value");
-
 		wait.until(ExpectedConditions.elementToBeClickable(newDesignationButton)).click();
-
 		wait.until(ExpectedConditions.visibilityOfElementLocated(designationNameField));
 		driver.findElement(designationNameField).clear();
 		driver.findElement(designationNameField).sendKeys(profileName);
-
 		driver.findElement(designationLevelField).clear();
 		driver.findElement(designationLevelField).sendKeys(profileName);
-
 		wait.until(ExpectedConditions.elementToBeClickable(saveDesignationButton)).click();
 	}
 
@@ -2737,16 +2609,12 @@ public class setuppage {
 	}
 
 	public void verifyUserCannotAddEditOrDeleteDesignation() {
-
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
 		try {
 			WebElement menuButton = wait.until(ExpectedConditions.elementToBeClickable(designationActionMenuButton));
 			menuButton.click();
-
 			boolean editExists = !driver.findElements(editOption).isEmpty();
 			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
-
 			if (!editExists && !deleteExists) {
 				System.out.println("PASS: Edit/Delete options are not visible as expected.");
 			} else {
@@ -2772,43 +2640,28 @@ public class setuppage {
 		sleep(2000);
 
 	}
+
 	// Whitelist IP
-
 	public void verifyUserCanRemoveExcludedUser() throws InterruptedException {
-
 		Thread.sleep(3000);
-
 		driver.findElement(excludeUserLink).click();
-
 		Thread.sleep(1000);
-
 		driver.findElement(newExcludeUserBtn).click();
-
 		Thread.sleep(1000);
-
 		driver.findElement(firstUserCheckbox).click();
-
 		Thread.sleep(1000);
-
 		WebElement saveButton = driver.findElement(saveBtn);
 		saveButton.click();
-
 		Thread.sleep(1000);
 	}
 
 	public void verifyUserCanExcludeUserFromWhitelistIP() throws InterruptedException {
-
 		Thread.sleep(3000);
-
 		driver.findElement(excludeUserLink).click();
-
 		List<WebElement> elements = driver.findElements(newExcludeUserBtn);
 		Assert.assertTrue(!elements.isEmpty(), "FAIL: 'New Exclude User' option should be visible");
-
 		driver.findElement(excludeUserLink).click();
-
 		driver.findElement(userCheckbox).click();
-
 		WebElement saveButton = driver.findElement(saveBtn);
 		saveButton.click();
 	}
@@ -2823,31 +2676,21 @@ public class setuppage {
 	}
 
 	public void verifyUserCanDeleteWhitelistIP() throws InterruptedException {
-
 		Thread.sleep(3000);
-
 		try {
 			WebElement menuButton = driver.findElement(actionMenuBtn);
-
 			Thread.sleep(1000);
 			menuButton.click();
-
 			Thread.sleep(1000);
-
 			List<WebElement> deleteElements = driver.findElements(deleteOption);
-
 			if (!deleteElements.isEmpty()) {
 				System.out.println("PASS: Delete option is visible as expected.");
-
 				deleteElements.get(0).click();
-
 				WebElement confirmBtn = driver.findElement(confirmDeleteBtn);
 				confirmBtn.click();
-
 			} else {
 				Assert.fail("FAIL: Delete option is not visible, but it should be.");
 			}
-
 		} catch (ElementClickInterceptedException | TimeoutException e) {
 			Assert.fail("FAIL: Could not open the action menu to verify Delete option.");
 		}
@@ -2863,17 +2706,12 @@ public class setuppage {
 	}
 
 	public void verifyUserCannotDeleteIPsOrManageExcludedUsers() throws InterruptedException {
-
 		Thread.sleep(3000);
-
 		try {
 			WebElement menuButton = driver.findElement(actionMenuBtn);
 			menuButton.click();
-
 			Thread.sleep(1000);
-
 			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
-
 			if (!deleteExists) {
 				System.out.println("PASS: Delete option is not visible as expected.");
 			} else {
@@ -2886,25 +2724,18 @@ public class setuppage {
 	}
 
 	public void verifyUserCanAddNewWhitelistIP() throws InterruptedException {
-
 		Thread.sleep(3000);
-
 		Random random = new Random();
 		int lastOctet = random.nextInt(254) + 1;
 		String randomIP = "192.168.100." + lastOctet;
-
 		driver.findElement(newIpBtn).click();
-
 		String profileName = Hooks.prop.getProperty("profile.name.value");
-
 		WebElement ipInput = driver.findElement(ipField);
 		ipInput.clear();
 		ipInput.sendKeys(randomIP);
-
 		WebElement nameInput = driver.findElement(nameField);
 		nameInput.clear();
 		nameInput.sendKeys(profileName);
-
 		WebElement submitButton = driver.findElement(submitBtn);
 		submitButton.click();
 	}
@@ -2919,36 +2750,26 @@ public class setuppage {
 	}
 
 	public void verifyUserCannotExcludeOrRemoveExcludedUsers() throws InterruptedException {
-
 		Thread.sleep(3000);
-
 		driver.findElement(excludeUserLink).click();
-
 		List<WebElement> elements = driver.findElements(newExcludeUserBtn);
 		Assert.assertTrue(elements.isEmpty(), "FAIL: 'New Exclude User' button should NOT be visible");
 	}
 
 	public void verifyUserCannotAddOrDeleteIPs() throws InterruptedException {
-
 		Thread.sleep(3000);
-
 		List<WebElement> newIpElements = driver.findElements(newIpBtn);
 		Assert.assertTrue(newIpElements.isEmpty(), "FAIL: 'New IP' button should NOT be visible");
-
 		try {
 			WebElement menuButton = driver.findElement(actionMenuBtn);
 			menuButton.click();
-
 			Thread.sleep(1000);
-
 			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
-
 			if (!deleteExists) {
 				System.out.println("PASS: User cannot see Delete option.");
 			} else {
 				Assert.fail("FAIL: User should not see Delete option.");
 			}
-
 		} catch (ElementClickInterceptedException | TimeoutException e) {
 			System.out.println("PASS: Action menu exists but cannot be opened (no permissions).");
 		}
@@ -2972,19 +2793,13 @@ public class setuppage {
 	// EHR Types
 
 	public void verifyUserCanDeleteEHRType() throws InterruptedException {
-
 		Thread.sleep(3000);
-
 		try {
 			Thread.sleep(1000);
-
 			List<WebElement> deleteElements = driver.findElements(deleteOption);
-
 			if (!deleteElements.isEmpty()) {
 				System.out.println("PASS: Delete option is visible as expected.");
-
 				deleteElements.get(0).click();
-
 				WebElement confirmBtn = driver.findElement(confirmDeleteBtn);
 				confirmBtn.click();
 
@@ -3007,14 +2822,10 @@ public class setuppage {
 	}
 
 	public void verifyUserCannotDeleteEHRTypes() throws InterruptedException {
-
 		Thread.sleep(3000);
-
 		try {
 			Thread.sleep(1000);
-
 			List<WebElement> deleteElements = driver.findElements(deleteOption);
-
 			if (!deleteElements.isEmpty()) {
 				Assert.fail("FAIL: Delete option is visible, but it should NOT be.");
 			} else {
@@ -3027,30 +2838,20 @@ public class setuppage {
 	}
 
 	public void verifyUserCanEditEHRType() throws InterruptedException {
-
 		Thread.sleep(3000);
-
 		try {
 			WebElement menuButton = driver.findElement(actionMenuBtn);
-
 			Thread.sleep(1000);
 			menuButton.click();
-
 			Thread.sleep(1000);
-
 			List<WebElement> editElements = driver.findElements(editOption);
-
 			if (!editElements.isEmpty()) {
 				System.out.println("PASS: Edit option is visible as expected.");
-
 				editElements.get(0).click();
-
 				String profileName = Hooks.prop.getProperty("profile.name.value");
-
 				WebElement descField = driver.findElement(descriptionField);
 				descField.clear();
 				descField.sendKeys(profileName);
-
 				WebElement saveButton = driver.findElement(saveBtn);
 				saveButton.click();
 
@@ -3073,18 +2874,13 @@ public class setuppage {
 	}
 
 	public void verifyUserCannotEditOrDeleteEHRTypes() throws InterruptedException {
-
 		Thread.sleep(3000);
-
 		try {
 			WebElement menuButton = driver.findElement(actionMenuBtn);
 			menuButton.click();
-
 			Thread.sleep(1000);
-
 			boolean editExists = !driver.findElements(editOption).isEmpty();
 			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
-
 			if (!editExists && !deleteExists) {
 				System.out.println("PASS: Delete and Edit options are not visible as expected.");
 			} else {
@@ -3097,23 +2893,15 @@ public class setuppage {
 	}
 
 	public void verifyUserCanAddNewEHRType() throws InterruptedException {
-
 		Thread.sleep(3000);
-
 		driver.findElement(newEhrTypeBtn).click();
-
 		Thread.sleep(1000);
-
 		String profileName = Hooks.prop.getProperty("profile.name.value");
-
 		driver.findElement(nameField).clear();
 		driver.findElement(nameField).sendKeys(profileName);
-
 		driver.findElement(descriptionField).clear();
 		driver.findElement(descriptionField).sendKeys(profileName);
-
 		Thread.sleep(3000);
-
 		driver.findElement(saveBtn).click();
 	}
 
@@ -3127,26 +2915,20 @@ public class setuppage {
 	}
 
 	public void verifyUserCannotAddEditDeleteEHRTypes() throws InterruptedException {
-
 		Thread.sleep(3000);
-
 		List<WebElement> newBtn = driver.findElements(newEhrTypeBtn);
 		Assert.assertTrue(newBtn.isEmpty(), "FAIL: 'New EHR Type' button should NOT be visible");
-
 		try {
 			WebElement menuButton = driver.findElement(actionMenuBtn);
 			menuButton.click();
 			Thread.sleep(1000);
-
 			boolean editExists = !driver.findElements(editOption).isEmpty();
 			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
-
 			if (!editExists && !deleteExists) {
 				System.out.println("PASS: User cannot see Edit/Delete options.");
 			} else {
 				Assert.fail("FAIL: User should not see Edit/Delete options.");
 			}
-
 		} catch (ElementClickInterceptedException | TimeoutException e) {
 			System.out.println("PASS: Action menu exists but cannot be opened (no permissions).");
 		}
@@ -3168,14 +2950,10 @@ public class setuppage {
 	}
 
 	// Organization Calendar
-
 	public void verifyUserCanEditOrganizationCalendarEntry() {
-
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
 		try {
 			WebElement editBtn = wait.until(ExpectedConditions.elementToBeClickable(calendarEditBtn));
-
 			System.out.println("PASS: Edit option is visible as expected.");
 			editBtn.click();
 
@@ -3194,9 +2972,7 @@ public class setuppage {
 	}
 
 	public void verifyUserCannotEditOrganizationCalendarEntries() throws InterruptedException {
-
 		Thread.sleep(3000);
-
 		List<WebElement> elements = driver.findElements(calendarEditBtn);
 		Assert.assertTrue(elements.isEmpty(), "Calendar edit button is visible, but it should NOT be");
 	}
@@ -3249,18 +3025,13 @@ public class setuppage {
 	}
 
 	// Notification Setting
-
 	public void verifyUserHasNoUpdateAccessToNotificationSetting() {
-
 		List<WebElement> errorHeaders = driver.findElements(errorHeader);
-
 		Assert.assertTrue(!errorHeaders.isEmpty(), "User has access to Notification Setting page, but should NOT");
 	}
 
 	public void verifyUserHasNoUpdateAccessToTechnicalSetting() throws InterruptedException {
-
 		List<WebElement> errorHeaders = driver.findElements(errorHeader);
-
 		if (!errorHeaders.isEmpty()) {
 			System.out.println("Error: Don't have proper access to requested page");
 		} else {
@@ -3284,11 +3055,8 @@ public class setuppage {
 	}
 
 	// Brand Management
-
 	public void verifySendVCardOptionIsNotVisibleInBrandManagement() throws InterruptedException {
-
 		Thread.sleep(3000);
-
 		List<WebElement> elements = driver.findElements(sendVCardBtn);
 		Assert.assertTrue(elements.isEmpty(), "Send VCard button is visible, but it should NOT be");
 	}
@@ -3303,9 +3071,7 @@ public class setuppage {
 	}
 
 	public void verifyNoUpdateAccessToApplicationStatus() throws InterruptedException {
-
 		List<WebElement> errorHeaders = driver.findElements(errorHeader);
-
 		if (!errorHeaders.isEmpty()) {
 			System.out.println("Error: Don't have proper access to requested page");
 		} else {
@@ -3314,9 +3080,7 @@ public class setuppage {
 	}
 
 	public void verifyNoUpdateAccessToBrandManagement() throws InterruptedException {
-
 		List<WebElement> errorHeaders = driver.findElements(errorHeader);
-
 		if (!errorHeaders.isEmpty()) {
 			System.out.println("Error: Don't have proper access to requested page");
 		} else {
@@ -3340,7 +3104,6 @@ public class setuppage {
 	}
 
 	// Bucket Setting
-
 	public void openBucketSettingsPage(String fullUrl) {
 		sleep(2000);
 		driver.get(fullUrl);
@@ -3348,11 +3111,8 @@ public class setuppage {
 	}
 
 	public void userWithNoAccessCannotViewOrAccessBucketSetting() throws InterruptedException {
-
 		Thread.sleep(2000);
-
 		List<WebElement> errorElements = driver.findElements(errorHeader);
-
 		if (!errorElements.isEmpty()) {
 			System.out.println("PASS: User cannot access Bucket Settings page.");
 		} else {
@@ -3386,10 +3146,8 @@ public class setuppage {
 	}
 
 	public void UserCanSeeAndPerformReminderActionsWithActionViewAccess() {
-
 		WebElement actionBtn = wait.until(ExpectedConditions.elementToBeClickable(reminderActionBtn));
 		actionBtn.click();
-
 		WebElement saveButton = wait.until(ExpectedConditions.elementToBeClickable(saveBtn));
 		saveButton.click();
 	}
@@ -3405,7 +3163,6 @@ public class setuppage {
 
 	public void UserCannotSeeReminderActionButtonsWithoutActionViewAccess() throws InterruptedException {
 		Thread.sleep(3000);
-
 		List<WebElement> elements = driver.findElements(reminderActionBtn);
 		Assert.assertTrue(elements.isEmpty(), "Reminder action button should not be visible");
 	}
@@ -3426,18 +3183,13 @@ public class setuppage {
 	}
 
 	// Organization Bucket
-
 	public void verifyUserCanDownloadFileInOrganizationBucket() {
 		sleep(3000);
-
 		try {
 			sleep(1000);
-
 			boolean downloadExists = !driver.findElements(downloadOption).isEmpty();
-
 			if (downloadExists) {
 				System.out.println("PASS: Download option is visible as expected.");
-
 				driver.findElement(downloadOption).click();
 
 			} else {
@@ -3460,18 +3212,14 @@ public class setuppage {
 
 	public void verifyUserCannotDownloadFilesInOrganizationBucket() {
 		sleep(3000);
-
 		try {
 			sleep(1000);
-
 			boolean downloadExists = !driver.findElements(downloadOption).isEmpty();
-
 			if (!downloadExists) {
 				System.out.println("PASS: Download option is not visible as expected.");
 			} else {
 				Assert.fail("FAIL: Download option is visible, but it should not be.");
 			}
-
 		} catch (ElementClickInterceptedException | org.openqa.selenium.TimeoutException e) {
 			System.out.println("PASS: Action menu exists but cannot be opened (no Download permissions).");
 		}
@@ -3479,20 +3227,14 @@ public class setuppage {
 
 	public void verifyUserCanDeleteFileInOrganizationBucket() {
 		sleep(3000);
-
 		try {
 			sleep(1000);
-
 			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
-
 			if (deleteExists) {
 				System.out.println("PASS: Delete option is visible as expected.");
-
 				driver.findElement(deleteOption).click();
 				sleep(1000);
-
 				driver.findElement(confirmDeleteBtn).click();
-
 			} else {
 				Assert.fail("FAIL: Delete option is not visible, but it should be.");
 			}
@@ -3513,14 +3255,11 @@ public class setuppage {
 
 	public void verifyUserCannotDeleteOrDownloadFilesInOrganizationBucket() {
 		sleep(3000);
-
 		try {
 			driver.findElement(actionMenu).click();
 			sleep(1000);
-
 			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
 			boolean downloadExists = !driver.findElements(downloadOption).isEmpty();
-
 			if (!deleteExists && !downloadExists) {
 				System.out.println("PASS: Delete and Download options are not visible as expected.");
 			} else {
@@ -3534,24 +3273,17 @@ public class setuppage {
 
 	public void verifyUserCanEditExistingFileInOrganizationBucket() {
 		sleep(3000);
-
 		String profileName = Hooks.prop.getProperty("profile.name.value");
-
 		try {
 			driver.findElement(actionMenu).click();
 			sleep(1000);
-
 			boolean editExists = !driver.findElements(editOption).isEmpty();
-
 			if (editExists) {
 				System.out.println("PASS: Edit option is visible as expected.");
-
 				driver.findElement(editOption).click();
 				sleep(1000);
-
 				driver.findElement(fileNameField).clear();
 				driver.findElement(fileNameField).sendKeys(profileName);
-
 				driver.findElement(saveBtn).click();
 
 			} else {
@@ -3574,15 +3306,12 @@ public class setuppage {
 
 	public void verifyUserCannotEditDeleteOrDownloadFilesInOrganizationBucket() {
 		sleep(3000);
-
 		try {
 			driver.findElement(actionMenu).click();
 			sleep(1000);
-
 			boolean editExists = !driver.findElements(editOption).isEmpty();
 			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
 			boolean downloadExists = !driver.findElements(downloadOption).isEmpty();
-
 			if (!editExists && !deleteExists && !downloadExists) {
 				System.out.println("PASS: User cannot see Edit/Delete/Download options.");
 			} else {
@@ -3596,15 +3325,10 @@ public class setuppage {
 
 	public void verifyUserCanAddNewFileInOrganizationBucket() {
 		sleep(3000);
-
 		driver.findElement(addFileBtn).click();
-
 		String filePath = System.getProperty("user.dir") + "/pharmcrm-product/src/test/resources/Documents/dummy.pdf";
-
 		driver.findElement(fileInputField).sendKeys(filePath);
-
 		sleep(3000);
-
 		driver.findElement(saveFileBtn).click();
 	}
 
@@ -3619,20 +3343,16 @@ public class setuppage {
 
 	public void verifyUserCannotAddEditDeleteOrDownloadFilesInOrganizationBucket() {
 		sleep(3000);
-
 		boolean addExists = !driver.findElements(addFileBtn).isEmpty();
 		if (addExists) {
 			Assert.fail("FAIL: Add File button is visible, but it should not be.");
 		}
-
 		try {
 			driver.findElement(actionMenu).click();
 			sleep(1000);
-
 			boolean editExists = !driver.findElements(editOption).isEmpty();
 			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
 			boolean downloadExists = !driver.findElements(downloadOption).isEmpty();
-
 			if (!editExists && !deleteExists && !downloadExists) {
 				System.out.println("PASS: User cannot see Edit/Delete/Download options.");
 			} else {
@@ -3660,11 +3380,8 @@ public class setuppage {
 	}
 
 	// Default Fax Template
-
 	public void UserWithNoAccessCannotViewOrAccessDefaultFaxTemplate() throws InterruptedException {
-
 		List<WebElement> errorHeaders = driver.findElements(errorHeader);
-
 		if (!errorHeaders.isEmpty()) {
 			System.out.println("Error: Don't have proper access to requested page");
 		} else {
@@ -3689,11 +3406,8 @@ public class setuppage {
 
 	// Default Mail Template
 	public void UserWithNoAccessCannotViewOrAccessDefaultMailTemplate() {
-
 		sleep(2000);
-
 		boolean isErrorDisplayed = !driver.findElements(errorHeader).isEmpty();
-
 		if (isErrorDisplayed) {
 			System.out.println("PASS: User does not have access to Default Mail Template.");
 		} else {
@@ -3719,22 +3433,15 @@ public class setuppage {
 	// Feedback Form
 	public void serShouldBeAbleToDeleteFeedbackForm() {
 		sleep(3000);
-
 		try {
 			driver.findElement(actionMenu).click();
 			sleep(1000);
-
 			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
-
 			if (deleteExists) {
 				System.out.println("PASS: Delete option is visible as expected.");
-
 				driver.findElement(deleteOption).click();
-
 				sleep(1000);
-
 				driver.findElement(confirmDeleteBtn).click();
-
 			} else {
 				Assert.fail("FAIL: Delete option is not visible, but it should be.");
 			}
@@ -3755,13 +3462,10 @@ public class setuppage {
 
 	public void userShouldNotBeAbleToDeleteFeedbackForm() {
 		sleep(3000);
-
 		try {
 			driver.findElement(actionMenu).click();
 			sleep(1000);
-
 			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
-
 			if (!deleteExists) {
 				System.out.println("PASS: Delete option is not visible as expected.");
 			} else {
@@ -3775,23 +3479,17 @@ public class setuppage {
 
 	public void userShouldBeAbleToEditFeedbackForm() {
 		sleep(3000);
-
 		try {
 			WebElement menuButton = wait.until(ExpectedConditions.elementToBeClickable(actionMenu));
 			menuButton.click();
-
 			sleep(1000);
-
 			if (!driver.findElements(editOption).isEmpty()) {
 				System.out.println("PASS: Edit option is visible as expected.");
-
 				WebElement editBtn = wait.until(ExpectedConditions.elementToBeClickable(editOption));
 				editBtn.click();
-
 				String profileName = Hooks.prop.getProperty("profile.name.value");
 				driver.findElement(titleField).clear();
 				driver.findElement(titleField).sendKeys(profileName);
-
 				WebElement saveBtn = wait.until(ExpectedConditions.elementToBeClickable(saveButton));
 				saveBtn.click();
 
@@ -3814,16 +3512,12 @@ public class setuppage {
 	}
 
 	public void userShouldNotBeAbleToEditOrDeleteFeedbackForm() throws InterruptedException {
-
 		Thread.sleep(3000);
-
 		try {
 			driver.findElement(actionMenu).click();
 			Thread.sleep(1000);
-
 			boolean editExists = !driver.findElements(editOption).isEmpty();
 			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
-
 			if (!editExists && !deleteExists) {
 				System.out.println("PASS: User cannot see Edit/Delete options.");
 			} else {
@@ -3836,22 +3530,14 @@ public class setuppage {
 	}
 
 	public void userShouldBeAbleToAddNewFeedbackForm() throws InterruptedException {
-
 		Thread.sleep(3000);
-
 		driver.findElement(newFeedbackFormButton).click();
-
 		String profileName = Hooks.prop.getProperty("profile.name.value");
-
 		driver.findElement(titleField).sendKeys(profileName);
-
 		driver.findElement(saveButton).click();
-
 		driver.findElement(questionField).sendKeys(profileName);
 		Thread.sleep(3000);
-
 		driver.findElement(addQuestionButton).click();
-
 		driver.findElement(saveButton).click();
 	}
 
@@ -3865,20 +3551,15 @@ public class setuppage {
 	}
 
 	public void userShouldNotBeAbleToAddEditOrDeleteFeedbackForm() throws InterruptedException {
-
 		Thread.sleep(3000);
-
 		if (!driver.findElements(newFeedbackFormButton).isEmpty()) {
 			Assert.fail("FAIL: 'New Feedback Form' button should not be visible.");
 		}
-
 		try {
 			driver.findElement(actionMenu).click();
 			Thread.sleep(1000);
-
 			boolean editExists = !driver.findElements(editOption).isEmpty();
 			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
-
 			if (!editExists && !deleteExists) {
 				System.out.println("PASS: User cannot see Edit/Delete options.");
 			} else {
@@ -3907,20 +3588,14 @@ public class setuppage {
 
 	// Patient Signature Template
 	public void userShouldBeAbleToDeletePatientSignatureTemplate() throws InterruptedException {
-
 		Thread.sleep(3000);
-
 		try {
 			Thread.sleep(1000);
-
 			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
-
 			if (deleteExists) {
 				System.out.println("PASS: Delete option is visible as expected.");
-
 				driver.findElement(deleteOption).click();
 				Thread.sleep(1000);
-
 				driver.findElement(confirmDeleteButton).click();
 
 			} else {
@@ -3942,15 +3617,11 @@ public class setuppage {
 	}
 
 	public void userShouldNotBeAbleToDeletePatientSignatureTemplate() throws InterruptedException {
-
 		Thread.sleep(3000);
-
 		try {
 			driver.findElement(actionMenu).click();
 			Thread.sleep(1000);
-
 			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
-
 			if (!deleteExists) {
 				System.out.println("PASS: Delete option is not visible as expected.");
 			} else {
@@ -3963,24 +3634,17 @@ public class setuppage {
 	}
 
 	public void userShouldBeAbleToEditPatientSignatureTemplate() throws InterruptedException {
-
 		Thread.sleep(3000);
-
 		try {
 			driver.findElement(actionMenu).click();
 			Thread.sleep(1000);
-
 			boolean editExists = !driver.findElements(editOption).isEmpty();
-
 			if (editExists) {
 				System.out.println("PASS: Edit option is visible as expected.");
-
 				driver.findElement(editOption).click();
 				Thread.sleep(1000);
-
 				String profileName = Hooks.prop.getProperty("profile.name.value");
 				driver.findElement(titleField).sendKeys(profileName);
-
 				driver.findElement(submitButton).click();
 
 			} else {
@@ -4002,16 +3666,12 @@ public class setuppage {
 	}
 
 	public void userShouldNotBeAbleToEditOrDeletePatientSignatureTemplate() throws InterruptedException {
-
 		Thread.sleep(3000);
-
 		try {
 			driver.findElement(actionMenu).click();
 			Thread.sleep(1000);
-
 			boolean editExists = !driver.findElements(editOption).isEmpty();
 			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
-
 			if (!editExists && !deleteExists) {
 				System.out.println("PASS: User cannot see Edit/Delete options.");
 			} else {
@@ -4024,16 +3684,11 @@ public class setuppage {
 	}
 
 	public void userShouldBeAbleToAddNewPatientSignatureTemplate() throws InterruptedException {
-
 		Thread.sleep(3000);
-
 		driver.findElement(newPatientSignatureButton).click();
-
 		String profileName = Hooks.prop.getProperty("profile.name.value");
-
 		driver.findElement(titleField).sendKeys(profileName);
 		driver.findElement(bodyField).sendKeys(profileName);
-
 		driver.findElement(submitButton).click();
 	}
 
@@ -4047,20 +3702,15 @@ public class setuppage {
 	}
 
 	public void userShouldNotBeAbleToAddEditOrDeletePatientSignatureTemplate() throws InterruptedException {
-
 		Thread.sleep(3000);
-
 		if (!driver.findElements(newPatientSignatureButton).isEmpty()) {
 			Assert.fail("FAIL: 'New Patient Signature' button should not be visible.");
 		}
-
 		try {
 			driver.findElement(actionMenu).click();
 			Thread.sleep(1000);
-
 			boolean editExists = !driver.findElements(editOption).isEmpty();
 			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
-
 			if (!editExists && !deleteExists) {
 				System.out.println("PASS: User cannot see Edit/Delete options.");
 			} else {
@@ -4089,23 +3739,16 @@ public class setuppage {
 
 	// Mail Template
 	public void userShouldBeAbleToDeleteMailTemplate() throws InterruptedException {
-
 		Thread.sleep(3000);
-
 		try {
 			driver.findElement(actionMenu).click();
 			Thread.sleep(1000);
-
 			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
-
 			if (deleteExists) {
 				System.out.println("PASS: Delete option is visible as expected.");
-
 				driver.findElement(deleteOption).click();
 				Thread.sleep(1000);
-
 				driver.findElement(confirmDeleteButton).click();
-
 			} else {
 				Assert.fail("FAIL: Delete option is not visible, but it should be.");
 			}
@@ -4125,13 +3768,10 @@ public class setuppage {
 	}
 
 	public void userShouldNotBeAbleToDeleteMailTemplate() throws InterruptedException {
-
 		try {
 			driver.findElement(actionMenu).click();
 			Thread.sleep(1000);
-
 			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
-
 			if (!deleteExists) {
 				System.out.println("PASS: Delete option is not visible as expected.");
 			} else {
@@ -4144,32 +3784,22 @@ public class setuppage {
 	}
 
 	public void userShouldBeAbleToEditMailTemplate() throws InterruptedException {
-
 		Thread.sleep(3000);
-
 		driver.findElement(filterButton).click();
 		Thread.sleep(3000);
-
 		String profileName = Hooks.prop.getProperty("profile.name.value");
 		driver.findElement(filterTitleField).sendKeys(profileName);
-
 		driver.findElement(searchButton).click();
 		Thread.sleep(1000);
-
 		try {
 			driver.findElement(actionMenu).click();
 			Thread.sleep(1000);
-
 			boolean editExists = !driver.findElements(editOption).isEmpty();
-
 			if (editExists) {
 				System.out.println("PASS: Edit option is visible as expected.");
-
 				driver.findElement(editOption).click();
 				Thread.sleep(1000);
-
 				driver.findElement(bodyField).sendKeys(profileName);
-
 				driver.findElement(submitButton).click();
 
 			} else {
@@ -4191,25 +3821,18 @@ public class setuppage {
 	}
 
 	public void userShouldNotBeAbleToEditOrDeleteMailTemplate() throws InterruptedException {
-
 		Thread.sleep(3000);
-
 		driver.findElement(filterButton).click();
 		Thread.sleep(3000);
-
 		String profileName = Hooks.prop.getProperty("profile.name.value");
 		driver.findElement(filterTitleField).sendKeys(profileName);
-
 		driver.findElement(searchButton).click();
 		Thread.sleep(1000);
-
 		try {
 			driver.findElement(actionMenu).click();
 			Thread.sleep(1000);
-
 			boolean editExists = !driver.findElements(editOption).isEmpty();
 			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
-
 			if (!editExists && !deleteExists) {
 				System.out.println("PASS: User cannot see Edit/Delete options.");
 			} else {
@@ -4222,18 +3845,12 @@ public class setuppage {
 	}
 
 	public void userShouldBeAbleToAddNewMailTemplate() throws InterruptedException {
-
 		Thread.sleep(3000);
-
 		driver.findElement(newMailTemplateButton).click();
-
 		String profileName = Hooks.prop.getProperty("profile.name.value");
-
 		driver.findElement(titleField).sendKeys(profileName);
 		driver.findElement(subjectField).sendKeys(profileName);
-
 		new Select(driver.findElement(featureTypeDropdown)).selectByIndex(1);
-
 		driver.findElement(submitButton).click();
 	}
 
@@ -4247,20 +3864,15 @@ public class setuppage {
 	}
 
 	public void userShouldNotBeAbleToModifyMailTemplate() throws InterruptedException {
-
 		Thread.sleep(3000);
-
 		if (!driver.findElements(newMailTemplateButton).isEmpty()) {
 			Assert.fail("FAIL: 'New Mail Template' button should not be visible.");
 		}
-
 		try {
 			driver.findElement(actionMenu).click();
 			Thread.sleep(1000);
-
 			boolean editExists = !driver.findElements(editOption).isEmpty();
 			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
-
 			if (!editExists && !deleteExists) {
 				System.out.println("PASS: User cannot see Edit/Delete options.");
 			} else {
@@ -4289,30 +3901,21 @@ public class setuppage {
 
 	// Fax Template
 	public void userShouldBeAbleToDeleteFaxTemplate() throws InterruptedException {
-
 		Thread.sleep(3000);
-
 		driver.findElement(filterButton).click();
 		Thread.sleep(3000);
-
 		String profileName = Hooks.prop.getProperty("profile.name.value");
 		driver.findElement(filterTitleField).sendKeys(profileName);
-
 		driver.findElement(searchButton).click();
 		Thread.sleep(1000);
-
 		try {
 			driver.findElement(actionMenu).click();
 			Thread.sleep(1000);
-
 			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
-
 			if (deleteExists) {
 				System.out.println("PASS: Delete option is visible as expected.");
-
 				driver.findElement(deleteOption).click();
 				Thread.sleep(1000);
-
 				driver.findElement(confirmDeleteButton).click();
 
 			} else {
@@ -4334,15 +3937,11 @@ public class setuppage {
 	}
 
 	public void userShouldNotBeAbleToDeleteFaxTemplate() throws InterruptedException {
-
 		Thread.sleep(3000);
-
 		try {
 			driver.findElement(actionMenu).click();
 			Thread.sleep(1000);
-
 			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
-
 			if (!deleteExists) {
 				System.out.println("PASS: Delete option is not visible as expected.");
 			} else {
@@ -4355,33 +3954,25 @@ public class setuppage {
 	}
 
 	public void userShouldBeAbleToEditFaxTemplate() throws InterruptedException {
-
 		Thread.sleep(3000);
-
 		driver.findElement(filterButton).click();
 		Thread.sleep(3000);
-
 		String profileName = Hooks.prop.getProperty("profile.name.value");
 		driver.findElement(filterTitleField).sendKeys(profileName);
-
 		driver.findElement(searchButton).click();
 		Thread.sleep(1000);
 
 		try {
 			driver.findElement(actionMenu).click();
 			Thread.sleep(1000);
-
 			boolean editExists = !driver.findElements(editOption).isEmpty();
 
 			if (editExists) {
 				System.out.println("PASS: Edit option is visible as expected.");
-
 				driver.findElement(editOption).click();
 				Thread.sleep(1000);
-
 				driver.findElement(activeCheckbox).click();
 				Thread.sleep(1000);
-
 				driver.findElement(submitButton).click();
 
 			} else {
@@ -4403,25 +3994,19 @@ public class setuppage {
 	}
 
 	public void userShouldNotBeAbleToEditOrDeleteFaxTemplate() throws InterruptedException {
-
 		Thread.sleep(3000);
-
 		driver.findElement(filterButton).click();
 		Thread.sleep(3000);
-
 		String profileName = Hooks.prop.getProperty("profile.name.value");
 		driver.findElement(filterTitleField).sendKeys(profileName);
-
 		driver.findElement(searchButton).click();
 		Thread.sleep(1000);
 
 		try {
 			driver.findElement(actionMenu).click();
 			Thread.sleep(1000);
-
 			boolean editExists = !driver.findElements(editOption).isEmpty();
 			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
-
 			if (!editExists && !deleteExists) {
 				System.out.println("PASS: User cannot see Edit/Delete options.");
 			} else {
@@ -4434,18 +4019,12 @@ public class setuppage {
 	}
 
 	public void userShouldBeAbleToAddNewFaxTemplate() throws InterruptedException {
-
 		Thread.sleep(3000);
-
 		driver.findElement(newFaxTemplateButton).click();
-
 		String profileName = Hooks.prop.getProperty("profile.name.value");
-
 		driver.findElement(titleField).sendKeys(profileName);
 		driver.findElement(subjectField).sendKeys(profileName);
-
 		new Select(driver.findElement(featureTypeDropdown)).selectByIndex(3);
-
 		driver.findElement(submitButton).click();
 	}
 
@@ -4459,9 +4038,7 @@ public class setuppage {
 	}
 
 	public void userShouldNotBeAbleToAddEditOrDeleteFaxTemplate() throws InterruptedException {
-
 		Thread.sleep(3000);
-
 		if (!driver.findElements(newCalloutTemplateButton).isEmpty()) {
 			Assert.fail("FAIL: 'New Callout Template' button should not be visible.");
 		}
@@ -4469,10 +4046,8 @@ public class setuppage {
 		try {
 			driver.findElement(actionMenu).click();
 			Thread.sleep(1000);
-
 			boolean editExists = !driver.findElements(editOption).isEmpty();
 			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
-
 			if (!editExists && !deleteExists) {
 				System.out.println("PASS: User cannot see Edit/Delete options.");
 			} else {
@@ -4500,23 +4075,16 @@ public class setuppage {
 	}
 
 	// BOT Call Template
-
 	public void verifyUserCanDeleteBotCallTemplate() throws InterruptedException {
-
 		Thread.sleep(3000);
-
 		try {
 			driver.findElement(actionMenu).click();
 			Thread.sleep(1000);
-
 			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
-
 			if (deleteExists) {
 				System.out.println("PASS: Delete option is visible as expected.");
-
 				driver.findElement(deleteOption).click();
 				Thread.sleep(1000);
-
 				driver.findElement(confirmDeleteButton).click();
 
 			} else {
@@ -4538,15 +4106,11 @@ public class setuppage {
 	}
 
 	public void verifyUserCannotDeleteBotCallTemplate() throws InterruptedException {
-
 		Thread.sleep(2000);
-
 		try {
 			driver.findElement(actionMenu).click();
 			Thread.sleep(1000);
-
 			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
-
 			if (!deleteExists) {
 				System.out.println("PASS: Delete option is not visible as expected.");
 			} else {
@@ -4559,32 +4123,22 @@ public class setuppage {
 	}
 
 	public void verifyUserCanEditBotCallTemplate() throws InterruptedException {
-
 		Thread.sleep(3000);
-
 		driver.findElement(filterButton).click();
 		Thread.sleep(3000);
-
 		String profileName = Hooks.prop.getProperty("profile.name.value");
 		driver.findElement(filterTitleField).sendKeys(profileName);
-
 		driver.findElement(searchButton).click();
 		Thread.sleep(1000);
-
 		try {
 			driver.findElement(actionMenu).click();
 			Thread.sleep(1000);
-
 			boolean editExists = !driver.findElements(editOption).isEmpty();
-
 			if (editExists) {
 				System.out.println("PASS: Edit option is visible as expected.");
-
 				driver.findElement(editOption).click();
 				Thread.sleep(2000);
-
 				driver.findElement(bodyField).sendKeys(profileName);
-
 				driver.findElement(submitButton).click();
 
 			} else {
@@ -4606,7 +4160,6 @@ public class setuppage {
 	}
 
 	public void verifyUserCannotEditOrDeleteBotCallTemplate() throws InterruptedException {
-
 		if (!driver.findElements(newTextTemplateButton).isEmpty()) {
 			Assert.fail("FAIL: 'New Text Template' button should not be visible to the user.");
 		}
@@ -4622,10 +4175,8 @@ public class setuppage {
 			WebElement menuButton = driver.findElement(firstRowActionMenu);
 			menuButton.click();
 			Thread.sleep(500);
-
 			boolean editExists = !driver.findElements(editOption).isEmpty();
 			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
-
 			if (!editExists && !deleteExists) {
 				System.out.println("PASS: User cannot see Edit/Delete options.");
 			} else {
@@ -4638,20 +4189,13 @@ public class setuppage {
 	}
 
 	public void verifyUserCanAddBotCallTemplate() throws InterruptedException {
-
 		Thread.sleep(3000);
-
 		driver.findElement(newCalloutTemplateButton).click();
-
 		String profileName = Hooks.prop.getProperty("profile.name.value");
 		driver.findElement(titleInput).sendKeys(profileName);
-
 		new Select(driver.findElement(featureTypeDropdown)).selectByIndex(3);
-
 		new Select(driver.findElement(subFeatureTypeDropdown)).selectByIndex(1);
-
 		driver.findElement(bodyInput).sendKeys(" Message");
-
 		driver.findElement(submitButton).click();
 	}
 
@@ -4665,21 +4209,16 @@ public class setuppage {
 	}
 
 	public void verifyUserCannotAddEditOrDeleteBotCallTemplate() throws InterruptedException {
-
 		Thread.sleep(3000);
-
 		List<WebElement> newTemplate = driver.findElements(newTemplateButton);
 		Assert.assertTrue(newTemplate.isEmpty(), "FAIL: 'New Callout Template' button should not be visible.");
 
 		try {
 			WebElement menuButton = driver.findElement(actionMenuButton);
 			menuButton.click();
-
 			Thread.sleep(1000);
-
 			boolean editExists = !driver.findElements(editOption).isEmpty();
 			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
-
 			if (!editExists && !deleteExists) {
 				System.out.println("PASS: User cannot see Edit/Delete options.");
 			} else {
@@ -4707,28 +4246,17 @@ public class setuppage {
 	}
 
 	// Text Template
-
 	public void verifyUserCanDeleteTextTemplate() throws InterruptedException {
-
 		String profileName = Hooks.prop.getProperty("profile.name.value");
-
 		Thread.sleep(3000);
-
 		driver.findElement(filterButton).click();
-
 		Thread.sleep(3000);
 		driver.findElement(filterTitleField).sendKeys(profileName);
-
 		driver.findElement(searchButton).click();
-
 		Thread.sleep(1000);
-
 		driver.findElement(actionMenu).click();
-
 		Assert.assertFalse(driver.findElements(deleteOption).isEmpty());
-
 		driver.findElement(deleteOption).click();
-
 		driver.findElement(confirmDeleteButton).click();
 	}
 
@@ -4742,19 +4270,15 @@ public class setuppage {
 	}
 
 	public void verifyDeleteOptionNotAvailableForTextTemplates() throws InterruptedException {
-
 		Thread.sleep(3000);
-
 		WebElement menuButton = driver.findElement(actionMenu);
 
 		try {
 
 			menuButton.click();
 			Thread.sleep(1000);
-
 			boolean editExists = !driver.findElements(editOption).isEmpty();
 			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
-
 			if (editExists && !deleteExists) {
 				System.out.println("PASS: Edit is visible, Delete is not.");
 			} else {
@@ -4762,39 +4286,26 @@ public class setuppage {
 			}
 
 		} catch (Exception e) {
-
 			System.out.println("PASS: Action menu exists but cannot be opened (no permissions).");
 
 		}
 	}
 
 	public void verifyUserCanEditExistingTextTemplate() throws InterruptedException {
-
 		String profileName = Hooks.prop.getProperty("profile.name.value");
 		String templateTitle = profileName + " Template";
-
 		Thread.sleep(3000);
-
 		driver.findElement(filterButton).click();
-
 		Thread.sleep(3000);
 		driver.findElement(filterTitleField).sendKeys(profileName);
-
 		driver.findElement(searchButton).click();
-
 		Thread.sleep(1000);
-
 		driver.findElement(actionMenu).click();
-
 		Assert.assertFalse(driver.findElements(editOption).isEmpty());
-
 		driver.findElement(editOption).click();
-
 		Thread.sleep(1000);
-
 		driver.findElement(templateBodyTextarea).clear();
 		driver.findElement(templateBodyTextarea).sendKeys(templateTitle);
-
 		driver.findElement(submitButton).click();
 	}
 
@@ -4808,28 +4319,19 @@ public class setuppage {
 	}
 
 	public void verifyUserCannotEditOrDeleteTextTemplates() throws InterruptedException {
-
 		String profileName = Hooks.prop.getProperty("profile.name.value");
-
 		Thread.sleep(3000);
-
 		driver.findElement(filterButton).click();
-
 		Thread.sleep(3000);
 		driver.findElement(filterTitleField).sendKeys(profileName);
-
 		driver.findElement(searchButton).click();
-
 		Thread.sleep(1000);
-
 		WebElement menuButton = driver.findElement(actionMenu);
 
 		try {
 
 			menuButton.click();
-
 			Thread.sleep(1000);
-
 			boolean editExists = !driver.findElements(editOption).isEmpty();
 			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
 
@@ -4840,29 +4342,21 @@ public class setuppage {
 			}
 
 		} catch (Exception e) {
-
 			System.out.println("PASS: Action menu exists but cannot be opened (no permissions).");
 
 		}
 	}
 
 	public void verifyUserCanAddNewTextTemplate() throws InterruptedException {
-
 		Thread.sleep(2000);
-
 		String profileName = Hooks.prop.getProperty("profile.name.value");
 		String templateTitle = profileName + " Template";
-
 		driver.findElement(newTextTemplateButton).click();
-
 		Thread.sleep(500);
 		driver.findElement(templateTitleInput).sendKeys(templateTitle);
-
 		Select featureSelect = new Select(driver.findElement(featureDropdown));
 		featureSelect.selectByIndex(6);
-
 		driver.findElement(templateBodyTextarea).sendKeys(templateTitle);
-
 		driver.findElement(submitButton).click();
 	}
 
@@ -4876,20 +4370,14 @@ public class setuppage {
 	}
 
 	public void verifyUserCannotAddEditOrDeleteTextTemplate() throws InterruptedException {
-
 		Thread.sleep(3000);
-
 		Assert.assertTrue(driver.findElements(newTextTemplateButton).isEmpty());
-
 		Thread.sleep(1000);
-
 		try {
 
 			WebElement menuButton = driver.findElement(actionMenu);
 			menuButton.click();
-
 			Thread.sleep(1000);
-
 			boolean editExists = !driver.findElements(editOption).isEmpty();
 			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
 
@@ -4900,7 +4388,6 @@ public class setuppage {
 			}
 
 		} catch (Exception e) {
-
 			System.out.println("PASS: Action menu exists but cannot be opened (no permissions).");
 
 		}
@@ -4922,30 +4409,19 @@ public class setuppage {
 	}
 
 	// User
-
 	public void verifyUserCanDeleteUser() throws InterruptedException {
-
 		String createdEmail = Hooks.prop.getProperty("user.email.value");
-
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(menuContext));
-
 		driver.findElement(filterButton).click();
-
 		Thread.sleep(1000);
 		driver.findElement(filterEmailField).sendKeys(createdEmail);
-
 		Thread.sleep(1000);
 		driver.findElement(searchButton).click();
-
 		Thread.sleep(3000);
-
 		By actionMenu = By.xpath("//tr[td[normalize-space()='" + createdEmail + "']]//td[@class='text-right']//button");
 		driver.findElement(actionMenu).click();
-
 		Assert.assertFalse(driver.findElements(deleteUserOption).isEmpty());
-
 		driver.findElement(deleteUserOption).click();
-
 		driver.findElement(confirmDeleteUserButton).click();
 	}
 
@@ -4959,60 +4435,37 @@ public class setuppage {
 	}
 
 	public void verifyUserCannotDeleteUsers() {
-
 		String createdEmail = Hooks.prop.getProperty("user.email.value");
-
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(menuContext));
-
 		driver.findElement(filterButton).click();
-
 		wait.until(ExpectedConditions.visibilityOfElementLocated(filterEmailField));
 		driver.findElement(filterEmailField).sendKeys(createdEmail);
-
 		driver.findElement(searchButton).click();
-
 		By actionMenu = By.xpath("//tr[td[normalize-space()='" + createdEmail + "']]//td[@class='text-right']//button");
-
 		wait.until(ExpectedConditions.elementToBeClickable(actionMenu));
 		driver.findElement(actionMenu).click();
-
 		Assert.assertTrue(driver.findElements(deleteUserOption).isEmpty());
 	}
 
 	public void verifyUserCanEditUser() throws InterruptedException {
-
 		String createdEmail = Hooks.prop.getProperty("user.email.value");
-
 		Thread.sleep(3000);
-
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(menuContext));
-
 		driver.findElement(filterButton).click();
-
 		Thread.sleep(1000);
 		driver.findElement(filterEmailField).sendKeys(createdEmail);
-
 		Thread.sleep(1000);
 		driver.findElement(searchButton).click();
-
 		Thread.sleep(3000);
-
 		By actionMenu = By.xpath("//tr[td[normalize-space()='" + createdEmail + "']]//td[@class='text-right']//button");
 		driver.findElement(actionMenu).click();
-
 		Thread.sleep(2000);
-
 		Assert.assertFalse(driver.findElements(changeProfileOption).isEmpty());
-
 		driver.findElement(changeProfileOption).click();
-
 		driver.findElement(profileDropdown).click();
-
 		Select select = new Select(driver.findElement(profileDropdown));
 		select.selectByIndex(1);
-
 		driver.findElement(submitUserButton).click();
-
 		Thread.sleep(3000);
 	}
 
@@ -5026,28 +4479,19 @@ public class setuppage {
 	}
 
 	public void verifyUserCannotEditOrDeleteUsers() throws InterruptedException {
-
 		String createdEmail = Hooks.prop.getProperty("user.email.value");
-
 		driver.findElement(filterButton).click();
-
 		Thread.sleep(3000);
 		driver.findElement(filterEmailField).sendKeys(createdEmail);
-
 		driver.findElement(searchButton).click();
-
 		Thread.sleep(1000);
-
 		By actionMenu = By.xpath("//tr[td[normalize-space()='" + createdEmail + "']]//td[@class='text-right']//button");
 		driver.findElement(actionMenu).click();
-
 		Assert.assertTrue(driver.findElements(deleteUserOption).isEmpty());
 	}
 
 	public void verifyUserCanAddNewUser() throws InterruptedException {
-
 		Thread.sleep(1000);
-
 		Assert.assertFalse(driver.findElements(newUserButton).isEmpty());
 	}
 
@@ -5061,26 +4505,17 @@ public class setuppage {
 	}
 
 	public void verifyUserCannotAddEditOrDeleteUsers() throws InterruptedException {
-
 		String createdEmail = Hooks.prop.getProperty("user.email.value");
-
 		Thread.sleep(5000);
-
 		Assert.assertTrue(driver.findElements(newUserButton).isEmpty());
-
 		Thread.sleep(1000);
 		driver.findElement(filterButton).click();
-
 		Thread.sleep(3000);
 		driver.findElement(filterEmailField).sendKeys(createdEmail);
-
 		driver.findElement(searchButton).click();
-
 		Thread.sleep(1000);
-
 		By actionMenu = By.xpath("//tr[td[normalize-space()='" + createdEmail + "']]//td[@class='text-right']//button");
 		driver.findElement(actionMenu).click();
-
 		Assert.assertTrue(driver.findElements(deleteUserOption).isEmpty());
 	}
 
@@ -5098,47 +4533,31 @@ public class setuppage {
 		sleep(2000);
 
 	}
+
 	// Profile
-
 	public void verifyFullProfileAccess() throws InterruptedException {
-
 		String profileName = Hooks.prop.getProperty("profile.name.value");
-
 		Thread.sleep(5000);
-
 		driver.findElement(filterButton).click();
-
 		Thread.sleep(3000);
 		driver.findElement(filterNameField).sendKeys(profileName);
-
 		driver.findElement(searchButton).click();
-
 		Thread.sleep(1000);
-
 		By actionMenu = By.xpath("//tr[td[normalize-space()='" + profileName + "']]//td[@class='text-right']//button");
 		driver.findElement(actionMenu).click();
-
 		driver.findElement(editProfileOption).click();
-
 		Thread.sleep(1000);
 		driver.findElement(blockDeleteCheckbox).click();
-
 		Thread.sleep(1000);
 		driver.findElement(saveButton).click();
-
 		Thread.sleep(1000);
-
 		driver.findElement(filterButton).click();
 		driver.findElement(filterNameField).clear();
 		driver.findElement(filterNameField).sendKeys(profileName);
-
 		driver.findElement(searchButton).click();
-
 		actionMenu = By.xpath("//tr[td[normalize-space()='" + profileName + "']]//td[@class='text-right']//button");
 		driver.findElement(actionMenu).click();
-
 		driver.findElement(deleteProfileOption).click();
-
 		Thread.sleep(1000);
 		driver.findElement(confirmDeleteButton).click();
 	}
@@ -5153,25 +4572,17 @@ public class setuppage {
 	}
 
 	public void verifyNoAddEditDeletePermissionForProfiles() throws InterruptedException {
-
 		String profileName = Hooks.prop.getProperty("profile.name.value");
-
 		Thread.sleep(5000);
-
 		Assert.assertTrue(driver.findElements(newProfileButton).isEmpty());
-
 		Thread.sleep(1000);
 		driver.findElement(filterButton).click();
-
 		Thread.sleep(3000);
 		driver.findElement(filterNameField).sendKeys(profileName);
-
 		driver.findElement(searchButton).click();
-
 		Thread.sleep(1000);
 		By actionMenu = By.xpath("//tr[td[normalize-space()='" + profileName + "']]//td[@class='text-right']//button");
 		driver.findElement(actionMenu).click();
-
 		Assert.assertTrue(driver.findElements(editOption).isEmpty());
 		Assert.assertTrue(driver.findElements(deleteOption).isEmpty());
 	}
@@ -5186,9 +4597,7 @@ public class setuppage {
 	}
 
 	// Dashboard
-
 	public void verifyNoWorkflowAccess() {
-
 		List<WebElement> errorHeaders = driver.findElements(errorHeader);
 		if (!errorHeaders.isEmpty()) {
 			System.out.println("Error: Don't have proper access to requested page");
@@ -5213,7 +4622,6 @@ public class setuppage {
 	}
 
 	public void verifyNoDrugAccess() {
-
 		List<WebElement> sidebarIconsList = driver.findElements(sidebarIcons);
 		if (sidebarIconsList.isEmpty()) {
 			System.out.println("Sidebar icons are NOT present on the page.");
@@ -5239,7 +4647,6 @@ public class setuppage {
 	}
 
 	public void verifyNoDeliveryAccess() {
-
 		List<WebElement> sidebarIconsList = driver.findElements(sidebarIcons);
 		if (sidebarIconsList.isEmpty()) {
 			System.out.println("Sidebar icons are NOT present on the page.");
@@ -5265,7 +4672,6 @@ public class setuppage {
 	}
 
 	public void verifyNoPatientAccess() {
-
 		List<WebElement> sidebarIconsList = driver.findElements(sidebarIcons);
 		if (sidebarIconsList.isEmpty()) {
 			System.out.println("Sidebar icons are NOT present on the page.");
@@ -5291,7 +4697,6 @@ public class setuppage {
 	}
 
 	public void verifyNoSetupAccess() {
-
 		List<WebElement> sidebarIconsList = driver.findElements(sidebarIcons);
 		if (sidebarIconsList.isEmpty()) {
 			System.out.println("Sidebar icons are NOT present on the page.");
@@ -5326,7 +4731,6 @@ public class setuppage {
 	}
 
 	// Audit View
-
 	public void userShouldNotBeAbleToViewGeneralAuditViewSettings() throws InterruptedException {
 		Thread.sleep(3000);
 		Assert.assertTrue(driver.findElements(createdDateColumn).isEmpty());
@@ -5352,7 +4756,6 @@ public class setuppage {
 	}
 
 	// Profile Page
-
 	public void openSetupProfilesPage(String fullUrl) {
 		sleep(2000);
 		driver.get(fullUrl);

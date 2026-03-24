@@ -1494,7 +1494,6 @@ Feature: Setup Module scenarios
   And I log in using the new user for Setup Module
   Then the user should be able to view and update Privacy Policy and Terms of Use content  
 
-#
   Scenario: User with No access for Privacy Policy & Terms of Use
   Given I log in as admin for Setup Module
   When I create a new user with email for Setup Module "testuser3_static@mailinator.com"

@@ -1697,6 +1697,149 @@ Then the Setup user should be able to view Profiles test
 And I create a profile with no access to Setup Module Privacy Policy & Terms of Use test
 Then the user should not see the Privacy Policy & Terms of Use section test
 
+# Dashboard
+Scenario: Add Quicklink Group Blank Submission Validation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Dashboard page 
+Then Add Quicklink Group Blank Submission should have to show validation
+
+# Profile
+Scenario: Add Profile Blank Submission Validation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Profile page 
+Then Add Profile Blank Submission should have to show validation
+
+# Workspace Users
+Scenario: Workspace Users Blank Submission Validation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Workspace Users page 
+Then Workspace Users Blank Submission should have to show validation
+
+Scenario: Associated Employee Name Blank Search Validation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Workspace Users page 
+Then Associated Employee Name Blank Search Validation should have to display
+
+Scenario: Reset Password Blank Submit Validation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Workspace Users page 
+Then Reset Password Blank Submit should have to show Validation
+
+# Text Template
+Scenario: Text Templates Blank Submit Validation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Text Templates page 
+Then Text Templates Blank Submit Validation should have to display
+
+# Mail Templates
+Scenario: Mail Templates Blank Submit Validation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Mail Templates page 
+Then Mail Templates Blank Submit Validation should have to display
+
+# BOT Call Templates
+Scenario: BOT Call Templates Blank Submit Validation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view BOT Call Templates page 
+Then BOT Call Templates Blank Submit Validation should have to display
+
+# Fax Templates
+Scenario: Fax Call Templates Blank Submit Validation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Fax Templates page 
+Then Fax Templates Blank Submit Validation should have to display
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

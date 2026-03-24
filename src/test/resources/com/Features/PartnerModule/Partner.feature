@@ -1,6 +1,5 @@
 Feature: Entire Partner Module.
 
-@Partner
 # Audit View 
 Scenario: User with View only access for General Audit View test
 Given user launch browser
