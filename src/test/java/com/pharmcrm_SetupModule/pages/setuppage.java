@@ -24,6 +24,221 @@ public class setuppage {
 	private WebDriver driver;
 	private WebDriverWait wait;
 
+	// Settings
+	public String shouldShowValidationOnBlankExcludeUserSubmit() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(excludeUserLink)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(newExcludeUserBtn)).click();
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String shouldShowValidationOnBlankIPFieldSubmit() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(newIpBtn)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(submitBtnLocator)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String shouldShowValidationOnBlankProgressStepsSubmit() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(newProgressStepButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(btnSaveProgressStatus)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String shouldShowValidationOnBlankEHRTypeFieldSubmit() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(newEhrTypeBtn)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String shouldShowValidationOnInvalidEmailInTextForwardSetting() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		String organizationFromEmailIdValue = Hooks.prop.getProperty("organizationFromEmailId");
+		WebElement organizationFromEmailIdInput = driver.findElement(organizationFromEmailId);
+		organizationFromEmailIdInput.sendKeys(organizationFromEmailIdValue);
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String shouldShowValidationOnInvalidEmailInNotificationSetting() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		String generatePriorAuthValue = Hooks.prop.getProperty("generatePriorAuthorizationFromEmail");
+		WebElement generatePriorAuthInput = driver.findElement(generatePriorAuthorizationFromEmail);
+		generatePriorAuthInput.sendKeys(generatePriorAuthValue);
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String shouldShowValidationOnBlankTechnicalSettingSubmit() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String shouldShowValidationOnBlankSendVCardSubmit() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(sendVCardBtn)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(btnSendvCard)).click();
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String shouldShowValidationOnBlankBrandManagementSubmit() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(editBasicInformation)).click();
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(primaryButton)).click();
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	// Settings
+	public By btnSaveProgressStatus = By.xpath("//button[@id='btnSaveProgressStatus']");
+	public By organizationFromEmailId = By.xpath("//input[@id='OrganizationFromEmailId']");
+	public By generatePriorAuthorizationFromEmail = By.xpath("//input[@id='GeneratePriorAuthorizationFromEmail']");
+	public By btnSendvCard = By.xpath("//button[@id='btnSendvCard']");
+	public By primaryButton = By.xpath("//button[@class='btn btn-primary']");
+	public By editBasicInformation = By
+			.xpath("//a[@onclick='javascript: EditBasicInformation();']//i[@class='fa-solid fa-pen-to-square']");
+
+	// Reminders
+	public By btnSaveAutoCall = By.xpath("//button[@id='btnSaveAutoCall']");
+
 	// Workspace Users
 	public By resetPassword = By.xpath(
 			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Reset Password')]");
@@ -171,7 +386,6 @@ public class setuppage {
 	public By notesField = By.id("ProgressStatus_Notes");
 
 	// Save button
-
 	public By newProgressStepButton = By.xpath("//span[normalize-space()='New Progress Step']");
 
 	// EHR Types
@@ -190,6 +404,8 @@ public class setuppage {
 	public By reminderActionBtn = By.xpath("//tbody/tr[1]/td[2]/a[1]");
 
 	// Organization Bucket
+	public By btnSaveFile = By.xpath("//button[@id='btnSaveFile']");
+	public By fileUpload = By.xpath("//span[normalize-space()='File Upload']");
 	public By fileNameField = By.id("fileNameTextBox");
 	public By saveBtn = By.id("btnSaveFile");
 
@@ -251,7 +467,6 @@ public class setuppage {
 	public By profileDropdown = By.id("WorkspaceUser_Profile_Id");
 	public By submitUserButton = By.id("btnSubmitUser");
 	public By menuContext = By.id("menucontext");
-
 	public By newUserButton = By.xpath("//span[normalize-space()='New User']");
 	public By filterEmailField = By.id("Filter_Email");
 	public By deleteUserOption = By.xpath("//span[normalize-space()='Delete']");
@@ -307,6 +522,95 @@ public class setuppage {
 		this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	}
 
+	// Reminders
+	public String shouldShowValidationOnBlankRemindersSubmit() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(reminderActionBtn)).click();
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(addAutoCallButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(btnSaveAutoCall)).click();
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	// Bucket
+	public String shouldShowValidationOnBlankFileUploadSubmit() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(fileUpload)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(btnSaveFile)).click();
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	// Feedback Forms
+	public String shouldShowValidationOnBlankFeedbackFormsSubmit() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(newFeedbackFormButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	// Patient Signature Templates
+	public String shouldShowValidationOnBlankPatientSignatureTemplatesSubmit() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(newPatientSignatureButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(submitBtnLocator)).click();
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
 	// Fax Templates
 	public String shouldShowValidationOnBlankFaxTemplatesSubmit() throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
@@ -314,49 +618,36 @@ public class setuppage {
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		} catch (Exception ignored) {
 		}
-
 		wait.until(ExpectedConditions.elementToBeClickable(newFaxTemplateButton)).click();
 		wait.until(ExpectedConditions.elementToBeClickable(submitBtnLocator)).click();
-
 		try {
 			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
-
 			StringBuilder messages = new StringBuilder();
-
 			for (WebElement toast : toasts) {
 				messages.append(toast.getText().trim()).append(" | ");
 			}
-
 			return "SUCCESS: Toast messages -> " + messages.toString();
-
 		} catch (TimeoutException e) {
 			return "ERROR: Validation toast message not displayed";
 		}
 	}
 
 	// BOT Call Templates
-
 	public String shouldShowValidationOnBlankBOTCallTemplatesSubmit() throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 		try {
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		} catch (Exception ignored) {
 		}
-
 		wait.until(ExpectedConditions.elementToBeClickable(newCalloutTemplateButton)).click();
 		wait.until(ExpectedConditions.elementToBeClickable(submitBtnLocator)).click();
-
 		try {
 			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
-
 			StringBuilder messages = new StringBuilder();
-
 			for (WebElement toast : toasts) {
 				messages.append(toast.getText().trim()).append(" | ");
 			}
-
 			return "SUCCESS: Toast messages -> " + messages.toString();
-
 		} catch (TimeoutException e) {
 			return "ERROR: Validation toast message not displayed";
 		}
@@ -369,21 +660,15 @@ public class setuppage {
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		} catch (Exception ignored) {
 		}
-
 		wait.until(ExpectedConditions.elementToBeClickable(newMailTemplateButton)).click();
 		wait.until(ExpectedConditions.elementToBeClickable(submitBtnLocator)).click();
-
 		try {
 			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
-
 			StringBuilder messages = new StringBuilder();
-
 			for (WebElement toast : toasts) {
 				messages.append(toast.getText().trim()).append(" | ");
 			}
-
 			return "SUCCESS: Toast messages -> " + messages.toString();
-
 		} catch (TimeoutException e) {
 			return "ERROR: Validation toast message not displayed";
 		}
@@ -396,50 +681,38 @@ public class setuppage {
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		} catch (Exception ignored) {
 		}
-
 		wait.until(ExpectedConditions.elementToBeClickable(newTextTemplateButton)).click();
 		wait.until(ExpectedConditions.elementToBeClickable(submitBtnLocator)).click();
 
 		try {
 			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
-
 			StringBuilder messages = new StringBuilder();
-
 			for (WebElement toast : toasts) {
 				messages.append(toast.getText().trim()).append(" | ");
 			}
-
 			return "SUCCESS: Toast messages -> " + messages.toString();
-
 		} catch (TimeoutException e) {
 			return "ERROR: Validation toast message not displayed";
 		}
 	}
 
 	// Workspace Users
-
 	public String shouldShowValidationOnBlankResetPasswordSubmit() throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 		try {
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		} catch (Exception ignored) {
 		}
-
 		wait.until(ExpectedConditions.elementToBeClickable(workspaceUserActionMenuButton)).click();
 		wait.until(ExpectedConditions.elementToBeClickable(resetPassword)).click();
 		wait.until(ExpectedConditions.elementToBeClickable(resetPasswordButton)).click();
-
 		try {
 			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
-
 			StringBuilder messages = new StringBuilder();
-
 			for (WebElement toast : toasts) {
 				messages.append(toast.getText().trim()).append(" | ");
 			}
-
 			return "SUCCESS: Toast messages -> " + messages.toString();
-
 		} catch (TimeoutException e) {
 			return "ERROR: Validation toast message not displayed";
 		}
@@ -451,25 +724,17 @@ public class setuppage {
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		} catch (Exception ignored) {
 		}
-
 		wait.until(ExpectedConditions.elementToBeClickable(workspaceUserActionMenuButton)).click();
 		wait.until(ExpectedConditions.elementToBeClickable(viewDetailOption)).click();
-
 		wait.until(ExpectedConditions.elementToBeClickable(employeeDetailSvg)).click();
-
 		wait.until(ExpectedConditions.elementToBeClickable(searchEmployee)).click();
-
 		try {
 			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
-
 			StringBuilder messages = new StringBuilder();
-
 			for (WebElement toast : toasts) {
 				messages.append(toast.getText().trim()).append(" | ");
 			}
-
 			return "SUCCESS: Toast messages -> " + messages.toString();
-
 		} catch (TimeoutException e) {
 			return "ERROR: Validation toast message not displayed";
 		}
@@ -481,49 +746,36 @@ public class setuppage {
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		} catch (Exception ignored) {
 		}
-
 		wait.until(ExpectedConditions.elementToBeClickable(newUserButton)).click();
 		wait.until(ExpectedConditions.elementToBeClickable(submitUserButton)).click();
-
 		try {
 			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
-
 			StringBuilder messages = new StringBuilder();
-
 			for (WebElement toast : toasts) {
 				messages.append(toast.getText().trim()).append(" | ");
 			}
-
 			return "SUCCESS: Toast messages -> " + messages.toString();
-
 		} catch (TimeoutException e) {
 			return "ERROR: Validation toast message not displayed";
 		}
 	}
 
 	// Dashboard
-
 	public String shouldShowValidationOnBlankQuicklinkGroup() throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 		try {
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		} catch (Exception ignored) {
 		}
-
 		wait.until(ExpectedConditions.elementToBeClickable(pathLocator)).click();
 		wait.until(ExpectedConditions.elementToBeClickable(btnSaveQuickLinkGroup)).click();
-
 		try {
 			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
-
 			StringBuilder messages = new StringBuilder();
-
 			for (WebElement toast : toasts) {
 				messages.append(toast.getText().trim()).append(" | ");
 			}
-
 			return "SUCCESS: Toast messages -> " + messages.toString();
-
 		} catch (TimeoutException e) {
 			return "ERROR: Validation toast message not displayed";
 		}
@@ -536,21 +788,15 @@ public class setuppage {
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		} catch (Exception ignored) {
 		}
-
 		wait.until(ExpectedConditions.elementToBeClickable(newProfileButton)).click();
 		wait.until(ExpectedConditions.elementToBeClickable(btnSaveProfile)).click();
-
 		try {
 			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
-
 			StringBuilder messages = new StringBuilder();
-
 			for (WebElement toast : toasts) {
 				messages.append(toast.getText().trim()).append(" | ");
 			}
-
 			return "SUCCESS: Toast messages -> " + messages.toString();
-
 		} catch (TimeoutException e) {
 			return "ERROR: Validation toast message not displayed";
 		}

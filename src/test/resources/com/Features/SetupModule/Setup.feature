@@ -1794,6 +1794,229 @@ When user click on the go button
 And the user should be able to view Fax Templates page 
 Then Fax Templates Blank Submit Validation should have to display
 
+# Patient Signature Templates
+Scenario: Patient Signature Templates Blank Submit Validation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Patient Signature Templates page 
+Then Patient Signature Templates Blank Submit Validation should have to display
+
+# Feedback Forms
+Scenario: Feedback Forms Blank Submit Validation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Feedback Forms page 
+Then Feedback Forms Blank Submit Validation should have to display
+
+# Bucket
+Scenario: File Upload Blank Submit Validation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view File Upload page 
+Then File Upload Blank Submit Validation should have to display
+
+# Reminders
+Scenario: Reminders Blank Submit Validation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Reminders page 
+Then Reminders Blank Submit Validation should have to display
+
+# Settings
+Scenario: Brand Management Blank Submit Validation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Brand Management page 
+Then Brand Management Blank Submit Validation should have to display
+
+Scenario: Send VCard Blank Submit Validation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Brand Management page 
+Then Send VCard Blank Submit Validation should have to display
+
+Scenario: Technical Setting Blank Submit Validation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Technical Setting page 
+Then Technical Setting Blank Submit Validation should have to display
+
+Scenario: Notification Setting invalid email id validation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Notification Setting page 
+Then Notification Setting invalid email id validation should have to display
+
+Scenario: Text Forward Setting invalid email id validation
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Text Forward Setting page 
+Then Text Forward Setting invalid email id validation should have to display
+
+Scenario: Add EHR Type Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view EHR Types page 
+Then Add EHR Type Blank field Validation should have to display
+
+Scenario: Progress Steps Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Progress Steps page 
+Then Progress Steps Blank field Validation should have to display
+
+Scenario: Add New IP Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Whitelist IP page 
+Then Add New IP Blank field Validation should have to display
+
+Scenario: Exclude User Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Whitelist IP page 
+Then Exclude User Blank field Validation should have to display
+
+Scenario: Add Designation Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Designations page 
+Then Add Designation Blank field Validation should have to display
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
