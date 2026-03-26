@@ -1939,6 +1939,511 @@ When user click on the go button
 And the user should be able to view Designations page 
 Then Add Designation Blank field Validation should have to display
 
+Scenario: Add Professional License Type Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Professional License Types page 
+Then Add Professional License Type Blank field Validation  should have to display
+
+Scenario: Add FAX Setting Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view FAX Setting page 
+Then Add FAX Setting Blank field Validation should have to display
+
+Scenario: Create Event Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Organization Calendar page 
+Then Create Event Blank field Validation  should have to display
+
+Scenario: Consent Setting Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Consent Setting page 
+Then Consent Setting Blank field Validation should have to display
+
+Scenario: Intake Form Setting Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Intake Form Setting page 
+Then Intake Form Setting Blank field Validation should have to display
+
+Scenario: Patient Medication ColorCodes Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Patient Medication ColorCodes page 
+Then Patient Medication ColorCodes Blank field Validation should have to display
+
+Scenario: Add Medication Sync Reminder Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Sync Workflow Setting page 
+Then Add Medication Sync Reminder Blank field Validation should have to display
+
+Scenario: Add Medication Sync Color Code Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Medication sync Reminder Color Codes page 
+Then Add Medication Sync Color Code Blank field Validation should have to display
+
+Scenario: Add Reminder Result Action Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Reminder Result Actions page 
+Then Add Reminder Result Action Blank field Validation should have to display
+
+Scenario: Add Success Result Action Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Success Result Actions page 
+Then Add Success Result Action Blank field Validation should have to display
+
+Scenario: Add Failure Result Action Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Failure Result Actions page 
+Then Add Failure Result Action Blank field Validation should have to display
+
+Scenario: Add Transfer Result Action Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Transfer Result Actions page 
+Then Add Transfer Result Action Blank field Validation should have to display
+
+Scenario: Add Call Script Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Call Scripts page 
+Then Add Call Script Blank field Validation should have to display
+
+Scenario: Add Queue Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Queues page 
+Then Add Queue Blank field Validation should have to display
+
+Scenario: Queue Rules Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Organization Upload Wizard Settings page 
+Then Queue Rules Blank field Validation should have to display
+
+Scenario: Upload Wizard Template Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Upload Wizard Templates page 
+Then Upload Wizard Template Blank field Validation should have to display
+
+Scenario: Add Runningline Status Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Runningline Status page 
+Then Add Runningline Status Blank field Validation should have to display
+
+Scenario: Add Runningline Level 1 Status Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Runningline Level1 Status page 
+Then Add Runningline Level 1 Status Blank field Validation should have to display
+
+Scenario: Add Runningline Level-2 Status Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Runningline Level2 Status page 
+Then Add Runningline Level-2 Status Blank field Validation should have to display
+
+Scenario: Add InComing Call Types Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Incoming Call Types page 
+Then Add InComing Call Types Blank field Validation should have to display
+
+Scenario: Add Outgoing Call Type Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Outgoing Call Types page 
+Then Add Outgoing Call Type Blank field Validation should have to display
+
+Scenario: Add 340B Program Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Program 340B page 
+Then Add 340B Program Blank field Validation should have to display
+
+Scenario: Add prescription Status Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Prescription Status page 
+Then Add prescription Status Blank field Validation should have to display
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
