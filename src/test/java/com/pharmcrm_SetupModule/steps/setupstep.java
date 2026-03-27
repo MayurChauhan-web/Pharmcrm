@@ -11,6 +11,724 @@ public class setupstep {
 	private setuppage setupPage;
 
 	// Settings
+	@And("Add Form Category Blank field Validation should have to display")
+	public void addFormCategoryBlankFieldValidationShouldBeDisplayed() throws InterruptedException {
+		String result = setupPage.formCategoryBlankFieldErrorShouldBeShown();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("the user should be able to view Form Categories page")
+	public void userShouldBeAbleToViewFormCategoriesPage() throws InterruptedException {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String formCategoriesUrl = Hooks.prop.getProperty("formCategoriesUrl");
+
+		Assert.assertNotNull("formCategoriesUrl is missing in config", formCategoriesUrl);
+
+		String fullUrl = baseUrl + formCategoriesUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+		setupPage.openFormCategoriesPage(fullUrl);
+
+		Assert.assertTrue("Form Categories page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/FormsCategories"));
+	}
+
+	@And("Add Template Blank field Validation should have to display")
+	public void addTemplateBlankFieldValidationShouldBeDisplayed() throws InterruptedException {
+		String result = setupPage.templateBlankFieldErrorShouldBeShown();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("the user should be able to view Templates page")
+	public void userShouldBeAbleToViewTemplatesPage() throws InterruptedException {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String templatesUrl = Hooks.prop.getProperty("templatesUrl");
+
+		Assert.assertNotNull("templatesUrl is missing in config", templatesUrl);
+
+		String fullUrl = baseUrl + templatesUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+		setupPage.openTemplatesPage(fullUrl);
+
+		Assert.assertTrue("Templates page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/Templates"));
+	}
+
+	@And("Add Provider Service Blank field Validation should have to display")
+	public void addProviderServiceBlankFieldValidationShouldBeDisplayed() throws InterruptedException {
+		String result = setupPage.providerServiceBlankFieldErrorShouldBeShown();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("the user should be able to view Service page")
+	public void userShouldBeAbleToViewServicePage() throws InterruptedException {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String servicesUrl = Hooks.prop.getProperty("servicesUrl");
+
+		Assert.assertNotNull("servicesUrl is missing in config", servicesUrl);
+
+		String fullUrl = baseUrl + servicesUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+		setupPage.openServicesPage(fullUrl);
+
+		Assert.assertTrue("Service page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/Services"));
+	}
+
+	@And("Add Provider Specialty Blank field Validation should have to display")
+	public void addProviderSpecialtyBlankFieldValidationShouldBeDisplayed() throws InterruptedException {
+		String result = setupPage.providerSpecialtyBlankFieldErrorShouldBeShown();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("the user should be able to view Specialty page")
+	public void userShouldBeAbleToViewSpecialtyPage() throws InterruptedException {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String specialtiesUrl = Hooks.prop.getProperty("specialtiesUrl");
+
+		Assert.assertNotNull("specialtiesUrl is missing in config", specialtiesUrl);
+
+		String fullUrl = baseUrl + specialtiesUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+		setupPage.openSpecialtiesPage(fullUrl);
+
+		Assert.assertTrue("Specialty page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/Specialties"));
+	}
+
+	@And("Add Provider Category Blank field Validation should have to display")
+	public void shouldDisplayBlankFieldValidationForAddProviderCategory() throws InterruptedException {
+		String result = setupPage.shouldShowBlankFieldValidationForAddProviderCategory();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("the user should be able to view Category page")
+	public void shouldUserBeAbleToViewCategoryPage() throws InterruptedException {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String categoriesUrl = Hooks.prop.getProperty("categoriesUrl");
+
+		Assert.assertNotNull("categoriesUrl is missing in config", categoriesUrl);
+
+		String fullUrl = baseUrl + categoriesUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+		setupPage.openCategoriesPage(fullUrl);
+
+		Assert.assertTrue("Category page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/Categories"));
+	}
+
+	@And("Add Provider Type Blank field Validation should have to display")
+	public void shouldEnforceBlankFieldValidationForAddProviderType() throws InterruptedException {
+		String result = setupPage.shouldDisplayValidationForEmptyFieldsInProviderType();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("the user should be able to view Provider Type page")
+	public void shouldUserBeAbleToViewProviderTypePage() throws InterruptedException {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String providerTypesUrl = Hooks.prop.getProperty("providerTypesUrl");
+
+		Assert.assertNotNull("providerTypesUrl is missing in config", providerTypesUrl);
+
+		String fullUrl = baseUrl + providerTypesUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+		setupPage.openProviderTypesPage(fullUrl);
+
+		Assert.assertTrue("Provider Type page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/ProviderTypes"));
+	}
+
+	@And("Add CPT Code Blank field Validation should have to display")
+	public void shouldDisplayBlankFieldValidationForAddCPTCode() throws InterruptedException {
+		String result = setupPage.shouldShowBlankFieldValidationForAddCPTCode();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("the user should be able to view CPT Code page")
+	public void shouldUserBeAbleToViewCPTCodePage() throws InterruptedException {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String cptCodesUrl = Hooks.prop.getProperty("cptCodesUrl");
+
+		Assert.assertNotNull("cptCodesUrl is missing in config", cptCodesUrl);
+
+		String fullUrl = baseUrl + cptCodesUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+		setupPage.openCPTCodesPage(fullUrl);
+
+		Assert.assertTrue("CPT Code page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/CPTCodes"));
+	}
+
+	@And("Add RPM Status Blank field Validation should have to display")
+	public void shouldDisplayBlankFieldValidationForAddRPMStatus() throws InterruptedException {
+		String result = setupPage.shouldShowBlankFieldValidationForAddRPMStatus();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("the user should be able to view Patient RemoteMonitoring Status page")
+	public void shouldUserBeAbleToViewPatientRemoteMonitoringStatusPage() throws InterruptedException {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String patientRemoteMonitoringStatusesUrl = Hooks.prop.getProperty("patientRemoteMonitoringStatusesUrl");
+
+		Assert.assertNotNull("patientRemoteMonitoringStatusesUrl is missing in config",
+				patientRemoteMonitoringStatusesUrl);
+
+		String fullUrl = baseUrl + patientRemoteMonitoringStatusesUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+		setupPage.openPatientRemoteMonitoringStatusesPage(fullUrl);
+
+		Assert.assertTrue("Patient Remote Monitoring Status page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/PatientRemoteMonitoringStatuses"));
+	}
+
+	@And("Add Registered Device Blank field Validation should have to display")
+	public void shouldDisplayBlankFieldValidationForAddRegisteredDevice() throws InterruptedException {
+		String result = setupPage.shouldShowBlankFieldValidationForAddRegisteredDevice();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("the user should be able to view Registered Devices page")
+	public void shouldUserBeAbleToViewRegisteredDevicesPage() throws InterruptedException {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String registeredDevicesUrl = Hooks.prop.getProperty("registeredDevicesUrl");
+
+		Assert.assertNotNull("registeredDevicesUrl is missing in config", registeredDevicesUrl);
+
+		String fullUrl = baseUrl + registeredDevicesUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+		setupPage.openRegisteredDevicesPage(fullUrl);
+
+		Assert.assertTrue("Registered Devices page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/RegisteredDevices"));
+	}
+
+	@And("Add Encounter Status Blank field Validation should have to display")
+	public void shouldDisplayBlankFieldValidationForAddEncounterStatus() throws InterruptedException {
+		String result = setupPage.shouldShowBlankFieldValidationForAddEncounterStatus();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("the user should be able to view Encounter Status page")
+	public void shouldUserBeAbleToViewEncounterStatusPage() throws InterruptedException {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String clinicalEncounterStatusesUrl = Hooks.prop.getProperty("clinicalEncounterStatusesUrl");
+
+		Assert.assertNotNull("clinicalEncounterStatusesUrl is missing in config", clinicalEncounterStatusesUrl);
+
+		String fullUrl = baseUrl + clinicalEncounterStatusesUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+		setupPage.openClinicalEncounterStatusesPage(fullUrl);
+
+		Assert.assertTrue("Encounter Status page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/ClinicalEncounterStatuses"));
+	}
+
+	@And("Add ROS Group Type Blank field Validation should have to display")
+	public void shouldDisplayBlankFieldValidationForAddROSGroupType() throws InterruptedException {
+		String result = setupPage.shouldShowBlankFieldValidationForAddROSGroupType();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("the user should be able to view ROS Group Type page")
+	public void shouldUserBeAbleToViewROSGroupTypePage() throws InterruptedException {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String rosGroupTypesUrl = Hooks.prop.getProperty("rosGroupTypesUrl");
+
+		Assert.assertNotNull("rosGroupTypesUrl is missing in config", rosGroupTypesUrl);
+
+		String fullUrl = baseUrl + rosGroupTypesUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+		setupPage.openROSGroupTypesPage(fullUrl);
+
+		Assert.assertTrue("ROS Group Type page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/ROSGroupTypes"));
+	}
+
+	@And("Add Remote Monitoring Parameter Blank field Validation should have to display")
+	public void shouldDisplayBlankFieldValidationForAddRemoteMonitoringParameter() throws InterruptedException {
+		String result = setupPage.shouldShowBlankFieldValidationForAddRemoteMonitoringParameter();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("the user should be able to view Remote Monitoring Parameter page")
+	public void shouldUserBeAbleToViewRemoteMonitoringParameterPage() throws InterruptedException {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String remoteMonitoringParametersUrl = Hooks.prop.getProperty("remoteMonitoringParametersUrl");
+
+		Assert.assertNotNull("remoteMonitoringParametersUrl is missing in config", remoteMonitoringParametersUrl);
+
+		String fullUrl = baseUrl + remoteMonitoringParametersUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+		setupPage.openRemoteMonitoringParametersPage(fullUrl);
+
+		Assert.assertTrue("Remote Monitoring Parameter page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/RemoteMonitoringParameters"));
+	}
+
+	@And("Add Outcome Action Blank field Validation should have to display")
+	public void shouldDisplayBlankFieldValidationForAddOutcomeAction() throws InterruptedException {
+		String result = setupPage.shouldShowBlankFieldValidationForAddOutcomeAction();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("the user should be able to view Outcome Of Action page")
+	public void shouldUserBeAbleToViewOutcomeOfActionPage() throws InterruptedException {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String outcomeActionsUrl = Hooks.prop.getProperty("outcomeActionsUrl");
+
+		Assert.assertNotNull("outcomeActionsUrl is missing in config", outcomeActionsUrl);
+
+		String fullUrl = baseUrl + outcomeActionsUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+		setupPage.openOutcomeActionsPage(fullUrl);
+
+		Assert.assertTrue("Outcome Of Action page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/OutcomeActions"));
+	}
+
+	@And("Add ROS Information Blank field Validation should have to display")
+	public void shouldDisplayBlankFieldValidationForAddROSInformation() throws InterruptedException {
+		String result = setupPage.shouldShowBlankFieldValidationForAddROSInformation();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("the user should be able to view ROSs page")
+	public void shouldUserBeAbleToViewROSPage() throws InterruptedException {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String rossUrl = Hooks.prop.getProperty("rossUrl");
+
+		Assert.assertNotNull("rossUrl is missing in config", rossUrl);
+
+		String fullUrl = baseUrl + rossUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+		setupPage.openROSSPage(fullUrl);
+
+		Assert.assertTrue("ROSs page is not displayed", Hooks.driver.getCurrentUrl().contains("/Setup/Home/ROSs"));
+	}
+
+	@And("Add Clinical Intervention Blank field Validation should have to display")
+	public void shouldDisplayBlankFieldValidationForAddClinicalIntervention() throws InterruptedException {
+		String result = setupPage.shouldShowBlankFieldValidationForAddClinicalIntervention();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("the user should be able to view Clinical Interventions page")
+	public void shouldUserBeAbleToViewClinicalInterventionsPage() throws InterruptedException {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String clinicalInterventionsUrl = Hooks.prop.getProperty("clinicalInterventionsUrl");
+
+		Assert.assertNotNull("clinicalInterventionsUrl is missing in config", clinicalInterventionsUrl);
+
+		String fullUrl = baseUrl + clinicalInterventionsUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+		setupPage.openClinicalInterventionsPage(fullUrl);
+
+		Assert.assertTrue("Clinical Interventions page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/ClinicalInterventions"));
+	}
+
+	@And("Add Community Resource Blank field Validation should have to display")
+	public void shouldDisplayBlankFieldValidationForAddCommunityResource() throws InterruptedException {
+		String result = setupPage.shouldShowBlankFieldValidationForAddCommunityResource();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("the user should be able to view Community Resource page")
+	public void shouldUserBeAbleToViewCommunityResourcePage() throws InterruptedException {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String communityResourcesUrl = Hooks.prop.getProperty("communityResourcesUrl");
+
+		Assert.assertNotNull("communityResourcesUrl is missing in config", communityResourcesUrl);
+
+		String fullUrl = baseUrl + communityResourcesUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+		setupPage.openCommunityResourcesPage(fullUrl);
+
+		Assert.assertTrue("Community Resource page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/CommunityResources"));
+	}
+
+	@And("Add Barriers Blank field Validation should have to display")
+	public void shouldDisplayBlankFieldValidationForAddBarriers() throws InterruptedException {
+		String result = setupPage.shouldShowBlankFieldValidationForAddBarriers();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("the user should be able to view Barrier page")
+	public void shouldUserBeAbleToViewBarrierPage() throws InterruptedException {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String barriersUrl = Hooks.prop.getProperty("barriersUrl");
+
+		Assert.assertNotNull("barriersUrl is missing in config", barriersUrl);
+
+		String fullUrl = baseUrl + barriersUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+		setupPage.openBarriersPage(fullUrl);
+
+		Assert.assertTrue("Barrier page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/Barriers"));
+	}
+
+	@And("Add Goals Of Treatment Type Blank field Validation should have to display")
+	public void shouldDisplayBlankFieldValidationForAddGoalsOfTreatmentType() throws InterruptedException {
+		String result = setupPage.shouldShowBlankFieldValidationForAddGoalsOfTreatmentType();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("the user should be able to view Goals Of Treatments page")
+	public void shouldUserBeAbleToViewGoalsOfTreatmentsPage() throws InterruptedException {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String goalsOfTreatmentsUrl = Hooks.prop.getProperty("goalsOfTreatmentsUrl");
+
+		Assert.assertNotNull("goalsOfTreatmentsUrl is missing in config", goalsOfTreatmentsUrl);
+
+		String fullUrl = baseUrl + goalsOfTreatmentsUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+		setupPage.openGoalsOfTreatmentsPage(fullUrl);
+
+		Assert.assertTrue("Goals Of Treatments page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/GoalsOfTreatments"));
+	}
+
+	@And("Add Prior Authorization Type Blank field Validation should have to display")
+	public void shouldDisplayBlankFieldValidationForAddPriorAuthorizationType() throws InterruptedException {
+		String result = setupPage.shouldShowBlankFieldValidationForAddPriorAuthorizationType();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("the user should be able to view Prior Authorization Type page")
+	public void shouldUserBeAbleToViewPriorAuthorizationTypePage() throws InterruptedException {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String priorAuthorizationTypesUrl = Hooks.prop.getProperty("priorAuthorizationTypesUrl");
+
+		Assert.assertNotNull("priorAuthorizationTypesUrl is missing in config", priorAuthorizationTypesUrl);
+
+		String fullUrl = baseUrl + priorAuthorizationTypesUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+		setupPage.openPriorAuthorizationTypesPage(fullUrl);
+
+		Assert.assertTrue("Prior Authorization Type page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/PriorAuthorizationTypes"));
+	}
+
+	@And("Add Clinical Location Blank field Validation should have to display")
+	public void shouldDisplayBlankFieldValidationForAddClinicalLocation() throws InterruptedException {
+		String result = setupPage.shouldShowBlankFieldValidationForAddClinicalLocation();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("the user should be able to view Clininc Locations page")
+	public void shouldUserBeAbleToViewClinicLocationsPage() throws InterruptedException {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String clinicLocationsUrl = Hooks.prop.getProperty("clinicLocationsUrl");
+
+		Assert.assertNotNull("clinicLocationsUrl is missing in config", clinicLocationsUrl);
+
+		String fullUrl = baseUrl + clinicLocationsUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+		setupPage.openClinicLocationsPage(fullUrl);
+
+		Assert.assertTrue("Clinic Locations page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/ClinicLocations"));
+	}
+
+	@And("Add Appointment Reminder Setting Blank field Validation should have to display")
+	public void shouldDisplayBlankFieldValidationForAddAppointmentReminderSetting() throws InterruptedException {
+		String result = setupPage.shouldShowBlankFieldValidationForAddAppointmentReminderSetting();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("the user should be able to view Appointment Reminder Setting page")
+	public void shouldUserBeAbleToViewAppointmentReminderSettingsPage() throws InterruptedException {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String appointmentReminderSettingUrl = Hooks.prop.getProperty("appointmentReminderSettingUrl");
+
+		Assert.assertNotNull("appointmentReminderSettingUrl is missing in config", appointmentReminderSettingUrl);
+
+		String fullUrl = baseUrl + appointmentReminderSettingUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+		setupPage.openAppointmentReminderSettingPage(fullUrl);
+
+		Assert.assertTrue("Appointment Reminder Setting page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/AppointmentReminderSetting"));
+	}
+
+	@And("Add Clinical Upload Wizard Template Blank field Validation should have to display")
+	public void shouldDisplayBlankFieldValidationForAddClinicalUploadWizardTemplate() throws InterruptedException {
+		String result = setupPage.shouldShowBlankFieldValidationForAddClinicalUploadWizardTemplate();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("the user should be able to view Clinical Upload Wizard Templates page")
+	public void shouldUserBeAbleToViewClinicalUploadWizardTemplatesPage() throws InterruptedException {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String uploadWizardTemplatesUrl = Hooks.prop.getProperty("uploadWizardTemplatesUrl");
+
+		Assert.assertNotNull("uploadWizardTemplatesUrl is missing in config", uploadWizardTemplatesUrl);
+
+		String fullUrl = baseUrl + uploadWizardTemplatesUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+		setupPage.openUploadWizardClinicalQueueTemplatesPage(fullUrl);
+
+		Assert.assertTrue("Upload Wizard Clinical Queue Templates page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/UploadWizardClinicalQueueTemplates"));
+	}
+
+	@And("Add Clinical Queue Rule Blank field Validation should have to display")
+	public void shouldDisplayBlankFieldValidationForAddClinicalQueueRule() throws InterruptedException {
+		String result = setupPage.shouldShowBlankFieldValidationForAddClinicalQueueRule();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("the user should be able to view Upload Wizard Settings page")
+	public void shouldUserBeAbleToViewUploadWizardSettingsPage() throws InterruptedException {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String clinicalQueueSettingUrl = Hooks.prop.getProperty("clinicalQueueSettingUrl");
+
+		Assert.assertNotNull("clinicalQueueSettingUrl is missing in config", clinicalQueueSettingUrl);
+
+		String fullUrl = baseUrl + clinicalQueueSettingUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+		setupPage.openClinicalQueueSettingPage(fullUrl);
+
+		Assert.assertTrue("Upload Wizard Settings page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/ClinicalQueueSetting"));
+	}
+
+	@And("Clinical WorkFlow Add Queue Blank field Validation should have to display")
+	public void shouldDisplayBlankFieldValidationForClinicalWorkflowAddQueue() throws InterruptedException {
+		String result = setupPage.displayBlankFieldValidationForAddQueueInClinicalWorkflow();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("the user should be able to view Clinical Queues page")
+	public void shouldUserBeAbleToViewClinicalQueuesPage() throws InterruptedException {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String clinicalQueuesUrl = Hooks.prop.getProperty("clinicalQueuesUrl");
+
+		Assert.assertNotNull("clinicalQueuesUrl is missing in config", clinicalQueuesUrl);
+
+		String fullUrl = baseUrl + clinicalQueuesUrl;
+
+		setupPage = new setuppage(Hooks.driver);
+		setupPage.openClinicalQueuesPage(fullUrl);
+
+		Assert.assertTrue("Clinical Queues page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/ClinicalQueues"));
+	}
+
 	@And("Add prescription Status Blank field Validation should have to display")
 	public void userShouldSeeBlankFieldValidationOnPrescriptionStatusPage() throws InterruptedException {
 		String result = setupPage.blankFieldValidationShouldBeDisplayedOnPrescriptionStatusPage();
@@ -23,23 +741,23 @@ public class setupstep {
 		}
 
 	}
-	
+
 	@And("the user should be able to view Prescription Status page")
 	public void userShouldBeAbleToViewPrescriptionStatusPage() throws InterruptedException {
-	    String baseUrl = Hooks.prop.getProperty("baseUrl");
-	    String prescriptionStatusUrl = Hooks.prop.getProperty("prescriptionStatusUrl");
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String prescriptionStatusUrl = Hooks.prop.getProperty("prescriptionStatusUrl");
 
-	    Assert.assertNotNull("prescriptionStatusUrl is missing in config", prescriptionStatusUrl);
+		Assert.assertNotNull("prescriptionStatusUrl is missing in config", prescriptionStatusUrl);
 
-	    String fullUrl = baseUrl + prescriptionStatusUrl;
+		String fullUrl = baseUrl + prescriptionStatusUrl;
 
-	    setupPage = new setuppage(Hooks.driver);
-	    setupPage.openPrescriptionStatusPage(fullUrl);
+		setupPage = new setuppage(Hooks.driver);
+		setupPage.openPrescriptionStatusPage(fullUrl);
 
-	    Assert.assertTrue("Prescription Status page is not displayed",
-	            Hooks.driver.getCurrentUrl().contains("/Setup/Home/PrescriptionStatuses"));
+		Assert.assertTrue("Prescription Status page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/PrescriptionStatuses"));
 	}
-	
+
 	@And("Add 340B Program Blank field Validation should have to display")
 	public void program340BBlankFieldValidationShouldBeDisplayed() throws InterruptedException {
 		String result = setupPage.userShouldSeeBlankFieldValidationOnProgram340BPage();
@@ -52,21 +770,21 @@ public class setupstep {
 		}
 
 	}
-	
+
 	@And("the user should be able to view Program 340B page")
 	public void userShouldBeAbleToViewProgram340BPage() throws InterruptedException {
-	    String baseUrl = Hooks.prop.getProperty("baseUrl");
-	    String program340BUrl = Hooks.prop.getProperty("program340BUrl");
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String program340BUrl = Hooks.prop.getProperty("program340BUrl");
 
-	    Assert.assertNotNull("program340BUrl is missing in config", program340BUrl);
+		Assert.assertNotNull("program340BUrl is missing in config", program340BUrl);
 
-	    String fullUrl = baseUrl + program340BUrl;
+		String fullUrl = baseUrl + program340BUrl;
 
-	    setupPage = new setuppage(Hooks.driver);
-	    setupPage.openProgram340BPage(fullUrl);
+		setupPage = new setuppage(Hooks.driver);
+		setupPage.openProgram340BPage(fullUrl);
 
-	    Assert.assertTrue("Program 340B page is not displayed",
-	            Hooks.driver.getCurrentUrl().contains("/Setup/Home/Program340Bs"));
+		Assert.assertTrue("Program 340B page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/Program340Bs"));
 	}
 
 	@And("Add Outgoing Call Type Blank field Validation should have to display")

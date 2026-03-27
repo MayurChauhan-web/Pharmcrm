@@ -2169,6 +2169,546 @@ When user click on the go button
 And the user should be able to view Prescription Status page 
 Then Add prescription Status Blank field Validation should have to display
 
+Scenario: Add Queue Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Clinical Queues page 
+Then Clinical WorkFlow Add Queue Blank field Validation should have to display
+
+Scenario: Add Clinical Queue Rule Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Upload Wizard Settings page 
+Then Add Clinical Queue Rule Blank field Validation should have to display
+
+Scenario: Add Clinical Upload Wizard Template Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Clinical Upload Wizard Templates page 
+Then Add Clinical Upload Wizard Template Blank field Validation should have to display
+
+Scenario: Add Appointment Reminder Setting Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Appointment Reminder Setting page 
+Then Add Appointment Reminder Setting Blank field Validation should have to display
+
+Scenario: Add Clinical Location Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Clininc Locations page 
+Then Add Clinical Location Blank field Validation should have to display
+
+Scenario: Add Prior Authorization Type Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Prior Authorization Type page 
+Then Add Prior Authorization Type Blank field Validation should have to display
+
+Scenario: Add Goals Of Treatment Type Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Goals Of Treatments page 
+Then Add Goals Of Treatment Type Blank field Validation should have to display
+
+Scenario: Add Barriers Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Barrier page 
+Then Add Barriers Blank field Validation should have to display
+
+Scenario: Add Community Resource Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Community Resource page 
+Then Add Community Resource Blank field Validation should have to display
+
+Scenario: Add Clinical Intervention Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Clinical Interventions page 
+Then Add Clinical Intervention Blank field Validation should have to display
+
+Scenario: Add ROS Information Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view ROSs page 
+Then Add ROS Information Blank field Validation should have to display
+
+Scenario: Add Outcome Action Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Outcome Of Action page 
+Then Add Outcome Action Blank field Validation should have to display
+
+Scenario: Add Remote Monitoring Parameter Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Remote Monitoring Parameter page 
+Then Add Remote Monitoring Parameter Blank field Validation should have to display
+
+Scenario: Add ROS Group Type Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view ROS Group Type page 
+Then Add ROS Group Type Blank field Validation should have to display
+
+Scenario: Add Encounter Status Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Encounter Status page 
+Then Add Encounter Status Blank field Validation should have to display
+
+Scenario: Add Registered Device Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Registered Devices page 
+Then Add Registered Device Blank field Validation should have to display
+
+Scenario: Add RPM Status Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Patient RemoteMonitoring Status page 
+Then Add RPM Status Blank field Validation should have to display
+
+Scenario: Add CPT Code Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view CPT Code page 
+Then Add CPT Code Blank field Validation should have to display
+
+Scenario: Add Provider Type Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Provider Type page 
+Then Add Provider Type Blank field Validation should have to display
+
+Scenario: Add Provider Category Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Category page 
+Then Add Provider Category Blank field Validation should have to display
+
+Scenario: Add Provider Specialty Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Specialty page 
+Then Add Provider Specialty Blank field Validation should have to display
+
+Scenario: Add Provider Service Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Service page 
+Then Add Provider Service Blank field Validation should have to display
+
+Scenario: Add Template Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Templates page 
+Then Add Template Blank field Validation should have to display
+
+Scenario: Add Form Category Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Form Categories page 
+Then Add Form Category Blank field Validation should have to display
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

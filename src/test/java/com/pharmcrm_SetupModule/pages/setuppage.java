@@ -37,6 +37,707 @@ public class setuppage {
 	public By newRunninglineStatus = By.xpath("//span[normalize-space()='New Runningline Status']");
 	public By newRunninglineLevel1Status = By.xpath("//span[normalize-space()='New Runningline Level-1 Status']");
 	public By newRunninglineLevel2Status = By.xpath("//span[normalize-space()='New Runningline Level-2 Status']");
+	public By clinicalQueueDropdown = By.xpath("//select[@id='ClinicalQueue_Id']");
+	public By newUploadWizardTemplate = By.xpath("//span[normalize-space()='New Upload Wizard Template']");
+	public By newAppointmentReminder = By.xpath("//span[normalize-space()='New Appointment Reminder']");
+	public By btnSaveAppointmentReminderSetting = By.xpath("//button[@id='btnSaveAppointmentReminderSetting']");
+	public By newClinicLocation = By.xpath("//span[normalize-space()='New Clinic Location']");
+	public By newPriorAuthorizationType = By.xpath("//span[normalize-space()='New Prior Authorization Type']");
+	public By newGoalsOfTreatment = By.xpath("//span[normalize-space()='New Goals Of Treatment']");
+	public By newBarriers = By.xpath("//span[normalize-space()='New Barriers']");
+	public By newCommunityResource = By.xpath("//span[normalize-space()='New Community Resource']");
+	public By newClinicalIntervention = By.xpath("//span[normalize-space()='New Clinical Intervention']");
+	public By newROSInformation = By.xpath("//span[normalize-space()='New ROS Information']");
+	public By newOutcomeAction = By.xpath("//span[normalize-space()='New Outcome Action']");
+	public By newRemoteMonitoringParameter = By.xpath("//span[normalize-space()='New Remote Monitoring Parameter']");
+	public By newROSGroupType = By.xpath("//span[normalize-space()='New ROS Group Type']");
+	public By newEncounterStatus = By.xpath("//span[normalize-space()='New Encounter Status']");
+	public By newRegisteredDevice = By.xpath("//span[normalize-space()='New Registered Device']");
+	public By newRPMStatus = By.xpath("//span[normalize-space()='New RPM Status']");
+	public By newCPTCode = By.xpath("//span[normalize-space()='New CPT Code']");
+	public By newProviderType = By.xpath("//span[normalize-space()='New Provider Type']");
+	public By newProviderCategory = By.xpath("//span[normalize-space()='New Provider Category']");
+	public By newProviderSpecialty = By.xpath("//span[normalize-space()='New Provider Specialty']");
+	public By newProviderService = By.xpath("//span[normalize-space()='New Provider Service']");
+	public By newTemplate = By.xpath("//span[normalize-space()='New Template']");
+	public By newFormCategory = By.xpath("//span[normalize-space()='New Form Category']");
+
+	public String formCategoryBlankFieldErrorShouldBeShown() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newFormCategory)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+	
+	public void openFormCategoriesPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/FormsCategories"));
+	}
+	
+	public String templateBlankFieldErrorShouldBeShown() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newTemplate)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+	
+	public String providerServiceBlankFieldErrorShouldBeShown() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newProviderService)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public void openTemplatesPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/Templates"));
+	}
+
+	public void openServicesPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/Services"));
+	}
+
+	public void openSpecialtiesPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/Specialties"));
+	}
+
+	public String providerSpecialtyBlankFieldErrorShouldBeShown() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newProviderSpecialty)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String shouldShowBlankFieldValidationForAddProviderCategory() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newProviderCategory)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public void openCategoriesPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/Categories"));
+	}
+
+	public void openProviderTypesPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/ProviderTypes"));
+	}
+
+	public String shouldDisplayValidationForEmptyFieldsInProviderType() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newProviderType)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String shouldShowBlankFieldValidationForAddCPTCode() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newCPTCode)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public void openCPTCodesPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/CPTCodes"));
+	}
+
+	public String shouldShowBlankFieldValidationForAddRPMStatus() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newRPMStatus)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public void openPatientRemoteMonitoringStatusesPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/PatientRemoteMonitoringStatuses"));
+	}
+
+	public String shouldShowBlankFieldValidationForAddRegisteredDevice() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newRegisteredDevice)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public void openRegisteredDevicesPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/RegisteredDevices"));
+	}
+
+	public String shouldShowBlankFieldValidationForAddEncounterStatus() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newEncounterStatus)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public void openClinicalEncounterStatusesPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/ClinicalEncounterStatuses"));
+	}
+
+	public String shouldShowBlankFieldValidationForAddROSGroupType() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newROSGroupType)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public void openROSGroupTypesPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/ROSGroupTypes"));
+	}
+
+	public String shouldShowBlankFieldValidationForAddRemoteMonitoringParameter() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newRemoteMonitoringParameter)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public void openRemoteMonitoringParametersPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/RemoteMonitoringParameters"));
+	}
+
+	public String shouldShowBlankFieldValidationForAddOutcomeAction() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newOutcomeAction)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public void openOutcomeActionsPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/OutcomeActions"));
+	}
+
+	public String shouldShowBlankFieldValidationForAddROSInformation() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newROSInformation)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public void openROSSPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/ROSs"));
+	}
+
+	public String shouldShowBlankFieldValidationForAddClinicalIntervention() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newClinicalIntervention)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public void openClinicalInterventionsPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/ClinicalInterventions"));
+	}
+
+	public String shouldShowBlankFieldValidationForAddCommunityResource() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newCommunityResource)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public void openCommunityResourcesPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/CommunityResources"));
+	}
+
+	public String shouldShowBlankFieldValidationForAddBarriers() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newBarriers)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public void openBarriersPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/Barriers"));
+	}
+
+	public String shouldShowBlankFieldValidationForAddGoalsOfTreatmentType() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newGoalsOfTreatment)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public void openGoalsOfTreatmentsPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/GoalsOfTreatments"));
+	}
+
+	public void openPriorAuthorizationTypesPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/PriorAuthorizationTypes"));
+	}
+
+	public String shouldShowBlankFieldValidationForAddPriorAuthorizationType() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newPriorAuthorizationType)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String shouldShowBlankFieldValidationForAddClinicalLocation() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newClinicLocation)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public void openAppointmentReminderSettingPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/AppointmentReminderSetting"));
+	}
+
+	public void openClinicLocationsPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/ClinicLocations"));
+	}
+
+	public String shouldShowBlankFieldValidationForAddAppointmentReminderSetting() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newAppointmentReminder)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(btnSaveAppointmentReminderSetting)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String shouldShowBlankFieldValidationForAddClinicalUploadWizardTemplate() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newUploadWizardTemplate)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(btnNext)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public void openUploadWizardClinicalQueueTemplatesPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/UploadWizardClinicalQueueTemplates"));
+	}
+
+	public String shouldShowBlankFieldValidationForAddClinicalQueueRule() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		WebElement dropdownElement = wait.until(ExpectedConditions.elementToBeClickable(clinicalQueueDropdown));
+
+		Select select = new Select(dropdownElement);
+		select.selectByIndex(1);
+
+		wait.until(ExpectedConditions.elementToBeClickable(btnAddRulesTooltip)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(submitBtnLocator)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public void openClinicalQueueSettingPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/ClinicalQueueSetting"));
+	}
+
+	public String displayBlankFieldValidationForAddQueueInClinicalWorkflow() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newQueue)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public void openClinicalQueuesPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/ClinicalQueues"));
+	}
 
 	public String blankFieldValidationShouldBeDisplayedOnPrescriptionStatusPage() throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
@@ -59,7 +760,7 @@ public class setuppage {
 			return "ERROR: Validation toast message not displayed";
 		}
 	}
-	
+
 	public void openPrescriptionStatusPage(String fullUrl) {
 		sleep(2000);
 		driver.get(fullUrl);
