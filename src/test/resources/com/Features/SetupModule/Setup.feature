@@ -2409,1481 +2409,323 @@ When user click on the go button
 And the user should be able to view Form Categories page 
 Then Add Form Category Blank field Validation should have to display
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  
-  
-  
-
-
-
-
-
-  
-  
-  
-  
-  
-  
-     
-
-
-
-
-
-
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-   
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-   
-  
-  
-  
-  
-  
-  
-
-
-
-
-
-
-
-
-  
-   
- 
- 
- 
-  
-  
-  
-
-
-
-
-
-
-
-  
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-
- 
- 
- 
-  
-  
-
-
-
- 
- 
-  
-  
-
-
-
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-
-
-
-
-
-  
-    
-
-
-
-
-
-
-  
-  
-  
-
-
-
- 
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-
-  
-  
-
-  
-  
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-  
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-  
-  
-  
-  
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-  
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-
- 
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-
-
-
-
-
-
-
-
-  
-
-
-
-  
-  
-  
-  
-  
-  
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-
-  
-  
-  
-  
-  
-  
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-  
-  
-  
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  
-  
-  
-  
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-  
-  
-   
-
-
-  
-  
-  
-  
-  
-  
-  
-
-
-
-
-  
-  
-  
-  
-  
-
-  
-  
-  
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Scenario: Add Form Category Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Form Categories page 
+Then Add Form Category Blank field Validation should have to display
+
+Scenario: Add Promotion Category Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Promotion Categories page 
+Then Add Promotion Category Blank field Validation should have to display
+
+# 31/3/2026
+Scenario: Add Promotion Form Text Setting Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Promotion Form Text Setting page 
+Then Add Promotion Form Text Setting Blank field Validation should have to display
+
+Scenario: Add Audience Type Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Add Audience Type page 
+Then Add Audience Type Blank field Validation should have to display
+
+Scenario: Add Referral Category Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Add Referral Category page 
+Then Add Referral Category Blank field Validation should have to display
+
+Scenario: Billing Setting Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Billing Setting page 
+Then Billing Setting Blank field Validation should have to display
+
+Scenario: Add Bill Status Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Bill Status page 
+Then Add Bill Status Blank field Validation should have to display
+
+Scenario: Add Claim Status Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Claim Status page 
+Then Add Claim Status Blank field Validation should have to display
+
+Scenario: Add Claim Label Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Claim Types page 
+Then Add Claim Label Blank field Validation should have to display
+
+Scenario: Add EOB Intervention Type Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view EOB Intervention Types page 
+Then Add EOB Intervention Type Blank field Validation should have to display
+
+Scenario: Add Claim Document Checklist Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Claim Document Checklist page 
+Then Add Claim Document Checklist Blank field Validation should have to display
+
+Scenario: Add Claim Document Checklist Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Claim Document Checklist page 
+Then Add Claim Document Checklist Blank field Validation should have to display
+
+Scenario: Add CMS 1500 Template Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view CMS 1500 Templates page 
+Then Add CMS 1500 Template Blank field Validation should have to display
+
+Scenario: Add Invoice Flag Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Invoice Flags page 
+Then Add Invoice Flag Blank field Validation should have to display
+
+Scenario: Add Compliance Categories Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Compliance Categories page 
+Then Add Compliance Categories Blank field Validation should have to display
+
+Scenario: Add ComplianceDepartments Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view ComplianceDepartments page 
+Then Add ComplianceDepartments Blank field Validation should have to display
+
+Scenario: Add Package Restriction Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Package Restriction page 
+Then Add Package Restriction Blank Validation should have to display
+
+Scenario: Add Delivery Distance Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Delivery Distances page 
+Then Add Delivery Distance Blank field Validation should have to display
+
+Scenario: Add Logistic Company Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Logistic Companies page 
+Then Add Logistic Company Blank field Validation should have to display
+
+Scenario: Add Delivery Marker Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Delivery Markers page 
+Then Add Delivery Marker Blank field Validation should have to display
+
+Scenario: Add Checklist Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Checklist page 
+Then Add Checklist Blank field Validation should have to display
+
+Scenario: Add Accesscode Type Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Access Code Type page 
+Then Add Accesscode Type Blank field Validation should have to display
+
+Scenario: Add Accesscode Type Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Access Code Type page 
+Then Add Accesscode Type Blank field Validation should have to display
+
+Scenario: Add Employee Number Setting Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Employee Number Setting page 
+Then Add Employee Number Setting Blank field Validation should have to display
+
+Scenario: Add Payor Category Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view PayorCategories page 
+Then Add Payor Category Blank field Validation should have to display
+
+Scenario: Add BIN Master Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Bin Masters page 
+Then Add BIN Master Blank field Validation should have to display
+
+Scenario: Add PBM Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view PBMs page 
+Then Add PBM Blank field Validation should have to display
+
+Scenario: Add Partner Type Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Partner Type page 
+Then Add Partner Type Blank field Validation should have to display
+
+Scenario: Add Special Service Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Special Service page 
+Then Add Special Service Blank field Validation should have to display
+
+Scenario: Add Mail Setting Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Mail Setting page 
+Then Add Mail Setting Blank field Validation should have to display
+
+Scenario: Add Wellness Points Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Wellness Points page 
+Then Add Wellness Points Blank field Validation should have to display
+
+Scenario: Add Lead Source Blank field Validation 
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And the user should be able to view Lead Sources page 
+Then Add Lead Source Blank field Validation should have to display

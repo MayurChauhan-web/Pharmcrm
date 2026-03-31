@@ -61,6 +61,1147 @@ public class setuppage {
 	public By newProviderService = By.xpath("//span[normalize-space()='New Provider Service']");
 	public By newTemplate = By.xpath("//span[normalize-space()='New Template']");
 	public By newFormCategory = By.xpath("//span[normalize-space()='New Form Category']");
+	public By newPromotionCategory = By.xpath("//span[normalize-space()='New Promotion Category']");
+	public By newAudienceType = By.xpath("//span[normalize-space()='New Audience Type']");
+	public By newReferralCategory = By.xpath("//span[normalize-space()='New Referral Category']");
+	public By newBillStatus = By.xpath("//span[normalize-space()='New Bill Status']");
+	public By newClaimStatus = By.xpath("//span[normalize-space()='New Claim Status']");
+	public By newClaimLabel = By.xpath("//span[normalize-space()='New Claim Label']");
+	public By newEobInterventionType = By.xpath("//span[normalize-space()='New EOB Intervention Type']");
+	public By newClaimDocumentChecklist = By.xpath("//span[normalize-space()='New Claim Document Checklist']");
+	public By newCms1500Template = By.xpath("//span[normalize-space()='New CMS 1500 Template']");
+	public By addNewCms1500TemplateButton = By.xpath("//button[normalize-space()='Add New CMS 1500 Template']");
+	public By newInvoiceFlag = By.xpath("//span[normalize-space()='New Invoice Flag']");
+	public By saveInvoiceFlagButton = By.xpath("//button[@id='btnSaveInvoiceFlag']");
+	public By newCategory = By.xpath("//span[normalize-space()='New Category']");
+	public By newDepartment = By.xpath("//span[normalize-space()='New Department']");
+	public By planButtonSvgPath = By.xpath("//a[@id='btnPlan']//*[name()='svg']//*[name()='path' and @id='Path_1']");
+	public By stateButtonSvgPath = By.xpath("//a[@id='btnState']//*[name()='svg']//*[name()='path' and @id='Path_1']");
+	public By newDeliveryDistance = By.xpath("//span[normalize-space()='New Delivery Distance']");
+	public By newLogisticCompany = By.xpath("//span[normalize-space()='New Logistic Company']");
+	public By newDeliveryMarker = By.xpath("//span[normalize-space()='New Delivery Marker']");
+	public By newChecklist = By.xpath("//span[normalize-space()='New Checklist']");
+	public By newAccesscodeType = By.xpath("//span[normalize-space()='New Accesscode Type']");
+	public By newPayorCategory = By.xpath("//span[normalize-space()='New Payor Category']");
+	public By newBinMaster = By.xpath("//span[normalize-space()='New BIN Master']");
+	public By saveBinMasterButton = By.xpath("//button[@id='btnBINSave']");
+	public By newPBM = By.xpath("//span[normalize-space()='New PBM']");
+	public By newPartnerType = By.xpath("//span[normalize-space()='New Partner Type']");
+	public By newSpecialService = By.xpath("//span[normalize-space()='New Special Service']");
+	public By saveSmtpSettingButton = By.xpath("//button[@onclick='javascript: SaveSMTPSetting();']");
+	public By saveChangesButton = By.xpath("//button[normalize-space()='Save']");
+	public By newLeadSource = By.xpath("//span[normalize-space()='New Lead Source']");
+	public By newTransferResultAction = By.xpath("//span[normalize-space()='New Transfer Result Action']");
+	public By newFailureResultAction = By.xpath("//span[normalize-space()='New Failure Result Action']");
+	public By newSuccessResultAction = By.xpath("//span[normalize-space()='New Success Result Action']");
+	public By newReminderResultAction = By.xpath("//span[normalize-space()='New Reminder Result Action']");
+	public By newMedicationSyncColor = By.xpath("//span[normalize-space()='New Medication Sync Color']");
+	public By btnSaveMedicationSetting = By.xpath("//button[@id='btnSaveMedicationSetting']");
+	public By newMedicationSyncReminder = By.xpath("//span[normalize-space()='New Medication Sync Reminder']");
+	public By newPatientMedicationColorCodeSetting = By
+			.xpath("//span[normalize-space()='New Patient Medication ColorCode Setting']");
+	public By addInformation = By.xpath("//span[normalize-space()='Add Information']");
+	public By btnCreate = By.xpath("//button[@id='btnCreate']");
+	public By createEvent = By.xpath("//a[normalize-space()='Create Event']");
+	public By btnSaveProgressStatus = By.xpath("//button[@id='btnSaveProgressStatus']");
+	public By organizationFromEmailId = By.xpath("//input[@id='OrganizationFromEmailId']");
+	public By generatePriorAuthorizationFromEmail = By.xpath("//input[@id='GeneratePriorAuthorizationFromEmail']");
+	public By btnSendvCard = By.xpath("//button[@id='btnSendvCard']");
+	public By primaryButton = By.xpath("//button[@class='btn btn-primary']");
+	public By editBasicInformation = By
+			.xpath("//a[@onclick='javascript: EditBasicInformation();']//i[@class='fa-solid fa-pen-to-square']");
+
+	// Reminders
+	public By btnSaveAutoCall = By.xpath("//button[@id='btnSaveAutoCall']");
+
+	// Workspace Users
+	public By resetPassword = By.xpath(
+			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Reset Password')]");
+	public By searchEmployee = By.xpath("//button[normalize-space()='Search']");
+	public By employeeDetailSvg = By.xpath("//div[@id='EmployeeDetail']//*[name()='svg']");
+
+	// Profile
+	public By btnSaveProfile = By.xpath("//button[@id='btnSaveProfile']");
+
+	// Dashboard
+	public By toastMessage = By.xpath("//div[@class='toast-message']");
+	public By pathLocator = By.xpath("//*[name()='path' and contains(@d,'M256 80c0-')]");
+	public By btnSaveQuickLinkGroup = By.xpath("//button[@id='btnSaveQuickLinkGroup']");
+
+	// Privacy Policy & Terms of Use
+	public By errorLocator = By.xpath("//h2[normalize-space()='Error']");
+
+	// T&C
+	public By editorLocator = By.xpath("//div[@aria-label='Editor editing area: main. Press Alt+0 for help.']");
+	public By submitBtnLocator = By
+			.xpath("//button[@class='btn btn-primary waves-effect waves-light'][normalize-space()='Submit']");
+
+	// Dashboard
+	public By deleteQuickLinkButtonLocator = By.xpath("//div[@id='page-wrapper']//button[2]//*[name()='svg']");
+	public By loaderLocator = By.id("menucontext");
+	public By editQuickLinkButtonLocator = By.xpath("//div[@class='sdql-title']//button[1]//*[name()='svg']");
+	public By groupNameInputLocator = By.xpath("//input[@id='groupName']");
+	public By saveButtonLocator = By.xpath("//button[@id='btnSaveQuickLinkGroup']");
+	public By editIconLocator = By.xpath("//*[name()='path' and @id='Union_9']");
+	public By quickLinkActionIconLocator = By.xpath("//*[name()='path' and contains(@d,'M256 80c0-')]");
+
+	// XFlow
+	public By userMenuIconLocator = By.xpath("//a[@href='#']//span[@class='userTopIcon']//*[name()='svg']");
+	public By settingsIconLocator = By
+			.xpath("//span[@class='co-settings']//*[name()='svg']//*[name()='path' and @id='Union_1']");
+	public By downloadButtonLocator = By.xpath("//h6[normalize-space()='Click To Download']");
+
+	// Sender Authentication
+	public By domainNameInputLocator = By.xpath("//input[@id='domainName']");
+	public By addButtonLocator = By.xpath("//button[@id='btnDomainName']");
+	public By newSenderAuthButtonLocator = By.xpath("//span[normalize-space()='New Sender Authentication']");
+	public By actionMenuButtonLocator = By.xpath("//tbody/tr[1]/td[6]/div[1]/div[1]/button[1]/i[1]");
+	public By deleteOptionLocator = By.xpath(
+			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]");
+
+	// Bounce Email
+	public By confirmDeleteButtonLocator = By.xpath("//div[@id='deleteBounceModel']//button[@id='btnDeleteConfirm']");
+	public By deleteIconLocator = By.xpath("//tbody/tr[1]/td[4]/a[1]/img[1]");
+
+	// Spam Email
+	public By deleteIcon = By.xpath("//tbody/tr[1]/td[4]/a[1]/img[1]");
+	public By deleteButton = By.id("delete");
+
+	// Auto Call
+	public By addAutoCallButton = By.xpath("//span[normalize-space()='Add Auto Call']");
+
+	// Auto Text
+	public By dateInputField = By.id("ReminderActionSetting_AutoText_Date");
+	public By dateOption = By.xpath("//a[text()='7']");
+	public By autoTextTab = By.xpath("//a[normalize-space()='Auto Text']");
+	public By addAutoTextButton = By.xpath("//span[normalize-space()='Add Auto Text']");
+
+	// Email Notification
+	public By templateDropdown = By.id("ReminderActionSetting_EmailNotification_TemplateId");
+	public By emailNotificationTab = By.xpath("//a[normalize-space()='Email Notification']");
+	public By addEmailNotificationButton = By.xpath("//span[normalize-space()='Add Email Notification']");
+
+	// Show On Dashboard
+	public By enableCheckboxLabel = By.xpath("//label[@for='ReminderActionSetting_ShowOnDashboard_IsEnabled']");
+	public By timeInputField = By.id("ReminderActionSetting_ShowOnDashboard_Time");
+	public By hourOption = By.xpath("(//a[contains(@class, 'ui-state-default') and text()='09'])[1]");
+	public By minuteOption = By.xpath("//a[contains(@class, 'ui-state-default') and text()='30']");
+	public By showOnDashboardTab = By.xpath("//a[normalize-space()='Show On Dashboard']");
+	public By addShowOnDashboardButton = By.xpath("//span[normalize-space()='Add Show On Dashboard']");
+	public By actionMenuIcon = By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']");
+
+	// CentralPASettings
+	public By processFromDateField = By.id("Filter_ProcessFromDate");
+	public By activeDateCell = By.xpath(
+			"//div[contains(@class,'datepicker')]//td[not(contains(@class,'old')) and not(contains(@class,'new')) and not(contains(@class,'disabled'))]");
+
+	// WorkspaceUsers
+	public By firstNameFilter = By.id("Filter_FirstName");
+	public By employeeCheckbox = By.xpath("//input[@id='340929ac-3f18-46be-99c1-ad72bc0d3f1f']");
+	public By linkEmployeeButton = By.id("btnEmployee");
+	public By delinkEmployeeIcon = By.xpath("//div[@id='btnDelinkUserToEmployee']//*[name()='svg']");
+	public By confirmDelinkButton = By.xpath("//div[@id='delinkUserEmployeeModel']//button[@id='btnDeleteConfirm']");
+	public By newPasswordField = By.id("newPassword");
+	public By confirmPasswordField = By.id("confirmPassword");
+	public By resetPasswordButton = By.id("btnResetPassword");
+	public By resetPasswordOption = By
+			.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Reset Password')]");
+	public By employeeDetailSection = By.id("EmployeeDetail");
+	public By workspaceUserActionMenuButton = By.xpath("//tbody/tr[1]/td[9]/div[1]/div[1]/button[1]/i[1]");
+	public By viewDetailOption = By.xpath(
+			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'View Detail')]");
+
+	// BOTCalls
+	public By errorHeaderLocator = By.xpath("//h2[normalize-space()='Error']");
+
+	// Fax Setting
+	public By faxSettingActionMenuButton = By.xpath("//tbody/tr[1]/td[7]/div[1]/div[1]/button[1]");
+
+	// New button
+	public By newFaxSettingButton = By.xpath("//span[normalize-space()='New Fax Settings']");
+
+	// Form fields
+	public By faxApiIdField = By.id("FaxSetting_FAXAPIId");
+	public By fromEmailField = By.id("FaxSetting_FromEmail");
+
+	// Save button
+	public By saveFaxSettingButton = By.id("btnSave");
+	public By newFaxSettingsBtn = By.xpath("//span[normalize-space()='New Fax Settings']");
+
+	// Professional License Type
+
+	public By newProfessionalLicenseTypeBtn = By.xpath("//span[normalize-space()='New Professional License Type']");
+	public By newProfessionalLicenseTypeButton = By.xpath("//span[normalize-space()='New Professional License Type']");
+	public By professionalLicenseActionMenuButton = By.xpath("//tbody/tr[1]/td[4]/div[1]/div[1]/button[1]");
+
+	// New button
+	public By newDesignationButton = By.xpath("//span[normalize-space()='New Designation']");
+
+	// Form fields
+	public By designationNameField = By.id("Designation_Name");
+	public By designationLevelField = By.id("Designation_Level");
+
+	// Save button
+	public By saveDesignationButton = By.id("btnSave");
+
+	public By designationActionMenuButton = By.xpath("//tbody/tr[1]/td[5]/div[1]/div[1]/button[1]");
+
+	// Whitelist IP
+	public By firstUserCheckbox = By.xpath("(//tbody[@id='view-excludeuser-body']//label)[1]");
+	public By userCheckbox = By.xpath("//label[@for='337a4702-104a-4939-ac6e-3b188d3ff055']");
+	public By ipField = By.id("WhiteListIP_IP");
+	public By submitBtn = By
+			.xpath("//button[@class='btn btn-primary waves-effect waves-light'][normalize-space()='Submit']");
+	public By excludeUserLink = By.xpath("//a[normalize-space()='Exclude User']");
+	public By newExcludeUserBtn = By.xpath("//span[normalize-space()='New Exclude User']");
+	public By newIpBtn = By.xpath("//span[normalize-space()='New IP']");
+
+	// Progress Step
+	public By priorityField = By.id("ProgressStatus_Priority");
+	public By notesField = By.id("ProgressStatus_Notes");
+
+	// Save button
+	public By newProgressStepButton = By.xpath("//span[normalize-space()='New Progress Step']");
+
+	// EHR Types
+	public By nameField = By.id("ExternalSource_Name");
+	public By descriptionField = By.id("ExternalSource_Description");
+	public By newEhrTypeBtn = By.xpath("//span[normalize-space()='New EHR Type']");
+	public By actionMenuBtn = By.xpath("//tbody/tr[1]/td[5]/div[1]/div[1]/button[1]/i[1]");
+
+	// Organization Calendar
+	public By calendarEditBtn = By.cssSelector("button[onclick='return SubmitCalendarSetting()']");
+
+	// Brand Management
+	public By sendVCardBtn = By.xpath("//button[normalize-space()='Send VCard']");
+
+	// Reminders
+	public By reminderActionBtn = By.xpath("//tbody/tr[1]/td[2]/a[1]");
+
+	// Organization Bucket
+	public By btnSaveFile = By.xpath("//button[@id='btnSaveFile']");
+	public By fileUpload = By.xpath("//span[normalize-space()='File Upload']");
+	public By fileNameField = By.id("fileNameTextBox");
+	public By saveBtn = By.id("btnSaveFile");
+
+	public By fileInputField = By.xpath("//div[@class='pb-2']//input[@id='file-3']");
+	public By saveFileBtn = By.id("btnSaveFile");
+	public By addFileBtn = By.xpath("//a[@id='btnAddFile']//*[name()='svg']");
+	public By downloadOption = By.xpath(
+			"//div[contains(@class,'bucket-mainn') and contains(@class,'show')]//li[2]//a[1]//*[name()='svg']//*[name()='path' and @id='Union_1']");
+
+	// Feedback Form
+	public By confirmDeleteBtn = By.id("deleteFeedbackForm");
+	public By questionField = By.id("FeedbackQuestion_Question");
+	public By addQuestionButton = By
+			.xpath("//a[@class='settings-add-btn']//*[name()='svg']//*[name()='path' and @id='Path_1']");
+
+	public By newFeedbackFormButton = By.xpath("//span[normalize-space()='New Feedback Form']");
+
+	// Patient Signature Template
+	public By newPatientSignatureButton = By.xpath("//span[normalize-space()='New Patient Signature']");
+
+	// Fax Template
+	public By newFaxTemplateButton = By.xpath("//span[normalize-space()='New Fax Template']");
+	public By activeCheckbox = By.xpath("//label[normalize-space()='Active?']");
+
+	// Mail Template
+
+	public By titleField = By.id("MailTemplate_Title");
+	public By subjectField = By.id("MailTemplate_Subject");
+	public By newMailTemplateButton = By.xpath("//span[normalize-space()='New Mail Template']");
+
+	// BOT Call Template
+	public By bodyField = By.id("BOTCallTemplate_Body");
+	public By firstRowActionMenu = By.xpath("//tbody/tr[1]/td[8]/div[1]/div[1]/button[1]");
+	public By newCalloutTemplateButton = By.xpath("//span[normalize-space()='New Callout Template']");
+	public By titleInput = By.id("BOTCallTemplate_Title");
+	public By featureTypeDropdown = By.id("TemplateFeatureMapping_FeatureType");
+	public By subFeatureTypeDropdown = By.id("TemplateFeatureMapping_SubFeatureType");
+	public By bodyInput = By.id("BOTCallTemplate_Body");
+	public By newTemplateButton = By.xpath("//span[normalize-space()='New Callout Template']");
+	public By actionMenuButton = By.xpath("//tbody/tr[1]/td[8]/div[1]/div[1]/button[1]");
+	public By newCalloutTemplateBtn = By.xpath("//span[normalize-space()='New Callout Template']");
+	public By botTemplateActionMenuBtn = By.xpath("//tbody/tr[1]/td[8]//button");
+	public By editBotTemplateOption = By
+			.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Edit')]");
+	public By deleteBotTemplateOption = By
+			.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Delete')]");
+
+	// Text Template
+	public By filterTitleField = By.id("Filter_Title");
+	public By templateTitleInput = By.id("SMSTemplate_Title");
+	public By featureDropdown = By.id("TemplateFeatureMapping_FeatureType");
+	public By templateBodyTextarea = By.id("SMSTemplate_Body");
+	public By newTextTemplateButton = By.xpath("//span[normalize-space()='New Text Template']");
+
+	// User
+	public By confirmDeleteUserButton = By.xpath("//div[@id='deleteUserModel']//button[@id='btnDeleteConfirm']");
+	public By changeProfileOption = By.xpath(
+			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Change Profile')]");
+	public By profileDropdown = By.id("WorkspaceUser_Profile_Id");
+	public By submitUserButton = By.id("btnSubmitUser");
+	public By menuContext = By.id("menucontext");
+	public By newUserButton = By.xpath("//span[normalize-space()='New User']");
+	public By filterEmailField = By.id("Filter_Email");
+	public By deleteUserOption = By.xpath("//span[normalize-space()='Delete']");
+
+	// Profile
+	public String dataAccessPattern = "chkg(daqla|ql_|referralcategory_|programall|stage).*";
+	public By permissionContainerLocator = By.cssSelector(".col-lg-10.col-md-9");
+	public By checkboxLocator = By
+			.xpath(".//input[@type='checkbox' and not(@id='allModulePermission') and not(contains(@id,'All'))]");
+	public By menuContextLoader = By.id("menucontext");
+	public By filterButtonLocator = By.xpath("//span[normalize-space()='Filter']");
+	public By filterInputLocator = By.id("Filter_Name");
+	public By searchIconLocator = By.xpath("//i[@class='fa-solid fa-magnifying-glass']");
+	public By editOptionLocator = By.xpath("//span[normalize-space()='Edit']");
+	public By editProfileOption = By.xpath("//li[1]//a[1]//div[1]");
+	public By blockDeleteCheckbox = By.id("chkg37BlockDelete");
+	public By saveButton = By.id("btnSave");
+	public By deleteProfileOption = By.xpath("//a[@id='btnDeleteProfile']//div[@class='gridRecordContextInner']");
+	public By confirmDeleteButton = By.xpath("//div[@id='profileModel']//button[@id='btnDeleteConfirm']");
+	public By newProfileButton = By.xpath("//span[normalize-space()='New Profile']");
+	public By filterButton = By.xpath("//span[normalize-space()='Filter']");
+	public By filterNameField = By.id("Filter_Name");
+	public By editOption = By.xpath("//li[1]//a[1]//div[normalize-space()='Edit']");
+	public By deleteOption = By.xpath("//a[@id='btnDeleteProfile']//div[normalize-space()='Delete']");
+
+	// Dashboard
+	public By sidebarIcons = By.xpath("//span[@class='sidebar-icons']");
+	public By errorHeader = By.xpath("//h2[normalize-space()='Error']");
+
+	// Audit View
+	public By createdDateColumn = By.xpath("//th[normalize-space()='Created Date']");
+
+	// Profile
+	public By preloader = By.cssSelector("div.preloader");
+	public By profileNameInput = By.xpath("//input[@id='Filter_Name']");
+	public By searchButton = By.xpath("//i[@class='fa-solid fa-magnifying-glass']");
+	public By actionMenu = By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']");
+	public By editButton = By.xpath("//span[normalize-space()='Edit']");
+	public By selectAllModuleLabel = By.xpath("//label[normalize-space()='Select All Module']");
+	public By submitButton = By.xpath("//button[@id='btnSave']");
+	public By profilefilterButton = By.xpath("//*[name()='path' and @id='Union_73']");
+	public By firstPatientLink = By.xpath("(//a[@class='gridLinkButton'])[1]");
+	public By vitalsTab = By.xpath("//a[normalize-space()='Vitals']");
+	public By addVitalsButton = By.xpath("//span[normalize-space()='Add Vitals']");
+	public By bpInputField = By.xpath("//input[@id='PatientVital_BP']");
+	public By saveVitalsButton = By.xpath("//button[@id='btnSaveVital']");
+	public By updatedDateColumn = By.xpath("//th[normalize-space()='Updated Date']");
+	public By priorAuthorizationProcessAllLabel = By.xpath("//label[@for='chkg23PriorAuthorizationProcessAll']");
+	public By priorAuthorizationGenerateAddLabel = By.xpath("//label[@for='chkg23PriorAuthorizationGenerateAdd']");
+
+	// Settings
+	public String verifyBlankFieldValidationMessageOnAddLeadSource() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newLeadSource)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public void openLeadSourcesPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/LeadSources"));
+	}
+
+	public String verifyBlankFieldValidationMessageOnAddWellnessPoints() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(saveChangesButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public void openWellnessSettingPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/WellnessSetting"));
+	}
+
+	public String verifyBlankFieldValidationMessageOnAddMailSetting() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(saveSmtpSettingButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String verifyBlankFieldValidationMessageOnAddSpecialService() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newSpecialService)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public void openSpecialServicesPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/SpecialServices"));
+	}
+
+	public String verifyBlankFieldValidationMessageOnAddPartnerType() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newPartnerType)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public void openPartnerTypesPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/PartnerTypes"));
+	}
+
+	public String verifyBlankFieldValidationMessageOnAddPBM() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newPBM)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public void openPBMsPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/PBMs"));
+	}
+
+	public String addBinMasterBlankFieldValidationShouldDisplay() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newBinMaster)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(saveBinMasterButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public void openBinMastersPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/BINMasters"));
+	}
+
+	public String addPayorCategoryBlankFieldValidationShouldDisplay() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newPayorCategory)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public void openPayorCategoriesPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/PayorCategories"));
+	}
+
+	public String verifyBlankFieldValidationMessageOnAddEmployeeNumberSetting() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public void openEmployeeNumberSettingPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/EmployeeNumberSetting"));
+	}
+
+	public String verifyBlankFieldValidationMessageOnAddAccessCodeType() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newAccesscodeType)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public void openAccessCodeTypesPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/AccesscodeTypes"));
+	}
+
+	public String verifyBlankFieldValidationMessageOnAddChecklist() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newChecklist)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public void openCheckListsPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/CheckLists"));
+	}
+
+	public String verifyBlankFieldValidationMessageOnAddDeliveryMarker() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newDeliveryMarker)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public void openDeliveryMarkersPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryMarkers"));
+	}
+
+	public String verifyBlankFieldValidationMessageOnAddLogisticCompany() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newLogisticCompany)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(submitBtnLocator)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public void openLogisticCompaniesPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/LogisticCompanies"));
+	}
+
+	public String verifyBlankFieldValidationMessageOnAddDeliveryDistance() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newDeliveryDistance)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public void openDeliveryDistancesPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/DeliveryDistances"));
+	}
+
+	public String verifyBlankFieldValidationMessageOnAddPackageRestriction() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(planButtonSvgPath)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(stateButtonSvgPath)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public void openPackageRestrictionPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/PackageRestriction"));
+	}
+
+	public String verifyBlankFieldValidationMessageOnAddComplianceDepartments() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newDepartment)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public void openComplianceDepartmentsPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/ComplianceDepartments"));
+	}
+
+	public String verifyBlankFieldValidationMessageOnAddComplianceCategories() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newCategory)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public void openComplianceCategoriesPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/ComplianceCategories"));
+	}
+
+	public String verifyBlankFieldValidationMessageOnAddInvoiceFlag() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newInvoiceFlag)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(saveInvoiceFlagButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public void openInvoiceFlagsPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/InvoiceFlags"));
+	}
+
+	public void openCms1500TemplatesPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/CMS1500Templates"));
+	}
+
+	public String verifyBlankFieldValidationMessageOnAddCms1500Template() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newCms1500Template)).click();
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(addNewCms1500TemplateButton)).click();
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String verifyBlankFieldValidationMessageOnAddClaimDocumentChecklist() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newClaimDocumentChecklist)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public void openClaimDocumentChecklistsPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/ClaimDocumentChecklists"));
+	}
+
+	public String verifyBlankFieldValidationMessageOnAddEobInterventionType() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newEobInterventionType)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public void openEobInterventionTypesPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/EOBInterventiontypes"));
+	}
+
+	public void openClaimTypesPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/ClaimTypes"));
+	}
+
+	public String verifyBlankFieldValidationMessageOnAddClaimLabel() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newClaimLabel)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public String verifyBlankFieldValidationMessageOnAddClaimStatus() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newClaimStatus)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public void openClaimStatusesPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/ClaimStatuses"));
+	}
+
+	public String verifyBlankFieldValidationMessageOnAddBillStatus() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newBillStatus)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public void openBillStatusesPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/BillStatuses"));
+	}
+
+	public String billingSettingBlankFieldValidationShouldDisplay() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public void openBillingSettingPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/BillingSetting"));
+	}
+
+	public String verifyBlankFieldValidationMessageOnAddReferralCategory() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newReferralCategory)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public void openReferralCategoriesPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/ReferralCategories"));
+	}
+
+	public String verifyBlankFieldValidationMessageOnAddAudienceType() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newAudienceType)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public void openAudienceTypesPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/AudienceTypes"));
+	}
+
+	public String validateBlankFieldErrorOnPromotionFormTextSetting() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public void openPromotionFormTextSettingPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/PromotionFormTextSetting"));
+	}
+
+	public String promotionCategoryBlankFieldErrorShouldBeShown() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newPromotionCategory)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+	}
+
+	public void openPromotionCategoriesPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/PromotionCategories"));
+	}
 
 	public String formCategoryBlankFieldErrorShouldBeShown() throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
@@ -83,13 +1224,13 @@ public class setuppage {
 			return "ERROR: Validation toast message not displayed";
 		}
 	}
-	
+
 	public void openFormCategoriesPage(String fullUrl) {
 		sleep(2000);
 		driver.get(fullUrl);
 		wait.until(ExpectedConditions.urlContains("/Setup/Home/FormsCategories"));
 	}
-	
+
 	public String templateBlankFieldErrorShouldBeShown() throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 		try {
@@ -111,7 +1252,7 @@ public class setuppage {
 			return "ERROR: Validation toast message not displayed";
 		}
 	}
-	
+
 	public String providerServiceBlankFieldErrorShouldBeShown() throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 		try {
@@ -1574,308 +2715,6 @@ public class setuppage {
 			return "ERROR: Validation toast message not displayed";
 		}
 	}
-
-	// Settings
-	public By newTransferResultAction = By.xpath("//span[normalize-space()='New Transfer Result Action']");
-	public By newFailureResultAction = By.xpath("//span[normalize-space()='New Failure Result Action']");
-	public By newSuccessResultAction = By.xpath("//span[normalize-space()='New Success Result Action']");
-	public By newReminderResultAction = By.xpath("//span[normalize-space()='New Reminder Result Action']");
-	public By newMedicationSyncColor = By.xpath("//span[normalize-space()='New Medication Sync Color']");
-	public By btnSaveMedicationSetting = By.xpath("//button[@id='btnSaveMedicationSetting']");
-	public By newMedicationSyncReminder = By.xpath("//span[normalize-space()='New Medication Sync Reminder']");
-	public By newPatientMedicationColorCodeSetting = By
-			.xpath("//span[normalize-space()='New Patient Medication ColorCode Setting']");
-	public By addInformation = By.xpath("//span[normalize-space()='Add Information']");
-	public By btnCreate = By.xpath("//button[@id='btnCreate']");
-	public By createEvent = By.xpath("//a[normalize-space()='Create Event']");
-	public By btnSaveProgressStatus = By.xpath("//button[@id='btnSaveProgressStatus']");
-	public By organizationFromEmailId = By.xpath("//input[@id='OrganizationFromEmailId']");
-	public By generatePriorAuthorizationFromEmail = By.xpath("//input[@id='GeneratePriorAuthorizationFromEmail']");
-	public By btnSendvCard = By.xpath("//button[@id='btnSendvCard']");
-	public By primaryButton = By.xpath("//button[@class='btn btn-primary']");
-	public By editBasicInformation = By
-			.xpath("//a[@onclick='javascript: EditBasicInformation();']//i[@class='fa-solid fa-pen-to-square']");
-
-	// Reminders
-	public By btnSaveAutoCall = By.xpath("//button[@id='btnSaveAutoCall']");
-
-	// Workspace Users
-	public By resetPassword = By.xpath(
-			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Reset Password')]");
-	public By searchEmployee = By.xpath("//button[normalize-space()='Search']");
-	public By employeeDetailSvg = By.xpath("//div[@id='EmployeeDetail']//*[name()='svg']");
-
-	// Profile
-	public By btnSaveProfile = By.xpath("//button[@id='btnSaveProfile']");
-
-	// Dashboard
-	public By toastMessage = By.xpath("//div[@class='toast-message']");
-	public By pathLocator = By.xpath("//*[name()='path' and contains(@d,'M256 80c0-')]");
-	public By btnSaveQuickLinkGroup = By.xpath("//button[@id='btnSaveQuickLinkGroup']");
-
-	// Privacy Policy & Terms of Use
-	public By errorLocator = By.xpath("//h2[normalize-space()='Error']");
-
-	// T&C
-	public By editorLocator = By.xpath("//div[@aria-label='Editor editing area: main. Press Alt+0 for help.']");
-	public By submitBtnLocator = By
-			.xpath("//button[@class='btn btn-primary waves-effect waves-light'][normalize-space()='Submit']");
-
-	// Dashboard
-	public By deleteQuickLinkButtonLocator = By.xpath("//div[@id='page-wrapper']//button[2]//*[name()='svg']");
-	public By loaderLocator = By.id("menucontext");
-	public By editQuickLinkButtonLocator = By.xpath("//div[@class='sdql-title']//button[1]//*[name()='svg']");
-	public By groupNameInputLocator = By.xpath("//input[@id='groupName']");
-	public By saveButtonLocator = By.xpath("//button[@id='btnSaveQuickLinkGroup']");
-	public By editIconLocator = By.xpath("//*[name()='path' and @id='Union_9']");
-	public By quickLinkActionIconLocator = By.xpath("//*[name()='path' and contains(@d,'M256 80c0-')]");
-
-	// XFlow
-	public By userMenuIconLocator = By.xpath("//a[@href='#']//span[@class='userTopIcon']//*[name()='svg']");
-	public By settingsIconLocator = By
-			.xpath("//span[@class='co-settings']//*[name()='svg']//*[name()='path' and @id='Union_1']");
-	public By downloadButtonLocator = By.xpath("//h6[normalize-space()='Click To Download']");
-
-	// Sender Authentication
-	public By domainNameInputLocator = By.xpath("//input[@id='domainName']");
-	public By addButtonLocator = By.xpath("//button[@id='btnDomainName']");
-	public By newSenderAuthButtonLocator = By.xpath("//span[normalize-space()='New Sender Authentication']");
-	public By actionMenuButtonLocator = By.xpath("//tbody/tr[1]/td[6]/div[1]/div[1]/button[1]/i[1]");
-	public By deleteOptionLocator = By.xpath(
-			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Delete')]");
-
-	// Bounce Email
-	public By confirmDeleteButtonLocator = By.xpath("//div[@id='deleteBounceModel']//button[@id='btnDeleteConfirm']");
-	public By deleteIconLocator = By.xpath("//tbody/tr[1]/td[4]/a[1]/img[1]");
-
-	// Spam Email
-	public By deleteIcon = By.xpath("//tbody/tr[1]/td[4]/a[1]/img[1]");
-	public By deleteButton = By.id("delete");
-
-	// Auto Call
-	public By addAutoCallButton = By.xpath("//span[normalize-space()='Add Auto Call']");
-
-	// Auto Text
-	public By dateInputField = By.id("ReminderActionSetting_AutoText_Date");
-	public By dateOption = By.xpath("//a[text()='7']");
-	public By autoTextTab = By.xpath("//a[normalize-space()='Auto Text']");
-	public By addAutoTextButton = By.xpath("//span[normalize-space()='Add Auto Text']");
-
-	// Email Notification
-	public By templateDropdown = By.id("ReminderActionSetting_EmailNotification_TemplateId");
-	public By emailNotificationTab = By.xpath("//a[normalize-space()='Email Notification']");
-	public By addEmailNotificationButton = By.xpath("//span[normalize-space()='Add Email Notification']");
-
-	// Show On Dashboard
-	public By enableCheckboxLabel = By.xpath("//label[@for='ReminderActionSetting_ShowOnDashboard_IsEnabled']");
-	public By timeInputField = By.id("ReminderActionSetting_ShowOnDashboard_Time");
-	public By hourOption = By.xpath("(//a[contains(@class, 'ui-state-default') and text()='09'])[1]");
-	public By minuteOption = By.xpath("//a[contains(@class, 'ui-state-default') and text()='30']");
-	public By showOnDashboardTab = By.xpath("//a[normalize-space()='Show On Dashboard']");
-	public By addShowOnDashboardButton = By.xpath("//span[normalize-space()='Add Show On Dashboard']");
-	public By actionMenuIcon = By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']");
-
-	// CentralPASettings
-	public By processFromDateField = By.id("Filter_ProcessFromDate");
-	public By activeDateCell = By.xpath(
-			"//div[contains(@class,'datepicker')]//td[not(contains(@class,'old')) and not(contains(@class,'new')) and not(contains(@class,'disabled'))]");
-
-	// WorkspaceUsers
-	public By firstNameFilter = By.id("Filter_FirstName");
-	public By employeeCheckbox = By.xpath("//input[@id='340929ac-3f18-46be-99c1-ad72bc0d3f1f']");
-	public By linkEmployeeButton = By.id("btnEmployee");
-	public By delinkEmployeeIcon = By.xpath("//div[@id='btnDelinkUserToEmployee']//*[name()='svg']");
-	public By confirmDelinkButton = By.xpath("//div[@id='delinkUserEmployeeModel']//button[@id='btnDeleteConfirm']");
-	public By newPasswordField = By.id("newPassword");
-	public By confirmPasswordField = By.id("confirmPassword");
-	public By resetPasswordButton = By.id("btnResetPassword");
-	public By resetPasswordOption = By
-			.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Reset Password')]");
-	public By employeeDetailSection = By.id("EmployeeDetail");
-	public By workspaceUserActionMenuButton = By.xpath("//tbody/tr[1]/td[9]/div[1]/div[1]/button[1]/i[1]");
-	public By viewDetailOption = By.xpath(
-			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'View Detail')]");
-
-	// BOTCalls
-	public By errorHeaderLocator = By.xpath("//h2[normalize-space()='Error']");
-
-	// Fax Setting
-	public By faxSettingActionMenuButton = By.xpath("//tbody/tr[1]/td[7]/div[1]/div[1]/button[1]");
-
-	// New button
-	public By newFaxSettingButton = By.xpath("//span[normalize-space()='New Fax Settings']");
-
-	// Form fields
-	public By faxApiIdField = By.id("FaxSetting_FAXAPIId");
-	public By fromEmailField = By.id("FaxSetting_FromEmail");
-
-	// Save button
-	public By saveFaxSettingButton = By.id("btnSave");
-	public By newFaxSettingsBtn = By.xpath("//span[normalize-space()='New Fax Settings']");
-
-	// Professional License Type
-
-	public By newProfessionalLicenseTypeBtn = By.xpath("//span[normalize-space()='New Professional License Type']");
-	public By newProfessionalLicenseTypeButton = By.xpath("//span[normalize-space()='New Professional License Type']");
-	public By professionalLicenseActionMenuButton = By.xpath("//tbody/tr[1]/td[4]/div[1]/div[1]/button[1]");
-
-	// New button
-	public By newDesignationButton = By.xpath("//span[normalize-space()='New Designation']");
-
-	// Form fields
-	public By designationNameField = By.id("Designation_Name");
-	public By designationLevelField = By.id("Designation_Level");
-
-	// Save button
-	public By saveDesignationButton = By.id("btnSave");
-
-	public By designationActionMenuButton = By.xpath("//tbody/tr[1]/td[5]/div[1]/div[1]/button[1]");
-
-	// Whitelist IP
-	public By firstUserCheckbox = By.xpath("(//tbody[@id='view-excludeuser-body']//label)[1]");
-	public By userCheckbox = By.xpath("//label[@for='337a4702-104a-4939-ac6e-3b188d3ff055']");
-	public By ipField = By.id("WhiteListIP_IP");
-	public By submitBtn = By
-			.xpath("//button[@class='btn btn-primary waves-effect waves-light'][normalize-space()='Submit']");
-	public By excludeUserLink = By.xpath("//a[normalize-space()='Exclude User']");
-	public By newExcludeUserBtn = By.xpath("//span[normalize-space()='New Exclude User']");
-	public By newIpBtn = By.xpath("//span[normalize-space()='New IP']");
-
-	// Progress Step
-	public By priorityField = By.id("ProgressStatus_Priority");
-	public By notesField = By.id("ProgressStatus_Notes");
-
-	// Save button
-	public By newProgressStepButton = By.xpath("//span[normalize-space()='New Progress Step']");
-
-	// EHR Types
-	public By nameField = By.id("ExternalSource_Name");
-	public By descriptionField = By.id("ExternalSource_Description");
-	public By newEhrTypeBtn = By.xpath("//span[normalize-space()='New EHR Type']");
-	public By actionMenuBtn = By.xpath("//tbody/tr[1]/td[5]/div[1]/div[1]/button[1]/i[1]");
-
-	// Organization Calendar
-	public By calendarEditBtn = By.cssSelector("button[onclick='return SubmitCalendarSetting()']");
-
-	// Brand Management
-	public By sendVCardBtn = By.xpath("//button[normalize-space()='Send VCard']");
-
-	// Reminders
-	public By reminderActionBtn = By.xpath("//tbody/tr[1]/td[2]/a[1]");
-
-	// Organization Bucket
-	public By btnSaveFile = By.xpath("//button[@id='btnSaveFile']");
-	public By fileUpload = By.xpath("//span[normalize-space()='File Upload']");
-	public By fileNameField = By.id("fileNameTextBox");
-	public By saveBtn = By.id("btnSaveFile");
-
-	public By fileInputField = By.xpath("//div[@class='pb-2']//input[@id='file-3']");
-	public By saveFileBtn = By.id("btnSaveFile");
-	public By addFileBtn = By.xpath("//a[@id='btnAddFile']//*[name()='svg']");
-	public By downloadOption = By.xpath(
-			"//div[contains(@class,'bucket-mainn') and contains(@class,'show')]//li[2]//a[1]//*[name()='svg']//*[name()='path' and @id='Union_1']");
-
-	// Feedback Form
-	public By confirmDeleteBtn = By.id("deleteFeedbackForm");
-	public By questionField = By.id("FeedbackQuestion_Question");
-	public By addQuestionButton = By
-			.xpath("//a[@class='settings-add-btn']//*[name()='svg']//*[name()='path' and @id='Path_1']");
-
-	public By newFeedbackFormButton = By.xpath("//span[normalize-space()='New Feedback Form']");
-
-	// Patient Signature Template
-	public By newPatientSignatureButton = By.xpath("//span[normalize-space()='New Patient Signature']");
-
-	// Fax Template
-	public By newFaxTemplateButton = By.xpath("//span[normalize-space()='New Fax Template']");
-	public By activeCheckbox = By.xpath("//label[normalize-space()='Active?']");
-
-	// Mail Template
-
-	public By titleField = By.id("MailTemplate_Title");
-	public By subjectField = By.id("MailTemplate_Subject");
-	public By newMailTemplateButton = By.xpath("//span[normalize-space()='New Mail Template']");
-
-	// BOT Call Template
-	public By bodyField = By.id("BOTCallTemplate_Body");
-	public By firstRowActionMenu = By.xpath("//tbody/tr[1]/td[8]/div[1]/div[1]/button[1]");
-	public By newCalloutTemplateButton = By.xpath("//span[normalize-space()='New Callout Template']");
-	public By titleInput = By.id("BOTCallTemplate_Title");
-	public By featureTypeDropdown = By.id("TemplateFeatureMapping_FeatureType");
-	public By subFeatureTypeDropdown = By.id("TemplateFeatureMapping_SubFeatureType");
-	public By bodyInput = By.id("BOTCallTemplate_Body");
-	public By newTemplateButton = By.xpath("//span[normalize-space()='New Callout Template']");
-	public By actionMenuButton = By.xpath("//tbody/tr[1]/td[8]/div[1]/div[1]/button[1]");
-	public By newCalloutTemplateBtn = By.xpath("//span[normalize-space()='New Callout Template']");
-	public By botTemplateActionMenuBtn = By.xpath("//tbody/tr[1]/td[8]//button");
-	public By editBotTemplateOption = By
-			.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Edit')]");
-	public By deleteBotTemplateOption = By
-			.xpath("//div[contains(@class,'dropdown-menu')]//span[contains(text(),'Delete')]");
-
-	// Text Template
-	public By filterTitleField = By.id("Filter_Title");
-	public By templateTitleInput = By.id("SMSTemplate_Title");
-	public By featureDropdown = By.id("TemplateFeatureMapping_FeatureType");
-	public By templateBodyTextarea = By.id("SMSTemplate_Body");
-	public By newTextTemplateButton = By.xpath("//span[normalize-space()='New Text Template']");
-
-	// User
-	public By confirmDeleteUserButton = By.xpath("//div[@id='deleteUserModel']//button[@id='btnDeleteConfirm']");
-	public By changeProfileOption = By.xpath(
-			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//span[contains(text(),'Change Profile')]");
-	public By profileDropdown = By.id("WorkspaceUser_Profile_Id");
-	public By submitUserButton = By.id("btnSubmitUser");
-	public By menuContext = By.id("menucontext");
-	public By newUserButton = By.xpath("//span[normalize-space()='New User']");
-	public By filterEmailField = By.id("Filter_Email");
-	public By deleteUserOption = By.xpath("//span[normalize-space()='Delete']");
-
-	// Profile
-	public String dataAccessPattern = "chkg(daqla|ql_|referralcategory_|programall|stage).*";
-	public By permissionContainerLocator = By.cssSelector(".col-lg-10.col-md-9");
-	public By checkboxLocator = By
-			.xpath(".//input[@type='checkbox' and not(@id='allModulePermission') and not(contains(@id,'All'))]");
-	public By menuContextLoader = By.id("menucontext");
-	public By filterButtonLocator = By.xpath("//span[normalize-space()='Filter']");
-	public By filterInputLocator = By.id("Filter_Name");
-	public By searchIconLocator = By.xpath("//i[@class='fa-solid fa-magnifying-glass']");
-	public By editOptionLocator = By.xpath("//span[normalize-space()='Edit']");
-	public By editProfileOption = By.xpath("//li[1]//a[1]//div[1]");
-	public By blockDeleteCheckbox = By.id("chkg37BlockDelete");
-	public By saveButton = By.id("btnSave");
-	public By deleteProfileOption = By.xpath("//a[@id='btnDeleteProfile']//div[@class='gridRecordContextInner']");
-	public By confirmDeleteButton = By.xpath("//div[@id='profileModel']//button[@id='btnDeleteConfirm']");
-	public By newProfileButton = By.xpath("//span[normalize-space()='New Profile']");
-	public By filterButton = By.xpath("//span[normalize-space()='Filter']");
-	public By filterNameField = By.id("Filter_Name");
-	public By editOption = By.xpath("//li[1]//a[1]//div[normalize-space()='Edit']");
-	public By deleteOption = By.xpath("//a[@id='btnDeleteProfile']//div[normalize-space()='Delete']");
-
-	// Dashboard
-	public By sidebarIcons = By.xpath("//span[@class='sidebar-icons']");
-	public By errorHeader = By.xpath("//h2[normalize-space()='Error']");
-
-	// Audit View
-	public By createdDateColumn = By.xpath("//th[normalize-space()='Created Date']");
-
-	// Profile
-	public By preloader = By.cssSelector("div.preloader");
-	public By profileNameInput = By.xpath("//input[@id='Filter_Name']");
-	public By searchButton = By.xpath("//i[@class='fa-solid fa-magnifying-glass']");
-	public By actionMenu = By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']");
-	public By editButton = By.xpath("//span[normalize-space()='Edit']");
-	public By selectAllModuleLabel = By.xpath("//label[normalize-space()='Select All Module']");
-	public By submitButton = By.xpath("//button[@id='btnSave']");
-	public By profilefilterButton = By.xpath("//*[name()='path' and @id='Union_73']");
-	public By firstPatientLink = By.xpath("(//a[@class='gridLinkButton'])[1]");
-	public By vitalsTab = By.xpath("//a[normalize-space()='Vitals']");
-	public By addVitalsButton = By.xpath("//span[normalize-space()='Add Vitals']");
-	public By bpInputField = By.xpath("//input[@id='PatientVital_BP']");
-	public By saveVitalsButton = By.xpath("//button[@id='btnSaveVital']");
-	public By updatedDateColumn = By.xpath("//th[normalize-space()='Updated Date']");
-	public By priorAuthorizationProcessAllLabel = By.xpath("//label[@for='chkg23PriorAuthorizationProcessAll']");
-	public By priorAuthorizationGenerateAddLabel = By.xpath("//label[@for='chkg23PriorAuthorizationGenerateAdd']");
 
 	public setuppage(WebDriver driver) {
 		this.driver = driver;
