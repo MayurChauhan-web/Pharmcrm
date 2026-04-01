@@ -1,5 +1,4 @@
 package com.pharmcrm.pharmcrm_product.runner;
-
 import org.testng.annotations.DataProvider;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
@@ -18,3 +17,6 @@ public class MasterRunner extends AbstractTestNGCucumberTests {
 		return super.scenarios();
 	}
 }
+
+
+

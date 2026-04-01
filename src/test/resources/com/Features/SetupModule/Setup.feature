@@ -1,7 +1,6 @@
 Feature: Entire Setup Module.
 
 # Audit View 
-@Setup
 Scenario: User with View only access for General Audit View test
 Given user launch browser
 Then user click on the user type dropdown
@@ -2429,7 +2428,6 @@ When user click on the go button
 And the user should be able to view Promotion Categories page 
 Then Add Promotion Category Blank field Validation should have to display
 
-# 31/3/2026
 Scenario: Add Promotion Form Text Setting Blank field Validation 
 Given user launch browser
 Then user click on the user type dropdown

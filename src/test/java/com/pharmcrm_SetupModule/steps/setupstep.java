@@ -26,17 +26,12 @@ public class setupstep {
 
 	@And("the user should be able to view Lead Sources page")
 	public void userShouldViewLeadSourcesPage() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String leadSourcesUrl = Hooks.prop.getProperty("leadSourcesUrl");
-
 		Assert.assertNotNull("leadSourcesUrl is missing in config", leadSourcesUrl);
-
 		String fullUrl = baseUrl + leadSourcesUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openLeadSourcesPage(fullUrl);
-
 		Assert.assertTrue("Lead Sources page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/LeadSources"));
 	}
@@ -56,17 +51,12 @@ public class setupstep {
 
 	@And("the user should be able to view Wellness Points page")
 	public void userShouldViewWellnessPointsPage() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String wellnessSettingUrl = Hooks.prop.getProperty("wellnessSettingUrl");
-
 		Assert.assertNotNull("wellnessSettingUrl is missing in config", wellnessSettingUrl);
-
 		String fullUrl = baseUrl + wellnessSettingUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openWellnessSettingPage(fullUrl);
-
 		Assert.assertTrue("Wellness Points page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/WellnessSetting"));
 	}
@@ -111,17 +101,12 @@ public class setupstep {
 
 	@And("the user should be able to view Special Service page")
 	public void userShouldViewSpecialServicePage() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String specialServicesUrl = Hooks.prop.getProperty("specialServicesUrl");
-
 		Assert.assertNotNull("specialServicesUrl is missing in config", specialServicesUrl);
-
 		String fullUrl = baseUrl + specialServicesUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openSpecialServicesPage(fullUrl);
-
 		Assert.assertTrue("Special Service page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/SpecialServices"));
 	}
@@ -141,17 +126,12 @@ public class setupstep {
 
 	@And("the user should be able to view Partner Type page")
 	public void userShouldViewPartnerTypePage() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String partnerTypesUrl = Hooks.prop.getProperty("partnerTypesUrl");
-
 		Assert.assertNotNull("partnerTypesUrl is missing in config", partnerTypesUrl);
-
 		String fullUrl = baseUrl + partnerTypesUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openPartnerTypesPage(fullUrl);
-
 		Assert.assertTrue("Partner Type page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/PartnerTypes"));
 	}
@@ -171,17 +151,12 @@ public class setupstep {
 
 	@And("the user should be able to view PBMs page")
 	public void userShouldViewPBMsPage() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String pbmsUrl = Hooks.prop.getProperty("pbmsUrl");
-
 		Assert.assertNotNull("pbmsUrl is missing in config", pbmsUrl);
-
 		String fullUrl = baseUrl + pbmsUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openPBMsPage(fullUrl);
-
 		Assert.assertTrue("PBMs page is not displayed", Hooks.driver.getCurrentUrl().contains("/Setup/Home/PBMs"));
 	}
 
@@ -200,17 +175,12 @@ public class setupstep {
 
 	@And("the user should be able to view Bin Masters page")
 	public void userShouldViewBinMastersPage() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String binMastersUrl = Hooks.prop.getProperty("binMastersUrl");
-
 		Assert.assertNotNull("binMastersUrl is missing in config", binMastersUrl);
-
 		String fullUrl = baseUrl + binMastersUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openBinMastersPage(fullUrl);
-
 		Assert.assertTrue("Bin Masters page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/BINMasters"));
 	}
@@ -230,17 +200,12 @@ public class setupstep {
 
 	@And("the user should be able to view PayorCategories page")
 	public void userShouldViewPayorCategoriesPage() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String payorCategoriesUrl = Hooks.prop.getProperty("payorCategoriesUrl");
-
 		Assert.assertNotNull("payorCategoriesUrl is missing in config", payorCategoriesUrl);
-
 		String fullUrl = baseUrl + payorCategoriesUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openPayorCategoriesPage(fullUrl);
-
 		Assert.assertTrue("Payor Categories page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/PayorCategories"));
 	}
@@ -260,17 +225,12 @@ public class setupstep {
 
 	@And("the user should be able to view Employee Number Setting page")
 	public void userShouldViewEmployeeNumberSettingPage() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String employeeNumberSettingUrl = Hooks.prop.getProperty("employeeNumberSettingUrl");
-
 		Assert.assertNotNull("employeeNumberSettingUrl is missing in config", employeeNumberSettingUrl);
-
 		String fullUrl = baseUrl + employeeNumberSettingUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openEmployeeNumberSettingPage(fullUrl);
-
 		Assert.assertTrue("Employee Number Setting page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/EmployeeNumberSetting"));
 	}
@@ -290,17 +250,12 @@ public class setupstep {
 
 	@And("the user should be able to view Access Code Type page")
 	public void userShouldViewAccessCodeTypePage() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String accessCodeTypesUrl = Hooks.prop.getProperty("accessCodeTypesUrl");
-
 		Assert.assertNotNull("accessCodeTypesUrl is missing in config", accessCodeTypesUrl);
-
 		String fullUrl = baseUrl + accessCodeTypesUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openAccessCodeTypesPage(fullUrl);
-
 		Assert.assertTrue("Access Code Type page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/AccesscodeTypes"));
 	}
@@ -320,17 +275,12 @@ public class setupstep {
 
 	@And("the user should be able to view Checklist page")
 	public void userShouldViewChecklistPage() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String checkListsUrl = Hooks.prop.getProperty("checkListsUrl");
-
 		Assert.assertNotNull("checkListsUrl is missing in config", checkListsUrl);
-
 		String fullUrl = baseUrl + checkListsUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openCheckListsPage(fullUrl);
-
 		Assert.assertTrue("Checklist page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/CheckLists"));
 	}
@@ -350,17 +300,12 @@ public class setupstep {
 
 	@And("the user should be able to view Delivery Markers page")
 	public void userShouldViewDeliveryMarkersPage() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String deliveryMarkersUrl = Hooks.prop.getProperty("deliveryMarkersUrl");
-
 		Assert.assertNotNull("deliveryMarkersUrl is missing in config", deliveryMarkersUrl);
-
 		String fullUrl = baseUrl + deliveryMarkersUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openDeliveryMarkersPage(fullUrl);
-
 		Assert.assertTrue("Delivery Markers page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/DeliveryMarkers"));
 	}
@@ -380,17 +325,12 @@ public class setupstep {
 
 	@And("the user should be able to view Logistic Companies page")
 	public void userShouldViewLogisticCompaniesPage() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String logisticCompaniesUrl = Hooks.prop.getProperty("logisticCompaniesUrl");
-
 		Assert.assertNotNull("logisticCompaniesUrl is missing in config", logisticCompaniesUrl);
-
 		String fullUrl = baseUrl + logisticCompaniesUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openLogisticCompaniesPage(fullUrl);
-
 		Assert.assertTrue("Logistic Companies page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/LogisticCompanies"));
 	}
@@ -410,17 +350,12 @@ public class setupstep {
 
 	@And("the user should be able to view Delivery Distances page")
 	public void userShouldViewDeliveryDistancesPage() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String deliveryDistancesUrl = Hooks.prop.getProperty("deliveryDistancesUrl");
-
 		Assert.assertNotNull("deliveryDistancesUrl is missing in config", deliveryDistancesUrl);
-
 		String fullUrl = baseUrl + deliveryDistancesUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openDeliveryDistancesPage(fullUrl);
-
 		Assert.assertTrue("Delivery Distances page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/DeliveryDistances"));
 	}
@@ -440,17 +375,12 @@ public class setupstep {
 
 	@And("the user should be able to view Package Restriction page")
 	public void userShouldViewPackageRestrictionPage() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String packageRestrictionUrl = Hooks.prop.getProperty("packageRestrictionUrl");
-
 		Assert.assertNotNull("packageRestrictionUrl is missing in config", packageRestrictionUrl);
-
 		String fullUrl = baseUrl + packageRestrictionUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openPackageRestrictionPage(fullUrl);
-
 		Assert.assertTrue("Package Restriction page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/PackageRestriction"));
 	}
@@ -470,17 +400,12 @@ public class setupstep {
 
 	@And("the user should be able to view ComplianceDepartments page")
 	public void userShouldViewComplianceDepartmentsPage() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String complianceDepartmentsUrl = Hooks.prop.getProperty("complianceDepartmentsUrl");
-
 		Assert.assertNotNull("complianceDepartmentsUrl is missing in config", complianceDepartmentsUrl);
-
 		String fullUrl = baseUrl + complianceDepartmentsUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openComplianceDepartmentsPage(fullUrl);
-
 		Assert.assertTrue("Compliance Departments page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/ComplianceDepartments"));
 	}
@@ -500,17 +425,12 @@ public class setupstep {
 
 	@And("the user should be able to view Compliance Categories page")
 	public void userShouldViewComplianceCategoriesPage() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String complianceCategoriesUrl = Hooks.prop.getProperty("complianceCategoriesUrl");
-
 		Assert.assertNotNull("complianceCategoriesUrl is missing in config", complianceCategoriesUrl);
-
 		String fullUrl = baseUrl + complianceCategoriesUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openComplianceCategoriesPage(fullUrl);
-
 		Assert.assertTrue("Compliance Categories page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/ComplianceCategories"));
 	}
@@ -530,17 +450,12 @@ public class setupstep {
 
 	@And("the user should be able to view Invoice Flags page")
 	public void userShouldViewInvoiceFlagsPage() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String invoiceFlagsUrl = Hooks.prop.getProperty("invoiceFlagsUrl");
-
 		Assert.assertNotNull("invoiceFlagsUrl is missing in config", invoiceFlagsUrl);
-
 		String fullUrl = baseUrl + invoiceFlagsUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openInvoiceFlagsPage(fullUrl);
-
 		Assert.assertTrue("Invoice Flags page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/InvoiceFlags"));
 	}
@@ -560,17 +475,12 @@ public class setupstep {
 
 	@And("the user should be able to view CMS 1500 Templates page")
 	public void userShouldViewCms1500TemplatesPage() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String cms1500TemplatesUrl = Hooks.prop.getProperty("cms1500TemplatesUrl");
-
 		Assert.assertNotNull("cms1500TemplatesUrl is missing in config", cms1500TemplatesUrl);
-
 		String fullUrl = baseUrl + cms1500TemplatesUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openCms1500TemplatesPage(fullUrl);
-
 		Assert.assertTrue("CMS 1500 Templates page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/CMS1500Templates"));
 	}
@@ -590,17 +500,12 @@ public class setupstep {
 
 	@And("the user should be able to view Claim Document Checklist page")
 	public void userShouldViewClaimDocumentChecklistPage() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String claimDocumentChecklistsUrl = Hooks.prop.getProperty("claimDocumentChecklistsUrl");
-
 		Assert.assertNotNull("claimDocumentChecklistsUrl is missing in config", claimDocumentChecklistsUrl);
-
 		String fullUrl = baseUrl + claimDocumentChecklistsUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openClaimDocumentChecklistsPage(fullUrl);
-
 		Assert.assertTrue("Claim Document Checklist page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/ClaimDocumentChecklists"));
 	}
@@ -620,17 +525,12 @@ public class setupstep {
 
 	@And("the user should be able to view EOB Intervention Types page")
 	public void userShouldViewEobInterventionTypesPage() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String eobInterventionTypesUrl = Hooks.prop.getProperty("eobInterventionTypesUrl");
-
 		Assert.assertNotNull("eobInterventionTypesUrl is missing in config", eobInterventionTypesUrl);
-
 		String fullUrl = baseUrl + eobInterventionTypesUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openEobInterventionTypesPage(fullUrl);
-
 		Assert.assertTrue("EOB Intervention Types page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/EOBInterventiontypes"));
 	}
@@ -650,17 +550,12 @@ public class setupstep {
 
 	@And("the user should be able to view Claim Types page")
 	public void userShouldViewClaimTypesPage() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String claimTypesUrl = Hooks.prop.getProperty("claimTypesUrl");
-
 		Assert.assertNotNull("claimTypesUrl is missing in config", claimTypesUrl);
-
 		String fullUrl = baseUrl + claimTypesUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openClaimTypesPage(fullUrl);
-
 		Assert.assertTrue("Claim Types page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/ClaimTypes"));
 	}
@@ -680,17 +575,12 @@ public class setupstep {
 
 	@And("the user should be able to view Claim Status page")
 	public void userShouldViewClaimStatusPage() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String claimStatusesUrl = Hooks.prop.getProperty("claimStatusesUrl");
-
 		Assert.assertNotNull("claimStatusesUrl is missing in config", claimStatusesUrl);
-
 		String fullUrl = baseUrl + claimStatusesUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openClaimStatusesPage(fullUrl);
-
 		Assert.assertTrue("Claim Status page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/ClaimStatuses"));
 	}
@@ -710,17 +600,12 @@ public class setupstep {
 
 	@And("the user should be able to view Bill Status page")
 	public void userShouldViewBillStatusPage() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String billStatusesUrl = Hooks.prop.getProperty("billStatusesUrl");
-
 		Assert.assertNotNull("billStatusesUrl is missing in config", billStatusesUrl);
-
 		String fullUrl = baseUrl + billStatusesUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openBillStatusesPage(fullUrl);
-
 		Assert.assertTrue("Bill Status page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/BillStatuses"));
 	}
@@ -740,17 +625,12 @@ public class setupstep {
 
 	@And("the user should be able to view Billing Setting page")
 	public void userShouldViewBillingSettingPage() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String billingSettingUrl = Hooks.prop.getProperty("billingSettingUrl");
-
 		Assert.assertNotNull("billingSettingUrl is missing in config", billingSettingUrl);
-
 		String fullUrl = baseUrl + billingSettingUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openBillingSettingPage(fullUrl);
-
 		Assert.assertTrue("Billing Setting page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/BillingSetting"));
 	}
@@ -770,17 +650,12 @@ public class setupstep {
 
 	@And("the user should be able to view Add Referral Category page")
 	public void verifyAddReferralCategoryPageIsVisible() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String referralCategoriesUrl = Hooks.prop.getProperty("referralCategoriesUrl");
-
 		Assert.assertNotNull("referralCategoriesUrl is missing in config", referralCategoriesUrl);
-
 		String fullUrl = baseUrl + referralCategoriesUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openReferralCategoriesPage(fullUrl);
-
 		Assert.assertTrue("Referral Categories page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/ReferralCategories"));
 	}
@@ -800,17 +675,12 @@ public class setupstep {
 
 	@And("the user should be able to view Add Audience Type page")
 	public void userShouldViewAddAudienceTypePage() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String audienceTypesUrl = Hooks.prop.getProperty("audienceTypesUrl");
-
 		Assert.assertNotNull("audienceTypesUrl is missing in config", audienceTypesUrl);
-
 		String fullUrl = baseUrl + audienceTypesUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openAudienceTypesPage(fullUrl);
-
 		Assert.assertTrue("Audience Types page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/AudienceTypes"));
 	}
@@ -830,17 +700,12 @@ public class setupstep {
 
 	@And("the user should be able to view Promotion Form Text Setting page")
 	public void userShouldViewPromotionFormTextSettingPage() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String promotionFormTextSettingUrl = Hooks.prop.getProperty("promotionFormTextSettingUrl");
-
 		Assert.assertNotNull("promotionFormTextSettingUrl is missing in config", promotionFormTextSettingUrl);
-
 		String fullUrl = baseUrl + promotionFormTextSettingUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openPromotionFormTextSettingPage(fullUrl);
-
 		Assert.assertTrue("Promotion Form Text Setting page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/PromotionFormTextSetting"));
 	}
@@ -860,17 +725,12 @@ public class setupstep {
 
 	@And("the user should be able to view Promotion Categories page")
 	public void userShouldBeAbleToViewPromotionCategoriesPage() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String promotionCategoriesUrl = Hooks.prop.getProperty("promotionCategoriesUrl");
-
 		Assert.assertNotNull("promotionCategoriesUrl is missing in config", promotionCategoriesUrl);
-
 		String fullUrl = baseUrl + promotionCategoriesUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openPromotionCategoriesPage(fullUrl);
-
 		Assert.assertTrue("Promotion Categories page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/PromotionCategories"));
 	}
@@ -890,17 +750,12 @@ public class setupstep {
 
 	@And("the user should be able to view Form Categories page")
 	public void userShouldBeAbleToViewFormCategoriesPage() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String formCategoriesUrl = Hooks.prop.getProperty("formCategoriesUrl");
-
 		Assert.assertNotNull("formCategoriesUrl is missing in config", formCategoriesUrl);
-
 		String fullUrl = baseUrl + formCategoriesUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openFormCategoriesPage(fullUrl);
-
 		Assert.assertTrue("Form Categories page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/FormsCategories"));
 	}
@@ -920,17 +775,12 @@ public class setupstep {
 
 	@And("the user should be able to view Templates page")
 	public void userShouldBeAbleToViewTemplatesPage() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String templatesUrl = Hooks.prop.getProperty("templatesUrl");
-
 		Assert.assertNotNull("templatesUrl is missing in config", templatesUrl);
-
 		String fullUrl = baseUrl + templatesUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openTemplatesPage(fullUrl);
-
 		Assert.assertTrue("Templates page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/Templates"));
 	}
@@ -950,17 +800,12 @@ public class setupstep {
 
 	@And("the user should be able to view Service page")
 	public void userShouldBeAbleToViewServicePage() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String servicesUrl = Hooks.prop.getProperty("servicesUrl");
-
 		Assert.assertNotNull("servicesUrl is missing in config", servicesUrl);
-
 		String fullUrl = baseUrl + servicesUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openServicesPage(fullUrl);
-
 		Assert.assertTrue("Service page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/Services"));
 	}
@@ -980,17 +825,12 @@ public class setupstep {
 
 	@And("the user should be able to view Specialty page")
 	public void userShouldBeAbleToViewSpecialtyPage() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String specialtiesUrl = Hooks.prop.getProperty("specialtiesUrl");
-
 		Assert.assertNotNull("specialtiesUrl is missing in config", specialtiesUrl);
-
 		String fullUrl = baseUrl + specialtiesUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openSpecialtiesPage(fullUrl);
-
 		Assert.assertTrue("Specialty page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/Specialties"));
 	}
@@ -1010,17 +850,12 @@ public class setupstep {
 
 	@And("the user should be able to view Category page")
 	public void shouldUserBeAbleToViewCategoryPage() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String categoriesUrl = Hooks.prop.getProperty("categoriesUrl");
-
 		Assert.assertNotNull("categoriesUrl is missing in config", categoriesUrl);
-
 		String fullUrl = baseUrl + categoriesUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openCategoriesPage(fullUrl);
-
 		Assert.assertTrue("Category page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/Categories"));
 	}
@@ -1040,17 +875,12 @@ public class setupstep {
 
 	@And("the user should be able to view Provider Type page")
 	public void shouldUserBeAbleToViewProviderTypePage() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String providerTypesUrl = Hooks.prop.getProperty("providerTypesUrl");
-
 		Assert.assertNotNull("providerTypesUrl is missing in config", providerTypesUrl);
-
 		String fullUrl = baseUrl + providerTypesUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openProviderTypesPage(fullUrl);
-
 		Assert.assertTrue("Provider Type page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/ProviderTypes"));
 	}
@@ -1070,17 +900,12 @@ public class setupstep {
 
 	@And("the user should be able to view CPT Code page")
 	public void shouldUserBeAbleToViewCPTCodePage() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String cptCodesUrl = Hooks.prop.getProperty("cptCodesUrl");
-
 		Assert.assertNotNull("cptCodesUrl is missing in config", cptCodesUrl);
-
 		String fullUrl = baseUrl + cptCodesUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openCPTCodesPage(fullUrl);
-
 		Assert.assertTrue("CPT Code page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/CPTCodes"));
 	}
@@ -1100,18 +925,13 @@ public class setupstep {
 
 	@And("the user should be able to view Patient RemoteMonitoring Status page")
 	public void shouldUserBeAbleToViewPatientRemoteMonitoringStatusPage() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String patientRemoteMonitoringStatusesUrl = Hooks.prop.getProperty("patientRemoteMonitoringStatusesUrl");
-
 		Assert.assertNotNull("patientRemoteMonitoringStatusesUrl is missing in config",
 				patientRemoteMonitoringStatusesUrl);
-
 		String fullUrl = baseUrl + patientRemoteMonitoringStatusesUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openPatientRemoteMonitoringStatusesPage(fullUrl);
-
 		Assert.assertTrue("Patient Remote Monitoring Status page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/PatientRemoteMonitoringStatuses"));
 	}
@@ -1131,17 +951,12 @@ public class setupstep {
 
 	@And("the user should be able to view Registered Devices page")
 	public void shouldUserBeAbleToViewRegisteredDevicesPage() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String registeredDevicesUrl = Hooks.prop.getProperty("registeredDevicesUrl");
-
 		Assert.assertNotNull("registeredDevicesUrl is missing in config", registeredDevicesUrl);
-
 		String fullUrl = baseUrl + registeredDevicesUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openRegisteredDevicesPage(fullUrl);
-
 		Assert.assertTrue("Registered Devices page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/RegisteredDevices"));
 	}
@@ -1161,17 +976,12 @@ public class setupstep {
 
 	@And("the user should be able to view Encounter Status page")
 	public void shouldUserBeAbleToViewEncounterStatusPage() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String clinicalEncounterStatusesUrl = Hooks.prop.getProperty("clinicalEncounterStatusesUrl");
-
 		Assert.assertNotNull("clinicalEncounterStatusesUrl is missing in config", clinicalEncounterStatusesUrl);
-
 		String fullUrl = baseUrl + clinicalEncounterStatusesUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openClinicalEncounterStatusesPage(fullUrl);
-
 		Assert.assertTrue("Encounter Status page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/ClinicalEncounterStatuses"));
 	}
@@ -1191,17 +1001,12 @@ public class setupstep {
 
 	@And("the user should be able to view ROS Group Type page")
 	public void shouldUserBeAbleToViewROSGroupTypePage() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String rosGroupTypesUrl = Hooks.prop.getProperty("rosGroupTypesUrl");
-
 		Assert.assertNotNull("rosGroupTypesUrl is missing in config", rosGroupTypesUrl);
-
 		String fullUrl = baseUrl + rosGroupTypesUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openROSGroupTypesPage(fullUrl);
-
 		Assert.assertTrue("ROS Group Type page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/ROSGroupTypes"));
 	}
@@ -1221,17 +1026,12 @@ public class setupstep {
 
 	@And("the user should be able to view Remote Monitoring Parameter page")
 	public void shouldUserBeAbleToViewRemoteMonitoringParameterPage() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String remoteMonitoringParametersUrl = Hooks.prop.getProperty("remoteMonitoringParametersUrl");
-
 		Assert.assertNotNull("remoteMonitoringParametersUrl is missing in config", remoteMonitoringParametersUrl);
-
 		String fullUrl = baseUrl + remoteMonitoringParametersUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openRemoteMonitoringParametersPage(fullUrl);
-
 		Assert.assertTrue("Remote Monitoring Parameter page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/RemoteMonitoringParameters"));
 	}
@@ -1251,17 +1051,12 @@ public class setupstep {
 
 	@And("the user should be able to view Outcome Of Action page")
 	public void shouldUserBeAbleToViewOutcomeOfActionPage() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String outcomeActionsUrl = Hooks.prop.getProperty("outcomeActionsUrl");
-
 		Assert.assertNotNull("outcomeActionsUrl is missing in config", outcomeActionsUrl);
-
 		String fullUrl = baseUrl + outcomeActionsUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openOutcomeActionsPage(fullUrl);
-
 		Assert.assertTrue("Outcome Of Action page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/OutcomeActions"));
 	}
@@ -1281,17 +1076,12 @@ public class setupstep {
 
 	@And("the user should be able to view ROSs page")
 	public void shouldUserBeAbleToViewROSPage() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String rossUrl = Hooks.prop.getProperty("rossUrl");
-
 		Assert.assertNotNull("rossUrl is missing in config", rossUrl);
-
 		String fullUrl = baseUrl + rossUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openROSSPage(fullUrl);
-
 		Assert.assertTrue("ROSs page is not displayed", Hooks.driver.getCurrentUrl().contains("/Setup/Home/ROSs"));
 	}
 
@@ -1310,17 +1100,12 @@ public class setupstep {
 
 	@And("the user should be able to view Clinical Interventions page")
 	public void shouldUserBeAbleToViewClinicalInterventionsPage() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String clinicalInterventionsUrl = Hooks.prop.getProperty("clinicalInterventionsUrl");
-
 		Assert.assertNotNull("clinicalInterventionsUrl is missing in config", clinicalInterventionsUrl);
-
 		String fullUrl = baseUrl + clinicalInterventionsUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openClinicalInterventionsPage(fullUrl);
-
 		Assert.assertTrue("Clinical Interventions page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/ClinicalInterventions"));
 	}
@@ -1340,17 +1125,12 @@ public class setupstep {
 
 	@And("the user should be able to view Community Resource page")
 	public void shouldUserBeAbleToViewCommunityResourcePage() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String communityResourcesUrl = Hooks.prop.getProperty("communityResourcesUrl");
-
 		Assert.assertNotNull("communityResourcesUrl is missing in config", communityResourcesUrl);
-
 		String fullUrl = baseUrl + communityResourcesUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openCommunityResourcesPage(fullUrl);
-
 		Assert.assertTrue("Community Resource page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/CommunityResources"));
 	}
@@ -1370,17 +1150,12 @@ public class setupstep {
 
 	@And("the user should be able to view Barrier page")
 	public void shouldUserBeAbleToViewBarrierPage() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String barriersUrl = Hooks.prop.getProperty("barriersUrl");
-
 		Assert.assertNotNull("barriersUrl is missing in config", barriersUrl);
-
 		String fullUrl = baseUrl + barriersUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openBarriersPage(fullUrl);
-
 		Assert.assertTrue("Barrier page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/Barriers"));
 	}
@@ -1400,17 +1175,12 @@ public class setupstep {
 
 	@And("the user should be able to view Goals Of Treatments page")
 	public void shouldUserBeAbleToViewGoalsOfTreatmentsPage() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String goalsOfTreatmentsUrl = Hooks.prop.getProperty("goalsOfTreatmentsUrl");
-
 		Assert.assertNotNull("goalsOfTreatmentsUrl is missing in config", goalsOfTreatmentsUrl);
-
 		String fullUrl = baseUrl + goalsOfTreatmentsUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openGoalsOfTreatmentsPage(fullUrl);
-
 		Assert.assertTrue("Goals Of Treatments page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/GoalsOfTreatments"));
 	}
@@ -1430,17 +1200,12 @@ public class setupstep {
 
 	@And("the user should be able to view Prior Authorization Type page")
 	public void shouldUserBeAbleToViewPriorAuthorizationTypePage() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String priorAuthorizationTypesUrl = Hooks.prop.getProperty("priorAuthorizationTypesUrl");
-
 		Assert.assertNotNull("priorAuthorizationTypesUrl is missing in config", priorAuthorizationTypesUrl);
-
 		String fullUrl = baseUrl + priorAuthorizationTypesUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openPriorAuthorizationTypesPage(fullUrl);
-
 		Assert.assertTrue("Prior Authorization Type page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/PriorAuthorizationTypes"));
 	}
@@ -1460,17 +1225,12 @@ public class setupstep {
 
 	@And("the user should be able to view Clininc Locations page")
 	public void shouldUserBeAbleToViewClinicLocationsPage() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String clinicLocationsUrl = Hooks.prop.getProperty("clinicLocationsUrl");
-
 		Assert.assertNotNull("clinicLocationsUrl is missing in config", clinicLocationsUrl);
-
 		String fullUrl = baseUrl + clinicLocationsUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openClinicLocationsPage(fullUrl);
-
 		Assert.assertTrue("Clinic Locations page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/ClinicLocations"));
 	}
@@ -1490,17 +1250,12 @@ public class setupstep {
 
 	@And("the user should be able to view Appointment Reminder Setting page")
 	public void shouldUserBeAbleToViewAppointmentReminderSettingsPage() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String appointmentReminderSettingUrl = Hooks.prop.getProperty("appointmentReminderSettingUrl");
-
 		Assert.assertNotNull("appointmentReminderSettingUrl is missing in config", appointmentReminderSettingUrl);
-
 		String fullUrl = baseUrl + appointmentReminderSettingUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openAppointmentReminderSettingPage(fullUrl);
-
 		Assert.assertTrue("Appointment Reminder Setting page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/AppointmentReminderSetting"));
 	}
@@ -1520,17 +1275,12 @@ public class setupstep {
 
 	@And("the user should be able to view Clinical Upload Wizard Templates page")
 	public void shouldUserBeAbleToViewClinicalUploadWizardTemplatesPage() throws InterruptedException {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String uploadWizardTemplatesUrl = Hooks.prop.getProperty("uploadWizardTemplatesUrl");
-
 		Assert.assertNotNull("uploadWizardTemplatesUrl is missing in config", uploadWizardTemplatesUrl);
-
 		String fullUrl = baseUrl + uploadWizardTemplatesUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openUploadWizardClinicalQueueTemplatesPage(fullUrl);
-
 		Assert.assertTrue("Upload Wizard Clinical Queue Templates page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/UploadWizardClinicalQueueTemplates"));
 	}
@@ -1552,14 +1302,10 @@ public class setupstep {
 	public void shouldUserBeAbleToViewUploadWizardSettingsPage() throws InterruptedException {
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String clinicalQueueSettingUrl = Hooks.prop.getProperty("clinicalQueueSettingUrl");
-
 		Assert.assertNotNull("clinicalQueueSettingUrl is missing in config", clinicalQueueSettingUrl);
-
 		String fullUrl = baseUrl + clinicalQueueSettingUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openClinicalQueueSettingPage(fullUrl);
-
 		Assert.assertTrue("Upload Wizard Settings page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/ClinicalQueueSetting"));
 	}
@@ -1581,14 +1327,10 @@ public class setupstep {
 	public void shouldUserBeAbleToViewClinicalQueuesPage() throws InterruptedException {
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String clinicalQueuesUrl = Hooks.prop.getProperty("clinicalQueuesUrl");
-
 		Assert.assertNotNull("clinicalQueuesUrl is missing in config", clinicalQueuesUrl);
-
 		String fullUrl = baseUrl + clinicalQueuesUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openClinicalQueuesPage(fullUrl);
-
 		Assert.assertTrue("Clinical Queues page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/ClinicalQueues"));
 	}
@@ -1610,14 +1352,10 @@ public class setupstep {
 	public void userShouldBeAbleToViewPrescriptionStatusPage() throws InterruptedException {
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String prescriptionStatusUrl = Hooks.prop.getProperty("prescriptionStatusUrl");
-
 		Assert.assertNotNull("prescriptionStatusUrl is missing in config", prescriptionStatusUrl);
-
 		String fullUrl = baseUrl + prescriptionStatusUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openPrescriptionStatusPage(fullUrl);
-
 		Assert.assertTrue("Prescription Status page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/PrescriptionStatuses"));
 	}
@@ -1639,14 +1377,10 @@ public class setupstep {
 	public void userShouldBeAbleToViewProgram340BPage() throws InterruptedException {
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String program340BUrl = Hooks.prop.getProperty("program340BUrl");
-
 		Assert.assertNotNull("program340BUrl is missing in config", program340BUrl);
-
 		String fullUrl = baseUrl + program340BUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openProgram340BPage(fullUrl);
-
 		Assert.assertTrue("Program 340B page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/Program340Bs"));
 	}
@@ -1668,14 +1402,10 @@ public class setupstep {
 	public void userShouldBeAbleToViewOutgoingCallTypesPage() throws InterruptedException {
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String outgoingCallTypesUrl = Hooks.prop.getProperty("outgoingCallTypesUrl");
-
 		Assert.assertNotNull("outgoingCallTypesUrl is missing in config", outgoingCallTypesUrl);
-
 		String fullUrl = baseUrl + outgoingCallTypesUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openOutgoingCallTypesPage(fullUrl);
-
 		Assert.assertTrue("Outgoing Call Types page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/OutgoingCalls"));
 	}
@@ -1697,14 +1427,10 @@ public class setupstep {
 	public void userShouldBeAbleToViewIncomingCallTypesPage() throws InterruptedException {
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String incomingCallTypesUrl = Hooks.prop.getProperty("incomingCallTypesUrl");
-
 		Assert.assertNotNull("incomingCallTypesUrl is missing in config", incomingCallTypesUrl);
-
 		String fullUrl = baseUrl + incomingCallTypesUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openIncomingCallTypesPage(fullUrl);
-
 		Assert.assertTrue("Incoming Call Types page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/IncomingCalls"));
 	}
@@ -1726,14 +1452,10 @@ public class setupstep {
 	public void userShouldBeAbleToViewRunninglineLevel2StatusPage() throws InterruptedException {
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String runninglineLevel2StatusUrl = Hooks.prop.getProperty("runninglineLevel2StatusUrl");
-
 		Assert.assertNotNull("runninglineLevel2StatusUrl is missing in config", runninglineLevel2StatusUrl);
-
 		String fullUrl = baseUrl + runninglineLevel2StatusUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openRunninglineLevel2StatusPage(fullUrl);
-
 		Assert.assertTrue("Runningline Level2 Status page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/RunninglineLevel2Statuses"));
 	}
@@ -1755,14 +1477,10 @@ public class setupstep {
 	public void userShouldBeAbleToViewRunninglineLevel1StatusPage() throws InterruptedException {
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String runninglineLevel1StatusUrl = Hooks.prop.getProperty("runninglineLevel1StatusUrl");
-
 		Assert.assertNotNull("runninglineLevel1StatusUrl is missing in config", runninglineLevel1StatusUrl);
-
 		String fullUrl = baseUrl + runninglineLevel1StatusUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openRunninglineLevel1StatusPage(fullUrl);
-
 		Assert.assertTrue("Runningline Level1 Status page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/RunninglineLevel1Statuses"));
 	}
@@ -1784,14 +1502,10 @@ public class setupstep {
 	public void userShouldBeAbleToViewRunninglineStatusPage() throws InterruptedException {
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String runninglineStatusUrl = Hooks.prop.getProperty("runninglineStatusUrl");
-
 		Assert.assertNotNull("runninglineStatusUrl is missing in config", runninglineStatusUrl);
-
 		String fullUrl = baseUrl + runninglineStatusUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openRunninglineStatusPage(fullUrl);
-
 		Assert.assertTrue("Runningline Status page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/RunninglineStatuses"));
 	}
@@ -1813,14 +1527,10 @@ public class setupstep {
 	public void verifyUserCanViewUploadWizardTemplatesPage() throws InterruptedException {
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String uploadWizardTemplateUrl = Hooks.prop.getProperty("uploadWizardTemplateUrl");
-
 		Assert.assertNotNull("uploadWizardTemplateUrl is missing in config", uploadWizardTemplateUrl);
-
 		String fullUrl = baseUrl + uploadWizardTemplateUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openUploadWizardTemplatePage(fullUrl);
-
 		Assert.assertTrue("Organization Upload Wizard Settings page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/UploadWizardTemplate"));
 	}
@@ -1842,14 +1552,10 @@ public class setupstep {
 	public void userShouldBeAbleToViewOrganizationUploadWizardSettingsPage() throws InterruptedException {
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String rxSettingPageUrl = Hooks.prop.getProperty("rxPageUrl");
-
 		Assert.assertNotNull("rxSettingPageUrl is missing in config", rxSettingPageUrl);
-
 		String fullUrl = baseUrl + rxSettingPageUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openRxSettingPage(fullUrl);
-
 		Assert.assertTrue("Organization Upload Wizard Settings page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/RxSetting"));
 	}
@@ -1871,14 +1577,10 @@ public class setupstep {
 	public void userShouldBeAbleToViewQueuesPage() throws InterruptedException {
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String queuesPageUrl = Hooks.prop.getProperty("queuesPageUrl");
-
 		Assert.assertNotNull("queuesPageUrl is missing in config", queuesPageUrl);
-
 		String fullUrl = baseUrl + queuesPageUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openQueuesPage(fullUrl);
-
 		Assert.assertTrue("Queues page is not displayed", Hooks.driver.getCurrentUrl().contains("/Setup/Home/Queues"));
 	}
 
@@ -1899,14 +1601,10 @@ public class setupstep {
 	public void userShouldBeAbleToViewCallScriptsPage() throws InterruptedException {
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String callScriptsPageUrl = Hooks.prop.getProperty("callScriptsPageUrl");
-
 		Assert.assertNotNull("callScriptsPageUrl is missing in config", callScriptsPageUrl);
-
 		String fullUrl = baseUrl + callScriptsPageUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openCallScriptsPage(fullUrl);
-
 		Assert.assertTrue("Call Scripts page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/CallScripts"));
 	}
@@ -1928,14 +1626,10 @@ public class setupstep {
 	public void userShouldBeAbleToViewTransferResultActionsPage() throws InterruptedException {
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String transferResultActionsPageUrl = Hooks.prop.getProperty("transferResultActionsPageUrl");
-
 		Assert.assertNotNull("transferResultActionsPageUrl is missing in config", transferResultActionsPageUrl);
-
 		String fullUrl = baseUrl + transferResultActionsPageUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openTransferResultActionsPage(fullUrl);
-
 		Assert.assertTrue("Transfer Result Actions page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/TransferResultActions"));
 	}
@@ -1957,14 +1651,10 @@ public class setupstep {
 	public void userShouldBeAbleToViewFailureResultActionsPage() throws InterruptedException {
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String failureResultActionsPageUrl = Hooks.prop.getProperty("failureResultActionsPageUrl");
-
 		Assert.assertNotNull("failureResultActionsPageUrl is missing in config", failureResultActionsPageUrl);
-
 		String fullUrl = baseUrl + failureResultActionsPageUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openFailureResultActionsPage(fullUrl);
-
 		Assert.assertTrue("Failure Result Actions page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/FailureResultActions"));
 	}
@@ -1986,14 +1676,10 @@ public class setupstep {
 	public void userShouldBeAbleToViewSuccessResultActionsPage() throws InterruptedException {
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String successResultActionsPageUrl = Hooks.prop.getProperty("successResultActionsPageUrl");
-
 		Assert.assertNotNull("successResultActionsPageUrl is missing in config", successResultActionsPageUrl);
-
 		String fullUrl = baseUrl + successResultActionsPageUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openReminderResultActionsPage(fullUrl);
-
 		Assert.assertTrue("Success Result Actions page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/SuccessResultActions"));
 	}
@@ -2015,14 +1701,10 @@ public class setupstep {
 	public void userShouldBeAbleToViewReminderResultActionsPage() throws InterruptedException {
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String reminderResultActionsPageUrl = Hooks.prop.getProperty("reminderResultActionsPageUrl");
-
 		Assert.assertNotNull("reminderResultActionsPageUrl is missing in config", reminderResultActionsPageUrl);
-
 		String fullUrl = baseUrl + reminderResultActionsPageUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openReminderResultActionsPage(fullUrl);
-
 		Assert.assertTrue("Reminder Result Actions page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/ReminderResultActions"));
 	}
@@ -2045,15 +1727,11 @@ public class setupstep {
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String medicationSyncReminderColorCodesPageUrl = Hooks.prop
 				.getProperty("medicationSyncReminderColorCodesPageUrl");
-
 		Assert.assertNotNull("medicationSyncReminderColorCodesPageUrl is missing in config",
 				medicationSyncReminderColorCodesPageUrl);
-
 		String fullUrl = baseUrl + medicationSyncReminderColorCodesPageUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openMedicationSyncReminderColorCodesPage(fullUrl);
-
 		Assert.assertTrue("Medication Sync Reminder Color Codes page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/MedicationSyncReminderColorCodes"));
 	}
@@ -2075,15 +1753,11 @@ public class setupstep {
 	public void userShouldBeAbleToViewSyncWorkflowSettingPage() throws InterruptedException {
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String medicationSyncReminderSettingPageUrl = Hooks.prop.getProperty("medicationSyncReminderSettingPageUrl");
-
 		Assert.assertNotNull("medicationSyncReminderSettingPageUrl is missing in config",
 				medicationSyncReminderSettingPageUrl);
-
 		String fullUrl = baseUrl + medicationSyncReminderSettingPageUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openMedicationSyncReminderSettingPage(fullUrl);
-
 		Assert.assertTrue("Sync Workflow Setting page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/MedicationSyncReminderSetting"));
 	}
@@ -2106,15 +1780,11 @@ public class setupstep {
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String patientMedicationColorCodeSettingsPageUrl = Hooks.prop
 				.getProperty("patientMedicationColorCodeSettingsPageUrl");
-
 		Assert.assertNotNull("patientMedicationColorCodeSettingsPageUrl is missing in config",
 				patientMedicationColorCodeSettingsPageUrl);
-
 		String fullUrl = baseUrl + patientMedicationColorCodeSettingsPageUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openPatientMedicationColorCodeSettingsPage(fullUrl);
-
 		Assert.assertTrue("Patient Medication ColorCodes page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/PatientMedicationColorCodeSettings"));
 	}
@@ -2136,14 +1806,10 @@ public class setupstep {
 	public void userShouldBeAbleToViewIntakeFormSettingPage() throws InterruptedException {
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String intakeFormNoticeSettingPageUrl = Hooks.prop.getProperty("intakeFormNoticeSettingPageUrl");
-
 		Assert.assertNotNull("intakeFormNoticeSettingPageUrl is missing in config", intakeFormNoticeSettingPageUrl);
-
 		String fullUrl = baseUrl + intakeFormNoticeSettingPageUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openIntakeFormNoticeSettingPage(fullUrl);
-
 		Assert.assertTrue("Intake Form Setting page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/IntakeFormNoticeSetting"));
 	}
@@ -2165,14 +1831,10 @@ public class setupstep {
 	public void userShouldBeAbleToViewConsentSettingPage() throws InterruptedException {
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String patientSettingPageUrl = Hooks.prop.getProperty("patientSettingPageUrl");
-
 		Assert.assertNotNull("patientSettingPageUrl is missing in config", patientSettingPageUrl);
-
 		String fullUrl = baseUrl + patientSettingPageUrl;
-
 		setupPage = new setuppage(Hooks.driver);
 		setupPage.openPatientSettingPage(fullUrl);
-
 		Assert.assertTrue("Consent Setting page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/PatientSetting"));
 	}

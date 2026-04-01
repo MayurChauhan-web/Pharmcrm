@@ -2111,9 +2111,7 @@ public class setuppage {
 		}
 
 		wait.until(ExpectedConditions.elementToBeClickable(queueDropdownSecond)).click();
-
 		wait.until(ExpectedConditions.elementToBeClickable(btnAddRulesTooltip)).click();
-
 		wait.until(ExpectedConditions.elementToBeClickable(submitBtnLocator)).click();
 
 		try {
@@ -2678,7 +2676,6 @@ public class setuppage {
 		} catch (Exception ignored) {
 		}
 		wait.until(ExpectedConditions.elementToBeClickable(sendVCardBtn)).click();
-
 		wait.until(ExpectedConditions.elementToBeClickable(btnSendvCard)).click();
 		try {
 			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
@@ -5236,7 +5233,6 @@ public class setuppage {
 	}
 
 	// EHR Types
-
 	public void verifyUserCanDeleteEHRType() throws InterruptedException {
 		Thread.sleep(3000);
 		try {
@@ -6717,7 +6713,6 @@ public class setuppage {
 	public void verifyDeleteOptionNotAvailableForTextTemplates() throws InterruptedException {
 		Thread.sleep(3000);
 		WebElement menuButton = driver.findElement(actionMenu);
-
 		try {
 
 			menuButton.click();
@@ -6772,7 +6767,6 @@ public class setuppage {
 		driver.findElement(searchButton).click();
 		Thread.sleep(1000);
 		WebElement menuButton = driver.findElement(actionMenu);
-
 		try {
 
 			menuButton.click();
@@ -6819,19 +6813,16 @@ public class setuppage {
 		Assert.assertTrue(driver.findElements(newTextTemplateButton).isEmpty());
 		Thread.sleep(1000);
 		try {
-
 			WebElement menuButton = driver.findElement(actionMenu);
 			menuButton.click();
 			Thread.sleep(1000);
 			boolean editExists = !driver.findElements(editOption).isEmpty();
 			boolean deleteExists = !driver.findElements(deleteOption).isEmpty();
-
 			if (!editExists && !deleteExists) {
 				System.out.println("PASS: User cannot see Edit/Delete options.");
 			} else {
 				Assert.fail("FAIL: User should not see Edit/Delete options.");
 			}
-
 		} catch (Exception e) {
 			System.out.println("PASS: Action menu exists but cannot be opened (no permissions).");
 
