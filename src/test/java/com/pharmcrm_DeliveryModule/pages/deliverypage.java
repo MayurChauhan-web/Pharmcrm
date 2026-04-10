@@ -23,6 +23,39 @@ import hooks.Hooks;
 
 public class deliverypage {
 
+	// Package
+	public By packageTrackingNumberInput = By.xpath("//input[@id='Package_TrackingNumber']");
+	public By packageShippingDateInput = By.xpath("//input[@id='Package_ShippingDate']");
+	public By packageCustomerNameInput = By.xpath("//input[@id='Package_CustomerName']");
+	public By packageCustomerContactNumber1Input = By.xpath("//input[@id='Package_CustomerContactNumber1']");
+	public By packageCustomerEmailIdInput = By.xpath("//input[@id='Package_CustomerEmailId']");
+	public By packageShippingStreetInput = By.xpath("//input[@id='Package_ShippingAddress_Street']");
+	public By packageShippingCityInput = By.xpath("//input[@id='Package_ShippingAddress_City']");
+	public By packageShippingZipCodeInput = By.xpath("//input[@id='Package_ShippingAddress_ZipCode']");
+	public By savePackageCustomerAttestationButton = By
+			.xpath("//div[@id='addPackageCustomerAttestationModal']//button[@id='btnSavePackageCustomerAttestation']");
+	public By packageCustomerAttestationRxNumberInput = By.xpath("//input[@id='PackageCustomerAttestation_RxNumber']");
+	public By packageCustomerAttestationPatientNameInput = By
+			.xpath("//div[@class='model-inp requiredfield']//input[@id='PackageCustomerAttestation_PatientName']");
+	public By packageCustomerAttestationMedicationInput = By
+			.xpath("//div[@class='model-inp requiredfield']//input[@id='PackageCustomerAttestation_Medication']");
+	public By packageCustomerAttestationReceivedFromInput = By
+			.xpath("//div[@class='model-inp requiredfield']//input[@id='PackageCustomerAttestation_ReceivedFrom']");
+	public By packageCustomerAttestationFilledDateInput = By
+			.xpath("//div[@class='model-inp requiredfield']//input[@id='PackageCustomerAttestation_FilledDate']");
+	public By packageCustomerAttestationReceivedDateInput = By
+			.xpath("//div[@class='model-inp requiredfield']//input[@id='PackageCustomerAttestation_ReceivedDate']");
+	public By packageCustomerAttestationAddressReceiverInput = By
+			.xpath("//div[@class='model-inp requiredfield']//input[@id='PackageCustomerAttestation_AddressReceiver']");
+	public By packageCustomerAttestationReceiverNameInput = By
+			.xpath("//div[@class='model-inp requiredfield']//input[@id='PackageCustomerAttestation_ReceiverName']");
+	public By packageCustomerAttestationPatientRelationInput = By
+			.xpath("//div[@class='model-inp requiredfield']//input[@id='PackageCustomerAttestation_PatientRelation']");
+	public By packageCustomerAttestationPhoneNumberInput = By
+			.xpath("//div[@class='model-inp requiredfield']//input[@id='PackageCustomerAttestation_PhoneNumber']");
+	public By firstRowActionImage = By.xpath("//tbody/tr[1]/td[11]/div[1]/a[1]/img[1]");
+	public By toastMessage = By.xpath("//div[@class='toast-message']");
+
 	// Delivery Statistic Report
 	public By exportDeliveryStatisticReport = By.xpath("//span[normalize-space()='Export Excel']");
 	public By deliveryStatisticReportAll = By.xpath("//label[@for='chkg47DeliveryStatisticReportAll']");
@@ -397,6 +430,217 @@ public class deliverypage {
 	}
 
 	// Package
+	public String savePackageStatusBlankFormValidation() {
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(firstRowActionImage)).click();
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(saveStatusNotesButton)).click();
+
+		try {
+			wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(toastMessage, 0));
+			List<WebElement> toasts = driver.findElements(toastMessage);
+			StringBuilder allMessages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				if (toast.isDisplayed()) {
+					allMessages.append(toast.getText().trim()).append(" | ");
+				}
+			}
+			return "SUCCESS: Validations displayed -> " + allMessages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message(s) not displayed";
+		}
+
+	}
+
+	public String telephoneInvalidValidation() {
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(firstPackageDetailButton)).click();
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(addCustomerAttestationButton)).click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(packageCustomerAttestationRxNumberInput))
+				.sendKeys(Hooks.prop.getProperty("package.customerattestation.rxnumber.value"));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(packageCustomerAttestationPatientNameInput))
+				.sendKeys(Hooks.prop.getProperty("package.customerattestation.patientname.value"));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(packageCustomerAttestationMedicationInput))
+				.sendKeys(Hooks.prop.getProperty("package.customerattestation.medication.value"));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(packageCustomerAttestationReceivedFromInput))
+				.sendKeys(Hooks.prop.getProperty("package.customerattestation.receivedfrom.value"));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(packageCustomerAttestationFilledDateInput))
+				.sendKeys(Hooks.prop.getProperty("package.customerattestation.filleddate.value"));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(packageCustomerAttestationReceivedDateInput))
+				.sendKeys(Hooks.prop.getProperty("package.customerattestation.receiveddate.value"));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(packageCustomerAttestationAddressReceiverInput))
+				.sendKeys(Hooks.prop.getProperty("package.customerattestation.addressreceiver.value"));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(packageCustomerAttestationReceiverNameInput))
+				.sendKeys(Hooks.prop.getProperty("package.customerattestation.receivername.value"));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(packageCustomerAttestationPatientRelationInput))
+				.sendKeys(Hooks.prop.getProperty("package.customerattestation.patientrelation.value"));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(packageCustomerAttestationPhoneNumberInput))
+				.sendKeys(Hooks.prop.getProperty("package.customerattestation.phonenumber.invalidvalue"));
+		wait.until(ExpectedConditions.elementToBeClickable(savePackageCustomerAttestationButton)).click();
+
+		try {
+			wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(toastMessage, 0));
+			List<WebElement> toasts = driver.findElements(toastMessage);
+			StringBuilder allMessages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				if (toast.isDisplayed()) {
+					allMessages.append(toast.getText().trim()).append(" | ");
+				}
+			}
+			return "SUCCESS: Validations displayed -> " + allMessages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message(s) not displayed";
+		}
+
+	}
+
+	public String addCustomerAttestationBlankValidation() {
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(firstPackageDetailButton)).click();
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(addCustomerAttestationButton)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(savePackageCustomerAttestationButton)).click();
+
+		try {
+			wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(toastMessage, 0));
+			List<WebElement> toasts = driver.findElements(toastMessage);
+			StringBuilder allMessages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				if (toast.isDisplayed()) {
+					allMessages.append(toast.getText().trim()).append(" | ");
+				}
+			}
+			return "SUCCESS: Validations displayed -> " + allMessages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message(s) not displayed";
+		}
+
+	}
+
+	public String invalidEmailZipContactValidation() {
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newPackageButton)).click();
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(nextButton)).click();
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(packageTrackingNumberInput))
+				.sendKeys(Hooks.prop.getProperty("package.trackingnumber.value"));
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(packageShippingDateInput))
+				.sendKeys(Hooks.prop.getProperty("package.shippingdate.value"));
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(packageCustomerNameInput))
+				.sendKeys(Hooks.prop.getProperty("package.customername.value"));
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(packageCustomerContactNumber1Input))
+				.sendKeys(Hooks.prop.getProperty("package.customercontactnumber1.invalidvalue"));
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(packageCustomerEmailIdInput))
+				.sendKeys(Hooks.prop.getProperty("package.customeremailid.invalidvalue"));
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(packageShippingStreetInput))
+				.sendKeys(Hooks.prop.getProperty("package.shippingstreet.value"));
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(packageShippingCityInput))
+				.sendKeys(Hooks.prop.getProperty("package.shippingcity.value"));
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(packageShippingZipCodeInput))
+				.sendKeys(Hooks.prop.getProperty("package.shippingzipcode.invalidvalue"));
+
+		wait.until(ExpectedConditions.elementToBeClickable(packageRestrictionsaveButton)).click();
+
+		try {
+			wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(toastMessage, 0));
+			List<WebElement> toasts = driver.findElements(toastMessage);
+			StringBuilder allMessages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				if (toast.isDisplayed()) {
+					allMessages.append(toast.getText().trim()).append(" | ");
+				}
+			}
+			return "SUCCESS: Validations displayed -> " + allMessages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message(s) not displayed";
+		}
+
+	}
+
+	public String addPackageBlankFormValidation() {
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newPackageButton)).click();
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(nextButton)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(packageRestrictionsaveButton)).click();
+
+		try {
+			wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(toastMessage, 0));
+			List<WebElement> toasts = driver.findElements(toastMessage);
+			StringBuilder allMessages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				if (toast.isDisplayed()) {
+					allMessages.append(toast.getText().trim()).append(" | ");
+				}
+			}
+			return "SUCCESS: Validations displayed -> " + allMessages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message(s) not displayed";
+		}
+
+	}
+
 	public void openLogisticCompanyPage(String fullUrl) {
 		driver.get(fullUrl);
 		wait.until(ExpectedConditions.urlContains("/Setup/Home/LogisticCompanies"));
@@ -638,6 +882,11 @@ public class deliverypage {
 	public void packagesPagePath(String url) {
 		driver.get(url);
 		wait.until(ExpectedConditions.urlContains("/Delivery/Home/Packages?category=1"));
+	}
+
+	public void deliveredPackages(String url) {
+		driver.get(url);
+		wait.until(ExpectedConditions.urlContains("/Delivery/Home/Packages?category=3"));
 	}
 
 	public void assertElementNotPresent(By locator) {
@@ -1356,6 +1605,33 @@ public class deliverypage {
 	}
 
 	// Manifest
+	public String addManifestBlankFormValidation() {
+
+		try {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		} catch (Exception ignored) {
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newManifestButton)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(packageRestrictionsaveButton)).click();
+
+		try {
+			wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(toastMessage, 0));
+			List<WebElement> toasts = driver.findElements(toastMessage);
+			StringBuilder allMessages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				if (toast.isDisplayed()) {
+					allMessages.append(toast.getText().trim()).append(" | ");
+				}
+			}
+			return "SUCCESS: Validations displayed -> " + allMessages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message(s) not displayed";
+		}
+
+	}
+
 	public void testPrintManifestFunctionality() {
 		sleep(2000);
 		wait.until(ExpectedConditions.elementToBeClickable(firstManifestActionMenu));

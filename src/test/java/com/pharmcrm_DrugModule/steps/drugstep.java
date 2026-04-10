@@ -9,6 +9,136 @@ public class drugstep {
 
 	private drugpage drugPage;
 
+	// Drug
+	@And("Allergies Blank field validation should have to display")
+	public void validateBlankAllergiesSubmission() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String allergyHomeUrl = Hooks.prop.getProperty("allergyHomeUrl");
+		Assert.assertNotNull("allergyHomeUrl is missing in config", allergyHomeUrl);
+		String fullAllergyHomeUrl = baseUrl + allergyHomeUrl;
+		drugPage = new drugpage(Hooks.driver);
+		drugPage.openAllergiesPage(fullAllergyHomeUrl);
+		Assert.assertTrue("Allergy Home page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Drug/Home/Allergies"));
+		drugPage.allergiesBlankFieldValidation();
+		System.out.println("Error validation triggered: Allergies field cannot be left blank");
+		Hooks.scenario.log("Error validation triggered: Allergies field cannot be left blank");
+
+	}
+
+	@And("Star2 to Star1 Drugs filter Blank Validation should have to display")
+	public void validateBlankStar2ToStar1DrugsFilterSubmission() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String star2toStar1DrugsPath = Hooks.prop.getProperty("Star2toStar1Drugs");
+		Assert.assertNotNull("Star2toStar1Drugs path is missing in config", star2toStar1DrugsPath);
+		String fullStar2toStar1DrugsUrl = baseUrl + star2toStar1DrugsPath;
+		drugPage = new drugpage(Hooks.driver);
+		drugPage.Star2toStar1Drugs(fullStar2toStar1DrugsUrl);
+		Assert.assertTrue("Star2toStar1Drugs page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Drug/Home/Star2toStar1Drugs"));
+		drugPage.star2ToStar1DrugsFilterBlankValidation();
+		System.out.println("Error validation triggered: Star2 to Star1 Drugs filter form cannot be submitted blank");
+		Hooks.scenario.log("Error validation triggered: Star2 to Star1 Drugs filter form cannot be submitted blank");
+
+	}
+
+	@And("Star2 Drugs filter Blank Validation should have to Display")
+	public void validateBlankStar2DrugsFilterSubmission() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String star2DrugHomeUrl = Hooks.prop.getProperty("star2DrugHomeUrl");
+		Assert.assertNotNull("star2DrugHomeUrl is missing in config", star2DrugHomeUrl);
+		String fullStar2DrugHomeUrl = baseUrl + star2DrugHomeUrl;
+		drugPage = new drugpage(Hooks.driver);
+		drugPage.openStar2DrugsPage(fullStar2DrugHomeUrl);
+		Assert.assertTrue("Star 2 Drug Home page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Drug/Home/Star2Drugs"));
+		drugPage.star2DrugsFilterBlankValidation();
+		System.out.println("Error validation triggered: Star2 Drugs filter form cannot be submitted blank");
+		Hooks.scenario.log("Error validation triggered: Star2 Drugs filter form cannot be submitted blank");
+
+	}
+
+	@And("Star1Drugs filter Blank Validation should have to Display")
+	public void validateBlankStar1DrugsFilterSubmission() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String star1DrugHomeUrl = Hooks.prop.getProperty("star1DrugHomeUrl");
+		Assert.assertNotNull("star1DrugHomeUrl is missing in config", star1DrugHomeUrl);
+		String fullStar1DrugHomeUrl = baseUrl + star1DrugHomeUrl;
+		drugPage = new drugpage(Hooks.driver);
+		drugPage.openStar1DrugsPage(fullStar1DrugHomeUrl);
+		Assert.assertTrue("Star 1 Drug Home page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Drug/Home/Star1Drugs"));
+		drugPage.star1DrugsFilterBlankValidation();
+		System.out.println("Error validation triggered: Star1 Drugs filter form cannot be submitted blank");
+		Hooks.scenario.log("Error validation triggered: Star1 Drugs filter form cannot be submitted blank");
+
+	}
+
+	@And("ICD10s Blank Field Validation should have to display")
+	public void validateBlankICD10Submission() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String icd10HomeUrl = Hooks.prop.getProperty("icd10HomeUrl");
+		Assert.assertNotNull("icd10HomeUrl is missing in config", icd10HomeUrl);
+		String fullIcd10HomeUrl = baseUrl + icd10HomeUrl;
+		drugPage = new drugpage(Hooks.driver);
+		drugPage.openICD10Page(fullIcd10HomeUrl);
+		Assert.assertTrue("ICD10 Home page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Drug/Home/ICD10s"));
+		drugPage.icd10BlankFieldValidation();
+		System.out.println("Error validation triggered: ICD10s field cannot be left blank");
+		Hooks.scenario.log("Error validation triggered: ICD10s field cannot be left blank");
+
+	}
+
+	@And("Edit Drug Therapeutic, Family, Approved Indications Blank Field Validation should have to display")
+	public void validateBlankDrugTherapeuticFamilyIndications() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String drugHomeUrl = Hooks.prop.getProperty("drugHomeUrl");
+		Assert.assertNotNull("drugHomeUrl is missing in config", drugHomeUrl);
+		String fullDrugHomeUrl = baseUrl + drugHomeUrl;
+		drugPage = new drugpage(Hooks.driver);
+		drugPage.opendrugsPage(fullDrugHomeUrl);
+		Assert.assertTrue("Drug Home page is not displayed", Hooks.driver.getCurrentUrl().contains("/Drug/Home/Drugs"));
+		drugPage.editDrugTherapeuticFamilyIndicationsBlankValidation();
+		System.out.println(
+				"Error validation triggered: Drug Therapeutic, Family, and Approved Indications fields cannot be left blank");
+		Hooks.scenario.log(
+				"Error validation triggered: Drug Therapeutic, Family, and Approved Indications fields cannot be left blank");
+
+	}
+
+	@And("Edit Drug Disease State and Program Choose and Add Validation should have to display")
+	public void validateBlankDrugDiseaseStateProgramSubmission() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String drugHomeUrl = Hooks.prop.getProperty("drugHomeUrl");
+		Assert.assertNotNull("drugHomeUrl is missing in config", drugHomeUrl);
+		String fullDrugHomeUrl = baseUrl + drugHomeUrl;
+		drugPage = new drugpage(Hooks.driver);
+		drugPage.opendrugsPage(fullDrugHomeUrl);
+		Assert.assertTrue("Drug Home page is not displayed", Hooks.driver.getCurrentUrl().contains("/Drug/Home/Drugs"));
+		drugPage.editDrugDiseaseStateBlankValidation();
+		System.out.println(
+				"Error validation triggered: Disease State and Program fields must be chosen and added — they cannot be left blank");
+		Hooks.scenario.log(
+				"Error validation triggered: Disease State and Program fields must be chosen and added — they cannot be left blank");
+
+	}
+
+	@And("Validation Should have to show for New Drug Blank Submission Validation")
+	public void validateBlankNewDrugSubmission() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String drugHomeUrl = Hooks.prop.getProperty("drugHomeUrl");
+		Assert.assertNotNull("drugHomeUrl is missing in config", drugHomeUrl);
+		String fullDrugHomeUrl = baseUrl + drugHomeUrl;
+		drugPage = new drugpage(Hooks.driver);
+		drugPage.opendrugsPage(fullDrugHomeUrl);
+		Assert.assertTrue("Drug Home page is not displayed", Hooks.driver.getCurrentUrl().contains("/Drug/Home/Drugs"));
+		drugPage.newDrugBlankSubmissionValidation();
+		System.out.println("Error validation triggered: New Drug form cannot be submitted blank");
+		Hooks.scenario.log("Error validation triggered: New Drug form cannot be submitted blank");
+
+	}
+
 	// Program
 	@And("the user should not be able to add Program test")
 	public void userCannotAddProgramTest() {
