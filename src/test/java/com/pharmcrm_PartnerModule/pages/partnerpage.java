@@ -321,7 +321,7 @@ public class partnerpage {
 	public By priorAuthorizationGenerateAddLabel = By.xpath("//label[@for='chkg23PriorAuthorizationGenerateAdd']");
 
 	// Partner
-		public String validateSpecialServiceBlankFields() throws InterruptedException {
+	public String validateSpecialServiceBlankFields() throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 		try {
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
