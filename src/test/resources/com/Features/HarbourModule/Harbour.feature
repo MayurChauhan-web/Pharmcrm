@@ -1,6 +1,5 @@
 Feature: Entire Harbour Module.
 
-@Harbour
 # Audit View 
 Scenario: User with View only access for General Audit View test
 Given user launch browser
@@ -172,6 +171,7 @@ Then the Harbour user should be able to view Profiles test
 And I create a profile with Export Access for Driver Detail Report Harbour Modul
 Then the user should be able Export for Driver Detail Report Harbour Modul
 
+
 Scenario: User with No Export Access for Driver Detail Report Harbour Modul
 Given user launch browser
 Then user click on the user type dropdown
@@ -193,6 +193,7 @@ And user enter the organization password
 When user click on the go button
 Then the Harbour user should be able to view Profiles test
 And I create a profile with only Export Access for Delivery Statistic Report Harbour Modul
+Then the user should be able Export Access for Delivery Statistic Report Harbour Modul
 Then the user should not able to Detailed Report View Harbour Modul
 
 Scenario: User with Detailed Report View Access for Delivery Statistic Report Harbour Modul
@@ -204,7 +205,38 @@ And user enter the organization password
 When user click on the go button
 Then the Harbour user should be able to view Profiles test
 And I create a profile with only Detailed Report View Access for Delivery Statistic Report Harbour Modul
+Then the user should be able Check mark Detailed Report View Access for Delivery Statistic Report Harbour Modul
 Then the user should not able to Export Harbour Modul
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
