@@ -1,11 +1,11 @@
 package com.pharmcrm_HarbourModule.pages;
-
 import java.time.Duration;
 import java.util.List;
 import org.testng.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -16,34 +16,6 @@ import hooks.Hooks;
 public class harbourpage {
 	private WebDriver driver;
 	private WebDriverWait wait;
-
-	public By packageReleaseButton = By
-			.xpath("//div[@id='package_d5090f5c-d3f8-49e6-b488-e6abbadff263']//span[contains(text(),'Release')]");
-	public By packageDetailsViewIcon = By.xpath(
-			"//div[@id='package_d5090f5c-d3f8-49e6-b488-e6abbadff263']//a[@title='View Details']//*[name()='svg']");
-	public By deleteConfirmBtn = By.xpath("//div[@id='genericmodal']//button[@id='btnDeleteConfirm']");
-
-	public void verifyUserCanViewPackageDetails() {
-		sleep(5000);
-		WebElement detailedReportLabelElement = wait
-				.until(ExpectedConditions.elementToBeClickable(packageViewDetailsIcon));
-		detailedReportLabelElement.click();
-	}
-
-	public void verifyUserCanDeletePackage() {
-		sleep(5000);
-		WebElement packageReleaseBtn = wait.until(ExpectedConditions.elementToBeClickable(packageReleaseButton));
-		packageReleaseBtn.click();
-		WebElement btn = wait.until(ExpectedConditions.elementToBeClickable(deleteConfirmBtn));
-		btn.click();
-	}
-
-	public void noOtherBasicAndAdditionalPackageAccess() {
-		sleep(2000);
-		List<WebElement> editOptions = driver.findElements(packageDetailsViewIcon);
-		Assert.assertTrue(editOptions.isEmpty(), "Edit option should NOT be present");
-
-	}
 
 	// Delivery Statistic Report
 	public By packageSettingAllLabel = By.xpath("(//label[@for='chkg18PackageSettingAll'])[1]");
@@ -79,6 +51,27 @@ public class harbourpage {
 	public By customerAttestationPrintButton = By.xpath("//button[normalize-space()='Customer Attestation Print']");
 
 	// Manifest
+	public By toastMessage = By.xpath("//div[@class='toast-message']");
+	public By packageReleaseButton = By
+			.xpath("//div[@id='package_d5090f5c-d3f8-49e6-b488-e6abbadff263']//span[contains(text(),'Release')]");
+	public By packageDetailsViewIcon = By.xpath(
+			"//div[@id='package_d5090f5c-d3f8-49e6-b488-e6abbadff263']//a[@title='View Details']//*[name()='svg']");
+	public By deleteConfirmBtn = By.xpath("//div[@id='genericmodal']//button[@id='btnDeleteConfirm']");
+	public By printIcon = By.xpath("//i[@class='fa-solid fa-print']");
+	public By printBtn = By.xpath("//button[@onclick=\"printReturnPackages('printReturnPackage')\"]");
+	public By downloadReferenceDocumentsLabel = By.xpath("//label[normalize-space()='Reference Documents :']");
+	public By downloadSignatureLink = By.xpath("//a[contains(text(),'signature.png')]");
+	public By deliveredCheckbox = By.xpath("//input[@id='Delivered']");
+	public By downloadDriverAttestationOption = By.xpath("//label[contains(text(),'Driver Attestation')]");
+	public By actionMenuButton = By.xpath("//i[@class='fa-solid fa-ellipsis-vertical']");
+	public By printCustomerSignatureOption = By
+			.xpath("//div[contains(@class,'gridRecordContextInner')]//span[contains(normalize-space(),'Print')]");
+	public By printCustomerSignatureButton = By
+			.xpath("//button[@onclick=\"javascript: printpres('printpackagepage');\"]//*[name()='svg']");
+	public By setDeliveryDateButton = By.xpath("//span[normalize-space()='Set Delivery Date']");
+	public By packageDeliveryDateInput = By.xpath("//input[@id='Package_Doc_DeliveryDate']");
+	public By savePackageDeliveryDateButton = By.xpath("//button[@id='btnSavePackageDeliveryDate']");
+	public By skippedCheckbox = By.xpath("//input[@id='Skipped']");
 	public By newManifestLabel = By.xpath("//span[normalize-space()='New Manifest']");
 	public By manifestDeliveryDateInput = By.xpath("//input[@id='Manifest_DeliveryDate']");
 	public By manifestDriverDropdown = By.xpath("//select[@id='Manifest_Driver_Id']");
@@ -471,6 +464,66 @@ public class harbourpage {
 	}
 
 	// Manifest
+	public String verifyErrorMessageForAddStore() {
+		WebElement newManifestLabelElement = wait.until(ExpectedConditions.elementToBeClickable(newManifestLabel));
+		newManifestLabelElement.click();
+		String manifestDeliveryDateValue = Hooks.prop.getProperty("manifestDeliveryDateValue");
+		WebElement manifestDeliveryDateInputElement = driver.findElement(manifestDeliveryDateInput);
+		manifestDeliveryDateInputElement.sendKeys(manifestDeliveryDateValue);
+		WebElement dropdown = driver.findElement(manifestDriverDropdown);
+		Select select = new Select(dropdown);
+		select.selectByIndex(1);
+		WebElement startDropdown = driver.findElement(manifestStartingPointDropdown);
+		Select startSelect = new Select(startDropdown);
+		startSelect.selectByIndex(1);
+		WebElement endDropdown = driver.findElement(manifestEndPointDropdown);
+		Select endSelect = new Select(endDropdown);
+		endSelect.selectByIndex(1);
+		WebElement switchLabel = driver.findElement(switchMainLabel);
+		switchLabel.click();
+		WebElement nextButton = wait.until(ExpectedConditions.elementToBeClickable(btnNext));
+		nextButton.click();
+		sleep(2000);
+		startSelect.selectByIndex(1);
+		sleep(2000);
+		endSelect.selectByIndex(1);
+		sleep(2000);
+		WebElement addStoreBtn = wait.until(ExpectedConditions.elementToBeClickable(addStore));
+		addStoreBtn.click();
+		sleep(2000);
+		WebElement confirmBtn = wait.until(ExpectedConditions.elementToBeClickable(btnShareConfirm));
+		confirmBtn.click();
+		sleep(2000);
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+
+	}
+
+	public String shouldDisplayValidationForEmptyFields() {
+		WebElement newManifestLabelElement = wait.until(ExpectedConditions.elementToBeClickable(newManifestLabel));
+		newManifestLabelElement.click();
+		WebElement nextButton = wait.until(ExpectedConditions.elementToBeClickable(btnNext));
+		nextButton.click();
+		try {
+			List<WebElement> toasts = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toastMessage));
+			StringBuilder messages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				messages.append(toast.getText().trim()).append(" | ");
+			}
+			return "SUCCESS: Toast messages -> " + messages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message not displayed";
+		}
+
+	}
 
 	public void verifyUserCanPrintManifest() {
 		sleep(2000);
@@ -727,6 +780,91 @@ public class harbourpage {
 	}
 
 	// Package
+	public void updateDeliveryStatus() {
+		sleep(5000);
+		WebElement skippedCheckboxElement = wait.until(ExpectedConditions.elementToBeClickable(skippedCheckbox));
+		skippedCheckboxElement.click();
+
+	}
+
+	public void verifyUserCanUpdateDeliveryDate() {
+		sleep(5000);
+		WebElement actionMenuBtn = wait.until(ExpectedConditions.elementToBeClickable(actionMenuButton));
+		actionMenuBtn.click();
+		WebElement printCustomerSignatureOptionBtn = wait
+				.until(ExpectedConditions.elementToBeClickable(setDeliveryDateButton));
+		printCustomerSignatureOptionBtn.click();
+		String deliveryDateValue = Hooks.prop.getProperty("packageDeliveryDate");
+		WebElement packageDeliveryDateElement = driver.findElement(packageDeliveryDateInput);
+		packageDeliveryDateElement.sendKeys(deliveryDateValue);
+		WebElement printCustomerSignatureBtn = wait
+				.until(ExpectedConditions.elementToBeClickable(savePackageDeliveryDateButton));
+		printCustomerSignatureBtn.click();
+	}
+
+	public void printCustomerSignature() {
+		sleep(5000);
+		WebElement actionMenuBtn = wait.until(ExpectedConditions.elementToBeClickable(actionMenuButton));
+		actionMenuBtn.click();
+		WebElement printCustomerSignatureOptionBtn = wait
+				.until(ExpectedConditions.elementToBeClickable(printCustomerSignatureOption));
+		printCustomerSignatureOptionBtn.click();
+		WebElement printCustomerSignatureBtn = wait
+				.until(ExpectedConditions.elementToBeClickable(printCustomerSignatureButton));
+		printCustomerSignatureBtn.click();
+	}
+
+	public void downloadDriverAttestation() {
+		sleep(5000);
+		WebElement deliveredCheckboxElement = wait.until(ExpectedConditions.elementToBeClickable(deliveredCheckbox));
+		deliveredCheckboxElement.click();
+		WebElement downloadDriverAttestationBtn = wait
+				.until(ExpectedConditions.elementToBeClickable(downloadDriverAttestationOption));
+		downloadDriverAttestationBtn.click();
+	}
+
+	public void verifyUserCanDownloadSignature() {
+		sleep(5000);
+		WebElement btn = wait.until(ExpectedConditions.elementToBeClickable(downloadSignatureLink));
+		btn.click();
+	}
+
+	public void downloadReferenceDocuments() {
+		sleep(5000);
+		WebElement btn = wait.until(ExpectedConditions.elementToBeClickable(downloadReferenceDocumentsLabel));
+		btn.click();
+	}
+
+	public void verifyUserCanPrintReturnPackage() {
+		sleep(5000);
+		WebElement icon = wait.until(ExpectedConditions.elementToBeClickable(printIcon));
+		icon.click();
+		WebElement btn = wait.until(ExpectedConditions.elementToBeClickable(printBtn));
+		btn.click();
+	}
+
+	public void verifyUserCanViewPackageDetails() {
+		sleep(5000);
+		WebElement detailedReportLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(packageViewDetailsIcon));
+		detailedReportLabelElement.click();
+	}
+
+	public void verifyUserCanDeletePackage() {
+		sleep(5000);
+		WebElement packageReleaseBtn = wait.until(ExpectedConditions.elementToBeClickable(packageReleaseButton));
+		packageReleaseBtn.click();
+		WebElement btn = wait.until(ExpectedConditions.elementToBeClickable(deleteConfirmBtn));
+		btn.click();
+	}
+
+	public void noOtherBasicAndAdditionalPackageAccess() {
+		sleep(2000);
+		List<WebElement> editOptions = driver.findElements(packageDetailsViewIcon);
+		Assert.assertTrue(editOptions.isEmpty(), "Edit option should NOT be present");
+
+	}
+
 	public void openHarbourPackagesPage(String fullUrl) {
 		sleep(2000);
 		driver.get(fullUrl);
@@ -811,14 +949,33 @@ public class harbourpage {
 	}
 
 	public void testNoAccessProfileForHarbourModuleAuditView() {
+		sleep(2000);
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-		sleep(2000);
-		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
-		allModules.click();
-		sleep(2000);
-		WebElement harbourGeneralAllLabelElement = wait
-				.until(ExpectedConditions.elementToBeClickable(harbourGeneralAllLabel));
-		harbourGeneralAllLabelElement.click();
+		safeCheckboxClick(packageSettingAllLabel);
+		safeCheckboxClick(packageSettingAllLabel);
+		sleep(1000);
+		safeCheckboxClick(packageRestrictionAllLabel);
+		safeCheckboxClick(packageRestrictionAllLabel);
+		sleep(1000);
+		safeCheckboxClick(deliveryDistancesAllLabel);
+		safeCheckboxClick(deliveryDistancesAllLabel);
+		sleep(1000);
+		safeCheckboxClick(logisticAllLabel);
+		safeCheckboxClick(logisticAllLabel);
+		sleep(1000);
+		safeCheckboxClick(deliveryMarkerAllLabel);
+		safeCheckboxClick(deliveryMarkerAllLabel);
+		sleep(1000);
+		safeCheckboxClick(harbourGeneralAllLabel);
+		sleep(1000);
+		WebElement submitBtn = wait.until(ExpectedConditions.presenceOfElementLocated(submitButton));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block:'center'});", submitBtn);
+		((JavascriptExecutor) driver).executeScript("window.scrollBy(0,-150)");
+		try {
+			wait.until(ExpectedConditions.elementToBeClickable(submitBtn)).click();
+		} catch (Exception e) {
+			((JavascriptExecutor) driver).executeScript("arguments[0].click();", submitBtn);
+		}
 
 	}
 

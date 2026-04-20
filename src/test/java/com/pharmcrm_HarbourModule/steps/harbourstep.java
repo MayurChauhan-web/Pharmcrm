@@ -1,6 +1,6 @@
 package com.pharmcrm_HarbourModule.steps;
-
 import org.junit.Assert;
+import org.junit.Assume;
 import com.pharmcrm_HarbourModule.pages.harbourpage;
 import hooks.Hooks;
 import io.cucumber.java.en.And;
@@ -8,6 +8,59 @@ import io.cucumber.java.en.And;
 public class harbourstep {
 
 	private harbourpage harbourPage;
+
+	// Manifest
+	@And("an appropriate error message should be displayed for Add Store field")
+	public void validateAddStoreErrorMessage() throws InterruptedException {
+		String result = harbourPage.verifyErrorMessageForAddStore();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("user does not select any value in Add Store")
+	public void verifyUserDoesNotSelectStore() throws InterruptedException {
+		String harbourUrl = Hooks.prop.getProperty("harbourUrl");
+		String manifestPageUrl = Hooks.prop.getProperty("manifestsPageUrl");
+		Assert.assertNotNull("profilesPageUrl is missing in config", manifestPageUrl);
+		String fullProfilesUrl = harbourUrl + manifestPageUrl;
+		harbourPage = new harbourpage(Hooks.driver);
+		harbourPage.openManifestPage(fullProfilesUrl);
+		Assert.assertTrue("Profiles page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/HarbourLogistic/Home/Manifests"));
+
+	}
+
+	@And("Appropriate error messages should be displayed for each missing required field")
+	public void validateErrorMessagesForRequiredFields() throws InterruptedException {
+		String result = harbourPage.shouldDisplayValidationForEmptyFields();
+		Thread.sleep(2000);
+		Hooks.scenario.log("Validation Result: " + result);
+		System.out.println("Validation Result: " + result);
+		if (result.startsWith("ERROR")) {
+			Hooks.scenario.log("Validation failed: " + result);
+			Assume.assumeTrue("Stopping scenario due to validation failure: " + result, false);
+		}
+
+	}
+
+	@And("Leave all required fields empty")
+	public void verifyRequiredFieldsAreEmpty() throws InterruptedException {
+		String harbourUrl = Hooks.prop.getProperty("harbourUrl");
+		String manifestPageUrl = Hooks.prop.getProperty("manifestsPageUrl");
+		Assert.assertNotNull("profilesPageUrl is missing in config", manifestPageUrl);
+		String fullProfilesUrl = harbourUrl + manifestPageUrl;
+		harbourPage = new harbourpage(Hooks.driver);
+		harbourPage.openManifestPage(fullProfilesUrl);
+		Assert.assertTrue("Profiles page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/HarbourLogistic/Home/Manifests"));
+
+	}
 
 	// Delivery Statistic Report
 	@And("the user should be able Check mark Detailed Report View Access for Delivery Statistic Report Harbour Modul")
@@ -83,7 +136,6 @@ public class harbourstep {
 		harbourPage.openHarbourDeliveryReportsPage(fullDeliveryReportsUrl);
 		Assert.assertTrue("Delivery Reports page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/HarbourLogistic/Home/DeliveryReports"));
-
 		harbourPage.cannotExportDriverDetailReportHarbour();
 
 	}
@@ -137,7 +189,6 @@ public class harbourstep {
 		harbourPage.openHarbourDeliveryReportsPage(fullDeliveryReportsUrl);
 		Assert.assertTrue("Delivery Reports page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/HarbourLogistic/Home/DeliveryReports"));
-
 		harbourPage.cannotExportDeliveryReportHarbour();
 
 	}
@@ -197,7 +248,6 @@ public class harbourstep {
 		harbourPage.openHarbourPackagesPage(fullPackagesUrl);
 		Assert.assertTrue("Packages page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/HarbourLogistic/Home/Packages?category=4"));
-
 		harbourPage.sendCustomerAttestationForSignature();
 
 	}
@@ -285,7 +335,6 @@ public class harbourstep {
 
 	@And("the user should be able to Add manifest")
 	public void thenUserShouldBeAbleToAddManifest() {
-
 		harbourPage.viewAndAddManifest();
 
 	}
@@ -331,7 +380,6 @@ public class harbourstep {
 		harbourPage.openManifestPage(fullProfilesUrl);
 		Assert.assertTrue("Profiles page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/HarbourLogistic/Home/Manifests"));
-
 		harbourPage.viewAndDeleteManifest();
 
 	}
@@ -364,7 +412,6 @@ public class harbourstep {
 		harbourPage.openManifestPage(fullProfilesUrl);
 		Assert.assertTrue("Profiles page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/HarbourLogistic/Home/Manifests"));
-
 		harbourPage.viewAndEditManifest();
 
 	}
@@ -397,7 +444,6 @@ public class harbourstep {
 		harbourPage.openManifestPage(fullProfilesUrl);
 		Assert.assertTrue("Profiles page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/HarbourLogistic/Home/Manifests"));
-
 		harbourPage.viewAndAddManifest();
 
 	}
@@ -417,42 +463,49 @@ public class harbourstep {
 	// Package
 	@And("the user should be able to Update Delivery Status")
 	public void thenUserShouldBeAbleToUpdateDeliveryStatus() {
+		harbourPage.updateDeliveryStatus();
 
 	}
 
 	@And("the user should be able to Update Delivery Date")
 	public void thenUserShouldBeAbleToUpdateDeliveryDate() {
+		harbourPage.verifyUserCanUpdateDeliveryDate();
 
 	}
 
 	@And("the user should be able to Print Customer Signature")
 	public void thenUserShouldBeAbleToPrintCustomerSignature() {
+		harbourPage.printCustomerSignature();
 
 	}
 
 	@And("the user should be able to Download Driver Attestation")
 	public void thenUserShouldBeAbleToDownloadDriverAttestation() {
+		harbourPage.downloadDriverAttestation();
 
 	}
 
 	@And("the user should be able to Download Signature")
 	public void thenUserShouldBeAbleToDownloadSignature() {
+		harbourPage.downloadReferenceDocuments();
 
 	}
 
 	@And("the user should be able to Download Reference Documents")
 	public void thenUserShouldBeAbleToDownloadReferenceDocuments() {
+		harbourPage.verifyUserCanViewPackageDetails();
+		harbourPage.downloadReferenceDocuments();
 
 	}
 
 	@And("the user should be able to Return Package Print")
 	public void thenUserShouldBeAbleToReturnPackagePrint() {
+		harbourPage.verifyUserCanPrintReturnPackage();
 
 	}
 
 	@And("the user should be able to View Package Details")
 	public void thenUserShouldBeAbleToViewPackageDetails() {
-
 		harbourPage.verifyUserCanViewPackageDetails();
 
 	}

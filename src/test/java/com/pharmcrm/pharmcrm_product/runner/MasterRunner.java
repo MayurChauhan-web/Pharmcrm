@@ -1,4 +1,5 @@
 package com.pharmcrm.pharmcrm_product.runner;
+
 import org.testng.annotations.DataProvider;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
@@ -7,8 +8,9 @@ import io.cucumber.testng.CucumberOptions;
 		"com.pharmcrm_LoginFunctionality.steps", "com.pharmcrm_PatientModule.steps",
 		"com.pharmcrm_DeliveryModule.steps", "com.pharmcrm_ClinicalModule.steps", "com.pharmcrm_DrugModule.steps",
 		"com.pharmcrm_ProviderModule.steps", "com.pharmcrm_PartnerModule.steps", "com.pharmcrm_SetupModule.steps",
-		"com.pharmcrm_HarbourModule.steps", "com.pharmcrm_PatientPortal.steps", "com.pharmcrm_ProjectModule.steps",
-		"com.pharmcrm_WellnessModule.steps", "hooks" }, plugin = { "pretty", "html:target/cucumber-report.html",
+		"com.pharmcrm_HarbourModule.steps", "com.pharmcrm_ClinicalworkflowModule.steps",
+		"com.pharmcrm_PatientPortal.steps", "com.pharmcrm_ProjectModule.steps", "com.pharmcrm_WellnessModule.steps",
+		"hooks" }, plugin = { "pretty", "html:target/cucumber-report.html",
 				"json:target/cucumber.json" }, monochrome = true, tags = "@Harbour")
 public class MasterRunner extends AbstractTestNGCucumberTests {
 
@@ -18,6 +20,3 @@ public class MasterRunner extends AbstractTestNGCucumberTests {
 		return super.scenarios();
 	}
 }
-
-
-

@@ -208,93 +208,24 @@ And I create a profile with only Detailed Report View Access for Delivery Statis
 Then the user should be able Check mark Detailed Report View Access for Delivery Statistic Report Harbour Modul
 Then the user should not able to Export Harbour Modul
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# Manifests
+Scenario: Verify error message when required fields are missing
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Leave all required fields empty
+Then Appropriate error messages should be displayed for each missing required field
+
+Scenario: Verify error message when Add Store Not Selected
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then user does not select any value in Add Store
+Then an appropriate error message should be displayed for Add Store field
 
