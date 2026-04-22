@@ -120,59 +120,74 @@ public class ProjectModuleFunctionalityPage {
 		this.driver = driver;
 	}
 	
-	public void clickintotheprojectmoduletab() {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-		
-		// Wait for preloader to disappear
+	public boolean clickintotheprojectmoduletab() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+	    // wait only for page loader
 	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
-	    
-	    WebElement projectmoduleTab = wait.until(ExpectedConditions.elementToBeClickable(projectmoduletab));
-	   
-	    try {
-	    	projectmoduleTab.click();
-	    } catch (Exception e) {
-	        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", projectmoduleTab);
+
+	    // IMPORTANT: NO wait for Project Module tab
+	    List<WebElement> projectmoduletabs = driver.findElements(projectmoduletab);
+
+	    if (projectmoduletabs.isEmpty()) {
+	        // Project Module tab NOT present → stop scenario
+	        return false;
 	    }
 
-	    System.out.println("Project Module Tab clicked successfully");
+	    WebElement projectmoduletab = projectmoduletabs.get(0);
+
+	    wait.until(ExpectedConditions.elementToBeClickable(projectmoduletab));
+	    projectmoduletab.click();
+
+	    return true;
 	}
 	
-	public void clickintotheboardssidebarmenu() {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-		
-		// Wait for preloader to disappear
+	public boolean clickintotheboardssidebarmenu() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+	    // wait only for page loader
 	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
-	    
-	    WebElement boardssidebarmenuTab = wait.until(ExpectedConditions.elementToBeClickable(boardssidebarmenu));
-	   
-	    try {
-	    	boardssidebarmenuTab.click();
-	    } catch (Exception e) {
-	        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", boardssidebarmenuTab);
+
+	    // IMPORTANT: NO wait for Boards tab
+	    List<WebElement> boardstabs = driver.findElements(boardssidebarmenu);
+
+	    if (boardstabs.isEmpty()) {
+	        // Boards tab NOT present → stop scenario
+	        return false;
 	    }
 
-	    System.out.println("Boards Sidebar Menu Tab clicked successfully");
+	    WebElement boardstab = boardstabs.get(0);
+
+	    wait.until(ExpectedConditions.elementToBeClickable(boardstab));
+	    boardstab.click();
+
+	    return true;
 	}
 	
 	
 	//-------------------------Create a New Board--------------------------------------------
 	
 	
-	public void clickintothecreatenewboardbutton() {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-		
-		// Wait for preloader to disappear
+	public boolean clickintothecreatenewboardbutton() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+	    // wait only for page loader
 	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
-	    
-	    WebElement createnewboardbuttonTab = wait.until(ExpectedConditions.elementToBeClickable(createnewboardbutton));
-	   
-	    try {
-	    	createnewboardbuttonTab.click();
-	    } catch (Exception e) {
-	        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", createnewboardbuttonTab);
+
+	    // IMPORTANT: NO wait for Partner License tab
+	    List<WebElement> createnewboardbuttons = driver.findElements(createnewboardbutton);
+
+	    if (createnewboardbuttons.isEmpty()) {
+	        // Partner License tab NOT present → stop scenario
+	        return false;
 	    }
 
-	    System.out.println("Create New Board button clicked successfully");
+	    WebElement createnewboardbutton = createnewboardbuttons.get(0);
+
+	    wait.until(ExpectedConditions.elementToBeClickable(createnewboardbutton));
+	    createnewboardbutton.click();
+
+	    return true;
 	}
 	
 	public void entertheBoardName(String BoardName) {
@@ -299,41 +314,45 @@ public class ProjectModuleFunctionalityPage {
 	public boolean clickintothedeleteboardbutton() {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-	    // wait only for page loader
-	    wait.until(ExpectedConditions.invisibilityOfElementLocated(
-	            By.xpath("//div[@class='preloader']")));
+	    // Wait only for page loader
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
 
-	    // IMPORTANT: NO wait for delete button
+	    // DO NOT wait for delete button
 	    List<WebElement> deleteButtons = driver.findElements(deleteboardbutton);
 
+	    // If Delete button NOT present → stop scenario
 	    if (deleteButtons.isEmpty()) {
-	        // Delete button NOT present → stop scenario
+	        System.out.println("Delete button NOT present");
 	        return false;
 	    }
 
 	    WebElement deleteButton = deleteButtons.get(0);
 
+	    // Wait until clickable
 	    wait.until(ExpectedConditions.elementToBeClickable(deleteButton));
-	    deleteButton.click();
 
-	    return true;
-	}
-	
-	public void clickintotheconfirmbutton() {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-		
-		// Wait for preloader to disappear
-	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
-	    
-	    WebElement confirmbuttonTab = wait.until(ExpectedConditions.elementToBeClickable(confirmbutton));
-	   
 	    try {
-	    	confirmbuttonTab.click();
+	        deleteButton.click();
 	    } catch (Exception e) {
-	        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", confirmbuttonTab);
+	        ((JavascriptExecutor) driver)
+	                .executeScript("arguments[0].click();", deleteButton);
 	    }
 
-	    System.out.println("Confirm Button clicked successfully");
+	    System.out.println("Delete button clicked");
+
+	    // Wait for confirm delete button
+	    WebElement confirmDeleteButton = wait.until(ExpectedConditions.elementToBeClickable(confirmbutton));
+
+	    try {
+	        confirmDeleteButton.click();
+	    } catch (Exception e) {
+	        ((JavascriptExecutor) driver)
+	                .executeScript("arguments[0].click();", confirmDeleteButton);
+	    }
+
+	    System.out.println("Confirm Delete clicked — record deleted permanently");
+
+	    return true;
 	}
 	
 	
@@ -550,20 +569,26 @@ public class ProjectModuleFunctionalityPage {
 	//----------------------------------Add New Board Member---------------------------------------------
 	
 		
-	public void clickintothenewboardmemberbutton() {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-		
-		// Wait for preloader to disappear
+	public boolean clickintothenewboardmemberbutton() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+	    // wait only for page loader
 	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
-	    
-	    WebElement newboardmemberbuttonTab = wait.until(ExpectedConditions.elementToBeClickable(newboardmemberbutton));
-	   
-	    try {
-	    	newboardmemberbuttonTab.click();
-	    } catch (Exception e) {
-	        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", newboardmemberbuttonTab);
+
+	    // IMPORTANT: NO wait for New Board Member Button
+	    List<WebElement> newboardmemberButtons = driver.findElements(newboardmemberbutton);
+
+	    if (newboardmemberButtons.isEmpty()) {
+	        // New Board Member Button NOT present → stop scenario
+	        return false;
 	    }
-	    System.out.println("New Board Member Button clicked successfully");
+
+	    WebElement newboardmemberButton = newboardmemberButtons.get(0);
+
+	    wait.until(ExpectedConditions.elementToBeClickable(newboardmemberButton));
+	    newboardmemberButton.click();
+
+	    return true;
 	}
 	
 	public void entertheLastNameinfilter(String LastName) {
@@ -1225,40 +1250,45 @@ public class ProjectModuleFunctionalityPage {
 	public boolean clickintothefirstdeleteboardpanelbutton() {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-	    // wait only for page loader
-	    wait.until(ExpectedConditions.invisibilityOfElementLocated(
-	            By.xpath("//div[@class='preloader']")));
+	    // Wait only for page loader
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
 
-	    // IMPORTANT: NO wait for setting button
+	    // DO NOT wait for delete button
 	    List<WebElement> deleteButtons = driver.findElements(firstdeleteboardpanelbutton);
 
+	    // If Delete button NOT present → stop scenario
 	    if (deleteButtons.isEmpty()) {
-	        // Setting button NOT present → stop scenario
+	        System.out.println("Delete button NOT present");
 	        return false;
 	    }
 
 	    WebElement deleteButton = deleteButtons.get(0);
 
+	    // Wait until clickable
 	    wait.until(ExpectedConditions.elementToBeClickable(deleteButton));
-	    deleteButton.click();
+
+	    try {
+	        deleteButton.click();
+	    } catch (Exception e) {
+	        ((JavascriptExecutor) driver)
+	                .executeScript("arguments[0].click();", deleteButton);
+	    }
+
+	    System.out.println("Delete button clicked");
+
+	    // Wait for confirm delete button
+	    WebElement confirmDeleteButton = wait.until(ExpectedConditions.elementToBeClickable(confirmdeletebutton));
+
+	    try {
+	        confirmDeleteButton.click();
+	    } catch (Exception e) {
+	        ((JavascriptExecutor) driver)
+	                .executeScript("arguments[0].click();", confirmDeleteButton);
+	    }
+
+	    System.out.println("Confirm Delete clicked — record deleted permanently");
 
 	    return true;
-	}
-	
-	public void clickintotheconfirmdeleteboardpanelbutton() {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-		
-		// Wait for preloader to disappear
-	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
-	    
-	    WebElement confirmdeletebuttonTab = wait.until(ExpectedConditions.elementToBeClickable(confirmdeletebutton));
-	   
-	    try {
-	    	confirmdeletebuttonTab.click();
-	    } catch (Exception e) {
-	        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", confirmdeletebuttonTab);
-	    }
-	    System.out.println("Confirm button clicked successfully");
 	}
 	
 	
@@ -1527,9 +1557,7 @@ public class ProjectModuleFunctionalityPage {
 		 wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
 
 		// 2️⃣ Locate editor
-		    WebElement editor = wait.until(ExpectedConditions.visibilityOfElementLocated(
-		            taskdetailstextbox
-		    ));
+		    WebElement editor = wait.until(ExpectedConditions.visibilityOfElementLocated(taskdetailstextbox));
 
 		    JavascriptExecutor js = (JavascriptExecutor) driver;
 
@@ -1563,7 +1591,7 @@ public class ProjectModuleFunctionalityPage {
 
 	    // Check if textbox is enabled
 	    if (!CommentsField.isEnabled()) {
-	        System.out.println("⚠ User doesn't have permission to enter comments");
+	        System.out.println("User doesn't have permission to enter comments");
 	        
 	        return false; // textbox disabled → indicate no permission
 	    }
@@ -1577,7 +1605,7 @@ public class ProjectModuleFunctionalityPage {
 	    CommentsField.clear();
 	    CommentsField.sendKeys(Comments);
 
-	    System.out.println("✅ Comments text area entered: " + Comments);
+	    System.out.println("Comments text area entered: " + Comments);
 	    
 
 	    return true; // successfully entered comments
@@ -1613,45 +1641,45 @@ public class ProjectModuleFunctionalityPage {
 	public boolean clickintothedeletetabinedittask() {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-	    // wait only for page loader
-	    wait.until(ExpectedConditions.invisibilityOfElementLocated(
-	            By.xpath("//div[@class='preloader']")));
+	    // Wait only for page loader
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
 
-	    // IMPORTANT: NO wait for setting button
-	    List<WebElement> deletetasktabs = driver.findElements(deletetaskbutton);
+	    // DO NOT wait for delete button
+	    List<WebElement> deleteButtons = driver.findElements(deletetaskbutton);
 
-	    if (deletetasktabs.isEmpty()) {
-	        // Delete button NOT present → stop scenario
+	    // If Delete button NOT present → stop scenario
+	    if (deleteButtons.isEmpty()) {
+	        System.out.println("Delete button NOT present");
 	        return false;
 	    }
 
-	    WebElement deletetasktab = deletetasktabs.get(0);
+	    WebElement deleteButton = deleteButtons.get(0);
 
-	    wait.until(ExpectedConditions.elementToBeClickable(deletetasktab));
-	    deletetasktab.click();
+	    // Wait until clickable
+	    wait.until(ExpectedConditions.elementToBeClickable(deleteButton));
+
+	    try {
+	        deleteButton.click();
+	    } catch (Exception e) {
+	        ((JavascriptExecutor) driver)
+	                .executeScript("arguments[0].click();", deleteButton);
+	    }
+
+	    System.out.println("Delete button clicked");
+
+	    // Wait for confirm delete button
+	    WebElement confirmDeleteButton = wait.until(ExpectedConditions.elementToBeClickable(deletecardbutton));
+
+	    try {
+	        confirmDeleteButton.click();
+	    } catch (Exception e) {
+	        ((JavascriptExecutor) driver)
+	                .executeScript("arguments[0].click();", confirmDeleteButton);
+	    }
+
+	    System.out.println("Confirm Delete clicked — record deleted permanently");
 
 	    return true;
-	}
-		
-	public void clickintothedeletecardtabinedittask() {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-		
-		// Wait for preloader to disappear
-	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
-	    
-	    WebElement deletetaskbuttonTab = wait.until(ExpectedConditions.elementToBeClickable(deletecardbutton));
-	   
-	    try {
-	    	deletetaskbuttonTab.click();
-	    } catch (Exception e) {
-	        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", deletetaskbuttonTab);
-	    }
-	    System.out.println("Delete Card tab clicked successfully");
-	}
-	
-	public void performthetaskdelete() {
-		clickintothedeletetabinedittask();
-		clickintothedeletecardtabinedittask();
 	}
 	
 	public String clickintothesubmitbuttoninedittask() {
