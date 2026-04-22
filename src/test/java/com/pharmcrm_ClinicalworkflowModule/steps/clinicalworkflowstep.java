@@ -10,7 +10,446 @@ public class clinicalworkflowstep {
 
 	private clinicalworkflowpage clinicalworkflowPage;
 
+	// RPM Followup
+	@Then("the user should not be able to RPM Followup All Communication View")
+	public void restrictRpmFollowupAllCommunicationView() {
+		clinicalworkflowPage.preventRpmFollowupAllCommunicationView();
+
+	}
+
+	@Then("the user should not be able to RPM Followup Notes Add")
+	public void denyRpmFollowupNotesAdd() {
+		clinicalworkflowPage.restrictRpmFollowupNotesAdd();
+
+	}
+
+	@Then("the user should not be able to RPM Followup Notes View")
+	public void restrictRpmFollowupNotesView() {
+		clinicalworkflowPage.disableRpmFollowupNotesView();
+
+	}
+
+	@Then("the user should not be able to RPM Followup Status Update")
+	public void restrictRpmFollowupStatusUpdate() {
+		clinicalworkflowPage.disableRpmFollowupStatusUpdate();
+
+	}
+
+	@Then("the user should not be able to RPM Followup Export To Excel")
+	public void preventRpmFollowupExportToExcel() {
+		clinicalworkflowPage.blockRpmFollowupExportToExcel();
+
+	}
+
+	@Then("the user should not be able to RPM Followup Send VCard")
+	public void restrictRpmFollowupSendVCard() {
+		clinicalworkflowPage.preventRpmFollowupSendVCard();
+
+	}
+
+	@Then("the user should not be able to RPM Followup Quick Text")
+	public void preventRpmFollowupQuickText() {
+		clinicalworkflowPage.disableRpmFollowupQuickText();
+
+	}
+
+	@Then("the user should not be able to RPM Followup BOT Call")
+	public void disableRpmFollowupBotCall() {
+		clinicalworkflowPage.restrictRpmFollowupBotCall();
+
+	}
+
+	@Then("the user should not be able to RPM Followup Text")
+	public void disableRpmFollowupText() {
+		clinicalworkflowPage.preventRpmFollowupText();
+
+	}
+
+	@Then("the user should not be able to RPM Followup Fax")
+	public void blockRpmFollowupFax() {
+		clinicalworkflowPage.preventRpmFollowupFax();
+
+	}
+
+	@Then("the user should not be able to RPM Followup Mail")
+	public void blockRpmFollowupMail() {
+		clinicalworkflowPage.restrictRpmFollowupMail();
+
+	}
+
+	@And("I create a profile RPM Followup Access with view only Permissions")
+	public void allowRpmFollowupMailView() {
+		clinicalworkflowPage.clickFilterButton();
+		clinicalworkflowPage.enterProfileName();
+		clinicalworkflowPage.clickSearchButton();
+		clinicalworkflowPage.clickActionMenu();
+		clinicalworkflowPage.clickEditButton();
+		clinicalworkflowPage.allowRpmFollowupFaxView();
+		clinicalworkflowPage.clickSubmitButton();
+		System.out.println("Profile updated with View access only to Clinicalworkflow Module General Audit View");
+		Hooks.scenario.log("Profile updated with View access only to Clinicalworkflow Module General Audit View");
+	}
+
+	@Then("the user should be able to RPM Followup All Communication View")
+	public void allowRpmFollowupAllCommunicationView() {
+		clinicalworkflowPage.grantRpmFollowupAllCommunicationView();
+
+	}
+
+	@Then("the user should be able to RPM Followup Notes Add")
+	public void allowRpmFollowupNotesAdd() {
+		clinicalworkflowPage.grantRpmFollowupNotesAdd();
+
+	}
+
+	@Then("the user should be able to RPM Followup Notes View")
+	public void allowRpmFollowupNotesView() {
+		clinicalworkflowPage.grantRpmFollowupNotesView();
+
+	}
+
+	@Then("the user should be able to RPM Followup Status Update")
+	public void authorizeRpmFollowupStatusUpdate() {
+		clinicalworkflowPage.permitRpmFollowupStatusUpdate();
+
+	}
+
+	@Then("the user should be able to RPM Followup Export To Excel")
+	public void allowRpmFollowupExportToExcel() {
+		clinicalworkflowPage.enableRpmFollowupExportToExcel();
+
+	}
+
+	@Then("the user should be able to RPM Followup Send VCard")
+	public void allowRpmFollowupSendVCard() {
+		clinicalworkflowPage.grantRpmFollowupSendVCard();
+
+	}
+
+	@Then("the user should be able to RPM Followup Quick Text")
+	public void authorizeRpmFollowupQuickText() {
+		clinicalworkflowPage.grantRpmFollowupQuickText();
+
+	}
+
+	@Then("the user should be able to RPM Followup BOT Call")
+	public void allowRpmFollowupBotCall() {
+		clinicalworkflowPage.enableRpmFollowupBotCall();
+
+	}
+
+	@Then("the user should be able to RPM Followup Text")
+	public void allowRpmFollowupText() {
+		clinicalworkflowPage.grantRpmFollowupText();
+
+	}
+
+	@Then("the user should be able to RPM Followup Fax")
+	public void allowRpmFollowupFax() {
+		clinicalworkflowPage.enableRpmFollowupFax();
+
+	}
+
+	@Then("the user should be able to RPM Followup Mail")
+	public void allowRpmFollowupMail() {
+		clinicalworkflowPage.enableRpmFollowupMail();
+
+	}
+
+	@Then("the user should be able to view RPM Followup")
+	public void allowRpmFollowupView() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String clinicalWorkflowRpmFollowupsUrl = Hooks.prop.getProperty("clinicalWorkflowRpmFollowupsUrl");
+
+		Assert.assertNotNull("clinicalWorkflowRpmFollowupsUrl is missing in config", clinicalWorkflowRpmFollowupsUrl);
+
+		String fullUrl = baseUrl + clinicalWorkflowRpmFollowupsUrl;
+
+		clinicalworkflowPage = new clinicalworkflowpage(Hooks.driver);
+		clinicalworkflowPage.openclinicalWorkflowRpmFollowupsUrl(fullUrl);
+
+		Assert.assertTrue("RPM Followups page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/ClinicalWorkflow/Home/RPMFollowups"));
+	}
+
+	@And("I create a profile Full RPM Followup Access with All Permissions")
+	public void preventAppointmentOutreachAllCommunicationView() {
+		clinicalworkflowPage.clickFilterButton();
+		clinicalworkflowPage.enterProfileName();
+		clinicalworkflowPage.clickSearchButton();
+		clinicalworkflowPage.clickActionMenu();
+		clinicalworkflowPage.clickEditButton();
+		clinicalworkflowPage.denyAppointmentOutreachAllCommunicationView();
+		clinicalworkflowPage.clickSubmitButton();
+		System.out.println("Profile updated with View access only to Clinicalworkflow Module General Audit View");
+		Hooks.scenario.log("Profile updated with View access only to Clinicalworkflow Module General Audit View");
+	}
+
+	// Appointment Outreach
+	@Then("the user should not be able to Appointment All Communication View")
+	public void disableAppointmentOutreachAllCommunicationView() {
+		clinicalworkflowPage.preventAppointmentOutreachAllCommunicationView();
+
+	}
+
+	@Then("the user should not be able to Appointment OutReach Notes Add")
+	public void disableAppointmentOutreachNotesAdd() {
+		clinicalworkflowPage.preventAppointmentOutreachNotesAdd();
+
+	}
+
+	@Then("the user should not be able to Appointment OutReach Notes View")
+	public void disableAppointmentOutreachNotesView() {
+		clinicalworkflowPage.preventAppointmentOutreachNotesView();
+
+	}
+
+	@Then("the user should not be able to Appointment Status Update")
+	public void disableAppointmentStatusUpdate() {
+		clinicalworkflowPage.preventAppointmentStatusUpdate();
+
+	}
+
+	@Then("the user should not be able to Appointment Outreach Export To Excel")
+	public void disableAppointmentOutreachExportToExcel() {
+		clinicalworkflowPage.preventAppointmentOutreachExportToExcel();
+
+	}
+
+	@Then("the user should not be able to Appointment Outreach Send VCard")
+	public void disableAppointmentOutreachSendVCard() {
+		clinicalworkflowPage.preventAppointmentOutreachSendVCard();
+
+	}
+
+	@Then("the user should not be able to Appointment Outreach Quick Text")
+	public void disableAppointmentOutreachQuickText() {
+		clinicalworkflowPage.preventAppointmentOutreachQuickText();
+
+	}
+
+	@Then("the user should not be able to Appointment Outreach BOT Call")
+	public void disableAppointmentOutreachBotCall() {
+		clinicalworkflowPage.preventAppointmentOutreachBotCall();
+
+	}
+
+	@Then("the user should not be able to Appointment Outreach Text")
+	public void disableAppointmentOutreachText() {
+		clinicalworkflowPage.preventAppointmentOutreachText();
+
+	}
+
+	@Then("the user should not be able to Appointment Outreach Fax")
+	public void disableAppointmentOutreachFax() {
+		clinicalworkflowPage.preventAppointmentOutreachFax();
+
+	}
+
+	@Then("the user should not be able to Appointment Outreach Mail")
+	public void disableAppointmentOutreachMailForUser() {
+		clinicalworkflowPage.restrictAppointmentOutreachMail();
+
+	}
+
+	@Then("the user should be able to view Appointment Outreach")
+	public void grantViewAppointmentOutreachAccess() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String clinicalWorkflowAppointmentOutreachUrl = Hooks.prop
+				.getProperty("clinicalWorkflowAppointmentOutreachUrl");
+
+		Assert.assertNotNull("clinicalWorkflowAppointmentOutreachUrl is missing in config",
+				clinicalWorkflowAppointmentOutreachUrl);
+
+		String fullUrl = baseUrl + clinicalWorkflowAppointmentOutreachUrl;
+
+		clinicalworkflowPage = new clinicalworkflowpage(Hooks.driver);
+		clinicalworkflowPage.openclinicalWorkflowAppointmentOutreachUrl(fullUrl);
+
+		Assert.assertTrue("Appointment Outreach page is not displayed",
+				Hooks.driver.getCurrentUrl().contains(clinicalWorkflowAppointmentOutreachUrl));
+	}
+
+	@Then("the user should not be able to Action Work Flow Export To Excel")
+	public void verifyUserCannotExportActionWorkflowToExcel() {
+		clinicalworkflowPage.verifyWorkflowExportToExcelIsDisabled();
+
+	}
+
+	@And("I create a profile with view only Access Appointment Outreach")
+	public void createAppointmentOutreachViewOnlyProfile() {
+		clinicalworkflowPage.clickFilterButton();
+		clinicalworkflowPage.enterProfileName();
+		clinicalworkflowPage.clickSearchButton();
+		clinicalworkflowPage.clickActionMenu();
+		clinicalworkflowPage.clickEditButton();
+		clinicalworkflowPage.createProfileWithAppointmentOutreachViewAccess();
+		clinicalworkflowPage.clickSubmitButton();
+		System.out.println("Profile updated with View access only to Clinicalworkflow Module General Audit View");
+		Hooks.scenario.log("Profile updated with View access only to Clinicalworkflow Module General Audit View");
+	}
+
+	@Then("the user should be able to Appointment All Communication View")
+	public void canViewAllAppointmentCommunications() {
+		clinicalworkflowPage.hasPermissionToViewAllAppointmentCommunications();
+
+	}
+
+	@Then("the user should be able to Appointment OutReach Notes Add")
+	public void canAddAppointmentOutreachNotes() {
+		clinicalworkflowPage.hasPermissionToAddAppointmentOutreachNotes();
+
+	}
+
+	@Then("the user should be able to Appointment OutReach Notes View")
+	public void canViewAppointmentOutreachNotes() {
+		clinicalworkflowPage.hasPermissionToViewAppointmentOutreachNotes();
+
+	}
+
+	@Then("the user should be able to Appointment Status Update")
+	public void hasPermissionToUpdateAppointmentStatus() {
+		clinicalworkflowPage.canUpdateAppointmentStatus();
+
+	}
+
+	@Then("the user should be able to Appointment Outreach Export To Excel")
+	public void canExportAppointmentOutreachToExcel() {
+		clinicalworkflowPage.hasPermissionToExportAppointmentOutreachToExcel();
+
+	}
+
+	@Then("the user should be able to Appointment Outreach Send VCard")
+	public void canSendAppointmentOutreachVCard() {
+		clinicalworkflowPage.hasPermissionToSendAppointmentOutreachVCard();
+
+	}
+
+	@Then("the user should be able to Appointment Outreach Quick Text")
+	public void canSendAppointmentOutreachQuickText() {
+		clinicalworkflowPage.hasPermissionToSendAppointmentOutreachQuickText();
+
+	}
+
+	@Then("the user should be able to Appointment Outreach BOT Call")
+	public void canSendAppointmentOutreachBotCall() {
+		clinicalworkflowPage.hasPermissionToSendAppointmentOutreachBotCall();
+
+	}
+
+	@Then("the user should be able to Appointment Outreach Text")
+	public void hasPermissionToSendAppointmentOutreachText() {
+		clinicalworkflowPage.canSendAppointmentOutreachText();
+
+	}
+
+	@Then("the user should be able to Appointment Outreach Fax")
+	public void canSendAppointmentOutreachFax() {
+		clinicalworkflowPage.hasPermissionToSendAppointmentOutreachFax();
+
+	}
+
+	@Then("the user should be able to Appointment Outreach Mail")
+	public void canSendAppointmentOutreachMail() {
+		clinicalworkflowPage.hasPermissionToSendAppointmentOutreachMail();
+
+	}
+
+	@And("I create a profile Full Appointment Outreach Access with All Permissions")
+	public void createFullAppointmentOutreachAccessWithAllPermissions() {
+		clinicalworkflowPage.clickFilterButton();
+		clinicalworkflowPage.enterProfileName();
+		clinicalworkflowPage.clickSearchButton();
+		clinicalworkflowPage.clickActionMenu();
+		clinicalworkflowPage.clickEditButton();
+		clinicalworkflowPage.createFullAppointmentOutreachAccess();
+		clinicalworkflowPage.clickSubmitButton();
+		System.out.println("Profile updated with View access only to Clinicalworkflow Module General Audit View");
+		Hooks.scenario.log("Profile updated with View access only to Clinicalworkflow Module General Audit View");
+	}
+
 	// Action Work Flow
+
+	@Then("the user should not be able to Send VCard")
+	public void verifyUserCannotSendVCard() {
+		clinicalworkflowPage.verifyUserIsRestrictedFromSendingVCard();
+
+	}
+
+	@Then("the user should not be able to Grid Template Company Default Checkbox")
+	public void verifyUserCannotSelectGridTemplateCompanyDefaultCheckbox() {
+		clinicalworkflowPage.verifyUserCannotUseCompanyDefaultCheckboxForGridTemplate();
+
+	}
+
+	@Then("the user should not be able to Grid Template Delete")
+	public void verifyUserCannotDeleteGridTemplate() {
+		clinicalworkflowPage.userShouldNotBeAbleToDeleteGridTemplate();
+
+	}
+
+	@Then("the user should not be able to Grid Template Edit")
+	public void verifyUserCannotEditGridTemplate() {
+		clinicalworkflowPage.userShouldNotBeAbleToEditGridTemplate();
+
+	}
+
+	@Then("the user should not be able to Grid Template Add")
+	public void verifyUserCannotAddGridTemplate() {
+		clinicalworkflowPage.verifyUserCannotAccessGridTemplateAdd();
+
+	}
+
+	@Then("the user should not be able to Show Past Runninglines Checkbox")
+	public void verifyUserCannotAccessShowPastRunninglinesCheckbox() {
+		clinicalworkflowPage.verifyUserCannotViewPastRunninglinesCheckbox();
+
+	}
+
+	@Then("the user should not be able to Show All Runninglines Checkbox")
+	public void verifyUserCannotAccessShowAllRunninglinesCheckbox() {
+		clinicalworkflowPage.verifyUserCannotSelectShowAllRunninglinesCheckbox();
+
+	}
+
+	@Then("the user should not be able to Quick Text")
+	public void verifyUserCannotQuickText() {
+		clinicalworkflowPage.userShouldNotBeAbleToQuickText();
+
+	}
+
+	@Then("the user should not be able to Send Mail/Fax/Text/BOT Call")
+	public void verifyUserCannotSendCommunication() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String clinicalWorkflowActionWorkflowUrl = Hooks.prop.getProperty("clinicalWorkflowActionWorkflowUrl");
+
+		Assert.assertNotNull("clinicalWorkflowActionWorkflowUrl is missing in config",
+				clinicalWorkflowActionWorkflowUrl);
+
+		String fullUrl = baseUrl + clinicalWorkflowActionWorkflowUrl;
+
+		clinicalworkflowPage = new clinicalworkflowpage(Hooks.driver);
+		clinicalworkflowPage.openclinicalWorkflowActionWorkflowUrl(fullUrl);
+
+		Assert.assertTrue("Action Workflow page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/ClinicalWorkflow/Home/ActionWorkflow"));
+	}
+
+	@And("I create a profile with view only Access")
+	public void createProfileWithPermissions() {
+		clinicalworkflowPage.clickFilterButton();
+		clinicalworkflowPage.enterProfileName();
+		clinicalworkflowPage.clickSearchButton();
+		clinicalworkflowPage.clickActionMenu();
+		clinicalworkflowPage.clickEditButton();
+		clinicalworkflowPage.iCreateAProfileWithViewOnlyAccess();
+		clinicalworkflowPage.clickSubmitButton();
+		System.out.println("Profile updated with View access only to Clinicalworkflow Module General Audit View");
+		Hooks.scenario.log("Profile updated with View access only to Clinicalworkflow Module General Audit View");
+	}
+
 	@Then("the user should be able to Action Work Flow Export To Excel")
 	public void userShouldBeAbleToExportWorkflowToExcel() {
 
@@ -99,6 +538,12 @@ public class clinicalworkflowstep {
 	public void userShouldBeAbleToViewActionWorkflowMail() {
 
 		clinicalworkflowPage.canViewActionWorkflowMail();
+
+	}
+
+	@Then("the user should not be able to Send Mail, Fax, Text, BOT Call")
+	public void verifyUserCannotSendMailFaxTextOrBotCall() {
+		clinicalworkflowPage.verifyUserCannotSendCommunications();
 
 	}
 
