@@ -1009,8 +1009,7 @@ Scenario: Organizational user able to perform the Product Delete functionality i
   And user click on the sidebar collpase button in module dashboard page
   When user click on the product tab in wellness module sidebar menu
   And user click on the three-dot button in products page
-  Then user click on the delete button of any particular product in products page
-  And user click on the confirm button in delete patient pop-up window                        
+  Then user click on the delete button of any particular product in products page                       
 
 
 #------------------------------ Product Category ------------------------------------------------

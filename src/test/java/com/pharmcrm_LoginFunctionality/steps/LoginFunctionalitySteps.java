@@ -136,6 +136,25 @@ public class LoginFunctionalitySteps {
 		System.out.println("User Entered Patient Password: " + Password);
 		Hooks.scenario.log("User Entered Patient Password: " + Password);
 	}
+	
+	@Then("user enter the sales user emailid")
+	public void user_enter_the_sales_user_emailid() {
+		String EmailId = Hooks.prop.getProperty("salesuserEmailID");
+		loginfunctionalitypage.entertheemailidtextbox(EmailId);
+		
+		System.out.println("User Entered Sales User EmailID: " + EmailId);
+		Hooks.scenario.log("User Entered Sales User EmailID: " + EmailId);
+	}
+	
+	@And("user enter the sales user password")
+	public void user_enter_the_sales_user_password() throws Exception {
+		String Password = Hooks.prop.getProperty("salesuserpassword");
+		loginfunctionalitypage.enterthepasswordtextbox(Password);
+		Thread.sleep(500);
+		
+		System.out.println("User Entered Sales User Password: " + Password);
+		Hooks.scenario.log("User Entered Sales User Password: " + Password);
+	}
 
 
 }

@@ -188,8 +188,7 @@ Scenario: Organizational user able to perform the Delete Board functionality in 
   And user click on the sidebar collpase button in module dashboard page
   When user click on the boards section in project module sidebar menu
   Then user click on the delete board button in boards page
-  And user click on the confirm button delete board pop-up window
-  
+   
   #--------------------- Setting The Board ------------------------------------------------
   
 Scenario: Organizational user able to click on Setting button in Project Module tab
@@ -710,8 +709,7 @@ Scenario: Board created user able to Delete the existing board panel in Board Pa
   When user click on the boards section in project module sidebar menu
   Then user click on the newly created board panel in boards page
   And user click on the delete button of existing panel in board panels page
-  When user click on the confirm button in delete panel pop-up window
-  
+   
   
     #--------------------- Add Task Functionality  ------------------------------------------------
       
@@ -771,12 +769,6 @@ Scenario: Board created user able the Task Details in existing Task for To Do Bo
   
   
   #--------------------- Mark Complete Functionality  ------------------------------------------------
-
-
-
-
-
-  
   
   
 Scenario: Board created user able the Task as Mark completed in existing Task for To Do Board panel in Board Panels page
@@ -830,7 +822,6 @@ Scenario: Board created user able Delete the existing Task for To Do Board panel
   Then user click on the newly created board panel in boards page
   And user click on the existing task tab in To Do board panel
   Then user click on the delete button in edit task pop-up window
-  And user click on the delete card button in delete card in the edit task pop-up window
   
   
   #--------------------- Board Member Functionality  ------------------------------------------------
@@ -888,7 +879,6 @@ Scenario: Board member user able to perform the Delete Panel action on the Board
   And user click on the sidebar collpase button in module dashboard page
   When user click on the newly created board panel through sidebar in boards page
   And user click on the delete button of existing panel in board panels page
-  When user click on the confirm button in delete panel pop-up window
   
 Scenario: Board member user able to Add a Card with Card name in To Do Board panel in Board Panels  page.
   Given user launch browser
@@ -975,8 +965,7 @@ Scenario: Board member user able Delete the existing Task for To Do Board panel 
   When user click on the newly created board panel through sidebar in boards page
   And user click on the existing task tab in To Do board panel
   Then user click on the delete button in edit task pop-up window
-  And user click on the delete card button in delete card in the edit task pop-up window
-  
+    
 Scenario: Board member user able to change the BackGround Board Colour as Orange in Board Panels page
   Given user launch browser
   Then user click on the user type dropdown

@@ -1,20 +1,24 @@
 package com.pharmcrm.pharmcrm_product.runner;
-import org.testng.annotations.DataProvider;
-import io.cucumber.testng.AbstractTestNGCucumberTests;
-import io.cucumber.testng.CucumberOptions;
 
-@CucumberOptions(features = { "src/test/resources/com/Features" }, glue = { "com.pharmcrm_LoginFunctionality.steps",
-		"com.pharmcrm_PatientModule.steps", "com.pharmcrm_DeliveryModule.steps", "com.pharmcrm_ClinicalModule.steps",
-		"com.pharmcrm_DrugModule.steps", "com.pharmcrm_ProviderModule.steps", "com.pharmcrm_PartnerModule.steps",
-		"com.pharmcrm_SetupModule.steps", "com.pharmcrm_PatientPortal.steps", "com.pharmcrm_ProjectModule.steps",
-		"com.pharmcrm_WellnessModule.steps", "hooks" }, plugin = { "pretty", "html:target/cucumber-report.html",
-				"json:target/cucumber.json" }, monochrome = true)
-public class MasterRunner extends AbstractTestNGCucumberTests {
+import org.junit.runner.RunWith;
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
 
-	@Override
-	@DataProvider(parallel = true)
-	public Object[][] scenarios() {
-		return super.scenarios();
-	}
+@RunWith(Cucumber.class)
+@CucumberOptions(
+    features = "src/test/resources/com/Features/SalesReps Module/SalesReps.feature",
+    glue = {"com.pharmcrm_WellnessModule.steps", "com.pharmcrm_PatientPortal.steps", "com.pharmcrm_LoginFunctionality.steps",
+    		"com.pharmcrm_ProjectModule.steps", "com.pharmcrm_HRModule.steps", "com.pharmcrm_SalesRepsModule.steps",
+    		"com.pharmcrm_ComplianceModule.steps", "com.pharmcrm_ReportModule.steps", "com.pharmcrm_BillingModule.steps", "hooks"},
+    tags ="@Sanity",
+    plugin = {
+    	"pretty",
+        "html:target/cucumber-html-report.html",
+        "json:target/cucumber-report.json"
+    },
+    monochrome = true
+)
+
+public class MasterRunner {
+
 }
-
