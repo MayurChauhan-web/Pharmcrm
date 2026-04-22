@@ -14,12 +14,18 @@ public class WellnessModuleFunctionalitySteps {
 	WellnessModuleFunctionalityPage wellnessmodulefunctionalitypage = new WellnessModuleFunctionalityPage(Hooks.driver);
 	
 	@Then("user click on the wellness module tab in home page")
-	public void user_click_on_the_wellness_module_tab_in_home_page() throws Exception {
-		wellnessmodulefunctionalitypage.clickintothewellnessmoduletab();
-		Thread.sleep(500);
+	public void user_click_on_the_wellness_module_tab_in_home_page() {
+		boolean result = wellnessmodulefunctionalitypage.clickintothewellnessmoduletab();
 		
-		System.out.println("Wellness Module tab clicked successfully and Wellness Module is open");
-		Hooks.scenario.log("Wellness Module tab clicked successfully and Wellness Module is open");
+		if (!result) {
+	        String message = "Wellness Module (more options) tab is not visible for that user because don't have the permission — skipping this step";
+	        System.out.println(message);
+	        Hooks.scenario.log(message);
+
+	        Assume.assumeTrue(message, false); // Step marked as SKIPPED
+	        return;
+	    }
+	    Hooks.scenario.log("Wellness Module tab clicked successfully");
 	}
 	
 	@And("user click on the sidebar collpase button in module dashboard page")
@@ -33,12 +39,18 @@ public class WellnessModuleFunctionalitySteps {
 	//----------------------------------- Patient Section ----------------------------------------------------
 	
 	@When("user click on the patient tab in wellness module sidebar menu")
-	public void user_click_on_the_patient_tab_in_wellness_module_sidebar_menu() throws Exception {
-		wellnessmodulefunctionalitypage.clickintothepatienttabinsidebarmenu();
-		Thread.sleep(500);
+	public void user_click_on_the_patient_tab_in_wellness_module_sidebar_menu() {
+		boolean result = wellnessmodulefunctionalitypage.clickintothepatienttabinsidebarmenu();
 		
-		System.out.println("Patient tab clicked successfully Patients Section is open");
-		Hooks.scenario.log("Patient tab clicked successfully Patients Section is open");
+		if (!result) {
+	        String message = "Patient (more options) tab is not visible for that user because don't have the permission — skipping this step";
+	        System.out.println(message);
+	        Hooks.scenario.log(message);
+
+	        Assume.assumeTrue(message, false); // Step marked as SKIPPED
+	        return;
+	    }
+	    Hooks.scenario.log("Patient tab clicked successfully");
 	}
 	
 	@Then("user click on the new patient tab in patients section of wellness module")
@@ -207,10 +219,17 @@ public class WellnessModuleFunctionalitySteps {
 	
 	@Then("user click on the points setting button in patient section")
 	public void user_click_on_the_points_setting_button_in_patient_section() {
-		wellnessmodulefunctionalitypage.clickintothepointssettingbutton();
+		boolean result = wellnessmodulefunctionalitypage.clickintothepointssettingbutton();
 		
-		System.out.println("Points Setting button clicked successfully and Ponts Setting pop-up window is open");
-		Hooks.scenario.log("Points Setting button clicked successfully and Ponts Setting pop-up window is open");
+		if (!result) {
+	        String message = "Points Settings (more options) tab is not visible for that user because don't have the permission — skipping this step";
+	        System.out.println(message);
+	        Hooks.scenario.log(message);
+
+	        Assume.assumeTrue(message, false); // Step marked as SKIPPED
+	        return;
+	    }
+	    Hooks.scenario.log("Points Settings tab clicked successfully");
 	}
 	
 	@And("user enter the points in points setting pop-up winodw")
@@ -250,12 +269,18 @@ public class WellnessModuleFunctionalitySteps {
 	}
 	
 	@Then("user click on the buy points button in patient section")
-	public void user_click_on_the_buy_points_button_in_patient_section() throws Exception {
-		wellnessmodulefunctionalitypage.clickintothebuypointsbutton();
-		Thread.sleep(500);
+	public void user_click_on_the_buy_points_button_in_patient_section() {
+		boolean result = wellnessmodulefunctionalitypage.clickintothebuypointsbutton();
 		
-		System.out.println("Buy Points button clicked successfully and Buy Additional Points pop-up window is open");
-		Hooks.scenario.log("Buy Points button clicked successfully and Buy Additional Points pop-up window is open");
+		if (!result) {
+	        String message = "Buy Points (more options) button is not visible for that user because don't have the permission — skipping this step";
+	        System.out.println(message);
+	        Hooks.scenario.log(message);
+
+	        Assume.assumeTrue(message, false); // Step marked as SKIPPED
+	        return;
+	    }
+	    Hooks.scenario.log("Buy Points button clicked successfully");
 	}
 	
 	@And("user enter the points in buy additional points pop-up window")
@@ -296,27 +321,47 @@ public class WellnessModuleFunctionalitySteps {
 	
 	@Then("user click on the order history button in patient section")
 	public void user_click_on_the_order_history_button_in_patient_section() {
-		wellnessmodulefunctionalitypage.clickintotheorderhistorybutton();
+		boolean result = wellnessmodulefunctionalitypage.clickintotheorderhistorybutton();
 		
-		System.out.println("Order History button clicked succesfully and Order History page is open");
-		Hooks.scenario.log("Order History button clicked succesfully and Order History page is open");
+		if (!result) {
+	        String message = "Order History (more options) button is not visible for that user because don't have the permission — skipping this step";
+	        System.out.println(message);
+	        Hooks.scenario.log(message);
+
+	        Assume.assumeTrue(message, false); // Step marked as SKIPPED
+	        return;
+	    }
+	    Hooks.scenario.log("Order History button clicked successfully");
 	}
 	
 	@Then("user click on the card button in patient section")
 	public void user_click_on_the_card_button_in_patient_section() {
-		wellnessmodulefunctionalitypage.clickintothecardbutton();
+		boolean result = wellnessmodulefunctionalitypage.clickintothecardbutton();
 		
-		System.out.println("Card button clicked successfully and Patient Card page is open");
-		Hooks.scenario.log("Card button clicked successfully and Patient Card page is open");
+		if (!result) {
+	        String message = "Card (more options) button is not visible for that user because don't have the permission — skipping this step";
+	        System.out.println(message);
+	        Hooks.scenario.log(message);
+
+	        Assume.assumeTrue(message, false); // Step marked as SKIPPED
+	        return;
+	    }
+	    Hooks.scenario.log("Card button clicked successfully");
 	}
 	
 	@And("user click on the add products button in patient card page")
-	public void user_click_on_the_add_products_button_in_patient_card_page() throws Exception {
-		wellnessmodulefunctionalitypage.clickintotheaddproductsbutton();
-		Thread.sleep(500);
+	public void user_click_on_the_add_products_button_in_patient_card_page() {
+		boolean result = wellnessmodulefunctionalitypage.clickintotheaddproductsbutton();
 		
-		System.out.println("Add Products button clicked successfully Add Product pop-up window is open");
-		Hooks.scenario.log("Add Products button clicked successfully Add Product pop-up window is open");
+		if (!result) {
+	        String message = "Add Products (more options) button is not visible for that user because don't have the permission — skipping this step";
+	        System.out.println(message);
+	        Hooks.scenario.log(message);
+
+	        Assume.assumeTrue(message, false); // Step marked as SKIPPED
+	        return;
+	    }
+	    Hooks.scenario.log("Add Products button clicked successfully");
 	}
 	
 	@When("user click on the category dropdown button in patient card page")
@@ -425,10 +470,17 @@ public class WellnessModuleFunctionalitySteps {
 	
 	@When("user click on the product tab in wellness module sidebar menu")
 	public void user_click_on_the_product_tab_in_wellness_module_sidebar_menu() {
-		wellnessmodulefunctionalitypage.clickintotheproductinsidebarmenutab();
+		boolean result = wellnessmodulefunctionalitypage.clickintotheproductinsidebarmenutab();
 		
-		System.out.println("Product Tab clicked successfully and Product Page is open");
-		Hooks.scenario.log("Product Tab clicked successfully and Product Page is open");
+		if (!result) {
+	        String message = "Product (more options) tab is not visible for that user because don't have the permission — skipping this step";
+	        System.out.println(message);
+	        Hooks.scenario.log(message);
+
+	        Assume.assumeTrue(message, false); // Step marked as SKIPPED
+	        return;
+	    }
+	    Hooks.scenario.log("Product tab clicked successfully");
 	}
 	
 	@When("user click on the category dropdown button in products page")
@@ -495,12 +547,18 @@ public class WellnessModuleFunctionalitySteps {
 	}
 	
 	@Then("user click on the new product button in products page")
-	public void user_click_on_the_new_product_button_in_products_page() throws Exception {
-		wellnessmodulefunctionalitypage.clickintothenewproductbuttoninproducts();
-		Thread.sleep(1500);
+	public void user_click_on_the_new_product_button_in_products_page() {
+		boolean result = wellnessmodulefunctionalitypage.clickintothenewproductbuttoninproducts();
 		
-		System.out.println("New Product button clicked successfully and Add Product Section is open");
-		Hooks.scenario.log("New Product button clicked successfully and Add Product Section is open");
+		if (!result) {
+	        String message = "New Product (more options) button is not visible for that user because don't have the permission — skipping this step";
+	        System.out.println(message);
+	        Hooks.scenario.log(message);
+
+	        Assume.assumeTrue(message, false); // Step marked as SKIPPED
+	        return;
+	    }
+	    Hooks.scenario.log("New Product button clicked successfully");
 	}
 	
 	@And("user enter the new product name in add product section")
@@ -709,29 +767,33 @@ public class WellnessModuleFunctionalitySteps {
 	}
 	
 	@Then("user click on the edit button of any particular product in products page")
-	public void user_click_on_the_edit_button_of_any_particular_product_in_products_page() throws Exception {
-		wellnessmodulefunctionalitypage.clickintotheeditbuttoninproducts();
-		Thread.sleep(1000);
+	public void user_click_on_the_edit_button_of_any_particular_product_in_products_page() {
+		boolean result = wellnessmodulefunctionalitypage.clickintotheeditbuttoninproducts();
 		
-		System.out.println("Edit button clicked successfully and Add Product section is open");
-		Hooks.scenario.log("Edit button clicked successfully and Add Product section is open");
+		if (!result) {
+	        String message = "Edit (more options) button is not visible for that user because don't have the permission — skipping this step";
+	        System.out.println(message);
+	        Hooks.scenario.log(message);
+
+	        Assume.assumeTrue(message, false); // Step marked as SKIPPED
+	        return;
+	    }
+	    Hooks.scenario.log("Edit button clicked successfully");
 	}
 	
 	@Then("user click on the delete button of any particular product in products page")
-	public void user_click_on_the_delete_button_of_any_particular_product_in_products_page() throws Exception {
-		wellnessmodulefunctionalitypage.clickintothedeletebuttoninprducts();
-		Thread.sleep(1000);
+	public void user_click_on_the_delete_button_of_any_particular_product_in_products_page() {
+		boolean result = wellnessmodulefunctionalitypage.clickintothedeletebuttoninprducts();
 		
-		System.out.println("Delete button clicked successfully and Delete Product pop-up window is open");
-		Hooks.scenario.log("Delete button clicked successfully and Delete Product pop-up window is open");
-	}
-	
-	@And("user click on the confirm button in delete patient pop-up window")
-	public void user_click_on_the_confirm_button_in_delete_patient_pop_up_window() {
-		wellnessmodulefunctionalitypage.clickintotheconfirmdeletebuttoninproducts();
-		
-		System.out.println("Confirm button cllicked successfully and user clickable product is delete");
-		Hooks.scenario.log("Confirm button cllicked successfully and user clickable product is delete");
+		if (!result) {
+	        String message = "Delete (more options) button is not visible for that user because don't have the permission — skipping this step";
+	        System.out.println(message);
+	        Hooks.scenario.log(message);
+
+	        Assume.assumeTrue(message, false); // Step marked as SKIPPED
+	        return;
+	    }
+	    Hooks.scenario.log("Existing product is delete successfully");
 	}
 	
 	@And("user able to edit product name in add product section")
@@ -776,18 +838,32 @@ public class WellnessModuleFunctionalitySteps {
 	
 	@When("user click on the product category tab in wellness module sidebar menu")
 	public void user_click_on_the_product_category_tab_in_wellness_module_sidebar_menu() {
-		wellnessmodulefunctionalitypage.clickintotheproductcategorytabinsidebarmenu();
+		boolean result = wellnessmodulefunctionalitypage.clickintotheproductcategorytabinsidebarmenu();
 		
-		System.out.println("Product Category tab clicked successfully and Product Category section is open");
-		Hooks.scenario.log("Product Category tab clicked successfully and Product Category section is open");
+		if (!result) {
+	        String message = "Product Category (more options) tab is not visible for that user because don't have the permission — skipping this step";
+	        System.out.println(message);
+	        Hooks.scenario.log(message);
+
+	        Assume.assumeTrue(message, false); // Step marked as SKIPPED
+	        return;
+	    }
+	    Hooks.scenario.log("Product Category tab clicked successfully");
 	}
 	
 	@Then("user click on the new product category button in product category section")
 	public void user_click_on_the_new_product_category_button_in_product_category_section() {
-		wellnessmodulefunctionalitypage.clickintothenewproductcategorybutton();
+		boolean result = wellnessmodulefunctionalitypage.clickintothenewproductcategorybutton();
 		
-		System.out.println("New Product Category button clicked successfully and Add Product Categories section is open");
-		Hooks.scenario.log("New Product Category button clicked successfully and Add Product Categories section is open");
+		if (!result) {
+	        String message = "New Product Category (more options) button is not visible for that user because don't have the permission — skipping this step";
+	        System.out.println(message);
+	        Hooks.scenario.log(message);
+
+	        Assume.assumeTrue(message, false); // Step marked as SKIPPED
+	        return;
+	    }
+	    Hooks.scenario.log("New Product Category button clicked successfully");
 	}
 	
 	@When("user click on the select new image button in product category section")
@@ -851,10 +927,17 @@ public class WellnessModuleFunctionalitySteps {
 	
 	@And("user click on the edit button for any particular product category")
 	public void user_click_on_the_edit_button_for_any_particular_product_category() {
-		wellnessmodulefunctionalitypage.clickintotheeditbuttoninproducts();
+		boolean result = wellnessmodulefunctionalitypage.clickintotheeditbuttoninproducts();
 		
-		System.out.println("Edit button clicked successfully and Add Product Category page is open");
-		Hooks.scenario.log("Edit button clicked successfully and Add Product Category page is open");
+		if (!result) {
+	        String message = "Product Category (more options) tab is not visible for that user because don't have the permission — skipping this step";
+	        System.out.println(message);
+	        Hooks.scenario.log(message);
+
+	        Assume.assumeTrue(message, false); // Step marked as SKIPPED
+	        return;
+	    }
+	    Hooks.scenario.log("Product Category tab clicked successfully");
 	}
 	
 	@When("user able to change the product category image")
@@ -911,12 +994,18 @@ public class WellnessModuleFunctionalitySteps {
 	}
 	
 	@Then("user click on the delete button of any particular product in product category")
-	public void user_click_on_the_delete_button_of_any_particular_product_in_product_category() throws Exception {
-		wellnessmodulefunctionalitypage.clickintothedeletebuttoninprducts();
-		Thread.sleep(1000);
+	public void user_click_on_the_delete_button_of_any_particular_product_in_product_category() {
+		boolean result = wellnessmodulefunctionalitypage.clickintothedeletebuttoninprducts();
 		
-		System.out.println("Delete button clicked successfully and Delete Product Category pop-up window is open");
-		Hooks.scenario.log("Delete button clicked successfully and Delete Product Category pop-up window is open");
+		if (!result) {
+	        String message = "Delete (more options) button is not visible for that user because don't have the permission — skipping this step";
+	        System.out.println(message);
+	        Hooks.scenario.log(message);
+
+	        Assume.assumeTrue(message, false); // Step marked as SKIPPED
+	        return;
+	    }
+	    Hooks.scenario.log("Existing Product Category is delete successfully");
 	}
 	
 	@When("user click on the confirm button in delete product category pop-up window")

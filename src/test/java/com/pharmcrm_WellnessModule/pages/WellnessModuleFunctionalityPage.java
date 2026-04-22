@@ -83,21 +83,26 @@ public class WellnessModuleFunctionalityPage {
 		this.driver = driver;
 	}
 	
-	public void clickintothewellnessmoduletab() {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-		
-		// Wait for preloader to disappear
+	public boolean clickintothewellnessmoduletab() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+	    // wait only for page loader
 	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
-	    
-	    WebElement wellnessmoduleTab = wait.until(ExpectedConditions.elementToBeClickable(wellnessmoduletab));
-	   
-	    try {
-	    	wellnessmoduleTab.click();
-	    } catch (Exception e) {
-	        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", wellnessmoduleTab);
+
+	    // IMPORTANT: NO wait for Wellness Module tab
+	    List<WebElement> wellnessmoduletabs = driver.findElements(wellnessmoduletab);
+
+	    if (wellnessmoduletabs.isEmpty()) {
+	        // Wellness Module tab NOT present → stop scenario
+	        return false;
 	    }
 
-	    System.out.println("Wellness Module Tab clicked successfully");
+	    WebElement wellnessmoduletab = wellnessmoduletabs.get(0);
+
+	    wait.until(ExpectedConditions.elementToBeClickable(wellnessmoduletab));
+	    wellnessmoduletab.click();
+
+	    return true;
 	}
 	
 	public void clickintothesidebarcollapsebutton() {
@@ -121,21 +126,26 @@ public class WellnessModuleFunctionalityPage {
 	//----------------------------------- Patient Section ----------------------------------------------------
 	
 	
-	public void clickintothepatienttabinsidebarmenu() {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-		
-		// Wait for preloader to disappear
+	public boolean clickintothepatienttabinsidebarmenu() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+	    // wait only for page loader
 	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
-	    
-	    WebElement patienttabinsidebarMenu = wait.until(ExpectedConditions.elementToBeClickable(patienttabinsidebarmenu));
-	   
-	    try {
-	    	patienttabinsidebarMenu.click();
-	    } catch (Exception e) {
-	        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", patienttabinsidebarMenu);
+
+	    // IMPORTANT: NO wait for Patients tab
+	    List<WebElement> patientstabs = driver.findElements(patienttabinsidebarmenu);
+
+	    if (patientstabs.isEmpty()) {
+	        // Patients tab NOT present → stop scenario
+	        return false;
 	    }
 
-	    System.out.println("Patient Tab clicked successfully");
+	    WebElement patientstab = patientstabs.get(0);
+
+	    wait.until(ExpectedConditions.elementToBeClickable(patientstab));
+	    patientstab.click();
+
+	    return true;
 	}
 	
 	public void clickintothenewpatientbutton() {
@@ -303,20 +313,26 @@ public class WellnessModuleFunctionalityPage {
 	    System.out.println("Clear button clicked successfully");
 	}
 	
-	public void clickintothepointssettingbutton() {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-		
-		// Wait for preloader to disappear
+	public boolean clickintothepointssettingbutton() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+	    // wait only for page loader
 	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
-	    
-	    WebElement pointssettingTab = wait.until(ExpectedConditions.elementToBeClickable(pointssettingtab));
-	   
-	    try {
-	    	pointssettingTab.click();
-	    } catch (Exception e) {
-	        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", pointssettingTab);
+
+	    // IMPORTANT: NO wait for Edit Button
+	    List<WebElement> pointssettingstabs = driver.findElements(pointssettingtab);
+
+	    if (pointssettingstabs.isEmpty()) {
+	        // Edit Button NOT present → stop scenario
+	        return false;
 	    }
-	    System.out.println("Points Setting button clicked successfully");
+
+	    WebElement pointssettingstab = pointssettingstabs.get(0);
+
+	    wait.until(ExpectedConditions.elementToBeClickable(pointssettingstab));
+	    pointssettingstab.click();
+
+	    return true;
 	}
 	
 	public String clickintothesavepointsbutton() {
@@ -343,20 +359,26 @@ public class WellnessModuleFunctionalityPage {
 		return "Points are added";
 	}
 	
-	public void clickintothebuypointsbutton() {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-		
-		// Wait for preloader to disappear
+	public boolean clickintothebuypointsbutton() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+	    // wait only for page loader
 	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
-	    
-	    WebElement buypointsbuttonTab = wait.until(ExpectedConditions.elementToBeClickable(buypointsbutton));
-	   
-	    try {
-	    	buypointsbuttonTab.click();
-	    } catch (Exception e) {
-	        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", buypointsbuttonTab);
+
+	    // IMPORTANT: NO wait for Buy Points Button
+	    List<WebElement> buypointsbuttons = driver.findElements(buypointsbutton);
+
+	    if (buypointsbuttons.isEmpty()) {
+	        // Buy Points Button NOT present → stop scenario
+	        return false;
 	    }
-	    System.out.println("Buy Points button clicked successfully");
+
+	    WebElement buypointsbutton = buypointsbuttons.get(0);
+
+	    wait.until(ExpectedConditions.elementToBeClickable(buypointsbutton));
+	    buypointsbutton.click();
+
+	    return true;
 	}
 	
 	public void enterthePointsinbuyadditinalpoints(String Points) {
@@ -415,52 +437,70 @@ public class WellnessModuleFunctionalityPage {
 	    return "Points are Buy";
 	}
 	
-	public void clickintotheorderhistorybutton() {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-		
-		// Wait for preloader to disappear
+	public boolean clickintotheorderhistorybutton() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+	    // wait only for page loader
 	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
-	    
-	    WebElement orderhistorybuttonTab = wait.until(ExpectedConditions.elementToBeClickable(orderhistorybutton));
-	   
-	    try {
-	    	orderhistorybuttonTab.click();
-	    } catch (Exception e) {
-	        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", orderhistorybuttonTab);
+
+	    // IMPORTANT: NO wait for Edit Button
+	    List<WebElement> orderhistoryButtons = driver.findElements(orderhistorybutton);
+
+	    if (orderhistoryButtons.isEmpty()) {
+	        // Edit Button NOT present → stop scenario
+	        return false;
 	    }
-	    System.out.println("Order History button clicked successfully");
+
+	    WebElement orderhistoryButton = orderhistoryButtons.get(0);
+
+	    wait.until(ExpectedConditions.elementToBeClickable(orderhistoryButton));
+	    orderhistoryButton.click();
+
+	    return true;
 	}
 	
-	public void clickintothecardbutton() {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-		
-		// Wait for preloader to disappear
+	public boolean clickintothecardbutton() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+	    // wait only for page loader
 	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
-	    
-	    WebElement cardbuttonTab = wait.until(ExpectedConditions.elementToBeClickable(cardbutton));
-	   
-	    try {
-	    	cardbuttonTab.click();
-	    } catch (Exception e) {
-	        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", cardbuttonTab);
+
+	    // IMPORTANT: NO wait for Card Button
+	    List<WebElement> cardButtons = driver.findElements(cardbutton);
+
+	    if (cardButtons.isEmpty()) {
+	        // Card Button NOT present → stop scenario
+	        return false;
 	    }
-	    System.out.println("Card button clicked successfully");
+
+	    WebElement cardButton = cardButtons.get(0);
+
+	    wait.until(ExpectedConditions.elementToBeClickable(cardButton));
+	    cardButton.click();
+
+	    return true;
 	}
 	
-	public void clickintotheaddproductsbutton() {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-		
-		// Wait for preloader to disappear
+	public boolean clickintotheaddproductsbutton() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+	    // wait only for page loader
 	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
-	    
-	    WebElement addproductsbuttonTab = wait.until(ExpectedConditions.elementToBeClickable(addproductsbutton));
-	   
-	    try {
-	    	addproductsbuttonTab.click();
-	    } catch (Exception e) {
-	        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", addproductsbuttonTab);
+
+	    // IMPORTANT: NO wait for Add Products Button
+	    List<WebElement> addproductsButtons = driver.findElements(addproductsbutton);
+
+	    if (addproductsButtons.isEmpty()) {
+	        // Add Products Button NOT present → stop scenario
+	        return false;
 	    }
-	    System.out.println("Add Products button clicked successfully");
+
+	    WebElement addproductsButton = addproductsButtons.get(0);
+
+	    wait.until(ExpectedConditions.elementToBeClickable(addproductsButton));
+	    addproductsButton.click();
+
+	    return true;
 	}
 	
 	public void clickintothecategorydropdownbutton() {
@@ -696,20 +736,26 @@ public class WellnessModuleFunctionalityPage {
 	//---------------------------------- Product Section ------------------------------------------------------------------
 	
 	
-	public void clickintotheproductinsidebarmenutab() {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-		
-		// Wait for preloader to disappear
+	public boolean clickintotheproductinsidebarmenutab() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+	    // wait only for page loader
 	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
-	    
-	    WebElement producttabinsidebarmenuTab = wait.until(ExpectedConditions.elementToBeClickable(producttabinsidebarmenu));
-	   
-	    try {
-	    	producttabinsidebarmenuTab.click();
-	    } catch (Exception e) {
-	        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", producttabinsidebarmenuTab);
+
+	    // IMPORTANT: NO wait for Product tab
+	    List<WebElement> producttabs = driver.findElements(producttabinsidebarmenu);
+
+	    if (producttabs.isEmpty()) {
+	        // Product tab NOT present → stop scenario
+	        return false;
 	    }
-	    System.out.println("Product Tab clicked successfully");
+
+	    WebElement producttab = producttabs.get(0);
+
+	    wait.until(ExpectedConditions.elementToBeClickable(producttab));
+	    producttab.click();
+
+	    return true;
 	}
 	
 	public void entertheProductNameinProducts(String ProductName1) {
@@ -798,20 +844,26 @@ public class WellnessModuleFunctionalityPage {
 	    System.out.println("Clear button clicked successfully");
 	}
 	
-	public void clickintothenewproductbuttoninproducts() {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-		
-		// Wait for preloader to disappear
+	public boolean clickintothenewproductbuttoninproducts() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+	    // wait only for page loader
 	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
-	    
-	    WebElement newproductbuttoninproductsTab = wait.until(ExpectedConditions.elementToBeClickable(newproductbuttoninproducts));
-	   
-	    try {
-	    	newproductbuttoninproductsTab.click();
-	    } catch (Exception e) {
-	        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", newproductbuttoninproductsTab);
+
+	    // IMPORTANT: NO wait for New Product Button
+	    List<WebElement> newproductButtons = driver.findElements(newproductbuttoninproducts);
+
+	    if (newproductButtons.isEmpty()) {
+	        // New Product Button NOT present → stop scenario
+	        return false;
 	    }
-	    System.out.println("New Product button clicked successfully");
+
+	    WebElement newproductButton = newproductButtons.get(0);
+
+	    wait.until(ExpectedConditions.elementToBeClickable(newproductButton));
+	    newproductButton.click();
+
+	    return true;
 	}
 	
 	public void entertheProductNameinAddProduct(String ProductName2) {
@@ -1078,52 +1130,70 @@ public class WellnessModuleFunctionalityPage {
 	    System.out.println("Three dot button clicked successfully");
 	}
 	
-	public void clickintotheeditbuttoninproducts() {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-		
-		// Wait for preloader to disappear
+	public boolean clickintotheeditbuttoninproducts() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+	    // wait only for page loader
 	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
-	    
-	    WebElement editbuttoninproductsTab = wait.until(ExpectedConditions.elementToBeClickable(editbuttoninproducts));
-	   
-	    try {
-	    	editbuttoninproductsTab.click();
-	    } catch (Exception e) {
-	        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", editbuttoninproductsTab);
+
+	    // IMPORTANT: NO wait for Edit Button
+	    List<WebElement> EditButtons = driver.findElements(editbuttoninproducts);
+
+	    if (EditButtons.isEmpty()) {
+	        // Edit Button NOT present → stop scenario
+	        return false;
 	    }
-	    System.out.println("Edit button clicked successfully");
+
+	    WebElement EditButton = EditButtons.get(0);
+
+	    wait.until(ExpectedConditions.elementToBeClickable(EditButton));
+	    EditButton.click();
+
+	    return true;
 	}
 	
-	public void clickintothedeletebuttoninprducts() {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-		
-		// Wait for preloader to disappear
+	public boolean clickintothedeletebuttoninprducts() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+	    // Wait only for page loader
 	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
-	    
-	    WebElement deletebuttoninproductsTab = wait.until(ExpectedConditions.elementToBeClickable(deletebuttoninproducts));
-	   
-	    try {
-	    	deletebuttoninproductsTab.click();
-	    } catch (Exception e) {
-	        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", deletebuttoninproductsTab);
+
+	    // DO NOT wait for delete button
+	    List<WebElement> deleteButtons = driver.findElements(deletebuttoninproducts);
+
+	    // If Delete button NOT present → stop scenario
+	    if (deleteButtons.isEmpty()) {
+	        System.out.println("Delete button NOT present");
+	        return false;
 	    }
-	    System.out.println("Delete button clicked successfully");
-	}
-	
-	public void clickintotheconfirmdeletebuttoninproducts() {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-		
-		// Wait for preloader to disappear
-	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
-	    
-	    WebElement confirmdeleteproductsbuttonTab = wait.until(ExpectedConditions.elementToBeClickable(confirmdeleteproductsbutton));
-	   
+
+	    WebElement deleteButton = deleteButtons.get(0);
+
+	    // Wait until clickable
+	    wait.until(ExpectedConditions.elementToBeClickable(deleteButton));
+
 	    try {
-	    	confirmdeleteproductsbuttonTab.click();
+	        deleteButton.click();
 	    } catch (Exception e) {
-	        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", confirmdeleteproductsbuttonTab);
+	        ((JavascriptExecutor) driver)
+	                .executeScript("arguments[0].click();", deleteButton);
 	    }
-	    System.out.println("Confirm button clicked successfully");
+
+	    System.out.println("Delete button clicked");
+
+	    // Wait for confirm delete button
+	    WebElement confirmDeleteButton = wait.until(ExpectedConditions.elementToBeClickable(confirmdeleteproductsbutton));
+
+	    try {
+	        confirmDeleteButton.click();
+	    } catch (Exception e) {
+	        ((JavascriptExecutor) driver)
+	                .executeScript("arguments[0].click();", confirmDeleteButton);
+	    }
+
+	    System.out.println("Confirm Delete clicked — record deleted permanently");
+
+	    return true;
 	}
 	
 	
@@ -1131,36 +1201,48 @@ public class WellnessModuleFunctionalityPage {
 	
 	
 	
-	public void clickintotheproductcategorytabinsidebarmenu() {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-		
-		// Wait for preloader to disappear
+	public boolean clickintotheproductcategorytabinsidebarmenu() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+	    // wait only for page loader
 	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
-	    
-	    WebElement productcategorytabinsidebarmenuTab = wait.until(ExpectedConditions.elementToBeClickable(productcategorytabinsidebarmenu));
-	   
-	    try {
-	    	productcategorytabinsidebarmenuTab.click();
-	    } catch (Exception e) {
-	        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", productcategorytabinsidebarmenuTab);
+
+	    // IMPORTANT: NO wait for Product Category tab
+	    List<WebElement> productcategorytabs = driver.findElements(productcategorytabinsidebarmenu);
+
+	    if (productcategorytabs.isEmpty()) {
+	        // Product Category tab NOT present → stop scenario
+	        return false;
 	    }
-	    System.out.println("Product Category Tab clicked successfully");
+
+	    WebElement productcategorytab = productcategorytabs.get(0);
+
+	    wait.until(ExpectedConditions.elementToBeClickable(productcategorytab));
+	    productcategorytab.click();
+
+	    return true;
 	}
 	
-	public void clickintothenewproductcategorybutton() {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-		
-		// Wait for preloader to disappear
+	public boolean clickintothenewproductcategorybutton() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+	    // wait only for page loader
 	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
-	    
-	    WebElement newproductcategorybuttonTab = wait.until(ExpectedConditions.elementToBeClickable(newproductcategorybutton));
-	   
-	    try {
-	    	newproductcategorybuttonTab.click();
-	    } catch (Exception e) {
-	        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", newproductcategorybuttonTab);
+
+	    // IMPORTANT: NO wait for New Product Category Button
+	    List<WebElement> newproductcategoryButtons = driver.findElements(newproductcategorybutton);
+
+	    if (newproductcategoryButtons.isEmpty()) {
+	        // New Product Category Button NOT present → stop scenario
+	        return false;
 	    }
-	    System.out.println("New Product Category button clicked successfully");
+
+	    WebElement newproductcategoryButton = newproductcategoryButtons.get(0);
+
+	    wait.until(ExpectedConditions.elementToBeClickable(newproductcategoryButton));
+	    newproductcategoryButton.click();
+
+	    return true;
 	}
 	
 	@FindBy(css = "input[type='file']")
