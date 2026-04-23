@@ -14,6 +14,604 @@ public class clinicalworkflowpage {
 	private WebDriver driver;
 	private WebDriverWait wait;
 
+	// Upload Wizard Setting
+	public void openClinicalQueueSettingPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/ClinicalQueueSetting"));
+	}
+
+	public void createClinicalQueueAccessProfileFullAccess() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement selectAllModuleLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		selectAllModuleLabelElement.click();
+
+	}
+
+	// Appointment Reminder Setting
+	public By appointmentReminderSettingAddLabel = By.xpath("//label[@for='chkg48AppointmentReminderSettingAdd']");
+	public By appointmentReminderSettingEditLabel = By.xpath("//label[@for='chkg48AppointmentReminderSettingEdit']");
+	public By appointmentReminderSettingDeleteLabel = By
+			.xpath("//label[@for='chkg48AppointmentReminderSettingDelete']");
+	public By newAppointmentReminderSpan = By.xpath("//span[normalize-space()='New Appointment Reminder']");
+	public By appointmentReminderDayTypeDropdown = By.xpath("//select[@id='AppointmentReminderSetting_DayTypeId']");
+	public By appointmentReminderDayDropdown = By.xpath("//select[@id='AppointmentReminderSetting_Day']");
+	public By appointmentReminderNotesInput = By.xpath("//input[@id='AppointmentReminderSetting_Notes']");
+	public By saveAppointmentReminderButton = By.xpath("//button[@id='btnSaveAppointmentReminderSetting']");
+	public By ellipsisIconFirst = By.xpath("(//i[contains(@class,'fa-ellipsis-vertical')])[1]");
+	public By editSpanFirst = By.xpath("(//span[normalize-space()='Edit'])[1]");
+	public By deleteSpanFirst = By.xpath("(//span[normalize-space()='Delete'])[1]");
+	public By confirmDeleteAppointmentReminderButton = By.xpath("//button[@id='deleteAppointmentReminderSetting']");
+
+	// Appointment Reminder Setting
+	public void createProfileForAppointmentReminderSettingViewDelete() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+
+		WebElement ellipsisIconFirstElement = wait.until(ExpectedConditions.elementToBeClickable(ellipsisIconFirst));
+		ellipsisIconFirstElement.click();
+		sleep(2000);
+
+		WebElement editSpanFirstElement = wait.until(ExpectedConditions.elementToBeClickable(deleteSpanFirst));
+		editSpanFirstElement.click();
+		sleep(2000);
+
+		WebElement saveAppointmentReminderButtonElement = wait
+				.until(ExpectedConditions.elementToBeClickable(confirmDeleteAppointmentReminderButton));
+		saveAppointmentReminderButtonElement.click();
+	}
+
+	public void createProfileForAppointmentReminderSettingViewEdit() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+
+		WebElement ellipsisIconFirstElement = wait.until(ExpectedConditions.elementToBeClickable(ellipsisIconFirst));
+		ellipsisIconFirstElement.click();
+		sleep(2000);
+
+		WebElement editSpanFirstElement = wait.until(ExpectedConditions.elementToBeClickable(editSpanFirst));
+		editSpanFirstElement.click();
+		sleep(2000);
+
+		WebElement appointmentReminderDayTypeDropdownElement = wait
+				.until(ExpectedConditions.elementToBeClickable(appointmentReminderDayTypeDropdown));
+		Select appointmentReminderDayTypeSelect = new Select(appointmentReminderDayTypeDropdownElement);
+		appointmentReminderDayTypeSelect.selectByIndex(2);
+
+		WebElement appointmentReminderDayDropdownElement = wait
+				.until(ExpectedConditions.elementToBeClickable(appointmentReminderDayDropdown));
+		Select appointmentReminderDaySelect = new Select(appointmentReminderDayDropdownElement);
+		appointmentReminderDaySelect.selectByIndex(2);
+
+		String appointmentReminderNotesInputValue = Hooks.prop.getProperty("appointmentReminderNotesInput");
+		WebElement appointmentReminderNotesInputElement = driver.findElement(appointmentReminderNotesInput);
+		appointmentReminderNotesInputElement.sendKeys(appointmentReminderNotesInputValue);
+
+		WebElement saveAppointmentReminderButtonElement = wait
+				.until(ExpectedConditions.elementToBeClickable(saveAppointmentReminderButton));
+		saveAppointmentReminderButtonElement.click();
+	}
+
+	public void createProfileForAppointmentReminderSettingViewAdd() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+
+		WebElement newAppointmentReminderSpanElement = wait
+				.until(ExpectedConditions.elementToBeClickable(newAppointmentReminderSpan));
+		newAppointmentReminderSpanElement.click();
+		sleep(2000);
+
+		WebElement appointmentReminderDayTypeDropdownElement = wait
+				.until(ExpectedConditions.elementToBeClickable(appointmentReminderDayTypeDropdown));
+		Select appointmentReminderDayTypeSelect = new Select(appointmentReminderDayTypeDropdownElement);
+		appointmentReminderDayTypeSelect.selectByIndex(2);
+
+		WebElement appointmentReminderDayDropdownElement = wait
+				.until(ExpectedConditions.elementToBeClickable(appointmentReminderDayDropdown));
+		Select appointmentReminderDaySelect = new Select(appointmentReminderDayDropdownElement);
+		appointmentReminderDaySelect.selectByIndex(2);
+
+		String appointmentReminderNotesInputValue = Hooks.prop.getProperty("appointmentReminderNotesInput");
+		WebElement appointmentReminderNotesInputElement = driver.findElement(appointmentReminderNotesInput);
+		appointmentReminderNotesInputElement.sendKeys(appointmentReminderNotesInputValue);
+
+		WebElement saveAppointmentReminderButtonElement = wait
+				.until(ExpectedConditions.elementToBeClickable(saveAppointmentReminderButton));
+		saveAppointmentReminderButtonElement.click();
+	}
+
+	public void addAppointmentReminderSettingProfileWithViewPermission() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+
+		WebElement selectAllModuleLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		selectAllModuleLabelElement.click();
+
+		WebElement appointmentReminderSettingAddLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(appointmentReminderSettingAddLabel));
+		appointmentReminderSettingAddLabelElement.click();
+
+		WebElement appointmentReminderSettingEditLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(appointmentReminderSettingEditLabel));
+		appointmentReminderSettingEditLabelElement.click();
+
+		WebElement appointmentReminderSettingDeleteLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(appointmentReminderSettingDeleteLabel));
+		appointmentReminderSettingDeleteLabelElement.click();
+	}
+
+	public void addAppointmentReminderSettingProfileWithDeletePermissions() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement selectAllModuleLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		selectAllModuleLabelElement.click();
+		WebElement appointmentReminderSettingAddLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(appointmentReminderSettingAddLabel));
+		appointmentReminderSettingAddLabelElement.click();
+
+		WebElement appointmentReminderSettingEditLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(appointmentReminderSettingEditLabel));
+		appointmentReminderSettingEditLabelElement.click();
+
+	}
+
+	public void addAppointmentReminderSettingProfileWithEditPermissions() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement selectAllModuleLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		selectAllModuleLabelElement.click();
+		WebElement appointmentReminderSettingAddLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(appointmentReminderSettingAddLabel));
+		appointmentReminderSettingAddLabelElement.click();
+		WebElement appointmentReminderSettingDeleteLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(appointmentReminderSettingDeleteLabel));
+		appointmentReminderSettingDeleteLabelElement.click();
+	}
+
+	public void addAppointmentReminderSettingProfileWithPermissions() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement selectAllModuleLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		selectAllModuleLabelElement.click();
+		WebElement appointmentReminderSettingEditLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(appointmentReminderSettingEditLabel));
+		appointmentReminderSettingEditLabelElement.click();
+
+		WebElement appointmentReminderSettingDeleteLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(appointmentReminderSettingDeleteLabel));
+		appointmentReminderSettingDeleteLabelElement.click();
+	}
+
+	// Appointment Reminder Setting
+	public void openAppointmentReminderSettingPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/AppointmentReminderSetting"));
+	}
+
+	// Upload Wizard Template Setting
+	public By firstRowActionIcon = By.xpath("//tbody/tr[1]/td[8]/div[1]/div[1]/button[1]/i[1]");
+	public By newUploadWizardTemplateSpan = By.xpath("//span[normalize-space()='New Upload Wizard Template']");
+	public By clinicalQueueTemplateNameInput = By.xpath("//input[@id='ClinicalQueueTemplate_Name']");
+	public By externalSourceDropdown = By.xpath("//select[@id='ClinicalQueueTemplate_ExternalSource_Id']");
+	public By uploadWizardCategoryDropdown = By.xpath("//select[@id='ClinicalQueueTemplate_UploadWizardCategory']");
+	public By selectCityDropdownInput = By.xpath("//div[contains(@class,'dropdowncheckbox')]//input[@type='text']");
+	public By fileUploadInput = By.xpath("//input[@id='file-1']");
+	public By nextButton = By.xpath("//button[@id='btnNext']");
+	public By primaryButton = By.xpath("//button[@class='btn btn-primary']");
+	public By uploadWizardClinicalQueueTemplateAddLabel = By
+			.xpath("//label[@for='chkg48UploadWizardClinicalQueueTemplateAdd']");
+	public By uploadWizardClinicalQueueTemplateEditLabel = By
+			.xpath("//label[@for='chkg48UploadWizardClinicalQueueTemplateEdit']");
+	public By uploadWizardClinicalQueueTemplateDeleteLabel = By
+			.xpath("//label[@for='chkg48UploadWizardClinicalQueueTemplateDelete']");
+	public By genericDeleteConfirmButton = By.xpath("//div[@id='genericmodal']//button[@id='btnDeleteConfirm']");
+
+	// Upload Wizard Template Setting
+	public void assignViewAccessToUploadWizardTemplateSettingProfile() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+
+		WebElement selectAllModuleLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		selectAllModuleLabelElement.click();
+
+		WebElement clinicalQueueAddLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(uploadWizardClinicalQueueTemplateAddLabel));
+		clinicalQueueAddLabelElement.click();
+
+		WebElement clinicalQueueEditLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(uploadWizardClinicalQueueTemplateEditLabel));
+		clinicalQueueEditLabelElement.click();
+
+		WebElement clinicalQueueDeleteLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(uploadWizardClinicalQueueTemplateDeleteLabel));
+		clinicalQueueDeleteLabelElement.click();
+	}
+
+	public void createProfileForUploadWizardTemplateSettingViewDelete() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement selectAllModuleLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		selectAllModuleLabelElement.click();
+		WebElement clinicalQueueAddLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(uploadWizardClinicalQueueTemplateAddLabel));
+		clinicalQueueAddLabelElement.click();
+
+		WebElement clinicalQueueEditLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(uploadWizardClinicalQueueTemplateEditLabel));
+		clinicalQueueEditLabelElement.click();
+	}
+
+	public void addUploadWizardTemplateSettingProfileWithEditPermissions() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement selectAllModuleLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		selectAllModuleLabelElement.click();
+		WebElement clinicalQueueAddLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(uploadWizardClinicalQueueTemplateAddLabel));
+		clinicalQueueAddLabelElement.click();
+		WebElement clinicalQueueDeleteLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(uploadWizardClinicalQueueTemplateDeleteLabel));
+		clinicalQueueDeleteLabelElement.click();
+	}
+
+	public void addUploadWizardTemplateSettingProfileWithPermissions() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement selectAllModuleLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		selectAllModuleLabelElement.click();
+		WebElement clinicalQueueEditLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(uploadWizardClinicalQueueTemplateEditLabel));
+		clinicalQueueEditLabelElement.click();
+
+		WebElement clinicalQueueDeleteLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(uploadWizardClinicalQueueTemplateDeleteLabel));
+		clinicalQueueDeleteLabelElement.click();
+
+	}
+
+	// Upload Wizard Template Setting
+	public void userCannotAddEditOrDeleteUploadWizardTemplateSetting() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(newUploadWizardTemplateSpan));
+		WebElement thirdRowActionIconElement = wait.until(ExpectedConditions.elementToBeClickable(firstRowActionIcon));
+		thirdRowActionIconElement.click();
+		sleep(2000);
+		wait.until(ExpectedConditions.numberOfElementsToBe(editOptionFromDropdown, 0));
+		wait.until(ExpectedConditions.numberOfElementsToBe(deleteOptionFromDropdown, 0));
+
+	}
+
+	public void userCannotAddOrEditUploadWizardTemplateSetting() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(newUploadWizardTemplateSpan));
+		WebElement thirdRowActionIconElement = wait.until(ExpectedConditions.elementToBeClickable(firstRowActionIcon));
+		thirdRowActionIconElement.click();
+		sleep(2000);
+		wait.until(ExpectedConditions.numberOfElementsToBe(editOptionFromDropdown, 0));
+
+	}
+
+	public void userCannotAddOrDeleteUploadWizardTemplateSetting() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(newUploadWizardTemplateSpan));
+		WebElement thirdRowActionIconElement = wait.until(ExpectedConditions.elementToBeClickable(firstRowActionIcon));
+		thirdRowActionIconElement.click();
+		sleep(2000);
+		wait.until(ExpectedConditions.numberOfElementsToBe(deleteOptionFromDropdown, 0));
+
+	}
+
+	public void userCannotEditOrDeleteUploadWizardTemplateSetting() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		WebElement thirdRowActionIconElement = wait.until(ExpectedConditions.elementToBeClickable(firstRowActionIcon));
+		thirdRowActionIconElement.click();
+		sleep(2000);
+		wait.until(ExpectedConditions.numberOfElementsToBe(editOptionFromDropdown, 0));
+		wait.until(ExpectedConditions.numberOfElementsToBe(deleteOptionFromDropdown, 0));
+
+	}
+
+	public void assignViewAndDeleteAccessToUploadWizardTemplateSettingProfile() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+
+		WebElement firstRowActionIconElement = wait.until(ExpectedConditions.elementToBeClickable(firstRowActionIcon));
+		firstRowActionIconElement.click();
+		sleep(2000);
+
+		WebElement editOptionFromDropdownElement = wait
+				.until(ExpectedConditions.elementToBeClickable(deleteOptionFromDropdown));
+		editOptionFromDropdownElement.click();
+		sleep(2000);
+
+		WebElement nextButtonElement = wait.until(ExpectedConditions.elementToBeClickable(genericDeleteConfirmButton));
+		nextButtonElement.click();
+		sleep(2000);
+
+	}
+
+	public void assignViewAndEditAccessToUploadWizardTemplateSettingProfile() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+
+		WebElement firstRowActionIconElement = wait.until(ExpectedConditions.elementToBeClickable(firstRowActionIcon));
+		firstRowActionIconElement.click();
+		sleep(2000);
+
+		WebElement editOptionFromDropdownElement = wait
+				.until(ExpectedConditions.elementToBeClickable(editOptionFromDropdown));
+		editOptionFromDropdownElement.click();
+		sleep(2000);
+
+		String clinicalQueueTemplateNameInputValue = Hooks.prop.getProperty("clinicalQueueTemplateNameInput");
+		WebElement clinicalQueueTemplateNameInputElement = driver.findElement(clinicalQueueTemplateNameInput);
+		clinicalQueueTemplateNameInputElement.sendKeys(clinicalQueueTemplateNameInputValue);
+
+		WebElement externalSourceDropdownElement = wait
+				.until(ExpectedConditions.elementToBeClickable(externalSourceDropdown));
+		Select externalSourceSelect = new Select(externalSourceDropdownElement);
+		externalSourceSelect.selectByIndex(2);
+
+		WebElement uploadWizardCategoryDropdownElement = wait
+				.until(ExpectedConditions.elementToBeClickable(uploadWizardCategoryDropdown));
+		Select uploadWizardCategorySelect = new Select(uploadWizardCategoryDropdownElement);
+		uploadWizardCategorySelect.selectByIndex(2);
+
+		WebElement selectCityDropdownInputElement = wait
+				.until(ExpectedConditions.elementToBeClickable(selectCityDropdownInput));
+		Select selectCityDropdownSelect = new Select(selectCityDropdownInputElement);
+		selectCityDropdownSelect.selectByIndex(2);
+
+		driver.findElement(fileUploadInput)
+				.sendKeys(System.getProperty("user.dir") + "/src/test/resources/Documents/Appointment 11-21 .xlsx");
+
+		WebElement nextButtonElement = wait.until(ExpectedConditions.elementToBeClickable(nextButton));
+		nextButtonElement.click();
+		sleep(2000);
+
+		WebElement primaryButtonElement = wait.until(ExpectedConditions.elementToBeClickable(primaryButton));
+		primaryButtonElement.click();
+	}
+
+	public void createProfileForUploadWizardTemplateSettingViewAdd() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+
+		WebElement newUploadWizardTemplateSpanElement = wait
+				.until(ExpectedConditions.elementToBeClickable(newUploadWizardTemplateSpan));
+		newUploadWizardTemplateSpanElement.click();
+		sleep(2000);
+
+		String clinicalQueueTemplateNameInputValue = Hooks.prop.getProperty("clinicalQueueTemplateNameInput");
+		WebElement clinicalQueueTemplateNameInputElement = driver.findElement(clinicalQueueTemplateNameInput);
+		clinicalQueueTemplateNameInputElement.sendKeys(clinicalQueueTemplateNameInputValue);
+
+		WebElement externalSourceDropdownElement = wait
+				.until(ExpectedConditions.elementToBeClickable(externalSourceDropdown));
+		Select externalSourceSelect = new Select(externalSourceDropdownElement);
+		externalSourceSelect.selectByIndex(2);
+
+		WebElement uploadWizardCategoryDropdownElement = wait
+				.until(ExpectedConditions.elementToBeClickable(uploadWizardCategoryDropdown));
+		Select uploadWizardCategorySelect = new Select(uploadWizardCategoryDropdownElement);
+		uploadWizardCategorySelect.selectByIndex(2);
+
+		WebElement selectCityDropdownInputElement = wait
+				.until(ExpectedConditions.elementToBeClickable(selectCityDropdownInput));
+		Select selectCityDropdownSelect = new Select(selectCityDropdownInputElement);
+		selectCityDropdownSelect.selectByIndex(2);
+
+		driver.findElement(fileUploadInput)
+				.sendKeys(System.getProperty("user.dir") + "/src/test/resources/Documents/Appointment 11-21 .xlsx");
+
+		WebElement nextButtonElement = wait.until(ExpectedConditions.elementToBeClickable(nextButton));
+		nextButtonElement.click();
+		sleep(2000);
+
+		WebElement primaryButtonElement = wait.until(ExpectedConditions.elementToBeClickable(primaryButton));
+		primaryButtonElement.click();
+	}
+
+	public void openUploadWizardClinicalQueueTemplatesPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/UploadWizardClinicalQueueTemplates"));
+	}
+
+	// Clinical Queues
+	public void userCannotAddEditOrDeleteClinicalQueues() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		wait.until(ExpectedConditions.numberOfElementsToBe(newQueueSpan, 0));
+		WebElement thirdRowActionIconElement = wait.until(ExpectedConditions.elementToBeClickable(thirdRowActionIcon));
+		thirdRowActionIconElement.click();
+		sleep(2000);
+		wait.until(ExpectedConditions.numberOfElementsToBe(editOptionFromDropdown, 0));
+		wait.until(ExpectedConditions.numberOfElementsToBe(deleteOptionFromDropdown, 0));
+
+	}
+
+	public void userCannotAddOrEditClinicalQueues() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		wait.until(ExpectedConditions.numberOfElementsToBe(newQueueSpan, 0));
+		WebElement thirdRowActionIconElement = wait.until(ExpectedConditions.elementToBeClickable(thirdRowActionIcon));
+		thirdRowActionIconElement.click();
+		sleep(2000);
+		wait.until(ExpectedConditions.numberOfElementsToBe(editOptionFromDropdown, 0));
+
+	}
+
+	public void userCannotAddOrDeleteClinicalQueues() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		wait.until(ExpectedConditions.numberOfElementsToBe(newQueueSpan, 0));
+		WebElement thirdRowActionIconElement = wait.until(ExpectedConditions.elementToBeClickable(thirdRowActionIcon));
+		thirdRowActionIconElement.click();
+		sleep(2000);
+		wait.until(ExpectedConditions.numberOfElementsToBe(deleteOptionFromDropdown, 0));
+
+	}
+
+	public void userCannotEditOrDeleteClinicalQueues() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		WebElement thirdRowActionIconElement = wait.until(ExpectedConditions.elementToBeClickable(thirdRowActionIcon));
+		thirdRowActionIconElement.click();
+		sleep(2000);
+		wait.until(ExpectedConditions.numberOfElementsToBe(editOptionFromDropdown, 0));
+		wait.until(ExpectedConditions.numberOfElementsToBe(deleteOptionFromDropdown, 0));
+
+	}
+
+	public void createClinicalQueueProfileWithViewAndDeleteAccess() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+
+		WebElement thirdRowActionIconElement = wait.until(ExpectedConditions.elementToBeClickable(thirdRowActionIcon));
+		thirdRowActionIconElement.click();
+		sleep(2000);
+
+		WebElement editOptionFromDropdownElement = wait
+				.until(ExpectedConditions.elementToBeClickable(deleteOptionFromDropdown));
+		editOptionFromDropdownElement.click();
+		sleep(2000);
+
+		WebElement saveButtonElement = wait.until(ExpectedConditions.elementToBeClickable(queuedeleteConfirmButton));
+		saveButtonElement.click();
+	}
+
+	public void addClinicalQueueProfileWithEditPermissions() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+
+		WebElement thirdRowActionIconElement = wait.until(ExpectedConditions.elementToBeClickable(thirdRowActionIcon));
+		thirdRowActionIconElement.click();
+		sleep(2000);
+
+		WebElement editOptionFromDropdownElement = wait
+				.until(ExpectedConditions.elementToBeClickable(editOptionFromDropdown));
+		editOptionFromDropdownElement.click();
+		sleep(2000);
+
+		String clinicalQueueNameInputValue = Hooks.prop.getProperty("clinicalQueueNameInput");
+		WebElement clinicalQueueNameInputElement = driver.findElement(clinicalQueueNameInput);
+		clinicalQueueNameInputElement.sendKeys(clinicalQueueNameInputValue);
+
+		String clinicalQueueLabelInputValue = Hooks.prop.getProperty("clinicalQueueLabelInput");
+		WebElement clinicalQueueLabelInputElement = driver.findElement(clinicalQueueLabelInput);
+		clinicalQueueLabelInputElement.sendKeys(clinicalQueueLabelInputValue);
+
+		WebElement saveButtonElement = wait.until(ExpectedConditions.elementToBeClickable(saveButton));
+		saveButtonElement.click();
+	}
+
+	public void createProfileForClinicalQueuesViewAdd() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+
+		WebElement newQueueSpanElement = wait.until(ExpectedConditions.elementToBeClickable(newQueueSpan));
+		newQueueSpanElement.click();
+		sleep(2000);
+
+		String clinicalQueueNameInputValue = Hooks.prop.getProperty("clinicalQueueNameInput");
+		WebElement clinicalQueueNameInputElement = driver.findElement(clinicalQueueNameInput);
+		clinicalQueueNameInputElement.sendKeys(clinicalQueueNameInputValue);
+
+		String clinicalQueueLabelInputValue = Hooks.prop.getProperty("clinicalQueueLabelInput");
+		WebElement clinicalQueueLabelInputElement = driver.findElement(clinicalQueueLabelInput);
+		clinicalQueueLabelInputElement.sendKeys(clinicalQueueLabelInputValue);
+
+		WebElement saveButtonElement = wait.until(ExpectedConditions.elementToBeClickable(saveButton));
+		saveButtonElement.click();
+	}
+
+	public void openClinicalQueuesPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/ClinicalQueues"));
+	}
+
+	public void addClinicalQueueProfileWithViewPermission() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement selectAllModuleLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		selectAllModuleLabelElement.click();
+		WebElement clinicalQueueAddLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(clinicalQueueAddLabel));
+		clinicalQueueAddLabelElement.click();
+		WebElement clinicalQueueEditLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(clinicalQueueEditLabel));
+		clinicalQueueEditLabelElement.click();
+		WebElement clinicalQueueDeleteLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(clinicalQueueDeleteLabel));
+		clinicalQueueDeleteLabelElement.click();
+	}
+
+	public void createProfileForClinicalQueuesViewDelete() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement selectAllModuleLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		selectAllModuleLabelElement.click();
+		WebElement clinicalQueueAddLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(clinicalQueueAddLabel));
+		clinicalQueueAddLabelElement.click();
+		WebElement clinicalQueueDeleteLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(clinicalQueueEditLabel));
+		clinicalQueueDeleteLabelElement.click();
+
+	}
+
+	public void createProfileForClinicalQueuesViewEdit() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement selectAllModuleLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		selectAllModuleLabelElement.click();
+		WebElement clinicalQueueAddLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(clinicalQueueAddLabel));
+		clinicalQueueAddLabelElement.click();
+		WebElement clinicalQueueDeleteLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(clinicalQueueDeleteLabel));
+		clinicalQueueDeleteLabelElement.click();
+
+	}
+
+	public void addClinicalQueueProfileWithPermissions() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement selectAllModuleLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		selectAllModuleLabelElement.click();
+		WebElement clinicalQueueEditLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(clinicalQueueEditLabel));
+		clinicalQueueEditLabelElement.click();
+		WebElement clinicalQueueDeleteLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(clinicalQueueDeleteLabel));
+		clinicalQueueDeleteLabelElement.click();
+
+	}
+
+	// Clinical Queues
+	public By deleteOptionFromDropdown = By.xpath(
+			"//div[contains(@class,'dropdown-menu') and contains(@class,'show')]//span[contains(text(),'Delete')]");
+	public By queuedeleteConfirmButton = By.xpath("//div[@id='queuemodal']//button[@id='btnDeleteConfirm']");
+	public By thirdRowActionIcon = By.xpath("//tbody/tr[3]/td[9]/div[1]/div[1]/button[1]/i[1]");
+	public By editOptionFromDropdown = By.xpath(
+			"//div[contains(@class,'dropdown-menu') and contains(@class,'show')]//span[contains(text(),'Edit')]");
+	public By newQueueSpan = By.xpath("//span[normalize-space()='New Queue']");
+	public By clinicalQueueNameInput = By.xpath("//input[@id='ClinicalQueue_Name']");
+	public By clinicalQueueLabelInput = By.xpath("//input[@id='ClinicalQueue_Label']");
+	public By saveButton = By.xpath("//button[@id='btnSave']");
+	public By clinicalQueueAddLabel = By.xpath("//label[@for='chkg48ClinicalQueueAdd']");
+	public By clinicalQueueEditLabel = By.xpath("//label[@for='chkg48ClinicalQueueEdit']");
+	public By clinicalQueueDeleteLabel = By.xpath("//label[@for='chkg48ClinicalQueueDelete']");
 
 	// Appointment Outreach
 	public By appointmentOutreachAllLabel = By.xpath("//label[@for='chkg48AppointmentOutreachAll']");
@@ -190,7 +788,6 @@ public class clinicalworkflowpage {
 	public void grantRpmFollowupAllCommunicationView() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-
 		WebElement appointmentStatusUpdateIconElement = wait
 				.until(ExpectedConditions.elementToBeClickable(allCommunicationViewIcon));
 		appointmentStatusUpdateIconElement.click();
@@ -199,16 +796,12 @@ public class clinicalworkflowpage {
 	public void grantRpmFollowupNotesAdd() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-
 		WebElement appointmentStatusUpdateIconElement = wait
 				.until(ExpectedConditions.elementToBeClickable(appointmentOutreachNotesViewIcon));
 		appointmentStatusUpdateIconElement.click();
-
 		String appointmentNotesTextAreaValue = Hooks.prop.getProperty("appointmentNotesTextArea");
-
 		WebElement appointmentNotesTextAreaElement = driver.findElement(appointmentNotesTextArea);
 		appointmentNotesTextAreaElement.sendKeys(appointmentNotesTextAreaValue);
-
 		WebElement saveAppointmentNotesButtonElement = wait
 				.until(ExpectedConditions.elementToBeClickable(saveAppointmentNotesButton));
 		saveAppointmentNotesButtonElement.click();
@@ -225,16 +818,13 @@ public class clinicalworkflowpage {
 	public void permitRpmFollowupStatusUpdate() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-
 		WebElement appointmentStatusUpdateIconElement = wait
 				.until(ExpectedConditions.elementToBeClickable(appointmentStatusUpdateIcon));
 		appointmentStatusUpdateIconElement.click();
-
 		WebElement appointmentOutreachStatusDropdownElement = wait
 				.until(ExpectedConditions.elementToBeClickable(appointmentOutreachStatusDropdown));
 		Select statusDropdownSelect = new Select(appointmentOutreachStatusDropdownElement);
 		statusDropdownSelect.selectByIndex(2);
-
 		WebElement saveStatusButtonElement = wait.until(ExpectedConditions.elementToBeClickable(saveStatusButton));
 		saveStatusButtonElement.click();
 	}
@@ -242,7 +832,6 @@ public class clinicalworkflowpage {
 	public void enableRpmFollowupExportToExcel() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-
 		WebElement exportAppointmentOutreachIconElement = wait
 				.until(ExpectedConditions.elementToBeClickable(exportAppointmentOutreachIcon));
 		exportAppointmentOutreachIconElement.click();
@@ -251,20 +840,14 @@ public class clinicalworkflowpage {
 	public void grantRpmFollowupSendVCard() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-
 		WebElement rescheduledHeaderElement = wait.until(ExpectedConditions.elementToBeClickable(sendVCardButton));
 		rescheduledHeaderElement.click();
-
 		String vCardPhoneNumberValue = Hooks.prop.getProperty("vCardPhoneNumberInput");
-
 		WebElement vCardPhoneNumberInputElement = driver.findElement(vCardPhoneNumberInput);
 		vCardPhoneNumberInputElement.sendKeys(vCardPhoneNumberValue);
-
 		String vCardBodyValue = Hooks.prop.getProperty("vCardBodyInput");
-
 		WebElement vCardBodyTextareaElement = driver.findElement(vCardBodyTextarea);
 		vCardBodyTextareaElement.sendKeys(vCardBodyValue);
-
 		WebElement gridTemplateSaveButtonElement = wait
 				.until(ExpectedConditions.elementToBeClickable(submitSendVCardBtn));
 		gridTemplateSaveButtonElement.click();
@@ -273,20 +856,15 @@ public class clinicalworkflowpage {
 	public void grantRpmFollowupQuickText() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-
 		WebElement quickSmsIconElement = wait.until(ExpectedConditions.elementToBeClickable(quickSmsIcon));
 		quickSmsIconElement.click();
-
 		WebElement quickTextTemplateDropdownElement = wait
 				.until(ExpectedConditions.elementToBeClickable(quickTextTemplateDropdown));
 		Select templateSelect = new Select(quickTextTemplateDropdownElement);
 		templateSelect.selectByIndex(1);
-
 		String quickTextPhoneNumberValue = Hooks.prop.getProperty("quickTextPhoneNumberValue");
-
 		WebElement quickTextPhoneNumberInputElement = driver.findElement(quickTextPhoneNumberInput);
 		quickTextPhoneNumberInputElement.sendKeys(quickTextPhoneNumberValue);
-
 		WebElement quickSmsSendButtonElement = wait.until(ExpectedConditions.elementToBeClickable(quickSmsSendButton));
 		quickSmsSendButtonElement.click();
 	}
@@ -294,15 +872,12 @@ public class clinicalworkflowpage {
 	public void enableRpmFollowupBotCall() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-
 		WebElement calloutToAllIcon = wait.until(ExpectedConditions.elementToBeClickable(calloutToAllIconPath));
 		calloutToAllIcon.click();
-
 		WebElement calloutTemplateDropdown = wait
 				.until(ExpectedConditions.elementToBeClickable(calloutToAllTemplateDropdown));
 		Select calloutTemplateSelect = new Select(calloutTemplateDropdown);
 		calloutTemplateSelect.selectByIndex(1);
-
 		WebElement calloutToAllButtonElement = wait.until(ExpectedConditions.elementToBeClickable(calloutToAllButton));
 		calloutToAllButtonElement.click();
 	}
@@ -310,14 +885,11 @@ public class clinicalworkflowpage {
 	public void grantRpmFollowupText() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-
 		WebElement smsToAllIcon = wait.until(ExpectedConditions.elementToBeClickable(smsToAllIconPath));
 		smsToAllIcon.click();
-
 		WebElement smsTemplateDropdown = wait.until(ExpectedConditions.elementToBeClickable(smsToAllTemplateDropdown));
 		Select smsTemplateSelect = new Select(smsTemplateDropdown);
 		smsTemplateSelect.selectByIndex(1);
-
 		WebElement smsToAllButtonElement = wait.until(ExpectedConditions.elementToBeClickable(smsToAllButton));
 		smsToAllButtonElement.click();
 	}
@@ -325,10 +897,8 @@ public class clinicalworkflowpage {
 	public void enableRpmFollowupFax() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-
 		WebElement faxToAllButtonIconElement = wait.until(ExpectedConditions.elementToBeClickable(faxToAllButtonIcon));
 		faxToAllButtonIconElement.click();
-
 		WebElement templateSubmitButtonElement = wait
 				.until(ExpectedConditions.elementToBeClickable(faxToAllDeleteConfirmButton));
 		templateSubmitButtonElement.click();
@@ -432,19 +1002,14 @@ public class clinicalworkflowpage {
 	public void createProfileWithAppointmentOutreachViewAccess() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-
 		WebElement selectAllModuleLabelElement = wait
 				.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
 		selectAllModuleLabelElement.click();
-
 		sleep(2000);
-
 		WebElement appointmentOutreachAllLabelElement = wait
 				.until(ExpectedConditions.elementToBeClickable(appointmentOutreachAllLabel));
 		appointmentOutreachAllLabelElement.click();
-
 		sleep(2000);
-
 		WebElement appointmentOutreachViewLabelElement = wait
 				.until(ExpectedConditions.elementToBeClickable(appointmentOutreachViewLabel));
 		appointmentOutreachViewLabelElement.click();
@@ -453,7 +1018,6 @@ public class clinicalworkflowpage {
 	public void hasPermissionToViewAllAppointmentCommunications() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-
 		WebElement appointmentStatusUpdateIconElement = wait
 				.until(ExpectedConditions.elementToBeClickable(allCommunicationViewIcon));
 		appointmentStatusUpdateIconElement.click();
@@ -463,16 +1027,12 @@ public class clinicalworkflowpage {
 	public void hasPermissionToAddAppointmentOutreachNotes() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-
 		WebElement appointmentStatusUpdateIconElement = wait
 				.until(ExpectedConditions.elementToBeClickable(appointmentOutreachNotesViewIcon));
 		appointmentStatusUpdateIconElement.click();
-
 		String appointmentNotesTextAreaValue = Hooks.prop.getProperty("appointmentNotesTextArea");
-
 		WebElement appointmentNotesTextAreaElement = driver.findElement(appointmentNotesTextArea);
 		appointmentNotesTextAreaElement.sendKeys(appointmentNotesTextAreaValue);
-
 		WebElement saveAppointmentNotesButtonElement = wait
 				.until(ExpectedConditions.elementToBeClickable(saveAppointmentNotesButton));
 		saveAppointmentNotesButtonElement.click();
@@ -482,7 +1042,6 @@ public class clinicalworkflowpage {
 	public void hasPermissionToViewAppointmentOutreachNotes() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-
 		WebElement appointmentStatusUpdateIconElement = wait
 				.until(ExpectedConditions.elementToBeClickable(appointmentOutreachNotesViewIcon));
 		appointmentStatusUpdateIconElement.click();
@@ -492,16 +1051,13 @@ public class clinicalworkflowpage {
 	public void canUpdateAppointmentStatus() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-
 		WebElement appointmentStatusUpdateIconElement = wait
 				.until(ExpectedConditions.elementToBeClickable(appointmentStatusUpdateIcon));
 		appointmentStatusUpdateIconElement.click();
-
 		WebElement appointmentOutreachStatusDropdownElement = wait
 				.until(ExpectedConditions.elementToBeClickable(appointmentOutreachStatusDropdown));
 		Select statusDropdownSelect = new Select(appointmentOutreachStatusDropdownElement);
 		statusDropdownSelect.selectByIndex(2);
-
 		WebElement saveStatusButtonElement = wait.until(ExpectedConditions.elementToBeClickable(saveStatusButton));
 		saveStatusButtonElement.click();
 	}
@@ -509,7 +1065,6 @@ public class clinicalworkflowpage {
 	public void hasPermissionToExportAppointmentOutreachToExcel() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-
 		WebElement exportAppointmentOutreachIconElement = wait
 				.until(ExpectedConditions.elementToBeClickable(exportAppointmentOutreachIcon));
 		exportAppointmentOutreachIconElement.click();
@@ -518,20 +1073,14 @@ public class clinicalworkflowpage {
 	public void hasPermissionToSendAppointmentOutreachVCard() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-
 		WebElement rescheduledHeaderElement = wait.until(ExpectedConditions.elementToBeClickable(sendVCardButton));
 		rescheduledHeaderElement.click();
-
 		String vCardPhoneNumberValue = Hooks.prop.getProperty("vCardPhoneNumberInput");
-
 		WebElement vCardPhoneNumberInputElement = driver.findElement(vCardPhoneNumberInput);
 		vCardPhoneNumberInputElement.sendKeys(vCardPhoneNumberValue);
-
 		String vCardBodyValue = Hooks.prop.getProperty("vCardBodyInput");
-
 		WebElement vCardBodyTextareaElement = driver.findElement(vCardBodyTextarea);
 		vCardBodyTextareaElement.sendKeys(vCardBodyValue);
-
 		WebElement gridTemplateSaveButtonElement = wait
 				.until(ExpectedConditions.elementToBeClickable(submitSendVCardBtn));
 		gridTemplateSaveButtonElement.click();
@@ -540,20 +1089,15 @@ public class clinicalworkflowpage {
 	public void hasPermissionToSendAppointmentOutreachQuickText() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-
 		WebElement quickSmsIconElement = wait.until(ExpectedConditions.elementToBeClickable(quickSmsIcon));
 		quickSmsIconElement.click();
-
 		WebElement quickTextTemplateDropdownElement = wait
 				.until(ExpectedConditions.elementToBeClickable(quickTextTemplateDropdown));
 		Select templateSelect = new Select(quickTextTemplateDropdownElement);
 		templateSelect.selectByIndex(1);
-
 		String quickTextPhoneNumberValue = Hooks.prop.getProperty("quickTextPhoneNumberValue");
-
 		WebElement quickTextPhoneNumberInputElement = driver.findElement(quickTextPhoneNumberInput);
 		quickTextPhoneNumberInputElement.sendKeys(quickTextPhoneNumberValue);
-
 		WebElement quickSmsSendButtonElement = wait.until(ExpectedConditions.elementToBeClickable(quickSmsSendButton));
 		quickSmsSendButtonElement.click();
 	}
@@ -561,15 +1105,12 @@ public class clinicalworkflowpage {
 	public void hasPermissionToSendAppointmentOutreachBotCall() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-
 		WebElement calloutToAllIcon = wait.until(ExpectedConditions.elementToBeClickable(calloutToAllIconPath));
 		calloutToAllIcon.click();
-
 		WebElement calloutTemplateDropdown = wait
 				.until(ExpectedConditions.elementToBeClickable(calloutToAllTemplateDropdown));
 		Select calloutTemplateSelect = new Select(calloutTemplateDropdown);
 		calloutTemplateSelect.selectByIndex(1);
-
 		WebElement calloutToAllButtonElement = wait.until(ExpectedConditions.elementToBeClickable(calloutToAllButton));
 		calloutToAllButtonElement.click();
 	}
@@ -577,14 +1118,11 @@ public class clinicalworkflowpage {
 	public void canSendAppointmentOutreachText() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-
 		WebElement smsToAllIcon = wait.until(ExpectedConditions.elementToBeClickable(smsToAllIconPath));
 		smsToAllIcon.click();
-
 		WebElement smsTemplateDropdown = wait.until(ExpectedConditions.elementToBeClickable(smsToAllTemplateDropdown));
 		Select smsTemplateSelect = new Select(smsTemplateDropdown);
 		smsTemplateSelect.selectByIndex(1);
-
 		WebElement smsToAllButtonElement = wait.until(ExpectedConditions.elementToBeClickable(smsToAllButton));
 		smsToAllButtonElement.click();
 	}
@@ -592,10 +1130,8 @@ public class clinicalworkflowpage {
 	public void hasPermissionToSendAppointmentOutreachFax() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-
 		WebElement faxToAllButtonIconElement = wait.until(ExpectedConditions.elementToBeClickable(faxToAllButtonIcon));
 		faxToAllButtonIconElement.click();
-
 		WebElement templateSubmitButtonElement = wait
 				.until(ExpectedConditions.elementToBeClickable(faxToAllDeleteConfirmButton));
 		templateSubmitButtonElement.click();
@@ -621,7 +1157,6 @@ public class clinicalworkflowpage {
 	}
 
 	// Action Work flow
-
 	public void exportActionWorkflowToExcel() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
@@ -633,20 +1168,14 @@ public class clinicalworkflowpage {
 	public void clickSendVCardButton() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-
 		WebElement rescheduledHeaderElement = wait.until(ExpectedConditions.elementToBeClickable(sendVCardButton));
 		rescheduledHeaderElement.click();
-
 		String vCardPhoneNumberValue = Hooks.prop.getProperty("vCardPhoneNumberInput");
-
 		WebElement vCardPhoneNumberInputElement = driver.findElement(vCardPhoneNumberInput);
 		vCardPhoneNumberInputElement.sendKeys(vCardPhoneNumberValue);
-
 		String vCardBodyValue = Hooks.prop.getProperty("vCardBodyInput");
-
 		WebElement vCardBodyTextareaElement = driver.findElement(vCardBodyTextarea);
 		vCardBodyTextareaElement.sendKeys(vCardBodyValue);
-
 		WebElement gridTemplateSaveButtonElement = wait
 				.until(ExpectedConditions.elementToBeClickable(submitSendVCardBtn));
 		gridTemplateSaveButtonElement.click();
@@ -655,26 +1184,19 @@ public class clinicalworkflowpage {
 	public void userSelectsCompanyDefaultCheckboxInGridTemplate() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-
 		WebElement rescheduledHeaderElement = wait.until(ExpectedConditions.elementToBeClickable(rescheduledHeader));
 		rescheduledHeaderElement.click();
-
 		WebElement gridTemplateAddButtonElement = wait.until(ExpectedConditions.elementToBeClickable(gridTemplateAdd));
 		gridTemplateAddButtonElement.click();
-
 		WebElement queueDropdownElement = wait.until(ExpectedConditions.elementToBeClickable(selectQueueDropdown));
 		Select templateSelect = new Select(queueDropdownElement);
 		templateSelect.selectByIndex(5);
-
 		String gridTemplateNameValue = Hooks.prop.getProperty("gridTemplateNameInput");
-
 		WebElement gridTemplateNameInputElement = driver.findElement(gridTemplateNameInput);
 		gridTemplateNameInputElement.sendKeys(gridTemplateNameValue);
-
 		WebElement companyDefaultLabelElement = wait
 				.until(ExpectedConditions.elementToBeClickable(companyDefaultLabel));
 		companyDefaultLabelElement.click();
-
 		WebElement gridTemplateSaveButtonElement = wait
 				.until(ExpectedConditions.elementToBeClickable(gridTemplateSaveButton));
 		gridTemplateSaveButtonElement.click();
@@ -683,13 +1205,10 @@ public class clinicalworkflowpage {
 	public void verifyUserCanDeleteGridTemplate() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-
 		WebElement rescheduledHeaderElement = wait.until(ExpectedConditions.elementToBeClickable(rescheduledHeader));
 		rescheduledHeaderElement.click();
-
 		WebElement deleteTemplateIconElement = wait.until(ExpectedConditions.elementToBeClickable(deleteTemplateIcon));
 		deleteTemplateIconElement.click();
-
 		WebElement deleteConfirmButtonElement = wait
 				.until(ExpectedConditions.elementToBeClickable(deleteConfirmButton));
 		deleteConfirmButtonElement.click();
@@ -698,22 +1217,16 @@ public class clinicalworkflowpage {
 	public void verifyUserCanEditGridTemplate() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-
 		WebElement rescheduledHeaderElement = wait.until(ExpectedConditions.elementToBeClickable(rescheduledHeader));
 		rescheduledHeaderElement.click();
-
 		WebElement gridTemplateEditIconElement = wait.until(ExpectedConditions.elementToBeClickable(gridTemplateEdit));
 		gridTemplateEditIconElement.click();
-
 		WebElement gridTemplateEditActionIconElement = wait
 				.until(ExpectedConditions.elementToBeClickable(unionIconPath));
 		gridTemplateEditActionIconElement.click();
-
 		String gridTemplateNameValue = Hooks.prop.getProperty("gridTemplateNameInput");
-
 		WebElement gridTemplateNameInputElement = driver.findElement(gridTemplateNameInput);
 		gridTemplateNameInputElement.sendKeys(gridTemplateNameValue);
-
 		WebElement gridTemplateSaveButtonElement = wait
 				.until(ExpectedConditions.elementToBeClickable(gridTemplateSaveButton));
 		gridTemplateSaveButtonElement.click();
@@ -722,22 +1235,16 @@ public class clinicalworkflowpage {
 	public void canAddGridTemplate() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-
 		WebElement rescheduledHeaderElement = wait.until(ExpectedConditions.elementToBeClickable(rescheduledHeader));
 		rescheduledHeaderElement.click();
-
 		WebElement gridTemplateAddButtonElement = wait.until(ExpectedConditions.elementToBeClickable(gridTemplateAdd));
 		gridTemplateAddButtonElement.click();
-
 		WebElement queueDropdownElement = wait.until(ExpectedConditions.elementToBeClickable(selectQueueDropdown));
 		Select templateSelect = new Select(queueDropdownElement);
 		templateSelect.selectByIndex(5);
-
 		String gridTemplateNameValue = Hooks.prop.getProperty("gridTemplateNameInput");
-
 		WebElement gridTemplateNameInputElement = driver.findElement(gridTemplateNameInput);
 		gridTemplateNameInputElement.sendKeys(gridTemplateNameValue);
-
 		WebElement gridTemplateSaveButtonElement = wait
 				.until(ExpectedConditions.elementToBeClickable(gridTemplateSaveButton));
 		gridTemplateSaveButtonElement.click();
@@ -746,7 +1253,6 @@ public class clinicalworkflowpage {
 	public void canShowPastRunningLinesCheckbox() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-
 		WebElement showPastRunningLineCheckboxElement = wait
 				.until(ExpectedConditions.elementToBeClickable(showPastRunningLineCheckboxLabel));
 		showPastRunningLineCheckboxElement.click();
@@ -760,7 +1266,6 @@ public class clinicalworkflowpage {
 	public void canShowAllRunningLinesCheckbox() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-
 		WebElement runningLineCheckboxLabelElement = wait
 				.until(ExpectedConditions.elementToBeClickable(runningLineCheckboxLabel));
 		runningLineCheckboxLabelElement.click();
@@ -769,20 +1274,15 @@ public class clinicalworkflowpage {
 	public void canViewQuickText() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-
 		WebElement quickSmsIconElement = wait.until(ExpectedConditions.elementToBeClickable(quickSmsIcon));
 		quickSmsIconElement.click();
-
 		WebElement quickTextTemplateDropdownElement = wait
 				.until(ExpectedConditions.elementToBeClickable(quickTextTemplateDropdown));
 		Select templateSelect = new Select(quickTextTemplateDropdownElement);
 		templateSelect.selectByIndex(1);
-
 		String quickTextPhoneNumberValue = Hooks.prop.getProperty("quickTextPhoneNumberValue");
-
 		WebElement quickTextPhoneNumberInputElement = driver.findElement(quickTextPhoneNumberInput);
 		quickTextPhoneNumberInputElement.sendKeys(quickTextPhoneNumberValue);
-
 		WebElement quickSmsSendButtonElement = wait.until(ExpectedConditions.elementToBeClickable(quickSmsSendButton));
 		quickSmsSendButtonElement.click();
 	}
@@ -790,10 +1290,8 @@ public class clinicalworkflowpage {
 	public void canViewActionWorkflowBotCall() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-
 		WebElement calloutToAllIconElement = wait.until(ExpectedConditions.elementToBeClickable(calloutToAllIconPath));
 		calloutToAllIconElement.click();
-
 		WebElement calloutSubmitButtonElement = wait
 				.until(ExpectedConditions.elementToBeClickable(calloutToAllDeleteConfirmButton));
 		calloutSubmitButtonElement.click();
@@ -802,10 +1300,8 @@ public class clinicalworkflowpage {
 	public void canViewActionWorkflowText() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-
 		WebElement smsToAllButtonIconElement = wait.until(ExpectedConditions.elementToBeClickable(smsToAllIconPath));
 		smsToAllButtonIconElement.click();
-
 		WebElement smsSubmitButtonElement = wait
 				.until(ExpectedConditions.elementToBeClickable(smsToAllDeleteConfirmButton));
 		smsSubmitButtonElement.click();
@@ -814,10 +1310,8 @@ public class clinicalworkflowpage {
 	public void canSendFax() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-
 		WebElement faxToAllButtonIconElement = wait.until(ExpectedConditions.elementToBeClickable(faxToAllButtonIcon));
 		faxToAllButtonIconElement.click();
-
 		WebElement templateSubmitButtonElement = wait
 				.until(ExpectedConditions.elementToBeClickable(faxToAllDeleteConfirmButton));
 		templateSubmitButtonElement.click();
@@ -903,29 +1397,23 @@ public class clinicalworkflowpage {
 	public void iCreateAProfileWithViewOnlyAccess() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-
 		WebElement clinicalActionWorkflowAllLabelElement = wait
 				.until(ExpectedConditions.elementToBeClickable(clinicalActionWorkFlowAllLabel));
 		clinicalActionWorkflowAllLabelElement.click();
-
 		WebElement clinicalActionWorkflowViewLabelElement = wait
 				.until(ExpectedConditions.elementToBeClickable(clinicalActionWorkFlowViewLabel));
 		clinicalActionWorkflowViewLabelElement.click();
 	}
 
 	// Dashboard
-
 	public void userCreatesProfileWithFullAccessAndAllPermissions() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-
 		WebElement selectAllModuleElement = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
 		selectAllModuleElement.click();
-
 		WebElement clinicalWorkflowDashboardAllElement = wait
 				.until(ExpectedConditions.elementToBeClickable(clinicalActionWorkFlowAllLabel));
 		clinicalWorkflowDashboardAllElement.click();
-
 		WebElement clinicalWorkflowDashboardViewElement = wait
 				.until(ExpectedConditions.elementToBeClickable(clinicalActionWorkFlowViewLabel));
 		clinicalWorkflowDashboardViewElement.click();
@@ -934,26 +1422,20 @@ public class clinicalworkflowpage {
 	public void cannotUpdateAppointmentAction() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-
 		WebElement yearDropdownElement = driver.findElement(ddYearDropdown);
 		Select select = new Select(yearDropdownElement);
 		select.selectByIndex(3);
-
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-
 		wait.until(ExpectedConditions.numberOfElementsToBe(updateAppointmentAction, 0));
 	}
 
 	public void cannotViewAllCommunication() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-
 		WebElement yearDropdownElement = driver.findElement(ddYearDropdown);
 		Select select = new Select(yearDropdownElement);
 		select.selectByIndex(3);
-
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-
 		wait.until(ExpectedConditions.numberOfElementsToBe(AllCommunicationView, 0));
 	}
 
@@ -980,14 +1462,11 @@ public class clinicalworkflowpage {
 	public void userCreatesProfileWithViewOnlyAccess() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-
 		WebElement selectAllModuleElement = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
 		selectAllModuleElement.click();
-
 		WebElement clinicalWorkflowDashboardAllElement = wait
 				.until(ExpectedConditions.elementToBeClickable(clinicalWorkflowDashboardAllLabel));
 		clinicalWorkflowDashboardAllElement.click();
-
 		WebElement clinicalWorkflowDashboardViewElement = wait
 				.until(ExpectedConditions.elementToBeClickable(clinicalWorkflowDashboardViewLabel));
 		clinicalWorkflowDashboardViewElement.click();
@@ -996,28 +1475,21 @@ public class clinicalworkflowpage {
 	public void userUpdatesAppointment() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-
 		WebElement yearDropdownElement = driver.findElement(ddYearDropdown);
 		Select yearSelect = new Select(yearDropdownElement);
 		yearSelect.selectByIndex(3);
-
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-
 		WebElement updateAppointmentActionElement = wait
 				.until(ExpectedConditions.elementToBeClickable(updateAppointmentAction));
 		updateAppointmentActionElement.click();
-
 		WebElement appointmentStatusDropdownElement = driver.findElement(appointmentActionStatusDropdown);
 		Select appointmentStatusSelect = new Select(appointmentStatusDropdownElement);
 		appointmentStatusSelect.selectByIndex(3);
-
 		WebElement alertLabelElement = wait.until(ExpectedConditions.elementToBeClickable(alertLabel));
 		alertLabelElement.click();
-
 		String appointmentActionNotesValue = Hooks.prop.getProperty("appointmentActionNotesValue");
 		WebElement appointmentActionNotesElement = driver.findElement(appointmentActionNotesTextarea);
 		appointmentActionNotesElement.sendKeys(appointmentActionNotesValue);
-
 		WebElement saveActionButtonElement = wait.until(ExpectedConditions.elementToBeClickable(saveActionButton));
 		saveActionButtonElement.click();
 	}
@@ -1025,25 +1497,18 @@ public class clinicalworkflowpage {
 	public void verifyUserCanViewAllCommunications() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-
 		WebElement yearDropdownElement = driver.findElement(ddYearDropdown);
 		Select select = new Select(yearDropdownElement);
 		select.selectByIndex(3);
-
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-
 		WebElement allCommunicationViewElement = wait
 				.until(ExpectedConditions.elementToBeClickable(AllCommunicationView));
 		allCommunicationViewElement.click();
-
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-
 		WebElement mailOptionElement = wait.until(ExpectedConditions.elementToBeClickable(mailOption));
 		mailOptionElement.click();
-
 		WebElement botCallOptionElement = wait.until(ExpectedConditions.elementToBeClickable(botCallOption));
 		botCallOptionElement.click();
-
 		WebElement faxOptionElement = wait.until(ExpectedConditions.elementToBeClickable(faxOption));
 		faxOptionElement.click();
 	}
@@ -1051,7 +1516,6 @@ public class clinicalworkflowpage {
 	public void userCanDownloadExcel() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-
 		WebElement exportIconElement = wait.until(ExpectedConditions.elementToBeClickable(exportIcon));
 		exportIconElement.click();
 	}
@@ -1059,15 +1523,12 @@ public class clinicalworkflowpage {
 	public void userCanMakeBotCall() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-
 		WebElement calloutToAllIcon = wait.until(ExpectedConditions.elementToBeClickable(calloutToAllIconPath));
 		calloutToAllIcon.click();
-
 		WebElement calloutTemplateDropdown = wait
 				.until(ExpectedConditions.elementToBeClickable(calloutToAllTemplateDropdown));
 		Select calloutTemplateSelect = new Select(calloutTemplateDropdown);
 		calloutTemplateSelect.selectByIndex(1);
-
 		WebElement calloutToAllButtonElement = wait.until(ExpectedConditions.elementToBeClickable(calloutToAllButton));
 		calloutToAllButtonElement.click();
 	}
@@ -1075,14 +1536,11 @@ public class clinicalworkflowpage {
 	public void userCanSendText() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-
 		WebElement smsToAllIcon = wait.until(ExpectedConditions.elementToBeClickable(smsToAllIconPath));
 		smsToAllIcon.click();
-
 		WebElement smsTemplateDropdown = wait.until(ExpectedConditions.elementToBeClickable(smsToAllTemplateDropdown));
 		Select smsTemplateSelect = new Select(smsTemplateDropdown);
 		smsTemplateSelect.selectByIndex(1);
-
 		WebElement smsToAllButtonElement = wait.until(ExpectedConditions.elementToBeClickable(smsToAllButton));
 		smsToAllButtonElement.click();
 	}
@@ -1154,7 +1612,6 @@ public class clinicalworkflowpage {
 	}
 
 	// ProfilePage
-
 	public void clickFilterButton() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		wait.until(ExpectedConditions.elementToBeClickable(profilefilterButton)).click();

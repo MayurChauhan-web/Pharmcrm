@@ -195,6 +195,196 @@ Then the user should not be able to RPM Followup Notes View
 Then the user should not be able to RPM Followup Notes Add
 Then the user should not be able to RPM Followup All Communication View
 
+# Clinical Queues
+Scenario: User with Add access for Clinical Queues
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with View and Add access to Clinical Queues
+Then the user should be able to view and add Clinical Queues
+And the user should not be able to edit or delete Clinical Queues
+
+Scenario: User with Edit access for Clinical Queues
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with View and Edit access to Clinical Queues
+Then the user should be able to view and edit Clinical Queues
+And the user should not be able to add or delete Clinical Queues
+
+Scenario: User with Delete access for Clinical Queues
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with View and Delete access to Clinical Queues
+Then the user should be able to view and delete Clinical Queues
+And the user should not be able to add or edit Clinical Queues
+
+Scenario: User with View access only for Clinical Queues
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with View access to Clinical Queues
+Then the user should be able to view Clinical Queues
+And the user should not be able to add or edit or delete Clinical Queues
+
+# Upload Wizard Template Setting
+Scenario: User with Add access for Upload Wizard Template Setting
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with View and Add access to Upload Wizard Template Setting
+Then the user should be able to view and add Upload Wizard Template Setting
+And the user should not be able to edit or delete Upload Wizard Template Setting
+
+Scenario: User with Edit access for Upload Wizard Template Setting
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with View and Edit access to Upload Wizard Template Setting
+Then the user should be able to view and edit Upload Wizard Template Setting
+And the user should not be able to add or delete Upload Wizard Template Setting
+
+Scenario: User with Delete access for Upload Wizard Template Setting
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with View and Delete access to Upload Wizard Template Setting
+Then the user should be able to view and delete Upload Wizard Template Setting
+And the user should not be able to add or edit Upload Wizard Template Setting
+
+Scenario: User with View access only for Upload Wizard Template Setting
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with View access to Upload Wizard Template Setting
+Then the user should be able to view Upload Wizard Template Setting
+And the user should not be able to add or edit or delete Upload Wizard Template Setting
+
+# Appointment Reminder Setting
+Scenario: User with Add access for Appointment Reminder Setting
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with View and Add access to Appointment Reminder Setting
+Then the user should be able to view and add Appointment Reminder Setting
+And the user should not be able to edit or delete Appointment Reminder Setting
+
+Scenario: User with Edit access for Appointment Reminder Setting
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with View and Edit access to Appointment Reminder Setting
+Then the user should be able to view and edit Appointment Reminder Setting
+And the user should not be able to add or delete Appointment Reminder Setting
+
+Scenario: User with Delete access for Appointment Reminder Setting
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with View and Delete access to Appointment Reminder Setting
+Then the user should be able to view and delete Appointment Reminder Setting
+And the user should not be able to add or edit Appointment Reminder Setting
+
+Scenario: User with View access only for Appointment Reminder Setting
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinical user should be able to view Profiles test
+And I create a profile with View access to Appointment Reminder Setting
+Then the user should be able to view Appointment Reminder Setting
+And the user should not be able to add or edit or delete Appointment Reminder Setting
+
+# Upload Wizard Setting
+Scenario: Clinical Queue Access with All Permissions
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Clinicalworkflow user should be able to view Profiles
+And I create a profile Clinical Queue Access with All Permissions
+Then the user should be able to view Clinical Queue Columns
+Then the user should be able to Clinical Queue Column Add
+Then the user should be able to Copy Clinical Queue Column
+Then the user should be able to Clinical Queue Column Delete
+Then the user should be able to Clinical Column SortOrder Update
+Then the user should be able to Clinical Queue Rule View
+Then the user should be able to Clinical Queue Rule Add
+Then the user should be able to Clinical Queue Rule Edit
+Then the user should be able to Clinical Queue Rule Delete
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

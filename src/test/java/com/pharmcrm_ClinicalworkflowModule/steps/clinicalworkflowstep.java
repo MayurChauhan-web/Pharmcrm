@@ -2,6 +2,8 @@ package com.pharmcrm_ClinicalworkflowModule.steps;
 
 import org.junit.Assert;
 import com.pharmcrm_ClinicalworkflowModule.pages.clinicalworkflowpage;
+import com.pharmcrm_SetupModule.pages.setuppage;
+
 import hooks.Hooks;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
@@ -9,6 +11,430 @@ import io.cucumber.java.en.Then;
 public class clinicalworkflowstep {
 
 	private clinicalworkflowpage clinicalworkflowPage;
+
+	// Upload Wizard Setting
+	@And("the user should be able to view Clinical Queue Columns")
+	public void shouldUserBeAbleToViewUploadWizardSettingsPage() throws InterruptedException {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String clinicalQueueSettingUrl = Hooks.prop.getProperty("clinicalQueueSettingUrl");
+		Assert.assertNotNull("clinicalQueueSettingUrl is missing in config", clinicalQueueSettingUrl);
+		String fullUrl = baseUrl + clinicalQueueSettingUrl;
+		clinicalworkflowPage = new clinicalworkflowpage(Hooks.driver);
+		clinicalworkflowPage.openClinicalQueueSettingPage(fullUrl);
+		Assert.assertTrue("Upload Wizard Settings page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/ClinicalQueueSetting"));
+	}
+
+	@And("I create a profile Clinical Queue Access with All Permissions")
+	public void createClinicalQueueAccessProfileWithAllPermissions() {
+		clinicalworkflowPage.clickFilterButton();
+		clinicalworkflowPage.enterProfileName();
+		clinicalworkflowPage.clickSearchButton();
+		clinicalworkflowPage.clickActionMenu();
+		clinicalworkflowPage.clickEditButton();
+		clinicalworkflowPage.createClinicalQueueAccessProfileFullAccess();
+		clinicalworkflowPage.clickSubmitButton();
+		System.out.println("Profile updated with View access only to Clinicalworkflow Module General Audit View");
+		Hooks.scenario.log("Profile updated with View access only to Clinicalworkflow Module General Audit View");
+	}
+
+	// Appointment Reminder Setting
+	@Then("the user should not be able to add or edit or delete Appointment Reminder Setting")
+	public void userShouldNotBeAbleToAddOrEditOrDeleteAppointmentReminderSetting() {
+
+	}
+
+	@Then("the user should not be able to add or edit Appointment Reminder Setting")
+	public void userShouldNotBeAbleToAddOrEditAppointmentReminderSetting() {
+
+	}
+
+	@Then("the user should not be able to add or delete Appointment Reminder Setting")
+	public void userShouldNotBeAbleToAddOrDeleteAppointmentReminderSetting() {
+
+	}
+
+	@Then("the user should not be able to edit or delete Appointment Reminder Setting")
+	public void userShouldNotBeAbleToEditOrDeleteAppointmentReminderSetting() {
+
+	}
+
+	@And("the user should be able to view Appointment Reminder Setting")
+	public void createProfileForAppointmentReminderSettingViewOnly() throws InterruptedException {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String appointmentReminderSettingUrl = Hooks.prop.getProperty("appointmentReminderSettingUrl");
+		Assert.assertNotNull("appointmentReminderSettingUrl is missing in config", appointmentReminderSettingUrl);
+		String fullUrl = baseUrl + appointmentReminderSettingUrl;
+		clinicalworkflowPage = new clinicalworkflowpage(Hooks.driver);
+		clinicalworkflowPage.openAppointmentReminderSettingPage(fullUrl);
+		Assert.assertTrue("Appointment Reminder Setting page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/AppointmentReminderSetting"));
+	}
+
+	@And("the user should be able to view and delete Appointment Reminder Setting")
+	public void createProfileForAppointmentReminderSettingViewDelete() throws InterruptedException {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String appointmentReminderSettingUrl = Hooks.prop.getProperty("appointmentReminderSettingUrl");
+		Assert.assertNotNull("appointmentReminderSettingUrl is missing in config", appointmentReminderSettingUrl);
+		String fullUrl = baseUrl + appointmentReminderSettingUrl;
+		clinicalworkflowPage = new clinicalworkflowpage(Hooks.driver);
+		clinicalworkflowPage.openAppointmentReminderSettingPage(fullUrl);
+		Assert.assertTrue("Appointment Reminder Setting page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/AppointmentReminderSetting"));
+
+		clinicalworkflowPage.createProfileForAppointmentReminderSettingViewDelete();
+
+	}
+
+	@And("the user should be able to view and edit Appointment Reminder Setting")
+	public void createProfileForAppointmentReminderSettingViewEdit() throws InterruptedException {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String appointmentReminderSettingUrl = Hooks.prop.getProperty("appointmentReminderSettingUrl");
+		Assert.assertNotNull("appointmentReminderSettingUrl is missing in config", appointmentReminderSettingUrl);
+		String fullUrl = baseUrl + appointmentReminderSettingUrl;
+		clinicalworkflowPage = new clinicalworkflowpage(Hooks.driver);
+		clinicalworkflowPage.openAppointmentReminderSettingPage(fullUrl);
+		Assert.assertTrue("Appointment Reminder Setting page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/AppointmentReminderSetting"));
+
+		clinicalworkflowPage.createProfileForAppointmentReminderSettingViewEdit();
+
+	}
+
+	@And("the user should be able to view and add Appointment Reminder Setting")
+	public void assignViewAndAddAccessToAppointmentReminderSettingProfile() throws InterruptedException {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String appointmentReminderSettingUrl = Hooks.prop.getProperty("appointmentReminderSettingUrl");
+		Assert.assertNotNull("appointmentReminderSettingUrl is missing in config", appointmentReminderSettingUrl);
+		String fullUrl = baseUrl + appointmentReminderSettingUrl;
+		clinicalworkflowPage = new clinicalworkflowpage(Hooks.driver);
+		clinicalworkflowPage.openAppointmentReminderSettingPage(fullUrl);
+		Assert.assertTrue("Appointment Reminder Setting page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/AppointmentReminderSetting"));
+
+		clinicalworkflowPage.createProfileForAppointmentReminderSettingViewAdd();
+
+	}
+
+	@And("I create a profile with View access to Appointment Reminder Setting")
+	public void createAppointmentReminderSettingProfileWithViewAccess() {
+		clinicalworkflowPage.clickFilterButton();
+		clinicalworkflowPage.enterProfileName();
+		clinicalworkflowPage.clickSearchButton();
+		clinicalworkflowPage.clickActionMenu();
+		clinicalworkflowPage.clickEditButton();
+		clinicalworkflowPage.addAppointmentReminderSettingProfileWithViewPermission();
+		clinicalworkflowPage.clickSubmitButton();
+		System.out.println("Profile updated with View access only to Clinicalworkflow Module General Audit View");
+		Hooks.scenario.log("Profile updated with View access only to Clinicalworkflow Module General Audit View");
+	}
+
+	@And("I create a profile with View and Delete access to Appointment Reminder Setting")
+	public void createAppointmentReminderSettingProfileWithViewAndDeleteAccess() {
+		clinicalworkflowPage.clickFilterButton();
+		clinicalworkflowPage.enterProfileName();
+		clinicalworkflowPage.clickSearchButton();
+		clinicalworkflowPage.clickActionMenu();
+		clinicalworkflowPage.clickEditButton();
+		clinicalworkflowPage.addAppointmentReminderSettingProfileWithDeletePermissions();
+		clinicalworkflowPage.clickSubmitButton();
+		System.out.println("Profile updated with View access only to Clinicalworkflow Module General Audit View");
+		Hooks.scenario.log("Profile updated with View access only to Clinicalworkflow Module General Audit View");
+	}
+
+	@And("I create a profile with View and Edit access to Appointment Reminder Setting")
+	public void createAppointmentReminderSettingProfileWithViewAndEditAccess() {
+		clinicalworkflowPage.clickFilterButton();
+		clinicalworkflowPage.enterProfileName();
+		clinicalworkflowPage.clickSearchButton();
+		clinicalworkflowPage.clickActionMenu();
+		clinicalworkflowPage.clickEditButton();
+		clinicalworkflowPage.addAppointmentReminderSettingProfileWithEditPermissions();
+		clinicalworkflowPage.clickSubmitButton();
+		System.out.println("Profile updated with View access only to Clinicalworkflow Module General Audit View");
+		Hooks.scenario.log("Profile updated with View access only to Clinicalworkflow Module General Audit View");
+	}
+
+	@And("I create a profile with View and Add access to Appointment Reminder Setting")
+	public void createAppointmentReminderSettingProfileWithViewAndAddAccess() {
+		clinicalworkflowPage.clickFilterButton();
+		clinicalworkflowPage.enterProfileName();
+		clinicalworkflowPage.clickSearchButton();
+		clinicalworkflowPage.clickActionMenu();
+		clinicalworkflowPage.clickEditButton();
+		clinicalworkflowPage.addAppointmentReminderSettingProfileWithPermissions();
+		clinicalworkflowPage.clickSubmitButton();
+		System.out.println("Profile updated with View access only to Clinicalworkflow Module General Audit View");
+		Hooks.scenario.log("Profile updated with View access only to Clinicalworkflow Module General Audit View");
+	}
+
+	// Upload Wizard Template Setting
+	@Then("the user should not be able to add or edit or delete Upload Wizard Template Setting")
+	public void userShouldNotBeAbleToAddOrEditOrDeleteUploadWizardTemplateSetting() {
+		clinicalworkflowPage.userCannotAddEditOrDeleteUploadWizardTemplateSetting();
+
+	}
+
+	@Then("the user should not be able to add or edit Upload Wizard Template Setting")
+	public void userShouldNotBeAbleToAddOrEditUploadWizardTemplateSetting() {
+		clinicalworkflowPage.userCannotAddOrEditUploadWizardTemplateSetting();
+
+	}
+
+	@Then("the user should not be able to add or delete Upload Wizard Template Setting")
+	public void userShouldNotBeAbleToAddOrDeleteUploadWizardTemplateSetting() {
+		clinicalworkflowPage.userCannotAddOrDeleteUploadWizardTemplateSetting();
+
+	}
+
+	@Then("the user should not be able to edit or delete Upload Wizard Template Setting")
+	public void userShouldNotBeAbleToEditOrDeleteUploadWizardTemplateSetting() {
+		clinicalworkflowPage.userCannotEditOrDeleteUploadWizardTemplateSetting();
+
+	}
+
+	@Then("the user should be able to view Upload Wizard Template Setting")
+	public void assignViewAccessToUploadWizardTemplateSettingProfile() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String uploadWizardTemplatesUrl = Hooks.prop.getProperty("uploadWizardTemplatesUrl");
+		Assert.assertNotNull("uploadWizardTemplatesUrl is missing in config", uploadWizardTemplatesUrl);
+		String fullUrl = baseUrl + uploadWizardTemplatesUrl;
+		clinicalworkflowPage = new clinicalworkflowpage(Hooks.driver);
+		clinicalworkflowPage.openUploadWizardClinicalQueueTemplatesPage(fullUrl);
+		Assert.assertTrue("Upload Wizard Clinical Queue Templates page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/UploadWizardClinicalQueueTemplates"));
+	}
+
+	@Then("the user should be able to view and delete Upload Wizard Template Setting")
+	public void assignViewAndDeleteAccessToUploadWizardTemplateSettingProfile() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String uploadWizardTemplatesUrl = Hooks.prop.getProperty("uploadWizardTemplatesUrl");
+		Assert.assertNotNull("uploadWizardTemplatesUrl is missing in config", uploadWizardTemplatesUrl);
+		String fullUrl = baseUrl + uploadWizardTemplatesUrl;
+		clinicalworkflowPage = new clinicalworkflowpage(Hooks.driver);
+		clinicalworkflowPage.openUploadWizardClinicalQueueTemplatesPage(fullUrl);
+		Assert.assertTrue("Upload Wizard Clinical Queue Templates page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/UploadWizardClinicalQueueTemplates"));
+
+		clinicalworkflowPage.assignViewAndDeleteAccessToUploadWizardTemplateSettingProfile();
+
+	}
+
+	@Then("the user should be able to view and edit Upload Wizard Template Setting")
+	public void createProfileForUploadWizardTemplateSettingViewEdit() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String uploadWizardTemplatesUrl = Hooks.prop.getProperty("uploadWizardTemplatesUrl");
+		Assert.assertNotNull("uploadWizardTemplatesUrl is missing in config", uploadWizardTemplatesUrl);
+		String fullUrl = baseUrl + uploadWizardTemplatesUrl;
+		clinicalworkflowPage = new clinicalworkflowpage(Hooks.driver);
+		clinicalworkflowPage.openUploadWizardClinicalQueueTemplatesPage(fullUrl);
+		Assert.assertTrue("Upload Wizard Clinical Queue Templates page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/UploadWizardClinicalQueueTemplates"));
+
+		clinicalworkflowPage.assignViewAndEditAccessToUploadWizardTemplateSettingProfile();
+
+	}
+
+	@Then("the user should be able to view and add Upload Wizard Template Setting")
+	public void createProfileForUploadWizardTemplateSettingViewAdd() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String uploadWizardTemplatesUrl = Hooks.prop.getProperty("uploadWizardTemplatesUrl");
+		Assert.assertNotNull("uploadWizardTemplatesUrl is missing in config", uploadWizardTemplatesUrl);
+		String fullUrl = baseUrl + uploadWizardTemplatesUrl;
+		clinicalworkflowPage = new clinicalworkflowpage(Hooks.driver);
+		clinicalworkflowPage.openUploadWizardClinicalQueueTemplatesPage(fullUrl);
+		Assert.assertTrue("Upload Wizard Clinical Queue Templates page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/UploadWizardClinicalQueueTemplates"));
+
+		clinicalworkflowPage.createProfileForUploadWizardTemplateSettingViewAdd();
+
+	}
+
+	@And("I create a profile with View access to Upload Wizard Template Setting")
+	public void createUploadWizardTemplateSettingProfileWithViewAccess() {
+		clinicalworkflowPage.clickFilterButton();
+		clinicalworkflowPage.enterProfileName();
+		clinicalworkflowPage.clickSearchButton();
+		clinicalworkflowPage.clickActionMenu();
+		clinicalworkflowPage.clickEditButton();
+		clinicalworkflowPage.assignViewAccessToUploadWizardTemplateSettingProfile();
+		clinicalworkflowPage.clickSubmitButton();
+		System.out.println("Profile updated with View access only to Clinicalworkflow Module General Audit View");
+		Hooks.scenario.log("Profile updated with View access only to Clinicalworkflow Module General Audit View");
+	}
+
+	@And("I create a profile with View and Delete access to Upload Wizard Template Setting")
+	public void createUploadWizardTemplateSettingProfileWithViewAndDeleteAccess() {
+		clinicalworkflowPage.clickFilterButton();
+		clinicalworkflowPage.enterProfileName();
+		clinicalworkflowPage.clickSearchButton();
+		clinicalworkflowPage.clickActionMenu();
+		clinicalworkflowPage.clickEditButton();
+		clinicalworkflowPage.createProfileForUploadWizardTemplateSettingViewDelete();
+		clinicalworkflowPage.clickSubmitButton();
+		System.out.println("Profile updated with View access only to Clinicalworkflow Module General Audit View");
+		Hooks.scenario.log("Profile updated with View access only to Clinicalworkflow Module General Audit View");
+	}
+
+	@And("I create a profile with View and Edit access to Upload Wizard Template Setting")
+	public void createUploadWizardTemplateSettingProfileWithViewAndEditAccess() {
+		clinicalworkflowPage.clickFilterButton();
+		clinicalworkflowPage.enterProfileName();
+		clinicalworkflowPage.clickSearchButton();
+		clinicalworkflowPage.clickActionMenu();
+		clinicalworkflowPage.clickEditButton();
+		clinicalworkflowPage.addUploadWizardTemplateSettingProfileWithEditPermissions();
+		clinicalworkflowPage.clickSubmitButton();
+		System.out.println("Profile updated with View access only to Clinicalworkflow Module General Audit View");
+		Hooks.scenario.log("Profile updated with View access only to Clinicalworkflow Module General Audit View");
+	}
+
+	@And("I create a profile with View and Add access to Upload Wizard Template Setting")
+	public void createUploadWizardTemplateSettingProfileWithViewAndAddAccess() {
+		clinicalworkflowPage.clickFilterButton();
+		clinicalworkflowPage.enterProfileName();
+		clinicalworkflowPage.clickSearchButton();
+		clinicalworkflowPage.clickActionMenu();
+		clinicalworkflowPage.clickEditButton();
+		clinicalworkflowPage.addUploadWizardTemplateSettingProfileWithPermissions();
+		clinicalworkflowPage.clickSubmitButton();
+		System.out.println("Profile updated with View access only to Clinicalworkflow Module General Audit View");
+		Hooks.scenario.log("Profile updated with View access only to Clinicalworkflow Module General Audit View");
+	}
+
+	// Clinical Queues
+	@Then("the user should not be able to add or edit or delete Clinical Queues")
+	public void userShouldNotBeAbleToAddOrEditOrDeleteClinicalQueues() {
+		clinicalworkflowPage.userCannotAddEditOrDeleteClinicalQueues();
+
+	}
+
+	@Then("the user should not be able to add or edit Clinical Queues")
+	public void userShouldNotBeAbleToAddOrEditClinicalQueues() {
+		clinicalworkflowPage.userCannotAddOrEditClinicalQueues();
+
+	}
+
+	@Then("the user should not be able to add or delete Clinical Queues")
+	public void userShouldNotBeAbleToAddOrDeleteClinicalQueues() {
+		clinicalworkflowPage.userCannotAddOrDeleteClinicalQueues();
+
+	}
+
+	@Then("the user should not be able to edit or delete Clinical Queues")
+	public void theUserShouldNotBeAbleToEditOrDeleteClinicalQueues() {
+		clinicalworkflowPage.userCannotEditOrDeleteClinicalQueues();
+
+	}
+
+	@Then("the user should be able to view Clinical Queues")
+	public void assignViewAccessToClinicalQueueProfile() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String clinicalQueuesUrl = Hooks.prop.getProperty("clinicalQueuesUrl");
+		Assert.assertNotNull("clinicalQueuesUrl is missing in config", clinicalQueuesUrl);
+		String fullUrl = baseUrl + clinicalQueuesUrl;
+		clinicalworkflowPage = new clinicalworkflowpage(Hooks.driver);
+		clinicalworkflowPage.openClinicalQueuesPage(fullUrl);
+		Assert.assertTrue("Clinical Queues page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/ClinicalQueues"));
+	}
+
+	@Then("the user should be able to view and delete Clinical Queues")
+	public void createProfileForClinicalQueuesViewDelete() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String clinicalQueuesUrl = Hooks.prop.getProperty("clinicalQueuesUrl");
+		Assert.assertNotNull("clinicalQueuesUrl is missing in config", clinicalQueuesUrl);
+		String fullUrl = baseUrl + clinicalQueuesUrl;
+		clinicalworkflowPage = new clinicalworkflowpage(Hooks.driver);
+		clinicalworkflowPage.openClinicalQueuesPage(fullUrl);
+		Assert.assertTrue("Clinical Queues page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/ClinicalQueues"));
+
+		clinicalworkflowPage.createClinicalQueueProfileWithViewAndDeleteAccess();
+
+	}
+
+	@Then("the user should be able to view and edit Clinical Queues")
+	public void assignViewAndEditAccessToClinicalQueueProfile() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String clinicalQueuesUrl = Hooks.prop.getProperty("clinicalQueuesUrl");
+		Assert.assertNotNull("clinicalQueuesUrl is missing in config", clinicalQueuesUrl);
+		String fullUrl = baseUrl + clinicalQueuesUrl;
+		clinicalworkflowPage = new clinicalworkflowpage(Hooks.driver);
+		clinicalworkflowPage.openClinicalQueuesPage(fullUrl);
+		Assert.assertTrue("Clinical Queues page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/ClinicalQueues"));
+
+		clinicalworkflowPage.addClinicalQueueProfileWithEditPermissions();
+
+	}
+
+	@Then("the user should be able to view and add Clinical Queues")
+	public void assignViewAndAddAccessToClinicalQueueProfile() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String clinicalQueuesUrl = Hooks.prop.getProperty("clinicalQueuesUrl");
+		Assert.assertNotNull("clinicalQueuesUrl is missing in config", clinicalQueuesUrl);
+		String fullUrl = baseUrl + clinicalQueuesUrl;
+		clinicalworkflowPage = new clinicalworkflowpage(Hooks.driver);
+		clinicalworkflowPage.openClinicalQueuesPage(fullUrl);
+		Assert.assertTrue("Clinical Queues page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/ClinicalQueues"));
+
+		clinicalworkflowPage.createProfileForClinicalQueuesViewAdd();
+
+	}
+
+	@And("I create a profile with View access to Clinical Queues")
+	public void createClinicalQueueProfileWithViewAccess() {
+		clinicalworkflowPage.clickFilterButton();
+		clinicalworkflowPage.enterProfileName();
+		clinicalworkflowPage.clickSearchButton();
+		clinicalworkflowPage.clickActionMenu();
+		clinicalworkflowPage.clickEditButton();
+		clinicalworkflowPage.addClinicalQueueProfileWithViewPermission();
+		clinicalworkflowPage.clickSubmitButton();
+		System.out.println("Profile updated with View access only to Clinicalworkflow Module General Audit View");
+		Hooks.scenario.log("Profile updated with View access only to Clinicalworkflow Module General Audit View");
+	}
+
+	@And("I create a profile with View and Delete access to Clinical Queues")
+	public void createClinicalQueueProfileWithViewAndDeleteAccess() {
+		clinicalworkflowPage.clickFilterButton();
+		clinicalworkflowPage.enterProfileName();
+		clinicalworkflowPage.clickSearchButton();
+		clinicalworkflowPage.clickActionMenu();
+		clinicalworkflowPage.clickEditButton();
+		clinicalworkflowPage.createProfileForClinicalQueuesViewDelete();
+		clinicalworkflowPage.clickSubmitButton();
+		System.out.println("Profile updated with View access only to Clinicalworkflow Module General Audit View");
+		Hooks.scenario.log("Profile updated with View access only to Clinicalworkflow Module General Audit View");
+	}
+
+	@And("I create a profile with View and Edit access to Clinical Queues")
+	public void createClinicalQueueProfileWithViewAndEditAccess() {
+		clinicalworkflowPage.clickFilterButton();
+		clinicalworkflowPage.enterProfileName();
+		clinicalworkflowPage.clickSearchButton();
+		clinicalworkflowPage.clickActionMenu();
+		clinicalworkflowPage.clickEditButton();
+		clinicalworkflowPage.createProfileForClinicalQueuesViewEdit();
+		clinicalworkflowPage.clickSubmitButton();
+		System.out.println("Profile updated with View access only to Clinicalworkflow Module General Audit View");
+		Hooks.scenario.log("Profile updated with View access only to Clinicalworkflow Module General Audit View");
+	}
+
+	@And("I create a profile with View and Add access to Clinical Queues")
+	public void createClinicalQueueProfileWithViewAndAddAccess() {
+		clinicalworkflowPage.clickFilterButton();
+		clinicalworkflowPage.enterProfileName();
+		clinicalworkflowPage.clickSearchButton();
+		clinicalworkflowPage.clickActionMenu();
+		clinicalworkflowPage.clickEditButton();
+		clinicalworkflowPage.addClinicalQueueProfileWithPermissions();
+		clinicalworkflowPage.clickSubmitButton();
+		System.out.println("Profile updated with View access only to Clinicalworkflow Module General Audit View");
+		Hooks.scenario.log("Profile updated with View access only to Clinicalworkflow Module General Audit View");
+	}
 
 	// RPM Followup
 	@Then("the user should not be able to RPM Followup All Communication View")
@@ -158,17 +584,12 @@ public class clinicalworkflowstep {
 
 	@Then("the user should be able to view RPM Followup")
 	public void allowRpmFollowupView() {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String clinicalWorkflowRpmFollowupsUrl = Hooks.prop.getProperty("clinicalWorkflowRpmFollowupsUrl");
-
 		Assert.assertNotNull("clinicalWorkflowRpmFollowupsUrl is missing in config", clinicalWorkflowRpmFollowupsUrl);
-
 		String fullUrl = baseUrl + clinicalWorkflowRpmFollowupsUrl;
-
 		clinicalworkflowPage = new clinicalworkflowpage(Hooks.driver);
 		clinicalworkflowPage.openclinicalWorkflowRpmFollowupsUrl(fullUrl);
-
 		Assert.assertTrue("RPM Followups page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/ClinicalWorkflow/Home/RPMFollowups"));
 	}
@@ -258,15 +679,11 @@ public class clinicalworkflowstep {
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String clinicalWorkflowAppointmentOutreachUrl = Hooks.prop
 				.getProperty("clinicalWorkflowAppointmentOutreachUrl");
-
 		Assert.assertNotNull("clinicalWorkflowAppointmentOutreachUrl is missing in config",
 				clinicalWorkflowAppointmentOutreachUrl);
-
 		String fullUrl = baseUrl + clinicalWorkflowAppointmentOutreachUrl;
-
 		clinicalworkflowPage = new clinicalworkflowpage(Hooks.driver);
 		clinicalworkflowPage.openclinicalWorkflowAppointmentOutreachUrl(fullUrl);
-
 		Assert.assertTrue("Appointment Outreach page is not displayed",
 				Hooks.driver.getCurrentUrl().contains(clinicalWorkflowAppointmentOutreachUrl));
 	}
@@ -370,7 +787,6 @@ public class clinicalworkflowstep {
 	}
 
 	// Action Work Flow
-
 	@Then("the user should not be able to Send VCard")
 	public void verifyUserCannotSendVCard() {
 		clinicalworkflowPage.verifyUserIsRestrictedFromSendingVCard();
@@ -421,18 +837,13 @@ public class clinicalworkflowstep {
 
 	@Then("the user should not be able to Send Mail/Fax/Text/BOT Call")
 	public void verifyUserCannotSendCommunication() {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String clinicalWorkflowActionWorkflowUrl = Hooks.prop.getProperty("clinicalWorkflowActionWorkflowUrl");
-
 		Assert.assertNotNull("clinicalWorkflowActionWorkflowUrl is missing in config",
 				clinicalWorkflowActionWorkflowUrl);
-
 		String fullUrl = baseUrl + clinicalWorkflowActionWorkflowUrl;
-
 		clinicalworkflowPage = new clinicalworkflowpage(Hooks.driver);
 		clinicalworkflowPage.openclinicalWorkflowActionWorkflowUrl(fullUrl);
-
 		Assert.assertTrue("Action Workflow page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/ClinicalWorkflow/Home/ActionWorkflow"));
 	}
@@ -452,91 +863,78 @@ public class clinicalworkflowstep {
 
 	@Then("the user should be able to Action Work Flow Export To Excel")
 	public void userShouldBeAbleToExportWorkflowToExcel() {
-
 		clinicalworkflowPage.exportActionWorkflowToExcel();
 
 	}
 
 	@Then("the user should be able to Send VCard")
 	public void userShouldBeAbleToSendVCard() {
-
 		clinicalworkflowPage.clickSendVCardButton();
 
 	}
 
 	@Then("the user should be able to Grid Template - Company Default Checkbox")
 	public void selectGridTemplateCompanyDefaultCheckbox() {
-
 		clinicalworkflowPage.userSelectsCompanyDefaultCheckboxInGridTemplate();
 
 	}
 
 	@Then("the user should be able to Grid Template Delete")
 	public void userShouldBeAbleToDeleteGridTemplate() {
-
 		clinicalworkflowPage.verifyUserCanDeleteGridTemplate();
 
 	}
 
 	@Then("the user should be able to Grid Template Edit")
 	public void userShouldBeAbleToEditGridTemplate() {
-
 		clinicalworkflowPage.verifyUserCanEditGridTemplate();
 
 	}
 
 	@Then("the user should be able to Grid Template Add")
 	public void userShouldBeAbleToAddGridTemplate() {
-
 		clinicalworkflowPage.canAddGridTemplate();
 
 	}
 
 	@Then("the user should be able to Show Past Runninglines Checkbox")
 	public void userShouldBeAbleToShowPastRunningLinesCheckbox() {
-
 		clinicalworkflowPage.canShowPastRunningLinesCheckbox();
 
 	}
 
 	@Then("the user should be able to Show All Runninglines Checkbox")
 	public void userShouldBeAbleToShowAllRunningLinesCheckbox() {
-
 		clinicalworkflowPage.canShowAllRunningLinesCheckbox();
 
 	}
 
 	@Then("the user should be able to Quick Text")
 	public void userShouldBeAbleToViewQuickText() {
-
 		clinicalworkflowPage.canViewQuickText();
 
 	}
 
 	@Then("the user should be able to Action Work Flow BOT Call")
 	public void userShouldBeAbleToViewActionWorkflowBotCall() {
-
 		clinicalworkflowPage.canViewActionWorkflowBotCall();
 
 	}
 
 	@Then("the user should be able to Action Work Flow Text")
 	public void userShouldBeAbleToViewActionWorkflowText() {
-
 		clinicalworkflowPage.canViewActionWorkflowText();
 
 	}
 
 	@Then("the user should be able to Fax")
 	public void userShouldBeAbleToFax() {
-
 		clinicalworkflowPage.canSendFax();
 
 	}
 
 	@Then("the user should be able to Action Work Flow Mail")
 	public void userShouldBeAbleToViewActionWorkflowMail() {
-
 		clinicalworkflowPage.canViewActionWorkflowMail();
 
 	}
@@ -549,18 +947,13 @@ public class clinicalworkflowstep {
 
 	@Then("the user should be able to view Action Work Flow")
 	public void userShouldBeAbleToViewActionWorkflow() {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String clinicalWorkflowActionWorkflowUrl = Hooks.prop.getProperty("clinicalWorkflowActionWorkflowUrl");
-
 		Assert.assertNotNull("clinicalWorkflowActionWorkflowUrl is missing in config",
 				clinicalWorkflowActionWorkflowUrl);
-
 		String fullUrl = baseUrl + clinicalWorkflowActionWorkflowUrl;
-
 		clinicalworkflowPage = new clinicalworkflowpage(Hooks.driver);
 		clinicalworkflowPage.openclinicalWorkflowActionWorkflowUrl(fullUrl);
-
 		Assert.assertTrue("Action Workflow page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/ClinicalWorkflow/Home/ActionWorkflow"));
 	}
@@ -594,59 +987,48 @@ public class clinicalworkflowstep {
 
 	@Then("the user should not be able to Update Appointment Action")
 	public void userShouldNotBeAbleToUpdateAppointmentAction() {
-
 		clinicalworkflowPage.cannotUpdateAppointmentAction();
 
 	}
 
 	@Then("the user should not be able to All Communication View")
 	public void userShouldNotBeAbleToViewAllCommunication() {
-
 		clinicalworkflowPage.cannotViewAllCommunication();
 
 	}
 
 	@Then("the user should not be able to Export To Excel")
 	public void userShouldNotBeAbleToExportToExcel() {
-
 		clinicalworkflowPage.cannotExportToExcel();
 
 	}
 
 	@Then("the user should not be able to initiate BOT Call")
 	public void userShouldNotBeAbleToInitiateBotCall() {
-
 		clinicalworkflowPage.cannotInitiateBotCall();
 
 	}
 
 	@Then("the user should not be able to send Text")
 	public void userShouldNotBeAbleToSendText() {
-
 		clinicalworkflowPage.cannotSendText();
 
 	}
 
 	@Then("the user should not be able to send Mail")
 	public void userShouldNotBeAbleToSendMail() {
-
 		clinicalworkflowPage.cannotSendMail();
 
 	}
 
 	@Then("the user should be able to view Dashboard")
 	public void userCanViewDashboard() {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String clinicalWorkflowDashboard = Hooks.prop.getProperty("clinicalWorkflowDashboard");
-
 		Assert.assertNotNull("clinicalWorkflowDashboard is missing in config", clinicalWorkflowDashboard);
-
 		String fullUrl = baseUrl + clinicalWorkflowDashboard;
-
 		clinicalworkflowPage = new clinicalworkflowpage(Hooks.driver);
 		clinicalworkflowPage.openClinicalWorkflowDashboard(fullUrl);
-
 		Assert.assertTrue("Dashboard page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/ClinicalWorkflow/Home/Dashboard"));
 	}
@@ -701,7 +1083,6 @@ public class clinicalworkflowstep {
 	}
 
 	// General
-
 	@And("I create a profile with no access to Clinicalworkflow Module General Audit View test")
 	public void createProfileWithNoAccessToClinicalWorkflowModuleGeneralAuditView() {
 		clinicalworkflowPage.clickFilterButton();
@@ -744,36 +1125,25 @@ public class clinicalworkflowstep {
 
 	@Then("the user should not able to view Clinicalworkflow Module General Audit View test")
 	public void userCannotViewClinicalWorkflowAudit() {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String clinicalWorkflowUrl = Hooks.prop.getProperty("clinicalWorkflowUrl");
-
 		Assert.assertNotNull("deliveryMarkerUrl is missing in config", clinicalWorkflowUrl);
-
 		String fullUrl = baseUrl + clinicalWorkflowUrl;
-
 		clinicalworkflowPage = new clinicalworkflowpage(Hooks.driver);
 		clinicalworkflowPage.openclinicalworkflowPage(fullUrl);
-
 		clinicalworkflowPage.userCannotAccessClinicalWorkflowAuditView();
 	}
 
 	@Then("the user should be able to view Clinicalworkflow Module General Audit View test")
 	public void userShouldBeAbleToViewClinicalWorkflowModuleGeneralAudit() {
-
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String clinicalWorkflowUrl = Hooks.prop.getProperty("clinicalWorkflowUrl");
-
 		Assert.assertNotNull("deliveryMarkerUrl is missing in config", clinicalWorkflowUrl);
-
 		String fullUrl = baseUrl + clinicalWorkflowUrl;
-
 		clinicalworkflowPage = new clinicalworkflowpage(Hooks.driver);
 		clinicalworkflowPage.openclinicalworkflowPage(fullUrl);
-
 		Assert.assertTrue("Page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/ClinicalWorkflow/Home/ActionWorkflow"));
-
 		clinicalworkflowPage.verifyGeneralAuditViewColumns();
 	}
 }
