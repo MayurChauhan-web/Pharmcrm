@@ -352,708 +352,268 @@ And user enter the organization password
 When user click on the go button
 Then the Clinicalworkflow user should be able to view Profiles
 And I create a profile Clinical Queue Access with All Permissions
-Then the user should be able to view Clinical Queue Columns
+Then the user should be able to Clinical Queue Column View
 Then the user should be able to Clinical Queue Column Add
-Then the user should be able to Copy Clinical Queue Column
 Then the user should be able to Clinical Queue Column Delete
 Then the user should be able to Clinical Column SortOrder Update
+Then the user should be able to Copy Clinical Queue Column
 Then the user should be able to Clinical Queue Rule View
 Then the user should be able to Clinical Queue Rule Add
 Then the user should be able to Clinical Queue Rule Edit
 Then the user should be able to Clinical Queue Rule Delete
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# Dashboard 
+Scenario: Validate Mail To All action with blank submission
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And validation messages should be displayed for required fields
+
+Scenario: Validate Text To All action with blank submission
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Text To All validation messages should be displayed for required fields
+
+Scenario: Validate BOT Call To All action with blank submission
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then BOT Call To All validation messages should be displayed for required fields
+
+Scenario: Validate Update Appointment Action Alert with blank submission
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Appointment Action Alert note validation messages should be displayed for required fields
+
+# Appointment Outreach 
+Scenario: Validate Mail To All action with blank submission
+Given user launch browser
+Then user click on the user type dropdown	
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And validation messages should be displayed for required fields Mail To All Appointment Outreach
+
+Scenario: Validate Text To All action with blank submission
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Text To All validation messages should be displayed for required fields Appointment Outreach
+
+Scenario: Validate BOT Call To All action with blank submission
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then BOT Call To All validation messages should be displayed for required fields Appointment Outreach
+
+Scenario: Validate Fax To All action with blank submission
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then validation messages should be displayed for required fields Fax To All Appointment Outreach
+
+Scenario: Validate Quick Text action with blank submission
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then validation messages should be displayed for required fields Quick Text Appointment Outreach
+
+Scenario: Validate Quick Text action with invalid phone number
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+When user enter an invalid phone number
+Then validation message should be displayed for invalid phone number
+
+Scenario: Validate Send VCard action with blank submission
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then validation messages should be displayed for required fields Send VCard Appointment Outreach
+
+Scenario: Validate Send VCard action with invalid phone number
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+When user enter an invalid phone number Send VCard
+Then validation message should be displayed for invalid phone number Send VCard
+
+Scenario: Validate Add Appointment Notes action with blank submission
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then validation messages should be displayed for required fields Add Appointment Notes action Appointment Outreach
+
+# RPM Followups 
+Scenario: Validate Mail To All action with blank submission
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+And validation messages should be displayed for required fields Mail To All RPM Followups
+
+Scenario: Validate Text To All action with blank submission
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then Text To All validation messages should be displayed for required fields RPM Followups
+
+Scenario: Validate BOT Call To All action with blank submission
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then BOT Call To All validation messages should be displayed for required fields RPM Followups
+
+Scenario: Validate Fax To All action with blank submission
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then validation messages should be displayed for required fields Fax To All RPM Followups
+
+Scenario: Validate Quick Text action with blank submission
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then validation messages should be displayed for required fields Quick Text RPM Followups
+
+Scenario: Validate Quick Text action with invalid phone number
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+When user enter an invalid phone number RPM Followups
+Then validation message should be displayed for invalid phone number RPM Followups
+
+Scenario: Validate Send VCard action with blank submission
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then validation messages should be displayed for required fields Send VCard RPM Followups
+
+Scenario: Validate Send VCard action with invalid phone number
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+When user enter an invalid phone number RPM Followups
+Then validation message should be displayed for invalid phone number RPM Followups
+
+Scenario: Validate Add RPM Followup Notes action with blank submission
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then validation messages should be displayed for required fields Add RPM Followup Notes
+
+# Action Workflow
+Scenario: Validate Quick Text action with blank submission
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then validation messages should be displayed for required fields Quick Text Action Workflow
+
+Scenario: Validate Quick Text action with invalid phone number
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+When user enter an invalid phone number Action Workflow
+Then validation message should be displayed for invalid phone number Action Workflow
+
+Scenario: Validate Send VCard action with blank submission
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then validation messages should be displayed for required fields Send VCard Action Workflow
+
+Scenario: Validate Send VCard action with invalid phone number
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+When user enter an invalid phone number Action Workflow
+Then validation message should be displayed for invalid phone number Action Workflow
+
+Scenario: Validate Add Template action with blank submission
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then validation messages should be displayed for required fields Add Template Action Workflow
 
 
 
