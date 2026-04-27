@@ -615,7 +615,7 @@ public class drugpage {
 		sleep(3000);
 		clickWhenClickable(uploadExcelButton);
 		WebElement uploadInput = driver.findElement(uploadFileInput);
-		String filePath = System.getProperty("user.dir") + "/src/test/resources/Documents/DrugTemplate.xlsx";
+		String filePath = System.getProperty("user.dir") + "/src/test/resources/com/Documents/DrugTemplate.xlsx";
 		uploadInput.sendKeys(filePath);
 		sleep(3000);
 	}
@@ -1305,7 +1305,7 @@ public class drugpage {
 		sleep(3000);
 		clickWhenClickable(uploadExcelButton);
 		WebElement uploadInput = driver.findElement(uploadFileInput);
-		String filePath = System.getProperty("user.dir") + "/src/test/resources/Documents/DrugTemplate.xlsx";
+		String filePath = System.getProperty("user.dir") + "/src/test/resources/com/Documents/DrugTemplate.xlsx";
 		uploadInput.sendKeys(filePath);
 		sleep(3000);
 	}

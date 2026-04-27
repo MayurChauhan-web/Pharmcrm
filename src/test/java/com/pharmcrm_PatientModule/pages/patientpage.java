@@ -1913,7 +1913,7 @@ public class patientpage {
 		clickWhenClickable(addFileIcon);
 		sleep(2000);
 		WebElement uploadElement = waitForElement(fileUploadInput);
-		uploadElement.sendKeys(System.getProperty("user.dir") + "/src/test/resources/Documents/blank.pdf");
+		uploadElement.sendKeys(System.getProperty("user.dir") + "/src/test/resources/com/Documents/blank.pdf");
 		sleep(2000);
 		clickWhenClickable(saveFileButton);
 	}

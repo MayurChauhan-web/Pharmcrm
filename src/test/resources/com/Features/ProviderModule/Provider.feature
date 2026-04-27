@@ -982,8 +982,8 @@ Then the Provider user should be able to view Profiles test
 And I create a profile with View and Edit access but no Add or Delete access to Provider Template in Provider Module test
 Then the user should be able to view Provider Template in Provider Module test
 And the user should be able to edit Provider Template in Provider Module test
-And the user should not be able to add Provider Template in Provider Module
-And the user should not be able to delete Provider Template in Provider Module
+And the user should not be able to add Provider Template in Provider Module test
+And the user should not be able to delete Provider Template in Provider Module test
 
 Scenario: User with View and Delete access but no Add or Edit for Provider Template test
 Given user launch browser
