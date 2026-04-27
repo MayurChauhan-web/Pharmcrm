@@ -2,8 +2,6 @@ package com.pharmcrm_ClinicalworkflowModule.steps;
 
 import org.junit.Assert;
 import com.pharmcrm_ClinicalworkflowModule.pages.clinicalworkflowpage;
-import com.pharmcrm_SetupModule.pages.setuppage;
-
 import hooks.Hooks;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
@@ -640,6 +638,21 @@ public class clinicalworkflowstep {
 		Hooks.scenario.log("Error validation triggered: Validation messages are displayed for required fields");
 	}
 
+	@Then("user enter an invalid phone number RPM Followups")
+	public void userEnterInvalidPhoneNumberRpmFollowups() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String clinicalWorkflowRpmFollowupsUrl = Hooks.prop.getProperty("clinicalWorkflowRpmFollowupsUrl");
+		Assert.assertNotNull("clinicalWorkflowRpmFollowupsUrl is missing in config", clinicalWorkflowRpmFollowupsUrl);
+		String fullUrl = baseUrl + clinicalWorkflowRpmFollowupsUrl;
+		clinicalworkflowPage = new clinicalworkflowpage(Hooks.driver);
+		clinicalworkflowPage.openclinicalWorkflowRpmFollowupsUrl(fullUrl);
+		Assert.assertTrue("RPM Followups page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/ClinicalWorkflow/Home/RPMFollowups"));
+		clinicalworkflowPage.verifyInvalidPhoneNumberRpmFollowupsValidationMessage();
+		System.out.println("Error validation triggered: Validation messages are displayed for required fields");
+		Hooks.scenario.log("Error validation triggered: Validation messages are displayed for required fields");
+	}
+
 	@Then("validation messages should be displayed for required fields Send VCard RPM Followups")
 	public void verifySendVcardRpmFollowupsValidationMessagesForRequiredFields() {
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
@@ -651,6 +664,21 @@ public class clinicalworkflowstep {
 		Assert.assertTrue("RPM Followups page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/ClinicalWorkflow/Home/RPMFollowups"));
 		clinicalworkflowPage.sendVcardRpmFollowupsValidationMessagesAreShownForRequiredFields();
+		System.out.println("Error validation triggered: Validation messages are displayed for required fields");
+		Hooks.scenario.log("Error validation triggered: Validation messages are displayed for required fields");
+	}
+
+	@Then("validation message should be displayed for invalid phone number RPM Followups")
+	public void verifyInvalidPhoneNumberRpmFollowupsValidationMessage() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String clinicalWorkflowRpmFollowupsUrl = Hooks.prop.getProperty("clinicalWorkflowRpmFollowupsUrl");
+		Assert.assertNotNull("clinicalWorkflowRpmFollowupsUrl is missing in config", clinicalWorkflowRpmFollowupsUrl);
+		String fullUrl = baseUrl + clinicalWorkflowRpmFollowupsUrl;
+		clinicalworkflowPage = new clinicalworkflowpage(Hooks.driver);
+		clinicalworkflowPage.openclinicalWorkflowRpmFollowupsUrl(fullUrl);
+		Assert.assertTrue("RPM Followups page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/ClinicalWorkflow/Home/RPMFollowups"));
+		clinicalworkflowPage.invalidPhoneNumberRpmFollowupsValidationMessageIsShown();
 		System.out.println("Error validation triggered: Validation messages are displayed for required fields");
 		Hooks.scenario.log("Error validation triggered: Validation messages are displayed for required fields");
 	}
@@ -953,7 +981,6 @@ public class clinicalworkflowstep {
 		Assert.assertTrue("Appointment Outreach page is not displayed",
 				Hooks.driver.getCurrentUrl().contains(clinicalWorkflowAppointmentOutreachUrl));
 		clinicalworkflowPage.faxToAllAppointmentOutreachValidationMessagesAreShownForRequiredFields();
-
 		System.out.println("Error validation triggered: Validation messages are displayed for required fields");
 		Hooks.scenario.log("Error validation triggered: Validation messages are displayed for required fields");
 
@@ -1282,6 +1309,22 @@ public class clinicalworkflowstep {
 
 	}
 
+	@Then("validation message should be displayed for Send VCard invalid phone number Action Workflow")
+	public void verifyInvalidPhoneNumberSendVcardActionWorkflowValidationMessage() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String clinicalWorkflowActionWorkflowUrl = Hooks.prop.getProperty("clinicalWorkflowActionWorkflowUrl");
+		Assert.assertNotNull("clinicalWorkflowActionWorkflowUrl is missing in config",
+				clinicalWorkflowActionWorkflowUrl);
+		String fullUrl = baseUrl + clinicalWorkflowActionWorkflowUrl;
+		clinicalworkflowPage = new clinicalworkflowpage(Hooks.driver);
+		clinicalworkflowPage.openclinicalWorkflowActionWorkflowUrl(fullUrl);
+		Assert.assertTrue("Action Workflow page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/ClinicalWorkflow/Home/ActionWorkflow"));
+		clinicalworkflowPage.invalidPhoneNumberSendVcardActionWorkflowValidationMessageIsShown();
+		System.out.println("Error validation triggered: Validation messages are displayed for required fields");
+		Hooks.scenario.log("Error validation triggered: Validation messages are displayed for required fields");
+	}
+
 	@Then("validation messages should be displayed for required fields Add Template Action Workflow")
 	public void verifyAddTemplateActionWorkflowValidationMessagesForRequiredFields() {
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
@@ -1310,6 +1353,22 @@ public class clinicalworkflowstep {
 		Assert.assertTrue("Action Workflow page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/ClinicalWorkflow/Home/ActionWorkflow"));
 		clinicalworkflowPage.sendVcardActionWorkflowValidationMessagesAreShownForRequiredFields();
+		System.out.println("Error validation triggered: Validation messages are displayed for required fields");
+		Hooks.scenario.log("Error validation triggered: Validation messages are displayed for required fields");
+	}
+
+	@Then("validation message should be displayed for invalid phone number Action Workflow")
+	public void verifyInvalidPhoneNumberActionWorkflowValidationMessage() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String clinicalWorkflowActionWorkflowUrl = Hooks.prop.getProperty("clinicalWorkflowActionWorkflowUrl");
+		Assert.assertNotNull("clinicalWorkflowActionWorkflowUrl is missing in config",
+				clinicalWorkflowActionWorkflowUrl);
+		String fullUrl = baseUrl + clinicalWorkflowActionWorkflowUrl;
+		clinicalworkflowPage = new clinicalworkflowpage(Hooks.driver);
+		clinicalworkflowPage.openclinicalWorkflowActionWorkflowUrl(fullUrl);
+		Assert.assertTrue("Action Workflow page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/ClinicalWorkflow/Home/ActionWorkflow"));
+		clinicalworkflowPage.invalidPhoneNumberActionWorkflowValidationMessageIsShown();
 		System.out.println("Error validation triggered: Validation messages are displayed for required fields");
 		Hooks.scenario.log("Error validation triggered: Validation messages are displayed for required fields");
 	}
@@ -1416,7 +1475,6 @@ public class clinicalworkflowstep {
 		clinicalworkflowPage.openClinicalWorkflowDashboard(fullUrl);
 		Assert.assertTrue("Dashboard page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/ClinicalWorkflow/Home/Dashboard"));
-
 		clinicalworkflowPage.checkAppointmentActionAlertNoteValidationMessagesForRequiredFields();
 		System.out.println("Error validation triggered: Validation messages are displayed for required fields");
 		Hooks.scenario.log("Error validation triggered: Validation messages are displayed for required fields");
@@ -1432,7 +1490,6 @@ public class clinicalworkflowstep {
 		clinicalworkflowPage.openClinicalWorkflowDashboard(fullUrl);
 		Assert.assertTrue("Dashboard page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/ClinicalWorkflow/Home/Dashboard"));
-
 		clinicalworkflowPage.botCallToAllValidationMessagesAreShownForRequiredFields();
 		System.out.println("Error validation triggered: Validation messages are displayed for required fields");
 		Hooks.scenario.log("Error validation triggered: Validation messages are displayed for required fields");
@@ -1448,7 +1505,6 @@ public class clinicalworkflowstep {
 		clinicalworkflowPage.openClinicalWorkflowDashboard(fullUrl);
 		Assert.assertTrue("Dashboard page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/ClinicalWorkflow/Home/Dashboard"));
-
 		clinicalworkflowPage.checkTextToAllValidationMessagesForRequiredFields();
 		System.out.println("Error validation triggered: Validation messages are displayed for required fields");
 		Hooks.scenario.log("Error validation triggered: Validation messages are displayed for required fields");
@@ -1464,7 +1520,6 @@ public class clinicalworkflowstep {
 		clinicalworkflowPage.openClinicalWorkflowDashboard(fullUrl);
 		Assert.assertTrue("Dashboard page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/ClinicalWorkflow/Home/Dashboard"));
-
 		clinicalworkflowPage.displayValidationMessagesForRequiredFields();
 		System.out.println("Error validation triggered: Validation messages are displayed for required fields");
 		Hooks.scenario.log("Error validation triggered: Validation messages are displayed for required fields");

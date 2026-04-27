@@ -1,6 +1,5 @@
 Feature: Entire Clinical workflow Module.
 
-@Clinicalworkflow
 # General
 Scenario: User with View only access for Clinical workflow Module General Audit View
 Given user launch browser
@@ -536,7 +535,6 @@ When user select the user type as organization from user type dropdown
 Then user enter the organization emailid
 And user enter the organization password
 When user click on the go button
-When user enter an invalid phone number RPM Followups
 Then validation message should be displayed for invalid phone number RPM Followups
 
 Scenario: Validate Send VCard action with blank submission
@@ -584,7 +582,6 @@ When user select the user type as organization from user type dropdown
 Then user enter the organization emailid
 And user enter the organization password
 When user click on the go button
-When user enter an invalid phone number Action Workflow
 Then validation message should be displayed for invalid phone number Action Workflow
 
 Scenario: Validate Send VCard action with blank submission
@@ -603,8 +600,7 @@ When user select the user type as organization from user type dropdown
 Then user enter the organization emailid
 And user enter the organization password
 When user click on the go button
-When user enter an invalid phone number Action Workflow
-Then validation message should be displayed for invalid phone number Action Workflow
+Then validation message should be displayed for Send VCard invalid phone number Action Workflow
 
 Scenario: Validate Add Template action with blank submission
 Given user launch browser
@@ -614,12 +610,4 @@ Then user enter the organization emailid
 And user enter the organization password
 When user click on the go button
 Then validation messages should be displayed for required fields Add Template Action Workflow
-
-
-
-
-
-
-
-
 

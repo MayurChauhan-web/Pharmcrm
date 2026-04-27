@@ -2,7 +2,6 @@ package com.pharmcrm_ClinicalworkflowModule.pages;
 
 import java.time.Duration;
 import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -226,7 +225,6 @@ public class clinicalworkflowpage {
 		WebElement clinicalQueueAddLabelElement = wait
 				.until(ExpectedConditions.elementToBeClickable(uploadWizardClinicalQueueTemplateAddLabel));
 		clinicalQueueAddLabelElement.click();
-
 		WebElement clinicalQueueEditLabelElement = wait
 				.until(ExpectedConditions.elementToBeClickable(uploadWizardClinicalQueueTemplateEditLabel));
 		clinicalQueueEditLabelElement.click();
@@ -255,7 +253,6 @@ public class clinicalworkflowpage {
 		WebElement clinicalQueueEditLabelElement = wait
 				.until(ExpectedConditions.elementToBeClickable(uploadWizardClinicalQueueTemplateEditLabel));
 		clinicalQueueEditLabelElement.click();
-
 		WebElement clinicalQueueDeleteLabelElement = wait
 				.until(ExpectedConditions.elementToBeClickable(uploadWizardClinicalQueueTemplateDeleteLabel));
 		clinicalQueueDeleteLabelElement.click();
@@ -307,12 +304,13 @@ public class clinicalworkflowpage {
 		WebElement firstRowActionIconElement = wait.until(ExpectedConditions.elementToBeClickable(firstRowActionIcon));
 		firstRowActionIconElement.click();
 		sleep(2000);
-		WebElement editOptionFromDropdownElement = wait
+		WebElement deleteOptionFromDropdownElement = wait
 				.until(ExpectedConditions.elementToBeClickable(deleteOptionFromDropdown));
-		editOptionFromDropdownElement.click();
+		deleteOptionFromDropdownElement.click();
 		sleep(2000);
-		WebElement nextButtonElement = wait.until(ExpectedConditions.elementToBeClickable(genericDeleteConfirmButton));
-		nextButtonElement.click();
+		WebElement genericDeleteConfirmButtonElement = wait
+				.until(ExpectedConditions.elementToBeClickable(genericDeleteConfirmButton));
+		genericDeleteConfirmButtonElement.click();
 		sleep(2000);
 
 	}
@@ -436,12 +434,13 @@ public class clinicalworkflowpage {
 		WebElement thirdRowActionIconElement = wait.until(ExpectedConditions.elementToBeClickable(thirdRowActionIcon));
 		thirdRowActionIconElement.click();
 		sleep(2000);
-		WebElement editOptionFromDropdownElement = wait
+		WebElement deleteOptionFromDropdownElement = wait
 				.until(ExpectedConditions.elementToBeClickable(deleteOptionFromDropdown));
-		editOptionFromDropdownElement.click();
+		deleteOptionFromDropdownElement.click();
 		sleep(2000);
-		WebElement saveButtonElement = wait.until(ExpectedConditions.elementToBeClickable(queuedeleteConfirmButton));
-		saveButtonElement.click();
+		WebElement queueDeleteConfirmButtonElement = wait
+				.until(ExpectedConditions.elementToBeClickable(queuedeleteConfirmButton));
+		queueDeleteConfirmButtonElement.click();
 	}
 
 	public void addClinicalQueueProfileWithEditPermissions() {
@@ -512,9 +511,9 @@ public class clinicalworkflowpage {
 		WebElement clinicalQueueAddLabelElement = wait
 				.until(ExpectedConditions.elementToBeClickable(clinicalQueueAddLabel));
 		clinicalQueueAddLabelElement.click();
-		WebElement clinicalQueueDeleteLabelElement = wait
+		WebElement clinicalQueueEditLabelElement = wait
 				.until(ExpectedConditions.elementToBeClickable(clinicalQueueEditLabel));
-		clinicalQueueDeleteLabelElement.click();
+		clinicalQueueEditLabelElement.click();
 
 	}
 
@@ -552,10 +551,42 @@ public class clinicalworkflowpage {
 	public String addRpmFollowupNotesValidationMessagesAreShownForRequiredFields() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-		WebElement smsToAllIcon = wait.until(ExpectedConditions.elementToBeClickable(rpmFollowupNotesIcon));
-		smsToAllIcon.click();
-		WebElement smsToAllSubmitBtn = wait.until(ExpectedConditions.elementToBeClickable(saveRpmFollowupNotesButton));
-		smsToAllSubmitBtn.click();
+		WebElement rpmFollowupNotesIconElement = wait
+				.until(ExpectedConditions.elementToBeClickable(rpmFollowupNotesIcon));
+		rpmFollowupNotesIconElement.click();
+		WebElement saveRpmFollowupNotesButtonElement = wait
+				.until(ExpectedConditions.elementToBeClickable(saveRpmFollowupNotesButton));
+		saveRpmFollowupNotesButtonElement.click();
+		try {
+			wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(toastMessage, 0));
+			List<WebElement> toasts = driver.findElements(toastMessage);
+			StringBuilder allMessages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				if (toast.isDisplayed()) {
+					allMessages.append(toast.getText().trim()).append(" | ");
+				}
+			}
+			return "SUCCESS: Validations displayed -> " + allMessages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message(s) not displayed";
+		}
+
+	}
+
+	public String verifyInvalidPhoneNumberRpmFollowupsValidationMessage() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement sendVCardButtonElement = wait.until(ExpectedConditions.elementToBeClickable(sendVCardButton));
+		sendVCardButtonElement.click();
+		String vCardPhoneNumberValue = Hooks.prop.getProperty("vCardPhoneNumberInput");
+		WebElement vCardPhoneNumberInputElement = driver.findElement(vCardPhoneNumberInput);
+		vCardPhoneNumberInputElement.sendKeys(vCardPhoneNumberValue);
+		String vCardBodyValue = Hooks.prop.getProperty("vCardBodyInput");
+		WebElement vCardBodyTextareaElement = driver.findElement(vCardBodyTextarea);
+		vCardBodyTextareaElement.sendKeys(vCardBodyValue);
+		WebElement submitSendVCardButtonElement = wait
+				.until(ExpectedConditions.elementToBeClickable(submitSendVCardBtn));
+		submitSendVCardButtonElement.click();
 		try {
 			wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(toastMessage, 0));
 			List<WebElement> toasts = driver.findElements(toastMessage);
@@ -575,10 +606,41 @@ public class clinicalworkflowpage {
 	public String sendVcardRpmFollowupsValidationMessagesAreShownForRequiredFields() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-		WebElement smsToAllIcon = wait.until(ExpectedConditions.elementToBeClickable(sendVCardButton));
-		smsToAllIcon.click();
-		WebElement smsToAllSubmitBtn = wait.until(ExpectedConditions.elementToBeClickable(submitSendVCardBtn));
-		smsToAllSubmitBtn.click();
+		WebElement sendVCardButtonElement = wait.until(ExpectedConditions.elementToBeClickable(sendVCardButton));
+		sendVCardButtonElement.click();
+		WebElement submitSendVCardButtonElement = wait
+				.until(ExpectedConditions.elementToBeClickable(submitSendVCardBtn));
+		submitSendVCardButtonElement.click();
+		try {
+			wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(toastMessage, 0));
+			List<WebElement> toasts = driver.findElements(toastMessage);
+			StringBuilder allMessages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				if (toast.isDisplayed()) {
+					allMessages.append(toast.getText().trim()).append(" | ");
+				}
+			}
+			return "SUCCESS: Validations displayed -> " + allMessages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message(s) not displayed";
+		}
+
+	}
+
+	public String invalidPhoneNumberRpmFollowupsValidationMessageIsShown() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement quickSmsIconElement = wait.until(ExpectedConditions.elementToBeClickable(quickSmsIcon));
+		quickSmsIconElement.click();
+		WebElement quickTextTemplateDropdownElement = wait
+				.until(ExpectedConditions.elementToBeClickable(quickTextTemplateDropdown));
+		Select templateSelect = new Select(quickTextTemplateDropdownElement);
+		templateSelect.selectByIndex(1);
+		String quickTextPhoneNumberValue = Hooks.prop.getProperty("quickTextPhoneNumberValue");
+		WebElement quickTextPhoneNumberInputElement = driver.findElement(quickTextPhoneNumberInput);
+		quickTextPhoneNumberInputElement.sendKeys(quickTextPhoneNumberValue);
+		WebElement quickSmsSendButtonElement = wait.until(ExpectedConditions.elementToBeClickable(quickSmsSendButton));
+		quickSmsSendButtonElement.click();
 		try {
 			wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(toastMessage, 0));
 			List<WebElement> toasts = driver.findElements(toastMessage);
@@ -597,11 +659,9 @@ public class clinicalworkflowpage {
 
 	public String quickTextRpmFollowupsValidationMessagesAreShownForRequiredFields() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-		sleep(2000);
-		WebElement smsToAllIcon = wait.until(ExpectedConditions.elementToBeClickable(faxToAllButtonIcon));
-		smsToAllIcon.click();
-		WebElement smsToAllSubmitBtn = wait.until(ExpectedConditions.elementToBeClickable(templateSubmitButton));
-		smsToAllSubmitBtn.click();
+		WebElement quickSmsSendButtonElement = wait.until(ExpectedConditions.elementToBeClickable(quickSmsSendButton));
+		quickSmsSendButtonElement.click();
+
 		try {
 			wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(toastMessage, 0));
 			List<WebElement> toasts = driver.findElements(toastMessage);
@@ -621,10 +681,11 @@ public class clinicalworkflowpage {
 	public String faxToAllRpmFollowupsValidationMessagesAreShownForRequiredFields() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-		WebElement smsToAllIcon = wait.until(ExpectedConditions.elementToBeClickable(faxToAllButtonIcon));
-		smsToAllIcon.click();
-		WebElement smsToAllSubmitBtn = wait.until(ExpectedConditions.elementToBeClickable(templateSubmitButton));
-		smsToAllSubmitBtn.click();
+		WebElement faxToAllButtonIconElement = wait.until(ExpectedConditions.elementToBeClickable(faxToAllButtonIcon));
+		faxToAllButtonIconElement.click();
+		WebElement templateSubmitButtonElement = wait
+				.until(ExpectedConditions.elementToBeClickable(templateSubmitButton));
+		templateSubmitButtonElement.click();
 		try {
 			wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(toastMessage, 0));
 			List<WebElement> toasts = driver.findElements(toastMessage);
@@ -644,10 +705,10 @@ public class clinicalworkflowpage {
 	public String botCallToAllRpmFollowupsValidationMessagesAreShownForRequiredFields() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-		WebElement smsToAllIcon = wait.until(ExpectedConditions.elementToBeClickable(calloutToAllIconPath));
-		smsToAllIcon.click();
-		WebElement smsToAllSubmitBtn = wait.until(ExpectedConditions.elementToBeClickable(calloutToAllButton));
-		smsToAllSubmitBtn.click();
+		WebElement calloutToAllIconElement = wait.until(ExpectedConditions.elementToBeClickable(calloutToAllIconPath));
+		calloutToAllIconElement.click();
+		WebElement calloutToAllButtonElement = wait.until(ExpectedConditions.elementToBeClickable(calloutToAllButton));
+		calloutToAllButtonElement.click();
 		try {
 			wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(toastMessage, 0));
 			List<WebElement> toasts = driver.findElements(toastMessage);
@@ -777,17 +838,17 @@ public class clinicalworkflowpage {
 	public void grantRpmFollowupAllCommunicationView() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-		WebElement appointmentStatusUpdateIconElement = wait
+		WebElement allCommunicationViewIconElement = wait
 				.until(ExpectedConditions.elementToBeClickable(allCommunicationViewIcon));
-		appointmentStatusUpdateIconElement.click();
+		allCommunicationViewIconElement.click();
 	}
 
 	public void grantRpmFollowupNotesAdd() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-		WebElement appointmentStatusUpdateIconElement = wait
+		WebElement appointmentOutreachNotesViewIconElement = wait
 				.until(ExpectedConditions.elementToBeClickable(appointmentOutreachNotesViewIcon));
-		appointmentStatusUpdateIconElement.click();
+		appointmentOutreachNotesViewIconElement.click();
 		String appointmentNotesTextAreaValue = Hooks.prop.getProperty("appointmentNotesTextArea");
 		WebElement appointmentNotesTextAreaElement = driver.findElement(appointmentNotesTextArea);
 		appointmentNotesTextAreaElement.sendKeys(appointmentNotesTextAreaValue);
@@ -799,9 +860,9 @@ public class clinicalworkflowpage {
 	public void grantRpmFollowupNotesView() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-		WebElement appointmentStatusUpdateIconElement = wait
+		WebElement appointmentOutreachNotesViewIconElement = wait
 				.until(ExpectedConditions.elementToBeClickable(appointmentOutreachNotesViewIcon));
-		appointmentStatusUpdateIconElement.click();
+		appointmentOutreachNotesViewIconElement.click();
 	}
 
 	public void permitRpmFollowupStatusUpdate() {
@@ -829,17 +890,17 @@ public class clinicalworkflowpage {
 	public void grantRpmFollowupSendVCard() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-		WebElement rescheduledHeaderElement = wait.until(ExpectedConditions.elementToBeClickable(sendVCardButton));
-		rescheduledHeaderElement.click();
+		WebElement sendVCardButtonElement = wait.until(ExpectedConditions.elementToBeClickable(sendVCardButton));
+		sendVCardButtonElement.click();
 		String vCardPhoneNumberValue = Hooks.prop.getProperty("vCardPhoneNumberInput");
 		WebElement vCardPhoneNumberInputElement = driver.findElement(vCardPhoneNumberInput);
 		vCardPhoneNumberInputElement.sendKeys(vCardPhoneNumberValue);
 		String vCardBodyValue = Hooks.prop.getProperty("vCardBodyInput");
 		WebElement vCardBodyTextareaElement = driver.findElement(vCardBodyTextarea);
 		vCardBodyTextareaElement.sendKeys(vCardBodyValue);
-		WebElement gridTemplateSaveButtonElement = wait
+		WebElement submitSendVCardButtonElement = wait
 				.until(ExpectedConditions.elementToBeClickable(submitSendVCardBtn));
-		gridTemplateSaveButtonElement.click();
+		submitSendVCardButtonElement.click();
 	}
 
 	public void grantRpmFollowupQuickText() {
@@ -888,9 +949,9 @@ public class clinicalworkflowpage {
 		sleep(2000);
 		WebElement faxToAllButtonIconElement = wait.until(ExpectedConditions.elementToBeClickable(faxToAllButtonIcon));
 		faxToAllButtonIconElement.click();
-		WebElement templateSubmitButtonElement = wait
+		WebElement faxToAllDeleteConfirmButtonElement = wait
 				.until(ExpectedConditions.elementToBeClickable(faxToAllDeleteConfirmButton));
-		templateSubmitButtonElement.click();
+		faxToAllDeleteConfirmButtonElement.click();
 
 	}
 
@@ -925,11 +986,11 @@ public class clinicalworkflowpage {
 	public String addAppointmentNotesActionOutreachValidationMessagesAreShownForRequiredFields() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-		WebElement calloutToAllIcon = wait.until(ExpectedConditions.elementToBeClickable(appointmentSvgIcon));
-		calloutToAllIcon.click();
-		WebElement calloutToAllSubmitBtn = wait
+		WebElement appointmentSvgIconElement = wait.until(ExpectedConditions.elementToBeClickable(appointmentSvgIcon));
+		appointmentSvgIconElement.click();
+		WebElement saveAppointmentNotesButtonElement = wait
 				.until(ExpectedConditions.elementToBeClickable(saveAppointmentNotesButton));
-		calloutToAllSubmitBtn.click();
+		saveAppointmentNotesButtonElement.click();
 		try {
 			wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(toastMessage, 0));
 			List<WebElement> toasts = driver.findElements(toastMessage);
@@ -949,9 +1010,9 @@ public class clinicalworkflowpage {
 	public String checkInvalidPhoneNumberSendVcardValidationMessage() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-
-		WebElement calloutToAllSubmitBtn = wait.until(ExpectedConditions.elementToBeClickable(submitSendVCardBtn));
-		calloutToAllSubmitBtn.click();
+		WebElement submitSendVCardButtonElement = wait
+				.until(ExpectedConditions.elementToBeClickable(submitSendVCardBtn));
+		submitSendVCardButtonElement.click();
 		try {
 			wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(toastMessage, 0));
 			List<WebElement> toasts = driver.findElements(toastMessage);
@@ -971,13 +1032,11 @@ public class clinicalworkflowpage {
 	public void provideInvalidPhoneNumberSendVcard() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-		WebElement calloutToAllIcon = wait.until(ExpectedConditions.elementToBeClickable(sendVCardButton));
-		calloutToAllIcon.click();
-
+		WebElement sendVCardButtonElement = wait.until(ExpectedConditions.elementToBeClickable(sendVCardButton));
+		sendVCardButtonElement.click();
 		String vCardPhoneNumberValue = Hooks.prop.getProperty("vCardPhoneNumberInput");
 		WebElement vCardPhoneNumberInputElement = driver.findElement(vCardPhoneNumberInput);
 		vCardPhoneNumberInputElement.sendKeys(vCardPhoneNumberValue);
-
 		String vCardBodyValue = Hooks.prop.getProperty("vCardBodyInput");
 		WebElement vCardBodyTextareaElement = driver.findElement(vCardBodyTextarea);
 		vCardBodyTextareaElement.sendKeys(vCardBodyValue);
@@ -987,10 +1046,11 @@ public class clinicalworkflowpage {
 	public String sendVCardAppointmentOutreachValidationMessagesAreShownForRequiredFields() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-		WebElement calloutToAllIcon = wait.until(ExpectedConditions.elementToBeClickable(sendVCardButton));
-		calloutToAllIcon.click();
-		WebElement calloutToAllSubmitBtn = wait.until(ExpectedConditions.elementToBeClickable(submitSendVCardBtn));
-		calloutToAllSubmitBtn.click();
+		WebElement sendVCardButtonElement = wait.until(ExpectedConditions.elementToBeClickable(sendVCardButton));
+		sendVCardButtonElement.click();
+		WebElement submitSendVCardButtonElement = wait
+				.until(ExpectedConditions.elementToBeClickable(submitSendVCardBtn));
+		submitSendVCardButtonElement.click();
 		try {
 			wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(toastMessage, 0));
 			List<WebElement> toasts = driver.findElements(toastMessage);
@@ -1010,10 +1070,10 @@ public class clinicalworkflowpage {
 	public String quickTextAppointmentOutreachValidationMessagesAreShownForRequiredFields() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-		WebElement calloutToAllIcon = wait.until(ExpectedConditions.elementToBeClickable(quickSmsIcon));
-		calloutToAllIcon.click();
-		WebElement calloutToAllSubmitBtn = wait.until(ExpectedConditions.elementToBeClickable(quickSmsSendButton));
-		calloutToAllSubmitBtn.click();
+		WebElement quickSmsIconElement = wait.until(ExpectedConditions.elementToBeClickable(quickSmsIcon));
+		quickSmsIconElement.click();
+		WebElement quickSmsSendButtonElement = wait.until(ExpectedConditions.elementToBeClickable(quickSmsSendButton));
+		quickSmsSendButtonElement.click();
 		try {
 			wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(toastMessage, 0));
 			List<WebElement> toasts = driver.findElements(toastMessage);
@@ -1033,9 +1093,8 @@ public class clinicalworkflowpage {
 	public String invalidPhoneNumberValidationMessageIsShown() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-
-		WebElement calloutToAllSubmitBtn = wait.until(ExpectedConditions.elementToBeClickable(quickSmsSendButton));
-		calloutToAllSubmitBtn.click();
+		WebElement quickSmsSendButtonElement = wait.until(ExpectedConditions.elementToBeClickable(quickSmsSendButton));
+		quickSmsSendButtonElement.click();
 		try {
 			wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(toastMessage, 0));
 			List<WebElement> toasts = driver.findElements(toastMessage);
@@ -1055,13 +1114,11 @@ public class clinicalworkflowpage {
 	public void enterInvalidPhoneNumber() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-		WebElement calloutToAllIcon = wait.until(ExpectedConditions.elementToBeClickable(quickSmsIcon));
-		calloutToAllIcon.click();
-
+		WebElement quickSmsIconElement = wait.until(ExpectedConditions.elementToBeClickable(quickSmsIcon));
+		quickSmsIconElement.click();
 		String quickTextPhoneNumberValue = Hooks.prop.getProperty("quickTextPhoneNumberValue");
 		WebElement quickTextPhoneNumberInputElement = driver.findElement(quickTextPhoneNumberInput);
 		quickTextPhoneNumberInputElement.sendKeys(quickTextPhoneNumberValue);
-
 		String quickTextBodyValue = Hooks.prop.getProperty("quickTextBodyValue");
 		WebElement quickTextBodyTextareaElement = driver.findElement(quickTextBodyTextarea);
 		quickTextBodyTextareaElement.sendKeys(quickTextBodyValue);
@@ -1071,10 +1128,11 @@ public class clinicalworkflowpage {
 	public String faxToAllAppointmentOutreachValidationMessagesAreShownForRequiredFields() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-		WebElement calloutToAllIcon = wait.until(ExpectedConditions.elementToBeClickable(faxToAllButtonIcon));
-		calloutToAllIcon.click();
-		WebElement calloutToAllSubmitBtn = wait.until(ExpectedConditions.elementToBeClickable(templateSubmitButton));
-		calloutToAllSubmitBtn.click();
+		WebElement faxToAllButtonIconElement = wait.until(ExpectedConditions.elementToBeClickable(faxToAllButtonIcon));
+		faxToAllButtonIconElement.click();
+		WebElement templateSubmitButtonElement = wait
+				.until(ExpectedConditions.elementToBeClickable(templateSubmitButton));
+		templateSubmitButtonElement.click();
 		try {
 			wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(toastMessage, 0));
 			List<WebElement> toasts = driver.findElements(toastMessage);
@@ -1245,18 +1303,18 @@ public class clinicalworkflowpage {
 	public void hasPermissionToViewAllAppointmentCommunications() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-		WebElement appointmentStatusUpdateIconElement = wait
+		WebElement allCommunicationViewIconElement = wait
 				.until(ExpectedConditions.elementToBeClickable(allCommunicationViewIcon));
-		appointmentStatusUpdateIconElement.click();
+		allCommunicationViewIconElement.click();
 
 	}
 
 	public void hasPermissionToAddAppointmentOutreachNotes() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-		WebElement appointmentStatusUpdateIconElement = wait
+		WebElement appointmentOutreachNotesViewIconElement = wait
 				.until(ExpectedConditions.elementToBeClickable(appointmentOutreachNotesViewIcon));
-		appointmentStatusUpdateIconElement.click();
+		appointmentOutreachNotesViewIconElement.click();
 		String appointmentNotesTextAreaValue = Hooks.prop.getProperty("appointmentNotesTextArea");
 		WebElement appointmentNotesTextAreaElement = driver.findElement(appointmentNotesTextArea);
 		appointmentNotesTextAreaElement.sendKeys(appointmentNotesTextAreaValue);
@@ -1269,9 +1327,9 @@ public class clinicalworkflowpage {
 	public void hasPermissionToViewAppointmentOutreachNotes() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-		WebElement appointmentStatusUpdateIconElement = wait
+		WebElement appointmentOutreachNotesViewIconElement = wait
 				.until(ExpectedConditions.elementToBeClickable(appointmentOutreachNotesViewIcon));
-		appointmentStatusUpdateIconElement.click();
+		appointmentOutreachNotesViewIconElement.click();
 
 	}
 
@@ -1300,17 +1358,17 @@ public class clinicalworkflowpage {
 	public void hasPermissionToSendAppointmentOutreachVCard() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-		WebElement rescheduledHeaderElement = wait.until(ExpectedConditions.elementToBeClickable(sendVCardButton));
-		rescheduledHeaderElement.click();
+		WebElement sendVCardButtonElement = wait.until(ExpectedConditions.elementToBeClickable(sendVCardButton));
+		sendVCardButtonElement.click();
 		String vCardPhoneNumberValue = Hooks.prop.getProperty("vCardPhoneNumberInput");
 		WebElement vCardPhoneNumberInputElement = driver.findElement(vCardPhoneNumberInput);
 		vCardPhoneNumberInputElement.sendKeys(vCardPhoneNumberValue);
 		String vCardBodyValue = Hooks.prop.getProperty("vCardBodyInput");
 		WebElement vCardBodyTextareaElement = driver.findElement(vCardBodyTextarea);
 		vCardBodyTextareaElement.sendKeys(vCardBodyValue);
-		WebElement gridTemplateSaveButtonElement = wait
+		WebElement submitSendVCardButtonElement = wait
 				.until(ExpectedConditions.elementToBeClickable(submitSendVCardBtn));
-		gridTemplateSaveButtonElement.click();
+		submitSendVCardButtonElement.click();
 	}
 
 	public void hasPermissionToSendAppointmentOutreachQuickText() {
@@ -1359,9 +1417,9 @@ public class clinicalworkflowpage {
 		sleep(2000);
 		WebElement faxToAllButtonIconElement = wait.until(ExpectedConditions.elementToBeClickable(faxToAllButtonIcon));
 		faxToAllButtonIconElement.click();
-		WebElement templateSubmitButtonElement = wait
+		WebElement faxToAllDeleteConfirmButtonElement = wait
 				.until(ExpectedConditions.elementToBeClickable(faxToAllDeleteConfirmButton));
-		templateSubmitButtonElement.click();
+		faxToAllDeleteConfirmButtonElement.click();
 	}
 
 	public void hasPermissionToSendAppointmentOutreachMail() {
@@ -1384,13 +1442,44 @@ public class clinicalworkflowpage {
 	}
 
 	// Action Workflow
+	public String invalidPhoneNumberSendVcardActionWorkflowValidationMessageIsShown() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement sendVCardButtonElement = wait.until(ExpectedConditions.elementToBeClickable(sendVCardButton));
+		sendVCardButtonElement.click();
+		String vCardPhoneNumberValue = Hooks.prop.getProperty("vCardPhoneNumberInput");
+		WebElement vCardPhoneNumberInputElement = driver.findElement(vCardPhoneNumberInput);
+		vCardPhoneNumberInputElement.sendKeys(vCardPhoneNumberValue);
+		String vCardBodyValue = Hooks.prop.getProperty("vCardBodyInput");
+		WebElement vCardBodyTextareaElement = driver.findElement(vCardBodyTextarea);
+		vCardBodyTextareaElement.sendKeys(vCardBodyValue);
+		WebElement submitSendVCardButtonElement = wait
+				.until(ExpectedConditions.elementToBeClickable(submitSendVCardBtn));
+		submitSendVCardButtonElement.click();
+		try {
+			wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(toastMessage, 0));
+			List<WebElement> toasts = driver.findElements(toastMessage);
+			StringBuilder allMessages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				if (toast.isDisplayed()) {
+					allMessages.append(toast.getText().trim()).append(" | ");
+				}
+			}
+			return "SUCCESS: Validations displayed -> " + allMessages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message(s) not displayed";
+		}
+
+	}
+
 	public String addTemplateActionWorkflowValidationMessagesAreShownForRequiredFields() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-		WebElement smsToAllIcon = wait.until(ExpectedConditions.elementToBeClickable(addTemplateButtonIcon));
-		smsToAllIcon.click();
-		WebElement smsToAllSubmitBtn = wait.until(ExpectedConditions.elementToBeClickable(saveButton));
-		smsToAllSubmitBtn.click();
+		WebElement addTemplateButtonIconElement = wait
+				.until(ExpectedConditions.elementToBeClickable(addTemplateButtonIcon));
+		addTemplateButtonIconElement.click();
+		WebElement saveButtonElement = wait.until(ExpectedConditions.elementToBeClickable(saveButton));
+		saveButtonElement.click();
 		try {
 			wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(toastMessage, 0));
 			List<WebElement> toasts = driver.findElements(toastMessage);
@@ -1410,10 +1499,41 @@ public class clinicalworkflowpage {
 	public String sendVcardActionWorkflowValidationMessagesAreShownForRequiredFields() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-		WebElement smsToAllIcon = wait.until(ExpectedConditions.elementToBeClickable(sendVCardButton));
-		smsToAllIcon.click();
-		WebElement smsToAllSubmitBtn = wait.until(ExpectedConditions.elementToBeClickable(submitSendVCardBtn));
-		smsToAllSubmitBtn.click();
+		WebElement sendVCardButtonElement = wait.until(ExpectedConditions.elementToBeClickable(sendVCardButton));
+		sendVCardButtonElement.click();
+		WebElement submitSendVCardButtonElement = wait
+				.until(ExpectedConditions.elementToBeClickable(submitSendVCardBtn));
+		submitSendVCardButtonElement.click();
+		try {
+			wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(toastMessage, 0));
+			List<WebElement> toasts = driver.findElements(toastMessage);
+			StringBuilder allMessages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				if (toast.isDisplayed()) {
+					allMessages.append(toast.getText().trim()).append(" | ");
+				}
+			}
+			return "SUCCESS: Validations displayed -> " + allMessages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message(s) not displayed";
+		}
+
+	}
+
+	public String invalidPhoneNumberActionWorkflowValidationMessageIsShown() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement quickSmsIconElement = wait.until(ExpectedConditions.elementToBeClickable(quickSmsIcon));
+		quickSmsIconElement.click();
+		WebElement quickTextTemplateDropdownElement = wait
+				.until(ExpectedConditions.elementToBeClickable(quickTextTemplateDropdown));
+		Select templateSelect = new Select(quickTextTemplateDropdownElement);
+		templateSelect.selectByIndex(1);
+		String quickTextPhoneNumberValue = Hooks.prop.getProperty("quickTextPhoneNumberValue");
+		WebElement quickTextPhoneNumberInputElement = driver.findElement(quickTextPhoneNumberInput);
+		quickTextPhoneNumberInputElement.sendKeys(quickTextPhoneNumberValue);
+		WebElement quickSmsSendButtonElement = wait.until(ExpectedConditions.elementToBeClickable(quickSmsSendButton));
+		quickSmsSendButtonElement.click();
 		try {
 			wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(toastMessage, 0));
 			List<WebElement> toasts = driver.findElements(toastMessage);
@@ -1464,17 +1584,17 @@ public class clinicalworkflowpage {
 	public void clickSendVCardButton() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-		WebElement rescheduledHeaderElement = wait.until(ExpectedConditions.elementToBeClickable(sendVCardButton));
-		rescheduledHeaderElement.click();
+		WebElement sendVCardButtonElement = wait.until(ExpectedConditions.elementToBeClickable(sendVCardButton));
+		sendVCardButtonElement.click();
 		String vCardPhoneNumberValue = Hooks.prop.getProperty("vCardPhoneNumberInput");
 		WebElement vCardPhoneNumberInputElement = driver.findElement(vCardPhoneNumberInput);
 		vCardPhoneNumberInputElement.sendKeys(vCardPhoneNumberValue);
 		String vCardBodyValue = Hooks.prop.getProperty("vCardBodyInput");
 		WebElement vCardBodyTextareaElement = driver.findElement(vCardBodyTextarea);
 		vCardBodyTextareaElement.sendKeys(vCardBodyValue);
-		WebElement gridTemplateSaveButtonElement = wait
+		WebElement submitSendVCardButtonElement = wait
 				.until(ExpectedConditions.elementToBeClickable(submitSendVCardBtn));
-		gridTemplateSaveButtonElement.click();
+		submitSendVCardButtonElement.click();
 	}
 
 	public void userSelectsCompanyDefaultCheckboxInGridTemplate() {
@@ -1588,9 +1708,9 @@ public class clinicalworkflowpage {
 		sleep(2000);
 		WebElement calloutToAllIconElement = wait.until(ExpectedConditions.elementToBeClickable(calloutToAllIconPath));
 		calloutToAllIconElement.click();
-		WebElement calloutSubmitButtonElement = wait
+		WebElement calloutToAllDeleteConfirmButtonElement = wait
 				.until(ExpectedConditions.elementToBeClickable(calloutToAllDeleteConfirmButton));
-		calloutSubmitButtonElement.click();
+		calloutToAllDeleteConfirmButtonElement.click();
 	}
 
 	public void canViewActionWorkflowText() {
@@ -1598,9 +1718,9 @@ public class clinicalworkflowpage {
 		sleep(2000);
 		WebElement smsToAllButtonIconElement = wait.until(ExpectedConditions.elementToBeClickable(smsToAllIconPath));
 		smsToAllButtonIconElement.click();
-		WebElement smsSubmitButtonElement = wait
+		WebElement smsToAllDeleteConfirmButtonElement = wait
 				.until(ExpectedConditions.elementToBeClickable(smsToAllDeleteConfirmButton));
-		smsSubmitButtonElement.click();
+		smsToAllDeleteConfirmButtonElement.click();
 	}
 
 	public void canSendFax() {
@@ -1608,9 +1728,9 @@ public class clinicalworkflowpage {
 		sleep(2000);
 		WebElement faxToAllButtonIconElement = wait.until(ExpectedConditions.elementToBeClickable(faxToAllButtonIcon));
 		faxToAllButtonIconElement.click();
-		WebElement templateSubmitButtonElement = wait
+		WebElement faxToAllDeleteConfirmButtonElement = wait
 				.until(ExpectedConditions.elementToBeClickable(faxToAllDeleteConfirmButton));
-		templateSubmitButtonElement.click();
+		faxToAllDeleteConfirmButtonElement.click();
 	}
 
 	public void canViewActionWorkflowMail() {
@@ -1618,8 +1738,9 @@ public class clinicalworkflowpage {
 		sleep(2000);
 		WebElement mailToAllIcon = wait.until(ExpectedConditions.elementToBeClickable(mailToAllIconPath));
 		mailToAllIcon.click();
-		WebElement mailToAllBtn = wait.until(ExpectedConditions.elementToBeClickable(mailToAllDeleteConfirmButton));
-		mailToAllBtn.click();
+		WebElement mailToAllDeleteConfirmButtonElement = wait
+				.until(ExpectedConditions.elementToBeClickable(mailToAllDeleteConfirmButton));
+		mailToAllDeleteConfirmButtonElement.click();
 	}
 
 	public void openclinicalWorkflowAppointmentOutreachUrl(String fullUrl) {
@@ -1702,7 +1823,6 @@ public class clinicalworkflowpage {
 	}
 
 	// Upload Wizard Setting
-
 	public void deleteClinicalQueueRule() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
@@ -1714,9 +1834,9 @@ public class clinicalworkflowpage {
 	public void clinicalQueueRuleEdit() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-		WebElement clinicalQueueRuleAddElement = wait
+		WebElement clinicalQueueRuleViewElement = wait
 				.until(ExpectedConditions.elementToBeClickable(clinicalQueueRuleView));
-		clinicalQueueRuleAddElement.click();
+		clinicalQueueRuleViewElement.click();
 		String clinicalQueueRuleTitleInputValue = Hooks.prop.getProperty("clinicalQueueRuleTitleInput");
 		WebElement clinicalQueueRuleTitleInputElement = driver.findElement(clinicalQueueRuleTitle);
 		clinicalQueueRuleTitleInputElement.sendKeys(clinicalQueueRuleTitleInputValue);
@@ -1764,36 +1884,36 @@ public class clinicalworkflowpage {
 	public void clinicalQueueRuleView() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-		WebElement selectAllModuleLabelElement = wait
+		WebElement clinicalQueueRuleViewElement = wait
 				.until(ExpectedConditions.elementToBeClickable(clinicalQueueRuleView));
-		selectAllModuleLabelElement.click();
+		clinicalQueueRuleViewElement.click();
 
 	}
 
 	public void copyClinicalQueueColumn() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-		WebElement selectAllModuleLabelElement = wait
+		WebElement copyClinicalQueueColumnElement = wait
 				.until(ExpectedConditions.elementToBeClickable(copyClinicalQueueColumn));
-		selectAllModuleLabelElement.click();
+		copyClinicalQueueColumnElement.click();
 
 	}
 
 	public void clinicalColumnSortOrderUpdate() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-		WebElement selectAllModuleLabelElement = wait
+		WebElement clinicalColumnSortOrderUpdateElement = wait
 				.until(ExpectedConditions.elementToBeClickable(clinicalColumnSortOrderUpdate));
-		selectAllModuleLabelElement.click();
+		clinicalColumnSortOrderUpdateElement.click();
 
 	}
 
 	public void allowClinicalQueueColumnDelete() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
-		WebElement selectAllModuleLabelElement = wait
+		WebElement clinicalQueueColumnDeleteIconElement = wait
 				.until(ExpectedConditions.elementToBeClickable(clinicalQueueColumnDeleteIcon));
-		selectAllModuleLabelElement.click();
+		clinicalQueueColumnDeleteIconElement.click();
 
 	}
 
@@ -1803,9 +1923,9 @@ public class clinicalworkflowpage {
 		WebElement clinicalQueueDropdownElement = driver.findElement(clinicalQueueDropdown);
 		Select clinicalQueueSelect = new Select(clinicalQueueDropdownElement);
 		clinicalQueueSelect.selectByIndex(3);
-		WebElement selectAllModuleLabelElement = wait
+		WebElement clinicalQueueColumnAddDropdownElement = wait
 				.until(ExpectedConditions.elementToBeClickable(clinicalQueueColumnAddDropdown));
-		selectAllModuleLabelElement.click();
+		clinicalQueueColumnAddDropdownElement.click();
 
 	}
 
@@ -1830,12 +1950,12 @@ public class clinicalworkflowpage {
 		sleep(2000);
 		WebElement selectAllModuleElement = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
 		selectAllModuleElement.click();
-		WebElement clinicalWorkflowDashboardAllElement = wait
+		WebElement clinicalActionWorkFlowAllLabelElement = wait
 				.until(ExpectedConditions.elementToBeClickable(clinicalActionWorkFlowAllLabel));
-		clinicalWorkflowDashboardAllElement.click();
-		WebElement clinicalWorkflowDashboardViewElement = wait
+		clinicalActionWorkFlowAllLabelElement.click();
+		WebElement clinicalActionWorkFlowViewLabelElement = wait
 				.until(ExpectedConditions.elementToBeClickable(clinicalActionWorkFlowViewLabel));
-		clinicalWorkflowDashboardViewElement.click();
+		clinicalActionWorkFlowViewLabelElement.click();
 	}
 
 	public void cannotUpdateAppointmentAction() {
@@ -1896,13 +2016,10 @@ public class clinicalworkflowpage {
 		sleep(2000);
 		WebElement updateAppointmentBtn = wait.until(ExpectedConditions.elementToBeClickable(updateAppointmentAction));
 		updateAppointmentBtn.click();
-
 		WebElement alertLabelElement = wait.until(ExpectedConditions.elementToBeClickable(alertLabel));
 		alertLabelElement.click();
-
 		WebElement saveActionBtn = wait.until(ExpectedConditions.elementToBeClickable(saveActionButton));
 		saveActionBtn.click();
-
 		try {
 			wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(toastMessage, 0));
 			List<WebElement> toasts = driver.findElements(toastMessage);
@@ -2118,9 +2235,9 @@ public class clinicalworkflowpage {
 		WebElement editSpanFirstElement = wait.until(ExpectedConditions.elementToBeClickable(deleteSpanFirst));
 		editSpanFirstElement.click();
 		sleep(2000);
-		WebElement saveAppointmentReminderButtonElement = wait
+		WebElement confirmDeleteAppointmentReminderButtonElement = wait
 				.until(ExpectedConditions.elementToBeClickable(confirmDeleteAppointmentReminderButton));
-		saveAppointmentReminderButtonElement.click();
+		confirmDeleteAppointmentReminderButtonElement.click();
 	}
 
 	public void createProfileForAppointmentReminderSettingViewEdit() {
@@ -2197,7 +2314,6 @@ public class clinicalworkflowpage {
 		WebElement appointmentReminderSettingAddLabelElement = wait
 				.until(ExpectedConditions.elementToBeClickable(appointmentReminderSettingAddLabel));
 		appointmentReminderSettingAddLabelElement.click();
-
 		WebElement appointmentReminderSettingEditLabelElement = wait
 				.until(ExpectedConditions.elementToBeClickable(appointmentReminderSettingEditLabel));
 		appointmentReminderSettingEditLabelElement.click();
@@ -2227,7 +2343,6 @@ public class clinicalworkflowpage {
 		WebElement appointmentReminderSettingEditLabelElement = wait
 				.until(ExpectedConditions.elementToBeClickable(appointmentReminderSettingEditLabel));
 		appointmentReminderSettingEditLabelElement.click();
-
 		WebElement appointmentReminderSettingDeleteLabelElement = wait
 				.until(ExpectedConditions.elementToBeClickable(appointmentReminderSettingDeleteLabel));
 		appointmentReminderSettingDeleteLabelElement.click();
