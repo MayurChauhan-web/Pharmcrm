@@ -18,9 +18,10 @@
         <maven.compiler.target>17</maven.compiler.target>
     </properties>
 
-    <dependencies>
+    
 
 		<!-- https://mvnrepository.com/artifact/com.github.2gis.winium/winium-webdriver -->
+		<dependencies>
 <dependency>
     <groupId>com.github.2gis.winium</groupId>
     <artifactId>winium-webdriver</artifactId>
@@ -132,8 +133,8 @@
             <artifactId>cucumber-reporting</artifactId>
             <version>5.7.4</version>
         </dependency>
-
-    </dependencies>
+        
+		</dependencies>
 
     <build>
         <plugins>
