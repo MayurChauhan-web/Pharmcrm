@@ -2191,7 +2191,7 @@ public class clinicalpage {
 	}
 
 	public void verifyUploadExcelForRegisteredDevice() {
-		String filePath = Paths.get("src/test/resources/Documents/RegisteredDeviceTemplate.xlsx").toAbsolutePath()
+		String filePath = Paths.get("/src/test/resources/com/Documents/RegisteredDeviceTemplate.xlsx").toAbsolutePath()
 				.toString();
 		WebElement fileInput = wait.until(ExpectedConditions.visibilityOfElementLocated(fileUploadInput));
 		fileInput.sendKeys(filePath);

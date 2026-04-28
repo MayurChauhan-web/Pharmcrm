@@ -5767,7 +5767,7 @@ public class setuppage {
 	public void verifyUserCanAddNewFileInOrganizationBucket() {
 		sleep(3000);
 		driver.findElement(addFileBtn).click();
-		String filePath = System.getProperty("user.dir") + "/pharmcrm-product/src/test/resources/Documents/dummy.pdf";
+		String filePath = System.getProperty("user.dir") + "/src/test/resources/com/Documents/dummy.pdf";
 		driver.findElement(fileInputField).sendKeys(filePath);
 		sleep(3000);
 		driver.findElement(saveFileBtn).click();
