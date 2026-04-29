@@ -2240,6 +2240,12 @@ public class setuppage {
 		wait.until(ExpectedConditions.urlContains("/Setup/Home/FailureResultActions"));
 	}
 
+	public void openSuccessResultActionsPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/SuccessResultActions"));
+	}
+
 	public String shouldDisplayValidationForBlankSuccessResultActionFields() throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 		try {
@@ -2611,6 +2617,7 @@ public class setuppage {
 		String organizationFromEmailIdValue = Hooks.prop.getProperty("organizationFromEmailId");
 		WebElement organizationFromEmailIdInput = driver.findElement(organizationFromEmailId);
 		organizationFromEmailIdInput.sendKeys(organizationFromEmailIdValue);
+
 		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
 
 		try {

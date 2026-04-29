@@ -1679,7 +1679,7 @@ public class setupstep {
 		Assert.assertNotNull("successResultActionsPageUrl is missing in config", successResultActionsPageUrl);
 		String fullUrl = baseUrl + successResultActionsPageUrl;
 		setupPage = new setuppage(Hooks.driver);
-		setupPage.openReminderResultActionsPage(fullUrl);
+		setupPage.openSuccessResultActionsPage(fullUrl);
 		Assert.assertTrue("Success Result Actions page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/SuccessResultActions"));
 	}
