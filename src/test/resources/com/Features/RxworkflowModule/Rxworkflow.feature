@@ -196,6 +196,712 @@ And the user should be able to delete Success Result Action in Workflow Module t
 And the user should not be able to add Success Result Action in Workflow Module test
 And the user should not be able to edit Success Result Action in Workflow Module test
 
+# Failure Result Action 30042026
+Scenario: User with View and Add access but no Edit or Delete for Failure Result Action
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Rxworkflow user should be able to view Profiles
+And I create a profile with View and Add access but no Edit or Delete access to Failure Result Action in Workflow Module test
+Then the user should be able to view Failure Result Action in Workflow Module test
+And the user should be able to add Failure Result Action in Workflow Module test
+And the user should not be able to edit Failure Result Action in Workflow Module test
+And the user should not be able to delete Failure Result Action in Workflow Module test
+
+Scenario: User with View and Edit access but no Add or Delete for Failure Result Action
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Rxworkflow user should be able to view Profiles
+And I create a profile with View and Edit access but no Add or Delete access to Failure Result Action in Workflow Module test
+Then the user should be able to view Failure Result Action in Workflow Module test
+And the user should be able to edit Failure Result Action in Workflow Module test
+And the user should not be able to add Failure Result Action in Workflow Module test
+And the user should not be able to delete Failure Result Action in Workflow Module test
+
+Scenario: User with View and Delete access but no Add or Edit for Failure Result Action
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Rxworkflow user should be able to view Profiles
+And I create a profile with View and Delete access but no Add or Edit access to Failure Result Action in Workflow Module test
+Then the user should be able to view Failure Result Action in Workflow Module test
+And the user should be able to delete Failure Result Action in Workflow Module test
+And the user should not be able to add Failure Result Action in Workflow Module test
+And the user should not be able to edit Failure Result Action in Workflow Module test
+
+# Transfer Result Action
+Scenario: User with View and Add access but no Edit or Delete for Transfer Result Action
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Rxworkflow user should be able to view Profiles
+And I create a profile with View and Add access but no Edit or Delete access to Transfer Result Action in Workflow Module test
+Then the user should be able to view Transfer Result Action in Workflow Module test
+And the user should be able to add Transfer Result Action in Workflow Module test
+And the user should not be able to edit Transfer Result Action in Workflow Module test
+And the user should not be able to delete Transfer Result Action in Workflow Module test
+
+Scenario: User with View and Edit access but no Add or Delete for Transfer Result Action
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Rxworkflow user should be able to view Profiles
+And I create a profile with View and Edit access but no Add or Delete access to Transfer Result Action in Workflow Module test
+Then the user should be able to view Transfer Result Action in Workflow Module test
+And the user should be able to edit Transfer Result Action in Workflow Module test
+And the user should not be able to add Transfer Result Action in Workflow Module test
+And the user should not be able to delete Transfer Result Action in Workflow Module test
+
+Scenario: User with View and Delete access but no Add or Edit for Transfer Result Action
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Rxworkflow user should be able to view Profiles
+And I create a profile with View and Delete access but no Add or Edit access to Transfer Result Action in Workflow Module test
+Then the user should be able to view Transfer Result Action in Workflow Module test
+And the user should be able to delete Transfer Result Action in Workflow Module test
+And the user should not be able to add Transfer Result Action in Workflow Module test
+And the user should not be able to edit Transfer Result Action in Workflow Module test
+
+# Followup Trail Script
+Scenario: User with View and Add access but no Edit or Delete for Followup Trail Script
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Rxworkflow user should be able to view Profiles
+And I create a profile with View and Add access but no Edit or Delete access to Followup Trail Script in Workflow Module test
+Then the user should be able to view Followup Trail Script in Workflow Module test
+And the user should be able to add Followup Trail Script in Workflow Module test
+And the user should not be able to edit Followup Trail Script in Workflow Module test
+And the user should not be able to delete Followup Trail Script in Workflow Module test
+
+Scenario: User with View and Edit access but no Add or Delete for Followup Trail Script
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Rxworkflow user should be able to view Profiles
+And I create a profile with View and Edit access but no Add or Delete access to Followup Trail Script in Workflow Module test
+Then the user should be able to view Followup Trail Script in Workflow Module test
+And the user should be able to edit Followup Trail Script in Workflow Module test
+And the user should not be able to add Followup Trail Script in Workflow Module test
+And the user should not be able to delete Followup Trail Script in Workflow Module test
+
+Scenario: User with View and Delete access but no Add or Edit for Followup Trail Script
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Rxworkflow user should be able to view Profiles
+And I create a profile with View and Delete access but no Add or Edit access to Followup Trail Script in Workflow Module test
+Then the user should be able to view Followup Trail Script in Workflow Module test
+And the user should be able to delete Followup Trail Script in Workflow Module test
+And the user should not be able to add Followup Trail Script in Workflow Module test
+And the user should not be able to edit Followup Trail Script in Workflow Module test
+
+# Queue
+Scenario: User with View and Add access but no Edit or Delete for Queue
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Rxworkflow user should be able to view Profiles
+And I create a profile with View and Add access but no Edit or Delete access to Queue in Workflow Module test
+Then the user should be able to view Queue in Workflow Module test
+And the user should be able to add Queue in Workflow Module test
+And the user should not be able to edit Queue in Workflow Module test
+And the user should not be able to delete Queue in Workflow Module test
+
+Scenario: User with View and Edit access but no Add or Delete for Queue
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Rxworkflow user should be able to view Profiles
+And I create a profile with View and Edit access but no Add or Delete access to Queue in Workflow Module test
+Then the user should be able to view Queue in Workflow Module test 
+And the user should be able to edit Queue in Workflow Module test
+And the user should not be able to add Queue in Workflow Module test
+And the user should not be able to delete Queue in Workflow Module test
+
+Scenario: User with View and Delete access but no Add or Edit for Queue
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Rxworkflow user should be able to view Profiles
+And I create a profile with View and Delete access but no Add or Edit access to Queue in Workflow Module test
+Then the user should be able to view Queue in Workflow Module test
+And the user should be able to delete Queue in Workflow Module test
+And the user should not be able to add Queue in Workflow Module test
+And the user should not be able to edit Queue in Workflow Module test
+
+# Runningline Status
+Scenario: User with View and Add access but no Edit or Delete for Runningline Status
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Rxworkflow user should be able to view Profiles
+And I create a profile with View and Add access but no Edit or Delete access to Runningline Status in Workflow Module test
+Then the user should be able to view Runningline Status in Workflow Module test
+And the user should be able to add Runningline Status in Workflow Module test
+And the user should not be able to edit Runningline Status in Workflow Module test
+And the user should not be able to delete Runningline Status in Workflow Module test
+
+Scenario: User with View and Edit access but no Add or Delete for Runningline Status
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Rxworkflow user should be able to view Profiles
+And I create a profile with View and Edit access but no Add or Delete access to Runningline Status in Workflow Module test
+Then the user should be able to view Runningline Status in Workflow Module test
+And the user should be able to edit Runningline Status in Workflow Module test
+And the user should not be able to add Runningline Status in Workflow Module test
+And the user should not be able to delete Runningline Status in Workflow Module test
+
+Scenario: User with View and Delete access but no Add or Edit for Runningline Status
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Rxworkflow user should be able to view Profiles
+And I create a profile with View and Delete access but no Add or Edit access to Runningline Status in Workflow Module test
+Then the user should be able to view Runningline Status in Workflow Module test
+And the user should be able to delete Runningline Status in Workflow Module test
+And the user should not be able to add Runningline Status in Workflow Module test
+And the user should not be able to edit Runningline Status in Workflow Module test
+
+# Runningline Level1 Status
+Scenario: User with View and Add access but no Edit or Delete for Runningline Level1 Status
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Rxworkflow user should be able to view Profiles
+And I create a profile with View and Add access but no Edit or Delete access to Runningline Level1 Status in Workflow Module test
+Then the user should be able to view Runningline Level1 Status in Workflow Module test
+And the user should be able to add Runningline Level1 Status in Workflow Module test
+And the user should not be able to edit Runningline Level1 Status in Workflow Module test
+And the user should not be able to delete Runningline Level1 Status in Workflow Module test
+
+Scenario: User with View and Edit access but no Add or Delete for Runningline Level1 Status
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Rxworkflow user should be able to view Profiles
+And I create a profile with View and Edit access but no Add or Delete access to Runningline Level1 Status in Workflow Module test
+Then the user should be able to view Runningline Level1 Status in Workflow Module test
+And the user should be able to edit Runningline Level1 Status in Workflow Module test
+And the user should not be able to add Runningline Level1 Status in Workflow Module test
+And the user should not be able to delete Runningline Level1 Status in Workflow Module test
+
+Scenario: User with View and Delete access but no Add or Edit for Runningline Level1 Status
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Rxworkflow user should be able to view Profiles
+And I create a profile with View and Delete access but no Add or Edit access to Runningline Level1 Status in Workflow Module test
+Then the user should be able to view Runningline Level1 Status in Workflow Module test
+And the user should be able to delete Runningline Level1 Status in Workflow Module test
+And the user should not be able to add Runningline Level1 Status in Workflow Module test
+And the user should not be able to edit Runningline Level1 Status in Workflow Module test
+
+# Runningline Level2 Status
+Scenario: User with View and Add access but no Edit or Delete for Runningline Level2 Status
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Rxworkflow user should be able to view Profiles
+And I create a profile with View and Add access but no Edit or Delete access to Runningline Level2 Status in Workflow Module test
+Then the user should be able to view Runningline Level2 Status in Workflow Module test
+And the user should be able to add Runningline Level2 Status in Workflow Module test
+And the user should not be able to edit Runningline Level2 Status in Workflow Module test
+And the user should not be able to delete Runningline Level2 Status in Workflow Module test
+
+Scenario: User with View and Edit access but no Add or Delete for Runningline Level2 Status
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Rxworkflow user should be able to view Profiles
+And I create a profile with View and Edit access but no Add or Delete access to Runningline Level2 Status in Workflow Module test
+Then the user should be able to view Runningline Level2 Status in Workflow Module test
+And the user should be able to edit Runningline Level2 Status in Workflow Module test
+And the user should not be able to add Runningline Level2 Status in Workflow Module test
+And the user should not be able to delete Runningline Level2 Status in Workflow Module test
+
+Scenario: User with View and Delete access but no Add or Edit for Runningline Level2 Status
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Rxworkflow user should be able to view Profiles
+And I create a profile with View and Delete access but no Add or Edit access to Runningline Level2 Status in Workflow Module test
+Then the user should be able to view Runningline Level2 Status in Workflow Module test
+And the user should be able to delete Runningline Level2 Status in Workflow Module test
+And the user should not be able to add Runningline Level2 Status in Workflow Module test
+And the user should not be able to edit Runningline Level2 Status in Workflow Module test
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

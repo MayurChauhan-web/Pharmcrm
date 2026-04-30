@@ -2210,7 +2210,7 @@ public class setuppage {
 	public void openTransferResultActionsPage(String fullUrl) {
 		sleep(2000);
 		driver.get(fullUrl);
-		wait.until(ExpectedConditions.urlContains("/Setup/Home/FailureResultActions"));
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/TransferResultActions"));
 	}
 
 	public String shouldDisplayValidationForBlankFailureResultActionFields() throws InterruptedException {
