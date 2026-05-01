@@ -1,17 +1,103 @@
 package com.pharmcrm_RxworkflowModule.pages;
 
 import java.time.Duration;
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
 import hooks.Hooks;
 
 public class rxworkflowpage {
 	private WebDriver driver;
 	private WebDriverWait wait;
+
+	// Action Work Flow
+	// Action Work Flow
+
+	
+	// Display Work Flow
+	public By showAllRunninglineCheckbox = By
+			.xpath("//div[@class='runningLineCheckboxinner']//label[@for='Filter_IsShowAllRunningline']");
+	public By detailsIcon = By.xpath("//tbody/tr[1]/td[17]/div[1]/a[2]//*[name()='svg']");
+	public By starq1Label = By.xpath("//label[@class='Starq1Label']");
+	public By filterButton = By.xpath("//span[normalize-space()='Filter']");
+	public By rxNumberInput = By.xpath("//input[@id='Filter_RxNumber']");
+	public By searchIcon = By.xpath("//i[@class='fa-solid fa-magnifying-glass']");
+	public By addGridTemplateButton = By.xpath("//a[@class='md-trigger']//button[@type='button']//*[name()='svg']");
+	public By gridTemplateNameInput = By.xpath("//input[@id='GridTemplate_Name']");
+	public By editGridTemplateIcon = By.xpath("//*[name()='path' and @id='Union_2']");
+	public By calloutField = By.xpath("//span[normalize-space()='# of Callout']");
+	public By dropArea = By.xpath("//nav[@id='fieldsidebar1']");
+	public By deleteGridTemplateIcon = By.xpath("//*[name()='path' and @id='Union_3']");
+	public By showPastRunninglineCheckbox = By
+			.xpath("//div[@class='runningLineCheckboxinner']//label[@for='Filter_IsShowPastRunningline']");
+	public By companyDefaultCheckbox = By.xpath("//label[normalize-space()='Company Default']");
+	public By paQueueLabel = By.xpath("//span[normalize-space()='PA Queue']");
+	public By searchCollapseBtn = By.xpath("//a[@id='searchcollapse']");
+	public By advancedSearchBtn = By.xpath("//span[normalize-space()='Advance Search']");
+	public By pharmacyNabpInput = By.xpath("//input[@id='Filter_PharmacyNABP']");
+	public By rxWorkflowAllLabel = By.xpath("//label[@for='chkg7RxWorkFlowAll']");
+	public By displayWorkflowViewLabel = By.xpath("//label[@for='chkg7DisplayWorkFlowView']");
+	public By advancedSearchButton = By.xpath("//span[normalize-space()='Advance Search']");
+	public By deleteGridTemplateButton = By.xpath("//a[@id='deleteTemplate']//button[@type='button']//*[name()='svg']");
+	public By companyDefaultIcon = By.xpath("//*[name()='path' and contains(@d,'M256 80c0-')]");
+	public By programAccessIcon = By.xpath("//tbody/tr[1]/td[17]/div[1]/a[1]//*[name()='svg']");
+	public By searchCollapseIcon = By.xpath("//a[@id='searchcollapse']//*[name()='svg']");
+	public By advanceSearchIcon = By
+			.xpath("//a[@id='advancecollapse']//*[name()='svg']//*[name()='path' and @id='Union_73']");
+
+	// Sync Workflow
+	public By syncWorkflowCommentIcon = By.xpath("//div[@id='syncWorkflowFilterGrid']//a[3]//img[1]");
+	public By commentInput = By.xpath("//textarea[@id='txt_Comment']");
+	public By saveCommentButton = By.xpath("//button[@id='btnSaveMedicationSyncDetails']");
+	public By syncWorkflowAlertIcon = By.xpath("//div[@id='syncWorkflowFilterGrid']//a[3]//img[1]");
+	public By alertCheckboxLabel = By.xpath("//label[normalize-space()='Alert?']");
+	public By saveAlertButton = By.xpath("//button[@id='btnSaveMedicationSyncDetails']");
+	public By exportExcelButton = By
+			.xpath("//div[@id='syncWorkflowFilterGrid']//button[@type='button']//*[name()='path' and @id='Path_22']");
+	public By commentLabel = By.xpath("//label[normalize-space()='Comment']");
+	public By alertLabel = By.xpath("//label[normalize-space()='Alert']");
+	public By syncWorkflowDownloadLabel = By.xpath("//label[@for='chkg6SyncWorkflowDownload']");
+	public By syncWorkflowIcon = By.xpath("//div[@id='syncWorkflowFilterGrid']//a[3]//img[1]");
+	public By syncWorkflowExportIcon = By
+			.xpath("//div[@id='syncWorkflowFilterGrid']//button[@type='button']//*[name()='svg']");
+
+	// Prescription Status
+	public By prescriptionStatusAddLabel = By.xpath("//label[@for='chkg44PrescriptionStatusAdd']");
+	public By prescriptionStatusEditLabel = By.xpath("//label[@for='chkg44PrescriptionStatusEdit']");
+	public By prescriptionStatusDeleteLabel = By.xpath("//label[@for='chkg44PrescriptionStatusDelete']");
+	public By newPrescriptionStatusBtn = By.xpath("//span[normalize-space()='New Prescription Status']");
+	public By prescriptionStatusTitleInput = By.xpath("//input[@id='PrescriptionStatus_Title']");
+
+	// Program 340B
+	public By program340BAddLabel = By.xpath("//label[@for='chkg44Program340BAdd']");
+	public By program340BEditLabel = By.xpath("//label[@for='chkg44Program340BEdit']");
+	public By program340BDeleteLabel = By.xpath("//label[@for='chkg44Program340BDelete']");
+	public By newProgram340BBtn = By.xpath("//span[normalize-space()='New 340B']");
+	public By program340BNameInput = By.xpath("//input[@id='Program340B_Name']");
+
+	// Outgoing Call Types
+	public By outgoingCallAddLabel = By.xpath("//label[@for='chkg03OutgoingCallAdd']");
+	public By outgoingCallEditLabel = By.xpath("//label[@for='chkg03OutgoingCallEdit']");
+	public By outgoingCallDeleteLabel = By.xpath("//label[@for='chkg03OutgoingCallDelete']");
+	public By outgoingCallTypeLink = By.xpath("//a[normalize-space()='Outgoing Call Type']");
+	public By newOutgoingCallTypeBtn = By.xpath("//span[normalize-space()='New Outgoing Call Type']");
+	public By outgoingCallTypeInput = By.xpath("//input[@id='OutgoingCall_CallTypeText']");
+
+	// Incoming Call Types
+	public By incomingCallAddLabel = By.xpath("//label[@for='chkg03IncomingCallAdd']");
+	public By incomingCallEditLabel = By.xpath("//label[@for='chkg03IncomingCallEdit']");
+	public By incomingCallDeleteLabel = By.xpath("//label[@for='chkg03IncomingCallDelete']");
+	public By incomingCallTypeLink = By.xpath("//a[normalize-space()='Incoming Call Type']");
+	public By newIncomingCallTypesBtn = By.xpath("//span[normalize-space()='New InComing Call Types']");
+	public By incomingCallTypeInput = By.xpath("//input[@id='IncomingCall_CallTypeText']");
 
 	// Runningline Level2 Status
 	public By runninglineLevel2StatusAddLabel = By.xpath("//label[@for='chkg02RunninglineLevel2StatusAdd']");
@@ -33,9 +119,7 @@ public class rxworkflowpage {
 
 	// Runningline Status
 	public By runningLineStatusAddLabel = By.xpath("//label[@for='chkg01RunningLineStatusAdd']");
-
 	public By runningLineStatusEditLabel = By.xpath("//label[@for='chkg01RunningLineStatusEdit']");
-
 	public By runningLineStatusDeleteLabel = By.xpath("//label[@for='chkg01RunningLineStatusDelete']");
 	public By newRunninglineStatusBtn = By.xpath("//span[normalize-space()='New Runningline Status']");
 	public By runninglineStatusNameInput = By.xpath("//input[@id='RunninglineStatus_Name']");
@@ -109,7 +193,6 @@ public class rxworkflowpage {
 	public By newMedicationSyncReminder = By.xpath("//span[normalize-space()='New Medication Sync Reminder']");
 	public By dayTypeDropdown = By.id("SyncWorkflowSetting_DayTypeId");
 	public By dayDropdown = By.id("SyncWorkflowSetting_Day");
-
 	public By titleField = By.id("SyncWorkflowSetting_Notes");
 	public By saveButton = By.id("btnSaveMedicationSetting");
 	public By dayTypeHeader = By.xpath("//th[normalize-space()='Day Type']");
@@ -140,14 +223,786 @@ public class rxworkflowpage {
 	public By patientModuleDeleteLabel = By.xpath("//label[@for='chkg9PatientDelete']");
 	public By patientTagEditPermissionLabel = By.xpath("//label[@for='chkg10PatientTagEdit']");
 
-	// Runningline Level2 Status
-	public void shouldAllowDeletingRunninglineLevel2StatusInWorkflowModule() {
+	// Display Work Flow
+	public void shouldCreateProfileWithOnlyViewPermissionInDisplayWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+
+		WebElement allLabelElement = wait.until(ExpectedConditions.elementToBeClickable(rxWorkflowAllLabel));
+		allLabelElement.click();
+
+		WebElement viewLabelElement = wait.until(ExpectedConditions.elementToBeClickable(displayWorkflowViewLabel));
+		viewLabelElement.click();
+
+		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
+		btnSave.click();
+
+	}
+
+	public void shouldAllowExportingDisplayWorkflowDataToExcel() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+
+		wait.until(ExpectedConditions.elementToBeClickable(exportExcelButton)).click();
+	}
+
+	public void shouldRestrictExportingDisplayWorkflowDataToExcel() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+
+		wait.until(ExpectedConditions.elementToBeClickable(searchCollapseIcon)).click();
+
+		List<WebElement> elements = driver.findElements(advanceSearchIcon);
+
+		Assert.assertTrue(elements.isEmpty());
+
+	}
+
+	public void shouldRestrictPharmacyNabpSearchesInDisplayWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+
+		List<WebElement> elements = driver.findElements(exportExcelButton);
+
+		Assert.assertTrue(elements.isEmpty());
+
+	}
+
+	public void shouldAllowPharmacyNabpSearchesInDisplayWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+
+		wait.until(ExpectedConditions.elementToBeClickable(searchCollapseBtn)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(advancedSearchBtn)).click();
+
+		String pharmacyNabpValue = Hooks.prop.getProperty("pharmacyNabp");
+		WebElement pharmacyNabpInputField = driver.findElement(pharmacyNabpInput);
+		pharmacyNabpInputField.sendKeys(pharmacyNabpValue);
+
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+	}
+
+	public void shouldAllowFullProgramAccessInDisplayWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+
+		WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(paQueueLabel));
+
+		Assert.assertTrue(element.isDisplayed());
+	}
+
+	public void shouldAllowSettingGridTemplateCompanyDefaultCheckboxInDisplayWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+
+		wait.until(ExpectedConditions.elementToBeClickable(addGridTemplateButton)).click();
+
+		String gridTemplateNameValue = Hooks.prop.getProperty("gridTemplateName");
+		WebElement gridTemplateNameInputField = driver.findElement(gridTemplateNameInput);
+		gridTemplateNameInputField.sendKeys(gridTemplateNameValue);
+
+		wait.until(ExpectedConditions.elementToBeClickable(companyDefaultCheckbox)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+	}
+
+	public void shouldAllowTogglingShowPastRunninglinesCheckboxInDisplayWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		wait.until(ExpectedConditions.elementToBeClickable(showPastRunninglineCheckbox)).click();
+
+	}
+
+	public void shouldAllowTogglingShowAllRunninglinesCheckboxInDisplayWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		wait.until(ExpectedConditions.elementToBeClickable(showAllRunninglineCheckbox)).click();
+
+	}
+
+	public void shouldAllowDeletingGridTemplatesInDisplayWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+
+		wait.until(ExpectedConditions.elementToBeClickable(deleteGridTemplateIcon)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(confirmDeleteButton)).click();
+
+	}
+
+	public void shouldAllowEditingGridTemplatesInDisplayWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		wait.until(ExpectedConditions.elementToBeClickable(editGridTemplateIcon)).click();
+		WebElement field = wait.until(ExpectedConditions.visibilityOfElementLocated(calloutField));
+		WebElement target = wait.until(ExpectedConditions.visibilityOfElementLocated(dropArea));
+		Actions act = new Actions(driver);
+		act.clickAndHold(field).moveToElement(target).release().build().perform();
+
+	}
+
+	public void shouldAllowAddingGridTemplatesInDisplayWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+
+		wait.until(ExpectedConditions.elementToBeClickable(addGridTemplateButton)).click();
+
+		String gridTemplateNameValue = Hooks.prop.getProperty("gridTemplateName");
+		WebElement gridTemplateNameInputField = driver.findElement(gridTemplateNameInput);
+		gridTemplateNameInputField.sendKeys(gridTemplateNameValue);
+
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+
+	}
+
+	public void shouldAllowAdvancedSearchInDisplayWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+
+		WebElement filter = wait.until(ExpectedConditions.visibilityOfElementLocated(filterButton));
+		Assert.assertTrue(filter.isDisplayed());
+
+		wait.until(ExpectedConditions.elementToBeClickable(filterButton)).click();
+
+		String rxNumberValue = Hooks.prop.getProperty("rxNumber");
+		WebElement rxNumberInputField = driver.findElement(rxNumberInput);
+		rxNumberInputField.sendKeys(rxNumberValue);
+
+		wait.until(ExpectedConditions.elementToBeClickable(searchIcon)).click();
+
+	}
+
+	public void shouldRestrictAddingGridTemplatesInDisplayWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+
+		List<WebElement> elements = driver.findElements(addGridTemplateButton);
+
+		Assert.assertTrue(elements.isEmpty());
+
+	}
+
+	public void shouldRestrictDeletingGridTemplatesInDisplayWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+
+		List<WebElement> elements = driver.findElements(deleteGridTemplateButton);
+
+		Assert.assertTrue(elements.isEmpty());
+
+	}
+
+	public void shouldRestrictTogglingShowAllRunninglinesCheckboxInDisplayWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+
+		List<WebElement> elements = driver.findElements(showAllRunninglineCheckbox);
+
+		Assert.assertTrue(elements.isEmpty());
+
+	}
+
+	public void shouldRestrictSettingGridTemplateCompanyDefaultCheckboxInDisplayWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+
+		List<WebElement> elements = driver.findElements(companyDefaultIcon);
+
+		Assert.assertTrue(elements.isEmpty());
+
+	}
+
+	public void shouldRestrictFullProgramAccessInDisplayWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+
+		List<WebElement> elements = driver.findElements(programAccessIcon);
+
+		Assert.assertTrue(elements.isEmpty());
+
+	}
+
+	public void shouldRestrictTogglingShowPastRunninglinesCheckboxInDisplayWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+
+		List<WebElement> elements = driver.findElements(showPastRunninglineCheckbox);
+
+		Assert.assertTrue(elements.isEmpty());
+
+	}
+
+	public void shouldRestrictEditingGridTemplatesInDisplayWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+
+		List<WebElement> elements = driver.findElements(editGridTemplateIcon);
+
+		Assert.assertTrue(elements.isEmpty());
+
+	}
+
+	public void shouldRestrictAdvancedSearchesInDisplayWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+
+		wait.until(ExpectedConditions.elementToBeClickable(filterButton)).click();
+
+		List<WebElement> elements = driver.findElements(advancedSearchButton);
+
+		Assert.assertTrue(elements.isEmpty());
+
+	}
+
+	public void shouldRestrictViewingDetailsInDisplayWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		List<WebElement> elements = driver.findElements(showAllRunninglineCheckbox);
+		Assert.assertTrue(elements.isEmpty());
+
+	}
+
+	public void shouldAllowViewingDetailsInDisplayWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+
+		wait.until(ExpectedConditions.elementToBeClickable(showAllRunninglineCheckbox)).click();
+
+		WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(detailsIcon));
+
+		Assert.assertTrue(element.isDisplayed());
+	}
+
+	public void shouldAllowViewingDisplayWorkflowData() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		assert !driver.findElements(starq1Label).isEmpty();
+
+	}
+
+	public void openDashboardPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Workflow/Home/Dashboard"));
+	}
+
+	public void shouldAllowAllAdditionalAccessInDisplayWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+
+		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
+		btnSave.click();
+
+	}
+
+	// Sync Workflow
+	public void shouldNotAllowExportingSyncWorkflowDataToExcel() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		assert driver.findElements(syncWorkflowExportIcon).isEmpty();
+	}
+
+	public void shouldNotAllowReceivingAlertsInSyncWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		assert driver.findElements(syncWorkflowIcon).isEmpty();
+	}
+
+	public void shouldNotAllowCommentingInSyncWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		assert driver.findElements(syncWorkflowIcon).isEmpty();
+	}
+
+	public void testSyncWorkflowModulePermissionsViewOnlyNoCommentAlertExport() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement commentElement = wait.until(ExpectedConditions.elementToBeClickable(commentLabel));
+		commentElement.click();
+
+		WebElement alertElement = wait.until(ExpectedConditions.elementToBeClickable(alertLabel));
+		alertElement.click();
+
+		WebElement downloadElement = wait.until(ExpectedConditions.elementToBeClickable(syncWorkflowDownloadLabel));
+		downloadElement.click();
+		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
+		btnSave.click();
+
+	}
+
+	public void shouldAllowExportingSyncWorkflowDataToExcel() {
+
+		wait.until(ExpectedConditions.elementToBeClickable(exportExcelButton)).click();
+
+	}
+
+	public void shouldAllowReceivingAlertsInSyncWorkflowModule() {
+
+		wait.until(ExpectedConditions.elementToBeClickable(syncWorkflowAlertIcon)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(alertCheckboxLabel)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(saveAlertButton)).click();
+
+	}
+
+	public void shouldAllowCommentingInSyncWorkflowModule() {
+
+		wait.until(ExpectedConditions.elementToBeClickable(syncWorkflowCommentIcon)).click();
+
+		String commentValue = Hooks.prop.getProperty("comment");
+		WebElement commentInputField = driver.findElement(commentInput);
+		commentInputField.sendKeys(commentValue);
+
+		wait.until(ExpectedConditions.elementToBeClickable(saveCommentButton)).click();
+	}
+
+	public void openMedicationSyncPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Workflow/Home/MedicationSyncReminder"));
+	}
+
+	public void shouldAllowViewCommentAlertExportOnlyInSyncWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
+		btnSave.click();
+
+	}
+
+	// Prescription Status
+	public void shouldAllowDeletingPrescriptionStatusInWorkflowModule() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 
 		wait.until(ExpectedConditions.elementToBeClickable(bucketDropButton)).click();
 
 		wait.until(ExpectedConditions.elementToBeClickable(deleteOption)).click();
 
+		wait.until(ExpectedConditions.elementToBeClickable(confirmDeleteButton)).click();
+
+	}
+
+	public void shouldRestrictAddAndEditForPrescriptionStatusInWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+		WebElement addActionElement = wait.until(ExpectedConditions.elementToBeClickable(prescriptionStatusAddLabel));
+		addActionElement.click();
+
+		WebElement editActionElement = wait.until(ExpectedConditions.elementToBeClickable(prescriptionStatusEditLabel));
+		editActionElement.click();
+
+		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
+		btnSave.click();
+
+	}
+
+	public void shouldNotAllowAddingPrescriptionStatusInWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		assert driver.findElements(newPrescriptionStatusBtn).isEmpty();
+
+	}
+
+	public void shouldAllowEditingPrescriptionStatusInWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+
+		wait.until(ExpectedConditions.elementToBeClickable(bucketDropButton)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(editOption)).click();
+
+		String prescriptionStatusTitleValue = Hooks.prop.getProperty("prescriptionStatusTitle");
+		WebElement prescriptionStatusTitleInputField = driver.findElement(prescriptionStatusTitleInput);
+		prescriptionStatusTitleInputField.sendKeys(prescriptionStatusTitleValue);
+
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+
+	}
+
+	public void shouldRestrictAddAndDeleteForPrescriptionStatusInWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+		WebElement addActionElement = wait.until(ExpectedConditions.elementToBeClickable(prescriptionStatusAddLabel));
+		addActionElement.click();
+
+		WebElement deleteActionElement = wait
+				.until(ExpectedConditions.elementToBeClickable(prescriptionStatusDeleteLabel));
+		deleteActionElement.click();
+
+		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
+		btnSave.click();
+
+	}
+
+	public void shouldNotAllowDeletingPrescriptionStatusInWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		wait.until(ExpectedConditions.elementToBeClickable(bucketDropButton)).click();
+		assert driver.findElements(deleteOption).isEmpty();
+
+	}
+
+	public void shouldNotAllowEditingPrescriptionStatusInWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		wait.until(ExpectedConditions.elementToBeClickable(bucketDropButton)).click();
+		assert driver.findElements(editOption).isEmpty();
+
+	}
+
+	public void shouldAllowAddingPrescriptionStatusInWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+
+		wait.until(ExpectedConditions.elementToBeClickable(newPrescriptionStatusBtn)).click();
+
+		String prescriptionStatusTitleValue = Hooks.prop.getProperty("prescriptionStatusTitle");
+		WebElement prescriptionStatusTitleInputField = driver.findElement(prescriptionStatusTitleInput);
+		prescriptionStatusTitleInputField.sendKeys(prescriptionStatusTitleValue);
+
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+
+	}
+
+	public void shouldAllowViewingPrescriptionStatusInWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		assert !driver.findElements(titleLink).isEmpty();
+
+	}
+
+	public void openPrescriptionStatusPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/PrescriptionStatuses"));
+	}
+
+	public void shouldRestrictEditAndDeleteForPrescriptionStatusInWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+
+		WebElement editActionElement = wait.until(ExpectedConditions.elementToBeClickable(prescriptionStatusEditLabel));
+		editActionElement.click();
+
+		WebElement deleteActionElement = wait
+				.until(ExpectedConditions.elementToBeClickable(prescriptionStatusDeleteLabel));
+		deleteActionElement.click();
+
+		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
+		btnSave.click();
+
+	}
+
+	// Program 340B
+	public void shouldAllowDeletingProgram340BInWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(bucketDropButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(deleteOption)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(confirmDeleteButton)).click();
+
+	}
+
+	public void shouldRestrictAddAndEditForProgram340BInWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement addActionElement = wait.until(ExpectedConditions.elementToBeClickable(program340BAddLabel));
+		addActionElement.click();
+
+		WebElement editActionElement = wait.until(ExpectedConditions.elementToBeClickable(program340BEditLabel));
+		editActionElement.click();
+
+		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
+		btnSave.click();
+
+	}
+
+	public void shouldNotAllowAddingProgram340BInWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		assert driver.findElements(newProgram340BBtn).isEmpty();
+
+	}
+
+	public void shouldAllowEditingProgram340BInWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		wait.until(ExpectedConditions.elementToBeClickable(bucketDropButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(editOption)).click();
+		String program340BNameValue = Hooks.prop.getProperty("program340BName");
+		WebElement program340BNameInputField = driver.findElement(program340BNameInput);
+		program340BNameInputField.sendKeys(program340BNameValue);
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+
+	}
+
+	public void shouldRestrictAddAndDeleteForProgram340BInWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement addActionElement = wait.until(ExpectedConditions.elementToBeClickable(program340BAddLabel));
+		addActionElement.click();
+		WebElement deleteActionElement = wait.until(ExpectedConditions.elementToBeClickable(program340BDeleteLabel));
+		deleteActionElement.click();
+		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
+		btnSave.click();
+
+	}
+
+	public void shouldNotAllowDeletingProgram340BInWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		wait.until(ExpectedConditions.elementToBeClickable(bucketDropButton)).click();
+		assert driver.findElements(deleteOption).isEmpty();
+
+	}
+
+	public void shouldNotAllowEditingProgram340BInWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		wait.until(ExpectedConditions.elementToBeClickable(bucketDropButton)).click();
+		assert driver.findElements(editOption).isEmpty();
+
+	}
+
+	public void shouldAllowAddingProgram340BInWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		wait.until(ExpectedConditions.elementToBeClickable(newProgram340BBtn)).click();
+		String program340BNameValue = Hooks.prop.getProperty("program340BName");
+		WebElement program340BNameInputField = driver.findElement(program340BNameInput);
+		program340BNameInputField.sendKeys(program340BNameValue);
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+
+	}
+
+	public void openProgram340BPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/Program340Bs"));
+	}
+
+	public void shouldRestrictEditAndDeleteForProgram340BInWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement editActionElement = wait.until(ExpectedConditions.elementToBeClickable(program340BEditLabel));
+		editActionElement.click();
+		WebElement deleteActionElement = wait.until(ExpectedConditions.elementToBeClickable(program340BDeleteLabel));
+		deleteActionElement.click();
+		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
+		btnSave.click();
+
+	}
+
+	// Outgoing Call Types
+	public void shouldAllowDeletingOutgoingCallTypesInWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		wait.until(ExpectedConditions.elementToBeClickable(bucketDropButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(deleteOption)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(confirmDeleteButton)).click();
+
+	}
+
+	public void shouldRestrictAddAndEditForOutgoingCallTypesInWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement addActionElement = wait.until(ExpectedConditions.elementToBeClickable(outgoingCallAddLabel));
+		addActionElement.click();
+		WebElement editActionElement = wait.until(ExpectedConditions.elementToBeClickable(outgoingCallEditLabel));
+		editActionElement.click();
+		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
+		btnSave.click();
+
+	}
+
+	public void shouldNotAllowAddingOutgoingCallTypesInWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		assert driver.findElements(newOutgoingCallTypeBtn).isEmpty();
+
+	}
+
+	public void shouldAllowEditingOutgoingCallTypesInWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		wait.until(ExpectedConditions.elementToBeClickable(bucketDropButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(editOption)).click();
+		String outgoingCallTypeValue = Hooks.prop.getProperty("outgoingCallType");
+		WebElement outgoingCallTypeInputField = driver.findElement(outgoingCallTypeInput);
+		outgoingCallTypeInputField.sendKeys(outgoingCallTypeValue);
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+	}
+
+	public void shouldNotAllowDeletingOutgoingCallTypesInWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		wait.until(ExpectedConditions.elementToBeClickable(bucketDropButton)).click();
+		assert driver.findElements(deleteOption).isEmpty();
+
+	}
+
+	public void shouldNotAllowEditingOutgoingCallTypesInWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		wait.until(ExpectedConditions.elementToBeClickable(bucketDropButton)).click();
+		assert driver.findElements(editOption).isEmpty();
+
+	}
+
+	public void shouldAllowAddingOutgoingCallTypesInWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		wait.until(ExpectedConditions.elementToBeClickable(newOutgoingCallTypeBtn)).click();
+		String outgoingCallTypeValue = Hooks.prop.getProperty("outgoingCallType");
+		WebElement outgoingCallTypeInputField = driver.findElement(outgoingCallTypeInput);
+		outgoingCallTypeInputField.sendKeys(outgoingCallTypeValue);
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+	}
+
+	public void shouldAllowViewingOutgoingCallTypesInWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		assert !driver.findElements(outgoingCallTypeLink).isEmpty();
+
+	}
+
+	public void openOutgoingCallTypesPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/OutgoingCalls"));
+	}
+
+	public void shouldRestrictAddAndDeleteForOutgoingCallTypesInWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement addActionElement = wait.until(ExpectedConditions.elementToBeClickable(outgoingCallAddLabel));
+		addActionElement.click();
+		WebElement deleteActionElement = wait.until(ExpectedConditions.elementToBeClickable(outgoingCallDeleteLabel));
+		deleteActionElement.click();
+		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
+		btnSave.click();
+
+	}
+
+	public void shouldRestrictEditAndDeleteForOutgoingCallTypesInWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement editActionElement = wait.until(ExpectedConditions.elementToBeClickable(outgoingCallEditLabel));
+		editActionElement.click();
+		WebElement deleteActionElement = wait.until(ExpectedConditions.elementToBeClickable(outgoingCallDeleteLabel));
+		deleteActionElement.click();
+		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
+		btnSave.click();
+
+	}
+
+	// Incoming Call Types
+	public void shouldAllowDeletingIncomingCallTypesInWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		wait.until(ExpectedConditions.elementToBeClickable(bucketDropButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(deleteOption)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(confirmDeleteButton)).click();
+	}
+
+	public void shouldRestrictAddAndEditForIncomingCallTypesInWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement addActionElement = wait.until(ExpectedConditions.elementToBeClickable(incomingCallAddLabel));
+		addActionElement.click();
+		WebElement editActionElement = wait.until(ExpectedConditions.elementToBeClickable(incomingCallEditLabel));
+		editActionElement.click();
+		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
+		btnSave.click();
+
+	}
+
+	public void shouldNotAllowAddingIncomingCallTypesInWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		assert driver.findElements(newIncomingCallTypesBtn).isEmpty();
+
+	}
+
+	public void shouldAllowEditingIncomingCallTypesInWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		wait.until(ExpectedConditions.elementToBeClickable(bucketDropButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(editOption)).click();
+		String incomingCallTypeValue = Hooks.prop.getProperty("incomingCallType");
+		WebElement incomingCallTypeInputField = driver.findElement(incomingCallTypeInput);
+		incomingCallTypeInputField.sendKeys(incomingCallTypeValue);
+		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
+
+	}
+
+	public void shouldNotAllowDeletingIncomingCallTypesInWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		wait.until(ExpectedConditions.elementToBeClickable(bucketDropButton)).click();
+		assert driver.findElements(deleteOption).isEmpty();
+
+	}
+
+	public void shouldNotAllowEditingIncomingCallTypesInWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		wait.until(ExpectedConditions.elementToBeClickable(bucketDropButton)).click();
+		assert driver.findElements(editOption).isEmpty();
+
+	}
+
+	public void shouldAllowAddingIncomingCallTypesInWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		wait.until(ExpectedConditions.elementToBeClickable(newIncomingCallTypesBtn)).click();
+		String incomingCallTypeValue = Hooks.prop.getProperty("incomingCallType");
+		WebElement incomingCallTypeInputField = driver.findElement(incomingCallTypeInput);
+		incomingCallTypeInputField.sendKeys(incomingCallTypeValue);
+		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+	}
+
+	public void shouldAllowViewingIncomingCallTypesInWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		assert !driver.findElements(incomingCallTypeLink).isEmpty();
+
+	}
+
+	public void openIncomingCallTypesPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Setup/Home/IncomingCalls"));
+	}
+
+	public void shouldRestrictAddAndDeleteForIncomingCallTypesInWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement addActionElement = wait.until(ExpectedConditions.elementToBeClickable(incomingCallAddLabel));
+		addActionElement.click();
+		WebElement deleteActionElement = wait.until(ExpectedConditions.elementToBeClickable(incomingCallDeleteLabel));
+		deleteActionElement.click();
+		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
+		btnSave.click();
+
+	}
+
+	public void shouldRestrictEditAndDeleteForIncomingCallTypesInWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		sleep(2000);
+		WebElement editActionElement = wait.until(ExpectedConditions.elementToBeClickable(incomingCallEditLabel));
+		editActionElement.click();
+		WebElement deleteActionElement = wait.until(ExpectedConditions.elementToBeClickable(incomingCallDeleteLabel));
+		deleteActionElement.click();
+		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
+		btnSave.click();
+
+	}
+
+	// Runningline Level2 Status
+	public void shouldAllowDeletingRunninglineLevel2StatusInWorkflowModule() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		wait.until(ExpectedConditions.elementToBeClickable(bucketDropButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(deleteOption)).click();
 		wait.until(ExpectedConditions.elementToBeClickable(confirmDeleteButton)).click();
 	}
 
@@ -159,21 +1014,15 @@ public class rxworkflowpage {
 
 	public void shouldAllowEditingRunninglineLevel2StatusInWorkflowModule() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-
 		wait.until(ExpectedConditions.elementToBeClickable(bucketDropButton)).click();
-
 		wait.until(ExpectedConditions.elementToBeClickable(editOption)).click();
-
 		WebElement statusDropdown = wait.until(ExpectedConditions.elementToBeClickable(runninglineStatus2Dropdown));
 		new Select(statusDropdown).selectByIndex(1);
-
 		WebElement level1DropdownElement = wait.until(ExpectedConditions.elementToBeClickable(level1Dropdown));
 		new Select(level1DropdownElement).selectByIndex(1);
-
 		String runninglineLevel2Value = Hooks.prop.getProperty("runninglineLevel2");
 		WebElement runninglineLevel2InputField = driver.findElement(runninglineLevel2Input);
 		runninglineLevel2InputField.sendKeys(runninglineLevel2Value);
-
 		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
 	}
 
@@ -183,15 +1032,12 @@ public class rxworkflowpage {
 		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
 		allModules.click();
 		sleep(2000);
-
 		WebElement addActionElement = wait
 				.until(ExpectedConditions.elementToBeClickable(runninglineLevel2StatusAddLabel));
 		addActionElement.click();
-
 		WebElement editActionElement = wait
 				.until(ExpectedConditions.elementToBeClickable(runninglineLevel2StatusEditLabel));
 		editActionElement.click();
-
 		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
 		btnSave.click();
 
@@ -203,15 +1049,12 @@ public class rxworkflowpage {
 		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
 		allModules.click();
 		sleep(2000);
-
 		WebElement addActionElement = wait
 				.until(ExpectedConditions.elementToBeClickable(runninglineLevel2StatusAddLabel));
 		addActionElement.click();
-
 		WebElement deleteActionElement = wait
 				.until(ExpectedConditions.elementToBeClickable(runninglineLevel2StatusDeleteLabel));
 		deleteActionElement.click();
-
 		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
 		btnSave.click();
 
@@ -233,19 +1076,14 @@ public class rxworkflowpage {
 
 	public void shouldAllowAddingRunninglineLevel2StatusInWorkflowModule() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-
 		wait.until(ExpectedConditions.elementToBeClickable(newRunninglineLevel2StatusBtn)).click();
-
 		WebElement statusDropdown = wait.until(ExpectedConditions.elementToBeClickable(runninglineStatus2Dropdown));
 		new Select(statusDropdown).selectByIndex(1);
-
 		WebElement level1DropdownElement = wait.until(ExpectedConditions.elementToBeClickable(level1Dropdown));
 		new Select(level1DropdownElement).selectByIndex(1);
-
 		String runninglineLevel2Value = Hooks.prop.getProperty("runninglineLevel2");
 		WebElement runninglineLevel2InputField = driver.findElement(runninglineLevel2Input);
 		runninglineLevel2InputField.sendKeys(runninglineLevel2Value);
-
 		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
 	}
 
@@ -267,15 +1105,12 @@ public class rxworkflowpage {
 		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
 		allModules.click();
 		sleep(2000);
-
 		WebElement editActionElement = wait
 				.until(ExpectedConditions.elementToBeClickable(runninglineLevel2StatusEditLabel));
 		editActionElement.click();
-
 		WebElement deleteActionElement = wait
 				.until(ExpectedConditions.elementToBeClickable(runninglineLevel2StatusDeleteLabel));
 		deleteActionElement.click();
-
 		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
 		btnSave.click();
 
@@ -283,11 +1118,8 @@ public class rxworkflowpage {
 
 	// Runningline Level1 Status
 	public void shouldAllowDeletingRunninglineLevel1StatusInWorkflowModule() {
-
 		wait.until(ExpectedConditions.elementToBeClickable(bucketDropButton)).click();
-
 		wait.until(ExpectedConditions.elementToBeClickable(deleteOption)).click();
-
 		wait.until(ExpectedConditions.elementToBeClickable(confirmDeleteButton)).click();
 	}
 
@@ -297,15 +1129,12 @@ public class rxworkflowpage {
 		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
 		allModules.click();
 		sleep(2000);
-
 		WebElement addActionElement = wait
 				.until(ExpectedConditions.elementToBeClickable(runninglineLevel1StatusAddLabel));
 		addActionElement.click();
-
 		WebElement editActionElement = wait
 				.until(ExpectedConditions.elementToBeClickable(runninglineLevel1StatusEditLabel));
 		editActionElement.click();
-
 		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
 		btnSave.click();
 
@@ -318,15 +1147,11 @@ public class rxworkflowpage {
 	}
 
 	public void shouldAllowEditingRunninglineLevel1StatusInWorkflowModule() {
-
 		wait.until(ExpectedConditions.elementToBeClickable(bucketDropButton)).click();
-
 		wait.until(ExpectedConditions.elementToBeClickable(editOption)).click();
-
 		String runninglineLevel1Value = Hooks.prop.getProperty("runninglineLevel1");
 		WebElement runninglineLevel1InputField = driver.findElement(runninglineLevel1Input);
 		runninglineLevel1InputField.sendKeys(runninglineLevel1Value);
-
 		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
 	}
 
@@ -336,15 +1161,12 @@ public class rxworkflowpage {
 		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
 		allModules.click();
 		sleep(2000);
-
 		WebElement addActionElement = wait
 				.until(ExpectedConditions.elementToBeClickable(runninglineLevel1StatusAddLabel));
 		addActionElement.click();
-
 		WebElement deleteActionElement = wait
 				.until(ExpectedConditions.elementToBeClickable(runninglineLevel1StatusDeleteLabel));
 		deleteActionElement.click();
-
 		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
 		btnSave.click();
 
@@ -365,17 +1187,13 @@ public class rxworkflowpage {
 	}
 
 	public void shouldAllowAddingRunninglineLevel1StatusInWorkflowModule() {
-
 		wait.until(ExpectedConditions.elementToBeClickable(newRunninglineLevel1StatusBtn)).click();
-
 		WebElement dropdownElement = wait.until(ExpectedConditions.elementToBeClickable(runninglineStatusDropdown));
 		Select dropdown = new Select(dropdownElement);
 		dropdown.selectByIndex(1);
-
 		String runninglineLevel1Value = Hooks.prop.getProperty("runninglineLevel1");
 		WebElement runninglineLevel1InputField = driver.findElement(runninglineLevel1Input);
 		runninglineLevel1InputField.sendKeys(runninglineLevel1Value);
-
 		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
 	}
 
@@ -391,28 +1209,22 @@ public class rxworkflowpage {
 		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
 		allModules.click();
 		sleep(2000);
-
 		WebElement editActionElement = wait
 				.until(ExpectedConditions.elementToBeClickable(runninglineLevel1StatusEditLabel));
 		editActionElement.click();
-
 		WebElement deleteActionElement = wait
 				.until(ExpectedConditions.elementToBeClickable(runninglineLevel1StatusDeleteLabel));
 		deleteActionElement.click();
-
 		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
 		btnSave.click();
 
 	}
 
 	// Runningline Status
-
 	public void shouldAllowDeletingRunninglineStatusInWorkflowModule() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		wait.until(ExpectedConditions.elementToBeClickable(bucketDropButton)).click();
-
 		wait.until(ExpectedConditions.elementToBeClickable(deleteOption)).click();
-
 		wait.until(ExpectedConditions.elementToBeClickable(confirmDeleteButton)).click();
 	}
 
@@ -424,15 +1236,11 @@ public class rxworkflowpage {
 
 	public void shouldAllowEditingRunninglineStatusInWorkflowModule() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-
 		wait.until(ExpectedConditions.elementToBeClickable(bucketDropButton)).click();
-
 		wait.until(ExpectedConditions.elementToBeClickable(editOption)).click();
-
 		String runninglineStatusNameValue = Hooks.prop.getProperty("runninglineStatusName");
 		WebElement runninglineStatusNameInputField = driver.findElement(runninglineStatusNameInput);
 		runninglineStatusNameInputField.sendKeys(runninglineStatusNameValue);
-
 		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
 
 	}
@@ -443,13 +1251,10 @@ public class rxworkflowpage {
 		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
 		allModules.click();
 		sleep(2000);
-
 		WebElement addActionElement = wait.until(ExpectedConditions.elementToBeClickable(runningLineStatusAddLabel));
 		addActionElement.click();
-
 		WebElement editActionElement = wait.until(ExpectedConditions.elementToBeClickable(runningLineStatusEditLabel));
 		editActionElement.click();
-
 		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
 		btnSave.click();
 
@@ -461,14 +1266,11 @@ public class rxworkflowpage {
 		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
 		allModules.click();
 		sleep(2000);
-
 		WebElement addActionElement = wait.until(ExpectedConditions.elementToBeClickable(runningLineStatusAddLabel));
 		addActionElement.click();
-
 		WebElement deleteActionElement = wait
 				.until(ExpectedConditions.elementToBeClickable(runningLineStatusDeleteLabel));
 		deleteActionElement.click();
-
 		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
 		btnSave.click();
 
@@ -489,13 +1291,10 @@ public class rxworkflowpage {
 	}
 
 	public void shouldAllowAddingRunninglineStatusInWorkflowModule() {
-
 		wait.until(ExpectedConditions.elementToBeClickable(newRunninglineStatusBtn)).click();
-
 		String runninglineStatusNameValue = Hooks.prop.getProperty("runninglineStatusName");
 		WebElement runninglineStatusNameInputField = driver.findElement(runninglineStatusNameInput);
 		runninglineStatusNameInputField.sendKeys(runninglineStatusNameValue);
-
 		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
 
 	}
@@ -518,14 +1317,11 @@ public class rxworkflowpage {
 		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
 		allModules.click();
 		sleep(2000);
-
 		WebElement editActionElement = wait.until(ExpectedConditions.elementToBeClickable(runningLineStatusEditLabel));
 		editActionElement.click();
-
 		WebElement deleteActionElement = wait
 				.until(ExpectedConditions.elementToBeClickable(runningLineStatusDeleteLabel));
 		deleteActionElement.click();
-
 		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
 		btnSave.click();
 
@@ -534,11 +1330,8 @@ public class rxworkflowpage {
 	// Queue
 	public void shouldAllowDeletingQueueInWorkflowModule() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-
 		wait.until(ExpectedConditions.elementToBeClickable(bucketDropButton)).click();
-
 		wait.until(ExpectedConditions.elementToBeClickable(deleteOption)).click();
-
 		wait.until(ExpectedConditions.elementToBeClickable(confirmDeleteButton)).click();
 	}
 
@@ -548,13 +1341,10 @@ public class rxworkflowpage {
 		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
 		allModules.click();
 		sleep(2000);
-
 		WebElement addActionElement = wait.until(ExpectedConditions.elementToBeClickable(queueAddLabel));
 		addActionElement.click();
-
 		WebElement editActionElement = wait.until(ExpectedConditions.elementToBeClickable(queueEditLabel));
 		editActionElement.click();
-
 		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
 		btnSave.click();
 
@@ -568,19 +1358,14 @@ public class rxworkflowpage {
 
 	public void shouldAllowEditingQueueInWorkflowModule() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-
 		wait.until(ExpectedConditions.elementToBeClickable(bucketDropButton)).click();
-
 		wait.until(ExpectedConditions.elementToBeClickable(editOption)).click();
-
 		String queueNameValue = Hooks.prop.getProperty("queueName");
 		WebElement queueNameInputField = driver.findElement(queueNameInput);
 		queueNameInputField.sendKeys(queueNameValue);
-
 		String queueLabelValue = Hooks.prop.getProperty("queueLabel");
 		WebElement queueLabelInputField = driver.findElement(queueLabelInput);
 		queueLabelInputField.sendKeys(queueLabelValue);
-
 		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
 	}
 
@@ -600,17 +1385,13 @@ public class rxworkflowpage {
 
 	public void shouldAllowAddingQueueInWorkflowModule() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-
 		wait.until(ExpectedConditions.elementToBeClickable(newQueueBtn)).click();
-
 		String queueNameValue = Hooks.prop.getProperty("queueName");
 		WebElement queueNameInputField = driver.findElement(queueNameInput);
 		queueNameInputField.sendKeys(queueNameValue);
-
 		String queueLabelValue = Hooks.prop.getProperty("queueLabel");
 		WebElement queueLabelInputField = driver.findElement(queueLabelInput);
 		queueLabelInputField.sendKeys(queueLabelValue);
-
 		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
 	}
 
@@ -632,13 +1413,10 @@ public class rxworkflowpage {
 		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
 		allModules.click();
 		sleep(2000);
-
 		WebElement addActionElement = wait.until(ExpectedConditions.elementToBeClickable(queueAddLabel));
 		addActionElement.click();
-
 		WebElement deleteActionElement = wait.until(ExpectedConditions.elementToBeClickable(queueDeleteLabel));
 		deleteActionElement.click();
-
 		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
 		btnSave.click();
 
@@ -650,27 +1428,20 @@ public class rxworkflowpage {
 		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
 		allModules.click();
 		sleep(2000);
-
 		WebElement editActionElement = wait.until(ExpectedConditions.elementToBeClickable(queueEditLabel));
 		editActionElement.click();
-
 		WebElement deleteActionElement = wait.until(ExpectedConditions.elementToBeClickable(queueDeleteLabel));
 		deleteActionElement.click();
-
 		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
 		btnSave.click();
 
 	}
 
 	// Followup Trail Script
-
 	public void shouldAllowDeletingFollowupTrailScriptInWorkflowModule() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-
 		wait.until(ExpectedConditions.elementToBeClickable(bucketDropButton)).click();
-
 		wait.until(ExpectedConditions.elementToBeClickable(deleteOption)).click();
-
 		wait.until(ExpectedConditions.elementToBeClickable(confirmDeleteButton)).click();
 	}
 
@@ -680,14 +1451,11 @@ public class rxworkflowpage {
 		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
 		allModules.click();
 		sleep(2000);
-
 		WebElement addActionElement = wait.until(ExpectedConditions.elementToBeClickable(followupTrailScriptAddLabel));
 		addActionElement.click();
-
 		WebElement editActionElement = wait
 				.until(ExpectedConditions.elementToBeClickable(followupTrailScriptEditLabel));
 		editActionElement.click();
-
 		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
 		btnSave.click();
 
@@ -700,19 +1468,14 @@ public class rxworkflowpage {
 
 	public void shouldAllowEditingFollowupTrailScriptInWorkflowModule() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-
 		wait.until(ExpectedConditions.elementToBeClickable(bucketDropButton)).click();
-
 		wait.until(ExpectedConditions.elementToBeClickable(editOption)).click();
-
 		String callScriptTitleValue = Hooks.prop.getProperty("callScriptTitle");
 		WebElement callScriptTitleInputField = driver.findElement(callScriptTitleInput);
 		callScriptTitleInputField.sendKeys(callScriptTitleValue);
-
 		String callScriptDescriptionValue = Hooks.prop.getProperty("callScriptDescription");
 		WebElement callScriptDescriptionInputField = driver.findElement(callScriptDescriptionInput);
 		callScriptDescriptionInputField.sendKeys(callScriptDescriptionValue);
-
 		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
 
 	}
@@ -732,17 +1495,13 @@ public class rxworkflowpage {
 
 	public void shouldAddFollowupTrailScriptInWorkflowModule() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-
 		wait.until(ExpectedConditions.elementToBeClickable(newCallScriptBtn)).click();
-
 		String callScriptTitleValue = Hooks.prop.getProperty("callScriptTitle");
 		WebElement callScriptTitleInputField = driver.findElement(callScriptTitleInput);
 		callScriptTitleInputField.sendKeys(callScriptTitleValue);
-
 		String callScriptDescriptionValue = Hooks.prop.getProperty("callScriptDescription");
 		WebElement callScriptDescriptionInputField = driver.findElement(callScriptDescriptionInput);
 		callScriptDescriptionInputField.sendKeys(callScriptDescriptionValue);
-
 		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
 	}
 
@@ -764,14 +1523,11 @@ public class rxworkflowpage {
 		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
 		allModules.click();
 		sleep(2000);
-
 		WebElement addActionElement = wait.until(ExpectedConditions.elementToBeClickable(followupTrailScriptAddLabel));
 		addActionElement.click();
-
 		WebElement deleteActionElement = wait
 				.until(ExpectedConditions.elementToBeClickable(followupTrailScriptDeleteLabel));
 		deleteActionElement.click();
-
 		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
 		btnSave.click();
 
@@ -783,15 +1539,12 @@ public class rxworkflowpage {
 		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
 		allModules.click();
 		sleep(2000);
-
 		WebElement editActionElement = wait
 				.until(ExpectedConditions.elementToBeClickable(followupTrailScriptEditLabel));
 		editActionElement.click();
-
 		WebElement deleteActionElement = wait
 				.until(ExpectedConditions.elementToBeClickable(followupTrailScriptDeleteLabel));
 		deleteActionElement.click();
-
 		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
 		btnSave.click();
 
@@ -800,11 +1553,8 @@ public class rxworkflowpage {
 	// Transfer Result Action
 	public void testProfileAccessTransferResultActionDeleteOnly() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-
 		wait.until(ExpectedConditions.elementToBeClickable(bucketDropButton)).click();
-
 		wait.until(ExpectedConditions.elementToBeClickable(deleteOption)).click();
-
 		wait.until(ExpectedConditions.elementToBeClickable(confirmDeleteButton)).click();
 	}
 
@@ -814,20 +1564,14 @@ public class rxworkflowpage {
 	}
 
 	public void testProfileAccessTransferResultActionEditOnly() {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
 		wait.until(ExpectedConditions.elementToBeClickable(bucketDropButton)).click();
-
 		wait.until(ExpectedConditions.elementToBeClickable(editOption)).click();
-
 		String transferResultActionNameValue = Hooks.prop.getProperty("transferResultActionName");
 		WebElement transferResultActionNameInputField = driver.findElement(transferResultActionNameInput);
 		transferResultActionNameInputField.sendKeys(transferResultActionNameValue);
-
 		String transferResultActionNotesValue = Hooks.prop.getProperty("transferResultActionNotes");
 		WebElement transferResultActionNotesInputField = driver.findElement(transferResultActionNotesInput);
 		transferResultActionNotesInputField.sendKeys(transferResultActionNotesValue);
-
 		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
 	}
 
@@ -846,17 +1590,13 @@ public class rxworkflowpage {
 
 	public void testProfileAccessTransferResultActionAddOnly() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-
 		wait.until(ExpectedConditions.elementToBeClickable(newTransferResultActionBtn)).click();
-
 		String transferResultActionNameValue = Hooks.prop.getProperty("transferResultActionName");
 		WebElement transferResultActionNameInputField = driver.findElement(transferResultActionNameInput);
 		transferResultActionNameInputField.sendKeys(transferResultActionNameValue);
-
 		String transferResultActionNotesValue = Hooks.prop.getProperty("transferResultActionNotes");
 		WebElement transferResultActionNotesInputField = driver.findElement(transferResultActionNotesInput);
 		transferResultActionNotesInputField.sendKeys(transferResultActionNotesValue);
-
 		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
 	}
 
@@ -878,14 +1618,11 @@ public class rxworkflowpage {
 		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
 		allModules.click();
 		sleep(2000);
-
 		WebElement addActionElement = wait.until(ExpectedConditions.elementToBeClickable(transferResultActionAddLabel));
 		addActionElement.click();
-
 		WebElement editActionElement = wait
 				.until(ExpectedConditions.elementToBeClickable(transferResultActionEditLabel));
 		editActionElement.click();
-
 		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
 		btnSave.click();
 
@@ -897,14 +1634,11 @@ public class rxworkflowpage {
 		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
 		allModules.click();
 		sleep(2000);
-
 		WebElement addActionElement = wait.until(ExpectedConditions.elementToBeClickable(transferResultActionAddLabel));
 		addActionElement.click();
-
 		WebElement deleteActionElement = wait
 				.until(ExpectedConditions.elementToBeClickable(transferResultActionDeleteLabel));
 		deleteActionElement.click();
-
 		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
 		btnSave.click();
 
@@ -916,15 +1650,12 @@ public class rxworkflowpage {
 		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
 		allModules.click();
 		sleep(2000);
-
 		WebElement editActionElement = wait
 				.until(ExpectedConditions.elementToBeClickable(transferResultActionEditLabel));
 		editActionElement.click();
-
 		WebElement deleteActionElement = wait
 				.until(ExpectedConditions.elementToBeClickable(transferResultActionDeleteLabel));
 		deleteActionElement.click();
-
 		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
 		btnSave.click();
 
@@ -955,14 +1686,11 @@ public class rxworkflowpage {
 		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
 		allModules.click();
 		sleep(2000);
-
 		WebElement addActionElement = wait.until(ExpectedConditions.elementToBeClickable(failureResultActionAddLabel));
 		addActionElement.click();
-
 		WebElement editActionElement = wait
 				.until(ExpectedConditions.elementToBeClickable(failureResultActionEditLabel));
 		editActionElement.click();
-
 		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
 		btnSave.click();
 
@@ -974,14 +1702,11 @@ public class rxworkflowpage {
 		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
 		allModules.click();
 		sleep(2000);
-
 		WebElement addActionElement = wait.until(ExpectedConditions.elementToBeClickable(failureResultActionAddLabel));
 		addActionElement.click();
-
 		WebElement deleteActionElement = wait
 				.until(ExpectedConditions.elementToBeClickable(failureResultActionDeleteLabel));
 		deleteActionElement.click();
-
 		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
 		btnSave.click();
 
@@ -993,15 +1718,12 @@ public class rxworkflowpage {
 		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
 		allModules.click();
 		sleep(2000);
-
 		WebElement editActionElement = wait
 				.until(ExpectedConditions.elementToBeClickable(failureResultActionEditLabel));
 		editActionElement.click();
-
 		WebElement deleteActionElement = wait
 				.until(ExpectedConditions.elementToBeClickable(failureResultActionDeleteLabel));
 		deleteActionElement.click();
-
 		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
 		btnSave.click();
 
@@ -1031,40 +1753,29 @@ public class rxworkflowpage {
 	}
 
 	public void testProfileAccessFailureResultActionEditOnly() {
-
 		wait.until(ExpectedConditions.elementToBeClickable(bucketDropButton)).click();
-
 		wait.until(ExpectedConditions.elementToBeClickable(editOption)).click();
-
 		String failureResultActionNotesValue = Hooks.prop.getProperty("failureResultActionNotes");
 		WebElement failureResultActionNotesInputField = driver.findElement(failureResultActionNotesInput);
 		failureResultActionNotesInputField.sendKeys(failureResultActionNotesValue);
-
 		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
 	}
 
 	public void testProfileAccessFailureResultActionAddOnly() {
-
 		wait.until(ExpectedConditions.elementToBeClickable(newFailureResultActionBtn)).click();
-
 		String failureResultActionNameValue = Hooks.prop.getProperty("failureResultActionName");
 		WebElement failureResultActionNameInputField = driver.findElement(failureResultActionNameInput);
 		failureResultActionNameInputField.sendKeys(failureResultActionNameValue);
-
 		String failureResultActionNotesValue = Hooks.prop.getProperty("failureResultActionNotes");
 		WebElement failureResultActionNotesInputField = driver.findElement(failureResultActionNotesInput);
 		failureResultActionNotesInputField.sendKeys(failureResultActionNotesValue);
-
 		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
 	}
 
 	public void testProfileAccessFailureResultActionDeleteOnly() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-
 		wait.until(ExpectedConditions.elementToBeClickable(bucketDropButton)).click();
-
 		wait.until(ExpectedConditions.elementToBeClickable(deleteOption)).click();
-
 		wait.until(ExpectedConditions.elementToBeClickable(confirmDeleteButton)).click();
 	}
 
@@ -1086,11 +1797,9 @@ public class rxworkflowpage {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		driver.findElement(bucketDropButton).click();
 		driver.findElement(editOption).click();
-
 		String successResultActionNotesFieldValue = Hooks.prop.getProperty("successResultActionNotesField");
 		WebElement successResultActionNotesFieldInput = driver.findElement(successResultActionNotesField);
 		successResultActionNotesFieldInput.sendKeys(successResultActionNotesFieldValue);
-
 		driver.findElement(submitButton).click();
 
 	}
@@ -1098,15 +1807,12 @@ public class rxworkflowpage {
 	public void testSuccessResultActionIsAddableInWorkflowModule() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		driver.findElement(newSuccessResultActionButton).click();
-
 		String successResultActionNameFieldValue = Hooks.prop.getProperty("successResultActionNameField");
 		WebElement successResultActionNameFieldInput = driver.findElement(successResultActionNameField);
 		successResultActionNameFieldInput.sendKeys(successResultActionNameFieldValue);
-
 		String successResultActionNotesFieldValue = Hooks.prop.getProperty("successResultActionNotesField");
 		WebElement successResultActionNotesFieldInput = driver.findElement(successResultActionNotesField);
 		successResultActionNotesFieldInput.sendKeys(successResultActionNotesFieldValue);
-
 		driver.findElement(submitButton).click();
 
 	}
@@ -1123,14 +1829,11 @@ public class rxworkflowpage {
 		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
 		allModules.click();
 		sleep(2000);
-
 		WebElement addActionElement = wait.until(ExpectedConditions.elementToBeClickable(successResultActionAddLabel));
 		addActionElement.click();
-
 		WebElement deleteActionElement = wait
 				.until(ExpectedConditions.elementToBeClickable(successResultActionDeleteLabel));
 		deleteActionElement.click();
-
 		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
 		btnSave.click();
 
@@ -1142,14 +1845,11 @@ public class rxworkflowpage {
 		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
 		allModules.click();
 		sleep(2000);
-
 		WebElement addActionElement = wait.until(ExpectedConditions.elementToBeClickable(successResultActionAddLabel));
 		addActionElement.click();
-
 		WebElement editActionElement = wait
 				.until(ExpectedConditions.elementToBeClickable(successResultActionEditLabel));
 		editActionElement.click();
-
 		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
 		btnSave.click();
 
@@ -1161,15 +1861,12 @@ public class rxworkflowpage {
 		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
 		allModules.click();
 		sleep(2000);
-
 		WebElement editActionElement = wait
 				.until(ExpectedConditions.elementToBeClickable(successResultActionEditLabel));
 		editActionElement.click();
-
 		WebElement deleteActionElement = wait
 				.until(ExpectedConditions.elementToBeClickable(successResultActionDeleteLabel));
 		deleteActionElement.click();
-
 		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
 		btnSave.click();
 
@@ -1197,22 +1894,18 @@ public class rxworkflowpage {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		driver.findElement(bucketDropButton).click();
 		driver.findElement(editOption).click();
-
 		String reminderResultActionNameFieldValue = Hooks.prop.getProperty("reminderResultActionNameField");
 		WebElement reminderResultActionNameFieldInput = driver.findElement(reminderResultActionNameField);
 		reminderResultActionNameFieldInput.sendKeys(reminderResultActionNameFieldValue);
-
 		driver.findElement(submitButton).click();
 	}
 
 	public void testReminderResultActionIsAddableInWorkflowModule() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		driver.findElement(newReminderResultActionButton).click();
-
 		String reminderResultActionNameFieldValue = Hooks.prop.getProperty("reminderResultActionNameField");
 		WebElement reminderResultActionNameFieldInput = driver.findElement(reminderResultActionNameField);
 		reminderResultActionNameFieldInput.sendKeys(reminderResultActionNameFieldValue);
-
 		driver.findElement(submitButton).click();
 	}
 
@@ -1241,15 +1934,12 @@ public class rxworkflowpage {
 		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
 		allModules.click();
 		sleep(2000);
-
 		WebElement reminderResultActionAddElement = wait
 				.until(ExpectedConditions.elementToBeClickable(reminderResultActionAddLabel));
 		reminderResultActionAddElement.click();
-
 		WebElement reminderResultActionEditElement = wait
 				.until(ExpectedConditions.elementToBeClickable(reminderResultActionEditLabel));
 		reminderResultActionEditElement.click();
-
 		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
 		btnSave.click();
 
@@ -1261,15 +1951,12 @@ public class rxworkflowpage {
 		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
 		allModules.click();
 		sleep(2000);
-
 		WebElement reminderResultActionAddElement = wait
 				.until(ExpectedConditions.elementToBeClickable(reminderResultActionAddLabel));
 		reminderResultActionAddElement.click();
-
 		WebElement reminderResultActionDeleteElement = wait
 				.until(ExpectedConditions.elementToBeClickable(reminderResultActionDeleteLabel));
 		reminderResultActionDeleteElement.click();
-
 		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
 		btnSave.click();
 
@@ -1281,15 +1968,12 @@ public class rxworkflowpage {
 		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
 		allModules.click();
 		sleep(2000);
-
 		WebElement reminderResultActionEditElement = wait
 				.until(ExpectedConditions.elementToBeClickable(reminderResultActionEditLabel));
 		reminderResultActionEditElement.click();
-
 		WebElement reminderResultActionDeleteElement = wait
 				.until(ExpectedConditions.elementToBeClickable(reminderResultActionDeleteLabel));
 		reminderResultActionDeleteElement.click();
-
 		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
 		btnSave.click();
 
@@ -1331,15 +2015,12 @@ public class rxworkflowpage {
 
 	public void testMedicationSyncReminderColorCodeIsEditableInWorkflowModule() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-
 		driver.findElement(bucketDropButton).click();
 		driver.findElement(editOption).click();
-
 		String medicationSyncReminderColorCodeTitleValue = Hooks.prop
 				.getProperty("medicationSyncReminderColorCodeTitle");
 		WebElement medicationSyncReminderColorCodeTitleInput = driver.findElement(medicationSyncReminderColorCodeTitle);
 		medicationSyncReminderColorCodeTitleInput.sendKeys(medicationSyncReminderColorCodeTitleValue);
-
 		driver.findElement(saveButton).click();
 
 	}
@@ -1362,13 +2043,10 @@ public class rxworkflowpage {
 		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
 		allModules.click();
 		sleep(2000);
-
 		WebElement addColorCodeLabelElement = wait.until(ExpectedConditions.elementToBeClickable(addColorCodeLabel));
 		addColorCodeLabelElement.click();
-
 		WebElement editCheckboxElement = wait.until(ExpectedConditions.elementToBeClickable(editColorCodeLabel));
 		editCheckboxElement.click();
-
 		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
 		btnSave.click();
 
@@ -1380,13 +2058,10 @@ public class rxworkflowpage {
 		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
 		allModules.click();
 		sleep(2000);
-
 		WebElement addColorCodeLabelElement = wait.until(ExpectedConditions.elementToBeClickable(addColorCodeLabel));
 		addColorCodeLabelElement.click();
-
 		WebElement deleteCheckboxElement = wait.until(ExpectedConditions.elementToBeClickable(deleteColorCodeLabel));
 		deleteCheckboxElement.click();
-
 		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
 		btnSave.click();
 
@@ -1398,13 +2073,10 @@ public class rxworkflowpage {
 		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
 		allModules.click();
 		sleep(2000);
-
 		WebElement editCheckboxElement = wait.until(ExpectedConditions.elementToBeClickable(editColorCodeLabel));
 		editCheckboxElement.click();
-
 		WebElement deleteCheckboxElement = wait.until(ExpectedConditions.elementToBeClickable(deleteColorCodeLabel));
 		deleteCheckboxElement.click();
-
 		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
 		btnSave.click();
 
@@ -1413,11 +2085,8 @@ public class rxworkflowpage {
 	// Sync Workflow Settings
 	public void verifyUserCanDeleteSyncWorkflowSettings() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-
 		wait.until(ExpectedConditions.elementToBeClickable(bucketDropButton)).click();
-
 		wait.until(ExpectedConditions.elementToBeClickable(deleteOption)).click();
-
 		wait.until(ExpectedConditions.elementToBeClickable(confirmDeleteButton)).click();
 	}
 
@@ -1429,15 +2098,11 @@ public class rxworkflowpage {
 
 	public void verifyUserCanEditSyncWorkflowSettings() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-
 		wait.until(ExpectedConditions.elementToBeClickable(bucketDropButton)).click();
-
 		wait.until(ExpectedConditions.elementToBeClickable(editOption)).click();
-
 		String titleFieldValue = Hooks.prop.getProperty("titleField");
 		WebElement titleFieldInput = driver.findElement(titleField);
 		titleFieldInput.sendKeys(titleFieldValue);
-
 		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
 
 	}
@@ -1457,19 +2122,14 @@ public class rxworkflowpage {
 	}
 
 	public void verifyUserCanAddSyncWorkflowSettings() {
-
 		wait.until(ExpectedConditions.elementToBeClickable(newMedicationSyncReminder)).click();
-
 		wait.until(ExpectedConditions.elementToBeClickable(dayTypeDropdown)).click();
 		new Select(driver.findElement(dayTypeDropdown)).selectByIndex(1);
-
 		wait.until(ExpectedConditions.elementToBeClickable(dayDropdown)).click();
 		new Select(driver.findElement(dayDropdown)).selectByIndex(2);
-
 		String titleFieldValue = Hooks.prop.getProperty("titleField");
 		WebElement titleFieldInput = driver.findElement(titleField);
 		titleFieldInput.sendKeys(titleFieldValue);
-
 		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
 	}
 
@@ -1491,13 +2151,10 @@ public class rxworkflowpage {
 		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
 		allModules.click();
 		sleep(2000);
-
 		WebElement addCheckboxElement = wait.until(ExpectedConditions.elementToBeClickable(addCheckboxLabel));
 		addCheckboxElement.click();
-
 		WebElement deleteCheckboxElement = wait.until(ExpectedConditions.elementToBeClickable(editCheckboxLabel));
 		deleteCheckboxElement.click();
-
 		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
 		btnSave.click();
 
@@ -1509,13 +2166,10 @@ public class rxworkflowpage {
 		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
 		allModules.click();
 		sleep(2000);
-
 		WebElement addCheckboxElement = wait.until(ExpectedConditions.elementToBeClickable(addCheckboxLabel));
 		addCheckboxElement.click();
-
 		WebElement deleteCheckboxElement = wait.until(ExpectedConditions.elementToBeClickable(deleteCheckboxLabel));
 		deleteCheckboxElement.click();
-
 		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
 		btnSave.click();
 
@@ -1527,13 +2181,10 @@ public class rxworkflowpage {
 		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
 		allModules.click();
 		sleep(2000);
-
 		WebElement editCheckboxElement = wait.until(ExpectedConditions.elementToBeClickable(editCheckboxLabel));
 		editCheckboxElement.click();
-
 		WebElement deleteCheckboxElement = wait.until(ExpectedConditions.elementToBeClickable(deleteCheckboxLabel));
 		deleteCheckboxElement.click();
-
 		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
 		btnSave.click();
 

@@ -10,11 +10,633 @@ public class rxworkflowstep {
 
 	private rxworkflowpage rxworkflowPage;
 
-	// Runningline Level2 Status
+	// Action Work Flow
 
+	
+	// Display Work Flow
+	@Then("the user should not be able to export Display Workflow data to Excel test")
+	public void userShouldNotBeAbleToPerformPharmacyNabpSearchesInDisplayWorkflowModule() {
+
+		rxworkflowPage.shouldRestrictPharmacyNabpSearchesInDisplayWorkflowModule();
+	}
+
+	@Then("the user should not be able to perform Pharmacy NABP searches test")
+	public void userShouldNotBeAbleToExportDisplayWorkflowDataToExcel() {
+
+		rxworkflowPage.shouldRestrictExportingDisplayWorkflowDataToExcel();
+	}
+
+	@And("I create a profile with only View permission for Display Workflow Module test")
+	public void userProfileWithOnlyViewPermissionInDisplayWorkflowModule() {
+		rxworkflowPage.clickFilterButton();
+		rxworkflowPage.enterProfileName();
+		rxworkflowPage.clickSearchButton();
+		rxworkflowPage.clickActionMenu();
+		rxworkflowPage.clickEditButton();
+		rxworkflowPage.shouldCreateProfileWithOnlyViewPermissionInDisplayWorkflowModule();
+		rxworkflowPage.clickSubmitButton();
+
+	}
+
+	@Then("the user should be able to export Display Workflow data to Excel test")
+	public void userShouldBeAbleToExportDisplayWorkflowDataToExcel() {
+
+		rxworkflowPage.shouldAllowExportingDisplayWorkflowDataToExcel();
+	}
+
+	@Then("the user should be able to perform Pharmacy NABP searches test")
+	public void userShouldBeAbleToPerformPharmacyNabpSearchesInDisplayWorkflowModule() {
+
+		rxworkflowPage.shouldAllowPharmacyNabpSearchesInDisplayWorkflowModule();
+	}
+
+	@Then("the user should have full program access in Display Workflow test")
+	public void userShouldHaveFullProgramAccessInDisplayWorkflowModule() {
+
+		rxworkflowPage.shouldAllowFullProgramAccessInDisplayWorkflowModule();
+	}
+
+	@Then("the user should be able to set Grid Template - Company Default checkbox test")
+	public void userShouldBeAbleToSetGridTemplateCompanyDefaultCheckboxInDisplayWorkflowModule() {
+
+		rxworkflowPage.shouldAllowSettingGridTemplateCompanyDefaultCheckboxInDisplayWorkflowModule();
+	}
+
+	@Then("the user should be able to toggle Show Past Runninglines checkbox test")
+	public void userShouldBeAbleToToggleShowPastRunninglinesCheckboxInDisplayWorkflowModule() {
+
+		rxworkflowPage.shouldAllowTogglingShowPastRunninglinesCheckboxInDisplayWorkflowModule();
+	}
+
+	@Then("the user should be able to toggle Show All Runninglines checkbox test")
+	public void userShouldBeAbleToToggleShowAllRunninglinesCheckboxInDisplayWorkflowModule() {
+
+		rxworkflowPage.shouldAllowTogglingShowAllRunninglinesCheckboxInDisplayWorkflowModule();
+	}
+
+	@Then("the user should be able to delete Grid Templates in Display Workflow test")
+	public void userShouldBeAbleToDeleteGridTemplatesInDisplayWorkflowModule() {
+
+		rxworkflowPage.shouldAllowDeletingGridTemplatesInDisplayWorkflowModule();
+	}
+
+	@Then("the user should be able to edit Grid Templates in Display Workflow test")
+	public void userShouldBeAbleToEditGridTemplatesInDisplayWorkflowModule() {
+
+		rxworkflowPage.shouldAllowEditingGridTemplatesInDisplayWorkflowModule();
+	}
+
+	@Then("the user should be able to add Grid Templates in Display Workflow test")
+	public void userShouldBeAbleToAddGridTemplatesInDisplayWorkflowModule() {
+
+		rxworkflowPage.shouldAllowAddingGridTemplatesInDisplayWorkflowModule();
+	}
+
+	@Then("the user should be able to perform advanced searches in Display Workflow test")
+	public void userShouldBeAbleToPerformAdvancedSearchesInDisplayWorkflowModule() {
+
+		rxworkflowPage.shouldAllowAdvancedSearchInDisplayWorkflowModule();
+	}
+
+	@Then("the user should be able to see details in Display Workflow test")
+	public void userShouldBeAbleToSeeDetailsInDisplayWorkflowModule() {
+
+		rxworkflowPage.shouldAllowViewingDetailsInDisplayWorkflowModule();
+	}
+
+	@Then("the user should not be able to perform advanced searches in Display Workflow test")
+	public void userShouldNotBeAbleToPerformAdvancedSearchesInDisplayWorkflowModule() {
+
+		rxworkflowPage.shouldRestrictAdvancedSearchesInDisplayWorkflowModule();
+	}
+
+	@Then("the user should not be able to add Grid Templates in Display Workflow test")
+	public void userShouldNotBeAbleToAddGridTemplatesInDisplayWorkflowModule() {
+
+		rxworkflowPage.shouldRestrictAddingGridTemplatesInDisplayWorkflowModule();
+	}
+
+	@Then("the user should not be able to edit Grid Templates in Display Workflow test")
+	public void userShouldNotBeAbleToEditGridTemplatesInDisplayWorkflowModule() {
+
+		rxworkflowPage.shouldRestrictEditingGridTemplatesInDisplayWorkflowModule();
+	}
+
+	@Then("the user should not be able to delete Grid Templates in Display Workflow test")
+	public void userShouldNotBeAbleToDeleteGridTemplatesInDisplayWorkflowModule() {
+
+		rxworkflowPage.shouldRestrictDeletingGridTemplatesInDisplayWorkflowModule();
+	}
+
+	@Then("the user should not be able to toggle Show All Runninglines checkbox test")
+	public void userShouldNotBeAbleToToggleShowAllRunninglinesCheckboxInDisplayWorkflowModule() {
+
+		rxworkflowPage.shouldRestrictTogglingShowAllRunninglinesCheckboxInDisplayWorkflowModule();
+	}
+
+	@Then("the user should not be able to toggle Show Past Runninglines checkbox test")
+	public void userShouldNotBeAbleToToggleShowPastRunninglinesCheckboxInDisplayWorkflowModule() {
+
+		rxworkflowPage.shouldRestrictTogglingShowPastRunninglinesCheckboxInDisplayWorkflowModule();
+	}
+
+	@Then("the user should not be able to set Grid Template - Company Default checkbox test")
+	public void userShouldNotBeAbleToSetGridTemplateCompanyDefaultCheckboxInDisplayWorkflowModule() {
+
+		rxworkflowPage.shouldRestrictSettingGridTemplateCompanyDefaultCheckboxInDisplayWorkflowModule();
+	}
+
+	@Then("the user should not have full program access in Display Workflow test")
+	public void userShouldNotHaveFullProgramAccessInDisplayWorkflowModule() {
+
+		rxworkflowPage.shouldRestrictFullProgramAccessInDisplayWorkflowModule();
+	}
+
+	@Then("the user should not be able to see details in Display Workflow test")
+	public void userShouldNotBeAbleToSeeDetailsInDisplayWorkflowModule() {
+
+		rxworkflowPage.shouldRestrictViewingDetailsInDisplayWorkflowModule();
+	}
+
+	@Then("the user should be able to view Display Workflow data test")
+	public void userShouldBeAbleToViewDisplayWorkflowData() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String dashboardUrl = Hooks.prop.getProperty("dashboardUrl");
+
+		Assert.assertNotNull("dashboardUrl is missing in config", dashboardUrl);
+
+		String fullUrl = baseUrl + dashboardUrl;
+
+		rxworkflowPage = new rxworkflowpage(Hooks.driver);
+		rxworkflowPage.openDashboardPage(fullUrl);
+
+		Assert.assertTrue("Dashboard page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Workflow/Home/Dashboard"));
+
+		rxworkflowPage.shouldAllowViewingDisplayWorkflowData();
+	}
+
+	@And("I create a profile with the all Additional Access permissions for Display Workflow Module test")
+	public void userWithAllAdditionalAccessShouldViewCommentAlertAndExportExcelInDisplayWorkflowModule() {
+		rxworkflowPage.clickFilterButton();
+		rxworkflowPage.enterProfileName();
+		rxworkflowPage.clickSearchButton();
+		rxworkflowPage.clickActionMenu();
+		rxworkflowPage.clickEditButton();
+		rxworkflowPage.shouldAllowAllAdditionalAccessInDisplayWorkflowModule();
+		rxworkflowPage.clickSubmitButton();
+
+	}
+
+	// Sync Workflow
+	@Then("the user should not be able to export Sync Workflow data to Excel test")
+	public void userShouldNotBeAbleToExportSyncWorkflowDataToExcel() {
+
+		rxworkflowPage.shouldNotAllowExportingSyncWorkflowDataToExcel();
+
+	}
+
+	@Then("the user should not be able to receive alerts in Sync Workflow test")
+	public void userShouldNotBeAbleToReceiveAlertsInSyncWorkflowModule() {
+
+		rxworkflowPage.shouldNotAllowReceivingAlertsInSyncWorkflowModule();
+
+	}
+
+	@Then("the user should not be able to comment in Sync Workflow test")
+	public void userShouldNotBeAbleToCommentInSyncWorkflowModule() {
+
+		rxworkflowPage.shouldNotAllowCommentingInSyncWorkflowModule();
+
+	}
+
+	@And("I create a profile with only View access and no Comment, Alert, or Export Excel access to Sync Workflow Module test")
+	public void userWithViewOnlyAccessShouldNotCommentAlertOrExportExcelInSyncWorkflowModule() {
+		rxworkflowPage.clickFilterButton();
+		rxworkflowPage.enterProfileName();
+		rxworkflowPage.clickSearchButton();
+		rxworkflowPage.clickActionMenu();
+		rxworkflowPage.clickEditButton();
+		rxworkflowPage.testSyncWorkflowModulePermissionsViewOnlyNoCommentAlertExport();
+		rxworkflowPage.clickSubmitButton();
+
+	}
+
+	@Then("the user should be able to export Sync Workflow data to Excel test")
+	public void userShouldBeAbleToExportSyncWorkflowDataToExcel() {
+
+		rxworkflowPage.shouldAllowExportingSyncWorkflowDataToExcel();
+
+	}
+
+	@Then("the user should be able to receive alerts in Sync Workflow test")
+	public void userShouldBeAbleToReceiveAlertsInSyncWorkflowModule() {
+
+		rxworkflowPage.shouldAllowReceivingAlertsInSyncWorkflowModule();
+
+	}
+
+	@Then("the user should be able to comment in Sync Workflow test")
+	public void userShouldBeAbleToCommentInSyncWorkflowModule() {
+
+		rxworkflowPage.shouldAllowCommentingInSyncWorkflowModule();
+
+	}
+
+	@Then("the user should be able to view Sync Workflow data test")
+	public void userShouldBeAbleToViewSyncWorkflowData() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String medicationSyncUrl = Hooks.prop.getProperty("medicationSyncUrl");
+
+		Assert.assertNotNull("medicationSyncUrl is missing in config", medicationSyncUrl);
+
+		String fullUrl = baseUrl + medicationSyncUrl;
+
+		rxworkflowPage = new rxworkflowpage(Hooks.driver);
+		rxworkflowPage.openMedicationSyncPage(fullUrl);
+
+		Assert.assertTrue("Medication Sync page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Workflow/Home/MedicationSyncReminder"));
+
+		rxworkflowPage.shouldAllowViewingPrescriptionStatusInWorkflowModule();
+	}
+
+	@And("I create a profile with View, Comment, Alert, and Export Excel access to Sync Workflow Module test")
+	public void userWithViewCommentAlertExportAccessShouldNotAddEditOrDeleteInSyncWorkflowModule() {
+		rxworkflowPage.clickFilterButton();
+		rxworkflowPage.enterProfileName();
+		rxworkflowPage.clickSearchButton();
+		rxworkflowPage.clickActionMenu();
+		rxworkflowPage.clickEditButton();
+		rxworkflowPage.shouldAllowViewCommentAlertExportOnlyInSyncWorkflowModule();
+		rxworkflowPage.clickSubmitButton();
+
+	}
+
+	// Prescription Status
+
+	@Then("the user should be able to delete Prescription Status in Workflow Module test")
+	public void userShouldBeAbleToDeletePrescriptionStatusInWorkflowModule() {
+
+		rxworkflowPage.shouldAllowDeletingPrescriptionStatusInWorkflowModule();
+
+	}
+
+	@And("I create a profile with View and Delete access but no Add or Edit access to Prescription Status in Workflow Module test")
+	public void userWithViewAndDeleteAccessShouldNotAddOrEditPrescriptionStatusInWorkflowModule() {
+		rxworkflowPage.clickFilterButton();
+		rxworkflowPage.enterProfileName();
+		rxworkflowPage.clickSearchButton();
+		rxworkflowPage.clickActionMenu();
+		rxworkflowPage.clickEditButton();
+		rxworkflowPage.shouldRestrictAddAndEditForPrescriptionStatusInWorkflowModule();
+		rxworkflowPage.clickSubmitButton();
+
+	}
+
+	@Then("the user should not be able to add Prescription Status in Workflow Module test")
+	public void userShouldNotBeAbleToAddPrescriptionStatusInWorkflowModule() {
+
+		rxworkflowPage.shouldNotAllowAddingPrescriptionStatusInWorkflowModule();
+
+	}
+
+	@Then("the user should be able to edit Prescription Status in Workflow Module test")
+	public void userShouldBeAbleToEditPrescriptionStatusInWorkflowModule() {
+
+		rxworkflowPage.shouldAllowEditingPrescriptionStatusInWorkflowModule();
+
+	}
+
+	@And("I create a profile with View and Edit access but no Add or Delete access to Prescription Status in Workflow Module test")
+	public void userWithViewAndEditAccessShouldNotAddOrDeletePrescriptionStatusInWorkflowModule() {
+		rxworkflowPage.clickFilterButton();
+		rxworkflowPage.enterProfileName();
+		rxworkflowPage.clickSearchButton();
+		rxworkflowPage.clickActionMenu();
+		rxworkflowPage.clickEditButton();
+		rxworkflowPage.shouldRestrictAddAndDeleteForPrescriptionStatusInWorkflowModule();
+		rxworkflowPage.clickSubmitButton();
+
+	}
+
+	@Then("the user should not be able to delete Prescription Status in Workflow Module test")
+	public void userShouldNotBeAbleToDeletePrescriptionStatusInWorkflowModule() {
+
+		rxworkflowPage.shouldNotAllowDeletingPrescriptionStatusInWorkflowModule();
+
+	}
+
+	@Then("the user should not be able to edit Prescription Status in Workflow Module test")
+	public void userShouldNotBeAbleToEditPrescriptionStatusInWorkflowModule() {
+
+		rxworkflowPage.shouldNotAllowEditingPrescriptionStatusInWorkflowModule();
+
+	}
+
+	@Then("the user should be able to add Prescription Status in Workflow Module test")
+	public void userShouldBeAbleToAddPrescriptionStatusInWorkflowModule() {
+
+		rxworkflowPage.shouldAllowAddingPrescriptionStatusInWorkflowModule();
+
+	}
+
+	@Then("the user should be able to view Prescription Status in Workflow Module test")
+	public void userShouldBeAbleToViewPrescriptionStatusInWorkflowModule() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String prescriptionStatusUrl = Hooks.prop.getProperty("prescriptionStatusUrl");
+		Assert.assertNotNull("prescriptionStatusUrl is missing in config", prescriptionStatusUrl);
+		String fullUrl = baseUrl + prescriptionStatusUrl;
+		rxworkflowPage = new rxworkflowpage(Hooks.driver);
+		rxworkflowPage.openPrescriptionStatusPage(fullUrl);
+		Assert.assertTrue("Prescription Status page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/PrescriptionStatuses"));
+		rxworkflowPage.shouldAllowViewingPrescriptionStatusInWorkflowModule();
+
+	}
+
+	@And("I create a profile with View and Add access but no Edit or Delete access to Prescription Status in Workflow Module test")
+	public void userWithViewAndAddAccessShouldNotEditOrDeletePrescriptionStatusInWorkflowModule() {
+		rxworkflowPage.clickFilterButton();
+		rxworkflowPage.enterProfileName();
+		rxworkflowPage.clickSearchButton();
+		rxworkflowPage.clickActionMenu();
+		rxworkflowPage.clickEditButton();
+		rxworkflowPage.shouldRestrictEditAndDeleteForPrescriptionStatusInWorkflowModule();
+		rxworkflowPage.clickSubmitButton();
+
+	}
+
+	// Program 340B
+	@Then("the user should be able to delete Program 340B in Workflow Module test")
+	public void userShouldBeAbleToDeleteProgram340BInWorkflowModule() {
+		rxworkflowPage.shouldAllowDeletingProgram340BInWorkflowModule();
+
+	}
+
+	@And("I create a profile with View and Delete access but no Add or Edit access to Program 340B in Workflow Module test")
+	public void userWithViewAndDeleteAccessShouldNotAddOrEditProgram340BInWorkflowModule() {
+		rxworkflowPage.clickFilterButton();
+		rxworkflowPage.enterProfileName();
+		rxworkflowPage.clickSearchButton();
+		rxworkflowPage.clickActionMenu();
+		rxworkflowPage.clickEditButton();
+		rxworkflowPage.shouldRestrictAddAndEditForProgram340BInWorkflowModule();
+		rxworkflowPage.clickSubmitButton();
+
+	}
+
+	@Then("the user should not be able to add Program 340B in Workflow Module test")
+	public void userShouldNotBeAbleToAddProgram340BInWorkflowModule() {
+		rxworkflowPage.shouldNotAllowAddingProgram340BInWorkflowModule();
+
+	}
+
+	@Then("the user should be able to edit Program 340B in Workflow Module test")
+	public void userShouldBeAbleToEditProgram340BInWorkflowModule() {
+		rxworkflowPage.shouldAllowEditingProgram340BInWorkflowModule();
+
+	}
+
+	@And("I create a profile with View and Edit access but no Add or Delete access to Program 340B in Workflow Module test")
+	public void userWithViewAndEditAccessShouldNotAddOrDeleteProgram340BInWorkflowModule() {
+		rxworkflowPage.clickFilterButton();
+		rxworkflowPage.enterProfileName();
+		rxworkflowPage.clickSearchButton();
+		rxworkflowPage.clickActionMenu();
+		rxworkflowPage.clickEditButton();
+		rxworkflowPage.shouldRestrictAddAndDeleteForProgram340BInWorkflowModule();
+		rxworkflowPage.clickSubmitButton();
+
+	}
+
+	@Then("the user should not be able to delete Program 340B in Workflow Module test")
+	public void userShouldNotBeAbleToDeleteProgram340BInWorkflowModule() {
+		rxworkflowPage.shouldNotAllowDeletingProgram340BInWorkflowModule();
+
+	}
+
+	@Then("the user should not be able to edit Program 340B in Workflow Module test")
+	public void userShouldNotBeAbleToEditProgram340BInWorkflowModule() {
+		rxworkflowPage.shouldNotAllowEditingProgram340BInWorkflowModule();
+
+	}
+
+	@Then("the user should be able to add Program 340B in Workflow Module test")
+	public void userShouldBeAbleToAddProgram340BInWorkflowModule() {
+		rxworkflowPage.shouldAllowAddingProgram340BInWorkflowModule();
+
+	}
+
+	@Then("the user should be able to view Program 340B in Workflow Module test")
+	public void shouldAllowViewingProgram340BInWorkflowModule() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String program340BUrl = Hooks.prop.getProperty("program340BUrl");
+		Assert.assertNotNull("program340BUrl is missing in config", program340BUrl);
+		String fullUrl = baseUrl + program340BUrl;
+		rxworkflowPage = new rxworkflowpage(Hooks.driver);
+		rxworkflowPage.openProgram340BPage(fullUrl);
+		Assert.assertTrue("Program 340B page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/Program340Bs"));
+		rxworkflowPage.shouldAllowViewingOutgoingCallTypesInWorkflowModule();
+
+	}
+
+	@And("I create a profile with View and Add access but no Edit or Delete access to Program 340B in Workflow Module test")
+	public void userWithViewAndAddAccessShouldNotEditOrDeleteProgram340BInWorkflowModule() {
+		rxworkflowPage.clickFilterButton();
+		rxworkflowPage.enterProfileName();
+		rxworkflowPage.clickSearchButton();
+		rxworkflowPage.clickActionMenu();
+		rxworkflowPage.clickEditButton();
+		rxworkflowPage.shouldRestrictEditAndDeleteForProgram340BInWorkflowModule();
+		rxworkflowPage.clickSubmitButton();
+
+	}
+
+	// Outgoing Call Types
+	@Then("the user should be able to delete Outgoing Call Types in Workflow Module test")
+	public void userShouldBeAbleToDeleteOutgoingCallTypesInWorkflowModule() {
+		rxworkflowPage.shouldAllowDeletingOutgoingCallTypesInWorkflowModule();
+
+	}
+
+	@And("I create a profile with View and Delete access but no Add or Edit access to Outgoing Call Types in Workflow Module test")
+	public void userWithViewAndDeleteAccessShouldNotAddOrEditOutgoingCallTypesInWorkflowModule() {
+		rxworkflowPage.clickFilterButton();
+		rxworkflowPage.enterProfileName();
+		rxworkflowPage.clickSearchButton();
+		rxworkflowPage.clickActionMenu();
+		rxworkflowPage.clickEditButton();
+		rxworkflowPage.shouldRestrictAddAndEditForOutgoingCallTypesInWorkflowModule();
+		rxworkflowPage.clickSubmitButton();
+
+	}
+
+	@Then("the user should not be able to deletes Outgoing Call Types in Workflow Module test")
+	public void verifyOutgoingCallTypesDeletionIsRestrictedInWorkflowModule() {
+		rxworkflowPage.shouldNotAllowDeletingOutgoingCallTypesInWorkflowModule();
+
+	}
+
+	@Then("the user should not be able to add Outgoing Call Types in Workflow Module test")
+	public void userShouldNotBeAbleToAddOutgoingCallTypesInWorkflowModule() {
+		rxworkflowPage.shouldNotAllowAddingOutgoingCallTypesInWorkflowModule();
+
+	}
+
+	@Then("the user should be able to edit Outgoing Call Types in Workflow Module test")
+	public void userShouldBeAbleToEditOutgoingCallTypesInWorkflowModule() {
+		rxworkflowPage.shouldAllowEditingOutgoingCallTypesInWorkflowModule();
+
+	}
+
+	@And("I create a profile with View and Edit access but no Add or Delete access to Outgoing Call Types in Workflow Module test")
+	public void userWithViewAndEditAccessShouldNotAddOrDeleteOutgoingCallTypesInWorkflowModule() {
+		rxworkflowPage.clickFilterButton();
+		rxworkflowPage.enterProfileName();
+		rxworkflowPage.clickSearchButton();
+		rxworkflowPage.clickActionMenu();
+		rxworkflowPage.clickEditButton();
+		rxworkflowPage.shouldRestrictAddAndDeleteForOutgoingCallTypesInWorkflowModule();
+		rxworkflowPage.clickSubmitButton();
+
+	}
+
+	@Then("the user should not be able to delete Outgoing Call Types in Workflow Module test")
+	public void userShouldNotBeAbleToDeleteOutgoingCallTypesInWorkflowModule() {
+		rxworkflowPage.shouldNotAllowDeletingOutgoingCallTypesInWorkflowModule();
+
+	}
+
+	@Then("the user should not be able to edit Outgoing Call Types in Workflow Module test")
+	public void userShouldNotBeAbleToEditOutgoingCallTypesInWorkflowModule() {
+		rxworkflowPage.shouldNotAllowEditingOutgoingCallTypesInWorkflowModule();
+
+	}
+
+	@Then("the user should be able to add Outgoing Call Types in Workflow Module test")
+	public void userShouldBeAbleToAddOutgoingCallTypesInWorkflowModule() {
+		rxworkflowPage.shouldAllowAddingOutgoingCallTypesInWorkflowModule();
+
+	}
+
+	@Then("the user should be able to view Outgoing Call Types in Workflow Module test")
+	public void userShouldBeAbleToViewOutgoingCallTypesInWorkflowModule() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String outgoingCallTypesUrl = Hooks.prop.getProperty("outgoingCallTypesUrl");
+		Assert.assertNotNull("outgoingCallTypesUrl is missing in config", outgoingCallTypesUrl);
+		String fullUrl = baseUrl + outgoingCallTypesUrl;
+		rxworkflowPage = new rxworkflowpage(Hooks.driver);
+		rxworkflowPage.openOutgoingCallTypesPage(fullUrl);
+		Assert.assertTrue("Outgoing Call Types page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/OutgoingCalls"));
+		rxworkflowPage.shouldAllowViewingOutgoingCallTypesInWorkflowModule();
+
+	}
+
+	@And("I create a profile with View and Add access but no Edit or Delete access to Outgoing Call Types in Workflow Module test")
+	public void userWithViewAndAddAccessShouldNotEditOrDeleteOutgoingCallTypesInWorkflowModule() {
+		rxworkflowPage.clickFilterButton();
+		rxworkflowPage.enterProfileName();
+		rxworkflowPage.clickSearchButton();
+		rxworkflowPage.clickActionMenu();
+		rxworkflowPage.clickEditButton();
+		rxworkflowPage.shouldRestrictEditAndDeleteForOutgoingCallTypesInWorkflowModule();
+		rxworkflowPage.clickSubmitButton();
+
+	}
+
+	// Incoming Call Types
+	@Then("the user should be able to delete Incoming Call Types in Workflow Module test")
+	public void userShouldBeAbleToDeleteIncomingCallTypesInWorkflowModule() {
+		rxworkflowPage.shouldAllowDeletingIncomingCallTypesInWorkflowModule();
+
+	}
+
+	@And("I create a profile with View and Delete access but no Add or Edit access to Incoming Call Types in Workflow Module test")
+	public void userWithViewAndDeleteAccessShouldNotAddOrEditIncomingCallTypesInWorkflowModule() {
+		rxworkflowPage.clickFilterButton();
+		rxworkflowPage.enterProfileName();
+		rxworkflowPage.clickSearchButton();
+		rxworkflowPage.clickActionMenu();
+		rxworkflowPage.clickEditButton();
+		rxworkflowPage.shouldRestrictAddAndEditForIncomingCallTypesInWorkflowModule();
+		rxworkflowPage.clickSubmitButton();
+
+	}
+
+	@Then("the user should not be able to add Incoming Call Types in Workflow Module test")
+	public void userShouldNotBeAbleToAddIncomingCallTypesInWorkflowModule() {
+		rxworkflowPage.shouldNotAllowAddingIncomingCallTypesInWorkflowModule();
+
+	}
+
+	@Then("the user should be able to edit Incoming Call Types in Workflow Module test")
+	public void userShouldBeAbleToEditIncomingCallTypesInWorkflowModule() {
+		rxworkflowPage.shouldAllowEditingIncomingCallTypesInWorkflowModule();
+
+	}
+
+	@Then("the user should not be able to delete Incoming Call Types in Workflow Module test")
+	public void userShouldNotBeAbleToDeleteIncomingCallTypesInWorkflowModule() {
+		rxworkflowPage.shouldNotAllowDeletingIncomingCallTypesInWorkflowModule();
+
+	}
+
+	@Then("the user should not be able to edit Incoming Call Types in Workflow Module test")
+	public void userShouldNotBeAbleToEditIncomingCallTypesInWorkflowModule() {
+		rxworkflowPage.shouldNotAllowEditingIncomingCallTypesInWorkflowModule();
+
+	}
+
+	@Then("the user should be able to add Incoming Call Types in Workflow Module test")
+	public void userShouldBeAbleToAddIncomingCallTypesInWorkflowModule() {
+		rxworkflowPage.shouldAllowAddingIncomingCallTypesInWorkflowModule();
+
+	}
+
+	@Then("the user should be able to view Incoming Call Types in Workflow Module test")
+	public void userShouldBeAbleToViewIncomingCallTypesInWorkflowModule() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String incomingCallTypesUrl = Hooks.prop.getProperty("incomingCallTypesUrl");
+		Assert.assertNotNull("incomingCallTypesUrl is missing in config", incomingCallTypesUrl);
+		String fullUrl = baseUrl + incomingCallTypesUrl;
+		rxworkflowPage = new rxworkflowpage(Hooks.driver);
+		rxworkflowPage.openIncomingCallTypesPage(fullUrl);
+		Assert.assertTrue("Incoming Call Types page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Setup/Home/IncomingCalls"));
+		rxworkflowPage.shouldAllowViewingIncomingCallTypesInWorkflowModule();
+
+	}
+
+	@And("I create a profile with View and Edit access but no Add or Delete access to Incoming Call Types in Workflow Module test")
+	public void userWithViewAndEditAccessShouldNotAddOrDeleteIncomingCallTypesInWorkflowModule() {
+		rxworkflowPage.clickFilterButton();
+		rxworkflowPage.enterProfileName();
+		rxworkflowPage.clickSearchButton();
+		rxworkflowPage.clickActionMenu();
+		rxworkflowPage.clickEditButton();
+		rxworkflowPage.shouldRestrictAddAndDeleteForIncomingCallTypesInWorkflowModule();
+		rxworkflowPage.clickSubmitButton();
+
+	}
+
+	@And("I create a profile with View and Add access but no Edit or Delete access to Incoming Call Types in Workflow Module test")
+	public void userWithViewAndAddAccessShouldNotEditOrDeleteIncomingCallTypesInWorkflowModule() {
+		rxworkflowPage.clickFilterButton();
+		rxworkflowPage.enterProfileName();
+		rxworkflowPage.clickSearchButton();
+		rxworkflowPage.clickActionMenu();
+		rxworkflowPage.clickEditButton();
+		rxworkflowPage.shouldRestrictEditAndDeleteForIncomingCallTypesInWorkflowModule();
+		rxworkflowPage.clickSubmitButton();
+
+	}
+
+	// Runningline Level2 Status
 	@Then("the user should be able to delete Runningline Level2 Status in Workflow Module test")
 	public void verifyRunninglineLevel2StatusCanBeDeletedInWorkflowModule() {
-
 		rxworkflowPage.shouldAllowDeletingRunninglineLevel2StatusInWorkflowModule();
 
 	}
@@ -45,35 +667,30 @@ public class rxworkflowstep {
 
 	@Then("the user should not be able to add Runningline Level2 Status in Workflow Module test")
 	public void userShouldNotBeAbleToAddRunninglineLevel2StatusInWorkflowModule() {
-
 		rxworkflowPage.shouldNotAllowAddingRunninglineLevel2StatusInWorkflowModule();
 
 	}
 
 	@Then("the user should not be able to delete Runningline Level2 Status in Workflow Module test")
 	public void userShouldNotBeAbleToDeleteRunninglineLevel2StatusInWorkflowModule() {
-
 		rxworkflowPage.shouldNotAllowDeletingRunninglineLevel2StatusInWorkflowModule();
 
 	}
 
 	@Then("the user should not be able to edit Runningline Level2 Status in Workflow Module test")
 	public void userShouldNotBeAbleToEditRunninglineLevel2StatusInWorkflowModule() {
-
 		rxworkflowPage.shouldNotAllowEditingRunninglineLevel2StatusInWorkflowModule();
 
 	}
 
 	@Then("the user should be able to edit Runningline Level2 Status in Workflow Module test")
 	public void userShouldBeAbleToEditRunninglineLevel2StatusInWorkflowModule() {
-
 		rxworkflowPage.shouldAllowEditingRunninglineLevel2StatusInWorkflowModule();
 
 	}
 
 	@Then("the user should be able to add Runningline Level2 Status in Workflow Module test")
 	public void userShouldBeAbleToAddRunninglineLevel2StatusInWorkflowModule() {
-
 		rxworkflowPage.shouldAllowAddingRunninglineLevel2StatusInWorkflowModule();
 
 	}
@@ -88,7 +705,6 @@ public class rxworkflowstep {
 		rxworkflowPage.openRunninglineLevel2StatusPage(fullUrl);
 		Assert.assertTrue("Runningline Level2 Status page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/RunninglineLevel2Statuses"));
-
 		rxworkflowPage.shouldAllowViewingRunninglineLevel2StatusInWorkflowModule();
 
 	}
@@ -108,7 +724,6 @@ public class rxworkflowstep {
 	// Runningline Level1 Status
 	@Then("the user should be able to delete Runningline Level1 Status in Workflow Module test")
 	public void userShouldBeAbleToDeleteRunninglineLevel1StatusInWorkflowModule() {
-
 		rxworkflowPage.shouldAllowDeletingRunninglineLevel1StatusInWorkflowModule();
 
 	}
@@ -127,14 +742,12 @@ public class rxworkflowstep {
 
 	@Then("the user should not be able to add Runningline Level1 Status in Workflow Module test")
 	public void userShouldNotBeAbleToAddRunninglineLevel1StatusInWorkflowModule() {
-
 		rxworkflowPage.shouldNotAllowAddingRunninglineLevel1StatusInWorkflowModule();
 
 	}
 
 	@Then("the user should be able to edit Runningline Level1 Status in Workflow Module test")
 	public void userShouldBeAbleToEditRunninglineLevel1StatusInWorkflowModule() {
-
 		rxworkflowPage.shouldAllowEditingRunninglineLevel1StatusInWorkflowModule();
 
 	}
@@ -153,21 +766,18 @@ public class rxworkflowstep {
 
 	@Then("the user should not be able to delete Runningline Level1 Status in Workflow Module test")
 	public void userShouldNotBeAbleToDeleteRunninglineLevel1StatusInWorkflowModule() {
-
 		rxworkflowPage.shouldNotAllowDeletingRunninglineLevel1StatusInWorkflowModule();
 
 	}
 
 	@Then("the user should not be able to edit Runningline Level1 Status in Workflow Module test")
 	public void userShouldNotBeAbleToEditRunninglineLevel1StatusInWorkflowModule() {
-
 		rxworkflowPage.shouldNotAllowEditingRunninglineLevel1StatusInWorkflowModule();
 
 	}
 
 	@Then("the user should be able to add Runningline Level1 Status in Workflow Module test")
 	public void userShouldBeAbleToAddRunninglineLevel1StatusInWorkflowModule() {
-
 		rxworkflowPage.shouldAllowAddingRunninglineLevel1StatusInWorkflowModule();
 
 	}
@@ -182,7 +792,6 @@ public class rxworkflowstep {
 		rxworkflowPage.openRunninglineLevel1StatusPage(fullUrl);
 		Assert.assertTrue("Runningline Level1 Status page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/RunninglineLevel1Statuses"));
-
 		rxworkflowPage.verifyRunninglineStatusCanBeViewedInWorkflowModule();
 
 	}
@@ -202,7 +811,6 @@ public class rxworkflowstep {
 	// Runningline Status
 	@Then("the user should be able to delete Runningline Status in Workflow Module test")
 	public void userShouldBeAbleToDeleteRunninglineStatusInWorkflowModule() {
-
 		rxworkflowPage.shouldAllowDeletingRunninglineStatusInWorkflowModule();
 
 	}
@@ -221,14 +829,12 @@ public class rxworkflowstep {
 
 	@Then("the user should not be able to add Runningline Status in Workflow Module test")
 	public void userShouldNotBeAbleToAddRunninglineStatusInWorkflowModule() {
-
 		rxworkflowPage.shouldNotAllowAddingRunninglineStatusInWorkflowModule();
 
 	}
 
 	@Then("the user should be able to edit Runningline Status in Workflow Module test")
 	public void userShouldBeAbleToEditRunninglineStatusInWorkflowModule() {
-
 		rxworkflowPage.shouldAllowEditingRunninglineStatusInWorkflowModule();
 
 	}
@@ -247,21 +853,18 @@ public class rxworkflowstep {
 
 	@Then("the user should not be able to delete Runningline Status in Workflow Module test")
 	public void userShouldNotBeAbleToDeleteRunninglineStatusInWorkflowModule() {
-
 		rxworkflowPage.shouldNotAllowDeletingRunninglineStatusInWorkflowModule();
 
 	}
 
 	@Then("the user should not be able to edit Runningline Status in Workflow Module test")
 	public void userShouldNotBeAbleToEditRunninglineStatusInWorkflowModule() {
-
 		rxworkflowPage.shouldNotAllowEditingRunninglineStatusInWorkflowModule();
 
 	}
 
 	@Then("the user should be able to add Runningline Status in Workflow Module test")
 	public void userShouldBeAbleToAddRunninglineStatusInWorkflowModule() {
-
 		rxworkflowPage.shouldAllowAddingRunninglineStatusInWorkflowModule();
 
 	}
@@ -276,7 +879,6 @@ public class rxworkflowstep {
 		rxworkflowPage.openRunninglineStatusPage(fullUrl);
 		Assert.assertTrue("Runningline Status page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/RunninglineStatuses"));
-
 		rxworkflowPage.verifyRunninglineStatusCanBeViewedInWorkflowModule();
 
 	}
@@ -296,7 +898,6 @@ public class rxworkflowstep {
 	// Queue
 	@Then("the user should be able to delete Queue in Workflow Module test")
 	public void userShouldBeAbleToDeleteQueueInWorkflowModule() {
-
 		rxworkflowPage.shouldAllowDeletingQueueInWorkflowModule();
 
 	}
@@ -315,14 +916,12 @@ public class rxworkflowstep {
 
 	@Then("the user should not be able to add Queue in Workflow Module test")
 	public void userShouldNotBeAbleToAddQueueInWorkflowModule() {
-
 		rxworkflowPage.shouldNotAllowAddingQueueInWorkflowModule();
 
 	}
 
 	@Then("the user should be able to edit Queue in Workflow Module test")
 	public void userShouldBeAbleToEditQueueInWorkflowModule() {
-
 		rxworkflowPage.shouldAllowEditingQueueInWorkflowModule();
 
 	}
@@ -341,21 +940,18 @@ public class rxworkflowstep {
 
 	@Then("the user should not be able to delete Queue in Workflow Module test")
 	public void userShouldNotBeAbleToDeleteQueueInWorkflowModule() {
-
 		rxworkflowPage.shouldNotAllowDeletingQueueInWorkflowModule();
 
 	}
 
 	@Then("the user should not be able to edit Queue in Workflow Module test")
 	public void userShouldNotBeAbleToEditQueueInWorkflowModule() {
-
 		rxworkflowPage.shouldNotAllowEditingQueueInWorkflowModule();
 
 	}
 
 	@Then("the user should be able to add Queue in Workflow Module test")
 	public void userShouldBeAbleToAddQueueInWorkflowModule() {
-
 		rxworkflowPage.shouldAllowAddingQueueInWorkflowModule();
 
 	}
@@ -369,7 +965,6 @@ public class rxworkflowstep {
 		rxworkflowPage = new rxworkflowpage(Hooks.driver);
 		rxworkflowPage.openQueuesPage(fullUrl);
 		Assert.assertTrue("Queues page is not displayed", Hooks.driver.getCurrentUrl().contains("/Setup/Home/Queues"));
-
 		rxworkflowPage.shouldAllowViewingQueueInWorkflowModule();
 
 	}
@@ -389,7 +984,6 @@ public class rxworkflowstep {
 	// Followup Trail Script
 	@Then("the user should be able to delete Followup Trail Script in Workflow Module test")
 	public void userShouldBeAbleToDeleteFollowupTrailScriptInWorkflowModule() {
-
 		rxworkflowPage.shouldAllowDeletingFollowupTrailScriptInWorkflowModule();
 
 	}
@@ -408,14 +1002,12 @@ public class rxworkflowstep {
 
 	@Then("the user should not be able to add Followup Trail Script in Workflow Module test")
 	public void userShouldNotBeAbleToAddFollowupTrailScriptInWorkflowModule() {
-
 		rxworkflowPage.shouldNotAllowAddingFollowupTrailScriptInWorkflowModule();
 
 	}
 
 	@Then("the user should be able to edit Followup Trail Script in Workflow Module test")
 	public void userShouldBeAbleToEditFollowupTrailScriptInWorkflowModule() {
-
 		rxworkflowPage.shouldAllowEditingFollowupTrailScriptInWorkflowModule();
 
 	}
@@ -434,21 +1026,18 @@ public class rxworkflowstep {
 
 	@Then("the user should not be able to delete Followup Trail Script in Workflow Module test")
 	public void userShouldNotBeAbleToDeleteFollowupTrailScriptInWorkflowModule() {
-
 		rxworkflowPage.shouldNotAllowDeletingFollowupTrailScriptInWorkflowModule();
 
 	}
 
 	@Then("the user should not be able to edit Followup Trail Script in Workflow Module test")
 	public void userShouldNotBeAbleToEditFollowupTrailScriptInWorkflowModule() {
-
 		rxworkflowPage.shouldNotAllowEditingFollowupTrailScriptInWorkflowModule();
 
 	}
 
 	@Then("the user should be able to add Followup Trail Script in Workflow Module test")
 	public void userShouldBeAbleToAddFollowupTrailScriptInWorkflowModule() {
-
 		rxworkflowPage.shouldAddFollowupTrailScriptInWorkflowModule();
 
 	}
@@ -463,7 +1052,6 @@ public class rxworkflowstep {
 		rxworkflowPage.openCallScriptsPage(fullUrl);
 		Assert.assertTrue("Call Scripts page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/CallScripts"));
-
 		rxworkflowPage.verifyFollowupTrailScriptVisibleInWorkflowModule();
 
 	}
@@ -483,35 +1071,30 @@ public class rxworkflowstep {
 	// Transfer Result Action
 	@Then("the user should be able to delete Transfer Result Action in Workflow Module test")
 	public void testUserCanDeleteTransferResultActionInWorkflowModule() {
-
 		rxworkflowPage.testProfileAccessTransferResultActionDeleteOnly();
 
 	}
 
 	@Then("the user should not be able to add Transfer Result Action in Workflow Module test")
 	public void testUserCannotAddTransferResultActionInWorkflowModule() {
-
 		rxworkflowPage.testProfileAccessTransferResultActionNoAdd();
 
 	}
 
 	@Then("the user should not be able to delete Transfer Result Action in Workflow Module test")
 	public void testUserCannotDeleteTransferResultActionInWorkflowModule() {
-
 		rxworkflowPage.testProfileAccessTransferResultActionNoDelete();
 
 	}
 
 	@Then("the user should not be able to edit Transfer Result Action in Workflow Module test")
 	public void testUserCannotEditTransferResultActionInWorkflowModule() {
-
 		rxworkflowPage.testProfileAccessTransferResultActionNoEdit();
 
 	}
 
 	@Then("the user should be able to edit Transfer Result Action in Workflow Module test")
 	public void testUserCanEditTransferResultActionInWorkflowModule() {
-
 		rxworkflowPage.testProfileAccessTransferResultActionEditOnly();
 
 	}
@@ -526,7 +1109,6 @@ public class rxworkflowstep {
 		rxworkflowPage.openTransferResultActionsPage(fullUrl);
 		Assert.assertTrue("Transfer Result Actions page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/TransferResultActions"));
-
 		rxworkflowPage.testProfileAccessTransferResultActionAddOnly();
 
 	}
@@ -541,7 +1123,6 @@ public class rxworkflowstep {
 		rxworkflowPage.openTransferResultActionsPage(fullUrl);
 		Assert.assertTrue("Transfer Result Actions page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/TransferResultActions"));
-
 		rxworkflowPage.testProfileAccessTransferResultActionViewOnly();
 
 	}
@@ -585,42 +1166,36 @@ public class rxworkflowstep {
 	// Failure Result Action
 	@Then("the user should be able to delete Failure Result Action in Workflow Module test")
 	public void testUserCanDeleteFailureResultActionInWorkflowModule() {
-
 		rxworkflowPage.testProfileAccessFailureResultActionDeleteOnly();
 
 	}
 
 	@Then("the user should not be able to add Failure Result Action in Workflow Module test")
 	public void testUserCannotAddFailureResultActionInWorkflowModule() {
-
 		rxworkflowPage.testProfileAccessFailureResultActionNoAdd();
 
 	}
 
 	@Then("the user should be able to edit Failure Result Action in Workflow Module test")
 	public void testUserCanEditFailureResultActionInWorkflowModule() {
-
 		rxworkflowPage.testProfileAccessFailureResultActionEditOnly();
 
 	}
 
 	@Then("the user should not be able to delete Failure Result Action in Workflow Module test")
 	public void testUserCannotDeleteFailureResultActionInWorkflowModule() {
-
 		rxworkflowPage.testProfileAccessFailureResultActionNoDelete();
 
 	}
 
 	@Then("the user should not be able to edit Failure Result Action in Workflow Module test")
 	public void testUserCannotEditFailureResultActionInWorkflowModule() {
-
 		rxworkflowPage.testProfileAccessFailureResultActionNoEdit();
 
 	}
 
 	@Then("the user should be able to add Failure Result Action in Workflow Module test")
 	public void testUserCanAddFailureResultActionInWorkflowModule() {
-
 		rxworkflowPage.testProfileAccessFailureResultActionAddOnly();
 
 	}
@@ -635,7 +1210,6 @@ public class rxworkflowstep {
 		rxworkflowPage.openFailureResultActionsPage(fullUrl);
 		Assert.assertTrue("Failure Result Actions page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/FailureResultActions"));
-
 		rxworkflowPage.testSuccessResultActionIsViewableInWorkflowModule();
 
 	}
@@ -679,42 +1253,36 @@ public class rxworkflowstep {
 	// Success Result Action
 	@Then("the user should not be able to add Success Result Action in Workflow Module test")
 	public void shouldNotAllowAddingSuccessResultActionInWorkflowModule() {
-
 		rxworkflowPage.testSuccessResultActionCannotBeAddedInWorkflowModule();
 
 	}
 
 	@Then("the user should not be able to delete Success Result Action in Workflow Module test")
 	public void shouldNotAllowDeletingSuccessResultActionInWorkflowModule() {
-
 		rxworkflowPage.testSuccessResultActionCannotBeDeletedInWorkflowModule();
 
 	}
 
 	@Then("the user should not be able to edit Success Result Action in Workflow Module test")
 	public void shouldNotAllowEditingSuccessResultActionInWorkflowModule() {
-
 		rxworkflowPage.testSuccessResultActionCannotBeEditedInWorkflowModule();
 
 	}
 
 	@Then("the user should be able to delete Success Result Action in Workflow Module test")
 	public void shouldAllowDeletingSuccessResultActionInWorkflowModule() {
-
 		rxworkflowPage.testSuccessResultActionIsDeletableInWorkflowModule();
 
 	}
 
 	@Then("the user should be able to edit Success Result Action in Workflow Module test")
 	public void shouldAllowEditingSuccessResultActionInWorkflowModule() {
-
 		rxworkflowPage.testSuccessResultActionIsEditableInWorkflowModule();
 
 	}
 
 	@Then("the user should be able to add Success Result Action in Workflow Module test")
 	public void shouldAllowAddingSuccessResultActionInWorkflowModule() {
-
 		rxworkflowPage.testSuccessResultActionIsAddableInWorkflowModule();
 
 	}
@@ -729,7 +1297,6 @@ public class rxworkflowstep {
 		rxworkflowPage.openSuccessResultActionsPage(fullUrl);
 		Assert.assertTrue("Success Result Actions page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/SuccessResultActions"));
-
 		rxworkflowPage.testSuccessResultActionIsViewableInWorkflowModule();
 
 	}
@@ -773,42 +1340,36 @@ public class rxworkflowstep {
 	// Reminder Result Action
 	@Then("the user should not be able to add Reminder Result Action in Workflow Module test")
 	public void shouldNotAllowAddingReminderResultActionInWorkflowModule() {
-
 		rxworkflowPage.testReminderResultActionCannotBeAddedInWorkflowModule();
 
 	}
 
 	@Then("the user should not be able to delete Reminder Result Action in Workflow Module test")
 	public void shouldNotAllowDeletingReminderResultActionInWorkflowModule() {
-
 		rxworkflowPage.reminderResultActionShouldNotBeDeletableInWorkflowModule();
 
 	}
 
 	@Then("the user should not be able to edit Reminder Result Action in Workflow Module test")
 	public void shouldNotAllowEditingReminderResultActionInWorkflowModule() {
-
 		rxworkflowPage.testReminderResultActionCannotBeEditedInWorkflowModule();
 
 	}
 
 	@Then("the user should be able to edit Reminder Result Action in Workflow Module test")
 	public void shouldAllowEditingReminderResultActionInWorkflowModule() {
-
 		rxworkflowPage.testReminderResultActionIsEditableInWorkflowModule();
 
 	}
 
 	@Then("the user should be able to add Reminder Result Action in Workflow Module test")
 	public void shouldAllowAddingReminderResultActionInWorkflowModule() {
-
 		rxworkflowPage.testReminderResultActionIsAddableInWorkflowModule();
 
 	}
 
 	@Then("the user should be able to delete Reminder Result Action in Workflow Module test")
 	public void shouldAllowDeletingReminderResultActionInWorkflowModule() {
-
 		rxworkflowPage.testReminderResultActionIsDeletableInWorkflowModule();
 
 	}
@@ -823,7 +1384,6 @@ public class rxworkflowstep {
 		rxworkflowPage.openReminderResultActionsPage(fullUrl);
 		Assert.assertTrue("Reminder Result Actions page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/ReminderResultActions"));
-
 		rxworkflowPage.testReminderResultActionIsViewableInWorkflowModule();
 
 	}
@@ -867,42 +1427,36 @@ public class rxworkflowstep {
 	// Medication SyncReminder Color Code
 	@Then("the user should be able to delete Medication Sync Reminder Color Code in Workflow Module test")
 	public void shouldAllowDeletingMedicationSyncReminderColorCodeInWorkflowModule() {
-
 		rxworkflowPage.testMedicationSyncReminderColorCodeIsDeletableInWorkflowModule();
 
 	}
 
 	@Then("the user should not be able to add Medication Sync Reminder Color Code in Workflow Module test")
 	public void shouldNotAllowAddingMedicationSyncReminderColorCodeInWorkflowModule() {
-
 		rxworkflowPage.testMedicationSyncReminderColorCodeCannotBeAddedInWorkflowModule();
 
 	}
 
 	@Then("the user should not be able to delete Medication Sync Reminder Color Code in Workflow Module test")
 	public void shouldNotAllowDeletingMedicationSyncReminderColorCodeInWorkflowModule() {
-
 		rxworkflowPage.testMedicationSyncReminderColorCodeCannotBeDeletedInWorkflowModule();
 
 	}
 
 	@Then("the user should not be able to edit Medication Sync Reminder Color Code in Workflow Module test")
 	public void shouldNotAllowEditingMedicationSyncReminderColorCodeInWorkflowModule() {
-
 		rxworkflowPage.testMedicationSyncReminderColorCodeIsNotEditableInWorkflowModule();
 
 	}
 
 	@Then("the user should be able to add Medication Sync Reminder Color Code in Workflow Module test")
 	public void userShouldBeAbleToAddMedicationSyncReminderColorCodeInWorkflowModuleTest() {
-
 		rxworkflowPage.verifyUserCanAddMedicationSyncReminderColorCode();
 
 	}
 
 	@Then("the user should be able to edit Medication Sync Reminder Color Code in Workflow Module test")
 	public void shouldAllowEditingMedicationSyncReminderColorCodeInWorkflowModule() {
-
 		rxworkflowPage.testMedicationSyncReminderColorCodeIsEditableInWorkflowModule();
 
 	}
@@ -919,7 +1473,6 @@ public class rxworkflowstep {
 		rxworkflowPage.openMedicationSyncReminderColorCodesPage(fullUrl);
 		Assert.assertTrue("Medication Sync Reminder Color Codes page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Setup/Home/MedicationSyncReminderColorCodes"));
-
 		rxworkflowPage.verifyUserCanViewMedicationSyncReminderColorCode();
 
 	}
@@ -963,42 +1516,36 @@ public class rxworkflowstep {
 	// Sync Workflow Settings
 	@Then("the user should be able to delete Sync Workflow Settings in Workflow Module test")
 	public void userShouldBeAbleToDeleteSyncWorkflowSettingsInWorkflowModuleTest() {
-
 		rxworkflowPage.verifyUserCanDeleteSyncWorkflowSettings();
 
 	}
 
 	@Then("the user should not be able to add Sync Workflow Settings in Workflow Module test")
 	public void userShouldNotBeAbleToAddSyncWorkflowSettingsInWorkflowModuleTest() {
-
 		rxworkflowPage.verifyUserCannotAddSyncWorkflowSettings();
 
 	}
 
 	@Then("the user should be able to edit Sync Workflow Settings in Workflow Module test")
 	public void userShouldBeAbleToEditSyncWorkflowSettingsInWorkflowModuleTest() {
-
 		rxworkflowPage.verifyUserCanEditSyncWorkflowSettings();
 
 	}
 
 	@Then("the user should not be able to delete Sync Workflow Settings in Workflow Module test")
 	public void userShouldNotBeAbleToDeleteSyncWorkflowSettingsInWorkflowModuleTest() {
-
 		rxworkflowPage.verifyUserCannotDeleteSyncWorkflowSettings();
 
 	}
 
 	@Then("the user should not be able to edit Sync Workflow Settings in Workflow Module test")
 	public void userShouldNotBeAbleToEditSyncWorkflowSettingsInWorkflowModuleTest() {
-
 		rxworkflowPage.assertNoEditAccessToSyncWorkflowSettings();
 
 	}
 
 	@Then("the user should be able to add Sync Workflow Settings in Workflow Module test")
 	public void userShouldBeAbleToAddSyncWorkflowSettingsInWorkflowModuleTest() {
-
 		rxworkflowPage.verifyUserCanAddSyncWorkflowSettings();
 
 	}
@@ -1055,7 +1602,6 @@ public class rxworkflowstep {
 	}
 
 	// General
-
 	@Then("the Rxworkflow user should be able to view Profiles")
 	public void rxworkflowUserShouldBeAbleToViewProfiles() {
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
