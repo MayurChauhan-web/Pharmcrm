@@ -1,6 +1,5 @@
 Feature: Entire Rxworkflow Module.
 
-@Rxworkflow
 # General
 Scenario: User with View only access for Rxworkflow Module General Audit View
 Given user launch browser
@@ -744,6 +743,517 @@ And the user should not be able to perform Pharmacy NABP searches test
 And the user should not be able to export Display Workflow data to Excel test
 
 # Action Work Flow
+Scenario: User with all permissions in Action Workflow
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Rxworkflow user should be able to view Profiles
+And I create a profile with the following permissions for Action Workflow Module test
+Then the user should be able to view Action Workflow data test
+And the user should be able to see details in Action Workflow test
+And the user should be able to send Text messages in Action Workflow test
+And the user should be able to perform BOT Calls in Action Workflow test
+And the user should be able to send Quick Text in Action Workflow test
+And the user should be able to toggle Show All Runninglines checkbox Action Work Flow test
+And the user should be able to toggle Show Past Runninglines checkbox Action Work Flow test
+And the user should be able to perform advanced searches in Action Workflow test
+And the user should be able to add Grid Templates in Action Workflow test
+And the user should be able to edit Grid Templates in Action Workflow test
+And the user should be able to delete Grid Templates in Action Workflow test
+And the user should be able to set Grid Template Company Default checkbox test
+And the user should have full program access in Action Workflow test
+And the user should be able to send VCards in Action Workflow test
+And the user should be able to export Action Workflow data to Excel test
+
+Scenario: User with View only permission in Action Workflow
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Rxworkflow user should be able to view Profiles
+And I create a profile with only View permission for Action Workflow Module test
+Then the user should be able to view Action Workflow data test
+And the user should not be able to see details in Action Workflow test
+And the user should not be able to send Text messages in Action Workflow test
+And the user should not be able to perform BOT Calls in Action Workflow test
+And the user should not be able to send Quick Text in Action Workflow test
+And the user should not be able to toggle Show All Runninglines checkbox Action Work Flow test
+And the user should not be able to toggle Show Past Runninglines checkbox Action Work Flow test
+And the user should not be able to perform advanced searches in Action Workflow test
+And the user should not be able to add Grid Templates in Action Workflow test
+And the user should not be able to edit Grid Templates in Action Workflow test
+And the user should not be able to delete Grid Templates in Action Workflow test
+And the user should not be able to set Grid Template Company Default checkbox Action Work Flow test
+And the user should not have full program access in Action Workflow test
+And the user should not be able to send VCards in Action Workflow test
+And the user should not be able to export Action Workflow data to Excel test
+
+# Followup Work Flow
+Scenario: User with all permissions in Followup Workflow
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Rxworkflow user should be able to view Profiles
+And I create a profile with the all permissions for Followup Workflow Module test
+Then the user should be able to view Followup Workflow data test
+And the user should be able to see details in Followup Workflow test
+And the user should be able to perform Team Actions in Followup Workflow test
+And the user should be able to toggle Show All Runninglines checkbox Followup Work Flow test
+And the user should be able to toggle Show Past Runninglines checkbox Followup Work Flow test
+And the user should be able to perform advanced searches in Followup Workflow test
+And the user should be able to add Grid Templates in Followup Workflow test
+And the user should be able to edit Grid Templates in Followup Workflow test
+And the user should be able to delete Grid Templates in Followup Workflow test
+And the user should be able to set Grid Template Company Default checkbox Followup Work Flow test
+And the user should have full program access in Followup Workflow test
+And the user should be able to export Followup Workflow data to Excel test
+
+Scenario: User with View only permission in Followup Workflow
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Rxworkflow user should be able to view Profiles
+And I create a profile with only View permission for Followup Workflow Module test
+Then the user should be able to view Followup Workflow data test
+And the user should not be able to see details in Followup Workflow test
+And the user should not be able to perform Team Actions in Followup Workflow test
+And the user should not be able to toggle Show All Runninglines checkbox Followup Work Flow test
+And the user should not be able to toggle Show Past Runninglines checkbox Followup Work Flow test
+And the user should not be able to perform advanced searches in Followup Workflow test
+And the user should not be able to add Grid Templates in Followup Workflow test
+And the user should not be able to edit Grid Templates in Followup Workflow test
+And the user should not be able to delete Grid Templates in Followup Workflow test
+And the user should not be able to set Grid Template Company Default checkbox Followup Work Flow test
+And the user should not have full program access in Followup Workflow test
+And the user should not be able to export Followup Workflow data to Excel test
+
+# Audit Work Flow
+Scenario: User with all permissions in Audit Workflow
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Rxworkflow user should be able to view Profiles
+And I create a profile with the following permissions for Audit Workflow Module test
+Then the user should be able to view Audit Workflow data test
+And the user should be able to add and edit HardCopy in Audit Workflow test
+And the user should be able to delete HardCopy in Audit Workflow test
+And the user should be able to export Audit Workflow data test
+
+Scenario: User with View only permission in Audit Workflow
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Rxworkflow user should be able to view Profiles
+And I create a profile with only View permission for Audit Workflow Module test
+Then the user should be able to view Audit Workflow data test
+And the user should not be able to add or edit HardCopy in Audit Workflow test
+And the user should not be able to delete HardCopy in Audit Workflow test
+And the user should not be able to export Audit Workflow data test
+
+# Medication Activity
+Scenario: User with View only permission Medication Activity
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Rxworkflow user should be able to view Profiles
+And I create a profile with only View permission for Medication Activity
+Then the user should be able to view Medication Activity
+And the user should not be able to add Medication Activity
+
+Scenario: User with View and Add permission Medication Activity
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Rxworkflow user should be able to view Profiles
+And I create a profile with View and Add permission for Medication Activity
+Then the user should be able to view and Add Medication Activity
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

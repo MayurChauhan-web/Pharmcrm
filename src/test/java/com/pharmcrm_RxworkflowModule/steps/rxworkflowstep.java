@@ -10,19 +10,527 @@ public class rxworkflowstep {
 
 	private rxworkflowpage rxworkflowPage;
 
+	// Medication Activity
+	@Then("the user should be able to view and Add Medication Activity")
+	public void enableMedicationActivityViewAndAdd() {
+		rxworkflowPage.allowMedicationActivityViewingAndAddition();
+
+	}
+	
+	@Then("the user should not be able to add Medication Activity")
+	public void restrictMedicationActivityAddition() {
+		rxworkflowPage.disableMedicationActivityAdd();
+
+	}
+
+	@Then("the user should be able to view Medication Activity")
+	public void enableMedicationActivityViewing() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String medicationSyncUrl = Hooks.prop.getProperty("medicationSyncUrl");
+		Assert.assertNotNull("medicationSyncUrl is missing in config", medicationSyncUrl);
+		String fullUrl = baseUrl + medicationSyncUrl;
+		rxworkflowPage = new rxworkflowpage(Hooks.driver);
+		rxworkflowPage.openMedicationSyncPage(fullUrl);
+		Assert.assertTrue("Medication Sync page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Workflow/Home/MedicationSyncReminder"));
+
+		rxworkflowPage.allowMedicationActivityDataAccess();
+
+	}
+
+	@And("I create a profile with View and Add permission for Medication Activity")
+	public void createMedicationActivityProfileWithViewAndAddPermission() {
+		rxworkflowPage.clickFilterButton();
+		rxworkflowPage.enterProfileName();
+		rxworkflowPage.clickSearchButton();
+		rxworkflowPage.clickActionMenu();
+		rxworkflowPage.clickEditButton();
+		rxworkflowPage.setupMedicationActivityProfileViewAndAdd();
+		rxworkflowPage.clickSubmitButton();
+
+	}
+
+	@And("I create a profile with only View permission for Medication Activity")
+	public void createMedicationActivityProfileWithViewPermission() {
+		rxworkflowPage.clickFilterButton();
+		rxworkflowPage.enterProfileName();
+		rxworkflowPage.clickSearchButton();
+		rxworkflowPage.clickActionMenu();
+		rxworkflowPage.clickEditButton();
+		rxworkflowPage.setupMedicationActivityProfileViewOnly();
+		rxworkflowPage.clickSubmitButton();
+
+	}
+
+	// Audit Work Flow
+	@Then("the user should not be able to export Audit Workflow data test")
+	public void restrictAuditWorkflowDataExport() {
+		rxworkflowPage.disableAuditWorkflowDataExport();
+
+	}
+
+	@Then("the user should not be able to delete HardCopy in Audit Workflow test")
+	public void restrictAuditWorkflowHardCopyDeletion() {
+		rxworkflowPage.disableHardCopyDeleteInAuditWorkflow();
+
+	}
+
+	@Then("the user should not be able to add or edit HardCopy in Audit Workflow test")
+	public void restrictAuditWorkflowHardCopyAddAndEdit() {
+		rxworkflowPage.disableHardCopyModificationInAuditWorkflow();
+
+	}
+
+	@And("I create a profile with only View permission for Audit Workflow Module test")
+	public void createAuditWorkflowProfileWithViewPermission() {
+		rxworkflowPage.clickFilterButton();
+		rxworkflowPage.enterProfileName();
+		rxworkflowPage.clickSearchButton();
+		rxworkflowPage.clickActionMenu();
+		rxworkflowPage.clickEditButton();
+		rxworkflowPage.setupAuditWorkflowProfileViewOnly();
+		rxworkflowPage.clickSubmitButton();
+
+	}
+
+	@Then("the user should be able to export Audit Workflow data test")
+	public void enableAuditWorkflowDataExport() {
+		rxworkflowPage.allowAuditWorkflowDataExport();
+
+	}
+
+	@Then("the user should be able to delete HardCopy in Audit Workflow test")
+	public void enableAuditWorkflowHardCopyDeletion() {
+		rxworkflowPage.allowHardCopyDeleteInAuditWorkflow();
+
+	}
+
+	@Then("the user should be able to add and edit HardCopy in Audit Workflow test")
+	public void enableAuditWorkflowHardCopyAddAndEdit() {
+		rxworkflowPage.allowHardCopyModificationInAuditWorkflow();
+
+	}
+
+	@Then("the user should be able to view Audit Workflow data test")
+	public void enableAuditWorkflowDataViewing() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String auditWorkflowUrl = Hooks.prop.getProperty("auditWorkflowUrl");
+
+		Assert.assertNotNull("auditWorkflowUrl is missing in config", auditWorkflowUrl);
+
+		String fullUrl = baseUrl + auditWorkflowUrl;
+
+		rxworkflowPage = new rxworkflowpage(Hooks.driver);
+		rxworkflowPage.openAuditWorkflowPage(fullUrl);
+
+		Assert.assertTrue("Dashboard page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Workflow/Home/AuditWorkflow"));
+	}
+
+	@And("I create a profile with the following permissions for Audit Workflow Module test")
+	public void createAuditWorkflowProfileWithPermissions() {
+		rxworkflowPage.clickFilterButton();
+		rxworkflowPage.enterProfileName();
+		rxworkflowPage.clickSearchButton();
+		rxworkflowPage.clickActionMenu();
+		rxworkflowPage.clickEditButton();
+		rxworkflowPage.setupAuditWorkflowProfilePermissions();
+		rxworkflowPage.clickSubmitButton();
+
+	}
+
+	// Followup Work Flow
+	@And("I create a profile with only View permission for Followup Workflow Module test")
+	public void createFollowupWorkflowProfileWithViewPermission() {
+		rxworkflowPage.clickFilterButton();
+		rxworkflowPage.enterProfileName();
+		rxworkflowPage.clickSearchButton();
+		rxworkflowPage.clickActionMenu();
+		rxworkflowPage.clickEditButton();
+		rxworkflowPage.setupFollowupWorkflowViewOnlyProfile();
+		rxworkflowPage.clickSubmitButton();
+
+	}
+
+	@Then("the user should be able to export Followup Workflow data to Excel test")
+	public void enableFollowupWorkflowDataExportToExcel() {
+		rxworkflowPage.allowFollowupWorkflowExcelExport();
+
+	}
+
+	@Then("the user should have full program access in Followup Workflow test")
+	public void grantFollowupWorkflowFullProgramAccess() {
+		rxworkflowPage.enableFollowupWorkflowFullAccess();
+
+	}
+
+	@Then("the user should be able to set Grid Template Company Default checkbox Followup Work Flow test")
+	public void enableFollowupWorkflowCompanyDefaultGridTemplateSetting() {
+		rxworkflowPage.allowCompanyDefaultGridTemplateCheckboxInFollowupWorkflow();
+
+	}
+
+	@Then("the user should be able to delete Grid Templates in Followup Workflow test")
+	public void enableFollowupWorkflowGridTemplateDeletion() {
+		rxworkflowPage.allowGridTemplateDeleteInFollowupWorkflow();
+
+	}
+
+	@Then("the user should be able to edit Grid Templates in Followup Workflow test")
+	public void enableFollowupWorkflowGridTemplateEditing() {
+		rxworkflowPage.allowGridTemplateEditInFollowupWorkflow();
+
+	}
+
+	@Then("the user should be able to add Grid Templates in Followup Workflow test")
+	public void enableFollowupWorkflowGridTemplateAddition() {
+		rxworkflowPage.allowGridTemplateAddInFollowupWorkflow();
+
+	}
+
+	@Then("the user should be able to perform advanced searches in Followup Workflow test")
+	public void enableFollowupWorkflowAdvancedSearch() {
+		rxworkflowPage.allowAdvancedSearchInFollowupWorkflow();
+
+	}
+
+	@Then("the user should be able to toggle Show Past Runninglines checkbox Followup Work Flow test")
+	public void enableFollowupWorkflowShowPastRunninglinesToggle() {
+		rxworkflowPage.allowShowPastRunninglinesCheckboxInFollowupWorkflow();
+
+	}
+
+	@Then("the user should be able to toggle Show All Runninglines checkbox Followup Work Flow test")
+	public void enableFollowupWorkflowShowAllRunninglinesToggle() {
+		rxworkflowPage.allowShowAllRunninglinesCheckboxInFollowupWorkflow();
+
+	}
+
+	@Then("the user should be able to perform Team Actions in Followup Workflow test")
+	public void enableFollowupWorkflowTeamActions() {
+		rxworkflowPage.allowTeamActionsInFollowupWorkflow();
+
+	}
+
+	@Then("the user should be able to see details in Followup Workflow test")
+	public void enableFollowupWorkflowDetailsView() {
+		rxworkflowPage.allowFollowupWorkflowDetailsAccess();
+
+	}
+
+	@Then("the user should not be able to export Followup Workflow data to Excel test")
+	public void restrictFollowupWorkflowDataExportToExcel() {
+		rxworkflowPage.disableExcelExportInFollowupWorkflow();
+
+	}
+
+	@Then("the user should not have full program access in Followup Workflow test")
+	public void restrictFollowupWorkflowFullProgramAccess() {
+		rxworkflowPage.disableFullAccessInFollowupWorkflow();
+
+	}
+
+	@Then("the user should not be able to set Grid Template Company Default checkbox Followup Work Flow test")
+	public void restrictFollowupWorkflowCompanyDefaultGridTemplateSetting() {
+		rxworkflowPage.disableCompanyDefaultGridTemplateCheckboxInFollowupWorkflow();
+
+	}
+
+	@Then("the user should not be able to delete Grid Templates in Followup Workflow test")
+	public void restrictFollowupWorkflowGridTemplateDeletion() {
+		rxworkflowPage.disableGridTemplateDeleteInFollowupWorkflow();
+
+	}
+
+	@Then("the user should not be able to edit Grid Templates in Followup Workflow test")
+	public void restrictFollowupWorkflowGridTemplateEditing() {
+		rxworkflowPage.disableGridTemplateEditInFollowupWorkflow();
+
+	}
+
+	@Then("the user should not be able to add Grid Templates in Followup Workflow test")
+	public void restrictFollowupWorkflowGridTemplateAddition() {
+		rxworkflowPage.disableGridTemplateAddInFollowupWorkflow();
+
+	}
+
+	@Then("the user should not be able to perform advanced searches in Followup Workflow test")
+	public void restrictFollowupWorkflowAdvancedSearch() {
+		rxworkflowPage.disableAdvancedSearchInFollowupWorkflow();
+
+	}
+
+	@Then("the user should not be able to toggle Show Past Runninglines checkbox Followup Work Flow test")
+	public void restrictFollowupWorkflowShowPastRunninglinesToggle() {
+		rxworkflowPage.disableShowPastRunninglinesCheckboxInFollowupWorkflow();
+
+	}
+
+	@Then("the user should not be able to toggle Show All Runninglines checkbox Followup Work Flow test")
+	public void restrictFollowupWorkflowShowAllRunninglinesToggle() {
+		rxworkflowPage.disableShowAllRunninglinesCheckboxInFollowupWorkflow();
+
+	}
+
+	@Then("the user should not be able to perform Team Actions in Followup Workflow test")
+	public void restrictFollowupWorkflowTeamActions() {
+		rxworkflowPage.disableTeamActionsInFollowupWorkflow();
+
+	}
+
+	@Then("the user should not be able to see details in Followup Workflow test")
+	public void restrictFollowupWorkflowDetailsView() {
+		rxworkflowPage.disableFollowupWorkflowDetailsAccess();
+
+	}
+
+	@Then("the user should be able to view Followup Workflow data test")
+	public void enableFollowupWorkflowDataView() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String followUpWorkflowUrl = Hooks.prop.getProperty("followUpWorkflowUrl");
+
+		Assert.assertNotNull("followUpWorkflowUrl is missing in config", followUpWorkflowUrl);
+
+		String fullUrl = baseUrl + followUpWorkflowUrl;
+
+		rxworkflowPage = new rxworkflowpage(Hooks.driver);
+		rxworkflowPage.openFollowUpWorkflowPage(fullUrl);
+
+		Assert.assertTrue("Dashboard page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Workflow/Home/FollowUpWorkflow"));
+	}
+
+	@And("I create a profile with the all permissions for Followup Workflow Module test")
+	public void createFollowupWorkflowProfileWithAllPermissions() {
+		rxworkflowPage.clickFilterButton();
+		rxworkflowPage.enterProfileName();
+		rxworkflowPage.clickSearchButton();
+		rxworkflowPage.clickActionMenu();
+		rxworkflowPage.clickEditButton();
+		rxworkflowPage.setupFollowupWorkflowFullAccessProfile();
+		rxworkflowPage.clickSubmitButton();
+
+	}
+
 	// Action Work Flow
 
-	
+	@And("I create a profile with only View permission for Action Workflow Module test")
+	public void createViewOnlyWorkflowProfile() {
+		rxworkflowPage.clickFilterButton();
+		rxworkflowPage.enterProfileName();
+		rxworkflowPage.clickSearchButton();
+		rxworkflowPage.clickActionMenu();
+		rxworkflowPage.clickEditButton();
+		rxworkflowPage.addWorkflowProfileWithViewPermission();
+		rxworkflowPage.clickSubmitButton();
+
+	}
+
+	@Then("the user should not be able to export Action Workflow data to Excel test")
+	public void restrictWorkflowDataExportToExcel() {
+		rxworkflowPage.blockWorkflowDataExportToExcel();
+
+	}
+
+	@Then("the user should not be able to send VCards in Action Workflow test")
+	public void restrictWorkflowVCardSending() {
+		rxworkflowPage.shouldNotAllowVCardSendingInWorkflow();
+
+	}
+
+	@Then("the user should not have full program access in Action Workflow test")
+	public void restrictFullProgramAccessInWorkflow() {
+		rxworkflowPage.testRestrictFullProgramAccessInWorkflow();
+
+	}
+
+	@Then("the user should not be able to set Grid Template Company Default checkbox Action Work Flow test")
+	public void restrictCompanyDefaultGridTemplateSetting() {
+		rxworkflowPage.disableCompanyDefaultGridTemplateCheckbox();
+
+	}
+
+	@Then("the user should not be able to delete Grid Templates in Action Workflow test")
+	public void restrictGridTemplateDeletionInWorkflow() {
+		rxworkflowPage.disableActionWorkflowGridTemplateDelete();
+
+	}
+
+	@Then("the user should not be able to edit Grid Templates in Action Workflow test")
+	public void restrictGridTemplateEditingInWorkflow() {
+		rxworkflowPage.disableActionWorkflowGridTemplateEdit();
+
+	}
+
+	@Then("the user should not be able to add Grid Templates in Action Workflow test")
+	public void restrictGridTemplateAdditionInWorkflow() {
+		rxworkflowPage.disableActionWorkflowGridTemplateCreation();
+
+	}
+
+	@Then("the user should not be able to perform advanced searches in Action Workflow test")
+	public void restrictAdvancedWorkflowSearch() {
+		rxworkflowPage.disableActionWorkflowAdvancedSearch();
+
+	}
+
+	@Then("the user should not be able to toggle Show Past Runninglines checkbox Action Work Flow test")
+	public void restrictShowPastRunninglinesToggle() {
+		rxworkflowPage.disableShowPastRunninglinesCheckbox();
+
+	}
+
+	@Then("the user should not be able to toggle Show All Runninglines checkbox Action Work Flow test")
+	public void restrictShowAllRunninglinesToggle() {
+		rxworkflowPage.disableShowAllRunninglinesCheckbox();
+
+	}
+
+	@Then("the user should not be able to send Quick Text in Action Workflow test")
+	public void restrictWorkflowQuickTextSending() {
+		rxworkflowPage.disableActionWorkflowQuickText();
+
+	}
+
+	@Then("the user should be able to export Action Workflow data to Excel test")
+	public void generateExcelFromActionWorkflow() {
+		rxworkflowPage.saveWorkflowDataToExcelFile();
+
+	}
+
+	@Then("the user should be able to send VCards in Action Workflow test")
+	public void sendActionWorkflowVCard() {
+		rxworkflowPage.dispatchWorkflowVCard();
+
+	}
+
+	@Then("the user should have full program access in Action Workflow test")
+	public void enableActionWorkflowFullAccess() {
+		rxworkflowPage.provideWorkflowProgramAccess();
+
+	}
+
+	@Then("the user should be able to set Grid Template Company Default checkbox test")
+	public void setGridTemplateCompanyDefault() {
+		rxworkflowPage.enableCompanyDefaultGridTemplate();
+
+	}
+
+	@Then("the user should be able to delete Grid Templates in Action Workflow test")
+	public void deleteActionWorkflowGridTemplate() {
+		rxworkflowPage.removeWorkflowGridTemplate();
+
+	}
+
+	@Then("the user should be able to edit Grid Templates in Action Workflow test")
+	public void editActionWorkflowGridTemplate() {
+		rxworkflowPage.updateWorkflowGridTemplate();
+
+	}
+
+	@Then("the user should be able to add Grid Templates in Action Workflow test")
+	public void addActionWorkflowGridTemplate() {
+		rxworkflowPage.createWorkflowGridTemplate();
+
+	}
+
+	@Then("the user should be able to perform advanced searches in Action Workflow test")
+	public void performAdvancedWorkflowSearch() {
+		rxworkflowPage.executeActionWorkflowAdvancedSearch();
+
+	}
+
+	@Then("the user should be able to toggle Show Past Runninglines checkbox Action Work Flow test")
+	public void toggleShowPastRunninglines() {
+		rxworkflowPage.setShowPastRunninglinesCheckbox();
+
+	}
+
+	@Then("the user should be able to toggle Show All Runninglines checkbox Action Work Flow test")
+	public void testToggleShowAllRunninglinesCheckbox() {
+		rxworkflowPage.shouldToggleShowAllRunninglinesInWorkflow();
+
+	}
+
+	@Then("the user should be able to send Quick Text in Action Workflow test")
+	public void sendActionWorkflowQuickText() {
+		rxworkflowPage.dispatchQuickTextInWorkflow();
+
+	}
+
+	@Then("the user should be able to perform BOT Calls in Action Workflow test")
+	public void performActionWorkflowBotCall() {
+		rxworkflowPage.executeWorkflowBotCall();
+
+	}
+
+	@Then("the user should be able to send Text messages in Action Workflow test")
+	public void sendActionWorkflowTextMessage() {
+		rxworkflowPage.sendWorkflowText();
+
+	}
+
+	@Then("the user should be able to see details in Action Workflow test")
+	public void viewActionWorkflowDetails() {
+		rxworkflowPage.shouldDisplayActionWorkflowDetails();
+
+	}
+
+	@Then("the user should not be able to see details in Action Workflow test")
+	public void restrictActionWorkflowDetailsView() {
+		rxworkflowPage.denyWorkflowDetailsAccess();
+
+	}
+
+	@Then("the user should not be able to send Text messages in Action Workflow test")
+	public void restrictWorkflowTextMessaging() {
+		rxworkflowPage.disableActionWorkflowTextMessage();
+
+	}
+
+	@Then("the user should not be able to perform BOT Calls in Action Workflow test")
+	public void restrictWorkflowBotCalls() {
+		rxworkflowPage.disableActionWorkflowBotCall();
+
+	}
+
+	@Then("the user should be able to view Action Workflow data test")
+	public void viewActionWorkflowDataTest() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String actionWorkflowUrl = Hooks.prop.getProperty("actionWorkflowUrl");
+
+		Assert.assertNotNull("actionWorkflowUrl is missing in config", actionWorkflowUrl);
+
+		String fullUrl = baseUrl + actionWorkflowUrl;
+
+		rxworkflowPage = new rxworkflowpage(Hooks.driver);
+		rxworkflowPage.openActionWorkflowPage(fullUrl);
+
+		Assert.assertTrue("Dashboard page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Workflow/Home/ActionWorkflow"));
+
+	}
+
+	@And("I create a profile with the following permissions for Action Workflow Module test")
+	public void createActionWorkflowProfile() {
+		rxworkflowPage.clickFilterButton();
+		rxworkflowPage.enterProfileName();
+		rxworkflowPage.clickSearchButton();
+		rxworkflowPage.clickActionMenu();
+		rxworkflowPage.clickEditButton();
+		rxworkflowPage.initializeProfileWithPermissions();
+		rxworkflowPage.clickSubmitButton();
+
+	}
+
 	// Display Work Flow
 	@Then("the user should not be able to export Display Workflow data to Excel test")
 	public void userShouldNotBeAbleToPerformPharmacyNabpSearchesInDisplayWorkflowModule() {
-
 		rxworkflowPage.shouldRestrictPharmacyNabpSearchesInDisplayWorkflowModule();
 	}
 
 	@Then("the user should not be able to perform Pharmacy NABP searches test")
 	public void userShouldNotBeAbleToExportDisplayWorkflowDataToExcel() {
-
 		rxworkflowPage.shouldRestrictExportingDisplayWorkflowDataToExcel();
 	}
 
@@ -40,121 +548,101 @@ public class rxworkflowstep {
 
 	@Then("the user should be able to export Display Workflow data to Excel test")
 	public void userShouldBeAbleToExportDisplayWorkflowDataToExcel() {
-
 		rxworkflowPage.shouldAllowExportingDisplayWorkflowDataToExcel();
 	}
 
 	@Then("the user should be able to perform Pharmacy NABP searches test")
 	public void userShouldBeAbleToPerformPharmacyNabpSearchesInDisplayWorkflowModule() {
-
 		rxworkflowPage.shouldAllowPharmacyNabpSearchesInDisplayWorkflowModule();
 	}
 
 	@Then("the user should have full program access in Display Workflow test")
 	public void userShouldHaveFullProgramAccessInDisplayWorkflowModule() {
-
 		rxworkflowPage.shouldAllowFullProgramAccessInDisplayWorkflowModule();
 	}
 
 	@Then("the user should be able to set Grid Template - Company Default checkbox test")
 	public void userShouldBeAbleToSetGridTemplateCompanyDefaultCheckboxInDisplayWorkflowModule() {
-
 		rxworkflowPage.shouldAllowSettingGridTemplateCompanyDefaultCheckboxInDisplayWorkflowModule();
 	}
 
 	@Then("the user should be able to toggle Show Past Runninglines checkbox test")
 	public void userShouldBeAbleToToggleShowPastRunninglinesCheckboxInDisplayWorkflowModule() {
-
 		rxworkflowPage.shouldAllowTogglingShowPastRunninglinesCheckboxInDisplayWorkflowModule();
 	}
 
 	@Then("the user should be able to toggle Show All Runninglines checkbox test")
 	public void userShouldBeAbleToToggleShowAllRunninglinesCheckboxInDisplayWorkflowModule() {
-
 		rxworkflowPage.shouldAllowTogglingShowAllRunninglinesCheckboxInDisplayWorkflowModule();
 	}
 
 	@Then("the user should be able to delete Grid Templates in Display Workflow test")
 	public void userShouldBeAbleToDeleteGridTemplatesInDisplayWorkflowModule() {
-
 		rxworkflowPage.shouldAllowDeletingGridTemplatesInDisplayWorkflowModule();
 	}
 
 	@Then("the user should be able to edit Grid Templates in Display Workflow test")
 	public void userShouldBeAbleToEditGridTemplatesInDisplayWorkflowModule() {
-
 		rxworkflowPage.shouldAllowEditingGridTemplatesInDisplayWorkflowModule();
 	}
 
 	@Then("the user should be able to add Grid Templates in Display Workflow test")
 	public void userShouldBeAbleToAddGridTemplatesInDisplayWorkflowModule() {
-
 		rxworkflowPage.shouldAllowAddingGridTemplatesInDisplayWorkflowModule();
 	}
 
 	@Then("the user should be able to perform advanced searches in Display Workflow test")
 	public void userShouldBeAbleToPerformAdvancedSearchesInDisplayWorkflowModule() {
-
 		rxworkflowPage.shouldAllowAdvancedSearchInDisplayWorkflowModule();
 	}
 
 	@Then("the user should be able to see details in Display Workflow test")
 	public void userShouldBeAbleToSeeDetailsInDisplayWorkflowModule() {
-
 		rxworkflowPage.shouldAllowViewingDetailsInDisplayWorkflowModule();
 	}
 
 	@Then("the user should not be able to perform advanced searches in Display Workflow test")
 	public void userShouldNotBeAbleToPerformAdvancedSearchesInDisplayWorkflowModule() {
-
 		rxworkflowPage.shouldRestrictAdvancedSearchesInDisplayWorkflowModule();
 	}
 
 	@Then("the user should not be able to add Grid Templates in Display Workflow test")
 	public void userShouldNotBeAbleToAddGridTemplatesInDisplayWorkflowModule() {
-
 		rxworkflowPage.shouldRestrictAddingGridTemplatesInDisplayWorkflowModule();
 	}
 
 	@Then("the user should not be able to edit Grid Templates in Display Workflow test")
 	public void userShouldNotBeAbleToEditGridTemplatesInDisplayWorkflowModule() {
-
 		rxworkflowPage.shouldRestrictEditingGridTemplatesInDisplayWorkflowModule();
 	}
 
 	@Then("the user should not be able to delete Grid Templates in Display Workflow test")
 	public void userShouldNotBeAbleToDeleteGridTemplatesInDisplayWorkflowModule() {
-
 		rxworkflowPage.shouldRestrictDeletingGridTemplatesInDisplayWorkflowModule();
 	}
 
 	@Then("the user should not be able to toggle Show All Runninglines checkbox test")
 	public void userShouldNotBeAbleToToggleShowAllRunninglinesCheckboxInDisplayWorkflowModule() {
-
 		rxworkflowPage.shouldRestrictTogglingShowAllRunninglinesCheckboxInDisplayWorkflowModule();
 	}
 
 	@Then("the user should not be able to toggle Show Past Runninglines checkbox test")
 	public void userShouldNotBeAbleToToggleShowPastRunninglinesCheckboxInDisplayWorkflowModule() {
-
 		rxworkflowPage.shouldRestrictTogglingShowPastRunninglinesCheckboxInDisplayWorkflowModule();
 	}
 
 	@Then("the user should not be able to set Grid Template - Company Default checkbox test")
 	public void userShouldNotBeAbleToSetGridTemplateCompanyDefaultCheckboxInDisplayWorkflowModule() {
-
 		rxworkflowPage.shouldRestrictSettingGridTemplateCompanyDefaultCheckboxInDisplayWorkflowModule();
 	}
 
 	@Then("the user should not have full program access in Display Workflow test")
 	public void userShouldNotHaveFullProgramAccessInDisplayWorkflowModule() {
-
 		rxworkflowPage.shouldRestrictFullProgramAccessInDisplayWorkflowModule();
 	}
 
 	@Then("the user should not be able to see details in Display Workflow test")
 	public void userShouldNotBeAbleToSeeDetailsInDisplayWorkflowModule() {
-
 		rxworkflowPage.shouldRestrictViewingDetailsInDisplayWorkflowModule();
 	}
 
@@ -162,17 +650,12 @@ public class rxworkflowstep {
 	public void userShouldBeAbleToViewDisplayWorkflowData() {
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String dashboardUrl = Hooks.prop.getProperty("dashboardUrl");
-
 		Assert.assertNotNull("dashboardUrl is missing in config", dashboardUrl);
-
 		String fullUrl = baseUrl + dashboardUrl;
-
 		rxworkflowPage = new rxworkflowpage(Hooks.driver);
 		rxworkflowPage.openDashboardPage(fullUrl);
-
 		Assert.assertTrue("Dashboard page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Workflow/Home/Dashboard"));
-
 		rxworkflowPage.shouldAllowViewingDisplayWorkflowData();
 	}
 
@@ -191,21 +674,18 @@ public class rxworkflowstep {
 	// Sync Workflow
 	@Then("the user should not be able to export Sync Workflow data to Excel test")
 	public void userShouldNotBeAbleToExportSyncWorkflowDataToExcel() {
-
 		rxworkflowPage.shouldNotAllowExportingSyncWorkflowDataToExcel();
 
 	}
 
 	@Then("the user should not be able to receive alerts in Sync Workflow test")
 	public void userShouldNotBeAbleToReceiveAlertsInSyncWorkflowModule() {
-
 		rxworkflowPage.shouldNotAllowReceivingAlertsInSyncWorkflowModule();
 
 	}
 
 	@Then("the user should not be able to comment in Sync Workflow test")
 	public void userShouldNotBeAbleToCommentInSyncWorkflowModule() {
-
 		rxworkflowPage.shouldNotAllowCommentingInSyncWorkflowModule();
 
 	}
@@ -224,21 +704,18 @@ public class rxworkflowstep {
 
 	@Then("the user should be able to export Sync Workflow data to Excel test")
 	public void userShouldBeAbleToExportSyncWorkflowDataToExcel() {
-
 		rxworkflowPage.shouldAllowExportingSyncWorkflowDataToExcel();
 
 	}
 
 	@Then("the user should be able to receive alerts in Sync Workflow test")
 	public void userShouldBeAbleToReceiveAlertsInSyncWorkflowModule() {
-
 		rxworkflowPage.shouldAllowReceivingAlertsInSyncWorkflowModule();
 
 	}
 
 	@Then("the user should be able to comment in Sync Workflow test")
 	public void userShouldBeAbleToCommentInSyncWorkflowModule() {
-
 		rxworkflowPage.shouldAllowCommentingInSyncWorkflowModule();
 
 	}
@@ -247,17 +724,12 @@ public class rxworkflowstep {
 	public void userShouldBeAbleToViewSyncWorkflowData() {
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
 		String medicationSyncUrl = Hooks.prop.getProperty("medicationSyncUrl");
-
 		Assert.assertNotNull("medicationSyncUrl is missing in config", medicationSyncUrl);
-
 		String fullUrl = baseUrl + medicationSyncUrl;
-
 		rxworkflowPage = new rxworkflowpage(Hooks.driver);
 		rxworkflowPage.openMedicationSyncPage(fullUrl);
-
 		Assert.assertTrue("Medication Sync page is not displayed",
 				Hooks.driver.getCurrentUrl().contains("/Workflow/Home/MedicationSyncReminder"));
-
 		rxworkflowPage.shouldAllowViewingPrescriptionStatusInWorkflowModule();
 	}
 
@@ -274,10 +746,8 @@ public class rxworkflowstep {
 	}
 
 	// Prescription Status
-
 	@Then("the user should be able to delete Prescription Status in Workflow Module test")
 	public void userShouldBeAbleToDeletePrescriptionStatusInWorkflowModule() {
-
 		rxworkflowPage.shouldAllowDeletingPrescriptionStatusInWorkflowModule();
 
 	}
@@ -296,14 +766,12 @@ public class rxworkflowstep {
 
 	@Then("the user should not be able to add Prescription Status in Workflow Module test")
 	public void userShouldNotBeAbleToAddPrescriptionStatusInWorkflowModule() {
-
 		rxworkflowPage.shouldNotAllowAddingPrescriptionStatusInWorkflowModule();
 
 	}
 
 	@Then("the user should be able to edit Prescription Status in Workflow Module test")
 	public void userShouldBeAbleToEditPrescriptionStatusInWorkflowModule() {
-
 		rxworkflowPage.shouldAllowEditingPrescriptionStatusInWorkflowModule();
 
 	}
@@ -322,21 +790,18 @@ public class rxworkflowstep {
 
 	@Then("the user should not be able to delete Prescription Status in Workflow Module test")
 	public void userShouldNotBeAbleToDeletePrescriptionStatusInWorkflowModule() {
-
 		rxworkflowPage.shouldNotAllowDeletingPrescriptionStatusInWorkflowModule();
 
 	}
 
 	@Then("the user should not be able to edit Prescription Status in Workflow Module test")
 	public void userShouldNotBeAbleToEditPrescriptionStatusInWorkflowModule() {
-
 		rxworkflowPage.shouldNotAllowEditingPrescriptionStatusInWorkflowModule();
 
 	}
 
 	@Then("the user should be able to add Prescription Status in Workflow Module test")
 	public void userShouldBeAbleToAddPrescriptionStatusInWorkflowModule() {
-
 		rxworkflowPage.shouldAllowAddingPrescriptionStatusInWorkflowModule();
 
 	}

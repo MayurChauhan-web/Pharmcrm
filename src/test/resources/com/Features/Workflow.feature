@@ -649,7 +649,7 @@ And the user should not have full program access in Display Workflow
 And the user should not be able to perform Pharmacy NABP searches
 And the user should not be able to export Display Workflow data to Excel
 
-#
+
 Scenario: User with all permissions in Action Workflow
 Given I log in as admin for Workflow Module
 When I create a new user with email for Workflow Module "actionuser4_static@mailinator.com"
@@ -672,6 +672,7 @@ And the user should be able to set Grid Template - Company Default checkbox
 And the user should have full program access in Action Workflow
 And the user should be able to send VCards in Action Workflow
 And the user should be able to export Action Workflow data to Excel
+
 
 Scenario: User with View only permission in Action Workflow
 Given I log in as admin for Workflow Module
@@ -736,6 +737,7 @@ And the user should not be able to set Grid Template - Company Default checkbox
 And the user should not have full program access in Followup Workflow
 And the user should not be able to export Followup Workflow data to Excel
 
+
 Scenario: User with all permissions in Audit Workflow
 Given I log in as admin for Workflow Module
 When I create a new user with email for Workflow Module "testuser4_static@mailinator.com"
@@ -747,6 +749,7 @@ Then the user should be able to view Audit Workflow data
 And the user should be able to add and edit HardCopy in Audit Workflow
 And the user should be able to delete HardCopy in Audit Workflow
 And the user should be able to export Audit Workflow data
+
 
 Scenario: User with View only permission in Audit Workflow
 Given I log in as admin for Workflow Module
@@ -760,6 +763,7 @@ And the user should not be able to add or edit HardCopy in Audit Workflow
 And the user should not be able to delete HardCopy in Audit Workflow
 And the user should not be able to export Audit Workflow data
 
+#
 Scenario: Workflow Dashboard Add Template Validation on Blank Submission
 Given I log in as admin for Workflow Module
 When I navigate to the Workflow Dashboard

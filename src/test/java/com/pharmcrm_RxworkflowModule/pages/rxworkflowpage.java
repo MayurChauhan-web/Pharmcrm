@@ -18,10 +18,69 @@ public class rxworkflowpage {
 	private WebDriver driver;
 	private WebDriverWait wait;
 
-	// Action Work Flow
-	// Action Work Flow
+	// Medication Activity
+	public By timelineIcon = By.xpath(
+			"//div[@class='syncWorkflowGridCol syncWorkflowGridContent']//a[@title='Timeline']//*[name()='svg']");
+	public By medicationActivityAddLabel = By.xpath("//label[@for='chkg45MedicationActivityAdd']");
+	public By editIcon = By.xpath("(//img[@class='v-align-txttop'])[1]");
+	public By addActivityButton = By.xpath("//button[@id='btnAddActivity']");
+	public By syncWorkflowSettingDropdown = By.xpath("//select[@id='SyncWorkflowSetting_Id']");
+	public By medicationActivityCommentsInput = By.xpath("//input[@id='MedicationActivity_Comments']");
 
-	
+	// Audit Work Flow
+	public By auditWorkflowAllLabel = By.xpath("//label[@for='chkg43AuditWorkflowAll']");
+	public By auditWorkflowViewLabel = By.xpath("//label[@for='chkg43AuditWorkflowView']");
+	public By recordMenuButton = By.xpath("(//*[contains(@class,'fa-ellipsis-vertical')])[1]");
+	public By editHardCopyOption = By.xpath("//div[@class='gridRecordContextMain show']//li[1]//a[1]//div[1]//img[1]");
+	public By isVerifiedCheckbox = By.xpath("//label[normalize-space()='Is Verified?']");
+	public By deleteOptionButton = By.xpath(
+			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//a[@id='btnDeleteAuditData']//img");
+	public By deleteHardCopyOption = By.xpath(
+			"//div[@class='dropdown-menu bucket-dropdown-content gridRecordContext show']//a[@id='btnDeleteAuditData']//img");
+
+	// Followup Work Flow
+	public By fullProgramAccessElement = By.xpath("//*[name()='path' and contains(@d,'M256 80c0-')]");
+	public By followUpAllLabel = By.xpath("//label[@for='chkg7FollowUpAll']");
+	public By followUpViewLabel = By.xpath("//label[@for='chkg7FollowUpView']");
+	public By searchIconButton = By.xpath("//i[@class='fa-solid fa-magnifying-glass']");
+	public By teamActionsButton = By.xpath("//tbody/tr[1]/td[16]/a[1]/button[1]//*[name()='svg']");
+	public By gridTemplateNameField = By.id("GridTemplate_Name");
+	public By alertField = By.xpath("//li[@id='boxItem_Alert']");
+
+	// Action Work Flow
+	public By advanceSearchButton = By
+			.xpath("//a[@id='advancecollapse']//*[name()='svg']//*[name()='path' and @id='Union_73']");
+	private By searchCollapseButton = By
+			.xpath("//a[@id='searchcollapse']//*[name()='svg']//*[name()='path' and @id='Union_73']");
+	private By advanceCollapseButton = By.xpath("//a[@id='advancecollapse']//*[name()='svg']");
+	private By rxNumberField = By.id("Filter_RxNumber");
+	public By showAllRunninglinesCheckbox = By
+			.xpath("//div[@class='runningLineCheckboxinner']//label[@for='Filter_IsShowAllRunningline']");
+	public By quickTextIcon = By.xpath("//*[name()='path' and @id='Path_284']");
+	public By quickTextPhoneNumber = By.id("quickTextPhoneNumber");
+	public By quickTextBody = By.id("quickTextBody");
+	public By quickTextSendButton = By.xpath("//button[@id='btnQuickSMSSend']");
+	private By calloutToAllButton = By
+			.xpath("//button[@id='btnCalloutToAll']//*[name()='svg']//*[name()='path' and @id='Union_46']");
+	private By confirmButton = By.xpath("//div[@id='calloutToAllmodal']//button[@id='btnDeleteConfirm']");
+	public By smsToAllButton = By.xpath("//button[@id='btnSMSToAll']//*[name()='svg']");
+	public By smsConfirmButton = By.xpath("//div[@id='smsToAllmodal']//button[@id='btnDeleteConfirm']");
+	public By totalCountLabel = By.xpath("//label[normalize-space()='Total Count']");
+	private By showPastRunninglinesCheckbox = By
+			.xpath("//div[@class='runningLineCheckboxinner']//label[@for='Filter_IsShowPastRunningline']");
+	public By gridTemplateName = By.id("GridTemplate_Name");
+	public By saveGridTemplateButton = By.xpath("//button[@id='btnSave']");
+	public By editGridTemplateButton = By.xpath("//*[name()='path' and @id='Union_2']");
+	public By actionSelectCheckboxField = By.xpath("//li[@id='boxItem_ActionSelectCheckbox']");
+	public By fieldSidebarDropArea = By.xpath("//nav[@id='fieldsidebar1']");
+	public By codeColumnHeader = By.xpath("//th[@id='Code']");
+	public By sendVCardButton = By.xpath("//*[name()='path' and @id='Union_48']");
+	public By vCardPhoneNumber = By.id("vCardPhoneNumber");
+	public By sendVCardConfirmButton = By.xpath("//button[@id='btnSendVCard']");
+	public By actionWorkFlowAllLabel = By.xpath("//label[@for='chkg7ActionWorkFlowAll']");
+	public By actionWorkFlowViewLabel = By.xpath("//label[@for='chkg7ActionWorkFlowView']");
+	public By botCallsButton = By.xpath("//button[@id='btnCalloutToAll']//*[name()='svg']");
+
 	// Display Work Flow
 	public By showAllRunninglineCheckbox = By
 			.xpath("//div[@class='runningLineCheckboxinner']//label[@for='Filter_IsShowAllRunningline']");
@@ -223,19 +282,555 @@ public class rxworkflowpage {
 	public By patientModuleDeleteLabel = By.xpath("//label[@for='chkg9PatientDelete']");
 	public By patientTagEditPermissionLabel = By.xpath("//label[@for='chkg10PatientTagEdit']");
 
+	// Medication Activity
+	public void allowMedicationActivityViewingAndAddition() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		driver.findElement(editIcon).click();
+
+		WebElement syncWorkflowSettingDropdownElement = wait
+				.until(ExpectedConditions.elementToBeClickable(syncWorkflowSettingDropdown));
+		new Select(syncWorkflowSettingDropdownElement).selectByIndex(1);
+
+		String medicationActivityCommentsInputValue = Hooks.prop.getProperty("medicationActivityCommentsInput");
+		WebElement medicationActivityCommentsInputField = driver.findElement(medicationActivityCommentsInput);
+		medicationActivityCommentsInputField.sendKeys(medicationActivityCommentsInputValue);
+
+		driver.findElement(addActivityButton).click();
+
+		driver.findElement(saveCommentButton).click();
+
+	}
+
+	public void disableMedicationActivityAdd() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		driver.findElement(editIcon).click();
+		Assert.assertTrue(driver.findElements(addActivityButton).isEmpty());
+
+	}
+
+	public void allowMedicationActivityDataAccess() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		driver.findElement(timelineIcon).click();
+
+	}
+
+	public void setupMedicationActivityProfileViewAndAdd() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
+		btnSave.click();
+
+	}
+
+	public void setupMedicationActivityProfileViewOnly() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+
+		WebElement medicationActivityAddLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(medicationActivityAddLabel));
+		medicationActivityAddLabelElement.click();
+
+		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
+		btnSave.click();
+
+	}
+
+	// Audit Work Flow
+	public void disableAuditWorkflowDataExport() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		Assert.assertTrue(driver.findElements(exportExcelButton).isEmpty());
+
+	}
+
+	public void disableHardCopyDeleteInAuditWorkflow() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		driver.findElement(recordMenuButton).click();
+		Assert.assertTrue(driver.findElements(deleteHardCopyOption).isEmpty());
+
+	}
+
+	public void disableHardCopyModificationInAuditWorkflow() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		driver.findElement(recordMenuButton).click();
+		Assert.assertTrue(driver.findElements(editHardCopyOption).isEmpty());
+
+	}
+
+	public void setupAuditWorkflowProfileViewOnly() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+
+		WebElement auditWorkflowAllLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(auditWorkflowAllLabel));
+		auditWorkflowAllLabelElement.click();
+
+		WebElement auditWorkflowViewLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(auditWorkflowViewLabel));
+		auditWorkflowViewLabelElement.click();
+
+		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
+		btnSave.click();
+
+	}
+
+	public void allowAuditWorkflowDataExport() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		driver.findElement(exportExcelButton).click();
+
+	}
+
+	public void allowHardCopyDeleteInAuditWorkflow() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		driver.findElement(recordMenuButton).click();
+		driver.findElement(deleteOptionButton).click();
+		driver.findElement(confirmDeleteButton).click();
+
+	}
+
+	public void allowHardCopyModificationInAuditWorkflow() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		driver.findElement(recordMenuButton).click();
+		driver.findElement(editHardCopyOption).click();
+		driver.findElement(isVerifiedCheckbox).click();
+		driver.findElement(submitButton).click();
+
+	}
+
+	public void openAuditWorkflowPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Workflow/Home/AuditWorkflow"));
+	}
+
+	public void setupAuditWorkflowProfilePermissions() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
+		btnSave.click();
+
+	}
+
+	// Followup Work Flow
+	public void disableExcelExportInFollowupWorkflow() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		Assert.assertTrue(driver.findElements(exportExcelButton).isEmpty());
+
+	}
+
+	public void disableFullAccessInFollowupWorkflow() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		Assert.assertTrue(driver.findElements(fullProgramAccessElement).isEmpty());
+
+	}
+
+	public void disableCompanyDefaultGridTemplateCheckboxInFollowupWorkflow() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		Assert.assertTrue(driver.findElements(companyDefaultCheckbox).isEmpty());
+
+	}
+
+	public void disableGridTemplateDeleteInFollowupWorkflow() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		Assert.assertTrue(driver.findElements(deleteGridTemplateButton).isEmpty());
+
+	}
+
+	public void disableGridTemplateEditInFollowupWorkflow() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		Assert.assertTrue(driver.findElements(editGridTemplateButton).isEmpty());
+
+	}
+
+	public void disableGridTemplateAddInFollowupWorkflow() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		Assert.assertTrue(driver.findElements(addGridTemplateButton).isEmpty());
+
+	}
+
+	public void disableAdvancedSearchInFollowupWorkflow() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		driver.findElement(searchCollapseButton).click();
+		Assert.assertTrue(driver.findElements(advancedSearchButton).isEmpty());
+	}
+
+	public void disableShowPastRunninglinesCheckboxInFollowupWorkflow() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		Assert.assertTrue(driver.findElements(showPastRunninglinesCheckbox).isEmpty());
+
+	}
+
+	public void disableShowAllRunninglinesCheckboxInFollowupWorkflow() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		Assert.assertTrue(driver.findElements(showAllRunninglinesCheckbox).isEmpty());
+
+	}
+
+	public void disableTeamActionsInFollowupWorkflow() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		Assert.assertTrue(driver.findElements(teamActionsButton).isEmpty());
+
+	}
+
+	public void disableFollowupWorkflowDetailsAccess() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		Assert.assertTrue(driver.findElements(showAllRunninglinesCheckbox).isEmpty());
+
+	}
+
+	public void setupFollowupWorkflowViewOnlyProfile() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		WebElement followUpAllLabelElement = wait.until(ExpectedConditions.elementToBeClickable(followUpAllLabel));
+		followUpAllLabelElement.click();
+		WebElement followUpViewLabelElement = wait.until(ExpectedConditions.elementToBeClickable(followUpViewLabel));
+		followUpViewLabelElement.click();
+		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
+		btnSave.click();
+
+	}
+
+	public void allowFollowupWorkflowExcelExport() {
+		driver.findElement(exportExcelButton).click();
+
+	}
+
+	public void enableFollowupWorkflowFullAccess() {
+		driver.findElement(showAllRunninglinesCheckbox).click();
+
+	}
+
+	public void allowCompanyDefaultGridTemplateCheckboxInFollowupWorkflow() {
+		driver.findElement(addGridTemplateButton).click();
+
+		String gridTemplateNameFieldValue = Hooks.prop.getProperty("gridTemplateNameField");
+		WebElement gridTemplateNameFieldInputField = driver.findElement(gridTemplateNameField);
+		gridTemplateNameFieldInputField.sendKeys(gridTemplateNameFieldValue);
+
+		driver.findElement(companyDefaultCheckbox).click();
+		driver.findElement(saveButton).click();
+
+	}
+
+	public void allowGridTemplateDeleteInFollowupWorkflow() {
+
+		driver.findElement(deleteGridTemplateButton).click();
+		driver.findElement(deleteConfirmButton).click();
+	}
+
+	public void allowGridTemplateEditInFollowupWorkflow() {
+		driver.findElement(editGridTemplateButton).click();
+
+		WebElement field = driver.findElement(alertField);
+		WebElement dropTarget = driver.findElement(dropArea);
+
+		Actions act = new Actions(driver);
+		act.clickAndHold(field).moveToElement(dropTarget).release().build().perform();
+	}
+
+	public void allowGridTemplateAddInFollowupWorkflow() {
+		driver.findElement(addGridTemplateButton).click();
+
+		String gridTemplateNameFieldValue = Hooks.prop.getProperty("gridTemplateNameField");
+		WebElement gridTemplateNameFieldInputField = driver.findElement(gridTemplateNameField);
+		gridTemplateNameFieldInputField.sendKeys(gridTemplateNameFieldValue);
+
+		driver.findElement(saveButton).click();
+	}
+
+	public void allowAdvancedSearchInFollowupWorkflow() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		driver.findElement(searchCollapseButton).click();
+		driver.findElement(advancedSearchButton).click();
+
+		String rxNumberFieldValue = Hooks.prop.getProperty("rxNumberField");
+		WebElement rxNumberFieldInputField = driver.findElement(rxNumberField);
+		rxNumberFieldInputField.sendKeys(rxNumberFieldValue);
+
+		driver.findElement(searchIconButton).click();
+	}
+
+	public void allowShowPastRunninglinesCheckboxInFollowupWorkflow() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		driver.findElement(showPastRunninglinesCheckbox).click();
+
+	}
+
+	public void allowShowAllRunninglinesCheckboxInFollowupWorkflow() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		driver.findElement(showAllRunninglinesCheckbox).click();
+
+	}
+
+	public void allowTeamActionsInFollowupWorkflow() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		driver.findElement(teamActionsButton).click();
+
+	}
+
+	public void allowFollowupWorkflowDetailsAccess() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		driver.findElement(showAllRunninglinesCheckbox).click();
+
+	}
+
+	public void setupFollowupWorkflowFullAccessProfile() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
+		btnSave.click();
+
+	}
+
+	public void openFollowUpWorkflowPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Workflow/Home/FollowUpWorkflow"));
+	}
+
+	// Action Work Flow
+	public void addWorkflowProfileWithViewPermission() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		WebElement actionWorkFlowAllLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(actionWorkFlowAllLabel));
+		actionWorkFlowAllLabelElement.click();
+		WebElement actionWorkFlowViewLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(actionWorkFlowViewLabel));
+		actionWorkFlowViewLabelElement.click();
+		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
+		btnSave.click();
+
+	}
+
+	public void blockWorkflowDataExportToExcel() {
+		Assert.assertTrue(driver.findElements(exportExcelButton).isEmpty());
+
+	}
+
+	public void shouldNotAllowVCardSendingInWorkflow() {
+		Assert.assertTrue(driver.findElements(sendVCardButton).isEmpty());
+
+	}
+
+	public void testRestrictFullProgramAccessInWorkflow() {
+		Assert.assertTrue(driver.findElements(showAllRunninglinesCheckbox).isEmpty());
+
+	}
+
+	public void disableCompanyDefaultGridTemplateCheckbox() {
+		Assert.assertTrue(driver.findElements(addGridTemplateButton).isEmpty());
+
+	}
+
+	public void disableActionWorkflowGridTemplateDelete() {
+		Assert.assertTrue(driver.findElements(deleteGridTemplateButton).isEmpty());
+
+	}
+
+	public void disableActionWorkflowGridTemplateEdit() {
+		Assert.assertTrue(driver.findElements(editGridTemplateButton).isEmpty());
+
+	}
+
+	public void disableActionWorkflowGridTemplateCreation() {
+		Assert.assertTrue(driver.findElements(addGridTemplateButton).isEmpty());
+
+	}
+
+	public void disableActionWorkflowAdvancedSearch() {
+		driver.findElement(searchCollapseButton).click();
+		Assert.assertTrue(driver.findElements(advanceSearchButton).isEmpty());
+	}
+
+	public void disableShowPastRunninglinesCheckbox() {
+		Assert.assertTrue(driver.findElements(showPastRunninglinesCheckbox).isEmpty());
+
+	}
+
+	public void disableShowAllRunninglinesCheckbox() {
+		Assert.assertTrue(driver.findElements(showAllRunninglinesCheckbox).isEmpty());
+
+	}
+
+	public void disableActionWorkflowQuickText() {
+		Assert.assertTrue(driver.findElements(quickTextIcon).isEmpty());
+
+	}
+
+	public void saveWorkflowDataToExcelFile() {
+		wait.until(ExpectedConditions.elementToBeClickable(exportExcelButton)).click();
+
+	}
+
+	public void dispatchWorkflowVCard() {
+		wait.until(ExpectedConditions.elementToBeClickable(sendVCardButton)).click();
+
+		String vCardPhoneNumberValue = Hooks.prop.getProperty("vCardPhoneNumber");
+		WebElement vCardPhoneNumberInputField = driver.findElement(vCardPhoneNumber);
+		vCardPhoneNumberInputField.sendKeys(vCardPhoneNumberValue);
+
+		wait.until(ExpectedConditions.elementToBeClickable(sendVCardConfirmButton)).click();
+
+	}
+
+	public void provideWorkflowProgramAccess() {
+		WebElement codeHeader = wait.until(ExpectedConditions.visibilityOfElementLocated(codeColumnHeader));
+
+		Assert.assertTrue(codeHeader.isDisplayed());
+
+	}
+
+	public void enableCompanyDefaultGridTemplate() {
+		wait.until(ExpectedConditions.elementToBeClickable(addGridTemplateButton)).click();
+
+		String gridTemplateNameValue = Hooks.prop.getProperty("gridTemplateName");
+		WebElement gridTemplateNameInputField = driver.findElement(gridTemplateName);
+		gridTemplateNameInputField.sendKeys(gridTemplateNameValue);
+
+		wait.until(ExpectedConditions.elementToBeClickable(companyDefaultCheckbox)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(saveGridTemplateButton)).click();
+
+	}
+
+	public void removeWorkflowGridTemplate() {
+
+		wait.until(ExpectedConditions.elementToBeClickable(deleteGridTemplateButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(deleteConfirmButton)).click();
+	}
+
+	public void updateWorkflowGridTemplate() {
+
+		wait.until(ExpectedConditions.elementToBeClickable(editGridTemplateButton)).click();
+
+		WebElement field = wait.until(ExpectedConditions.visibilityOfElementLocated(actionSelectCheckboxField));
+		WebElement dropArea = wait.until(ExpectedConditions.visibilityOfElementLocated(fieldSidebarDropArea));
+
+		Actions act = new Actions(driver);
+		act.clickAndHold(field).moveToElement(dropArea).release().build().perform();
+	}
+
+	public void createWorkflowGridTemplate() {
+		wait.until(ExpectedConditions.elementToBeClickable(addGridTemplateButton)).click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(gridTemplateName)).sendKeys("Template");
+		wait.until(ExpectedConditions.elementToBeClickable(saveGridTemplateButton)).click();
+	}
+
+	public void executeActionWorkflowAdvancedSearch() {
+		wait.until(ExpectedConditions.elementToBeClickable(searchCollapseButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(advanceCollapseButton)).click();
+
+		String rxNumberFieldValue = Hooks.prop.getProperty("rxNumberField");
+		WebElement rxNumberFieldInputField = driver.findElement(rxNumberField);
+		rxNumberFieldInputField.sendKeys(rxNumberFieldValue);
+
+		wait.until(ExpectedConditions.elementToBeClickable(searchIcon)).click();
+	}
+
+	public void setShowPastRunninglinesCheckbox() {
+		wait.until(ExpectedConditions.elementToBeClickable(showPastRunninglinesCheckbox)).click();
+
+	}
+
+	public void shouldToggleShowAllRunninglinesInWorkflow() {
+
+		wait.until(ExpectedConditions.elementToBeClickable(showAllRunninglinesCheckbox)).click();
+
+	}
+
+	public void dispatchQuickTextInWorkflow() {
+
+		wait.until(ExpectedConditions.elementToBeClickable(quickTextIcon)).click();
+
+		String quickTextPhoneNumberValue = Hooks.prop.getProperty("quickTextPhoneNumber");
+		WebElement quickTextPhoneNumberInputField = driver.findElement(quickTextPhoneNumber);
+		quickTextPhoneNumberInputField.sendKeys(quickTextPhoneNumberValue);
+
+		String quickTextBodyValue = Hooks.prop.getProperty("quickTextBody");
+		WebElement quickTextBodyInputField = driver.findElement(quickTextBody);
+		quickTextBodyInputField.sendKeys(quickTextBodyValue);
+
+		wait.until(ExpectedConditions.elementToBeClickable(quickTextSendButton)).click();
+	}
+
+	public void executeWorkflowBotCall() {
+		wait.until(ExpectedConditions.elementToBeClickable(calloutToAllButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(confirmButton)).click();
+
+	}
+
+	public void openActionWorkflowPage(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Workflow/Home/ActionWorkflow"));
+	}
+
+	public void sendWorkflowText() {
+		wait.until(ExpectedConditions.elementToBeClickable(smsToAllButton)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(smsConfirmButton)).click();
+
+	}
+
+	public void disableActionWorkflowBotCall() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		Assert.assertTrue(driver.findElements(botCallsButton).isEmpty());
+
+	}
+
+	public void disableActionWorkflowTextMessage() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		Assert.assertTrue(driver.findElements(smsToAllButton).isEmpty());
+
+	}
+
+	public void denyWorkflowDetailsAccess() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		List<WebElement> elements = wait.until(ExpectedConditions.numberOfElementsToBe(showAllRunninglinesCheckbox, 0));
+
+		Assert.assertTrue(elements.isEmpty());
+
+	}
+
+	public void shouldDisplayActionWorkflowDetails() {
+		WebElement totalCount = wait.until(ExpectedConditions.visibilityOfElementLocated(totalCountLabel));
+
+		Assert.assertTrue(totalCount.isDisplayed());
+
+	}
+
+	public void initializeProfileWithPermissions() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
+		btnSave.click();
+
+	}
+
 	// Display Work Flow
 	public void shouldCreateProfileWithOnlyViewPermissionInDisplayWorkflowModule() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		sleep(2000);
 		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
 		allModules.click();
-
 		WebElement allLabelElement = wait.until(ExpectedConditions.elementToBeClickable(rxWorkflowAllLabel));
 		allLabelElement.click();
-
 		WebElement viewLabelElement = wait.until(ExpectedConditions.elementToBeClickable(displayWorkflowViewLabel));
 		viewLabelElement.click();
-
 		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
 		btnSave.click();
 
@@ -243,63 +838,47 @@ public class rxworkflowpage {
 
 	public void shouldAllowExportingDisplayWorkflowDataToExcel() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-
 		wait.until(ExpectedConditions.elementToBeClickable(exportExcelButton)).click();
 	}
 
 	public void shouldRestrictExportingDisplayWorkflowDataToExcel() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-
 		wait.until(ExpectedConditions.elementToBeClickable(searchCollapseIcon)).click();
-
 		List<WebElement> elements = driver.findElements(advanceSearchIcon);
-
 		Assert.assertTrue(elements.isEmpty());
 
 	}
 
 	public void shouldRestrictPharmacyNabpSearchesInDisplayWorkflowModule() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-
 		List<WebElement> elements = driver.findElements(exportExcelButton);
-
 		Assert.assertTrue(elements.isEmpty());
 
 	}
 
 	public void shouldAllowPharmacyNabpSearchesInDisplayWorkflowModule() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-
 		wait.until(ExpectedConditions.elementToBeClickable(searchCollapseBtn)).click();
-
 		wait.until(ExpectedConditions.elementToBeClickable(advancedSearchBtn)).click();
-
 		String pharmacyNabpValue = Hooks.prop.getProperty("pharmacyNabp");
 		WebElement pharmacyNabpInputField = driver.findElement(pharmacyNabpInput);
 		pharmacyNabpInputField.sendKeys(pharmacyNabpValue);
-
 		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
 	}
 
 	public void shouldAllowFullProgramAccessInDisplayWorkflowModule() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-
 		WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(paQueueLabel));
-
 		Assert.assertTrue(element.isDisplayed());
 	}
 
 	public void shouldAllowSettingGridTemplateCompanyDefaultCheckboxInDisplayWorkflowModule() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-
 		wait.until(ExpectedConditions.elementToBeClickable(addGridTemplateButton)).click();
-
 		String gridTemplateNameValue = Hooks.prop.getProperty("gridTemplateName");
 		WebElement gridTemplateNameInputField = driver.findElement(gridTemplateNameInput);
 		gridTemplateNameInputField.sendKeys(gridTemplateNameValue);
-
 		wait.until(ExpectedConditions.elementToBeClickable(companyDefaultCheckbox)).click();
-
 		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
 	}
 
@@ -317,9 +896,7 @@ public class rxworkflowpage {
 
 	public void shouldAllowDeletingGridTemplatesInDisplayWorkflowModule() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-
 		wait.until(ExpectedConditions.elementToBeClickable(deleteGridTemplateIcon)).click();
-
 		wait.until(ExpectedConditions.elementToBeClickable(confirmDeleteButton)).click();
 
 	}
@@ -336,103 +913,79 @@ public class rxworkflowpage {
 
 	public void shouldAllowAddingGridTemplatesInDisplayWorkflowModule() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-
 		wait.until(ExpectedConditions.elementToBeClickable(addGridTemplateButton)).click();
-
 		String gridTemplateNameValue = Hooks.prop.getProperty("gridTemplateName");
 		WebElement gridTemplateNameInputField = driver.findElement(gridTemplateNameInput);
 		gridTemplateNameInputField.sendKeys(gridTemplateNameValue);
-
 		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
 
 	}
 
 	public void shouldAllowAdvancedSearchInDisplayWorkflowModule() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-
 		WebElement filter = wait.until(ExpectedConditions.visibilityOfElementLocated(filterButton));
 		Assert.assertTrue(filter.isDisplayed());
-
 		wait.until(ExpectedConditions.elementToBeClickable(filterButton)).click();
-
 		String rxNumberValue = Hooks.prop.getProperty("rxNumber");
 		WebElement rxNumberInputField = driver.findElement(rxNumberInput);
 		rxNumberInputField.sendKeys(rxNumberValue);
-
 		wait.until(ExpectedConditions.elementToBeClickable(searchIcon)).click();
 
 	}
 
 	public void shouldRestrictAddingGridTemplatesInDisplayWorkflowModule() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-
 		List<WebElement> elements = driver.findElements(addGridTemplateButton);
-
 		Assert.assertTrue(elements.isEmpty());
 
 	}
 
 	public void shouldRestrictDeletingGridTemplatesInDisplayWorkflowModule() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-
 		List<WebElement> elements = driver.findElements(deleteGridTemplateButton);
-
 		Assert.assertTrue(elements.isEmpty());
 
 	}
 
 	public void shouldRestrictTogglingShowAllRunninglinesCheckboxInDisplayWorkflowModule() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-
 		List<WebElement> elements = driver.findElements(showAllRunninglineCheckbox);
-
 		Assert.assertTrue(elements.isEmpty());
 
 	}
 
 	public void shouldRestrictSettingGridTemplateCompanyDefaultCheckboxInDisplayWorkflowModule() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-
 		List<WebElement> elements = driver.findElements(companyDefaultIcon);
-
 		Assert.assertTrue(elements.isEmpty());
 
 	}
 
 	public void shouldRestrictFullProgramAccessInDisplayWorkflowModule() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-
 		List<WebElement> elements = driver.findElements(programAccessIcon);
-
 		Assert.assertTrue(elements.isEmpty());
 
 	}
 
 	public void shouldRestrictTogglingShowPastRunninglinesCheckboxInDisplayWorkflowModule() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-
 		List<WebElement> elements = driver.findElements(showPastRunninglineCheckbox);
-
 		Assert.assertTrue(elements.isEmpty());
 
 	}
 
 	public void shouldRestrictEditingGridTemplatesInDisplayWorkflowModule() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-
 		List<WebElement> elements = driver.findElements(editGridTemplateIcon);
-
 		Assert.assertTrue(elements.isEmpty());
 
 	}
 
 	public void shouldRestrictAdvancedSearchesInDisplayWorkflowModule() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-
 		wait.until(ExpectedConditions.elementToBeClickable(filterButton)).click();
-
 		List<WebElement> elements = driver.findElements(advancedSearchButton);
-
 		Assert.assertTrue(elements.isEmpty());
 
 	}
@@ -446,11 +999,8 @@ public class rxworkflowpage {
 
 	public void shouldAllowViewingDetailsInDisplayWorkflowModule() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-
 		wait.until(ExpectedConditions.elementToBeClickable(showAllRunninglineCheckbox)).click();
-
 		WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(detailsIcon));
-
 		Assert.assertTrue(element.isDisplayed());
 	}
 
@@ -471,7 +1021,6 @@ public class rxworkflowpage {
 		sleep(2000);
 		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
 		allModules.click();
-
 		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
 		btnSave.click();
 
@@ -501,10 +1050,8 @@ public class rxworkflowpage {
 		sleep(2000);
 		WebElement commentElement = wait.until(ExpectedConditions.elementToBeClickable(commentLabel));
 		commentElement.click();
-
 		WebElement alertElement = wait.until(ExpectedConditions.elementToBeClickable(alertLabel));
 		alertElement.click();
-
 		WebElement downloadElement = wait.until(ExpectedConditions.elementToBeClickable(syncWorkflowDownloadLabel));
 		downloadElement.click();
 		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
@@ -513,29 +1060,22 @@ public class rxworkflowpage {
 	}
 
 	public void shouldAllowExportingSyncWorkflowDataToExcel() {
-
 		wait.until(ExpectedConditions.elementToBeClickable(exportExcelButton)).click();
 
 	}
 
 	public void shouldAllowReceivingAlertsInSyncWorkflowModule() {
-
 		wait.until(ExpectedConditions.elementToBeClickable(syncWorkflowAlertIcon)).click();
-
 		wait.until(ExpectedConditions.elementToBeClickable(alertCheckboxLabel)).click();
-
 		wait.until(ExpectedConditions.elementToBeClickable(saveAlertButton)).click();
 
 	}
 
 	public void shouldAllowCommentingInSyncWorkflowModule() {
-
 		wait.until(ExpectedConditions.elementToBeClickable(syncWorkflowCommentIcon)).click();
-
 		String commentValue = Hooks.prop.getProperty("comment");
 		WebElement commentInputField = driver.findElement(commentInput);
 		commentInputField.sendKeys(commentValue);
-
 		wait.until(ExpectedConditions.elementToBeClickable(saveCommentButton)).click();
 	}
 
@@ -559,11 +1099,8 @@ public class rxworkflowpage {
 	// Prescription Status
 	public void shouldAllowDeletingPrescriptionStatusInWorkflowModule() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-
 		wait.until(ExpectedConditions.elementToBeClickable(bucketDropButton)).click();
-
 		wait.until(ExpectedConditions.elementToBeClickable(deleteOption)).click();
-
 		wait.until(ExpectedConditions.elementToBeClickable(confirmDeleteButton)).click();
 
 	}
@@ -574,13 +1111,10 @@ public class rxworkflowpage {
 		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
 		allModules.click();
 		sleep(2000);
-
 		WebElement addActionElement = wait.until(ExpectedConditions.elementToBeClickable(prescriptionStatusAddLabel));
 		addActionElement.click();
-
 		WebElement editActionElement = wait.until(ExpectedConditions.elementToBeClickable(prescriptionStatusEditLabel));
 		editActionElement.click();
-
 		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
 		btnSave.click();
 
@@ -594,15 +1128,11 @@ public class rxworkflowpage {
 
 	public void shouldAllowEditingPrescriptionStatusInWorkflowModule() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-
 		wait.until(ExpectedConditions.elementToBeClickable(bucketDropButton)).click();
-
 		wait.until(ExpectedConditions.elementToBeClickable(editOption)).click();
-
 		String prescriptionStatusTitleValue = Hooks.prop.getProperty("prescriptionStatusTitle");
 		WebElement prescriptionStatusTitleInputField = driver.findElement(prescriptionStatusTitleInput);
 		prescriptionStatusTitleInputField.sendKeys(prescriptionStatusTitleValue);
-
 		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
 
 	}
@@ -613,14 +1143,11 @@ public class rxworkflowpage {
 		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
 		allModules.click();
 		sleep(2000);
-
 		WebElement addActionElement = wait.until(ExpectedConditions.elementToBeClickable(prescriptionStatusAddLabel));
 		addActionElement.click();
-
 		WebElement deleteActionElement = wait
 				.until(ExpectedConditions.elementToBeClickable(prescriptionStatusDeleteLabel));
 		deleteActionElement.click();
-
 		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
 		btnSave.click();
 
@@ -642,13 +1169,10 @@ public class rxworkflowpage {
 
 	public void shouldAllowAddingPrescriptionStatusInWorkflowModule() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-
 		wait.until(ExpectedConditions.elementToBeClickable(newPrescriptionStatusBtn)).click();
-
 		String prescriptionStatusTitleValue = Hooks.prop.getProperty("prescriptionStatusTitle");
 		WebElement prescriptionStatusTitleInputField = driver.findElement(prescriptionStatusTitleInput);
 		prescriptionStatusTitleInputField.sendKeys(prescriptionStatusTitleValue);
-
 		wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
 
 	}
@@ -671,14 +1195,11 @@ public class rxworkflowpage {
 		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
 		allModules.click();
 		sleep(2000);
-
 		WebElement editActionElement = wait.until(ExpectedConditions.elementToBeClickable(prescriptionStatusEditLabel));
 		editActionElement.click();
-
 		WebElement deleteActionElement = wait
 				.until(ExpectedConditions.elementToBeClickable(prescriptionStatusDeleteLabel));
 		deleteActionElement.click();
-
 		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
 		btnSave.click();
 
@@ -702,10 +1223,8 @@ public class rxworkflowpage {
 		sleep(2000);
 		WebElement addActionElement = wait.until(ExpectedConditions.elementToBeClickable(program340BAddLabel));
 		addActionElement.click();
-
 		WebElement editActionElement = wait.until(ExpectedConditions.elementToBeClickable(program340BEditLabel));
 		editActionElement.click();
-
 		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
 		btnSave.click();
 
