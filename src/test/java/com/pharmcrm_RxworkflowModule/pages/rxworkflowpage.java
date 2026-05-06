@@ -2,7 +2,6 @@ package com.pharmcrm_RxworkflowModule.pages;
 
 import java.time.Duration;
 import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,12 +10,219 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-
 import hooks.Hooks;
 
 public class rxworkflowpage {
 	private WebDriver driver;
 	private WebDriverWait wait;
+
+	// Control Audit Class
+	public By controlAuditClass1AllLabel = By.xpath("//label[@for='chkg50ControlAuditClass1All']");
+	public By controlAuditClass2AllLabel = By.xpath("//label[@for='chkg51ControlAuditClass2All']");
+	public By controlAuditClass3AllLabel = By.xpath("//label[@for='chkg51ControlAuditClass3All']");
+	public By controlAuditClass4AllLabel = By.xpath("//label[@for='chkg51ControlAuditClass4All']");
+	public By controlAuditClass5AllLabel = By.xpath("//label[@for='chkg51ControlAuditClass5All']");
+
+	public By controlAuditClass1ViewLabel = By.xpath("//label[@for='chkg50ControlAuditClass1View']");
+	public By controlAuditClass2ViewLabel = By.xpath("//label[@for='chkg51ControlAuditClass2View']");
+	public By controlAuditClass3ViewLabel = By.xpath("//label[@for='chkg51ControlAuditClass3View']");
+	public By controlAuditClass4ViewLabel = By.xpath("//label[@for='chkg51ControlAuditClass4View']");
+	public By controlAuditClass5ViewLabel = By.xpath("//label[@for='chkg51ControlAuditClass5View']");
+
+	// Control Audit Class
+
+	public void shouldOpenDetailsViewInControlAuditTest() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		driver.findElement(editIcon).click();
+
+		WebElement syncWorkflowSettingDropdownElement = wait
+				.until(ExpectedConditions.elementToBeClickable(syncWorkflowSettingDropdown));
+		new Select(syncWorkflowSettingDropdownElement).selectByIndex(1);
+
+		String medicationActivityCommentsInputValue = Hooks.prop.getProperty("medicationActivityCommentsInput");
+		WebElement medicationActivityCommentsInputField = driver.findElement(medicationActivityCommentsInput);
+		medicationActivityCommentsInputField.sendKeys(medicationActivityCommentsInputValue);
+
+		driver.findElement(addActivityButton).click();
+
+		driver.findElement(saveCommentButton).click();
+
+	}
+	
+	public void openControlAuditClass5Page(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Workflow/Home/ControlAudit?drugClass=5"));
+	}
+
+	public void openControlAuditClass4Page(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Workflow/Home/ControlAudit?drugClass=4"));
+	}
+
+	public void openControlAuditClass3Page(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Workflow/Home/ControlAudit?drugClass=3"));
+	}
+
+	public void openControlAuditClass2Page(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Workflow/Home/ControlAudit?drugClass=2"));
+	}
+
+	public void openControlAuditClass1Page(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Workflow/Home/ControlAudit?drugClass=1"));
+	}
+
+	public void shouldAccessControlAuditClass1RecordsTest() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+
+		WebElement controlAuditClass1AllLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(controlAuditClass1AllLabel));
+		controlAuditClass1AllLabelElement.click();
+
+		WebElement controlAuditClass1ViewLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(controlAuditClass1ViewLabel));
+		controlAuditClass1ViewLabelElement.click();
+
+		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
+		btnSave.click();
+
+	}
+
+	public void shouldNotExportControlAuditClass3DataToPdfTest() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+
+		WebElement controlAuditClass3AllLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(controlAuditClass3AllLabel));
+		controlAuditClass3AllLabelElement.click();
+
+		WebElement controlAuditClass3ViewLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(controlAuditClass3ViewLabel));
+		controlAuditClass3ViewLabelElement.click();
+
+		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
+		btnSave.click();
+
+	}
+
+	public void verifyViewControlAuditClass2DataIsAccessibleTest() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+
+		WebElement controlAuditClass2AllLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(controlAuditClass2AllLabel));
+		controlAuditClass2AllLabelElement.click();
+
+		WebElement controlAuditClass2ViewLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(controlAuditClass2ViewLabel));
+		controlAuditClass2ViewLabelElement.click();
+
+		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
+		btnSave.click();
+
+	}
+
+	public void shouldNotExportControlAuditClass4DataToPdfTest() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+
+		WebElement controlAuditClass4AllLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(controlAuditClass4AllLabel));
+		controlAuditClass4AllLabelElement.click();
+
+		WebElement controlAuditClass4ViewLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(controlAuditClass4ViewLabel));
+		controlAuditClass4ViewLabelElement.click();
+
+		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
+		btnSave.click();
+
+	}
+
+	public void shouldNotExportControlAuditClass5DataToPdfTest() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+
+		WebElement controlAuditClass5AllLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(controlAuditClass5AllLabel));
+		controlAuditClass5AllLabelElement.click();
+
+		WebElement controlAuditClass5ViewLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(controlAuditClass5ViewLabel));
+		controlAuditClass5ViewLabelElement.click();
+
+		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
+		btnSave.click();
+
+	}
+
+	public void shouldViewControlAuditClass5DataTest() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
+		btnSave.click();
+
+	}
+
+	public void shouldViewControlAuditClass4DataTest() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
+		btnSave.click();
+
+	}
+
+	public void shouldExportControlAuditClass3DataToPdfTest() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
+		btnSave.click();
+
+	}
+
+	public void shouldPerformDrugAuditDispenseDateUpdateInControlAuditClass1Test() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
+		btnSave.click();
+
+	}
+
+	public void shouldExportControlAuditClass2DataToPdfTest() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
+		btnSave.click();
+
+	}
 
 	// Medication Activity
 	public By timelineIcon = By.xpath(

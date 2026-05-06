@@ -10,13 +10,593 @@ public class rxworkflowstep {
 
 	private rxworkflowpage rxworkflowPage;
 
+	// Control Audit Class
+	@Then("the user should NOT be able to Export Control Audit Class5 data to PDF")
+	public void shouldNotExportControlAuditClass5DataToPdfTest() {
+
+	}
+
+	@Then("the user should NOT be able to Export Control Audit Class5 data to Excel")
+	public void shouldNotExportControlAuditClass5DataToExcelTest() {
+
+	}
+
+	@Then("the user should NOT be able to perform Drug Audit Dispense Quantity Update in Control Audit Class5")
+	public void shouldNotPerformDrugAuditDispenseQuantityUpdateInControlAuditClass5Test() {
+
+	}
+
+	@Then("the user should NOT be able to perform Drug Audit Dispense Date Delete in Control Audit Class5")
+	public void shouldNotPerformDrugAuditDispenseDateDeleteInControlAuditClass5Test() {
+
+	}
+
+	@Then("the user should NOT be able to perform Drug Audit Dispense Date Update in Control Audit Class5")
+	public void verifyDrugAuditDispenseDateUpdateIsRestrictedInControlAuditClass5Test() {
+
+	}
+
+	@Then("the user should NOT be able to perform Drug Dispense Audit Add action in Control Audit Class5")
+	public void shouldNotPerformDrugDispenseAuditAddInControlAuditClass5Test() {
+
+	}
+
+	@Then("the user should NOT be able to perform Drug Dispense Credit Add action in Control Audit Class5")
+	public void verifyDrugDispenseCreditAddIsRestrictedInControlAuditClass5Test() {
+
+	}
+
+	@Then("I create a profile with View Only permission for Control Audit Class5")
+	public void shouldNotPerformDrugDispenseCreditAddInControlAuditClass5Test() {
+		rxworkflowPage.clickFilterButton();
+		rxworkflowPage.enterProfileName();
+		rxworkflowPage.clickSearchButton();
+		rxworkflowPage.clickActionMenu();
+		rxworkflowPage.clickEditButton();
+		rxworkflowPage.shouldNotExportControlAuditClass5DataToPdfTest();
+		rxworkflowPage.clickSubmitButton();
+	}
+
+	@Then("the user should be able to Export Control Audit Class5 data to PDF")
+	public void shouldExportControlAuditClass5DataToPdfTest() {
+
+	}
+
+	@Then("the user should be able to Export Control Audit Class5 data to Excel")
+	public void shouldExportControlAuditClass5DataToExcelTest() {
+
+	}
+
+	@Then("the user should be able to perform Drug Audit Dispense Quantity Update in Control Audit Class5")
+	public void shouldPerformDrugAuditDispenseQuantityUpdateInControlAuditClass5Test() {
+
+	}
+
+	@Then("the user should be able to perform Drug Audit Dispense Date Delete in Control Audit Class5")
+	public void shouldPerformDrugAuditDispenseDateDeleteInControlAuditClass5Test() {
+
+	}
+
+	@Then("the user should be able to perform Drug Audit Dispense Date Update in Control Audit Class5")
+	public void shouldPerformDrugAuditDispenseDateUpdateInControlAuditClass5Test() {
+
+	}
+
+	@Then("the user should be able to perform Drug Dispense Audit Add action in Control Audit Class5")
+	public void verifyDrugDispenseAuditAddIsPermittedInControlAuditClass5Test() {
+
+	}
+
+	@Then("the user should be able to perform Drug Dispense Credit Add action in Control Audit Class5")
+	public void verifyDrugDispenseCreditAddIsPermittedInControlAuditClass5Test() {
+
+	}
+
+	@Then("the user should be able to open Details View in Control Audit Class5")
+	public void shouldAllowOpenDetailsViewInControlAuditClass5Test() {
+
+	}
+
+	@Then("the user should be able to view Control Audit Class5 data")
+	public void shouldViewControlAuditClass5DataTest() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String controlAuditClass5Url = Hooks.prop.getProperty("controlAuditClass5Url");
+
+		Assert.assertNotNull("controlAuditClass5Url is missing in config", controlAuditClass5Url);
+
+		String fullUrl = baseUrl + controlAuditClass5Url;
+
+		rxworkflowPage = new rxworkflowpage(Hooks.driver);
+		rxworkflowPage.openControlAuditClass5Page(fullUrl);
+
+		Assert.assertTrue("Control Audit Class 5 page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Workflow/Home/ControlAudit?drugClass=5"));
+	}
+
+	@Then("I create a profile with all permissions for Control Audit Class5")
+	public void shouldPerformDrugDispenseCreditAddInControlAuditClass5Test() {
+		rxworkflowPage.clickFilterButton();
+		rxworkflowPage.enterProfileName();
+		rxworkflowPage.clickSearchButton();
+		rxworkflowPage.clickActionMenu();
+		rxworkflowPage.clickEditButton();
+		rxworkflowPage.shouldViewControlAuditClass5DataTest();
+		rxworkflowPage.clickSubmitButton();
+	}
+
+	@Then("I create a profile with View Only permission for Control Audit Class4")
+	public void shouldNotPerformDrugDispenseCreditAddInControlAuditClass4Test() {
+		rxworkflowPage.clickFilterButton();
+		rxworkflowPage.enterProfileName();
+		rxworkflowPage.clickSearchButton();
+		rxworkflowPage.clickActionMenu();
+		rxworkflowPage.clickEditButton();
+		rxworkflowPage.shouldNotExportControlAuditClass4DataToPdfTest();
+		rxworkflowPage.clickSubmitButton();
+	}
+
+	@Then("the user should be able to Export Control Audit Class4 data to PDF")
+	public void shouldExportControlAuditClass4DataToPdfTest() {
+
+	}
+
+	@Then("the user should be able to Export Control Audit Class4 data to Excel")
+	public void shouldExportControlAuditClass4DataToExcelTest() {
+
+	}
+
+	@Then("the user should be able to perform Drug Audit Dispense Quantity Update in Control Audit Class4")
+	public void shouldPerformDrugAuditDispenseQuantityUpdateInControlAuditClass4Test() {
+
+	}
+
+	@Then("the user should be able to perform Drug Audit Dispense Date Delete in Control Audit Class4")
+	public void shouldPerformDrugAuditDispenseDateDeleteInControlAuditClass4Test() {
+
+	}
+
+	@Then("the user should be able to perform Drug Audit Dispense Date Update in Control Audit Class4")
+	public void shouldPerformDrugAuditDispenseDateUpdateInControlAuditClass4Test() {
+
+	}
+
+	@Then("the user should be able to perform Drug Dispense Audit Add action in Control Audit Class4")
+	public void shouldAllowDrugDispenseAuditAddInControlAuditClass4Test() {
+
+	}
+
+	@Then("the user should be able to perform Drug Dispense Credit Add action in Control Audit Class4")
+	public void verifyDrugDispenseCreditAddIsPermittedInControlAuditClass4Test() {
+
+	}
+
+	@Then("the user should NOT be able to Export Control Audit Class4 data to PDF")
+	public void shouldNotExportControlAuditClass4DataToPdfTest() {
+
+	}
+
+	@Then("the user should NOT be able to Export Control Audit Class4 data to Excel")
+	public void shouldNotExportControlAuditClass4DataToExcelTest() {
+
+	}
+
+	@Then("the user should NOT be able to perform Drug Audit Dispense Quantity Update in Control Audit Class4")
+	public void shouldNotPerformDrugAuditDispenseQuantityUpdateInControlAuditClass4Test() {
+
+	}
+
+	@Then("the user should NOT be able to perform Drug Audit Dispense Date Delete in Control Audit Class4")
+	public void shouldNotPerformDrugAuditDispenseDateDeleteInControlAuditClass4Test() {
+
+	}
+
+	@Then("the user should NOT be able to perform Drug Audit Dispense Date Update in Control Audit Class4")
+	public void shouldNotPerformDrugAuditDispenseDateUpdateInControlAuditClass4Test() {
+
+	}
+
+	@Then("the user should NOT be able to perform Drug Dispense Audit Add action in Control Audit Class4")
+	public void shouldNotPerformDrugDispenseAuditAddInControlAuditClass4Test() {
+
+	}
+
+	@Then("the user should NOT be able to perform Drug Dispense Credit Add action in Control Audit Class4")
+	public void verifyDrugDispenseCreditAddIsRestrictedInControlAuditClass4Test() {
+
+	}
+
+	@Then("the user should be able to open Details View in Control Audit Class4")
+	public void shouldOpenDetailsViewInControlAuditClass4Test() {
+
+	}
+
+	@Then("the user should be able to view Control Audit Class4 data")
+	public void shouldViewControlAuditClass4DataTest() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String controlAuditClass4Url = Hooks.prop.getProperty("controlAuditClass4Url");
+
+		Assert.assertNotNull("controlAuditClass4Url is missing in config", controlAuditClass4Url);
+
+		String fullUrl = baseUrl + controlAuditClass4Url;
+
+		rxworkflowPage = new rxworkflowpage(Hooks.driver);
+		rxworkflowPage.openControlAuditClass4Page(fullUrl);
+
+		Assert.assertTrue("Control Audit Class 4 page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Workflow/Home/ControlAudit?drugClass=4"));
+	}
+
+	@Then("I create a profile with all permissions for Control Audit Class4")
+	public void shouldPerformDrugDispenseCreditAddInControlAuditClass4Test() {
+		rxworkflowPage.clickFilterButton();
+		rxworkflowPage.enterProfileName();
+		rxworkflowPage.clickSearchButton();
+		rxworkflowPage.clickActionMenu();
+		rxworkflowPage.clickEditButton();
+		rxworkflowPage.shouldViewControlAuditClass4DataTest();
+		rxworkflowPage.clickSubmitButton();
+	}
+
+	@Then("the user should NOT be able to Export Control Audit Class3 data to PDF")
+	public void shouldNotExportControlAuditClass3DataToPdfTest() {
+
+	}
+
+	@Then("the user should NOT be able to Export Control Audit Class3 data to Excel")
+	public void shouldNotExportControlAuditClass3DataToExcelTest() {
+
+	}
+
+	@Then("the user should NOT be able to perform Drug Audit Dispense Quantity Update in Control Audit Class3")
+	public void shouldNotPerformDrugAuditDispenseQuantityUpdateInControlAuditClass3Test() {
+
+	}
+
+	@Then("the user should NOT be able to perform Drug Audit Dispense Date Delete in Control Audit Class3")
+	public void shouldNotPerformDrugAuditDispenseDateDeleteInControlAuditClass3Test() {
+
+	}
+
+	@Then("the user should NOT be able to perform Drug Audit Dispense Date Update in Control Audit Class3")
+	public void shouldNotPerformDrugAuditDispenseDateUpdateInControlAuditClass3Test() {
+
+	}
+
+	@Then("the user should NOT be able to perform Drug Dispense Audit Add action in Control Audit Class3")
+	public void shouldNotPerformDrugDispenseAuditAddInControlAuditClass3Test() {
+
+	}
+
+	@Then("the user should NOT be able to perform Drug Dispense Credit Add action in Control Audit Class3")
+	public void testDrugDispenseCreditAddNotAllowedInControlAuditClass3() {
+
+	}
+
+	@Then("the user should be able to view Control Audit Class3 data")
+	public void verifyViewControlAuditClass3DataIsPermittedTest() {
+
+	}
+
+	@Then("I create a profile with View Only permission for Control Audit Class3 module")
+	public void shouldNotPerformDrugDispenseCreditAddInControlAuditClass3Test() {
+		rxworkflowPage.clickFilterButton();
+		rxworkflowPage.enterProfileName();
+		rxworkflowPage.clickSearchButton();
+		rxworkflowPage.clickActionMenu();
+		rxworkflowPage.clickEditButton();
+		rxworkflowPage.shouldNotExportControlAuditClass3DataToPdfTest();
+		rxworkflowPage.clickSubmitButton();
+	}
+
+	@Then("the user should be able to Export Control Audit Class3 data to PDF")
+	public void shouldExportControlAuditClass3DataToPdfTest() {
+
+	}
+
+	@Then("the user should be able to Export Control Audit Class3 data to Excel")
+	public void shouldExportControlAuditClass3DataToExcelTest() {
+
+	}
+
+	@Then("the user should be able to perform Drug Audit Dispense Quantity Update in Control Audit Class3")
+	public void shouldPerformDrugAuditDispenseQuantityUpdateInControlAuditClass3Test() {
+
+	}
+
+	@Then("the user should be able to perform Drug Audit Dispense Date Delete in Control Audit Class3")
+	public void shouldPerformDrugAuditDispenseDateDeleteInControlAuditClass3Test() {
+
+	}
+
+	@Then("the user should be able to perform Drug Audit Dispense Date Update in Control Audit Class3")
+	public void shouldPerformDrugAuditDispenseDateUpdateInControlAuditClass3Test() {
+
+	}
+
+	@Then("the user should be able to perform Drug Dispense Audit Add action in Control Audit Class3")
+	public void shouldPerformDrugDispenseAuditAddInControlAuditClass3Test() {
+
+	}
+
+	@Then("the user should be able to perform Drug Dispense Credit Add action in Control Audit Class3")
+	public void verifyDrugDispenseCreditAddIsPermittedInControlAuditClass3Test() {
+
+	}
+
+	@Then("the user should be able to open Details View in Control Audit Class3")
+	public void shouldOpenDetailsViewInControlAuditClass3Test() {
+
+	}
+
+	@Then("the user should be able to view Control Audit Class3")
+	public void shouldViewControlAuditClass3DataTest() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String controlAuditClass3Url = Hooks.prop.getProperty("controlAuditClass3Url");
+
+		Assert.assertNotNull("controlAuditClass3Url is missing in config", controlAuditClass3Url);
+
+		String fullUrl = baseUrl + controlAuditClass3Url;
+
+		rxworkflowPage = new rxworkflowpage(Hooks.driver);
+		rxworkflowPage.openControlAuditClass3Page(fullUrl);
+
+		Assert.assertTrue("Control Audit Class 3 page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Workflow/Home/ControlAudit?drugClass=3"));
+	}
+
+	@Then("I create a profile with all permissions for Control Audit Class3")
+	public void shouldPerformDrugDispenseCreditAddInControlAuditClass3Test() {
+		rxworkflowPage.clickFilterButton();
+		rxworkflowPage.enterProfileName();
+		rxworkflowPage.clickSearchButton();
+		rxworkflowPage.clickActionMenu();
+		rxworkflowPage.clickEditButton();
+		rxworkflowPage.shouldExportControlAuditClass3DataToPdfTest();
+		rxworkflowPage.clickSubmitButton();
+	}
+
+	@Then("the user should NOT be able to perform Drug Audit Dispense Quantity Update in Control Audit Class2")
+	public void verifyDrugAuditDispenseQuantityUpdateIsRestrictedInControlAuditClass2Test() {
+
+	}
+
+	@Then("the user should NOT be able to Export Control Audit Class2 data to PDF")
+	public void shouldNotExportControlAuditClass2DataToPdfTest() {
+
+	}
+
+	@Then("the user should NOT be able to Export Control Audit Class2 data to Excel")
+	public void shouldNotExportControlAuditClass2DataToExcelTest() {
+
+	}
+
+	@Then("should NOT be able to perform Drug Audit Dispense Quantity Update in Control Audit Class2")
+	public void shouldNotPerformDrugAuditDispenseQuantityUpdateInControlAuditClass2Test() {
+
+	}
+
+	@Then("the user should NOT be able to perform Drug Audit Dispense Date Delete in Control Audit Class2")
+	public void shouldNotPerformDrugAuditDispenseDateDeleteInControlAuditClass2Test() {
+
+	}
+
+	@Then("the user should NOT be able to perform Drug Audit Dispense Date Update in Control Audit Class2")
+	public void shouldNotPerformDrugAuditDispenseDateUpdateInControlAuditClass2Test() {
+
+	}
+
+	@Then("the user should NOT be able to perform Drug Dispense Audit Add action in Control Audit Class2")
+	public void shouldNotPerformDrugDispenseAuditAddInControlAuditClass2Test() {
+
+	}
+
+	@Then("the user should NOT be able to perform Drug Dispense Credit Add action in Control Audit Class2")
+	public void shouldNotPerformDrugDispenseCreditAddInControlAuditClass2Test() {
+
+	}
+
+	@Then("I create a profile with View Only permission for Control Audit Class2")
+	public void shouldAccessControlAuditClass2RecordsTest() {
+		rxworkflowPage.clickFilterButton();
+		rxworkflowPage.enterProfileName();
+		rxworkflowPage.clickSearchButton();
+		rxworkflowPage.clickActionMenu();
+		rxworkflowPage.clickEditButton();
+		rxworkflowPage.verifyViewControlAuditClass2DataIsAccessibleTest();
+		rxworkflowPage.clickSubmitButton();
+	}
+
+	@Then("the user should be able to Export Control Audit Class2 data to PDF")
+	public void shouldExportControlAuditClass2DataToPdfTest() {
+
+	}
+
+	@Then("the user should be able to Export Control Audit Class2 data to Excel")
+	public void shouldExportControlAuditClass2DataToExcelTest() {
+
+	}
+
+	@Then("the user should be able to perform Drug Audit Dispense Quantity Update in Control Audit Class2")
+	public void shouldPerformDrugAuditDispenseQuantityUpdateInControlAuditClass2Test() {
+
+	}
+
+	@Then("the user should be able to perform Drug Audit Dispense Date Delete in Control Audit Class2")
+	public void shouldPerformDrugAuditDispenseDateDeleteInControlAuditClass2Test() {
+
+	}
+
+	@Then("the user should be able to perform Drug Audit Dispense Date Update in Control Audit Class2")
+	public void shouldPerformDrugAuditDispenseDateUpdateInControlAuditClass2Test() {
+
+	}
+
+	@Then("the user should be able to perform Drug Dispense Audit Add action in Control Audit Class2")
+	public void verifyDrugDispenseAuditAddIsPermittedInControlAuditClass2Test() {
+
+	}
+
+	@Then("the user should be able to perform Drug Dispense Credit Add action in Control Audit Class2")
+	public void shouldPerformDrugDispenseCreditAddInControlAuditClass2Test() {
+
+	}
+
+	@Then("the user should be able to open Details View in Control Audit Class2")
+	public void shouldOpenDetailsViewInControlAuditClass2Test() {
+
+	}
+
+	@Then("the user should be able to view Control Audit Class2 data")
+	public void shouldViewControlAuditClass2DataTest() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String controlAuditClass2Url = Hooks.prop.getProperty("controlAuditClass2Url");
+
+		Assert.assertNotNull("controlAuditClass2Url is missing in config", controlAuditClass2Url);
+
+		String fullUrl = baseUrl + controlAuditClass2Url;
+
+		rxworkflowPage = new rxworkflowpage(Hooks.driver);
+		rxworkflowPage.openControlAuditClass2Page(fullUrl);
+
+		Assert.assertTrue("Control Audit Class 2 page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Workflow/Home/ControlAudit?drugClass=2"));
+	}
+
+	@Then("I create a profile with all permissions for Control Audit Class2")
+	public void shouldPerformDrugDispenseAuditAddInControlAuditClass2Test() {
+		rxworkflowPage.clickFilterButton();
+		rxworkflowPage.enterProfileName();
+		rxworkflowPage.clickSearchButton();
+		rxworkflowPage.clickActionMenu();
+		rxworkflowPage.clickEditButton();
+		rxworkflowPage.shouldExportControlAuditClass2DataToPdfTest();
+		rxworkflowPage.clickSubmitButton();
+	}
+
+	@Then("the user should NOT be able to Export Control Audit Class1 data to PDF")
+	public void shouldNotExportControlAuditClassDataToPdfTest() {
+
+	}
+
+	@Then("the user should NOT be able to Export Control Audit Class1 data to Excel")
+	public void shouldNotExportControlAuditClassDataToExcelTest() {
+
+	}
+
+	@Then("the user should NOT be able to perform Drug Audit Dispense Quantity Update in Control Audit Class1")
+	public void shouldNotPerformDrugAuditDispenseQuantityUpdateInControlAuditTest() {
+
+	}
+
+	@Then("the user should NOT be able to perform Drug Audit Dispense Date Delete in Control Audit Class1")
+	public void shouldNotPerformDrugAuditDispenseDateDeleteInControlAuditTest() {
+
+	}
+
+	@Then("the user should NOT be able to perform Drug Audit Dispense Date Update in Control Audit Class1")
+	public void shouldNotPerformDrugAuditDispenseDateUpdateInControlAuditTest() {
+
+	}
+
+	@Then("the user should NOT be able to perform Drug Dispense Audit Add action in Control Audit Class1")
+	public void shouldNotPerformDrugDispenseAuditAddInControlAuditTest() {
+
+	}
+
+	@Then("the user should NOT be able to perform Drug Dispense Credit Add action in Control Audit Class1")
+	public void shouldNotPerformDrugDispenseCreditAddInControlAuditTest() {
+
+	}
+
+	@Then("the user should be able to Export Control Audit Class1 data to PDF")
+	public void shouldExportControlAuditClassDataToPdfTest() {
+
+	}
+
+	@Then("the user should be able to Export Control Audit Class1 data to Excel")
+	public void shouldExportControlAuditClassDataToExcelTest() {
+
+	}
+
+	@Then("the user should be able to perform Drug Audit Dispense Quantity Update in Control Audit Class1")
+	public void shouldPerformDrugAuditDispenseQuantityUpdateInControlAuditTest() {
+
+	}
+
+	@Then("the user should be able to perform Drug Audit Dispense Date Delete in Control Audit Class1")
+	public void shouldPerformDrugAuditDispenseDateDeleteInControlAuditTest() {
+
+	}
+
+	@Then("the user should be able to perform Drug Audit Dispense Date Update in Control Audit Class1")
+	public void shouldPerformDrugAuditDispenseDateUpdateInControlAuditTest() {
+
+	}
+
+	@Then("the user should be able to perform Drug Dispense Audit Add action in Control Audit Class1")
+	public void shouldPerformDrugDispenseAuditAddInControlAuditTest() {
+
+	}
+
+	@Then("the user should be able to perform Drug Dispense Credit Add action in Control Audit Class1")
+	public void shouldPerformDrugDispenseCreditAddInControlAuditTest() {
+
+	}
+
+	@Then("the user should be able to open Details View in Control Audit Class1")
+	public void openDetailsViewInControlAuditTest() {
+		rxworkflowPage.shouldOpenDetailsViewInControlAuditTest();
+
+	}
+
+	@Then("the user should be able to view Control Audit Class1")
+	public void enableControlAuditClassDataViewing() {
+
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String controlAuditClass1Url = Hooks.prop.getProperty("controlAuditClass1Url");
+
+		Assert.assertNotNull("controlAuditClass1Url is missing in config", controlAuditClass1Url);
+
+		String fullUrl = baseUrl + controlAuditClass1Url;
+
+		rxworkflowPage = new rxworkflowpage(Hooks.driver);
+		rxworkflowPage.openControlAuditClass1Page(fullUrl);
+
+		Assert.assertTrue("Control Audit Class 1 page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Workflow/Home/ControlAudit?drugClass=1"));
+	}
+
+	@And("I create a profile with View Only permission for Control Audit Class1")
+	public void shouldViewControlAuditClass1DataTest() {
+		rxworkflowPage.clickFilterButton();
+		rxworkflowPage.enterProfileName();
+		rxworkflowPage.clickSearchButton();
+		rxworkflowPage.clickActionMenu();
+		rxworkflowPage.clickEditButton();
+		rxworkflowPage.shouldAccessControlAuditClass1RecordsTest();
+		rxworkflowPage.clickSubmitButton();
+
+	}
+
+	@And("I create a profile with all permissions for Control Audit Class1")
+	public void shouldPerformDrugDispenseCreditAddInControlAuditClass1Test() {
+		rxworkflowPage.clickFilterButton();
+		rxworkflowPage.enterProfileName();
+		rxworkflowPage.clickSearchButton();
+		rxworkflowPage.clickActionMenu();
+		rxworkflowPage.clickEditButton();
+		rxworkflowPage.shouldPerformDrugAuditDispenseDateUpdateInControlAuditClass1Test();
+		rxworkflowPage.clickSubmitButton();
+
+	}
+
 	// Medication Activity
 	@Then("the user should be able to view and Add Medication Activity")
 	public void enableMedicationActivityViewAndAdd() {
 		rxworkflowPage.allowMedicationActivityViewingAndAddition();
 
 	}
-	
+
 	@Then("the user should not be able to add Medication Activity")
 	public void restrictMedicationActivityAddition() {
 		rxworkflowPage.disableMedicationActivityAdd();

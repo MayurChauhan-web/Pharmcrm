@@ -891,6 +891,240 @@ Then the Rxworkflow user should be able to view Profiles
 And I create a profile with View and Add permission for Medication Activity
 Then the user should be able to view and Add Medication Activity
 
+# Control Audit Class
+Scenario: User with all permissions in Control Audit Class1
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Rxworkflow user should be able to view Profiles
+And I create a profile with all permissions for Control Audit Class1 
+Then the user should be able to view Control Audit Class1
+And the user should be able to open Details View in Control Audit Class1
+And the user should be able to perform Drug Dispense Credit Add action in Control Audit Class1
+And the user should be able to perform Drug Dispense Audit Add action in Control Audit Class1
+And the user should be able to perform Drug Audit Dispense Date Update in Control Audit Class1
+And the user should be able to perform Drug Audit Dispense Date Delete in Control Audit Class1
+And the user should be able to perform Drug Audit Dispense Quantity Update in Control Audit Class1
+And the user should be able to Export Control Audit Class1 data to Excel
+And the user should be able to Export Control Audit Class1 data to PDF
+
+Scenario: User with View Only permission in Control Audit Class1
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Rxworkflow user should be able to view Profiles
+And I create a profile with View Only permission for Control Audit Class1
+Then the user should be able to view Control Audit Class1
+And the user should be able to open Details View in Control Audit Class1
+And the user should NOT be able to perform Drug Dispense Credit Add action in Control Audit Class1
+And the user should NOT be able to perform Drug Dispense Audit Add action in Control Audit Class1
+And the user should NOT be able to perform Drug Audit Dispense Date Update in Control Audit Class1
+And the user should NOT be able to perform Drug Audit Dispense Date Delete in Control Audit Class1
+And the user should NOT be able to perform Drug Audit Dispense Quantity Update in Control Audit Class1
+And the user should NOT be able to Export Control Audit Class1 data to Excel
+And the user should NOT be able to Export Control Audit Class1 data to PDF
+
+Scenario: User with all permissions in Control Audit Class2
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Rxworkflow user should be able to view Profiles
+And I create a profile with all permissions for Control Audit Class2
+Then the user should be able to view Control Audit Class2 data
+And the user should be able to open Details View in Control Audit Class2
+And the user should be able to perform Drug Dispense Credit Add action in Control Audit Class2
+And the user should be able to perform Drug Dispense Audit Add action in Control Audit Class2
+And the user should be able to perform Drug Audit Dispense Date Update in Control Audit Class2
+And the user should be able to perform Drug Audit Dispense Date Delete in Control Audit Class2
+And the user should be able to perform Drug Audit Dispense Quantity Update in Control Audit Class2
+And the user should be able to Export Control Audit Class2 data to Excel
+And the user should be able to Export Control Audit Class2 data to PDF
+
+Scenario: User with View Only permission in Control Audit Class2
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Rxworkflow user should be able to view Profiles
+And I create a profile with View Only permission for Control Audit Class2
+Then the user should be able to view Control Audit Class2 data
+And the user should be able to open Details View in Control Audit Class2
+And the user should NOT be able to perform Drug Dispense Credit Add action in Control Audit Class2
+And the user should NOT be able to perform Drug Dispense Audit Add action in Control Audit Class2
+And the user should NOT be able to perform Drug Audit Dispense Date Update in Control Audit Class2
+And the user should NOT be able to perform Drug Audit Dispense Date Delete in Control Audit Class2
+And the user should NOT be able to perform Drug Audit Dispense Quantity Update in Control Audit Class2
+And the user should NOT be able to Export Control Audit Class2 data to Excel
+And the user should NOT be able to Export Control Audit Class2 data to PDF
+
+Scenario: User with all permissions in Control Audit Class3
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Rxworkflow user should be able to view Profiles
+And I create a profile with all permissions for Control Audit Class3
+Then the user should be able to view Control Audit Class3
+And the user should be able to open Details View in Control Audit Class3
+And the user should be able to perform Drug Dispense Credit Add action in Control Audit Class3
+And the user should be able to perform Drug Dispense Audit Add action in Control Audit Class3
+And the user should be able to perform Drug Audit Dispense Date Update in Control Audit Class3
+And the user should be able to perform Drug Audit Dispense Date Delete in Control Audit Class3
+And the user should be able to perform Drug Audit Dispense Quantity Update in Control Audit Class3
+And the user should be able to Export Control Audit Class3 data to Excel
+And the user should be able to Export Control Audit Class3 data to PDF
+
+Scenario: User with View Only permission in Control Audit Class3
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Rxworkflow user should be able to view Profiles
+And I create a profile with View Only permission for Control Audit Class3 module
+Then the user should be able to view Control Audit Class3 data
+And the user should be able to open Details View in Control Audit Class3
+And the user should NOT be able to perform Drug Dispense Credit Add action in Control Audit Class3
+And the user should NOT be able to perform Drug Dispense Audit Add action in Control Audit Class3
+And the user should NOT be able to perform Drug Audit Dispense Date Update in Control Audit Class3
+And the user should NOT be able to perform Drug Audit Dispense Date Delete in Control Audit Class3
+And the user should NOT be able to perform Drug Audit Dispense Quantity Update in Control Audit Class3
+And the user should NOT be able to Export Control Audit Class3 data to Excel
+And the user should NOT be able to Export Control Audit Class3 data to PDF
+
+Scenario: User with all permissions in Control Audit Class4
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Rxworkflow user should be able to view Profiles
+And I create a profile with all permissions for Control Audit Class4
+Then the user should be able to view Control Audit Class4 data
+And the user should be able to open Details View in Control Audit Class4
+And the user should be able to perform Drug Dispense Credit Add action in Control Audit Class4
+And the user should be able to perform Drug Dispense Audit Add action in Control Audit Class4
+And the user should be able to perform Drug Audit Dispense Date Update in Control Audit Class4
+And the user should be able to perform Drug Audit Dispense Date Delete in Control Audit Class4
+And the user should be able to perform Drug Audit Dispense Quantity Update in Control Audit Class4
+And the user should be able to Export Control Audit Class4 data to Excel
+And the user should be able to Export Control Audit Class4 data to PDF
+
+Scenario: User with View Only permission in Control Audit Class4
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Rxworkflow user should be able to view Profiles
+And I create a profile with View Only permission for Control Audit Class4
+Then the user should be able to view Control Audit Class4 data
+And the user should be able to open Details View in Control Audit Class4
+And the user should NOT be able to perform Drug Dispense Credit Add action in Control Audit Class4
+And the user should NOT be able to perform Drug Dispense Audit Add action in Control Audit Class4
+And the user should NOT be able to perform Drug Audit Dispense Date Update in Control Audit Class4
+And the user should NOT be able to perform Drug Audit Dispense Date Delete in Control Audit Class4
+And the user should NOT be able to perform Drug Audit Dispense Quantity Update in Control Audit Class4
+And the user should NOT be able to Export Control Audit Class4 data to Excel
+And the user should NOT be able to Export Control Audit Class4 data to PDF
+
+Scenario: User with all permissions in Control Audit Class5
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Rxworkflow user should be able to view Profiles
+And I create a profile with all permissions for Control Audit Class5
+Then the user should be able to view Control Audit Class5 data
+And the user should be able to open Details View in Control Audit Class5
+And the user should be able to perform Drug Dispense Credit Add action in Control Audit Class5
+And the user should be able to perform Drug Dispense Audit Add action in Control Audit Class5
+And the user should be able to perform Drug Audit Dispense Date Update in Control Audit Class5
+And the user should be able to perform Drug Audit Dispense Date Delete in Control Audit Class5
+And the user should be able to perform Drug Audit Dispense Quantity Update in Control Audit Class5
+And the user should be able to Export Control Audit Class5 data to Excel
+And the user should be able to Export Control Audit Class5 data to PDF
+
+Scenario: User with View Only permission in Control Audit Class5
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+Then the Rxworkflow user should be able to view Profiles
+And I create a profile with View Only permission for Control Audit Class5
+Then the user should be able to view Control Audit Class5 data
+And the user should be able to open Details View in Control Audit Class5
+And the user should NOT be able to perform Drug Dispense Credit Add action in Control Audit Class5
+And the user should NOT be able to perform Drug Dispense Audit Add action in Control Audit Class5
+And the user should NOT be able to perform Drug Audit Dispense Date Update in Control Audit Class5
+And the user should NOT be able to perform Drug Audit Dispense Date Delete in Control Audit Class5
+And the user should NOT be able to perform Drug Audit Dispense Quantity Update in Control Audit Class5
+And the user should NOT be able to Export Control Audit Class5 data to Excel
+And the user should NOT be able to Export Control Audit Class5 data to PDF
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
