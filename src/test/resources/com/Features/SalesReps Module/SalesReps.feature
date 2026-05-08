@@ -2296,8 +2296,8 @@ Scenario: Sales Rep user able to perform the Filter functionality Search with on
 #---------------------- Sales Reps Module (Profile Permission) --------------------------
 
 
-@Sanity
-Scenario: User able to click on the Setup Module tab
+ 
+Scenario: User able to click on the Setup Module tab 
   Given user launch browser
   Then user click on the user type dropdown
   When user select the user type as organization from user type dropdown
@@ -2306,7 +2306,7 @@ Scenario: User able to click on the Setup Module tab
   When user click on the go button
   Then user click on the Setup module tab in home page
   
-Scenario: Verify that the user cannot access Bucket view when permission is not granted
+Scenario: Verify that the user cannot access the Add Folder Functionality in Buckets Section, when permission is not granted 
   Given user launch browser
   Then user click on the user type dropdown
   When user select the user type as organization from user type dropdown
@@ -2317,4 +2317,993 @@ Scenario: Verify that the user cannot access Bucket view when permission is not 
   And user click on the sidebar collpase button in module dashboard page
   When user click on the profiles tab in sidebar in Setup module page
   Then user click on the filter tab in profiles page
-  And user enter the profile name in profiles page                                
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the sales reps module tab in profile details
+  When user uncheck the add folder checkbox button in bucket section of sales reps module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the Sales Reps module tab in home page
+  Then user click on the sidebar collpase button in module dashboard page
+  And user click on the Buckets tab in sidebar in Sales Reps module page
+  Then user click on the new folder tab in salesrep documents section
+  And user enter the folder name in new folder pop-up window
+  When user select the folder type as Public in new folder pop-up window
+  Then user click on the submit button in new folder pop-up window
+  
+Scenario: Verify that the user can access the Add Folder Functionality in Buckets Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the sales reps module tab in profile details
+  When user check the add folder checkbox button in bucket section of sales reps module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the Sales Reps module tab in home page
+  Then user click on the sidebar collpase button in module dashboard page
+  And user click on the Buckets tab in sidebar in Sales Reps module page
+  Then user click on the new folder tab in salesrep documents section
+  And user enter the folder name in new folder pop-up window
+  When user select the folder type as Public in new folder pop-up window
+  Then user click on the submit button in new folder pop-up window
+  
+Scenario: Verify that the user cannot access the Edit Folder Functionality in Buckets Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the sales reps module tab in profile details
+  When user uncheck the edit folder checkbox button in bucket section of sales reps module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the Sales Reps module tab in home page
+  Then user click on the sidebar collpase button in module dashboard page
+  And user click on the Buckets tab in sidebar in Sales Reps module page
+  Then user click on the three dot button of existing folder in salesrep documents section
+  And user click on the edit button of existing folder in salesrep documents section
+  When user change the folder name in edit folder pop-up window
+  Then user change the folder type in edit folder pop-up window
+  And user click on the submit button in new folder pop-up window
+  
+Scenario: Verify that the user can access the Edit Folder Functionality in Buckets Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the sales reps module tab in profile details
+  When user check the edit folder checkbox button in bucket section of sales reps module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the Sales Reps module tab in home page
+  Then user click on the sidebar collpase button in module dashboard page
+  And user click on the Buckets tab in sidebar in Sales Reps module page
+  Then user click on the three dot button of existing folder in salesrep documents section
+  And user click on the edit button of existing folder in salesrep documents section
+  When user change the folder name in edit folder pop-up window
+  Then user change the folder type in edit folder pop-up window
+  And user click on the submit button in new folder pop-up window
+  
+Scenario: Verify that the user cannot access the Delete Folder Functionality in Buckets Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the sales reps module tab in profile details
+  When user uncheck the delete folder checkbox button in bucket section of sales reps module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the Sales Reps module tab in home page
+  Then user click on the sidebar collpase button in module dashboard page
+  And user click on the Buckets tab in sidebar in Sales Reps module page
+  When user click on the three dot button of existing folder in salesrep documents section
+  Then user click on the delete button of existing folder in salesrep documents section
+  
+Scenario: Verify that the user can access the Delete Folder Functionality in Buckets Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the sales reps module tab in profile details
+  When user check the delete folder checkbox button in bucket section of sales reps module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the Sales Reps module tab in home page
+  Then user click on the sidebar collpase button in module dashboard page
+  And user click on the Buckets tab in sidebar in Sales Reps module page
+  When user click on the three dot button of existing folder in salesrep documents section
+  Then user click on the delete button of existing folder in salesrep documents section
+  
+Scenario: Verify that the user cannot access the Add File Functionality in Buckets Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the sales reps module tab in profile details
+  When user uncheck the add file checkbox button in bucket section of sales reps module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the Sales Reps module tab in home page
+  Then user click on the sidebar collpase button in module dashboard page
+  And user click on the Buckets tab in sidebar in Sales Reps module page
+  Then user double click on the existing folder in salesrep documents section
+  And user click on the upload tab in salesrep documents section
+  When user upload the PDF file in salesrep documents section
+  Then user click on the submit button in salesrep documents section
+  
+Scenario: Verify that the user can access the Add File Functionality in Buckets Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the sales reps module tab in profile details
+  When user check the add file checkbox button in bucket section of sales reps module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the Sales Reps module tab in home page
+  Then user click on the sidebar collpase button in module dashboard page
+  And user click on the Buckets tab in sidebar in Sales Reps module page
+  Then user double click on the existing folder in salesrep documents section
+  And user click on the upload tab in salesrep documents section
+  When user upload the PDF file in salesrep documents section
+  Then user click on the submit button in salesrep documents section
+  
+Scenario: Verify that the user cannot access the Edit File Functionality in Buckets Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the sales reps module tab in profile details
+  When user uncheck the edit file checkbox button in bucket section of sales reps module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the Sales Reps module tab in home page
+  Then user click on the sidebar collpase button in module dashboard page
+  And user click on the Buckets tab in sidebar in Sales Reps module page
+  Then user double click on the existing folder in salesrep documents section
+  And user click on the three dot button of existing file in salesrep documents section
+  When user click on the edit button of existing file in salesrep documents section
+  Then user change the existing file name in edit file name pop-up window
+  And user click on the submit button in edit file pop-up window
+  
+Scenario: Verify that the user can access the Edit File Functionality in Buckets Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the sales reps module tab in profile details
+  When user check the edit file checkbox button in bucket section of sales reps module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the Sales Reps module tab in home page
+  Then user click on the sidebar collpase button in module dashboard page
+  And user click on the Buckets tab in sidebar in Sales Reps module page
+  Then user double click on the existing folder in salesrep documents section
+  And user click on the three dot button of existing file in salesrep documents section
+  When user click on the edit button of existing file in salesrep documents section
+  Then user change the existing file name in edit file name pop-up window
+  And user click on the submit button in edit file pop-up window
+  
+Scenario: Verify that the user cannot access the Delete File Functionality in Buckets Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the sales reps module tab in profile details
+  When user uncheck the delete file checkbox button in bucket section of sales reps module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the Sales Reps module tab in home page
+  Then user click on the sidebar collpase button in module dashboard page
+  And user click on the Buckets tab in sidebar in Sales Reps module page
+  When user double click on the existing folder in salesrep documents section
+  Then user click on the three dot button of existing file in salesrep documents section
+  And user click on the delete button of existing file in salesrep documents section
+  
+Scenario: Verify that the user can access the Delete File Functionality in Buckets Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the sales reps module tab in profile details
+  When user check the delete file checkbox button in bucket section of sales reps module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the Sales Reps module tab in home page
+  Then user click on the sidebar collpase button in module dashboard page
+  And user click on the Buckets tab in sidebar in Sales Reps module page
+  When user double click on the existing folder in salesrep documents section
+  Then user click on the three dot button of existing file in salesrep documents section
+  And user click on the delete button of existing file in salesrep documents section
+  
+Scenario: Verify that the user cannot access the Download File Functionality in Buckets Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the sales reps module tab in profile details
+  When user uncheck the download file checkbox button in bucket section of sales reps module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the Sales Reps module tab in home page
+  Then user click on the sidebar collpase button in module dashboard page
+  And user click on the Buckets tab in sidebar in Sales Reps module page
+  When user double click on the existing folder in salesrep documents section
+  Then user click on the three dot button of existing file in salesrep documents section
+  And user click on the download button of existing file in salesrep documents section
+  
+Scenario: Verify that the user can access the Download File Functionality in Buckets Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the sales reps module tab in profile details
+  When user check the download file checkbox button in bucket section of sales reps module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the Sales Reps module tab in home page
+  Then user click on the sidebar collpase button in module dashboard page
+  And user click on the Buckets tab in sidebar in Sales Reps module page
+  When user double click on the existing folder in salesrep documents section
+  Then user click on the three dot button of existing file in salesrep documents section
+  And user click on the download button of existing file in salesrep documents section
+  
+Scenario: Verify that the user cannot access the Folder Permission (Zone Permission) Functionality in Buckets Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the sales reps module tab in profile details
+  When user uncheck the folder permission checkbox button in bucket section of sales reps module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the Sales Reps module tab in home page
+  Then user click on the sidebar collpase button in module dashboard page
+  And user click on the Buckets tab in sidebar in Sales Reps module page
+  Then user click on the three dot button of existing folder in salesrep documents section
+  And user click on the permission button of existing folder in salesrep documents section
+  When user click on the first zone checkbox button in permission pop-up window
+  Then user click on the submit button in permission pop-up window in salesrep documents section
+  
+Scenario: Verify that the user can access the Folder Permission (Zone Permission) Functionality in Buckets Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the sales reps module tab in profile details
+  When user check the folder permission checkbox button in bucket section of sales reps module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the Sales Reps module tab in home page
+  Then user click on the sidebar collpase button in module dashboard page
+  And user click on the Buckets tab in sidebar in Sales Reps module page
+  Then user click on the three dot button of existing folder in salesrep documents section
+  And user click on the permission button of existing folder in salesrep documents section
+  When user click on the first zone checkbox button in permission pop-up window
+  Then user click on the submit button in permission pop-up window in salesrep documents section
+  
+Scenario: Verify that the user cannot access the Folder Permission (User Permission) Functionality in Buckets Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the sales reps module tab in profile details
+  When user uncheck the folder permission checkbox button in bucket section of sales reps module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the Sales Reps module tab in home page
+  Then user click on the sidebar collpase button in module dashboard page
+  And user click on the Buckets tab in sidebar in Sales Reps module page
+  Then user click on the three dot button of existing folder in salesrep documents section
+  And user click on the user permission button of existing folder in salesrep documents section
+  When user click on the first user checkbox button in permission pop-up window
+  Then user click on the submit button in user permission pop-up window in salesrep documents section
+  
+Scenario: Verify that the user can access the Folder Permission (User Permission) Functionality in Buckets Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the sales reps module tab in profile details
+  When user check the folder permission checkbox button in bucket section of sales reps module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the Sales Reps module tab in home page
+  Then user click on the sidebar collpase button in module dashboard page
+  And user click on the Buckets tab in sidebar in Sales Reps module page
+  Then user click on the three dot button of existing folder in salesrep documents section
+  And user click on the user permission button of existing folder in salesrep documents section
+  When user click on the first user checkbox button in permission pop-up window
+  Then user click on the submit button in user permission pop-up window in salesrep documents section
+  
+Scenario: Verify that the user cannot access the Bucket Section Functionality, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the sales reps module tab in profile details
+  When user uncheck the bucket section checkbox of sales reps module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the Sales Reps module tab in home page
+  Then user click on the sidebar collpase button in module dashboard page
+  And user click on the Buckets tab in sidebar in Sales Reps module page
+  
+Scenario: Verify that the user can access the Bucket Section Functionality, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the sales reps module tab in profile details
+  When user check the bucket section checkbox of sales reps module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the Sales Reps module tab in home page
+  Then user click on the sidebar collpase button in module dashboard page
+  And user click on the Buckets tab in sidebar in Sales Reps module page
+  
+Scenario: Verify that the user cannot access the Sales Rep Visits Section Functionality, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the sales reps module tab in profile details
+  When user uncheck the sales rep visits section checkbox of sales reps module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the Sales Reps module tab in home page
+  Then user click on the sidebar collpase button in module dashboard page
+  And user click on the Sales Rep Visit tab in sidebar in Sales Reps module page
+  
+Scenario: Verify that the user can access the Sales Rep Visits Section Functionality, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the sales reps module tab in profile details
+  When user check the sales rep visits section checkbox of sales reps module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the Sales Reps module tab in home page
+  Then user click on the sidebar collpase button in module dashboard page
+  And user click on the Sales Rep Visit tab in sidebar in Sales Reps module page
+  
+Scenario: Verify that the user cannot access the Add Functionality in Sales Rep Questions Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the sales reps module tab in profile details
+  When user uncheck the Add checkbox button in sales rep questions section of sales reps module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the Sales Reps module tab in home page
+  Then user click on the sidebar collpase button in module dashboard page
+  When user click on the Sales Rep Questions tab in sidebar in Sales Reps module page
+  Then user click on the add new sales rep question button in Sales Rep Questions section
+  And user enter the sales rep question in Sales Rep Questions section
+  When user click on the calculative checkbox in Sales Rep Questions section
+  Then user click on the mandatory checkbox in Sales Rep Questions section
+  And user click on the submit button in Sales Rep Questions section
+  
+Scenario: Verify that the user can access the Add Functionality in Sales Rep Questions Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the sales reps module tab in profile details
+  When user check the Add checkbox button in sales rep questions section of sales reps module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the Sales Reps module tab in home page
+  Then user click on the sidebar collpase button in module dashboard page
+  When user click on the Sales Rep Questions tab in sidebar in Sales Reps module page
+  Then user click on the add new sales rep question button in Sales Rep Questions section
+  And user enter the sales rep question in Sales Rep Questions section
+  When user click on the calculative checkbox in Sales Rep Questions section
+  Then user click on the mandatory checkbox in Sales Rep Questions section
+  And user click on the submit button in Sales Rep Questions section
+  
+Scenario: Verify that the user cannot access the Edit Functionality in Sales Rep Questions Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the sales reps module tab in profile details
+  When user uncheck the Edit checkbox button in sales rep questions section of sales reps module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the Sales Reps module tab in home page
+  Then user click on the sidebar collpase button in module dashboard page
+  When user click on the Sales Rep Questions tab in sidebar in Sales Reps module page
+  Then user click on the three dot button of existing sales rep question in sales rep questions section
+  And user click on the edit button of existing sales rep question in sales rep questions section
+  When user change the sales rep question in sale rep question section
+  Then user click on the calculative checkbox in Sales Rep Questions section
+  And user click on the mandatory checkbox in Sales Rep Questions section
+  Then user click on the submit button in Sales Rep Questions section
+  
+Scenario: Verify that the user can access the Edit Functionality in Sales Rep Questions Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the sales reps module tab in profile details
+  When user check the Edit checkbox button in sales rep questions section of sales reps module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the Sales Reps module tab in home page
+  Then user click on the sidebar collpase button in module dashboard page
+  When user click on the Sales Rep Questions tab in sidebar in Sales Reps module page
+  Then user click on the three dot button of existing sales rep question in sales rep questions section
+  And user click on the edit button of existing sales rep question in sales rep questions section
+  When user change the sales rep question in sale rep question section
+  Then user click on the calculative checkbox in Sales Rep Questions section
+  And user click on the mandatory checkbox in Sales Rep Questions section
+  Then user click on the submit button in Sales Rep Questions section
+  
+Scenario: Verify that the user cannot access the Delete Functionality in Sales Rep Questions Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the sales reps module tab in profile details
+  When user uncheck the Delete checkbox button in sales rep questions section of sales reps module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the Sales Reps module tab in home page
+  Then user click on the sidebar collpase button in module dashboard page
+  When user click on the Sales Rep Questions tab in sidebar in Sales Reps module page
+  Then user click on the three dot button of existing sales rep question in sales rep questions section
+  And user click on the delete button of existing sales rep question in sales rep questions section
+  
+Scenario: Verify that the user can access the Delete Functionality in Sales Rep Questions Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the sales reps module tab in profile details
+  When user check the Delete checkbox button in sales rep questions section of sales reps module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the Sales Reps module tab in home page
+  Then user click on the sidebar collpase button in module dashboard page
+  When user click on the Sales Rep Questions tab in sidebar in Sales Reps module page
+  Then user click on the three dot button of existing sales rep question in sales rep questions section
+  And user click on the delete button of existing sales rep question in sales rep questions section
+  
+Scenario: Verify that the user cannot access the Sales Rep Questions Section Functionality, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the sales reps module tab in profile details
+  When user uncheck the sales rep questions section checkbox of sales reps module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the Sales Reps module tab in home page
+  Then user click on the sidebar collpase button in module dashboard page
+  And user click on the Sales Rep Questions tab in sidebar in Sales Reps module page
+  
+Scenario: Verify that the user can access the Sales Rep Questions Section Functionality, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the sales reps module tab in profile details
+  When user check the sales rep questions section checkbox of sales reps module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the Sales Reps module tab in home page
+  Then user click on the sidebar collpase button in module dashboard page
+  And user click on the Sales Rep Questions tab in sidebar in Sales Reps module page
+  
+Scenario: Verify that the user cannot access the Send Text Functionality in Text (Sales Rep Visits) Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the sales reps module tab in profile details
+  When user uncheck the Send checkbox button in sales rep visits section of sales reps module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the Sales Reps module tab in home page
+  Then user click on the sidebar collpase button in module dashboard page
+  When user click on the Sales Rep Visit tab in sidebar in Sales Reps module page
+  Then user click on the quick text tab in sales rep visits section
+  And user select the user by index in quick text pop-up window
+  When user enter the phone number in quick text pop-up window
+  Then user select the template by index in quick text pop-up window
+  And user enter the body in quick text pop-up window
+  When user click on the send button in quick text pop-up window
+  
+Scenario: Verify that the user can access the Send Text Functionality in Text (Sales Rep Visits) Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the sales reps module tab in profile details
+  When user check the Send checkbox button in sales rep visits section of sales reps module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the Sales Reps module tab in home page
+  Then user click on the sidebar collpase button in module dashboard page
+  When user click on the Sales Rep Visit tab in sidebar in Sales Reps module page
+  Then user click on the quick text tab in sales rep visits section
+  And user select the user by index in quick text pop-up window
+  When user enter the phone number in quick text pop-up window
+  Then user select the template by index in quick text pop-up window
+  And user enter the body in quick text pop-up window
+  When user click on the send button in quick text pop-up window
+  
+Scenario: Verify that the user cannot access the Sales Rep Visible Number Functionality in Text (Sales Rep Visits) Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the sales reps module tab in profile details
+  When user uncheck the Sales Rep Visible Number checkbox button in sales rep visits section of sales reps module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the Sales Reps module tab in home page
+  Then user click on the sidebar collpase button in module dashboard page
+  When user click on the Sales Rep Visit tab in sidebar in Sales Reps module page
+  Then user click on the quick text tab in sales rep visits section
+  And user select the user by index in quick text pop-up window
+  When user enter the phone number in quick text pop-up window
+  Then user select the template by index in quick text pop-up window
+  And user enter the body in quick text pop-up window
+  When user click on the send button in quick text pop-up window
+  
+Scenario: Verify that the user can access the Sales Rep Visible Number Functionality in Text (Sales Rep Visits) Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the sales reps module tab in profile details
+  When user check the Sales Rep Visible Number checkbox button in sales rep visits section of sales reps module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the Sales Reps module tab in home page
+  Then user click on the sidebar collpase button in module dashboard page
+  When user click on the Sales Rep Visit tab in sidebar in Sales Reps module page
+  Then user click on the quick text tab in sales rep visits section
+  And user select the user by index in quick text pop-up window
+  When user enter the phone number in quick text pop-up window
+  Then user select the template by index in quick text pop-up window
+  And user enter the body in quick text pop-up window
+  When user click on the send button in quick text pop-up window
+  
+Scenario: Verify that the user cannot access the Send VCard Functionality in Text (Sales Rep Visits) Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the sales reps module tab in profile details
+  When user uncheck the Send VCard checkbox button in sales rep visits section of sales reps module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the Sales Reps module tab in home page
+  Then user click on the sidebar collpase button in module dashboard page
+  When user click on the Sales Rep Visit tab in sidebar in Sales Reps module page
+  Then user click on the send vcard tab in sales rep visits section
+  And user enter the phone number in send vcard pop-up window
+  When user enter the body in send vcard pop-up window
+  Then user click on the send button in send vcard pop-up window
+  
+Scenario: Verify that the user can access the Send VCard Functionality in Text (Sales Rep Visits) Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the sales reps module tab in profile details
+  When user check the Send VCard checkbox button in sales rep visits section of sales reps module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the Sales Reps module tab in home page
+  Then user click on the sidebar collpase button in module dashboard page
+  When user click on the Sales Rep Visit tab in sidebar in Sales Reps module page
+  Then user click on the send vcard tab in sales rep visits section
+  And user enter the phone number in send vcard pop-up window
+  When user enter the body in send vcard pop-up window
+  Then user click on the send button in send vcard pop-up window
+  
+Scenario: Verify that the user cannot access the Text Functionality in Text (Sales Rep Visits) Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the sales reps module tab in profile details
+  When user uncheck the Text checkbox button in sales rep visits section of sales reps module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the Sales Reps module tab in home page
+  Then user click on the sidebar collpase button in module dashboard page
+  When user click on the Sales Rep Visit tab in sidebar in Sales Reps module page
+  Then user check the text subsection is display
+  
+Scenario: Verify that the user cannot access the Text Functionality in Text (Sales Rep Visits) Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the sales reps module tab in profile details
+  When user check the Text checkbox button in sales rep visits section of sales reps module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the Sales Reps module tab in home page
+  Then user click on the sidebar collpase button in module dashboard page
+  When user click on the Sales Rep Visit tab in sidebar in Sales Reps module page
+  Then user check the text subsection is display                

@@ -98,7 +98,7 @@ public class HRModuleFunctionalitySteps {
 		boolean result = HRmodulefunctionalitypage.clickintothefolderthreedotbuttonindocuments();
 		
 		if (!result) {
-	        String message = "Folder is not added, and the three-dot (more options) button is also not visible on the Documents page — skipping this step";
+	        String message = "Folder and Folder Permission (More Options) are not visible to the user due to lack of permission — skipping this step";
 	        System.out.println(message);
 	        Hooks.scenario.log(message);
 
@@ -113,7 +113,7 @@ public class HRModuleFunctionalitySteps {
 		boolean result = HRmodulefunctionalitypage.clickintotheEditFoldernamebutton();
 		
 		if (!result) {
-	        String message = "Edit (more options) button is also not visible for that user because don't have permission — skipping this step";
+	        String message = "Edit Folder button is also not visible for that user because don't have permission — skipping this step";
 	        System.out.println(message);
 	        Hooks.scenario.log(message);
 
@@ -146,7 +146,7 @@ public class HRModuleFunctionalitySteps {
 		boolean result = HRmodulefunctionalitypage.clickintotheDeleteFolderbutton();
 		
 		if (!result) {
-	        String message = "Delete (more options) button is also not visible for that user because don't have permission — skipping this step";
+	        String message = "Delete Folder (more options) button is not visible for that user because don't have permission — skipping this step";
 	        System.out.println(message);
 	        Hooks.scenario.log(message);
 
@@ -176,7 +176,7 @@ public class HRModuleFunctionalitySteps {
 		boolean result = HRmodulefunctionalitypage.clickintothefileuploadtabindocuments();
 		
 		if (!result) {
-	        String message = "File Upload (more options) button is also not visible for that user because don't have permission — skipping this step";
+	        String message = "File Upload (more options) button is not visible for that user because don't have permission — skipping this step";
 	        System.out.println(message);
 	        Hooks.scenario.log(message);
 
@@ -235,7 +235,7 @@ public class HRModuleFunctionalitySteps {
 		boolean result = HRmodulefunctionalitypage.clickintotheEditFilenamebutton();
 		
 		if (!result) {
-	        String message = "Edit (more options) button is also not visible for that user because don't have permission — skipping this step";
+	        String message = "Edit (more options) button is not visible for that user because don't have permission — skipping this step";
 	        System.out.println(message);
 	        Hooks.scenario.log(message);
 
@@ -259,7 +259,7 @@ public class HRModuleFunctionalitySteps {
 		boolean result = HRmodulefunctionalitypage.clickintotheDeleteFilenamebutton();
 		
 		if (!result) {
-	        String message = "Delete (more options) button is also not visible for that user because don't have permission — skipping this step";
+	        String message = "Delete (more options) button is not visible for that user because don't have the permission — skipping this step";
 	        System.out.println(message);
 	        Hooks.scenario.log(message);
 
@@ -274,7 +274,7 @@ public class HRModuleFunctionalitySteps {
 		boolean result = HRmodulefunctionalitypage.clickintotheDownloadFilenamebutton();
 		
 		if (!result) {
-	        String message = "Download (more options) button is also not visible for that user because don't have permission — skipping this step";
+	        String message = "Download File (more options) button is also not visible for that user because don't have permission — skipping this step";
 	        System.out.println(message);
 	        Hooks.scenario.log(message);
 
@@ -918,7 +918,7 @@ public class HRModuleFunctionalitySteps {
 		boolean result = HRmodulefunctionalitypage.clickintotheviewbuttonforexistingemployee();
 		
 		if (!result) {
-	        String message = "Employee is not added, and the view button is also not visible on the Employees page — skipping this step";
+	        String message = "Employee and Employee Details, are not visible for that user because don't have permission — skipping this step";
 	        System.out.println(message);
 	        Hooks.scenario.log(message);
 
@@ -1041,6 +1041,22 @@ public class HRModuleFunctionalitySteps {
 	    Hooks.scenario.log("Employee is Delink successfully with associated user");
 	}
 	
+	@And("user click on the about view tab in employee details page")
+	public void user_click_on_the_about_view_tab_in_employee_details_page() {
+		boolean result = HRmodulefunctionalitypage.clickintotheAbouttabinEmployeedetails();
+		
+		if (!result) {
+	        String message = "About tab is not visible for that user because don't have permission — skipping this step";
+	        System.out.println(message);
+	        Hooks.scenario.log(message);
+
+	        Assume.assumeTrue(message, false); // Step marked as SKIPPED
+	        return;
+	    }
+	    Hooks.scenario.log("About tab clicked successfully");
+		
+	}
+	
 	@And("user click on the licenses tab in employee details page")
 	public void user_click_on_the_licenses_tab_in_employee_details_page() {
 		boolean result = HRmodulefunctionalitypage.clickintotheLicensestabinEmployeedetails();
@@ -1143,12 +1159,12 @@ public class HRModuleFunctionalitySteps {
 	
 	@When("user upload the employee license file in add employee license pop-up window")
 	public void user_upload_the_employee_license_file_in_add_employee_license_pop_up_window() throws Exception {
-		String filePath = System.getProperty("user.dir") + "/src/test/resources/com/Images/sample.jpeg";
+		String filePath = System.getProperty("user.dir") + "/src/test/resources/com/Documents/Get_Started_With_Smallpdf.pdf";
 		HRmodulefunctionalitypage.uploadTheEmployeeLicenseFile(filePath);
 		Thread.sleep(2000);
 		
-		System.out.println("Employee license file is successfully uploaded in JPEG image format");
-		Hooks.scenario.log("Employee license file is successfully uploaded in JPEG image format");
+		System.out.println("Employee license file is successfully uploaded");
+		Hooks.scenario.log("Employee license file is successfully uploaded");
 	}
 	
 	@Then("user click on the submit button in add employee license pop-up window")
@@ -3111,5 +3127,817 @@ public class HRModuleFunctionalitySteps {
 	        return;
 	    }
 	    Hooks.scenario.log("Export to Excel button clicked successfully");
+	}
+	
+	@And("user click on the HR module tab in profile details")
+	public void user_click_on_the_HR_module_tab_in_profile_details() {
+		HRmodulefunctionalitypage.clickintotheHRtabinProfileDetails();
+		
+		System.out.println("HR tab clicked successfully");
+		Hooks.scenario.log("HR tab clicked successfully");
+	}
+	
+	@When("user uncheck the add folder checkbox button in bucket section of hr module")
+	public void user_uncheck_the_add_folder_checkbox_button_in_bucket_section_of_hr_module() throws Exception {
+		boolean result = HRmodulefunctionalitypage.uncheckAddFolderCheckboxinHR();
+		 Thread.sleep(1500);
+
+		 if (result) {
+		        System.out.println("Add Folder Checkbox is already unchecked");
+		        Hooks.scenario.log("Add Folder Checkbox is already unchecked");
+		    } else {
+		        System.out.println("Add Folder Checkbox was checked, now unchecked");
+		        Hooks.scenario.log("Add Folder Checkbox was checked, now unchecked");
+		    }
+	}
+	
+	@When("user check the add folder checkbox button in bucket section of hr module")
+	public void user_check_the_add_folder_checkbox_button_in_bucket_section_of_hr_module() throws Exception {
+		boolean result = HRmodulefunctionalitypage.checkAddFolderCheckboxinHR();
+		Thread.sleep(1500);
+
+	    if (result) {
+	        System.out.println("Add Folder Checkbox is already checked");
+	        Hooks.scenario.log("Add Folder Checkbox is already checked");
+	    } else {
+	        System.out.println("Add Folder Checkbox was unchecked, now checked");
+	        Hooks.scenario.log("Add Folder Checkbox was unchecked, now checked");
+	    }
+	}
+	
+	@When("user uncheck the edit folder checkbox button in bucket section of hr module")
+	public void user_uncheck_the_edit_folder_checkbox_button_in_bucket_section_of_hr_module() throws Exception {
+		boolean result = HRmodulefunctionalitypage.uncheckEditFolderCheckboxinHR();
+		 Thread.sleep(1500);
+
+		 if (result) {
+		        System.out.println("Edit Folder Checkbox is already unchecked");
+		        Hooks.scenario.log("Edit Folder Checkbox is already unchecked");
+		    } else {
+		        System.out.println("Edit Folder Checkbox was checked, now unchecked");
+		        Hooks.scenario.log("Edit Folder Checkbox was checked, now unchecked");
+		    }
+	}
+	
+	@When("user check the edit folder checkbox button in bucket section of hr module")
+	public void user_check_the_edit_folder_checkbox_button_in_bucket_section_of_hr_module() throws Exception {
+		boolean result = HRmodulefunctionalitypage.checkEditFolderCheckboxinHR();
+		Thread.sleep(1500);
+
+	    if (result) {
+	        System.out.println("Edit Folder Checkbox is already checked");
+	        Hooks.scenario.log("Edit Folder Checkbox is already checked");
+	    } else {
+	        System.out.println("Edit Folder Checkbox was unchecked, now checked");
+	        Hooks.scenario.log("Edit Folder Checkbox was unchecked, now checked");
+	    }
+	}
+	
+	@When("user uncheck the delete folder checkbox button in bucket section of hr module")
+	public void user_uncheck_the_delete_folder_checkbox_button_in_bucket_section_of_hr_module() throws Exception {
+		boolean result = HRmodulefunctionalitypage.uncheckDeleteFolderCheckboxinHR();
+		 Thread.sleep(1500);
+
+		 if (result) {
+		        System.out.println("Delete Folder Checkbox is already unchecked");
+		        Hooks.scenario.log("Delete Folder Checkbox is already unchecked");
+		    } else {
+		        System.out.println("Delete Folder Checkbox was checked, now unchecked");
+		        Hooks.scenario.log("Delete Folder Checkbox was checked, now unchecked");
+		    }
+	}
+	
+	@When("user check the delete folder checkbox button in bucket section of hr module")
+	public void user_check_the_delete_folder_checkbox_button_in_bucket_section_of_hr_module() throws Exception {
+		boolean result = HRmodulefunctionalitypage.checkDeleteFolderCheckboxinHR();
+		Thread.sleep(1500);
+
+	    if (result) {
+	        System.out.println("Delete Folder Checkbox is already checked");
+	        Hooks.scenario.log("Delete Folder Checkbox is already checked");
+	    } else {
+	        System.out.println("Delete Folder Checkbox was unchecked, now checked");
+	        Hooks.scenario.log("Delete Folder Checkbox was unchecked, now checked");
+	    }
+	}
+	
+	@When("user uncheck the add file checkbox button in bucket section of hr module")
+	public void user_uncheck_the_add_file_checkbox_button_in_bucket_section_of_hr_module() throws Exception {
+		boolean result = HRmodulefunctionalitypage.uncheckAddFileCheckboxinHR();
+		 Thread.sleep(1500);
+
+		 if (result) {
+		        System.out.println("Add File Checkbox is already unchecked");
+		        Hooks.scenario.log("Add File Checkbox is already unchecked");
+		    } else {
+		        System.out.println("Add File Checkbox was checked, now unchecked");
+		        Hooks.scenario.log("Add File Checkbox was checked, now unchecked");
+		    }
+	}
+	
+	@When("user check the add file checkbox button in bucket section of hr module")
+	public void user_check_the_add_file_checkbox_button_in_bucket_section_of_hr_module() throws Exception {
+		boolean result = HRmodulefunctionalitypage.checkAddFileCheckboxinHR();
+		Thread.sleep(1500);
+
+	    if (result) {
+	        System.out.println("Add File Checkbox is already checked");
+	        Hooks.scenario.log("Add File Checkbox is already checked");
+	    } else {
+	        System.out.println("Add File Checkbox was unchecked, now checked");
+	        Hooks.scenario.log("Add File Checkbox was unchecked, now checked");
+	    }
+	}
+	
+	@When("user uncheck the edit file checkbox button in bucket section of hr module")
+	public void user_uncheck_the_edit_file_checkbox_button_in_bucket_section_of_hr_module() throws Exception {
+		boolean result = HRmodulefunctionalitypage.uncheckEditFileCheckboxinHR();
+		 Thread.sleep(1500);
+
+		 if (result) {
+		        System.out.println("Edit File Checkbox is already unchecked");
+		        Hooks.scenario.log("Edit File Checkbox is already unchecked");
+		    } else {
+		        System.out.println("Edit File Checkbox was checked, now unchecked");
+		        Hooks.scenario.log("Edit File Checkbox was checked, now unchecked");
+		    }
+	}
+	
+	@When("user check the edit file checkbox button in bucket section of hr module")
+	public void user_check_the_edit_file_checkbox_button_in_bucket_section_of_hr_module() throws Exception {
+		boolean result = HRmodulefunctionalitypage.checkEditFileCheckboxinHR();
+		Thread.sleep(1500);
+
+	    if (result) {
+	        System.out.println("Edit File Checkbox is already checked");
+	        Hooks.scenario.log("Edit File Checkbox is already checked");
+	    } else {
+	        System.out.println("Edit File Checkbox was unchecked, now checked");
+	        Hooks.scenario.log("Edit File Checkbox was unchecked, now checked");
+	    }
+	}
+	
+	@When("user uncheck the delete file checkbox button in bucket section of hr module")
+	public void user_uncheck_the_delete_file_checkbox_button_in_bucket_section_of_hr_module() throws Exception {
+		boolean result = HRmodulefunctionalitypage.uncheckDeleteFileCheckboxinHR();
+		 Thread.sleep(1500);
+
+		 if (result) {
+		        System.out.println("Delete File Checkbox is already unchecked");
+		        Hooks.scenario.log("Delete File Checkbox is already unchecked");
+		    } else {
+		        System.out.println("Delete File Checkbox was checked, now unchecked");
+		        Hooks.scenario.log("Delete File Checkbox was checked, now unchecked");
+		    }
+	}
+	
+	@When("user check the delete file checkbox button in bucket section of hr module")
+	public void user_check_the_delete_file_checkbox_button_in_bucket_section_of_hr_module() throws Exception {
+		boolean result = HRmodulefunctionalitypage.checkDeleteFileCheckboxinHR();
+		Thread.sleep(1500);
+
+	    if (result) {
+	        System.out.println("Delete File Checkbox is already checked");
+	        Hooks.scenario.log("Delete File Checkbox is already checked");
+	    } else {
+	        System.out.println("Delete File Checkbox was unchecked, now checked");
+	        Hooks.scenario.log("Delete File Checkbox was unchecked, now checked");
+	    }
+	}
+	
+	@When("user uncheck the download file checkbox button in bucket section of hr module")
+	public void user_uncheck_the_download_file_checkbox_button_in_bucket_section_of_hr_module() throws Exception {
+		boolean result = HRmodulefunctionalitypage.uncheckDownloadFileCheckboxinHR();
+		 Thread.sleep(1500);
+
+		 if (result) {
+		        System.out.println("Download File Checkbox is already unchecked");
+		        Hooks.scenario.log("Download File Checkbox is already unchecked");
+		    } else {
+		        System.out.println("Download File Checkbox was checked, now unchecked");
+		        Hooks.scenario.log("Download File Checkbox was checked, now unchecked");
+		    }
+	}
+	
+	@When("user check the download file checkbox button in bucket section of hr module")
+	public void user_check_the_download_file_checkbox_button_in_bucket_section_of_hr_module() throws Exception {
+		boolean result = HRmodulefunctionalitypage.checkDownloadFileCheckboxinHR();
+		Thread.sleep(1500);
+
+	    if (result) {
+	        System.out.println("Download File Checkbox is already checked");
+	        Hooks.scenario.log("Download File Checkbox is already checked");
+	    } else {
+	        System.out.println("Download File Checkbox was unchecked, now checked");
+	        Hooks.scenario.log("Download File Checkbox was unchecked, now checked");
+	    }
+	}
+	
+	@When("user uncheck the folder permission checkbox button in bucket section of hr module")
+	public void user_uncheck_the_folder_permission_checkbox_button_in_bucket_section_of_hr_module() throws Exception {
+		boolean result = HRmodulefunctionalitypage.uncheckFolderPermissionCheckboxinHR();
+		 Thread.sleep(1500);
+
+		 if (result) {
+		        System.out.println("Folder Permission Checkbox is already unchecked");
+		        Hooks.scenario.log("Folder Permission Checkbox is already unchecked");
+		    } else {
+		        System.out.println("Folder Permission Checkbox was checked, now unchecked");
+		        Hooks.scenario.log("Folder Permission Checkbox was checked, now unchecked");
+		    }
+	}
+	
+	@When("user check the folder permission checkbox button in bucket section of hr module")
+	public void user_check_the_folder_permission_checkbox_button_in_bucket_section_of_hr_module() throws Exception {
+		boolean result = HRmodulefunctionalitypage.checkFolderPermissionCheckboxinHR();
+		Thread.sleep(1500);
+
+	    if (result) {
+	        System.out.println("Folder Permission Checkbox is already checked");
+	        Hooks.scenario.log("Folder Permission Checkbox is already checked");
+	    } else {
+	        System.out.println("Folder Permission Checkbox was unchecked, now checked");
+	        Hooks.scenario.log("Folder Permission Checkbox was unchecked, now checked");
+	    }
+	}
+	
+	@When("user uncheck the bucket checkbox button in bucket section of hr module")
+	public void user_uncheck_the_bucket_checkbox_button_in_bucket_section_of_hr_module() throws Exception {
+		boolean success = HRmodulefunctionalitypage.uncheckBucketUsingDoubleClickIfAllChildrenCheckedinHR();
+		 Thread.sleep(2000);
+
+		 if (success) {
+			    System.out.println("All child + parent checkboxes unchecked");
+			    Hooks.scenario.log("All child + parent checkboxes unchecked");
+			} else {
+			    System.out.println("All child + parent checkboxes are already Unchecked");
+			    Hooks.scenario.log("All child + parent checkboxes are already Unchecked");
+			}
+	}
+	
+	@When("user check the bucket checkbox button in bucket section of hr module")
+	public void user_check_the_bucket_checkbox_button_in_bucket_section_of_hr_module() throws Exception {
+		boolean success = HRmodulefunctionalitypage.checkBucketSingleClickIfAllChildrenUncheckedinHR();
+		 Thread.sleep(2000);
+
+		 if (success) {
+			    System.out.println("All child + parent checkboxes checked");
+			    Hooks.scenario.log("All child + parent checkboxes checked");
+			} else {
+			    System.out.println("All child + parent checkboxes are already checked");
+			    Hooks.scenario.log("All child + parent checkboxes are already checked");
+			}
+	}
+	
+	@When("user uncheck the Add checkbox button in employee section of hr module")
+	public void user_uncheck_the_Add_checkbox_button_in_employee_section_of_hr_module() throws Exception {
+		boolean result = HRmodulefunctionalitypage.uncheckAddEmployeeCheckboxinHR();
+		 Thread.sleep(1500);
+
+		 if (result) {
+		        System.out.println("Add Employee Checkbox is already unchecked");
+		        Hooks.scenario.log("Add Employee Checkbox is already unchecked");
+		    } else {
+		        System.out.println("Add Employee Checkbox was checked, now unchecked");
+		        Hooks.scenario.log("Add Employee Checkbox was checked, now unchecked");
+		    }
+	}
+	
+	@When("user check the Add checkbox button in employee section of hr module")
+	public void user_check_the_Add_checkbox_button_in_employee_section_of_hr_module() throws Exception {
+		boolean result = HRmodulefunctionalitypage.checkAddEmployeeCheckboxinHR();
+		Thread.sleep(1500);
+
+	    if (result) {
+	        System.out.println("Add Employee Checkbox is already checked");
+	        Hooks.scenario.log("Add Employee Checkbox is already checked");
+	    } else {
+	        System.out.println("Add Employee Checkbox was unchecked, now checked");
+	        Hooks.scenario.log("Add Employee Checkbox was unchecked, now checked");
+	    }
+	}
+	
+	@When("user uncheck the Edit checkbox button in employee section of hr module")
+	public void user_uncheck_the_Edit_checkbox_button_in_employee_section_of_hr_module() throws Exception {
+		boolean result = HRmodulefunctionalitypage.uncheckEditEmployeeCheckboxinHR();
+		 Thread.sleep(1500);
+
+		 if (result) {
+		        System.out.println("Edit Employee Checkbox is already unchecked");
+		        Hooks.scenario.log("Edit Employee Checkbox is already unchecked");
+		    } else {
+		        System.out.println("Edit Employee Checkbox was checked, now unchecked");
+		        Hooks.scenario.log("Edit Employee Checkbox was checked, now unchecked");
+		    }
+	}
+	
+	@When("user check the Edit checkbox button in employee section of hr module")
+	public void user_check_the_Edit_checkbox_button_in_employee_section_of_hr_module() throws Exception {
+		boolean result = HRmodulefunctionalitypage.checkEditEmployeeCheckboxinHR();
+		Thread.sleep(1500);
+
+	    if (result) {
+	        System.out.println("Edit Employee Checkbox is already checked");
+	        Hooks.scenario.log("Edit Employee Checkbox is already checked");
+	    } else {
+	        System.out.println("Edit Employee Checkbox was unchecked, now checked");
+	        Hooks.scenario.log("Edit Employee Checkbox was unchecked, now checked");
+	    }
+	}
+	
+	@When("user uncheck the Delete checkbox button in employee section of hr module")
+	public void user_uncheck_the_Delete_checkbox_button_in_employee_section_of_hr_module() throws Exception {
+		boolean result = HRmodulefunctionalitypage.uncheckDeleteEmployeeCheckboxinHR();
+		 Thread.sleep(1500);
+
+		 if (result) {
+		        System.out.println("Delete Employee Checkbox is already unchecked");
+		        Hooks.scenario.log("Delete Employee Checkbox is already unchecked");
+		    } else {
+		        System.out.println("Delete Employee Checkbox was checked, now unchecked");
+		        Hooks.scenario.log("Delete Employee Checkbox was checked, now unchecked");
+		    }
+	}
+	
+	@When("user check the Delete checkbox button in employee section of hr module")
+	public void user_check_the_Delete_checkbox_button_in_employee_section_of_hr_module() throws Exception {
+		boolean result = HRmodulefunctionalitypage.checkDeleteEmployeeCheckboxinHR();
+		Thread.sleep(1500);
+
+	    if (result) {
+	        System.out.println("Delete Employee Checkbox is already checked");
+	        Hooks.scenario.log("Delete Employee Checkbox is already checked");
+	    } else {
+	        System.out.println("Delete Employee Checkbox was unchecked, now checked");
+	        Hooks.scenario.log("Delete Employee Checkbox was unchecked, now checked");
+	    }
+	}
+	
+	@When("user uncheck the Details checkbox button in employee section of hr module")
+	public void user_uncheck_the_Details_checkbox_button_in_employee_section_of_hr_module() throws Exception {
+		boolean result = HRmodulefunctionalitypage.uncheckDetailsEmployeeCheckboxinHR();
+		 Thread.sleep(1500);
+
+		 if (result) {
+		        System.out.println("Details Employee Checkbox is already unchecked");
+		        Hooks.scenario.log("Details Employee Checkbox is already unchecked");
+		    } else {
+		        System.out.println("Details Employee Checkbox was checked, now unchecked");
+		        Hooks.scenario.log("Details Employee Checkbox was checked, now unchecked");
+		    }
+	}
+	
+	@When("user check the Details checkbox button in employee section of hr module")
+	public void user_check_the_Details_checkbox_button_in_employee_section_of_hr_module() throws Exception {
+		boolean result = HRmodulefunctionalitypage.checkDetailsEmployeeCheckboxinHR();
+		Thread.sleep(1500);
+
+	    if (result) {
+	        System.out.println("Details Employee Checkbox is already checked");
+	        Hooks.scenario.log("Details Employee Checkbox is already checked");
+	    } else {
+	        System.out.println("Details Employee Checkbox was unchecked, now checked");
+	        Hooks.scenario.log("Details Employee Checkbox was unchecked, now checked");
+	    }
+	}
+	
+	@When("user uncheck the Employee checkbox button in employee section of hr module")
+	public void user_uncheck_the_Employee_checkbox_button_in_employee_section_of_hr_module() throws Exception {
+		boolean success = HRmodulefunctionalitypage.uncheckEmployeeUsingDoubleClickIfAllChildrenCheckedinHR();
+		 Thread.sleep(2000);
+
+		 if (success) {
+			    System.out.println("All child + parent checkboxes unchecked");
+			    Hooks.scenario.log("All child + parent checkboxes unchecked");
+			} else {
+			    System.out.println("All child + parent checkboxes are already Unchecked");
+			    Hooks.scenario.log("All child + parent checkboxes are already Unchecked");
+			}
+	}
+	
+	@When("user check the Employee checkbox button in employee section of hr module")
+	public void user_check_the_Employee_checkbox_button_in_employee_section_of_hr_module() throws Exception {
+		boolean success = HRmodulefunctionalitypage.checkEmployeeSingleClickIfAllChildrenUncheckedinHR();
+		 Thread.sleep(2000);
+
+		 if (success) {
+			    System.out.println("All child + parent checkboxes checked");
+			    Hooks.scenario.log("All child + parent checkboxes checked");
+			} else {
+			    System.out.println("All child + parent checkboxes are already checked");
+			    Hooks.scenario.log("All child + parent checkboxes are already checked");
+			}
+	}
+	
+	@When("user uncheck the edit checkbox button in employee details section of hr module")
+	public void user_uncheck_the_edit_checkbox_button_in_employee_details_section_of_hr_module() throws Exception {
+		boolean result = HRmodulefunctionalitypage.uncheckEditEmployeeDetailsCheckboxinHR();
+		 Thread.sleep(1500);
+
+		 if (result) {
+		        System.out.println("Edit Employee Details Checkbox is already unchecked");
+		        Hooks.scenario.log("Edit Employee Details Checkbox is already unchecked");
+		    } else {
+		        System.out.println("Edit Employee Details Checkbox was checked, now unchecked");
+		        Hooks.scenario.log("Edit Employee Details Checkbox was checked, now unchecked");
+		    }
+	}
+	
+	@When("user check the edit checkbox button in employee details section of hr module")
+	public void user_check_the_edit_checkbox_button_in_employee_details_section_of_hr_module() throws Exception {
+		boolean result = HRmodulefunctionalitypage.checkEditEmployeeDetailsCheckboxinHR();
+		Thread.sleep(1500);
+
+	    if (result) {
+	        System.out.println("Edit Employee Details Checkbox is already checked");
+	        Hooks.scenario.log("Edit Employee Details Checkbox is already checked");
+	    } else {
+	        System.out.println("Edit Employee Details Checkbox was unchecked, now checked");
+	        Hooks.scenario.log("Edit Employee Details Checkbox was unchecked, now checked");
+	    }
+	}
+	
+	@When("user uncheck the delete checkbox button in employee details section of hr module")
+	public void user_uncheck_the_delete_checkbox_button_in_employee_details_section_of_hr_module() throws Exception {
+		boolean result = HRmodulefunctionalitypage.uncheckDeleteEmployeeDetailsCheckboxinHR();
+		 Thread.sleep(1500);
+
+		 if (result) {
+		        System.out.println("Delete Employee Details Checkbox is already unchecked");
+		        Hooks.scenario.log("Delete Employee Details Checkbox is already unchecked");
+		    } else {
+		        System.out.println("Delete Employee Details Checkbox was checked, now unchecked");
+		        Hooks.scenario.log("Delete Employee Details Checkbox was checked, now unchecked");
+		    }
+	}
+	
+	@When("user check the delete checkbox button in employee details section of hr module")
+	public void user_check_the_delete_checkbox_button_in_employee_details_section_of_hr_module() throws Exception {
+		boolean result = HRmodulefunctionalitypage.checkDeleteEmployeeDetailsCheckboxinHR();
+		Thread.sleep(1500);
+
+	    if (result) {
+	        System.out.println("Delete Employee Details Checkbox is already checked");
+	        Hooks.scenario.log("Delete Employee Details Checkbox is already checked");
+	    } else {
+	        System.out.println("Delete Employee Details Checkbox was unchecked, now checked");
+	        Hooks.scenario.log("Delete Employee Details Checkbox was unchecked, now checked");
+	    }
+	}
+	
+	@When("user uncheck the Link User To Employee checkbox button in employee details section of hr module")
+	public void user_uncheck_the_Link_User_To_Employee_checkbox_button_in_employee_details_section_of_hr_module() throws Exception {
+		boolean result = HRmodulefunctionalitypage.uncheckLinkUserToEmployeeDetailsCheckboxinHR();
+		 Thread.sleep(1500);
+
+		 if (result) {
+		        System.out.println("Link User To Employee Checkbox is already unchecked");
+		        Hooks.scenario.log("Link User To Employee Checkbox is already unchecked");
+		    } else {
+		        System.out.println("Link User To Employee Checkbox was checked, now unchecked");
+		        Hooks.scenario.log("Link User To Employee Checkbox was checked, now unchecked");
+		    }
+	}
+	
+	@When("user check the Link User To Employee checkbox button in employee details section of hr module")
+	public void user_check_the_Link_User_To_Employee_checkbox_button_in_employee_details_section_of_hr_module() throws Exception {
+		boolean result = HRmodulefunctionalitypage.checkLinkUserToEmployeeDetailsCheckboxinHR();
+		Thread.sleep(1500);
+
+	    if (result) {
+	        System.out.println("Link User To Employee Checkbox is already checked");
+	        Hooks.scenario.log("Link User To Employee Checkbox is already checked");
+	    } else {
+	        System.out.println("Link User To Employee Checkbox was unchecked, now checked");
+	        Hooks.scenario.log("Link User To Employee Checkbox was unchecked, now checked");
+	    }
+	}
+	
+	@When("user uncheck the DeLink User To Employee checkbox button in employee details section of hr module")
+	public void user_uncheck_the_DeLink_User_To_Employee_checkbox_button_in_employee_details_section_of_hr_module() throws Exception {
+		boolean result = HRmodulefunctionalitypage.uncheckDeLinkUserToEmployeeDetailsCheckboxinHR();
+		 Thread.sleep(1500);
+
+		 if (result) {
+		        System.out.println("DeLink User To Employee Checkbox is already unchecked");
+		        Hooks.scenario.log("DeLink User To Employee Checkbox is already unchecked");
+		    } else {
+		        System.out.println("DeLink User To Employee Checkbox was checked, now unchecked");
+		        Hooks.scenario.log("DeLink User To Employee Checkbox was checked, now unchecked");
+		    }
+	}
+	
+	@When("user check the DeLink User To Employee checkbox button in employee details section of hr module")
+	public void user_check_the_DeLink_User_To_Employee_checkbox_button_in_employee_details_section_of_hr_module() throws Exception {
+		boolean result = HRmodulefunctionalitypage.checkDeLinkUserToEmployeeDetailsCheckboxinHR();
+		Thread.sleep(1500);
+
+	    if (result) {
+	        System.out.println("DeLink User To Employee Checkbox is already checked");
+	        Hooks.scenario.log("DeLink User To Employee Checkbox is already checked");
+	    } else {
+	        System.out.println("DeLink User To Employee Checkbox was unchecked, now checked");
+	        Hooks.scenario.log("DeLink User To Employee Checkbox was unchecked, now checked");
+	    }
+	}
+	
+	@When("user uncheck the About Tab View checkbox button in employee details section of hr module")
+	public void user_uncheck_the_About_Tab_View_checkbox_button_in_employee_details_section_of_hr_module() throws Exception {
+		boolean result = HRmodulefunctionalitypage.uncheckAboutTabViewEmployeeDetailsCheckboxinHR();
+		 Thread.sleep(1500);
+
+		 if (result) {
+		        System.out.println("About Tab View Checkbox is already unchecked");
+		        Hooks.scenario.log("About Tab View Checkbox is already unchecked");
+		    } else {
+		        System.out.println("About Tab View Checkbox was checked, now unchecked");
+		        Hooks.scenario.log("About Tab View Checkbox was checked, now unchecked");
+		    }
+	}
+	
+	@When("user check the About Tab View checkbox button in employee details section of hr module")
+	public void user_check_the_About_Tab_View_checkbox_button_in_employee_details_section_of_hr_module() throws Exception {
+		boolean result = HRmodulefunctionalitypage.checkAboutTabViewEmployeeDetailsCheckboxinHR();
+		Thread.sleep(1500);
+
+	    if (result) {
+	        System.out.println("About Tab View Checkbox is already checked");
+	        Hooks.scenario.log("About Tab View Checkbox is already checked");
+	    } else {
+	        System.out.println("About Tab View Checkbox was unchecked, now checked");
+	        Hooks.scenario.log("About Tab View Checkbox was unchecked, now checked");
+	    }
+	}
+	
+	@When("user uncheck the Licenses Tab View checkbox button in employee details section of hr module")
+	public void user_uncheck_the_Licenses_Tab_View_checkbox_button_in_employee_details_section_of_hr_module() throws Exception {
+		boolean result = HRmodulefunctionalitypage.uncheckLicensesTabViewEmployeeDetailsCheckboxinHR();
+		 Thread.sleep(1500);
+
+		 if (result) {
+		        System.out.println("Licenses Tab View Checkbox is already unchecked");
+		        Hooks.scenario.log("Licenses Tab View Checkbox is already unchecked");
+		    } else {
+		        System.out.println("Licenses Tab View Checkbox was checked, now unchecked");
+		        Hooks.scenario.log("Licenses Tab View Checkbox was checked, now unchecked");
+		    }
+	}
+	
+	@When("user check the Licenses Tab View checkbox button in employee details section of hr module")
+	public void user_check_the_Licenses_Tab_View_checkbox_button_in_employee_details_section_of_hr_module() throws Exception {
+		boolean result = HRmodulefunctionalitypage.checkLicensesTabViewEmployeeDetailsCheckboxinHR();
+		Thread.sleep(1500);
+
+	    if (result) {
+	        System.out.println("Licenses Tab View Checkbox is already checked");
+	        Hooks.scenario.log("Licenses Tab View Checkbox is already checked");
+	    } else {
+	        System.out.println("Licenses Tab View Checkbox was unchecked, now checked");
+	        Hooks.scenario.log("Licenses Tab View Checkbox was unchecked, now checked");
+	    }
+	}
+	
+	@When("user uncheck the Access Code Tab View checkbox button in employee details section of hr module")
+	public void user_uncheck_the_Access_Code_Tab_View_checkbox_button_in_employee_details_section_of_hr_module() throws Exception {
+		boolean result = HRmodulefunctionalitypage.uncheckAccessCodeTabViewEmployeeDetailsCheckboxinHR();
+		 Thread.sleep(1500);
+
+		 if (result) {
+		        System.out.println("Access Code Tab View Checkbox is already unchecked");
+		        Hooks.scenario.log("Access Code Tab View Checkbox is already unchecked");
+		    } else {
+		        System.out.println("Access Code Tab View Checkbox was checked, now unchecked");
+		        Hooks.scenario.log("Access Code Tab View Checkbox was checked, now unchecked");
+		    }
+	}
+	
+	@When("user check the Access Code Tab View checkbox button in employee details section of hr module")
+	public void user_check_the_Access_Code_Tab_View_checkbox_button_in_employee_details_section_of_hr_module() throws Exception {
+		boolean result = HRmodulefunctionalitypage.checkAccessCodeTabViewEmployeeDetailsCheckboxinHR();
+		Thread.sleep(1500);
+
+	    if (result) {
+	        System.out.println("Access Code Tab Checkbox is already checked");
+	        Hooks.scenario.log("Access Code Tab Checkbox is already checked");
+	    } else {
+	        System.out.println("Access Code Tab Checkbox was unchecked, now checked");
+	        Hooks.scenario.log("Access Code Tab Checkbox was unchecked, now checked");
+	    }
+	}
+	
+	@When("user uncheck the Docs Tab View checkbox button in employee details section of hr module")
+	public void user_uncheck_the_Docs_Tab_View_checkbox_button_in_employee_details_section_of_hr_module() throws Exception {
+		boolean result = HRmodulefunctionalitypage.uncheckDocsTabViewEmployeeDetailsCheckboxinHR();
+		 Thread.sleep(1500);
+
+		 if (result) {
+		        System.out.println("Docs Tab View Checkbox is already unchecked");
+		        Hooks.scenario.log("Docs Tab View Checkbox is already unchecked");
+		    } else {
+		        System.out.println("Docs Tab View Checkbox was checked, now unchecked");
+		        Hooks.scenario.log("Docs Tab View Checkbox was checked, now unchecked");
+		}
+	}
+	
+	@When("user check the Docs Tab View checkbox button in employee details section of hr module")
+	public void user_check_the_Docs_Tab_View_checkbox_button_in_employee_details_section_of_hr_module() throws Exception {
+		boolean result = HRmodulefunctionalitypage.checkDocsTabViewEmployeeDetailsCheckboxinHR();
+		Thread.sleep(1500);
+
+	    if (result) {
+	        System.out.println("Docs Tab View Checkbox is already checked");
+	        Hooks.scenario.log("Docs Tab View Checkbox is already checked");
+	    } else {
+	        System.out.println("Docs Tab View Checkbox was unchecked, now checked");
+	        Hooks.scenario.log("Docs Tab View Checkbox was unchecked, now checked");
+	    }
+	}
+	
+	@When("user uncheck the Checklist Tab View checkbox button in employee details section of hr module")
+	public void user_uncheck_the_Checklist_Tab_View_checkbox_button_in_employee_details_section_of_hr_module() throws Exception {
+		boolean result = HRmodulefunctionalitypage.uncheckChecklistTabViewEmployeeDetailsCheckboxinHR();
+		 Thread.sleep(1500);
+
+		 if (result) {
+		        System.out.println("Checklist Tab View Checkbox is already unchecked");
+		        Hooks.scenario.log("Checklist Tab View Checkbox is already unchecked");
+		    } else {
+		        System.out.println("Checklist Tab View Checkbox was checked, now unchecked");
+		        Hooks.scenario.log("Checklist Tab View Checkbox was checked, now unchecked");
+		}
+	}
+	
+	@When("user check the Checklist Tab View checkbox button in employee details section of hr module")
+	public void user_check_the_Checklist_Tab_View_checkbox_button_in_employee_details_section_of_hr_module() throws Exception {
+		boolean result = HRmodulefunctionalitypage.checkChecklistTabViewEmployeeDetailsCheckboxinHR();
+		Thread.sleep(1500);
+
+	    if (result) {
+	        System.out.println("Checklist Tab View Checkbox is already checked");
+	        Hooks.scenario.log("Checklist Tab View Checkbox is already checked");
+	    } else {
+	        System.out.println("Checklist Tab View Checkbox was unchecked, now checked");
+	        Hooks.scenario.log("Checklist Tab View Checkbox was unchecked, now checked");
+	    }
+	}
+	
+	@When("user uncheck the Note Tab View checkbox button in employee details section of hr module")
+	public void user_uncheck_the_Note_Tab_View_checkbox_button_in_employee_details_section_of_hr_module() throws Exception {
+		boolean result = HRmodulefunctionalitypage.uncheckNoteTabViewEmployeeDetailsCheckboxinHR();
+		 Thread.sleep(1500);
+
+		 if (result) {
+		        System.out.println("Note Tab View Checkbox is already unchecked");
+		        Hooks.scenario.log("Note Tab View Checkbox is already unchecked");
+		    } else {
+		        System.out.println("Note Tab View Checkbox was checked, now unchecked");
+		        Hooks.scenario.log("Note Tab View Checkbox was checked, now unchecked");
+		}
+	}
+	
+	@When("user check the Note Tab View checkbox button in employee details section of hr module")
+	public void user_check_the_Note_Tab_View_checkbox_button_in_employee_details_section_of_hr_module() throws Exception {
+		boolean result = HRmodulefunctionalitypage.checkNoteTabViewEmployeeDetailsCheckboxinHR();
+		Thread.sleep(1500);
+
+	    if (result) {
+	        System.out.println("Note Tab View Checkbox is already checked");
+	        Hooks.scenario.log("Note Tab View Checkbox is already checked");
+	    } else {
+	        System.out.println("Note Tab View Checkbox was unchecked, now checked");
+	        Hooks.scenario.log("Note Tab View Checkbox was unchecked, now checked");
+	    }
+	}
+	
+	@When("user uncheck the Timeline Tab View checkbox button in employee details section of hr module")
+	public void user_uncheck_the_Timeline_Tab_View_checkbox_button_in_employee_details_section_of_hr_module() throws Exception {
+		boolean result = HRmodulefunctionalitypage.uncheckTimelineTabViewEmployeeDetailsCheckboxinHR();
+		 Thread.sleep(1500);
+
+		 if (result) {
+		        System.out.println("Timeline Tab View Checkbox is already unchecked");
+		        Hooks.scenario.log("Timeline Tab View Checkbox is already unchecked");
+		    } else {
+		        System.out.println("Timeline Tab View Checkbox was checked, now unchecked");
+		        Hooks.scenario.log("Timeline Tab View Checkbox was checked, now unchecked");
+		}
+	}
+	
+	@When("user check the Timeline Tab View checkbox button in employee details section of hr module")
+	public void user_check_the_Timeline_Tab_View_checkbox_button_in_employee_details_section_of_hr_module() throws Exception {
+		boolean result = HRmodulefunctionalitypage.checkTimelineTabViewEmployeeDetailsCheckboxinHR();
+		Thread.sleep(1500);
+
+	    if (result) {
+	        System.out.println("Timeline Tab View Checkbox is already checked");
+	        Hooks.scenario.log("Timeline Tab View Checkbox is already checked");
+	    } else {
+	        System.out.println("Timeline Tab View Checkbox was unchecked, now checked");
+	        Hooks.scenario.log("Timeline Tab View Checkbox was unchecked, now checked");
+	    }
+	}
+	
+	@When("user uncheck the Employee Details checkbox button in employee details section of hr module")
+	public void user_uncheck_the_Employee_Details_checkbox_button_in_employee_details_section_of_hr_module() throws Exception {
+		boolean success = HRmodulefunctionalitypage.uncheckEmployeeDetailsUsingDoubleClickIfAllChildrenCheckedinHR();
+		 Thread.sleep(2000);
+
+		 if (success) {
+			    System.out.println("All child + parent checkboxes unchecked");
+			    Hooks.scenario.log("All child + parent checkboxes unchecked");
+			} else {
+			    System.out.println("All child + parent checkboxes are already Unchecked");
+			    Hooks.scenario.log("All child + parent checkboxes are already Unchecked");
+			}
+	}
+	
+	@When("user check the Employee Details checkbox button in employee details section of hr module")
+	public void user_check_the_Employee_Details_checkbox_button_in_employee_details_section_of_hr_module() throws Exception {
+		boolean success = HRmodulefunctionalitypage.checkEmployeeDetailsSingleClickIfAllChildrenUncheckedinHR();
+		 Thread.sleep(2000);
+
+		 if (success) {
+			    System.out.println("All child + parent checkboxes checked");
+			    Hooks.scenario.log("All child + parent checkboxes checked");
+			} else {
+			    System.out.println("All child + parent checkboxes are already checked");
+			    Hooks.scenario.log("All child + parent checkboxes are already checked");
+			}
+	}
+	
+	@And("user check the employee details tabs in employee details page")
+	public void user_check_the_employee_details_tabs_in_employee_details_page() {
+		boolean areTabsNotVisible = HRmodulefunctionalitypage.areAllEmployeeDetailsTabsNotVisible();
+
+	    // If BOTH tabs are NOT visible → SKIP scenario
+	    if (areTabsNotVisible) {
+
+	        String message = "Employee Details tabs (Edit, Delete, Link User To Employee, Delink User To Employee, About, Licenses, Access Code, Docs, Checklist, Note, Timeline) are NOT visible — user does not have permission";
+
+	        System.out.println(message);
+	        Hooks.scenario.log(message);
+
+	        Assume.assumeTrue(message, false); // Scenario SKIPPED
+	        return;
+	    }
+
+	    // If tabs are visible → continue execution
+	    Hooks.scenario.log("Employee Details tabs (Edit, Delete, Link User To Employee, Delink User To Employee, About, Licenses, Access Code, Docs, Checklist, Note, Timeline) are visible");
+	}
+	
+	@When("user uncheck the Add checkbox button in employee details license section of hr module")
+	public void user_uncheck_the_Add_checkbox_button_in_employee_details_license_section_of_hr_module() throws Exception {
+		boolean result = HRmodulefunctionalitypage.uncheckAddLicenseEmployeeDetailsCheckboxinHR();
+		 Thread.sleep(1500);
+
+		 if (result) {
+		        System.out.println("Add License Checkbox is already unchecked");
+		        Hooks.scenario.log("Add License Checkbox is already unchecked");
+		    } else {
+		        System.out.println("Add License Checkbox was checked, now unchecked");
+		        Hooks.scenario.log("Add License Checkbox was checked, now unchecked");
+		}
+	}
+	
+	@When("user check the Add checkbox button in employee details license section of hr module")
+	public void user_check_the_Add_checkbox_button_in_employee_details_license_section_of_hr_module() throws Exception {
+		boolean result = HRmodulefunctionalitypage.checkAddLicenseEmployeeDetailsCheckboxinHR();
+		Thread.sleep(1500);
+
+	    if (result) {
+	        System.out.println("Add License Checkbox is already checked");
+	        Hooks.scenario.log("Add License Checkbox is already checked");
+	    } else {
+	        System.out.println("Add License Checkbox was unchecked, now checked");
+	        Hooks.scenario.log("Add License Checkbox was unchecked, now checked");
+	    }
+	}
+	
+	@When("user uncheck the Edit checkbox button in employee details license section of hr module")
+	public void user_uncheck_the_Edit_checkbox_button_in_employee_details_license_section_of_hr_module() throws Exception {
+		boolean result = HRmodulefunctionalitypage.uncheckEditLicenseEmployeeDetailsCheckboxinHR();
+		 Thread.sleep(1500);
+
+		 if (result) {
+		        System.out.println("Edit License Checkbox is already unchecked");
+		        Hooks.scenario.log("Edit License Checkbox is already unchecked");
+		    } else {
+		        System.out.println("Edit License Checkbox was checked, now unchecked");
+		        Hooks.scenario.log("Edit License Checkbox was checked, now unchecked");
+		}
+	}
+	
+	@When("user check the Edit checkbox button in employee details license section of hr module")
+	public void user_check_the_Edit_checkbox_button_in_employee_details_license_section_of_hr_module() throws Exception {
+		boolean result = HRmodulefunctionalitypage.checkEditLicenseEmployeeDetailsCheckboxinHR();
+		Thread.sleep(1500);
+
+	    if (result) {
+	        System.out.println("Edit License Checkbox is already checked");
+	        Hooks.scenario.log("Edit License Checkbox is already checked");
+	    } else {
+	        System.out.println("Edit License Checkbox was unchecked, now checked");
+	        Hooks.scenario.log("Edit License Checkbox was unchecked, now checked");
+	    }
 	}
 }
