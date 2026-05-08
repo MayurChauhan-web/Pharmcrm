@@ -60,9 +60,28 @@ public class LoginFunctionalitySteps {
 		Hooks.scenario.log("User Entered Organization EmailID: " + EmailId);
 	}
 	
+	@Then("user enter the organization emailid for core module")
+	public void user_enter_the_organization_emailid_for_core_module() {
+		String EmailId = Hooks.prop.getProperty("organizationemailidofcoremodule");
+		loginfunctionalitypage.entertheemailidtextbox(EmailId);
+		
+		System.out.println("User Entered Organization EmailID: " + EmailId);
+		Hooks.scenario.log("User Entered Organization EmailID: " + EmailId);
+	}
+	
 	@And("user enter the organization password")
 	public void user_enter_the_organization_password() throws Exception {
 		String Password = Hooks.prop.getProperty("organizationpassword");
+		loginfunctionalitypage.enterthepasswordtextbox(Password);
+		Thread.sleep(500);
+		
+		System.out.println("User Entered Organization Password: " + Password);
+		Hooks.scenario.log("User Entered Organization Password: " + Password);
+	}
+	
+	@And("user enter the organization password for core module")
+	public void user_enter_the_organization_password_for_core_module() throws Exception {
+		String Password = Hooks.prop.getProperty("organizationpasswordofcoremodule");
 		loginfunctionalitypage.enterthepasswordtextbox(Password);
 		Thread.sleep(500);
 		

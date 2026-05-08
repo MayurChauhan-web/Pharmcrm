@@ -3,6 +3,7 @@ package com.pharmcrm_HRModule.pages;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -38,13 +39,13 @@ public class HRModuleFunctionalityPage {
 	private By fileuploadtabindocuments = By.xpath("//span[normalize-space()='File Upload']");
 	private By submitbuttoninfileupload = By.xpath("//button[@id='btnSaveFile']");
 	private By choosefiletabinfileupload = By.xpath("(//input[@id='file-3'])[1]");
-	private By editfilenamebutton = By.xpath("(//a[@id='btnEditFile'])[1]");
+	private By editfilenamebutton = By.xpath("(//a[contains(@onclick,'editFile')])[1]");
 	private By filenametextbox = By.xpath("//input[@id='fileNameTextBox']");
 	private By downloadfilebutton = By.xpath("(//a[contains(@href,'/Security/DownloadFile')])[1]");
 	private By deletefilebutton = By.xpath("(//a[@id='btnDeleteFile'])[1]");
 	private By confirmdeletefilebutton = By.xpath("(//button[normalize-space()='Confirm'])[1]");
 	private By viewfilebutton = By.xpath("(//a[@id='btnEditFile'])[2]");
-	private By threedotbuttoninfile = By.xpath("(//div[@class='pc-filemanager']//button[@id='bucketDrop'])[1]");
+	private By threedotbuttoninfile = By.xpath("//div[@id='page-wrapper']//div[2]//div[1]//div[1]//div[1]//div[1]//button[1]");
 	private By firstusercheckbox = By.xpath("(//ul[@id='uname']//label)[2]");
 	private By submitbuttoninpermission = By.xpath("//button[@id='btnPermission']");
 	private By searchtextboxindocuments = By.xpath("//input[@id='searchfile']");
@@ -92,6 +93,7 @@ public class HRModuleFunctionalityPage {
 	private By submitbuttoninsearchuser = By.xpath("(//button[@id='btnSaveUser'])[1]");
 	private By delinkuserinemployeedetails = By.xpath("(//div[@id='btnDelinkUserEmployee'])[1]");
 	private By confirmdelinkuserbuttoninemployeedetails = By.xpath("//div[@id='delinkUserEmployeeModel']//button[@id='btnDeleteConfirm']");
+	private By abouttabinemployeedetails = By.xpath("(//a[normalize-space()='About'])[1]");
 	private By licensestabinemployeedetails = By.xpath("(//a[normalize-space()='Licenses'])[1]");
 	private By newlicensesbuttoninlicenses = By.xpath("(//span[normalize-space()='New Licenses'])[1]");
 	private By licensetypedropdownbutton = By.xpath("(//select[@id='EmployeeLicense_ProfessionalLicenseType_Id'])[1]");
@@ -181,6 +183,64 @@ public class HRModuleFunctionalityPage {
 	private By todaybuttonintimesheet = By.xpath("(//button[normalize-space()='Today'])[1]");
 	private By todayEditableHoursintimesheet = By.xpath("(//span[starts-with(@id,'taskDay_') and @contenteditable='true'])[1]");
 	private By exporttoexcelbuttonintimesheet = By.xpath("(//button[@class='btn btn-secondary waves-effect waves-light'])[1]");
+	private By hrtabinprofiledetails = By.xpath("(//a[@id='hrpermissionleftmenu'])[1]");
+	private By addfoldercheckboxinhr = By.id("chkg11HRBucketFolderAdd");
+	private By addfolderlabelinhr = By.xpath("//label[@for='chkg11HRBucketFolderAdd']");
+	private By editfoldercheckboxinhr = By.id("chkg11HRBucketFolderEdit");
+	private By editfolderlabelinhr = By.xpath("//label[@for='chkg11HRBucketFolderEdit']");
+	private By deletefoldercheckboxinhr = By.id("chkg11HRBucketFolderDelete");
+	private By deletefolderlabelinhr = By.xpath("//label[@for='chkg11HRBucketFolderDelete']");
+	private By addfilecheckboxinhr = By.id("chkg11HRBucketFileAdd");
+	private By addfilelabelinhr = By.xpath("//label[@for='chkg11HRBucketFileAdd']");
+	private By editfilecheckboxinhr = By.id("chkg11HRBucketFileEdit");
+	private By editfilelabelinhr = By.xpath("//label[@for='chkg11HRBucketFileEdit']");
+	private By deletefilecheckboxinhr = By.id("chkg11HRBucketFileDelete");
+	private By deletefilelabelinhr = By.xpath("//label[@for='chkg11HRBucketFileDelete']");
+	private By downloadfilecheckboxinhr = By.id("chkg11HRBucketFileDownload");
+	private By downloadfilelabelinhr = By.xpath("//label[@for='chkg11HRBucketFileDownload']");
+	private By folderpermissioncheckboxinhr = By.id("chkg11HRBucketPermission");
+	private By folderpermissionlabelinhr = By.xpath("//label[@for='chkg11HRBucketPermission']");
+	private By bucketcheckboxinhr = By.id("chkg11HRBucketAll");
+	private By bucketlabelinhr = By.xpath("//label[@for='chkg11HRBucketAll']");
+	private By addemployeecheckboxinhr = By.id("chkg24EmployeeAdd");
+	private By addemployeelabelinhr = By.xpath("//label[@for='chkg24EmployeeAdd']");
+	private By editemployeecheckboxinhr = By.id("chkg24EmployeeEdit");
+	private By editemployeelabelinhr = By.xpath("//label[@for='chkg24EmployeeEdit']");
+	private By deleteemployeecheckboxinhr = By.id("chkg24EmployeeDelete");
+	private By deleteemployeelabelinhr = By.xpath("//label[@for='chkg24EmployeeDelete']");
+	private By detailsemployeecheckboxinhr = By.id("chkg24EmployeeDetails");
+	private By detailsemployeelabelinhr = By.xpath("//label[@for='chkg24EmployeeDetails']");
+	private By employeecheckboxinhr = By.id("chkg24EmployeeAll");
+	private By employeelabelinhr = By.xpath("//label[@for='chkg24EmployeeAll']");
+	private By editemployeedetailscheckboxinhr = By.id("chkg24EmployeeDetailsEdit");
+	private By editemployeedetailslabelinhr = By.xpath("//label[@for='chkg24EmployeeDetailsEdit']");
+	private By deleteemployeedetailscheckboxinhr = By.id("chkg24EmployeeDetailsDelete");
+	private By deleteemployeedetailslabelinhr = By.xpath("//label[@for='chkg24EmployeeDetailsDelete']");
+	private By linkusertoemployeedetailscheckboxinhr = By.id("chkg41LinkUserToEmployee");
+	private By linkusertoemployeedetailslabelinhr = By.xpath("//label[@for='chkg41LinkUserToEmployee']");
+	private By delinkusertoemployeedetailscheckboxinhr = By.id("chkg41DeLinkUserToEmployee");
+	private By delinkusertoemployeedetailslabelinhr = By.xpath("//label[@for='chkg41DeLinkUserToEmployee']");
+	private By abouttabviewemployeedetailscheckboxinhr = By.id("chkg41AboutTabView");
+	private By abouttabviewemployeedetailslabelinhr = By.xpath("//label[@for='chkg41AboutTabView']");
+	private By licensestabviewemployeedetailscheckboxinhr = By.id("chkg41LicensesTabView");
+	private By licensestabviewemployeedetailslabelinhr = By.xpath("//label[@for='chkg41LicensesTabView']");
+	private By accesscodetabviewemployeedetailscheckboxinhr = By.id("chkg41AccessCodeTabView");
+	private By accesscodetabviewemployeedetailslabelinhr = By.xpath("//label[@for='chkg41AccessCodeTabView']");
+	private By docstabviewemployeedetailscheckboxinhr = By.id("chkg41DocsTabView");
+	private By docstabviewemployeedetailslabelinhr = By.xpath("//label[@for='chkg41DocsTabView']");
+	private By checklisttabviewemployeedetailscheckboxinhr = By.id("chkg41ChecklistTabView");
+	private By checklisttabviewemployeedetailslabelinhr = By.xpath("//label[@for='chkg41ChecklistTabView']");
+	private By notetabviewemployeedetailscheckboxinhr = By.id("chkg41NoteTabView");
+	private By notetabviewemployeedetailslabelinhr = By.xpath("//label[@for='chkg41NoteTabView']");
+	private By timelinetabviewemployeedetailscheckboxinhr = By.id("chkg41TimelineTabView");
+	private By timelinetabviewemployeedetailslabelinhr = By.xpath("//label[@for='chkg41TimelineTabView']");
+	private By employeedetailscheckboxinhr = By.id("chkg24EmployeeDetailsAll");
+	private By employeedetailslabelinhr = By.xpath("//label[@for='chkg24EmployeeDetailsAll']");
+	private By addlicensecheckboxinhr = By.id("chkg24EmployeeDetailsLicenseAdd");
+	private By addlicenselabelinhr = By.xpath("//label[@for='chkg24EmployeeDetailsLicenseAdd']");
+	private By editlicensecheckboxinhr = By.id("chkg24EmployeeDetailsLicenseEdit");
+	private By editlicenselabelinhr = By.xpath("//label[@for='chkg24EmployeeDetailsLicenseEdit']");
+	
 	
 	
 	
@@ -259,9 +319,22 @@ public class HRModuleFunctionalityPage {
 	}
 	
 	public void entertheNewFolderName(String FolderName) {
-		WebElement FolderNametextboxfield = driver.findElement(foldernametextbox);
-		FolderNametextboxfield.clear();
-		FolderNametextboxfield.sendKeys(FolderName);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		
+		// Wait for preloader to disappear
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement FolderNametextboxfield = wait.until(ExpectedConditions.elementToBeClickable(foldernametextbox));
+
+	    // Extra safety for animation/overlay
+	    wait.until(driver -> FolderNametextboxfield.isDisplayed()
+	            && FolderNametextboxfield.isEnabled());
+
+	    FolderNametextboxfield.click();
+	    FolderNametextboxfield.clear();
+	    FolderNametextboxfield.sendKeys(FolderName);
+
+	    System.out.println("Profile Name entered: " + FolderName);
     }
 	
 	public void removetheExistingFolderName() {
@@ -1624,6 +1697,28 @@ public class HRModuleFunctionalityPage {
 	    }
 
 	    System.out.println("Confirm Delink clicked — record delink permanently");
+
+	    return true;
+	}
+	
+	public boolean clickintotheAbouttabinEmployeedetails() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+	    // wait only for page loader
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    // IMPORTANT: NO wait for About tab
+	    List<WebElement> abouttabs = driver.findElements(abouttabinemployeedetails);
+
+	    if (abouttabs.isEmpty()) {
+	        // About tab NOT present → stop scenario
+	        return false;
+	    }
+
+	    WebElement abouttab = abouttabs.get(0);
+
+	    wait.until(ExpectedConditions.elementToBeClickable(abouttab));
+	    abouttab.click();
 
 	    return true;
 	}
@@ -4131,5 +4226,1390 @@ public class HRModuleFunctionalityPage {
 	    exporttoexcelbutton.click();
 
 	    return true;
+	}
+	
+	public void clickintotheHRtabinProfileDetails() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		
+		// Wait for preloader to disappear
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+	    
+	    WebElement HRtab = wait.until(ExpectedConditions.elementToBeClickable(hrtabinprofiledetails));
+	   
+	    try {
+	    	HRtab.click();
+	    } catch (Exception e) {
+	        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", HRtab);
+	    }
+
+	    System.out.println("HR tab clicked successfully");
+	}
+	
+	public boolean uncheckAddFolderCheckboxinHR() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(addfoldercheckboxinhr);
+
+	    // If already unchecked → return true
+	    if (!checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If checked → uncheck it
+	    WebElement label = driver.findElement(addfolderlabelinhr);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean checkAddFolderCheckboxinHR() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(addfoldercheckboxinhr);
+
+	    // If already checked → return true
+	    if (checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If Unchecked → check it
+	    WebElement label = driver.findElement(addfolderlabelinhr);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean uncheckEditFolderCheckboxinHR() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(editfoldercheckboxinhr);
+
+	    // If already unchecked → return true
+	    if (!checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If checked → uncheck it
+	    WebElement label = driver.findElement(editfolderlabelinhr);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean checkEditFolderCheckboxinHR() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(editfoldercheckboxinhr);
+
+	    // If already checked → return true
+	    if (checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If Unchecked → check it
+	    WebElement label = driver.findElement(editfolderlabelinhr);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean uncheckDeleteFolderCheckboxinHR() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(deletefoldercheckboxinhr);
+
+	    // If already unchecked → return true
+	    if (!checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If checked → uncheck it
+	    WebElement label = driver.findElement(deletefolderlabelinhr);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean checkDeleteFolderCheckboxinHR() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(deletefoldercheckboxinhr);
+
+	    // If already checked → return true
+	    if (checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If Unchecked → check it
+	    WebElement label = driver.findElement(deletefolderlabelinhr);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean uncheckAddFileCheckboxinHR() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(addfilecheckboxinhr);
+
+	    // If already unchecked → return true
+	    if (!checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If checked → uncheck it
+	    WebElement label = driver.findElement(addfilelabelinhr);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean checkAddFileCheckboxinHR() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(addfilecheckboxinhr);
+
+	    // If already checked → return true
+	    if (checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If Unchecked → check it
+	    WebElement label = driver.findElement(addfilelabelinhr);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean uncheckEditFileCheckboxinHR() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(editfilecheckboxinhr);
+
+	    // If already unchecked → return true
+	    if (!checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If checked → uncheck it
+	    WebElement label = driver.findElement(editfilelabelinhr);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean checkEditFileCheckboxinHR() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(editfilecheckboxinhr);
+
+	    // If already checked → return true
+	    if (checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If Unchecked → check it
+	    WebElement label = driver.findElement(editfilelabelinhr);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean uncheckDeleteFileCheckboxinHR() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(deletefilecheckboxinhr);
+
+	    // If already unchecked → return true
+	    if (!checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If checked → uncheck it
+	    WebElement label = driver.findElement(deletefilelabelinhr);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean checkDeleteFileCheckboxinHR() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(deletefilecheckboxinhr);
+
+	    // If already checked → return true
+	    if (checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If Unchecked → check it
+	    WebElement label = driver.findElement(deletefilelabelinhr);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean uncheckDownloadFileCheckboxinHR() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(downloadfilecheckboxinhr);
+
+	    // If already unchecked → return true
+	    if (!checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If checked → uncheck it
+	    WebElement label = driver.findElement(downloadfilelabelinhr);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean checkDownloadFileCheckboxinHR() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(downloadfilecheckboxinhr);
+
+	    // If already checked → return true
+	    if (checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If Unchecked → check it
+	    WebElement label = driver.findElement(downloadfilelabelinhr);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean uncheckFolderPermissionCheckboxinHR() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(folderpermissioncheckboxinhr);
+
+	    // If already unchecked → return true
+	    if (!checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If checked → uncheck it
+	    WebElement label = driver.findElement(folderpermissionlabelinhr);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean checkFolderPermissionCheckboxinHR() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(folderpermissioncheckboxinhr);
+
+	    // If already checked → return true
+	    if (checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If Unchecked → check it
+	    WebElement label = driver.findElement(folderpermissionlabelinhr);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean uncheckBucketUsingDoubleClickIfAllChildrenCheckedinHR() {
+
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    // Parent
+	    WebElement parentCheckbox = wait.until(
+	            ExpectedConditions.presenceOfElementLocated(bucketcheckboxinhr));
+
+	    WebElement parentLabel = wait.until(
+	            ExpectedConditions.elementToBeClickable(bucketlabelinhr));
+
+	    // All child checkboxes
+	    List<WebElement> childCheckboxes = Arrays.asList(
+	            driver.findElement(addfoldercheckboxinhr),
+	            driver.findElement(editfoldercheckboxinhr),
+	            driver.findElement(deletefoldercheckboxinhr),
+	            driver.findElement(addfilecheckboxinhr),
+	            driver.findElement(editfilecheckboxinhr),
+	            driver.findElement(deletefilecheckboxinhr),
+	            driver.findElement(downloadfilecheckboxinhr),
+	            driver.findElement(folderpermissioncheckboxinhr));
+
+	    // Step 1: Verify all children are checked
+	    boolean allChildrenChecked = childCheckboxes.stream().allMatch(WebElement::isSelected);
+
+	    if (!allChildrenChecked) {
+	        System.out.println("Not all child checkboxes are checked → skipping double click");
+	        return false;
+	    }
+
+	    // Step 2: Perform double click on parent
+	    Actions actions = new Actions(driver);
+
+	    actions.moveToElement(parentLabel)
+	           .click()
+	           .pause(Duration.ofMillis(200)) // small delay
+	           .click()
+	           .perform();
+
+	    // Step 3: Wait for parent to become unchecked
+	    wait.until(ExpectedConditions.elementSelectionStateToBe(parentCheckbox, false));
+
+	    // Step 4: Validate all children are unchecked
+	    boolean allChildrenUnchecked = childCheckboxes.stream().noneMatch(WebElement::isSelected);
+
+	    if (!allChildrenUnchecked) {
+	        throw new AssertionError("Child checkboxes are still checked after double click!");
+	    }
+
+	    return true;
+	}
+	
+	public boolean checkBucketSingleClickIfAllChildrenUncheckedinHR() {
+
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    // Parent
+	    WebElement parentCheckbox = wait.until(
+	            ExpectedConditions.presenceOfElementLocated(bucketcheckboxinhr));
+
+	    WebElement parentLabel = wait.until(
+	            ExpectedConditions.elementToBeClickable(bucketlabelinhr));
+
+	    // All child checkboxes
+	    List<WebElement> childCheckboxes = Arrays.asList(
+	            driver.findElement(addfoldercheckboxinhr),
+	            driver.findElement(editfoldercheckboxinhr),
+	            driver.findElement(deletefoldercheckboxinhr),
+	            driver.findElement(addfilecheckboxinhr),
+	            driver.findElement(editfilecheckboxinhr),
+	            driver.findElement(deletefilecheckboxinhr),
+	            driver.findElement(downloadfilecheckboxinhr),
+	            driver.findElement(folderpermissioncheckboxinhr));
+
+	    // Step 1: Verify all children are UNCHECKED
+	    boolean allChildrenUnchecked = childCheckboxes.stream().noneMatch(WebElement::isSelected);
+
+	    if (!allChildrenUnchecked) {
+	        System.out.println("Not all child checkboxes are unchecked → skipping click");
+	        return false;
+	    }
+
+	    // Step 2: Single click on parent
+	    parentLabel.click();
+
+	    // Step 3: Wait for parent to become checked
+	    wait.until(ExpectedConditions.elementSelectionStateToBe(parentCheckbox, true));
+
+	    // Step 4: Validate all children are checked
+	    boolean allChildrenChecked = childCheckboxes.stream().allMatch(WebElement::isSelected);
+
+	    if (!allChildrenChecked) {
+	        throw new AssertionError("Child checkboxes are NOT checked after parent click!");
+	    }
+
+	    return true;
+	}
+	
+	public boolean uncheckAddEmployeeCheckboxinHR() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(addemployeecheckboxinhr);
+
+	    // If already unchecked → return true
+	    if (!checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If checked → uncheck it
+	    WebElement label = driver.findElement(addemployeelabelinhr);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean checkAddEmployeeCheckboxinHR() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(addemployeecheckboxinhr);
+
+	    // If already checked → return true
+	    if (checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If Unchecked → check it
+	    WebElement label = driver.findElement(addemployeelabelinhr);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean uncheckEditEmployeeCheckboxinHR() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(editemployeecheckboxinhr);
+
+	    // If already unchecked → return true
+	    if (!checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If checked → uncheck it
+	    WebElement label = driver.findElement(editemployeelabelinhr);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean checkEditEmployeeCheckboxinHR() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(editemployeecheckboxinhr);
+
+	    // If already checked → return true
+	    if (checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If Unchecked → check it
+	    WebElement label = driver.findElement(editemployeelabelinhr);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean uncheckDeleteEmployeeCheckboxinHR() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(deleteemployeecheckboxinhr);
+
+	    // If already unchecked → return true
+	    if (!checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If checked → uncheck it
+	    WebElement label = driver.findElement(deleteemployeelabelinhr);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean checkDeleteEmployeeCheckboxinHR() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(deleteemployeecheckboxinhr);
+
+	    // If already checked → return true
+	    if (checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If Unchecked → check it
+	    WebElement label = driver.findElement(deleteemployeelabelinhr);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean uncheckDetailsEmployeeCheckboxinHR() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(detailsemployeecheckboxinhr);
+
+	    // If already unchecked → return true
+	    if (!checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If checked → uncheck it
+	    WebElement label = driver.findElement(detailsemployeelabelinhr);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean checkDetailsEmployeeCheckboxinHR() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(detailsemployeecheckboxinhr);
+
+	    // If already checked → return true
+	    if (checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If Unchecked → check it
+	    WebElement label = driver.findElement(detailsemployeelabelinhr);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean uncheckEmployeeUsingDoubleClickIfAllChildrenCheckedinHR() {
+
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    // Parent
+	    WebElement parentCheckbox = wait.until(
+	            ExpectedConditions.presenceOfElementLocated(employeecheckboxinhr));
+
+	    WebElement parentLabel = wait.until(
+	            ExpectedConditions.elementToBeClickable(employeelabelinhr));
+
+	    // All child checkboxes
+	    List<WebElement> childCheckboxes = Arrays.asList(
+	            driver.findElement(addemployeecheckboxinhr),
+	            driver.findElement(editemployeecheckboxinhr),
+	            driver.findElement(deleteemployeecheckboxinhr),
+	            driver.findElement(detailsemployeecheckboxinhr));
+
+	    // Step 1: Verify all children are checked
+	    boolean allChildrenChecked = childCheckboxes.stream().allMatch(WebElement::isSelected);
+
+	    if (!allChildrenChecked) {
+	        System.out.println("Not all child checkboxes are checked → skipping double click");
+	        return false;
+	    }
+
+	    // Step 2: Perform double click on parent
+	    Actions actions = new Actions(driver);
+
+	    actions.moveToElement(parentLabel)
+	           .click()
+	           .pause(Duration.ofMillis(200)) // small delay
+	           .click()
+	           .perform();
+
+	    // Step 3: Wait for parent to become unchecked
+	    wait.until(ExpectedConditions.elementSelectionStateToBe(parentCheckbox, false));
+
+	    // Step 4: Validate all children are unchecked
+	    boolean allChildrenUnchecked = childCheckboxes.stream().noneMatch(WebElement::isSelected);
+
+	    if (!allChildrenUnchecked) {
+	        throw new AssertionError("Child checkboxes are still checked after double click!");
+	    }
+
+	    return true;
+	}
+	
+	public boolean checkEmployeeSingleClickIfAllChildrenUncheckedinHR() {
+
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    // Parent
+	    WebElement parentCheckbox = wait.until(
+	            ExpectedConditions.presenceOfElementLocated(employeecheckboxinhr));
+
+	    WebElement parentLabel = wait.until(
+	            ExpectedConditions.elementToBeClickable(employeelabelinhr));
+
+	    // All child checkboxes
+	    List<WebElement> childCheckboxes = Arrays.asList(
+	    		driver.findElement(addemployeecheckboxinhr),
+	            driver.findElement(editemployeecheckboxinhr),
+	            driver.findElement(deleteemployeecheckboxinhr),
+	            driver.findElement(detailsemployeecheckboxinhr));
+
+	    // Step 1: Verify all children are UNCHECKED
+	    boolean allChildrenUnchecked = childCheckboxes.stream().noneMatch(WebElement::isSelected);
+
+	    if (!allChildrenUnchecked) {
+	        System.out.println("Not all child checkboxes are unchecked → skipping click");
+	        return false;
+	    }
+
+	    // Step 2: Single click on parent
+	    parentLabel.click();
+
+	    // Step 3: Wait for parent to become checked
+	    wait.until(ExpectedConditions.elementSelectionStateToBe(parentCheckbox, true));
+
+	    // Step 4: Validate all children are checked
+	    boolean allChildrenChecked = childCheckboxes.stream().allMatch(WebElement::isSelected);
+
+	    if (!allChildrenChecked) {
+	        throw new AssertionError("Child checkboxes are NOT checked after parent click!");
+	    }
+
+	    return true;
+	}
+	
+	public boolean uncheckEditEmployeeDetailsCheckboxinHR() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(editemployeedetailscheckboxinhr);
+
+	    // If already unchecked → return true
+	    if (!checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If checked → uncheck it
+	    WebElement label = driver.findElement(editemployeedetailslabelinhr);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean checkEditEmployeeDetailsCheckboxinHR() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(editemployeedetailscheckboxinhr);
+
+	    // If already checked → return true
+	    if (checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If Unchecked → check it
+	    WebElement label = driver.findElement(editemployeedetailslabelinhr);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean uncheckDeleteEmployeeDetailsCheckboxinHR() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(deleteemployeedetailscheckboxinhr);
+
+	    // If already unchecked → return true
+	    if (!checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If checked → uncheck it
+	    WebElement label = driver.findElement(deleteemployeedetailslabelinhr);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean checkDeleteEmployeeDetailsCheckboxinHR() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(deleteemployeedetailscheckboxinhr);
+
+	    // If already checked → return true
+	    if (checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If Unchecked → check it
+	    WebElement label = driver.findElement(deleteemployeedetailslabelinhr);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean uncheckLinkUserToEmployeeDetailsCheckboxinHR() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(linkusertoemployeedetailscheckboxinhr);
+
+	    // If already unchecked → return true
+	    if (!checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If checked → uncheck it
+	    WebElement label = driver.findElement(linkusertoemployeedetailslabelinhr);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean checkLinkUserToEmployeeDetailsCheckboxinHR() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(linkusertoemployeedetailscheckboxinhr);
+
+	    // If already checked → return true
+	    if (checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If Unchecked → check it
+	    WebElement label = driver.findElement(linkusertoemployeedetailslabelinhr);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean uncheckDeLinkUserToEmployeeDetailsCheckboxinHR() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(delinkusertoemployeedetailscheckboxinhr);
+
+	    // If already unchecked → return true
+	    if (!checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If checked → uncheck it
+	    WebElement label = driver.findElement(delinkusertoemployeedetailslabelinhr);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean checkDeLinkUserToEmployeeDetailsCheckboxinHR() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(delinkusertoemployeedetailscheckboxinhr);
+
+	    // If already checked → return true
+	    if (checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If Unchecked → check it
+	    WebElement label = driver.findElement(delinkusertoemployeedetailslabelinhr);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean uncheckAboutTabViewEmployeeDetailsCheckboxinHR() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(abouttabviewemployeedetailscheckboxinhr);
+
+	    // If already unchecked → return true
+	    if (!checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If checked → uncheck it
+	    WebElement label = driver.findElement(abouttabviewemployeedetailslabelinhr);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean checkAboutTabViewEmployeeDetailsCheckboxinHR() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(abouttabviewemployeedetailscheckboxinhr);
+
+	    // If already checked → return true
+	    if (checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If Unchecked → check it
+	    WebElement label = driver.findElement(abouttabviewemployeedetailslabelinhr);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean uncheckLicensesTabViewEmployeeDetailsCheckboxinHR() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(licensestabviewemployeedetailscheckboxinhr);
+
+	    // If already unchecked → return true
+	    if (!checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If checked → uncheck it
+	    WebElement label = driver.findElement(licensestabviewemployeedetailslabelinhr);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean checkLicensesTabViewEmployeeDetailsCheckboxinHR() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(licensestabviewemployeedetailscheckboxinhr);
+
+	    // If already checked → return true
+	    if (checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If Unchecked → check it
+	    WebElement label = driver.findElement(licensestabviewemployeedetailslabelinhr);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean uncheckAccessCodeTabViewEmployeeDetailsCheckboxinHR() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(accesscodetabviewemployeedetailscheckboxinhr);
+
+	    // If already unchecked → return true
+	    if (!checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If checked → uncheck it
+	    WebElement label = driver.findElement(accesscodetabviewemployeedetailslabelinhr);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean checkAccessCodeTabViewEmployeeDetailsCheckboxinHR() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(accesscodetabviewemployeedetailscheckboxinhr);
+
+	    // If already checked → return true
+	    if (checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If Unchecked → check it
+	    WebElement label = driver.findElement(accesscodetabviewemployeedetailslabelinhr);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean uncheckDocsTabViewEmployeeDetailsCheckboxinHR() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(docstabviewemployeedetailscheckboxinhr);
+
+	    // If already unchecked → return true
+	    if (!checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If checked → uncheck it
+	    WebElement label = driver.findElement(docstabviewemployeedetailslabelinhr);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean checkDocsTabViewEmployeeDetailsCheckboxinHR() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(docstabviewemployeedetailscheckboxinhr);
+
+	    // If already checked → return true
+	    if (checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If Unchecked → check it
+	    WebElement label = driver.findElement(docstabviewemployeedetailslabelinhr);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean uncheckChecklistTabViewEmployeeDetailsCheckboxinHR() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(
+	            By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(checklisttabviewemployeedetailscheckboxinhr);
+
+	    // If already unchecked → nothing to do
+	    if (!checkbox.isSelected()) {
+	        System.out.println("Checkbox already unchecked");
+	        return true;
+	    }
+
+	    WebElement label = driver.findElement(checklisttabviewemployeedetailslabelinhr);
+
+	    // IMPORTANT FIX: Scroll into view
+	    JavascriptExecutor js = (JavascriptExecutor) driver;
+	    js.executeScript("arguments[0].scrollIntoView({block: 'center'});", label);
+
+	    // Wait until clickable
+	    wait.until(ExpectedConditions.elementToBeClickable(label));
+
+	    try {
+	        label.click();
+	    } catch (Exception e) {
+	        // Fallback if intercepted
+	        js.executeScript("arguments[0].click();", label);
+	    }
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean checkChecklistTabViewEmployeeDetailsCheckboxinHR() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(
+	            By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(checklisttabviewemployeedetailscheckboxinhr);
+
+	    // If already checked → nothing to do
+	    if (checkbox.isSelected()) {
+	        System.out.println("Checkbox already unchecked");
+	        return true;
+	    }
+
+	    WebElement label = driver.findElement(checklisttabviewemployeedetailslabelinhr);
+
+	    // IMPORTANT FIX: Scroll into view
+	    JavascriptExecutor js = (JavascriptExecutor) driver;
+	    js.executeScript("arguments[0].scrollIntoView({block: 'center'});", label);
+
+	    // Wait until clickable
+	    wait.until(ExpectedConditions.elementToBeClickable(label));
+
+	    try {
+	        label.click();
+	    } catch (Exception e) {
+	        // Fallback if intercepted
+	        js.executeScript("arguments[0].click();", label);
+	    }
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean uncheckNoteTabViewEmployeeDetailsCheckboxinHR() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(
+	            By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(notetabviewemployeedetailscheckboxinhr);
+
+	    // If already unchecked → nothing to do
+	    if (!checkbox.isSelected()) {
+	        System.out.println("Checkbox already unchecked");
+	        return true;
+	    }
+
+	    WebElement label = driver.findElement(notetabviewemployeedetailslabelinhr);
+
+	    // IMPORTANT FIX: Scroll into view
+	    JavascriptExecutor js = (JavascriptExecutor) driver;
+	    js.executeScript("arguments[0].scrollIntoView({block: 'center'});", label);
+
+	    // Wait until clickable
+	    wait.until(ExpectedConditions.elementToBeClickable(label));
+
+	    try {
+	        label.click();
+	    } catch (Exception e) {
+	        // Fallback if intercepted
+	        js.executeScript("arguments[0].click();", label);
+	    }
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean checkNoteTabViewEmployeeDetailsCheckboxinHR() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(
+	            By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(notetabviewemployeedetailscheckboxinhr);
+
+	    // If already checked → nothing to do
+	    if (checkbox.isSelected()) {
+	        System.out.println("Checkbox already unchecked");
+	        return true;
+	    }
+
+	    WebElement label = driver.findElement(notetabviewemployeedetailslabelinhr);
+
+	    // IMPORTANT FIX: Scroll into view
+	    JavascriptExecutor js = (JavascriptExecutor) driver;
+	    js.executeScript("arguments[0].scrollIntoView({block: 'center'});", label);
+
+	    // Wait until clickable
+	    wait.until(ExpectedConditions.elementToBeClickable(label));
+
+	    try {
+	        label.click();
+	    } catch (Exception e) {
+	        // Fallback if intercepted
+	        js.executeScript("arguments[0].click();", label);
+	    }
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean uncheckTimelineTabViewEmployeeDetailsCheckboxinHR() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(
+	            By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(timelinetabviewemployeedetailscheckboxinhr);
+
+	    // If already unchecked → nothing to do
+	    if (!checkbox.isSelected()) {
+	        System.out.println("Checkbox already unchecked");
+	        return true;
+	    }
+
+	    WebElement label = driver.findElement(timelinetabviewemployeedetailslabelinhr);
+
+	    // IMPORTANT FIX: Scroll into view
+	    JavascriptExecutor js = (JavascriptExecutor) driver;
+	    js.executeScript("arguments[0].scrollIntoView({block: 'center'});", label);
+
+	    // Wait until clickable
+	    wait.until(ExpectedConditions.elementToBeClickable(label));
+
+	    try {
+	        label.click();
+	    } catch (Exception e) {
+	        // Fallback if intercepted
+	        js.executeScript("arguments[0].click();", label);
+	    }
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean checkTimelineTabViewEmployeeDetailsCheckboxinHR() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(
+	            By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(timelinetabviewemployeedetailscheckboxinhr);
+
+	    // If already checked → nothing to do
+	    if (checkbox.isSelected()) {
+	        System.out.println("Checkbox already unchecked");
+	        return true;
+	    }
+
+	    WebElement label = driver.findElement(timelinetabviewemployeedetailslabelinhr);
+
+	    // IMPORTANT FIX: Scroll into view
+	    JavascriptExecutor js = (JavascriptExecutor) driver;
+	    js.executeScript("arguments[0].scrollIntoView({block: 'center'});", label);
+
+	    // Wait until clickable
+	    wait.until(ExpectedConditions.elementToBeClickable(label));
+
+	    try {
+	        label.click();
+	    } catch (Exception e) {
+	        // Fallback if intercepted
+	        js.executeScript("arguments[0].click();", label);
+	    }
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean uncheckEmployeeDetailsUsingDoubleClickIfAllChildrenCheckedinHR() {
+
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    // Parent
+	    WebElement parentCheckbox = wait.until(
+	            ExpectedConditions.presenceOfElementLocated(employeedetailscheckboxinhr));
+
+	    WebElement parentLabel = wait.until(
+	            ExpectedConditions.elementToBeClickable(employeedetailslabelinhr));
+
+	    // All child checkboxes
+	    List<WebElement> childCheckboxes = Arrays.asList(
+	            driver.findElement(editemployeedetailscheckboxinhr),
+	            driver.findElement(deleteemployeedetailscheckboxinhr),
+	            driver.findElement(linkusertoemployeedetailscheckboxinhr),
+	            driver.findElement(delinkusertoemployeedetailscheckboxinhr),
+	            driver.findElement(abouttabviewemployeedetailscheckboxinhr),
+	            driver.findElement(licensestabviewemployeedetailscheckboxinhr),
+	            driver.findElement(accesscodetabviewemployeedetailscheckboxinhr),
+	            driver.findElement(docstabviewemployeedetailscheckboxinhr),
+	            driver.findElement(checklisttabviewemployeedetailscheckboxinhr),
+	            driver.findElement(notetabviewemployeedetailscheckboxinhr),
+	            driver.findElement(timelinetabviewemployeedetailscheckboxinhr));
+
+	    // Step 1: Verify all children are checked
+	    boolean allChildrenChecked = childCheckboxes.stream().allMatch(WebElement::isSelected);
+
+	    if (!allChildrenChecked) {
+	        System.out.println("Not all child checkboxes are checked → skipping double click");
+	        return false;
+	    }
+
+	    // Step 2: Perform double click on parent
+	    Actions actions = new Actions(driver);
+
+	    actions.moveToElement(parentLabel)
+	           .click()
+	           .pause(Duration.ofMillis(200)) // small delay
+	           .click()
+	           .perform();
+
+	    // Step 3: Wait for parent to become unchecked
+	    wait.until(ExpectedConditions.elementSelectionStateToBe(parentCheckbox, false));
+
+	    // Step 4: Validate all children are unchecked
+	    boolean allChildrenUnchecked = childCheckboxes.stream().noneMatch(WebElement::isSelected);
+
+	    if (!allChildrenUnchecked) {
+	        throw new AssertionError("Child checkboxes are still checked after double click!");
+	    }
+
+	    return true;
+	}
+	
+	public boolean checkEmployeeDetailsSingleClickIfAllChildrenUncheckedinHR() {
+
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    // Parent
+	    WebElement parentCheckbox = wait.until(
+	            ExpectedConditions.presenceOfElementLocated(employeedetailscheckboxinhr));
+
+	    WebElement parentLabel = wait.until(
+	            ExpectedConditions.elementToBeClickable(employeedetailslabelinhr));
+
+	    // All child checkboxes
+	    List<WebElement> childCheckboxes = Arrays.asList(
+	            driver.findElement(editemployeedetailscheckboxinhr),
+	            driver.findElement(deleteemployeedetailscheckboxinhr),
+	            driver.findElement(linkusertoemployeedetailscheckboxinhr),
+	            driver.findElement(delinkusertoemployeedetailscheckboxinhr),
+	            driver.findElement(abouttabviewemployeedetailscheckboxinhr),
+	            driver.findElement(licensestabviewemployeedetailscheckboxinhr),
+	            driver.findElement(accesscodetabviewemployeedetailscheckboxinhr),
+	            driver.findElement(docstabviewemployeedetailscheckboxinhr),
+	            driver.findElement(checklisttabviewemployeedetailscheckboxinhr),
+	            driver.findElement(notetabviewemployeedetailscheckboxinhr),
+	            driver.findElement(timelinetabviewemployeedetailscheckboxinhr));
+
+	    // Step 1: Verify all children are UNCHECKED
+	    boolean allChildrenUnchecked = childCheckboxes.stream().noneMatch(WebElement::isSelected);
+
+	    if (!allChildrenUnchecked) {
+	        System.out.println("Not all child checkboxes are unchecked → skipping click");
+	        return false;
+	    }
+
+	    // Step 2: Single click on parent
+	    parentLabel.click();
+
+	    // Step 3: Wait for parent to become checked
+	    wait.until(ExpectedConditions.elementSelectionStateToBe(parentCheckbox, true));
+
+	    // Step 4: Validate all children are checked
+	    boolean allChildrenChecked = childCheckboxes.stream().allMatch(WebElement::isSelected);
+
+	    if (!allChildrenChecked) {
+	        throw new AssertionError("Child checkboxes are NOT checked after parent click!");
+	    }
+
+	    return true;
+	}
+	
+	public boolean areAllEmployeeDetailsTabsNotVisible() {
+
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    List<By> tabLocators = Arrays.asList(
+	    		userlinkinemployeedetails,
+	    		delinkuserinemployeedetails,
+	    		editbuttoninemployeedetails,
+	    		deletebuttoninemployeedetails,
+	    		abouttabinemployeedetails,
+	    		licensestabinemployeedetails,
+	    		accesscodetabinemployeedetails,
+	    		docstabinemployeedetails,
+	    		checklisttabinemployeedetails,
+	    		notetabinemployeedetails,
+	    		timelinetabinemployeedetails
+	    );
+
+	    for (By tab : tabLocators) {
+	        List<WebElement> elements = driver.findElements(tab);
+
+	        if (!elements.isEmpty() && elements.get(0).isDisplayed()) {
+	            return false; // At least one tab is visible
+	        }
+	    }
+
+	    return true; // All tabs are NOT visible
+	}
+	
+	public boolean uncheckAddLicenseEmployeeDetailsCheckboxinHR() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(addlicensecheckboxinhr);
+
+	    // If already unchecked → return true
+	    if (!checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If checked → uncheck it
+	    WebElement label = driver.findElement(addlicenselabelinhr);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean checkAddLicenseEmployeeDetailsCheckboxinHR() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(addlicensecheckboxinhr);
+
+	    // If already checked → return true
+	    if (checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If Unchecked → check it
+	    WebElement label = driver.findElement(addlicenselabelinhr);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean uncheckEditLicenseEmployeeDetailsCheckboxinHR() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(editlicensecheckboxinhr);
+
+	    // If already unchecked → return true
+	    if (!checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If checked → uncheck it
+	    WebElement label = driver.findElement(editlicenselabelinhr);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean checkEditLicenseEmployeeDetailsCheckboxinHR() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(editlicensecheckboxinhr);
+
+	    // If already checked → return true
+	    if (checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If Unchecked → check it
+	    WebElement label = driver.findElement(editlicenselabelinhr);
+	    label.click();
+
+	    return false; // means it was checked before
 	}
 }

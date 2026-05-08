@@ -3,6 +3,7 @@ package com.pharmcrm_SalesRepsModule.pages;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -51,7 +52,7 @@ public class SalesRepsModuleFunctionalityPage {
 	private By uploadtabinbuckets = By.xpath("(//span[normalize-space()='Upload'])[1]");
 	private By choosefilestabinuploadfile = By.xpath("(//input[@id='file-3'])[1]");
 	private By submitbuttoninuploadfile = By.xpath("(//button[@id='btnSaveFile'])[1]");
-	private By editfilebuttoninbuckets = By.xpath("(//a[contains(@id,'btnEditFile')])[1]");
+	private By editfilebuttoninbuckets = By.xpath("(//a[contains(@onclick,'editFile')])[1]");
 	private By filenametextboxineditfile = By.xpath("(//input[@id='fileNameTextBox'])[1]");
 	private By submitbuttonineditfile = By.xpath("(//button[@id='btnSaveFile'])[1]");
 	private By deletefilebuttoninbuckets = By.xpath("//div[@class='dropdown-menu bucket-dropdown-content bucketDropdownAction show']//a[@id='btnDeleteFile']");
@@ -112,6 +113,55 @@ public class SalesRepsModuleFunctionalityPage {
 	private By setupmoduletab = By.xpath("//a[@href='/Setup/Home/Dashboard']//div[@class='module-list-main']//div[@class='module-list-img']");
 	private By profiletabinsidebar = By.xpath("(//span[normalize-space()='Profiles'])[1]");
 	private By profilenametextboxinfilter = By.xpath("(//input[@id='Filter_Name'])[1]");
+	private By searchbuttoninprofiles = By.xpath("(//button[@class='btn filterSearchBtn waves-effect waves-light'])[1]");
+	private By editbuttonofexistingprofile = By.xpath("(//span[normalize-space()='Edit'])[1]");
+	private By salesrepstabinprofiledetails = By.xpath("(//a[@id='salesrepspermissionleftmenu'])[1]");
+	private By addfoldercheckboxinbucket = By.id("chkg12SalesRepBucketFolderAdd");
+	private By addfolderlabelinbucket = By.xpath("//label[@for='chkg12SalesRepBucketFolderAdd']");
+	private By editfoldercheckboxinbucket = By.id("chkg12SalesRepBucketFolderEdit");
+	private By editfolderlabelinbucket = By.xpath("//label[@for='chkg12SalesRepBucketFolderEdit']");
+	private By deletefoldercheckboxinbucket = By.id("chkg12SalesRepBucketFolderDelete");
+	private By deletefolderlabelinbucket = By.xpath("//label[@for='chkg12SalesRepBucketFolderDelete']");
+	private By addfilecheckboxinbucket = By.id("chkg12SalesRepBucketFileAdd");
+	private By addfilelabelinbucket = By.xpath("//label[@for='chkg12SalesRepBucketFileAdd']");
+	private By editfilecheckboxinbucket = By.id("chkg12SalesRepBucketFileEdit");
+	private By editfilelabelinbucket = By.xpath("//label[@for='chkg12SalesRepBucketFileEdit']");
+	private By deletefilecheckboxinbucket = By.id("chkg12SalesRepBucketFileDelete");
+	private By deletefilelabelinbucket = By.xpath("//label[@for='chkg12SalesRepBucketFileDelete']");
+	private By downloadfilecheckboxinbucket = By.id("chkg12SalesRepBucketFileDownload");
+	private By downloadfilelabelinbucket = By.xpath("//label[@for='chkg12SalesRepBucketFileDownload']");
+	private By folderpermissioncheckboxinbucket = By.id("chkg12SalesRepBucketPermission");
+	private By folderpermissionlabelinbucket = By.xpath("//label[@for='chkg12SalesRepBucketPermission']");
+	private By bucketsectioncheckbox = By.id("chkg12SalesRepBucketAll");
+	private By bucketsectionlabel = By.xpath("//label[@for='chkg12SalesRepBucketAll']");
+	private By addcheckboxinsalesrepvisits = By.id("chkg9SalesRepVisitsAdd");
+	private By addlabelinsalesrepvisits = By.xpath("//label[@for='chkg9SalesRepVisitsAdd']");
+	private By editcheckboxinsalesrepvisits = By.id("chkg9SalesRepVisitsEdit");
+	private By editlabelinsalesrepvisits = By.xpath("//label[@for='chkg9SalesRepVisitsEdit']");
+	private By deletecheckboxinsalesrepvisits = By.id("chkg9SalesRepVisitsDelete");
+	private By deletelabelinsalesrepvisits = By.xpath("//label[@for='chkg9SalesRepVisitsDelete']");
+	private By viewallsalesrepvisitscheckboxinsalesrepvisits = By.id("chkg9SalesRepVisitsDetail");
+	private By viewallsalesrepvisitslabelinsalesrepvisits = By.xpath("//label[@for='chkg9SalesRepVisitsDetail']");
+	private By salesrepvisitssectioncheckbox = By.id("chkg9SalesRepVisitsAll");
+	private By salesrepvisitssectionlabel = By.xpath("//label[@for='chkg9SalesRepVisitsAll']");
+	private By addcheckboxinsalesrepquestions = By.id("chkg02SalesRepQuestionsAdd");
+	private By addlabelinsalesrepquestions = By.xpath("//label[@for='chkg02SalesRepQuestionsAdd']");
+	private By editcheckboxinsalesrepquestions = By.id("chkg02SalesRepQuestionsEdit");
+	private By editlabelinsalesrepquestions = By.xpath("//label[@for='chkg02SalesRepQuestionsEdit']");
+	private By deletecheckboxinsalesrepquestions = By.id("chkg02SalesRepQuestionsDelete");
+	private By deletelabelinsalesrepquestions = By.xpath("//label[@for='chkg02SalesRepQuestionsDelete']");
+	private By salesrepquestionssectioncheckbox = By.id("chkg02SalesRepQuestionsAll");
+	private By salesrepquestionssectionlabel = By.xpath("//label[@for='chkg02SalesRepQuestionsAll']");
+	private By sendcheckboxintext = By.id("chkg10SalesRepSendText");
+	private By sendlabelintext = By.xpath("//label[@for='chkg10SalesRepSendText']");
+	private By salesrepvisiblenumbercheckboxintext = By.id("chkg11SalesRepVisibleNumber");
+	private By salesrepvisiblenumberlabelintext = By.xpath("//label[@for='chkg11SalesRepVisibleNumber']");
+	private By sendvcardcheckboxintext = By.id("chkg34SalesRepSendVCard");
+	private By sendvcardlabelintext = By.xpath("//label[@for='chkg34SalesRepSendVCard']");
+	private By textcheckbox = By.id("chkg10SalesRepAll");
+	private By textlabel = By.xpath("//label[@for='chkg10SalesRepAll']");
+    private By submitbuttoninprofiledetails = By.xpath("(//button[@id='btnSave'])[1]");
+	private By pharmcrmlogo = By.xpath("//div[@class='rubik-cube']//a");
 	
 	
 	private By firstQuestionTextbox ;
@@ -1279,20 +1329,28 @@ public class SalesRepsModuleFunctionalityPage {
 	    }
 	}
 		
-	public void enterthePhoneNumerinQuickText(String PhoneNumber) {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+	public boolean enterthePhoneNumerinQuickText(String PhoneNumber) {
 
-	    // 🔁 CRITICAL: wait until input is BOTH visible AND enabled
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+
+	    List<WebElement> phoneInputs = driver.findElements(phonenumbertextboxinquicktext);
+
+	    if (phoneInputs.isEmpty()) {
+	        return false;
+	    }
+
+	    // Re-locate element inside wait (avoids stale element issue)
 	    WebElement phoneInput = wait.until(driver -> {
 	        WebElement el = driver.findElement(phonenumbertextboxinquicktext);
 	        return (el.isDisplayed() && el.isEnabled()) ? el : null;
 	    });
 
-	    // Clear only if editable
 	    phoneInput.clear();
 	    phoneInput.sendKeys(PhoneNumber);
 
 	    System.out.println("Phone number entered: " + PhoneNumber);
+
+	    return true;
 	}
 	
 	public boolean selecttheTemplateByIndexinQuickText(int TemplateByIndex) {
@@ -2818,6 +2876,10 @@ public class SalesRepsModuleFunctionalityPage {
 	    return "SUCCESS: Record is shown";
 	}
 	
+	
+	//-------------------------------- Sales Reps Module (Profile Permission) -----------------------------
+	
+	
 	public boolean clickintotheSetupmoduletab() {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
@@ -2881,4 +2943,1028 @@ public class SalesRepsModuleFunctionalityPage {
 
 	    System.out.println("Profile Name entered: " + ProfileName);
     }
+	
+	public void clickintotheeditbuttonofexistingprofile() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		
+		// Wait for preloader to disappear
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+	    
+	    WebElement editbutton = wait.until(ExpectedConditions.elementToBeClickable(editbuttonofexistingprofile));
+	   
+	    try {
+	    	editbutton.click();
+	    } catch (Exception e) {
+	        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", editbutton);
+	    }
+
+	    System.out.println("Edit button clicked successfully");
+	}
+	
+	public String clickintothesearchbuttoninProfiles() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    // Wait for preloader to disappear
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    // Click Search button
+	    wait.until(ExpectedConditions.elementToBeClickable(searchbuttoninprofiles)).click();
+
+	    System.out.println("Search button clicked successfully");
+
+	    try {	
+	        WebElement noRecordMsg = wait.until(
+	                ExpectedConditions.visibilityOfElementLocated(By.xpath("(//p[@class='noRecordsText'])[1]")));
+
+	        return "ERROR: " + noRecordMsg.getText();
+
+	    } catch (TimeoutException ignored) {}
+
+	    // User exists
+	    return "SUCCESS: Profile Name is shown";
+	}
+	
+	public void clickintotheSalesRepstabinProfileDetails() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		
+		// Wait for preloader to disappear
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+	    
+	    WebElement salesrepstab = wait.until(ExpectedConditions.elementToBeClickable(salesrepstabinprofiledetails));
+	   
+	    try {
+	    	salesrepstab.click();
+	    } catch (Exception e) {
+	        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", salesrepstab);
+	    }
+
+	    System.out.println("Sales Reps tab clicked successfully");
+	}
+		
+	public boolean uncheckAddFolderCheckbox() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(addfoldercheckboxinbucket);
+
+	    // If already unchecked → return true
+	    if (!checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If checked → uncheck it
+	    WebElement label = driver.findElement(addfolderlabelinbucket);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean checkAddFolderCheckbox() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(addfoldercheckboxinbucket);
+
+	    // If already checked → return true
+	    if (checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If unchecked → check it
+	    WebElement label = driver.findElement(addfolderlabelinbucket);
+	    label.click();
+
+	    return false; // means it was unchecked before
+	}
+	
+	public boolean uncheckEditFolderCheckbox() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(editfoldercheckboxinbucket);
+
+	    // If already unchecked → return true
+	    if (!checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If checked → uncheck it
+	    WebElement label = driver.findElement(editfolderlabelinbucket);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean checkEditFolderCheckbox() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(editfoldercheckboxinbucket);
+
+	    // If already checked → return true
+	    if (checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If unchecked → check it
+	    WebElement label = driver.findElement(editfolderlabelinbucket);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean uncheckDeleteFolderCheckbox() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(deletefoldercheckboxinbucket);
+
+	    // If already unchecked → return true
+	    if (!checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If checked → uncheck it
+	    WebElement label = driver.findElement(deletefolderlabelinbucket);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean checkDeleteFolderCheckbox() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(deletefoldercheckboxinbucket);
+
+	    // If already checked → return true
+	    if (checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If unchecked → check it
+	    WebElement label = driver.findElement(deletefolderlabelinbucket);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean uncheckAddFileCheckbox() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(addfilecheckboxinbucket);
+
+	    // If already unchecked → return true
+	    if (!checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If checked → uncheck it
+	    WebElement label = driver.findElement(addfilelabelinbucket);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean checkAddFileCheckbox() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(addfilecheckboxinbucket);
+
+	    // If already checked → return true
+	    if (checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If unchecked → check it
+	    WebElement label = driver.findElement(addfilelabelinbucket);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean uncheckEditFileCheckbox() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(editfilecheckboxinbucket);
+
+	    // If already unchecked → return true
+	    if (!checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If checked → uncheck it
+	    WebElement label = driver.findElement(editfilelabelinbucket);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean checkEditFileCheckbox() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(editfilecheckboxinbucket);
+
+	    // If already checked → return true
+	    if (checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If unchecked → check it
+	    WebElement label = driver.findElement(editfilelabelinbucket);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean uncheckDeleteFileCheckbox() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(deletefilecheckboxinbucket);
+
+	    // If already unchecked → return true
+	    if (!checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If checked → uncheck it
+	    WebElement label = driver.findElement(deletefilelabelinbucket);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean checkDeleteFileCheckbox() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(deletefilecheckboxinbucket);
+
+	    // If already checked → return true
+	    if (checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If Unchecked → check it
+	    WebElement label = driver.findElement(deletefilelabelinbucket);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean uncheckDownloadFileCheckbox() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(downloadfilecheckboxinbucket);
+
+	    // If already unchecked → return true
+	    if (!checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If checked → uncheck it
+	    WebElement label = driver.findElement(downloadfilelabelinbucket);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean checkDownloadFileCheckbox() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(downloadfilecheckboxinbucket);
+
+	    // If already checked → return true
+	    if (checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If Unchecked → check it
+	    WebElement label = driver.findElement(downloadfilelabelinbucket);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean uncheckFolderPermissionCheckbox() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(folderpermissioncheckboxinbucket);
+
+	    // If already unchecked → return true
+	    if (!checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If checked → uncheck it
+	    WebElement label = driver.findElement(folderpermissionlabelinbucket);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean checkFolderPermissionCheckbox() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(folderpermissioncheckboxinbucket);
+
+	    // If already checked → return true
+	    if (checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If Unchecked → check it
+	    WebElement label = driver.findElement(folderpermissionlabelinbucket);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean uncheckBucketUsingDoubleClickIfAllChildrenChecked() {
+
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    // Parent
+	    WebElement parentCheckbox = wait.until(
+	            ExpectedConditions.presenceOfElementLocated(bucketsectioncheckbox));
+
+	    WebElement parentLabel = wait.until(
+	            ExpectedConditions.elementToBeClickable(bucketsectionlabel));
+
+	    // All child checkboxes
+	    List<WebElement> childCheckboxes = Arrays.asList(
+	            driver.findElement(addfoldercheckboxinbucket),
+	            driver.findElement(editfoldercheckboxinbucket),
+	            driver.findElement(deletefoldercheckboxinbucket),
+	            driver.findElement(addfilecheckboxinbucket),
+	            driver.findElement(editfilecheckboxinbucket),
+	            driver.findElement(deletefilecheckboxinbucket),
+	            driver.findElement(downloadfilecheckboxinbucket),
+	            driver.findElement(folderpermissioncheckboxinbucket));
+
+	    // Step 1: Verify all children are checked
+	    boolean allChildrenChecked = childCheckboxes.stream().allMatch(WebElement::isSelected);
+
+	    if (!allChildrenChecked) {
+	        System.out.println("Not all child checkboxes are checked → skipping double click");
+	        return false;
+	    }
+
+	    // Step 2: Perform double click on parent
+	    Actions actions = new Actions(driver);
+
+	    actions.moveToElement(parentLabel)
+	           .click()
+	           .pause(Duration.ofMillis(200)) // small delay
+	           .click()
+	           .perform();
+
+	    // Step 3: Wait for parent to become unchecked
+	    wait.until(ExpectedConditions.elementSelectionStateToBe(parentCheckbox, false));
+
+	    // Step 4: Validate all children are unchecked
+	    boolean allChildrenUnchecked = childCheckboxes.stream().noneMatch(WebElement::isSelected);
+
+	    if (!allChildrenUnchecked) {
+	        throw new AssertionError("Child checkboxes are still checked after double click!");
+	    }
+
+	    return true;
+	}
+	
+	public boolean checkBucketUsingSingleClickIfAllChildrenUnchecked() {
+
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    // Parent
+	    WebElement parentCheckbox = wait.until(
+	            ExpectedConditions.presenceOfElementLocated(bucketsectioncheckbox));
+
+	    WebElement parentLabel = wait.until(
+	            ExpectedConditions.elementToBeClickable(bucketsectionlabel));
+
+	    // All child checkboxes
+	    List<WebElement> childCheckboxes = Arrays.asList(
+	            driver.findElement(addfoldercheckboxinbucket),
+	            driver.findElement(editfoldercheckboxinbucket),
+	            driver.findElement(deletefoldercheckboxinbucket),
+	            driver.findElement(addfilecheckboxinbucket),
+	            driver.findElement(editfilecheckboxinbucket),
+	            driver.findElement(deletefilecheckboxinbucket),
+	            driver.findElement(downloadfilecheckboxinbucket),
+	            driver.findElement(folderpermissioncheckboxinbucket)
+	    );
+
+	    // Step 1: Verify all children are UNCHECKED
+	    boolean allChildrenUnchecked = childCheckboxes.stream().noneMatch(WebElement::isSelected);
+
+	    if (!allChildrenUnchecked) {
+	        System.out.println("Not all child checkboxes are unchecked → skipping click");
+	        return false;
+	    }
+
+	    // Step 2: Single click on parent
+	    parentLabel.click();
+
+	    // Step 3: Wait for parent to become checked
+	    wait.until(ExpectedConditions.elementSelectionStateToBe(parentCheckbox, true));
+
+	    // Step 4: Validate all children are checked
+	    boolean allChildrenChecked = childCheckboxes.stream().allMatch(WebElement::isSelected);
+
+	    if (!allChildrenChecked) {
+	        throw new AssertionError("Child checkboxes are NOT checked after parent click!");
+	    }
+
+	    return true;
+	}
+	
+	public boolean uncheckSalesRepVisitsUsingDoubleClickIfAllChildrenChecked() {
+
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    // Parent
+	    WebElement parentCheckbox = wait.until(
+	            ExpectedConditions.presenceOfElementLocated(salesrepvisitssectioncheckbox));
+
+	    WebElement parentLabel = wait.until(
+	            ExpectedConditions.elementToBeClickable(salesrepvisitssectionlabel));
+
+	    // All child checkboxes
+	    List<WebElement> childCheckboxes = Arrays.asList(
+	            driver.findElement(addcheckboxinsalesrepvisits),
+	            driver.findElement(editcheckboxinsalesrepvisits),
+	            driver.findElement(deletecheckboxinsalesrepvisits),
+	            driver.findElement(viewallsalesrepvisitscheckboxinsalesrepvisits));
+
+	    // Step 1: Verify all children are checked
+	    boolean allChildrenChecked = childCheckboxes.stream().allMatch(WebElement::isSelected);
+
+	    if (!allChildrenChecked) {
+	        System.out.println("Not all child checkboxes are checked → skipping double click");
+	        return false;
+	    }
+
+	    // Step 2: Perform double click on parent
+	    Actions actions = new Actions(driver);
+
+	    actions.moveToElement(parentLabel)
+	           .click()
+	           .pause(Duration.ofMillis(200)) // small delay
+	           .click()
+	           .perform();
+
+	    // Step 3: Wait for parent to become unchecked
+	    wait.until(ExpectedConditions.elementSelectionStateToBe(parentCheckbox, false));
+
+	    // Step 4: Validate all children are unchecked
+	    boolean allChildrenUnchecked = childCheckboxes.stream().noneMatch(WebElement::isSelected);
+
+	    if (!allChildrenUnchecked) {
+	        throw new AssertionError("Child checkboxes are still checked after double click!");
+	    }
+
+	    return true;
+	}
+	
+	public boolean checkSalesRepsVisitsUsingSingleClickIfAllChildrenUnchecked() {
+
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    // Parent
+	    WebElement parentCheckbox = wait.until(
+	            ExpectedConditions.presenceOfElementLocated(salesrepvisitssectioncheckbox));
+
+	    WebElement parentLabel = wait.until(
+	            ExpectedConditions.elementToBeClickable(salesrepvisitssectionlabel));
+
+	    // All child checkboxes
+	    List<WebElement> childCheckboxes = Arrays.asList(
+	    		driver.findElement(addcheckboxinsalesrepvisits),
+	            driver.findElement(editcheckboxinsalesrepvisits),
+	            driver.findElement(deletecheckboxinsalesrepvisits),
+	            driver.findElement(viewallsalesrepvisitscheckboxinsalesrepvisits));
+
+	    // Step 1: Verify all children are UNCHECKED
+	    boolean allChildrenUnchecked = childCheckboxes.stream().noneMatch(WebElement::isSelected);
+
+	    if (!allChildrenUnchecked) {
+	        System.out.println("Not all child checkboxes are unchecked → skipping click");
+	        return false;
+	    }
+
+	    // Step 2: Single click on parent
+	    parentLabel.click();
+
+	    // Step 3: Wait for parent to become checked
+	    wait.until(ExpectedConditions.elementSelectionStateToBe(parentCheckbox, true));
+
+	    // Step 4: Validate all children are checked
+	    boolean allChildrenChecked = childCheckboxes.stream().allMatch(WebElement::isSelected);
+
+	    if (!allChildrenChecked) {
+	        throw new AssertionError("Child checkboxes are NOT checked after parent click!");
+	    }
+
+	    return true;
+	}
+	
+	public boolean uncheckAddCheckboxinSalesRepQuestions() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(addcheckboxinsalesrepquestions);
+
+	    // If already unchecked → return true
+	    if (!checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If checked → uncheck it
+	    WebElement label = driver.findElement(addlabelinsalesrepquestions);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean checkAddCheckboxinSalesRepQuestions() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(addcheckboxinsalesrepquestions);
+
+	    // If already checked → return true
+	    if (checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If Unchecked → check it
+	    WebElement label = driver.findElement(addlabelinsalesrepquestions);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean uncheckEditCheckboxinSalesRepQuestions() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(editcheckboxinsalesrepquestions);
+
+	    // If already unchecked → return true
+	    if (!checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If checked → uncheck it
+	    WebElement label = driver.findElement(editlabelinsalesrepquestions);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean checkEditCheckboxinSalesRepQuestions() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(editcheckboxinsalesrepquestions);
+
+	    // If already checked → return true
+	    if (checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If Unchecked → check it
+	    WebElement label = driver.findElement(editlabelinsalesrepquestions);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean uncheckDeleteCheckboxinSalesRepQuestions() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(deletecheckboxinsalesrepquestions);
+
+	    // If already unchecked → return true
+	    if (!checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If checked → uncheck it
+	    WebElement label = driver.findElement(deletelabelinsalesrepquestions);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean checkDeleteCheckboxinSalesRepQuestions() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(deletecheckboxinsalesrepquestions);
+
+	    // If already checked → return true
+	    if (checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If Unchecked → check it
+	    WebElement label = driver.findElement(deletelabelinsalesrepquestions);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean uncheckSalesRepQuestionsUsingDoubleClickIfAllChildrenChecked() {
+
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    // Parent
+	    WebElement parentCheckbox = wait.until(
+	            ExpectedConditions.presenceOfElementLocated(salesrepquestionssectioncheckbox));
+
+	    WebElement parentLabel = wait.until(
+	            ExpectedConditions.elementToBeClickable(salesrepquestionssectionlabel));
+
+	    // All child checkboxes
+	    List<WebElement> childCheckboxes = Arrays.asList(
+	            driver.findElement(addcheckboxinsalesrepquestions),
+	            driver.findElement(editcheckboxinsalesrepquestions),
+	            driver.findElement(deletecheckboxinsalesrepquestions));
+
+	    // Step 1: Verify all children are checked
+	    boolean allChildrenChecked = childCheckboxes.stream().allMatch(WebElement::isSelected);
+
+	    if (!allChildrenChecked) {
+	        System.out.println("Not all child checkboxes are checked → skipping double click");
+	        return false;
+	    }
+
+	    // Step 2: Perform double click on parent
+	    Actions actions = new Actions(driver);
+
+	    actions.moveToElement(parentLabel)
+	           .click()
+	           .pause(Duration.ofMillis(200)) // small delay
+	           .click()
+	           .perform();
+
+	    // Step 3: Wait for parent to become unchecked
+	    wait.until(ExpectedConditions.elementSelectionStateToBe(parentCheckbox, false));
+
+	    // Step 4: Validate all children are unchecked
+	    boolean allChildrenUnchecked = childCheckboxes.stream().noneMatch(WebElement::isSelected);
+
+	    if (!allChildrenUnchecked) {
+	        throw new AssertionError("Child checkboxes are still checked after double click!");
+	    }
+
+	    return true;
+	}
+	
+	public boolean checkSalesRepQuestionsUsingSingleClickIfAllChildrenUnchecked() {
+
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    // Parent
+	    WebElement parentCheckbox = wait.until(
+	            ExpectedConditions.presenceOfElementLocated(salesrepquestionssectioncheckbox));
+
+	    WebElement parentLabel = wait.until(
+	            ExpectedConditions.elementToBeClickable(salesrepquestionssectionlabel));
+
+	    // All child checkboxes
+	    List<WebElement> childCheckboxes = Arrays.asList(
+	    		driver.findElement(addcheckboxinsalesrepquestions),
+	            driver.findElement(editcheckboxinsalesrepquestions),
+	            driver.findElement(deletecheckboxinsalesrepquestions));
+
+	    // Step 1: Verify all children are UNCHECKED
+	    boolean allChildrenUnchecked = childCheckboxes.stream().noneMatch(WebElement::isSelected);
+
+	    if (!allChildrenUnchecked) {
+	        System.out.println("Not all child checkboxes are unchecked → skipping click");
+	        return false;
+	    }
+
+	    // Step 2: Single click on parent
+	    parentLabel.click();
+
+	    // Step 3: Wait for parent to become checked
+	    wait.until(ExpectedConditions.elementSelectionStateToBe(parentCheckbox, true));
+
+	    // Step 4: Validate all children are checked
+	    boolean allChildrenChecked = childCheckboxes.stream().allMatch(WebElement::isSelected);
+
+	    if (!allChildrenChecked) {
+	        throw new AssertionError("Child checkboxes are NOT checked after parent click!");
+	    }
+
+	    return true;
+	}
+	
+	public boolean uncheckSendCheckboxinText() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(sendcheckboxintext);
+
+	    // If already unchecked → return true
+	    if (!checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If checked → uncheck it
+	    WebElement label = driver.findElement(sendlabelintext);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean checkSendCheckboxinText() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(sendcheckboxintext);
+
+	    // If already checked → return true
+	    if (checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If Unchecked → check it
+	    WebElement label = driver.findElement(sendlabelintext);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean uncheckSalesRepVisibleNumberCheckboxinText() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(salesrepvisiblenumbercheckboxintext);
+
+	    // If already unchecked → return true
+	    if (!checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If checked → uncheck it
+	    WebElement label = driver.findElement(salesrepvisiblenumberlabelintext);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean checkSalesRepVisibleNumberCheckboxinText() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(salesrepvisiblenumbercheckboxintext);
+
+	    // If already checked → return true
+	    if (checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If Unchecked → check it
+	    WebElement label = driver.findElement(salesrepvisiblenumberlabelintext);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean uncheckSendVCardCheckboxinText() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(sendvcardcheckboxintext);
+
+	    // If already unchecked → return true
+	    if (!checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If checked → uncheck it
+	    WebElement label = driver.findElement(sendvcardlabelintext);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean checkSendVCardCheckboxinText() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    WebElement checkbox = driver.findElement(sendvcardcheckboxintext);
+
+	    // If already checked → return true
+	    if (checkbox.isSelected()) {
+	        return true;
+	    }
+
+	    // If Unchecked → check it
+	    WebElement label = driver.findElement(sendvcardlabelintext);
+	    label.click();
+
+	    return false; // means it was checked before
+	}
+	
+	public boolean uncheckTextUsingDoubleClickIfAllChildrenChecked() {
+
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    // Parent
+	    WebElement parentCheckbox = wait.until(
+	            ExpectedConditions.presenceOfElementLocated(textcheckbox));
+
+	    WebElement parentLabel = wait.until(
+	            ExpectedConditions.elementToBeClickable(textlabel));
+
+	    // All child checkboxes
+	    List<WebElement> childCheckboxes = Arrays.asList(
+	            driver.findElement(sendcheckboxintext),
+	            driver.findElement(salesrepvisiblenumbercheckboxintext),
+	            driver.findElement(sendvcardcheckboxintext));
+
+	    // Step 1: Verify all children are checked
+	    boolean allChildrenChecked = childCheckboxes.stream().allMatch(WebElement::isSelected);
+
+	    if (!allChildrenChecked) {
+	        System.out.println("Not all child checkboxes are checked → skipping double click");
+	        return false;
+	    }
+
+	    // Step 2: Perform double click on parent
+	    Actions actions = new Actions(driver);
+
+	    actions.moveToElement(parentLabel)
+	           .click()
+	           .pause(Duration.ofMillis(200)) // small delay
+	           .click()
+	           .perform();
+
+	    // Step 3: Wait for parent to become unchecked
+	    wait.until(ExpectedConditions.elementSelectionStateToBe(parentCheckbox, false));
+
+	    // Step 4: Validate all children are unchecked
+	    boolean allChildrenUnchecked = childCheckboxes.stream().noneMatch(WebElement::isSelected);
+
+	    if (!allChildrenUnchecked) {
+	        throw new AssertionError("Child checkboxes are still checked after double click!");
+	    }
+
+	    return true;
+	}
+	
+	public boolean checkTextSingleClickIfAllChildrenUnchecked() {
+
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    // Parent
+	    WebElement parentCheckbox = wait.until(
+	            ExpectedConditions.presenceOfElementLocated(textcheckbox));
+
+	    WebElement parentLabel = wait.until(
+	            ExpectedConditions.elementToBeClickable(textlabel));
+
+	    // All child checkboxes
+	    List<WebElement> childCheckboxes = Arrays.asList(
+	            driver.findElement(sendcheckboxintext),
+	            driver.findElement(salesrepvisiblenumbercheckboxintext),
+	            driver.findElement(sendvcardcheckboxintext));
+
+	    // Step 1: Verify all children are UNCHECKED
+	    boolean allChildrenUnchecked = childCheckboxes.stream().noneMatch(WebElement::isSelected);
+
+	    if (!allChildrenUnchecked) {
+	        System.out.println("Not all child checkboxes are unchecked → skipping click");
+	        return false;
+	    }
+
+	    // Step 2: Single click on parent
+	    parentLabel.click();
+
+	    // Step 3: Wait for parent to become checked
+	    wait.until(ExpectedConditions.elementSelectionStateToBe(parentCheckbox, true));
+
+	    // Step 4: Validate all children are checked
+	    boolean allChildrenChecked = childCheckboxes.stream().allMatch(WebElement::isSelected);
+
+	    if (!allChildrenChecked) {
+	        throw new AssertionError("Child checkboxes are NOT checked after parent click!");
+	    }
+
+	    return true;
+	}
+	
+	public boolean areQuickTextAndSendVCardTabsNotVisible() {
+
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+	    // Wait for loader to disappear
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+
+	    // Find elements safely
+	    List<WebElement> quickTextTabs = driver.findElements(quicktexttabinsalesrepvisits);
+	    List<WebElement> sendVCardTabs = driver.findElements(sendvcardtabinsalesrepvisits);
+
+	    // Check visibility
+	    boolean isQuickTextVisible = !quickTextTabs.isEmpty() && quickTextTabs.get(0).isDisplayed();
+	    boolean isSendVCardVisible = !sendVCardTabs.isEmpty() && sendVCardTabs.get(0).isDisplayed();
+
+	    // Return TRUE only if BOTH are NOT visible
+	    return (!isQuickTextVisible && !isSendVCardVisible);
+	}
+	
+	public void clickintotheSubmitbuttoninProfileDetails() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		
+		// Wait for preloader to disappear
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+	    
+	    WebElement submitbutton = wait.until(ExpectedConditions.elementToBeClickable(submitbuttoninprofiledetails));
+	   
+	    try {
+	    	submitbutton.click();
+	    } catch (Exception e) {
+	        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", submitbutton);
+	    }
+
+	    System.out.println("Submit button clicked successfully");
+	}
+	
+	public void clickintothePharmCRMlogo() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		
+		// Wait for preloader to disappear
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
+	    
+	    WebElement logo = wait.until(ExpectedConditions.elementToBeClickable(pharmcrmlogo));
+	   
+	    try {
+	    	logo.click();
+	    } catch (Exception e) {
+	        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", logo);
+	    }
+
+	    System.out.println("Pharm CRM logo clicked successfully");
+	}
+
 }
