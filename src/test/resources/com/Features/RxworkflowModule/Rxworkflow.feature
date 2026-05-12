@@ -906,7 +906,6 @@ And the user should be able to open Details View in Control Audit Class1
 And the user should be able to perform Drug Dispense Credit Add action in Control Audit Class1
 And the user should be able to perform Drug Dispense Audit Add action in Control Audit Class1
 And the user should be able to perform Drug Audit Dispense Date Update in Control Audit Class1
-And the user should be able to perform Drug Audit Dispense Date Delete in Control Audit Class1
 And the user should be able to perform Drug Audit Dispense Quantity Update in Control Audit Class1
 And the user should be able to Export Control Audit Class1 data to Excel
 And the user should be able to Export Control Audit Class1 data to PDF
@@ -925,7 +924,6 @@ And the user should be able to open Details View in Control Audit Class1
 And the user should NOT be able to perform Drug Dispense Credit Add action in Control Audit Class1
 And the user should NOT be able to perform Drug Dispense Audit Add action in Control Audit Class1
 And the user should NOT be able to perform Drug Audit Dispense Date Update in Control Audit Class1
-And the user should NOT be able to perform Drug Audit Dispense Date Delete in Control Audit Class1
 And the user should NOT be able to perform Drug Audit Dispense Quantity Update in Control Audit Class1
 And the user should NOT be able to Export Control Audit Class1 data to Excel
 And the user should NOT be able to Export Control Audit Class1 data to PDF
@@ -944,7 +942,6 @@ And the user should be able to open Details View in Control Audit Class2
 And the user should be able to perform Drug Dispense Credit Add action in Control Audit Class2
 And the user should be able to perform Drug Dispense Audit Add action in Control Audit Class2
 And the user should be able to perform Drug Audit Dispense Date Update in Control Audit Class2
-And the user should be able to perform Drug Audit Dispense Date Delete in Control Audit Class2
 And the user should be able to perform Drug Audit Dispense Quantity Update in Control Audit Class2
 And the user should be able to Export Control Audit Class2 data to Excel
 And the user should be able to Export Control Audit Class2 data to PDF
@@ -963,7 +960,6 @@ And the user should be able to open Details View in Control Audit Class2
 And the user should NOT be able to perform Drug Dispense Credit Add action in Control Audit Class2
 And the user should NOT be able to perform Drug Dispense Audit Add action in Control Audit Class2
 And the user should NOT be able to perform Drug Audit Dispense Date Update in Control Audit Class2
-And the user should NOT be able to perform Drug Audit Dispense Date Delete in Control Audit Class2
 And the user should NOT be able to perform Drug Audit Dispense Quantity Update in Control Audit Class2
 And the user should NOT be able to Export Control Audit Class2 data to Excel
 And the user should NOT be able to Export Control Audit Class2 data to PDF
@@ -982,7 +978,6 @@ And the user should be able to open Details View in Control Audit Class3
 And the user should be able to perform Drug Dispense Credit Add action in Control Audit Class3
 And the user should be able to perform Drug Dispense Audit Add action in Control Audit Class3
 And the user should be able to perform Drug Audit Dispense Date Update in Control Audit Class3
-And the user should be able to perform Drug Audit Dispense Date Delete in Control Audit Class3
 And the user should be able to perform Drug Audit Dispense Quantity Update in Control Audit Class3
 And the user should be able to Export Control Audit Class3 data to Excel
 And the user should be able to Export Control Audit Class3 data to PDF
@@ -996,12 +991,11 @@ And user enter the organization password
 When user click on the go button
 Then the Rxworkflow user should be able to view Profiles
 And I create a profile with View Only permission for Control Audit Class3 module
-Then the user should be able to view Control Audit Class3 data
+Then the user should be able to view Control Audit Class3
 And the user should be able to open Details View in Control Audit Class3
 And the user should NOT be able to perform Drug Dispense Credit Add action in Control Audit Class3
 And the user should NOT be able to perform Drug Dispense Audit Add action in Control Audit Class3
 And the user should NOT be able to perform Drug Audit Dispense Date Update in Control Audit Class3
-And the user should NOT be able to perform Drug Audit Dispense Date Delete in Control Audit Class3
 And the user should NOT be able to perform Drug Audit Dispense Quantity Update in Control Audit Class3
 And the user should NOT be able to Export Control Audit Class3 data to Excel
 And the user should NOT be able to Export Control Audit Class3 data to PDF
@@ -1020,7 +1014,6 @@ And the user should be able to open Details View in Control Audit Class4
 And the user should be able to perform Drug Dispense Credit Add action in Control Audit Class4
 And the user should be able to perform Drug Dispense Audit Add action in Control Audit Class4
 And the user should be able to perform Drug Audit Dispense Date Update in Control Audit Class4
-And the user should be able to perform Drug Audit Dispense Date Delete in Control Audit Class4
 And the user should be able to perform Drug Audit Dispense Quantity Update in Control Audit Class4
 And the user should be able to Export Control Audit Class4 data to Excel
 And the user should be able to Export Control Audit Class4 data to PDF
@@ -1039,7 +1032,6 @@ And the user should be able to open Details View in Control Audit Class4
 And the user should NOT be able to perform Drug Dispense Credit Add action in Control Audit Class4
 And the user should NOT be able to perform Drug Dispense Audit Add action in Control Audit Class4
 And the user should NOT be able to perform Drug Audit Dispense Date Update in Control Audit Class4
-And the user should NOT be able to perform Drug Audit Dispense Date Delete in Control Audit Class4
 And the user should NOT be able to perform Drug Audit Dispense Quantity Update in Control Audit Class4
 And the user should NOT be able to Export Control Audit Class4 data to Excel
 And the user should NOT be able to Export Control Audit Class4 data to PDF
@@ -1058,7 +1050,6 @@ And the user should be able to open Details View in Control Audit Class5
 And the user should be able to perform Drug Dispense Credit Add action in Control Audit Class5
 And the user should be able to perform Drug Dispense Audit Add action in Control Audit Class5
 And the user should be able to perform Drug Audit Dispense Date Update in Control Audit Class5
-And the user should be able to perform Drug Audit Dispense Date Delete in Control Audit Class5
 And the user should be able to perform Drug Audit Dispense Quantity Update in Control Audit Class5
 And the user should be able to Export Control Audit Class5 data to Excel
 And the user should be able to Export Control Audit Class5 data to PDF
@@ -1077,10 +1068,24 @@ And the user should be able to open Details View in Control Audit Class5
 And the user should NOT be able to perform Drug Dispense Credit Add action in Control Audit Class5
 And the user should NOT be able to perform Drug Dispense Audit Add action in Control Audit Class5
 And the user should NOT be able to perform Drug Audit Dispense Date Update in Control Audit Class5
-And the user should NOT be able to perform Drug Audit Dispense Date Delete in Control Audit Class5
 And the user should NOT be able to perform Drug Audit Dispense Quantity Update in Control Audit Class5
 And the user should NOT be able to Export Control Audit Class5 data to Excel
 And the user should NOT be able to Export Control Audit Class5 data to PDF
+
+# Dashboard
+Scenario: Workflow Dashboard Add Template Validation on Blank Submission
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+When I navigate to the Workflow Dashboard test
+And I click on Add Template test
+And I leave all required fields blank test
+And I click Submit test
+Then I should see validation messages for all required fields test
+And the template should not be created test
 
 
 

@@ -3,6 +3,7 @@ package com.pharmcrm_RxworkflowModule.pages;
 import java.time.Duration;
 import java.util.List;
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -16,213 +17,56 @@ public class rxworkflowpage {
 	private WebDriver driver;
 	private WebDriverWait wait;
 
+	// Dashboard
+
+	public String verifyAddTemplateIsClicked() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		driver.findElement(addGridTemplateButton).click();
+		try {
+			wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(toastMessage, 0));
+			List<WebElement> toasts = driver.findElements(toastMessage);
+			StringBuilder allMessages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				if (toast.isDisplayed()) {
+					allMessages.append(toast.getText().trim()).append(" | ");
+				}
+			}
+			return "SUCCESS: Validations displayed -> " + allMessages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message(s) not displayed";
+		}
+	}
+
+	// Dashboard
+	public By toastMessage = By.xpath("//div[@class='toast-message']");
+
 	// Control Audit Class
 	public By controlAuditClass1AllLabel = By.xpath("//label[@for='chkg50ControlAuditClass1All']");
 	public By controlAuditClass2AllLabel = By.xpath("//label[@for='chkg51ControlAuditClass2All']");
 	public By controlAuditClass3AllLabel = By.xpath("//label[@for='chkg51ControlAuditClass3All']");
 	public By controlAuditClass4AllLabel = By.xpath("//label[@for='chkg51ControlAuditClass4All']");
 	public By controlAuditClass5AllLabel = By.xpath("//label[@for='chkg51ControlAuditClass5All']");
-
 	public By controlAuditClass1ViewLabel = By.xpath("//label[@for='chkg50ControlAuditClass1View']");
 	public By controlAuditClass2ViewLabel = By.xpath("//label[@for='chkg51ControlAuditClass2View']");
 	public By controlAuditClass3ViewLabel = By.xpath("//label[@for='chkg51ControlAuditClass3View']");
 	public By controlAuditClass4ViewLabel = By.xpath("//label[@for='chkg51ControlAuditClass4View']");
 	public By controlAuditClass5ViewLabel = By.xpath("//label[@for='chkg51ControlAuditClass5View']");
-
-	// Control Audit Class
-
-	public void shouldOpenDetailsViewInControlAuditTest() {
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-		driver.findElement(editIcon).click();
-
-		WebElement syncWorkflowSettingDropdownElement = wait
-				.until(ExpectedConditions.elementToBeClickable(syncWorkflowSettingDropdown));
-		new Select(syncWorkflowSettingDropdownElement).selectByIndex(1);
-
-		String medicationActivityCommentsInputValue = Hooks.prop.getProperty("medicationActivityCommentsInput");
-		WebElement medicationActivityCommentsInputField = driver.findElement(medicationActivityCommentsInput);
-		medicationActivityCommentsInputField.sendKeys(medicationActivityCommentsInputValue);
-
-		driver.findElement(addActivityButton).click();
-
-		driver.findElement(saveCommentButton).click();
-
-	}
-	
-	public void openControlAuditClass5Page(String fullUrl) {
-		sleep(2000);
-		driver.get(fullUrl);
-		wait.until(ExpectedConditions.urlContains("/Workflow/Home/ControlAudit?drugClass=5"));
-	}
-
-	public void openControlAuditClass4Page(String fullUrl) {
-		sleep(2000);
-		driver.get(fullUrl);
-		wait.until(ExpectedConditions.urlContains("/Workflow/Home/ControlAudit?drugClass=4"));
-	}
-
-	public void openControlAuditClass3Page(String fullUrl) {
-		sleep(2000);
-		driver.get(fullUrl);
-		wait.until(ExpectedConditions.urlContains("/Workflow/Home/ControlAudit?drugClass=3"));
-	}
-
-	public void openControlAuditClass2Page(String fullUrl) {
-		sleep(2000);
-		driver.get(fullUrl);
-		wait.until(ExpectedConditions.urlContains("/Workflow/Home/ControlAudit?drugClass=2"));
-	}
-
-	public void openControlAuditClass1Page(String fullUrl) {
-		sleep(2000);
-		driver.get(fullUrl);
-		wait.until(ExpectedConditions.urlContains("/Workflow/Home/ControlAudit?drugClass=1"));
-	}
-
-	public void shouldAccessControlAuditClass1RecordsTest() {
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-		sleep(2000);
-		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
-		allModules.click();
-
-		WebElement controlAuditClass1AllLabelElement = wait
-				.until(ExpectedConditions.elementToBeClickable(controlAuditClass1AllLabel));
-		controlAuditClass1AllLabelElement.click();
-
-		WebElement controlAuditClass1ViewLabelElement = wait
-				.until(ExpectedConditions.elementToBeClickable(controlAuditClass1ViewLabel));
-		controlAuditClass1ViewLabelElement.click();
-
-		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
-		btnSave.click();
-
-	}
-
-	public void shouldNotExportControlAuditClass3DataToPdfTest() {
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-		sleep(2000);
-		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
-		allModules.click();
-
-		WebElement controlAuditClass3AllLabelElement = wait
-				.until(ExpectedConditions.elementToBeClickable(controlAuditClass3AllLabel));
-		controlAuditClass3AllLabelElement.click();
-
-		WebElement controlAuditClass3ViewLabelElement = wait
-				.until(ExpectedConditions.elementToBeClickable(controlAuditClass3ViewLabel));
-		controlAuditClass3ViewLabelElement.click();
-
-		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
-		btnSave.click();
-
-	}
-
-	public void verifyViewControlAuditClass2DataIsAccessibleTest() {
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-		sleep(2000);
-		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
-		allModules.click();
-
-		WebElement controlAuditClass2AllLabelElement = wait
-				.until(ExpectedConditions.elementToBeClickable(controlAuditClass2AllLabel));
-		controlAuditClass2AllLabelElement.click();
-
-		WebElement controlAuditClass2ViewLabelElement = wait
-				.until(ExpectedConditions.elementToBeClickable(controlAuditClass2ViewLabel));
-		controlAuditClass2ViewLabelElement.click();
-
-		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
-		btnSave.click();
-
-	}
-
-	public void shouldNotExportControlAuditClass4DataToPdfTest() {
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-		sleep(2000);
-		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
-		allModules.click();
-
-		WebElement controlAuditClass4AllLabelElement = wait
-				.until(ExpectedConditions.elementToBeClickable(controlAuditClass4AllLabel));
-		controlAuditClass4AllLabelElement.click();
-
-		WebElement controlAuditClass4ViewLabelElement = wait
-				.until(ExpectedConditions.elementToBeClickable(controlAuditClass4ViewLabel));
-		controlAuditClass4ViewLabelElement.click();
-
-		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
-		btnSave.click();
-
-	}
-
-	public void shouldNotExportControlAuditClass5DataToPdfTest() {
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-		sleep(2000);
-		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
-		allModules.click();
-
-		WebElement controlAuditClass5AllLabelElement = wait
-				.until(ExpectedConditions.elementToBeClickable(controlAuditClass5AllLabel));
-		controlAuditClass5AllLabelElement.click();
-
-		WebElement controlAuditClass5ViewLabelElement = wait
-				.until(ExpectedConditions.elementToBeClickable(controlAuditClass5ViewLabel));
-		controlAuditClass5ViewLabelElement.click();
-
-		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
-		btnSave.click();
-
-	}
-
-	public void shouldViewControlAuditClass5DataTest() {
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-		sleep(2000);
-		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
-		allModules.click();
-		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
-		btnSave.click();
-
-	}
-
-	public void shouldViewControlAuditClass4DataTest() {
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-		sleep(2000);
-		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
-		allModules.click();
-		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
-		btnSave.click();
-
-	}
-
-	public void shouldExportControlAuditClass3DataToPdfTest() {
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-		sleep(2000);
-		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
-		allModules.click();
-		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
-		btnSave.click();
-
-	}
-
-	public void shouldPerformDrugAuditDispenseDateUpdateInControlAuditClass1Test() {
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-		sleep(2000);
-		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
-		allModules.click();
-		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
-		btnSave.click();
-
-	}
-
-	public void shouldExportControlAuditClass2DataToPdfTest() {
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-		sleep(2000);
-		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
-		allModules.click();
-		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
-		btnSave.click();
-
-	}
+	public By userAccessTooltipImage = By.xpath("//a[@class='tooltiped user-access']//img");
+	public By drugDispenseCreditDateOfDelivery = By.xpath("//input[@id='DrugDispenseCredit_DateOfDelivery']");
+	public By drugDispenseCreditWholeSaler = By.xpath("//input[@id='DrugDispenseCredit_WholeSaler']");
+	public By drugDispenseCreditInvoiceNumber = By.xpath("//input[@id='DrugDispenseCredit_InvoiceNumber']");
+	public By drugDispenseCreditQuantity = By.xpath("//input[@id='DrugDispenseCredit_Quantity']");
+	public By drugDispenseCreditRPH = By.xpath("//input[@id='DrugDispenseCredit_RPH']");
+	public By drugDispenseCreditNotes = By.xpath("//textarea[@id='DrugDispenseCredit_Notes']");
+	public By addDrugDispenseCreditButton = By.xpath("//button[@onclick='addDrugDispenseCredit();']");
+	public By addAuditLabel = By.xpath("//label[normalize-space()='Add Audit']");
+	public By drugDispenseAuditQuantity = By.xpath("//input[@id='DrugDispenseAudit_Quantity']");
+	public By drugDispenseAuditRPH = By.xpath("//input[@id='DrugDispenseAudit_RPH']");
+	public By drugDispenseAuditDispensedDate = By.xpath("//input[@id='DrugDispenseAudit_DispensedDate']");
+	public By drugDispenseAuditNotes = By.xpath("//textarea[@id='DrugDispenseAudit_Notes']");
+	public By addDrugDispenseAuditButton = By.xpath("//button[@onclick='addDrugDispenseAudit();']");
+	public By ctrlAuditDetailsExportExcelButton = By.xpath("//span[normalize-space()='Export Excel']");
+	public By ctrlAuditDetailsExportPdfButton = By.xpath("//span[normalize-space()='Export Pdf']");
 
 	// Medication Activity
 	public By timelineIcon = By.xpath(
@@ -488,21 +332,818 @@ public class rxworkflowpage {
 	public By patientModuleDeleteLabel = By.xpath("//label[@for='chkg9PatientDelete']");
 	public By patientTagEditPermissionLabel = By.xpath("//label[@for='chkg10PatientTagEdit']");
 
+	// Control Audit Class
+	public void cannotExportControlAuditClass1DataToPdf() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		Assert.assertTrue(driver.findElements(ctrlAuditDetailsExportPdfButton).isEmpty());
+
+	}
+
+	public void cannotExportControlAuditClass1DataToExcel() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		Assert.assertTrue(driver.findElements(ctrlAuditDetailsExportExcelButton).isEmpty());
+
+	}
+
+	public void cannotPerformDrugAuditDispenseQuantityUpdateInControlAuditClass1() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		Assert.assertTrue(driver.findElements(addDrugDispenseAuditButton).isEmpty());
+
+	}
+
+	public void cannotPerformDrugAuditDispenseDateUpdateInControlAuditClass1() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		Assert.assertTrue(driver.findElements(addDrugDispenseAuditButton).isEmpty());
+
+	}
+
+	public void cannotPerformDrugDispenseAuditAddInControlAuditClass1() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		Assert.assertTrue(driver.findElements(addDrugDispenseAuditButton).isEmpty());
+
+	}
+
+	public void cannotExportControlAuditClass2DataToPdf() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		Assert.assertTrue(driver.findElements(ctrlAuditDetailsExportPdfButton).isEmpty());
+
+	}
+
+	public void cannotExportControlAuditClass3DataToExcel() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		Assert.assertTrue(driver.findElements(ctrlAuditDetailsExportExcelButton).isEmpty());
+
+	}
+
+	public void cannotExportControlAuditClass2DataToExcel() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		Assert.assertTrue(driver.findElements(ctrlAuditDetailsExportExcelButton).isEmpty());
+
+	}
+
+	public void cannotPerformDrugAuditDispenseQuantityUpdateInControlAuditClass3() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		Assert.assertTrue(driver.findElements(addDrugDispenseAuditButton).isEmpty());
+
+	}
+
+	public void cannotPerformDrugAuditDispenseQuantityUpdateInControlAuditClass2() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		Assert.assertTrue(driver.findElements(addDrugDispenseAuditButton).isEmpty());
+
+	}
+
+	public void cannotPerformDrugAuditDispenseDateUpdateInControlAuditClass3() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		Assert.assertTrue(driver.findElements(addDrugDispenseAuditButton).isEmpty());
+
+	}
+
+	public void cannotPerformDrugAuditDispenseDateUpdateInControlAuditClass2() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		Assert.assertTrue(driver.findElements(addDrugDispenseAuditButton).isEmpty());
+
+	}
+
+	public void cannotPerformDrugDispenseAuditAddInControlAuditClass3() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		Assert.assertTrue(driver.findElements(addDrugDispenseAuditButton).isEmpty());
+
+	}
+
+	public void cannotPerformDrugDispenseAuditAddInControlAuditClass2() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		Assert.assertTrue(driver.findElements(addDrugDispenseAuditButton).isEmpty());
+
+	}
+
+	public void cannotPerformDrugDispenseCreditAddInControlAuditClass3() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		Assert.assertTrue(driver.findElements(addDrugDispenseCreditButton).isEmpty());
+
+	}
+
+	public void cannotPerformDrugDispenseCreditAddInControlAuditClass2() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		Assert.assertTrue(driver.findElements(addDrugDispenseCreditButton).isEmpty());
+
+	}
+
+	public void cannotPerformDrugDispenseCreditAddInControlAuditClass1() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		Assert.assertTrue(driver.findElements(addDrugDispenseCreditButton).isEmpty());
+
+	}
+
+	public void executeControlAuditClass5DataExportToExcel() {
+		driver.findElement(ctrlAuditDetailsExportExcelButton).click();
+
+	}
+
+	public void executeControlAuditClass5DataExportToPdf() {
+		driver.findElement(ctrlAuditDetailsExportPdfButton).click();
+
+	}
+
+	public void executeDrugAuditDispenseQuantityUpdateInControlAuditClass5() {
+		driver.findElement(addAuditLabel).click();
+		String drugDispenseAuditQuantityValue = Hooks.prop.getProperty("drugDispenseAuditQuantity");
+		WebElement drugDispenseAuditQuantityField = driver.findElement(drugDispenseAuditQuantity);
+		drugDispenseAuditQuantityField.sendKeys(drugDispenseAuditQuantityValue);
+		String drugDispenseAuditRPHValue = Hooks.prop.getProperty("drugDispenseAuditRPH");
+		WebElement drugDispenseAuditRPHField = driver.findElement(drugDispenseAuditRPH);
+		drugDispenseAuditRPHField.sendKeys(drugDispenseAuditRPHValue);
+		String drugDispenseAuditDispensedDateValue = Hooks.prop.getProperty("drugDispenseAuditDispensedDate");
+		WebElement drugDispenseAuditDispensedDateField = driver.findElement(drugDispenseAuditDispensedDate);
+		drugDispenseAuditDispensedDateField.sendKeys(drugDispenseAuditDispensedDateValue);
+		String drugDispenseAuditNotesValue = Hooks.prop.getProperty("drugDispenseAuditNotes");
+		WebElement drugDispenseAuditNotesField = driver.findElement(drugDispenseAuditNotes);
+		drugDispenseAuditNotesField.sendKeys(drugDispenseAuditNotesValue);
+		driver.findElement(addDrugDispenseAuditButton).click();
+
+	}
+
+	public void executeDrugAuditDispenseDateUpdateInControlAuditClass5() {
+		driver.findElement(addAuditLabel).click();
+		String drugDispenseAuditQuantityValue = Hooks.prop.getProperty("drugDispenseAuditQuantity");
+		WebElement drugDispenseAuditQuantityField = driver.findElement(drugDispenseAuditQuantity);
+		drugDispenseAuditQuantityField.sendKeys(drugDispenseAuditQuantityValue);
+		String drugDispenseAuditRPHValue = Hooks.prop.getProperty("drugDispenseAuditRPH");
+		WebElement drugDispenseAuditRPHField = driver.findElement(drugDispenseAuditRPH);
+		drugDispenseAuditRPHField.sendKeys(drugDispenseAuditRPHValue);
+		String drugDispenseAuditDispensedDateValue = Hooks.prop.getProperty("drugDispenseAuditDispensedDate");
+		WebElement drugDispenseAuditDispensedDateField = driver.findElement(drugDispenseAuditDispensedDate);
+		drugDispenseAuditDispensedDateField.sendKeys(drugDispenseAuditDispensedDateValue);
+		String drugDispenseAuditNotesValue = Hooks.prop.getProperty("drugDispenseAuditNotes");
+		WebElement drugDispenseAuditNotesField = driver.findElement(drugDispenseAuditNotes);
+		drugDispenseAuditNotesField.sendKeys(drugDispenseAuditNotesValue);
+		driver.findElement(addDrugDispenseAuditButton).click();
+
+	}
+
+	public void executeDrugDispenseAuditAddInControlAuditClass5() {
+		driver.findElement(addAuditLabel).click();
+		String drugDispenseAuditQuantityValue = Hooks.prop.getProperty("drugDispenseAuditQuantity");
+		WebElement drugDispenseAuditQuantityField = driver.findElement(drugDispenseAuditQuantity);
+		drugDispenseAuditQuantityField.sendKeys(drugDispenseAuditQuantityValue);
+		String drugDispenseAuditRPHValue = Hooks.prop.getProperty("drugDispenseAuditRPH");
+		WebElement drugDispenseAuditRPHField = driver.findElement(drugDispenseAuditRPH);
+		drugDispenseAuditRPHField.sendKeys(drugDispenseAuditRPHValue);
+		String drugDispenseAuditDispensedDateValue = Hooks.prop.getProperty("drugDispenseAuditDispensedDate");
+		WebElement drugDispenseAuditDispensedDateField = driver.findElement(drugDispenseAuditDispensedDate);
+		drugDispenseAuditDispensedDateField.sendKeys(drugDispenseAuditDispensedDateValue);
+		String drugDispenseAuditNotesValue = Hooks.prop.getProperty("drugDispenseAuditNotes");
+		WebElement drugDispenseAuditNotesField = driver.findElement(drugDispenseAuditNotes);
+		drugDispenseAuditNotesField.sendKeys(drugDispenseAuditNotesValue);
+		driver.findElement(addDrugDispenseAuditButton).click();
+
+	}
+
+	public void executeDrugDispenseCreditAddInControlAuditClass5() {
+		String drugDispenseCreditDateOfDeliveryValue = Hooks.prop.getProperty("drugDispenseCreditDateOfDelivery");
+		WebElement drugDispenseCreditDateOfDeliveryField = driver.findElement(drugDispenseCreditDateOfDelivery);
+		drugDispenseCreditDateOfDeliveryField.sendKeys(drugDispenseCreditDateOfDeliveryValue);
+		String drugDispenseCreditWholeSalerValue = Hooks.prop.getProperty("drugDispenseCreditWholeSaler");
+		WebElement drugDispenseCreditWholeSalerField = driver.findElement(drugDispenseCreditWholeSaler);
+		drugDispenseCreditWholeSalerField.sendKeys(drugDispenseCreditWholeSalerValue);
+		String drugDispenseCreditInvoiceNumberValue = Hooks.prop.getProperty("drugDispenseCreditInvoiceNumber");
+		WebElement drugDispenseCreditInvoiceNumberField = driver.findElement(drugDispenseCreditInvoiceNumber);
+		drugDispenseCreditInvoiceNumberField.sendKeys(drugDispenseCreditInvoiceNumberValue);
+		String drugDispenseCreditQuantityValue = Hooks.prop.getProperty("drugDispenseCreditQuantity");
+		WebElement drugDispenseCreditQuantityField = driver.findElement(drugDispenseCreditQuantity);
+		drugDispenseCreditQuantityField.sendKeys(drugDispenseCreditQuantityValue);
+		String drugDispenseCreditRPHValue = Hooks.prop.getProperty("drugDispenseCreditRPH");
+		WebElement drugDispenseCreditRPHField = driver.findElement(drugDispenseCreditRPH);
+		drugDispenseCreditRPHField.sendKeys(drugDispenseCreditRPHValue);
+		String drugDispenseCreditNotesValue = Hooks.prop.getProperty("drugDispenseCreditNotes");
+		WebElement drugDispenseCreditNotesField = driver.findElement(drugDispenseCreditNotes);
+		drugDispenseCreditNotesField.sendKeys(drugDispenseCreditNotesValue);
+		driver.findElement(addDrugDispenseCreditButton).click();
+
+	}
+
+	public void cannotExportControlAuditClass5DataToPdf() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		Assert.assertTrue(driver.findElements(ctrlAuditDetailsExportPdfButton).isEmpty());
+
+	}
+
+	public void cannotExportControlAuditClass5DataToExcel() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		Assert.assertTrue(driver.findElements(ctrlAuditDetailsExportExcelButton).isEmpty());
+
+	}
+
+	public void cannotPerformDrugAuditDispenseQuantityUpdateInControlAuditClass5() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		Assert.assertTrue(driver.findElements(addDrugDispenseAuditButton).isEmpty());
+
+	}
+
+	public void cannotPerformDrugAuditDispenseDateUpdateInControlAuditClass5() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		Assert.assertTrue(driver.findElements(addDrugDispenseAuditButton).isEmpty());
+
+	}
+
+	public void cannotPerformDrugDispenseAuditAddInControlAuditClass5() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		Assert.assertTrue(driver.findElements(addDrugDispenseAuditButton).isEmpty());
+
+	}
+
+	public void cannotPerformDrugDispenseCreditAddInControlAuditClass5() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		Assert.assertTrue(driver.findElements(addDrugDispenseCreditButton).isEmpty());
+
+	}
+
+	public void executeOpenDetailsViewInControlAuditClass5() {
+		driver.findElement(userAccessTooltipImage).click();
+
+	}
+
+	public void cannotExportControlAuditClass4DataToPdf() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		Assert.assertTrue(driver.findElements(ctrlAuditDetailsExportPdfButton).isEmpty());
+
+	}
+
+	public void cannotExportControlAuditClass4DataToExcel() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		Assert.assertTrue(driver.findElements(ctrlAuditDetailsExportExcelButton).isEmpty());
+
+	}
+
+	public void cannotPerformDrugDispenseAuditAddInControlAuditClass4() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		Assert.assertTrue(driver.findElements(addDrugDispenseAuditButton).isEmpty());
+
+	}
+
+	public void cannotPerformDrugAuditDispenseQuantityUpdateInControlAuditClass4() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		Assert.assertTrue(driver.findElements(addDrugDispenseAuditButton).isEmpty());
+
+	}
+
+	public void cannotPerformDrugAuditDispenseDateUpdateInControlAuditClass4() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		Assert.assertTrue(driver.findElements(addDrugDispenseAuditButton).isEmpty());
+
+	}
+
+	public void cannotPerformDrugDispenseCreditAddInControlAuditClass4() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		Assert.assertTrue(driver.findElements(addDrugDispenseCreditButton).isEmpty());
+
+	}
+
+	public void cannotExportControlAuditClass3DataToPdf() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		Assert.assertTrue(driver.findElements(ctrlAuditDetailsExportPdfButton).isEmpty());
+
+	}
+
+	public void executeControlAuditClass3DataExportToPdf() {
+		driver.findElement(ctrlAuditDetailsExportPdfButton).click();
+
+	}
+
+	public void executeControlAuditClass4DataExportToPdf() {
+		driver.findElement(ctrlAuditDetailsExportPdfButton).click();
+
+	}
+
+	public void executeControlAuditClass4DataExportToExcel() {
+		driver.findElement(ctrlAuditDetailsExportExcelButton).click();
+
+	}
+
+	public void executeDrugAuditDispenseQuantityUpdateInControlAuditClass4() {
+		driver.findElement(addAuditLabel).click();
+		String drugDispenseAuditQuantityValue = Hooks.prop.getProperty("drugDispenseAuditQuantity");
+		WebElement drugDispenseAuditQuantityField = driver.findElement(drugDispenseAuditQuantity);
+		drugDispenseAuditQuantityField.sendKeys(drugDispenseAuditQuantityValue);
+		String drugDispenseAuditRPHValue = Hooks.prop.getProperty("drugDispenseAuditRPH");
+		WebElement drugDispenseAuditRPHField = driver.findElement(drugDispenseAuditRPH);
+		drugDispenseAuditRPHField.sendKeys(drugDispenseAuditRPHValue);
+		String drugDispenseAuditDispensedDateValue = Hooks.prop.getProperty("drugDispenseAuditDispensedDate");
+		WebElement drugDispenseAuditDispensedDateField = driver.findElement(drugDispenseAuditDispensedDate);
+		drugDispenseAuditDispensedDateField.sendKeys(drugDispenseAuditDispensedDateValue);
+		String drugDispenseAuditNotesValue = Hooks.prop.getProperty("drugDispenseAuditNotes");
+		WebElement drugDispenseAuditNotesField = driver.findElement(drugDispenseAuditNotes);
+		drugDispenseAuditNotesField.sendKeys(drugDispenseAuditNotesValue);
+		driver.findElement(addDrugDispenseAuditButton).click();
+
+	}
+
+	public void executeDrugAuditDispenseDateUpdateInControlAuditClass4() {
+		driver.findElement(addAuditLabel).click();
+		String drugDispenseAuditQuantityValue = Hooks.prop.getProperty("drugDispenseAuditQuantity");
+		WebElement drugDispenseAuditQuantityField = driver.findElement(drugDispenseAuditQuantity);
+		drugDispenseAuditQuantityField.sendKeys(drugDispenseAuditQuantityValue);
+		String drugDispenseAuditRPHValue = Hooks.prop.getProperty("drugDispenseAuditRPH");
+		WebElement drugDispenseAuditRPHField = driver.findElement(drugDispenseAuditRPH);
+		drugDispenseAuditRPHField.sendKeys(drugDispenseAuditRPHValue);
+		String drugDispenseAuditDispensedDateValue = Hooks.prop.getProperty("drugDispenseAuditDispensedDate");
+		WebElement drugDispenseAuditDispensedDateField = driver.findElement(drugDispenseAuditDispensedDate);
+		drugDispenseAuditDispensedDateField.sendKeys(drugDispenseAuditDispensedDateValue);
+		String drugDispenseAuditNotesValue = Hooks.prop.getProperty("drugDispenseAuditNotes");
+		WebElement drugDispenseAuditNotesField = driver.findElement(drugDispenseAuditNotes);
+		drugDispenseAuditNotesField.sendKeys(drugDispenseAuditNotesValue);
+		driver.findElement(addDrugDispenseAuditButton).click();
+
+	}
+
+	public void executeDrugDispenseAuditAddInControlAuditClass4() {
+		driver.findElement(addAuditLabel).click();
+		String drugDispenseAuditQuantityValue = Hooks.prop.getProperty("drugDispenseAuditQuantity");
+		WebElement drugDispenseAuditQuantityField = driver.findElement(drugDispenseAuditQuantity);
+		drugDispenseAuditQuantityField.sendKeys(drugDispenseAuditQuantityValue);
+		String drugDispenseAuditRPHValue = Hooks.prop.getProperty("drugDispenseAuditRPH");
+		WebElement drugDispenseAuditRPHField = driver.findElement(drugDispenseAuditRPH);
+		drugDispenseAuditRPHField.sendKeys(drugDispenseAuditRPHValue);
+		String drugDispenseAuditDispensedDateValue = Hooks.prop.getProperty("drugDispenseAuditDispensedDate");
+		WebElement drugDispenseAuditDispensedDateField = driver.findElement(drugDispenseAuditDispensedDate);
+		drugDispenseAuditDispensedDateField.sendKeys(drugDispenseAuditDispensedDateValue);
+		String drugDispenseAuditNotesValue = Hooks.prop.getProperty("drugDispenseAuditNotes");
+		WebElement drugDispenseAuditNotesField = driver.findElement(drugDispenseAuditNotes);
+		drugDispenseAuditNotesField.sendKeys(drugDispenseAuditNotesValue);
+		driver.findElement(addDrugDispenseAuditButton).click();
+
+	}
+
+	public void executeDrugDispenseCreditAddInControlAuditClass4() {
+		String drugDispenseCreditDateOfDeliveryValue = Hooks.prop.getProperty("drugDispenseCreditDateOfDelivery");
+		WebElement drugDispenseCreditDateOfDeliveryField = driver.findElement(drugDispenseCreditDateOfDelivery);
+		drugDispenseCreditDateOfDeliveryField.sendKeys(drugDispenseCreditDateOfDeliveryValue);
+		String drugDispenseCreditWholeSalerValue = Hooks.prop.getProperty("drugDispenseCreditWholeSaler");
+		WebElement drugDispenseCreditWholeSalerField = driver.findElement(drugDispenseCreditWholeSaler);
+		drugDispenseCreditWholeSalerField.sendKeys(drugDispenseCreditWholeSalerValue);
+		String drugDispenseCreditInvoiceNumberValue = Hooks.prop.getProperty("drugDispenseCreditInvoiceNumber");
+		WebElement drugDispenseCreditInvoiceNumberField = driver.findElement(drugDispenseCreditInvoiceNumber);
+		drugDispenseCreditInvoiceNumberField.sendKeys(drugDispenseCreditInvoiceNumberValue);
+		String drugDispenseCreditQuantityValue = Hooks.prop.getProperty("drugDispenseCreditQuantity");
+		WebElement drugDispenseCreditQuantityField = driver.findElement(drugDispenseCreditQuantity);
+		drugDispenseCreditQuantityField.sendKeys(drugDispenseCreditQuantityValue);
+		String drugDispenseCreditRPHValue = Hooks.prop.getProperty("drugDispenseCreditRPH");
+		WebElement drugDispenseCreditRPHField = driver.findElement(drugDispenseCreditRPH);
+		drugDispenseCreditRPHField.sendKeys(drugDispenseCreditRPHValue);
+		String drugDispenseCreditNotesValue = Hooks.prop.getProperty("drugDispenseCreditNotes");
+		WebElement drugDispenseCreditNotesField = driver.findElement(drugDispenseCreditNotes);
+		drugDispenseCreditNotesField.sendKeys(drugDispenseCreditNotesValue);
+		driver.findElement(addDrugDispenseCreditButton).click();
+
+	}
+
+	public void executeOpenDetailsViewInControlAuditClass4() {
+		driver.findElement(userAccessTooltipImage).click();
+
+	}
+
+	public void canExportControlAuditClass2DataToPdf() {
+		driver.findElement(ctrlAuditDetailsExportPdfButton).click();
+
+	}
+
+	public void canExportControlAuditClass1DataToPdf() {
+		driver.findElement(ctrlAuditDetailsExportPdfButton).click();
+
+	}
+
+	public void executeControlAuditClass3DataExportToExcel() {
+		driver.findElement(ctrlAuditDetailsExportExcelButton).click();
+
+	}
+
+	public void canExportControlAuditClass2DataToExcel() {
+		driver.findElement(ctrlAuditDetailsExportExcelButton).click();
+
+	}
+
+	public void canExportControlAuditClass1DataToExcel() {
+		driver.findElement(ctrlAuditDetailsExportExcelButton).click();
+
+	}
+
+	public void canPerformDrugAuditDispenseQuantityUpdateInControlAuditClass1() {
+		driver.findElement(addAuditLabel).click();
+		String drugDispenseAuditQuantityValue = Hooks.prop.getProperty("drugDispenseAuditQuantity");
+		WebElement drugDispenseAuditQuantityField = driver.findElement(drugDispenseAuditQuantity);
+		drugDispenseAuditQuantityField.sendKeys(drugDispenseAuditQuantityValue);
+		String drugDispenseAuditRPHValue = Hooks.prop.getProperty("drugDispenseAuditRPH");
+		WebElement drugDispenseAuditRPHField = driver.findElement(drugDispenseAuditRPH);
+		drugDispenseAuditRPHField.sendKeys(drugDispenseAuditRPHValue);
+		String drugDispenseAuditDispensedDateValue = Hooks.prop.getProperty("drugDispenseAuditDispensedDate");
+		WebElement drugDispenseAuditDispensedDateField = driver.findElement(drugDispenseAuditDispensedDate);
+		drugDispenseAuditDispensedDateField.sendKeys(drugDispenseAuditDispensedDateValue);
+		String drugDispenseAuditNotesValue = Hooks.prop.getProperty("drugDispenseAuditNotes");
+		WebElement drugDispenseAuditNotesField = driver.findElement(drugDispenseAuditNotes);
+		drugDispenseAuditNotesField.sendKeys(drugDispenseAuditNotesValue);
+		driver.findElement(addDrugDispenseAuditButton).click();
+
+	}
+
+	public void canPerformDrugAuditDispenseDateUpdateInControlAuditClass1() {
+		driver.findElement(addAuditLabel).click();
+		String drugDispenseAuditQuantityValue = Hooks.prop.getProperty("drugDispenseAuditQuantity");
+		WebElement drugDispenseAuditQuantityField = driver.findElement(drugDispenseAuditQuantity);
+		drugDispenseAuditQuantityField.sendKeys(drugDispenseAuditQuantityValue);
+		String drugDispenseAuditRPHValue = Hooks.prop.getProperty("drugDispenseAuditRPH");
+		WebElement drugDispenseAuditRPHField = driver.findElement(drugDispenseAuditRPH);
+		drugDispenseAuditRPHField.sendKeys(drugDispenseAuditRPHValue);
+		String drugDispenseAuditDispensedDateValue = Hooks.prop.getProperty("drugDispenseAuditDispensedDate");
+		WebElement drugDispenseAuditDispensedDateField = driver.findElement(drugDispenseAuditDispensedDate);
+		drugDispenseAuditDispensedDateField.sendKeys(drugDispenseAuditDispensedDateValue);
+		String drugDispenseAuditNotesValue = Hooks.prop.getProperty("drugDispenseAuditNotes");
+		WebElement drugDispenseAuditNotesField = driver.findElement(drugDispenseAuditNotes);
+		drugDispenseAuditNotesField.sendKeys(drugDispenseAuditNotesValue);
+		driver.findElement(addDrugDispenseAuditButton).click();
+
+	}
+
+	public void executeDrugAuditDispenseQuantityUpdateInControlAuditClass3() {
+		driver.findElement(addAuditLabel).click();
+		String drugDispenseAuditQuantityValue = Hooks.prop.getProperty("drugDispenseAuditQuantity");
+		WebElement drugDispenseAuditQuantityField = driver.findElement(drugDispenseAuditQuantity);
+		drugDispenseAuditQuantityField.sendKeys(drugDispenseAuditQuantityValue);
+		String drugDispenseAuditRPHValue = Hooks.prop.getProperty("drugDispenseAuditRPH");
+		WebElement drugDispenseAuditRPHField = driver.findElement(drugDispenseAuditRPH);
+		drugDispenseAuditRPHField.sendKeys(drugDispenseAuditRPHValue);
+		String drugDispenseAuditDispensedDateValue = Hooks.prop.getProperty("drugDispenseAuditDispensedDate");
+		WebElement drugDispenseAuditDispensedDateField = driver.findElement(drugDispenseAuditDispensedDate);
+		drugDispenseAuditDispensedDateField.sendKeys(drugDispenseAuditDispensedDateValue);
+		String drugDispenseAuditNotesValue = Hooks.prop.getProperty("drugDispenseAuditNotes");
+		WebElement drugDispenseAuditNotesField = driver.findElement(drugDispenseAuditNotes);
+		drugDispenseAuditNotesField.sendKeys(drugDispenseAuditNotesValue);
+		driver.findElement(addDrugDispenseAuditButton).click();
+
+	}
+
+	public void canPerformDrugAuditDispenseQuantityUpdateInControlAuditClass2() {
+		driver.findElement(addAuditLabel).click();
+		String drugDispenseAuditQuantityValue = Hooks.prop.getProperty("drugDispenseAuditQuantity");
+		WebElement drugDispenseAuditQuantityField = driver.findElement(drugDispenseAuditQuantity);
+		drugDispenseAuditQuantityField.sendKeys(drugDispenseAuditQuantityValue);
+		String drugDispenseAuditRPHValue = Hooks.prop.getProperty("drugDispenseAuditRPH");
+		WebElement drugDispenseAuditRPHField = driver.findElement(drugDispenseAuditRPH);
+		drugDispenseAuditRPHField.sendKeys(drugDispenseAuditRPHValue);
+		String drugDispenseAuditDispensedDateValue = Hooks.prop.getProperty("drugDispenseAuditDispensedDate");
+		WebElement drugDispenseAuditDispensedDateField = driver.findElement(drugDispenseAuditDispensedDate);
+		drugDispenseAuditDispensedDateField.sendKeys(drugDispenseAuditDispensedDateValue);
+		String drugDispenseAuditNotesValue = Hooks.prop.getProperty("drugDispenseAuditNotes");
+		WebElement drugDispenseAuditNotesField = driver.findElement(drugDispenseAuditNotes);
+		drugDispenseAuditNotesField.sendKeys(drugDispenseAuditNotesValue);
+		driver.findElement(addDrugDispenseAuditButton).click();
+
+	}
+
+	public void executeDrugAuditDispenseDateUpdateInControlAuditClass3() {
+		driver.findElement(addAuditLabel).click();
+		String drugDispenseAuditQuantityValue = Hooks.prop.getProperty("drugDispenseAuditQuantity");
+		WebElement drugDispenseAuditQuantityField = driver.findElement(drugDispenseAuditQuantity);
+		drugDispenseAuditQuantityField.sendKeys(drugDispenseAuditQuantityValue);
+		String drugDispenseAuditRPHValue = Hooks.prop.getProperty("drugDispenseAuditRPH");
+		WebElement drugDispenseAuditRPHField = driver.findElement(drugDispenseAuditRPH);
+		drugDispenseAuditRPHField.sendKeys(drugDispenseAuditRPHValue);
+		String drugDispenseAuditDispensedDateValue = Hooks.prop.getProperty("drugDispenseAuditDispensedDate");
+		WebElement drugDispenseAuditDispensedDateField = driver.findElement(drugDispenseAuditDispensedDate);
+		drugDispenseAuditDispensedDateField.sendKeys(drugDispenseAuditDispensedDateValue);
+		String drugDispenseAuditNotesValue = Hooks.prop.getProperty("drugDispenseAuditNotes");
+		WebElement drugDispenseAuditNotesField = driver.findElement(drugDispenseAuditNotes);
+		drugDispenseAuditNotesField.sendKeys(drugDispenseAuditNotesValue);
+		driver.findElement(addDrugDispenseAuditButton).click();
+
+	}
+
+	public void canPerformDrugAuditDispenseDateUpdateInControlAuditClass2() {
+		driver.findElement(addAuditLabel).click();
+		String drugDispenseAuditQuantityValue = Hooks.prop.getProperty("drugDispenseAuditQuantity");
+		WebElement drugDispenseAuditQuantityField = driver.findElement(drugDispenseAuditQuantity);
+		drugDispenseAuditQuantityField.sendKeys(drugDispenseAuditQuantityValue);
+		String drugDispenseAuditRPHValue = Hooks.prop.getProperty("drugDispenseAuditRPH");
+		WebElement drugDispenseAuditRPHField = driver.findElement(drugDispenseAuditRPH);
+		drugDispenseAuditRPHField.sendKeys(drugDispenseAuditRPHValue);
+		String drugDispenseAuditDispensedDateValue = Hooks.prop.getProperty("drugDispenseAuditDispensedDate");
+		WebElement drugDispenseAuditDispensedDateField = driver.findElement(drugDispenseAuditDispensedDate);
+		drugDispenseAuditDispensedDateField.sendKeys(drugDispenseAuditDispensedDateValue);
+		String drugDispenseAuditNotesValue = Hooks.prop.getProperty("drugDispenseAuditNotes");
+		WebElement drugDispenseAuditNotesField = driver.findElement(drugDispenseAuditNotes);
+		drugDispenseAuditNotesField.sendKeys(drugDispenseAuditNotesValue);
+		driver.findElement(addDrugDispenseAuditButton).click();
+
+	}
+
+	public void executeDrugDispenseAuditAddInControlAuditClass3() {
+		driver.findElement(addAuditLabel).click();
+		String drugDispenseAuditQuantityValue = Hooks.prop.getProperty("drugDispenseAuditQuantity");
+		WebElement drugDispenseAuditQuantityField = driver.findElement(drugDispenseAuditQuantity);
+		drugDispenseAuditQuantityField.sendKeys(drugDispenseAuditQuantityValue);
+		String drugDispenseAuditRPHValue = Hooks.prop.getProperty("drugDispenseAuditRPH");
+		WebElement drugDispenseAuditRPHField = driver.findElement(drugDispenseAuditRPH);
+		drugDispenseAuditRPHField.sendKeys(drugDispenseAuditRPHValue);
+		String drugDispenseAuditDispensedDateValue = Hooks.prop.getProperty("drugDispenseAuditDispensedDate");
+		WebElement drugDispenseAuditDispensedDateField = driver.findElement(drugDispenseAuditDispensedDate);
+		drugDispenseAuditDispensedDateField.sendKeys(drugDispenseAuditDispensedDateValue);
+		String drugDispenseAuditNotesValue = Hooks.prop.getProperty("drugDispenseAuditNotes");
+		WebElement drugDispenseAuditNotesField = driver.findElement(drugDispenseAuditNotes);
+		drugDispenseAuditNotesField.sendKeys(drugDispenseAuditNotesValue);
+		driver.findElement(addDrugDispenseAuditButton).click();
+
+	}
+
+	public void canPerformDrugDispenseAuditAddInControlAuditClass2() {
+		driver.findElement(addAuditLabel).click();
+		String drugDispenseAuditQuantityValue = Hooks.prop.getProperty("drugDispenseAuditQuantity");
+		WebElement drugDispenseAuditQuantityField = driver.findElement(drugDispenseAuditQuantity);
+		drugDispenseAuditQuantityField.sendKeys(drugDispenseAuditQuantityValue);
+		String drugDispenseAuditRPHValue = Hooks.prop.getProperty("drugDispenseAuditRPH");
+		WebElement drugDispenseAuditRPHField = driver.findElement(drugDispenseAuditRPH);
+		drugDispenseAuditRPHField.sendKeys(drugDispenseAuditRPHValue);
+		String drugDispenseAuditDispensedDateValue = Hooks.prop.getProperty("drugDispenseAuditDispensedDate");
+		WebElement drugDispenseAuditDispensedDateField = driver.findElement(drugDispenseAuditDispensedDate);
+		drugDispenseAuditDispensedDateField.sendKeys(drugDispenseAuditDispensedDateValue);
+		String drugDispenseAuditNotesValue = Hooks.prop.getProperty("drugDispenseAuditNotes");
+		WebElement drugDispenseAuditNotesField = driver.findElement(drugDispenseAuditNotes);
+		drugDispenseAuditNotesField.sendKeys(drugDispenseAuditNotesValue);
+		driver.findElement(addDrugDispenseAuditButton).click();
+
+	}
+
+	public void canPerformDrugDispenseAuditAddInControlAuditClass1() {
+		driver.findElement(addAuditLabel).click();
+		String drugDispenseAuditQuantityValue = Hooks.prop.getProperty("drugDispenseAuditQuantity");
+		WebElement drugDispenseAuditQuantityField = driver.findElement(drugDispenseAuditQuantity);
+		drugDispenseAuditQuantityField.sendKeys(drugDispenseAuditQuantityValue);
+		String drugDispenseAuditRPHValue = Hooks.prop.getProperty("drugDispenseAuditRPH");
+		WebElement drugDispenseAuditRPHField = driver.findElement(drugDispenseAuditRPH);
+		drugDispenseAuditRPHField.sendKeys(drugDispenseAuditRPHValue);
+		String drugDispenseAuditDispensedDateValue = Hooks.prop.getProperty("drugDispenseAuditDispensedDate");
+		WebElement drugDispenseAuditDispensedDateField = driver.findElement(drugDispenseAuditDispensedDate);
+		drugDispenseAuditDispensedDateField.sendKeys(drugDispenseAuditDispensedDateValue);
+		String drugDispenseAuditNotesValue = Hooks.prop.getProperty("drugDispenseAuditNotes");
+		WebElement drugDispenseAuditNotesField = driver.findElement(drugDispenseAuditNotes);
+		drugDispenseAuditNotesField.sendKeys(drugDispenseAuditNotesValue);
+		driver.findElement(addDrugDispenseAuditButton).click();
+
+	}
+
+	public void addDrugDispenseCreditInControlAuditClass1() {
+		String drugDispenseCreditDateOfDeliveryValue = Hooks.prop.getProperty("drugDispenseCreditDateOfDelivery");
+		WebElement drugDispenseCreditDateOfDeliveryField = driver.findElement(drugDispenseCreditDateOfDelivery);
+		drugDispenseCreditDateOfDeliveryField.sendKeys(drugDispenseCreditDateOfDeliveryValue);
+		String drugDispenseCreditWholeSalerValue = Hooks.prop.getProperty("drugDispenseCreditWholeSaler");
+		WebElement drugDispenseCreditWholeSalerField = driver.findElement(drugDispenseCreditWholeSaler);
+		drugDispenseCreditWholeSalerField.sendKeys(drugDispenseCreditWholeSalerValue);
+		String drugDispenseCreditInvoiceNumberValue = Hooks.prop.getProperty("drugDispenseCreditInvoiceNumber");
+		WebElement drugDispenseCreditInvoiceNumberField = driver.findElement(drugDispenseCreditInvoiceNumber);
+		drugDispenseCreditInvoiceNumberField.sendKeys(drugDispenseCreditInvoiceNumberValue);
+		String drugDispenseCreditQuantityValue = Hooks.prop.getProperty("drugDispenseCreditQuantity");
+		WebElement drugDispenseCreditQuantityField = driver.findElement(drugDispenseCreditQuantity);
+		drugDispenseCreditQuantityField.sendKeys(drugDispenseCreditQuantityValue);
+		String drugDispenseCreditRPHValue = Hooks.prop.getProperty("drugDispenseCreditRPH");
+		WebElement drugDispenseCreditRPHField = driver.findElement(drugDispenseCreditRPH);
+		drugDispenseCreditRPHField.sendKeys(drugDispenseCreditRPHValue);
+		String drugDispenseCreditNotesValue = Hooks.prop.getProperty("drugDispenseCreditNotes");
+		WebElement drugDispenseCreditNotesField = driver.findElement(drugDispenseCreditNotes);
+		drugDispenseCreditNotesField.sendKeys(drugDispenseCreditNotesValue);
+		driver.findElement(addDrugDispenseCreditButton).click();
+
+	}
+
+	public void executeDrugDispenseCreditAddInControlAuditClass3() {
+		String drugDispenseCreditDateOfDeliveryValue = Hooks.prop.getProperty("drugDispenseCreditDateOfDelivery");
+		WebElement drugDispenseCreditDateOfDeliveryField = driver.findElement(drugDispenseCreditDateOfDelivery);
+		drugDispenseCreditDateOfDeliveryField.sendKeys(drugDispenseCreditDateOfDeliveryValue);
+		String drugDispenseCreditWholeSalerValue = Hooks.prop.getProperty("drugDispenseCreditWholeSaler");
+		WebElement drugDispenseCreditWholeSalerField = driver.findElement(drugDispenseCreditWholeSaler);
+		drugDispenseCreditWholeSalerField.sendKeys(drugDispenseCreditWholeSalerValue);
+		String drugDispenseCreditInvoiceNumberValue = Hooks.prop.getProperty("drugDispenseCreditInvoiceNumber");
+		WebElement drugDispenseCreditInvoiceNumberField = driver.findElement(drugDispenseCreditInvoiceNumber);
+		drugDispenseCreditInvoiceNumberField.sendKeys(drugDispenseCreditInvoiceNumberValue);
+		String drugDispenseCreditQuantityValue = Hooks.prop.getProperty("drugDispenseCreditQuantity");
+		WebElement drugDispenseCreditQuantityField = driver.findElement(drugDispenseCreditQuantity);
+		drugDispenseCreditQuantityField.sendKeys(drugDispenseCreditQuantityValue);
+		String drugDispenseCreditRPHValue = Hooks.prop.getProperty("drugDispenseCreditRPH");
+		WebElement drugDispenseCreditRPHField = driver.findElement(drugDispenseCreditRPH);
+		drugDispenseCreditRPHField.sendKeys(drugDispenseCreditRPHValue);
+		String drugDispenseCreditNotesValue = Hooks.prop.getProperty("drugDispenseCreditNotes");
+		WebElement drugDispenseCreditNotesField = driver.findElement(drugDispenseCreditNotes);
+		drugDispenseCreditNotesField.sendKeys(drugDispenseCreditNotesValue);
+		driver.findElement(addDrugDispenseCreditButton).click();
+
+	}
+
+	public void canPerformDrugDispenseCreditAddInControlAuditClass2() {
+		String drugDispenseCreditDateOfDeliveryValue = Hooks.prop.getProperty("drugDispenseCreditDateOfDelivery");
+		WebElement drugDispenseCreditDateOfDeliveryField = driver.findElement(drugDispenseCreditDateOfDelivery);
+		drugDispenseCreditDateOfDeliveryField.sendKeys(drugDispenseCreditDateOfDeliveryValue);
+		String drugDispenseCreditWholeSalerValue = Hooks.prop.getProperty("drugDispenseCreditWholeSaler");
+		WebElement drugDispenseCreditWholeSalerField = driver.findElement(drugDispenseCreditWholeSaler);
+		drugDispenseCreditWholeSalerField.sendKeys(drugDispenseCreditWholeSalerValue);
+		String drugDispenseCreditInvoiceNumberValue = Hooks.prop.getProperty("drugDispenseCreditInvoiceNumber");
+		WebElement drugDispenseCreditInvoiceNumberField = driver.findElement(drugDispenseCreditInvoiceNumber);
+		drugDispenseCreditInvoiceNumberField.sendKeys(drugDispenseCreditInvoiceNumberValue);
+		String drugDispenseCreditQuantityValue = Hooks.prop.getProperty("drugDispenseCreditQuantity");
+		WebElement drugDispenseCreditQuantityField = driver.findElement(drugDispenseCreditQuantity);
+		drugDispenseCreditQuantityField.sendKeys(drugDispenseCreditQuantityValue);
+		String drugDispenseCreditRPHValue = Hooks.prop.getProperty("drugDispenseCreditRPH");
+		WebElement drugDispenseCreditRPHField = driver.findElement(drugDispenseCreditRPH);
+		drugDispenseCreditRPHField.sendKeys(drugDispenseCreditRPHValue);
+		String drugDispenseCreditNotesValue = Hooks.prop.getProperty("drugDispenseCreditNotes");
+		WebElement drugDispenseCreditNotesField = driver.findElement(drugDispenseCreditNotes);
+		drugDispenseCreditNotesField.sendKeys(drugDispenseCreditNotesValue);
+		driver.findElement(addDrugDispenseCreditButton).click();
+
+	}
+
+	public void executeOpenDetailsViewInControlAuditClass3() {
+		driver.findElement(userAccessTooltipImage).click();
+
+	}
+
+	public void canOpenDetailsViewInControlAuditClass2() {
+		driver.findElement(userAccessTooltipImage).click();
+
+	}
+
+	public void shouldOpenDetailsViewInControlAuditTest() {
+		driver.findElement(userAccessTooltipImage).click();
+
+	}
+
+	public void openControlAuditClass5Page(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Workflow/Home/ControlAudit?drugClass=5"));
+	}
+
+	public void openControlAuditClass4Page(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Workflow/Home/ControlAudit?drugClass=4"));
+	}
+
+	public void openControlAuditClass3Page(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Workflow/Home/ControlAudit?drugClass=3"));
+	}
+
+	public void openControlAuditClass2Page(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Workflow/Home/ControlAudit?drugClass=2"));
+	}
+
+	public void openControlAuditClass1Page(String fullUrl) {
+		sleep(2000);
+		driver.get(fullUrl);
+		wait.until(ExpectedConditions.urlContains("/Workflow/Home/ControlAudit?drugClass=1"));
+	}
+
+	public void shouldAccessControlAuditClass1RecordsTest() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		WebElement controlAuditClass1AllLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(controlAuditClass1AllLabel));
+		controlAuditClass1AllLabelElement.click();
+		WebElement controlAuditClass1ViewLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(controlAuditClass1ViewLabel));
+		controlAuditClass1ViewLabelElement.click();
+		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
+		btnSave.click();
+
+	}
+
+	public void shouldNotExportControlAuditClass3DataToPdfTest() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		WebElement controlAuditClass3AllLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(controlAuditClass3AllLabel));
+		controlAuditClass3AllLabelElement.click();
+		WebElement controlAuditClass3ViewLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(controlAuditClass3ViewLabel));
+		controlAuditClass3ViewLabelElement.click();
+		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
+		btnSave.click();
+
+	}
+
+	public void verifyViewControlAuditClass2DataIsAccessibleTest() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		WebElement controlAuditClass2AllLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(controlAuditClass2AllLabel));
+		controlAuditClass2AllLabelElement.click();
+		WebElement controlAuditClass2ViewLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(controlAuditClass2ViewLabel));
+		controlAuditClass2ViewLabelElement.click();
+		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
+		btnSave.click();
+
+	}
+
+	public void shouldNotExportControlAuditClass4DataToPdfTest() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		WebElement controlAuditClass4AllLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(controlAuditClass4AllLabel));
+		controlAuditClass4AllLabelElement.click();
+		WebElement controlAuditClass4ViewLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(controlAuditClass4ViewLabel));
+		controlAuditClass4ViewLabelElement.click();
+		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
+		btnSave.click();
+
+	}
+
+	public void shouldNotExportControlAuditClass5DataToPdfTest() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		WebElement controlAuditClass5AllLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(controlAuditClass5AllLabel));
+		controlAuditClass5AllLabelElement.click();
+		WebElement controlAuditClass5ViewLabelElement = wait
+				.until(ExpectedConditions.elementToBeClickable(controlAuditClass5ViewLabel));
+		controlAuditClass5ViewLabelElement.click();
+		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
+		btnSave.click();
+
+	}
+
+	public void shouldViewControlAuditClass5DataTest() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
+		btnSave.click();
+
+	}
+
+	public void shouldViewControlAuditClass4DataTest() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
+		btnSave.click();
+
+	}
+
+	public void shouldExportControlAuditClass3DataToPdfTest() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
+		btnSave.click();
+
+	}
+
+	public void shouldPerformDrugAuditDispenseDateUpdateInControlAuditClass1Test() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
+		btnSave.click();
+
+	}
+
+	public void shouldExportControlAuditClass2DataToPdfTest() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		sleep(2000);
+		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
+		allModules.click();
+		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
+		btnSave.click();
+
+	}
+
 	// Medication Activity
 	public void allowMedicationActivityViewingAndAddition() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		driver.findElement(editIcon).click();
-
 		WebElement syncWorkflowSettingDropdownElement = wait
 				.until(ExpectedConditions.elementToBeClickable(syncWorkflowSettingDropdown));
 		new Select(syncWorkflowSettingDropdownElement).selectByIndex(1);
-
 		String medicationActivityCommentsInputValue = Hooks.prop.getProperty("medicationActivityCommentsInput");
 		WebElement medicationActivityCommentsInputField = driver.findElement(medicationActivityCommentsInput);
 		medicationActivityCommentsInputField.sendKeys(medicationActivityCommentsInputValue);
-
 		driver.findElement(addActivityButton).click();
-
 		driver.findElement(saveCommentButton).click();
 
 	}
@@ -535,11 +1176,9 @@ public class rxworkflowpage {
 		sleep(2000);
 		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
 		allModules.click();
-
 		WebElement medicationActivityAddLabelElement = wait
 				.until(ExpectedConditions.elementToBeClickable(medicationActivityAddLabel));
 		medicationActivityAddLabelElement.click();
-
 		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
 		btnSave.click();
 
@@ -571,15 +1210,12 @@ public class rxworkflowpage {
 		sleep(2000);
 		WebElement allModules = wait.until(ExpectedConditions.elementToBeClickable(selectAllModuleLabel));
 		allModules.click();
-
 		WebElement auditWorkflowAllLabelElement = wait
 				.until(ExpectedConditions.elementToBeClickable(auditWorkflowAllLabel));
 		auditWorkflowAllLabelElement.click();
-
 		WebElement auditWorkflowViewLabelElement = wait
 				.until(ExpectedConditions.elementToBeClickable(auditWorkflowViewLabel));
 		auditWorkflowViewLabelElement.click();
-
 		WebElement btnSave = wait.until(ExpectedConditions.elementToBeClickable(btnSaveLocator));
 		btnSave.click();
 
@@ -717,39 +1353,32 @@ public class rxworkflowpage {
 
 	public void allowCompanyDefaultGridTemplateCheckboxInFollowupWorkflow() {
 		driver.findElement(addGridTemplateButton).click();
-
 		String gridTemplateNameFieldValue = Hooks.prop.getProperty("gridTemplateNameField");
 		WebElement gridTemplateNameFieldInputField = driver.findElement(gridTemplateNameField);
 		gridTemplateNameFieldInputField.sendKeys(gridTemplateNameFieldValue);
-
 		driver.findElement(companyDefaultCheckbox).click();
 		driver.findElement(saveButton).click();
 
 	}
 
 	public void allowGridTemplateDeleteInFollowupWorkflow() {
-
 		driver.findElement(deleteGridTemplateButton).click();
 		driver.findElement(deleteConfirmButton).click();
 	}
 
 	public void allowGridTemplateEditInFollowupWorkflow() {
 		driver.findElement(editGridTemplateButton).click();
-
 		WebElement field = driver.findElement(alertField);
 		WebElement dropTarget = driver.findElement(dropArea);
-
 		Actions act = new Actions(driver);
 		act.clickAndHold(field).moveToElement(dropTarget).release().build().perform();
 	}
 
 	public void allowGridTemplateAddInFollowupWorkflow() {
 		driver.findElement(addGridTemplateButton).click();
-
 		String gridTemplateNameFieldValue = Hooks.prop.getProperty("gridTemplateNameField");
 		WebElement gridTemplateNameFieldInputField = driver.findElement(gridTemplateNameField);
 		gridTemplateNameFieldInputField.sendKeys(gridTemplateNameFieldValue);
-
 		driver.findElement(saveButton).click();
 	}
 
@@ -757,11 +1386,9 @@ public class rxworkflowpage {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		driver.findElement(searchCollapseButton).click();
 		driver.findElement(advancedSearchButton).click();
-
 		String rxNumberFieldValue = Hooks.prop.getProperty("rxNumberField");
 		WebElement rxNumberFieldInputField = driver.findElement(rxNumberField);
 		rxNumberFieldInputField.sendKeys(rxNumberFieldValue);
-
 		driver.findElement(searchIconButton).click();
 	}
 
@@ -884,47 +1511,38 @@ public class rxworkflowpage {
 
 	public void dispatchWorkflowVCard() {
 		wait.until(ExpectedConditions.elementToBeClickable(sendVCardButton)).click();
-
 		String vCardPhoneNumberValue = Hooks.prop.getProperty("vCardPhoneNumber");
 		WebElement vCardPhoneNumberInputField = driver.findElement(vCardPhoneNumber);
 		vCardPhoneNumberInputField.sendKeys(vCardPhoneNumberValue);
-
 		wait.until(ExpectedConditions.elementToBeClickable(sendVCardConfirmButton)).click();
 
 	}
 
 	public void provideWorkflowProgramAccess() {
 		WebElement codeHeader = wait.until(ExpectedConditions.visibilityOfElementLocated(codeColumnHeader));
-
 		Assert.assertTrue(codeHeader.isDisplayed());
 
 	}
 
 	public void enableCompanyDefaultGridTemplate() {
 		wait.until(ExpectedConditions.elementToBeClickable(addGridTemplateButton)).click();
-
 		String gridTemplateNameValue = Hooks.prop.getProperty("gridTemplateName");
 		WebElement gridTemplateNameInputField = driver.findElement(gridTemplateName);
 		gridTemplateNameInputField.sendKeys(gridTemplateNameValue);
-
 		wait.until(ExpectedConditions.elementToBeClickable(companyDefaultCheckbox)).click();
 		wait.until(ExpectedConditions.elementToBeClickable(saveGridTemplateButton)).click();
 
 	}
 
 	public void removeWorkflowGridTemplate() {
-
 		wait.until(ExpectedConditions.elementToBeClickable(deleteGridTemplateButton)).click();
 		wait.until(ExpectedConditions.elementToBeClickable(deleteConfirmButton)).click();
 	}
 
 	public void updateWorkflowGridTemplate() {
-
 		wait.until(ExpectedConditions.elementToBeClickable(editGridTemplateButton)).click();
-
 		WebElement field = wait.until(ExpectedConditions.visibilityOfElementLocated(actionSelectCheckboxField));
 		WebElement dropArea = wait.until(ExpectedConditions.visibilityOfElementLocated(fieldSidebarDropArea));
-
 		Actions act = new Actions(driver);
 		act.clickAndHold(field).moveToElement(dropArea).release().build().perform();
 	}
@@ -938,11 +1556,9 @@ public class rxworkflowpage {
 	public void executeActionWorkflowAdvancedSearch() {
 		wait.until(ExpectedConditions.elementToBeClickable(searchCollapseButton)).click();
 		wait.until(ExpectedConditions.elementToBeClickable(advanceCollapseButton)).click();
-
 		String rxNumberFieldValue = Hooks.prop.getProperty("rxNumberField");
 		WebElement rxNumberFieldInputField = driver.findElement(rxNumberField);
 		rxNumberFieldInputField.sendKeys(rxNumberFieldValue);
-
 		wait.until(ExpectedConditions.elementToBeClickable(searchIcon)).click();
 	}
 
@@ -952,23 +1568,18 @@ public class rxworkflowpage {
 	}
 
 	public void shouldToggleShowAllRunninglinesInWorkflow() {
-
 		wait.until(ExpectedConditions.elementToBeClickable(showAllRunninglinesCheckbox)).click();
 
 	}
 
 	public void dispatchQuickTextInWorkflow() {
-
 		wait.until(ExpectedConditions.elementToBeClickable(quickTextIcon)).click();
-
 		String quickTextPhoneNumberValue = Hooks.prop.getProperty("quickTextPhoneNumber");
 		WebElement quickTextPhoneNumberInputField = driver.findElement(quickTextPhoneNumber);
 		quickTextPhoneNumberInputField.sendKeys(quickTextPhoneNumberValue);
-
 		String quickTextBodyValue = Hooks.prop.getProperty("quickTextBody");
 		WebElement quickTextBodyInputField = driver.findElement(quickTextBody);
 		quickTextBodyInputField.sendKeys(quickTextBodyValue);
-
 		wait.until(ExpectedConditions.elementToBeClickable(quickTextSendButton)).click();
 	}
 
@@ -1005,14 +1616,12 @@ public class rxworkflowpage {
 	public void denyWorkflowDetailsAccess() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
 		List<WebElement> elements = wait.until(ExpectedConditions.numberOfElementsToBe(showAllRunninglinesCheckbox, 0));
-
 		Assert.assertTrue(elements.isEmpty());
 
 	}
 
 	public void shouldDisplayActionWorkflowDetails() {
 		WebElement totalCount = wait.until(ExpectedConditions.visibilityOfElementLocated(totalCountLabel));
-
 		Assert.assertTrue(totalCount.isDisplayed());
 
 	}
