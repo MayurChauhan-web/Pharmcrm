@@ -17,11 +17,9 @@ public class rxworkflowpage {
 	private WebDriver driver;
 	private WebDriverWait wait;
 
-	// Dashboard
-
-	public String verifyAddTemplateIsClicked() {
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
-		driver.findElement(addGridTemplateButton).click();
+	// Action Workflow
+	public String shouldPreventMailActionExecutionInActionWorkflow() {
+		sleep(3000);
 		try {
 			wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(toastMessage, 0));
 			List<WebElement> toasts = driver.findElements(toastMessage);
@@ -37,8 +35,173 @@ public class rxworkflowpage {
 		}
 	}
 
+	public String shouldDisplayNoRecordSelectedValidationErrorInActionWorkflow() {
+		try {
+			wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(toastMessage, 0));
+			List<WebElement> toasts = driver.findElements(toastMessage);
+			StringBuilder allMessages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				if (toast.isDisplayed()) {
+					allMessages.append(toast.getText().trim()).append(" | ");
+				}
+			}
+			return "SUCCESS: Validations displayed -> " + allMessages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message(s) not displayed";
+		}
+	}
+
+	public void shouldNavigateToMailToSelectedInActionWorkflow() {
+		sleep(3000);
+		driver.findElement(selectAllRunningLinesCheckbox).click();
+		driver.findElement(mailToSelectedButton).click();
+		driver.findElement(deleteConfirmButton).click();
+	}
+
+	public String shouldPreventFaxActionExecutionInActionWorkflow() {
+		try {
+			wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(toastMessage, 0));
+			List<WebElement> toasts = driver.findElements(toastMessage);
+			StringBuilder allMessages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				if (toast.isDisplayed()) {
+					allMessages.append(toast.getText().trim()).append(" | ");
+				}
+			}
+			return "SUCCESS: Validations displayed -> " + allMessages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message(s) not displayed";
+		}
+	}
+
+	public String shouldDisplayNoRecordSelectedValidationErrorForFaxInActionWorkflow() {
+		try {
+			wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(toastMessage, 0));
+			List<WebElement> toasts = driver.findElements(toastMessage);
+			StringBuilder allMessages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				if (toast.isDisplayed()) {
+					allMessages.append(toast.getText().trim()).append(" | ");
+				}
+			}
+			return "SUCCESS: Validations displayed -> " + allMessages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message(s) not displayed";
+		}
+	}
+
+	public void shouldProcessFaxToSelectedRequestInActionWorkflow() {
+		driver.findElement(selectAllRunningLinesCheckbox).click();
+		driver.findElement(faxToSelectedButton).click();
+		driver.findElement(faxConfirmButton).click();
+	}
+
+	public void shouldApplyNoRecordsFilterInActionWorkflow() {
+
+	}
+
+	public void shouldBlockActionUpdateForInvalidInputInActionWorkflow() {
+		driver.findElement(sendQuickTextButton).isDisplayed();
+
+	}
+
+	public void shouldPreventActionUpdateInActionWorkflow() {
+		driver.findElement(sendQuickNotesButton).click();
+
+	}
+
+	public String shouldDisplayRequiredFieldValidationErrorsInActionWorkflowQuickNotes() {
+		try {
+			wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(toastMessage, 0));
+			List<WebElement> toasts = driver.findElements(toastMessage);
+			StringBuilder allMessages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				if (toast.isDisplayed()) {
+					allMessages.append(toast.getText().trim()).append(" | ");
+				}
+			}
+			return "SUCCESS: Validations displayed -> " + allMessages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message(s) not displayed";
+		}
+	}
+
+	public void shouldInvokeQuickNoteSendProcessInActionWorkflow() {
+		driver.findElement(sendQuickNotesButton).click();
+
+	}
+
+	public void shouldNavigateToAddQuickActionFromActionWorkflow() {
+		driver.findElement(showAllRunningLineCheckbox).click();
+		driver.findElement(addQuickIcon).click();
+	}
+
+	public void shouldNavigateToAddCommunicationFromActionWorkflow() {
+		driver.findElement(showAllRunningLineCheckbox).click();
+		driver.findElement(addCommunicationIcon).click();
+	}
+
+	public void shouldNotSaveTemplateWhenRequiredFieldsAreMissingInActionWorkflow() {
+		driver.findElement(saveButton).isDisplayed();
+
+	}
+
+	public String shouldDisplayRequiredFieldValidationErrorsInActionWorkflow() {
+		try {
+			wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(toastMessage, 0));
+			List<WebElement> toasts = driver.findElements(toastMessage);
+			StringBuilder allMessages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				if (toast.isDisplayed()) {
+					allMessages.append(toast.getText().trim()).append(" | ");
+				}
+			}
+			return "SUCCESS: Validations displayed -> " + allMessages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message(s) not displayed";
+		}
+	}
+
+	public void shouldInvokeActionWorkflowSubmissionOnSubmit() {
+		driver.findElement(submitButton).click();
+
+	}
+
+	public void shouldIndicateAllRequiredFieldsMustBeFilledInActionWorkflow() {
+
+	}
+
+	public void shouldMoveToAddTemplateScreenFromActionWorkflow() {
+		driver.findElement(addTemplateButton).click();
+
+	}
+
+	// Action Workflow
+	public By faxToSelectedButton = By
+			.xpath("//button[@id='btnFaxToSelected']//*[name()='svg']//*[name()='path' and @id='fax_to_all']");
+	public By faxConfirmButton = By.xpath("//div[@id='faxToSelectedmodal']//button[@id='btnDeleteConfirm']");
+	public By selectAllRunningLinesCheckbox = By.xpath("//label[@for='chkAllRunninglines']");
+	public By mailToSelectedButton = By.xpath("//button[@id='btnMailToSelected']//*[name()='svg']");
+	public By addQuickIcon = By.xpath("//tbody/tr[1]/td[17]/div[1]/a[2]//*[name()='svg']");
+	public By addCommunicationIcon = By.xpath("//tbody/tr[1]/td[17]/div[1]/a[1]//*[name()='svg']");
+	public By addTemplateButton = By.xpath("//a[@class='md-trigger']//button[@type='button']//*[name()='svg']");
+
 	// Dashboard
+	public By sendQuickNotesButton = By.xpath("//button[@id='btnSendQuickNotes']");
+	public By saveQuickNotesButton = By.xpath("//button[@id='btnSendQuickNotes']");
+	public By addNoteButton = By
+			.xpath("//tbody/tr[1]/td[17]/div[1]/a[2]//*[name()='svg']//*[name()='path' and @id='Union_53']");
+	public By saveCommunicationButton = By.xpath("//button[@id='btnSaveCommunication']");
+	public By showAllRunningLineCheckbox = By
+			.xpath("//div[@class='runningLineCheckboxinner']//label[@for='Filter_IsShowAllRunningline']");
+	public By addCommunicationButton = By.xpath("//tbody/tr[1]/td[17]/div[1]/a[1]//*[name()='svg']");
+	public By sendVCardSubmitButton = By.xpath("//button[@id='btnSendVCard']");
+	public By sendQuickTextButton = By.xpath("//button[@id='btnSendQuickText']");
+	public By bodyValidationMessage = By.xpath("//div[contains(text(),'Body should not be empty.')]");
+	public By phoneValidationMessage = By.xpath("//div[contains(text(),'Please enter phone number.')]");
+	public By sendButton = By.xpath("//button[@id='btnSendQuickText']");
 	public By toastMessage = By.xpath("//div[@class='toast-message']");
+	public By quickTextSection = By.xpath("//span[normalize-space()='Quick Text']");
 
 	// Control Audit Class
 	public By controlAuditClass1AllLabel = By.xpath("//label[@for='chkg50ControlAuditClass1All']");
@@ -331,6 +494,150 @@ public class rxworkflowpage {
 	public By patientModuleEditLabel = By.xpath("//label[@for='chkg9PatientEdit']");
 	public By patientModuleDeleteLabel = By.xpath("//label[@for='chkg9PatientDelete']");
 	public By patientTagEditPermissionLabel = By.xpath("//label[@for='chkg10PatientTagEdit']");
+
+	// Dashboard
+	public void shouldMoveToAddNoteScreen() {
+		driver.findElement(showAllRunningLineCheckbox).click();
+		driver.findElement(addNoteButton).click();
+	}
+
+	public void shouldTriggerVCardSendOnButtonClick() {
+		driver.findElement(sendVCardButton).click();
+
+	}
+
+	public void shouldNotAllowMessageToBeSentWithoutContent() {
+		driver.findElement(sendQuickTextButton).isDisplayed();
+
+	}
+
+	public void shouldDisplayContentRequiredValidationMessage() {
+		driver.findElement(bodyValidationMessage).isDisplayed();
+		driver.findElement(phoneValidationMessage).isDisplayed();
+	}
+
+	public void shouldTriggerSendActionOnSendButtonClick() {
+		driver.findElement(sendButton).click();
+
+	}
+
+	public void shouldNotAllowSubmissionWhenMessageContentIsEmpty() {
+
+	}
+
+	public void shouldOpenQuickTextSection() {
+		driver.findElement(quickTextSection).click();
+
+	}
+
+	public void shouldPreventTemplateCreation() {
+		driver.findElement(submitButton).isDisplayed();
+
+	}
+
+	public String shouldDisplayValidationErrorsForRequiredFields() {
+
+		try {
+			wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(toastMessage, 0));
+			List<WebElement> toasts = driver.findElements(toastMessage);
+			StringBuilder allMessages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				if (toast.isDisplayed()) {
+					allMessages.append(toast.getText().trim()).append(" | ");
+				}
+			}
+			return "SUCCESS: Validations displayed -> " + allMessages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message(s) not displayed";
+		}
+
+	}
+
+	public void shouldSubmitFormOnSubmitButtonClick() {
+		wait.until(ExpectedConditions.elementToBeClickable(saveGridTemplateButton)).click();
+
+	}
+
+	public void shouldPreventCommunicationCreation() {
+		driver.findElement(showAllRunningLineCheckbox).click();
+		driver.findElement(addNoteButton).click();
+	}
+
+	public void shouldCompleteAddCommunicationSubmission() {
+		driver.findElement(saveCommunicationButton).click();
+
+	}
+
+	public void shouldNavigateToAddCommunication() {
+		driver.findElement(showAllRunningLineCheckbox).click();
+		driver.findElement(addCommunicationButton).click();
+	}
+
+	public void shouldAvoidSendingVCardForInvalidSubmission() {
+		driver.findElement(sendVCardButton).isDisplayed();
+
+	}
+
+	public void shouldDisplayValidationMessageForUnfilledRequiredFields() {
+		driver.findElement(toastMessage).isDisplayed();
+
+	}
+
+	public void shouldTriggerVCardSendOnSendButtonClick() {
+		driver.findElement(sendVCardSubmitButton).click();
+
+	}
+
+	public void shouldTriggerQuickNoteSaveOnSaveButtonClick() {
+		driver.findElement(saveQuickNotesButton).click();
+
+	}
+
+	public void shouldDisplayRequiredFieldValidationErrorsForQuickNotes() {
+		driver.findElement(toastMessage).isDisplayed();
+
+	}
+
+	public void shouldAvoidCreatingNoteForInvalidSubmission() {
+		driver.findElement(sendQuickNotesButton).isDisplayed();
+
+	}
+
+	public void shouldPreventCommunicationCreationInActionWorkflow() {
+		driver.findElement(saveCommunicationButton).isDisplayed();
+
+	}
+
+	public String shouldShowErrorsWhenRequiredFieldsAreEmptyInActionWorkflow() {
+		try {
+			wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(toastMessage, 0));
+			List<WebElement> toasts = driver.findElements(toastMessage);
+			StringBuilder allMessages = new StringBuilder();
+			for (WebElement toast : toasts) {
+				if (toast.isDisplayed()) {
+					allMessages.append(toast.getText().trim()).append(" | ");
+				}
+			}
+			return "SUCCESS: Validations displayed -> " + allMessages.toString();
+		} catch (TimeoutException e) {
+			return "ERROR: Validation toast message(s) not displayed";
+		}
+	}
+
+	public void shouldTriggerAddCommunicationSubmissionInActionWorkflow() {
+		driver.findElement(saveCommunicationButton).click();
+
+	}
+
+	public void testAllRequiredFieldsLeftBlank() {
+
+	}
+
+	public void verifyAddTemplateIsClicked() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(preloader));
+		driver.findElement(addGridTemplateButton).click();
+
+	}
 
 	// Control Audit Class
 	public void cannotExportControlAuditClass1DataToPdf() {

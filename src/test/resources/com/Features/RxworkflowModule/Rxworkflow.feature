@@ -1087,6 +1087,195 @@ And I click Submit test
 Then I should see validation messages for all required fields test
 And the template should not be created test
 
+Scenario: Workflow Dashboard Quick Text Send Validation on Blank Submission
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+When I navigate to the Workflow Dashboard test
+And I go to Quick Text section test
+And I leave the message content field blank test
+And I click Send test
+Then I should see a validation message indicating the content is required test
+And the message should not be sent test
+
+Scenario: Workflow Dashboard Send VCard Validation on Blank Submission
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+When I navigate to the Workflow Dashboard test
+And I click on Send VCard test
+And I leave all required fields blank test
+And I click Send for Send VCard test
+Then I should see a validation message indicating the required fields must be filled test
+And the VCard should not be sent test
+
+Scenario: Workflow Dashboard Add Communication Validation on Blank Submission
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+When I navigate to the Workflow Dashboard test
+And I click on Add Communication test
+And I leave all required fields blank test
+And I click Submit for Add Communication test
+Then I should see validation messages for all required fields test
+And the communication should not be created test
+
+Scenario: Workflow Dashboard Quick Notes Validation on Blank Submission
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+When I navigate to the Workflow Dashboard test
+And I click on Add Note test
+And I leave all required fields blank test
+And I click Save for Quick Notes test
+Then I should see validation messages for all required fields for Quick Notes test
+And the note should not be created test
+
+# Action Workflow 
+Scenario: Action Workflow Page Add Template Validation on Blank Submission
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+When I navigate to the Action Workflow page test
+And I click on Add Template action workflow test
+And I leave all required fields blank action workflow test
+And I click Submit action workflow test
+Then I should see validation messages for all required fields action workflow test
+And the Template should not be created test
+
+Scenario: Action Workflow Add Communication Validation on Blank Submission
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+When I navigate to the Action Workflow page test
+And I click on Add Communication Action workflow test
+And I leave all required fields blank test
+And I click Submit for Action workflow Add Communication test
+Then I should see validation messages for all required fields Action Workflow test
+And the Communication should not be created test
+
+Scenario: Action Workflow Quick Notes Validation on Blank Submission
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+When I navigate to the Action Workflow page test
+And I click on Add Quick Action workflow test
+And I leave all required fields blank action workflow test
+And I click Send for Action Workflow Quick Notes Action workflow test
+Then I should see validation messages for all required fields Action workflow test
+And the action should not be updated action workflow test
+
+Scenario: Action Workflow Mail to Selected Validation for No Rx Number
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+When I navigate to the Action Workflow page test
+And I select No records using the check box Action workflow 
+And I click on Mail to Selected Action Workflow 
+Then I should see a validation message indicating no record selected please selecct one Action workflow 
+And the Mail action should not be performed Action workflow 
+
+Scenario: Action Workflow Fax to Selected Validation for No Rx Number
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+When I navigate to the Action Workflow page test
+And I select No records using the check box Action workflow 
+And I click on Fax to Selected Action workflow
+Then I should see a validation message indicating no record selected please select one Action Workflow
+And the Fax action should not be performed Action Workflow
+
+Scenario: Action Workflow Text to Selected Validation for No Record Selected
+Given user launch browser
+Then user click on the user type dropdown
+When user select the user type as organization from user type dropdown
+Then user enter the organization emailid
+And user enter the organization password
+When user click on the go button
+When I navigate to the Action Workflow page test
+And I select No records using the check box Action workflow 
+And I click on Text to Selected Action workflow 
+Then I should see a validation message indicating no record selected please select one Action Workflkflow
+And the Text action should not be performed Action Workflow
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

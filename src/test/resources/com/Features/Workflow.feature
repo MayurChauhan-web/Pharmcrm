@@ -763,7 +763,6 @@ And the user should not be able to add or edit HardCopy in Audit Workflow
 And the user should not be able to delete HardCopy in Audit Workflow
 And the user should not be able to export Audit Workflow data
 
-#
 Scenario: Workflow Dashboard Add Template Validation on Blank Submission
 Given I log in as admin for Workflow Module
 When I navigate to the Workflow Dashboard
@@ -773,6 +772,7 @@ And I click Submit
 Then I should see validation messages for all required fields
 And the template should not be created
 
+
 Scenario: Workflow Dashboard Quick Text Send Validation on Blank Submission
 Given I log in as admin for Workflow Module
 When I navigate to the Workflow Dashboard
@@ -781,6 +781,7 @@ And I leave the message content field blank
 And I click Send
 Then I should see a validation message indicating the content is required
 And the message should not be sent
+
 
 Scenario: Workflow Dashboard Send VCard Validation on Blank Submission
 Given I log in as admin for Workflow Module
@@ -809,6 +810,7 @@ And I click Save for Quick Notes
 Then I should see validation messages for all required fields for Quick Notes
 And the note should not be created
 
+
 Scenario: Action Workflow Page Add Template Validation on Blank Submission
 Given I log in as admin for Workflow Module
 When I navigate to the Action Workflow page
@@ -817,6 +819,7 @@ And I leave all required fields blank
 And I click Submit
 Then I should see validation messages for all required fields
 And the Template should not be created
+
 
 Scenario: Action Workflow Add Communication Validation on Blank Submission
 Given I log in as admin for Workflow Module
@@ -827,6 +830,7 @@ And I click Submit for Action workflow Add Communication
 Then I should see validation messages for all required fields
 And the Communication should not be created
 
+
 Scenario: Action Workflow Quick Notes Validation on Blank Submission
 Given I log in as admin for Workflow Module
 When I navigate to the Action Workflow page
@@ -836,6 +840,7 @@ And I click Send for Action Workflow Quick Notes
 Then I should see validation messages for all required fields
 And the action should not be updated
 
+
 Scenario: Action Workflow Mail to Selected Validation for No Rx Number
 Given I log in as admin for Workflow Module
 When I navigate to the Action Workflow page
@@ -843,6 +848,7 @@ And I select No records using the check box
 And I click on Mail to Selected
 Then I should see a validation message indicating no record selected please selecct one
 And the Mail action should not be performed
+
 
 Scenario: Action Workflow Fax to Selected Validation for No Rx Number
 Given I log in as admin for Workflow Module
@@ -852,6 +858,7 @@ And I click on Fax to Selected
 Then I should see a validation message indicating no record selected please select one
 And the Fax action should not be performed
 
+#
 Scenario: Action Workflow Text to Selected Validation for No Record Selected
 Given I log in as admin for Workflow Module
 When I navigate to the Action Workflow page

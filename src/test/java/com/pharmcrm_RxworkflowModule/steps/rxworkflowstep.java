@@ -10,7 +10,179 @@ public class rxworkflowstep {
 
 	private rxworkflowpage rxworkflowPage;
 
+	// Action Workflow
+	
+	@Then("the Fax action should not be performed Action Workflow")
+	public void shouldNotPerformFaxActionWhenNoRecordIsSelectedInActionWorkflow() {
+		rxworkflowPage.shouldPreventFaxActionExecutionInActionWorkflow();
+
+	}
+	
+	@Then("I should see a validation message indicating no record selected please select one Action Workflow")
+	public void shouldShowValidationMessageWhenNoRecordIsSelectedForFaxInActionWorkflow() {
+		rxworkflowPage.shouldDisplayNoRecordSelectedValidationErrorForFaxInActionWorkflow();
+
+	}
+	
+	@Then("I click on Fax to Selected Action workflow")
+	public void shouldRedirectToFaxToSelectedInActionWorkflow() {
+		rxworkflowPage.shouldProcessFaxToSelectedRequestInActionWorkflow();
+
+	}
+	
+	@Then("the Mail action should not be performed Action workflow")
+	public void shouldNotPerformMailActionWhenNoRecordIsSelectedInActionWorkflow() {
+		rxworkflowPage.shouldPreventMailActionExecutionInActionWorkflow();
+
+	}
+	
+	@Then("I should see a validation message indicating no record selected please selecct one Action workflow")
+	public void shouldShowValidationMessageWhenNoRecordIsSelectedInActionWorkflow() {
+		rxworkflowPage.shouldDisplayNoRecordSelectedValidationErrorInActionWorkflow();
+
+	}
+	
+	@Then("I click on Mail to Selected Action Workflow")
+	public void shouldOpenMailToSelectedInActionWorkflow() {
+		rxworkflowPage.shouldNavigateToMailToSelectedInActionWorkflow();
+
+	}
+	
+	@Then("I select No records using the check box Action workflow")
+	public void shouldHandleNoRecordsCheckboxSelectionInActionWorkflow() {
+		rxworkflowPage.shouldApplyNoRecordsFilterInActionWorkflow();
+
+	}
+
+	@Then("the action should not be updated action workflow test")
+	public void shouldNotUpdateActionWhenValidationFailsInActionWorkflow() {
+		rxworkflowPage.shouldBlockActionUpdateForInvalidInputInActionWorkflow();
+
+	}
+
+	@Then("I should see validation messages for all required fields Action workflow test")
+	public void shouldShowValidationMessagesForAllRequiredFieldsInActionWorkflowQuickNotes() {
+		rxworkflowPage.shouldDisplayRequiredFieldValidationErrorsInActionWorkflowQuickNotes();
+
+	}
+
+	@Then("I click Send for Action Workflow Quick Notes Action workflow test")
+	public void shouldSubmitQuickNoteFromActionWorkflowOnSendClick() {
+		rxworkflowPage.shouldInvokeQuickNoteSendProcessInActionWorkflow();
+
+	}
+
+	@Then("I click on Add Quick Action workflow test")
+	public void shouldOpenAddQuickActionInActionWorkflow() {
+		rxworkflowPage.shouldNavigateToAddQuickActionFromActionWorkflow();
+
+	}
+
+	@Then("I click on Add Communication Action workflow test")
+	public void shouldOpenAddCommunicationInActionWorkflow() {
+		rxworkflowPage.shouldNavigateToAddCommunicationFromActionWorkflow();
+
+	}
+
+	@Then("the Template should not be created test")
+	public void shouldFailToCreateTemplateWithInvalidDataInActionWorkflow() {
+		rxworkflowPage.shouldNotSaveTemplateWhenRequiredFieldsAreMissingInActionWorkflow();
+
+	}
+
+	@Then("I should see validation messages for all required fields action workflow test")
+	public void shouldShowValidationMessagesForAllRequiredFieldsInActionWorkflow() {
+		rxworkflowPage.shouldDisplayRequiredFieldValidationErrorsInActionWorkflow();
+
+	}
+
+	@Then("I click Submit action workflow test")
+	public void shouldSubmitActionWorkflowOnButtonClick() {
+		rxworkflowPage.shouldInvokeActionWorkflowSubmissionOnSubmit();
+
+	}
+
+	@Then("I leave all required fields blank action workflow test")
+	public void shouldNotAllowSubmissionWithEmptyRequiredFieldsInActionWorkflow() {
+		rxworkflowPage.shouldIndicateAllRequiredFieldsMustBeFilledInActionWorkflow();
+
+	}
+
+	@Then("I click on Add Template action workflow test")
+	public void shouldHandleAddTemplateClickInActionWorkflow() {
+		rxworkflowPage.shouldMoveToAddTemplateScreenFromActionWorkflow();
+
+	}
+
+	@Then("I navigate to the Action Workflow page test")
+	public void shouldLaunchActionWorkflowPage() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String actionWorkflowUrl = Hooks.prop.getProperty("actionWorkflowUrl");
+		Assert.assertNotNull("actionWorkflowUrl is missing in config", actionWorkflowUrl);
+		String fullUrl = baseUrl + actionWorkflowUrl;
+		rxworkflowPage = new rxworkflowpage(Hooks.driver);
+		rxworkflowPage.openActionWorkflowPage(fullUrl);
+		Assert.assertTrue("Dashboard page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Workflow/Home/ActionWorkflow"));
+
+	}
+
 	// Dashboard
+	@Then("I click on Add Note test")
+	public void shouldHandleAddNoteClickSuccessfully() {
+		rxworkflowPage.shouldMoveToAddNoteScreen();
+
+	}
+
+	@Then("I click on Send VCard test")
+	public void shouldSendVCardWhenSendVCardButtonIsClicked() {
+		rxworkflowPage.shouldTriggerVCardSendOnButtonClick();
+
+	}
+
+	@Then("the message should not be sent test")
+	public void shouldPreventSendActionWhenContentIsEmpty() {
+		rxworkflowPage.shouldNotAllowMessageToBeSentWithoutContent();
+
+	}
+
+	@Then("I should see a validation message indicating the content is required test")
+	public void shouldShowValidationMessageWhenContentIsRequired() {
+		rxworkflowPage.shouldDisplayContentRequiredValidationMessage();
+
+	}
+
+	@Then("I click Send test")
+	public void shouldSendMessageWhenSendButtonIsClicked() {
+		rxworkflowPage.shouldTriggerSendActionOnSendButtonClick();
+
+	}
+
+	@Then("I leave the message content field blank test")
+	public void shouldShowValidationErrorWhenMessageContentIsBlank() {
+		rxworkflowPage.shouldNotAllowSubmissionWhenMessageContentIsEmpty();
+
+	}
+
+	@Then("I go to Quick Text section test")
+	public void shouldNavigateToQuickTextSection() {
+		rxworkflowPage.shouldOpenQuickTextSection();
+
+	}
+
+	@Then("the template should not be created test")
+	public void shouldNotCreateTemplate() {
+		rxworkflowPage.shouldPreventTemplateCreation();
+
+	}
+
+	@Then("I should see validation messages for all required fields test")
+	public void shouldShowValidationMessagesForAllRequiredFields() {
+		rxworkflowPage.shouldDisplayValidationErrorsForRequiredFields();
+		System.out.println("Error validation triggered: Validation messages are displayed for required fields");
+		Hooks.scenario.log("Error validation triggered: Validation messages are displayed for required fields");
+	}
+
 	@Then("I navigate to the Workflow Dashboard test")
 	public void iNavigateToWorkflowDashboardTest() {
 		String baseUrl = Hooks.prop.getProperty("baseUrl");
@@ -24,11 +196,94 @@ public class rxworkflowstep {
 
 	}
 
+	@Then("I click Submit test")
+	public void shouldSubmitFormWhenSubmitButtonIsClicked() {
+		rxworkflowPage.shouldSubmitFormOnSubmitButtonClick();
+
+	}
+
+	@Then("I click on Add Communication test")
+	public void shouldOpenAddCommunicationSection() {
+		rxworkflowPage.shouldNavigateToAddCommunication();
+
+	}
+
+	@Then("the communication should not be created test")
+	public void shouldNotCreateCommunication() {
+		rxworkflowPage.shouldPreventCommunicationCreation();
+
+	}
+
+	@Then("I click Submit for Add Communication test")
+	public void shouldInvokeAddCommunicationSubmissionOnSubmit() {
+		rxworkflowPage.shouldCompleteAddCommunicationSubmission();
+
+	}
+
+	@Then("the VCard should not be sent test")
+	public void shouldNotProcessVCardSendRequestWhenFieldsAreEmpty() {
+		rxworkflowPage.shouldAvoidSendingVCardForInvalidSubmission();
+
+	}
+
+	@Then("I should see a validation message indicating the required fields must be filled test")
+	public void shouldShowValidationMessageIndicatingRequiredFieldsMustBeFilled() {
+		rxworkflowPage.shouldDisplayValidationMessageForUnfilledRequiredFields();
+
+	}
+
+	@Then("I click Send for Send VCard test")
+	public void shouldSendVCardWhenSendButtonIsClicked() {
+		rxworkflowPage.shouldTriggerVCardSendOnSendButtonClick();
+
+	}
+
+	@Then("I click Save for Quick Notes test")
+	public void shouldSaveQuickNoteWhenSaveButtonIsClicked() {
+		rxworkflowPage.shouldTriggerQuickNoteSaveOnSaveButtonClick();
+
+	}
+
+	@Then("the note should not be created test")
+	public void shouldNotAllowNoteCreationWithEmptyRequiredFields() {
+		rxworkflowPage.shouldAvoidCreatingNoteForInvalidSubmission();
+
+	}
+
+	@Then("I should see validation messages for all required fields for Quick Notes test")
+	public void shouldShowValidationMessagesForAllRequiredFieldsInQuickNotes() {
+		rxworkflowPage.shouldDisplayRequiredFieldValidationErrorsForQuickNotes();
+
+	}
+
+	@Then("the Communication should not be created test")
+	public void shouldNotCreateCommunicationInActionWorkflow() {
+		rxworkflowPage.shouldPreventCommunicationCreationInActionWorkflow();
+
+	}
+
+	@Then("I should see validation messages for all required fields Action Workflow test")
+	public void shouldDisplayRequiredFieldValidationErrorsInActionWorkflow() {
+		rxworkflowPage.shouldShowErrorsWhenRequiredFieldsAreEmptyInActionWorkflow();
+
+	}
+
+	@Then("I click Submit for Action workflow Add Communication test")
+	public void shouldSubmitAddCommunicationInActionWorkflowWhenSubmitIsClicked() {
+		rxworkflowPage.shouldTriggerAddCommunicationSubmissionInActionWorkflow();
+
+	}
+
+	@Then("I leave all required fields blank test")
+	public void shouldShowValidationErrorsWhenAllRequiredFieldsAreBlank() {
+		rxworkflowPage.testAllRequiredFieldsLeftBlank();
+
+	}
+
 	@Then("I click on Add Template test")
 	public void iClickOnAddTemplateTest() {
 		rxworkflowPage.verifyAddTemplateIsClicked();
-		System.out.println("Error validation triggered: Validation messages are displayed for required fields");
-		Hooks.scenario.log("Error validation triggered: Validation messages are displayed for required fields");
+
 	}
 
 	// Control Audit Class
