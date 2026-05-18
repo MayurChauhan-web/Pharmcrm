@@ -22,7 +22,7 @@ public class XFlowSteps {
 	private WiniumDriver driver;
 	private String appPath = "C:\\Program Files (x86)\\Default Company Name\\XFlow.QA\\PharmCRM.UploadWizard.exe";
 
-/*	@Given("the XFlow application is installed")
+	@Given("the XFlow application is installed")
 	public void the_xflow_application_is_installed() {
 		File appFile = new File(appPath);
 		if (!appFile.exists()) {
@@ -732,5 +732,5 @@ public class XFlowSteps {
 		System.out.println("XFlow launched successfully!");
 
 	}
-   */
+   
 }

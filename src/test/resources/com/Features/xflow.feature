@@ -1,4 +1,3 @@
-@XFlow
 Feature: XFlow Application
   
 Scenario: Open XFlow desktop application
@@ -7,6 +6,7 @@ When I launch the XFlow application
 Then the application should open successfully
 And I enter username and password and click OK
 
+
 Scenario: Login with incorrect password
 Given the XFlow application is installed
 And the application is open
@@ -14,6 +14,7 @@ When I enter a valid username and an incorrect password
 And I click OK
 Then the system should display an error message indicating Invalid username or password
 And I should remain on the login screen
+
 
 Scenario: Verify successful database connection
 Given the XFlow application is installed  
@@ -36,6 +37,7 @@ When I click the Cancel button
 Then the system should display a confirmation message saying Are you sure you want to exit the application? 
 And I click No 
 Then I should remain on the connection screen
+
 
 Scenario: Login without entering credentials
 Given the XFlow application is installed  
@@ -64,6 +66,7 @@ And I Select RX Report Dispensed
 When I click on the Add+ button  
 Then a Delete button should be displayed to allow deleting the newly added entry
 
+
 Scenario: Verify Delete functionality on RX Report Dispensed screen
 Given the XFlow application is installed
 And the application is open
@@ -85,6 +88,7 @@ And I click on Confirm and Process
 And a success message should be displayed indicating that Data Upload Complated
 And I click on Download Error Records  
 
+
 Scenario: Display validation message when uploading file without selecting template
 Given the XFlow application is installed  
 And the application is open  
@@ -93,6 +97,7 @@ And I Select RX Report Dispensed
 When I click on the Upload File button  
 Then the system should display a popup message indicating Please Select Template 
 
+#
 Scenario: Display validation message when clicking Confirm and Process without uploading a file
 Given the XFlow application is installed  
 And the application is open  
@@ -313,352 +318,3 @@ And I Select Data Provider
 When I click on Download Template
 Then the system should download the Provider Template file successfully
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    

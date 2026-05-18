@@ -12,7 +12,7 @@ import io.cucumber.junit.CucumberOptions;
                 		 	"com.pharmcrm_PatientModule.steps", "com.pharmcrm_DeliveryModule.steps", "com.pharmcrm_ClinicalModule.steps", 
                 		 	"com.pharmcrm_DrugModule.steps", "com.pharmcrm_ProviderModule.steps", "com.pharmcrm_PartnerModule.steps", 
                 		 	"com.pharmcrm_SetupModule.steps", "com.pharmcrm_HarbourModule.steps", "com.pharmcrm_ClinicalworkflowModule.steps", 
-                		 	"com.pharmcrm_RxworkflowModule.steps",
+                		 	"com.pharmcrm_RxworkflowModule.steps","com.pharmcrm_XflowApplication.steps",
                 		 	"hooks" }, 
                  plugin = { 
                 		 "pretty",
@@ -20,9 +20,10 @@ import io.cucumber.junit.CucumberOptions;
                 		 "json:target/cucumber-report.json" 
                 		 }, 
                  monochrome = true,
-                 tags = "@Rxworkflow"
+                 tags = "@XflowApp"
 )
 
 public class MasterRunner {
 
 }
+

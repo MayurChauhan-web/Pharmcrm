@@ -858,7 +858,7 @@ And I click on Fax to Selected
 Then I should see a validation message indicating no record selected please select one
 And the Fax action should not be performed
 
-#
+
 Scenario: Action Workflow Text to Selected Validation for No Record Selected
 Given I log in as admin for Workflow Module
 When I navigate to the Action Workflow page
@@ -866,6 +866,7 @@ And I select No records using the check box
 And I click on Text to Selected
 Then I should see a validation message indicating no record selected please select one
 And the Text action should not be performed
+
 
 Scenario: Action Workflow Callout to Selected Validation for No Record Selected
 Given I log in as admin for Workflow Module
@@ -875,12 +876,14 @@ And I click on Callout to Selected
 Then I should see a validation message indicating no record selected please select one
 And the Callout action should not be performed
 
+
 Scenario: Quick Text Action Validation for No Record Selected
 Given I log in as admin for Workflow Module
 When I navigate to the Action Workflow page
 And I click on Quick Text
 Then I should see a validation message indicating no record is selected, please select one
 And the Quick Text action should not be performed
+
 
 Scenario: Send VCard Action Validation for No Record Selected
 Given I log in as admin for Workflow Module
@@ -889,12 +892,14 @@ And I click on Send VCard For Action Workflow
 Then I should see a validation message indicating no record is selected, please select one
 And the Send VCard action should not be performed
 
+
 Scenario: Timeline Add Action Validation for No Record Selected
 Given I log in as admin for Workflow Module
 When I navigate to the Sync Workflow page
 And I click on Timeline Add Action
 Then I should see a validation message indicating no record is selected, please select one
 And the Timeline Add action should not be performed
+
 
 Scenario: Followup Workflow Add Template Validation on Blank Submission
 Given I log in as admin for Workflow Module

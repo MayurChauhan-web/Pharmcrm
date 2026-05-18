@@ -1,5 +1,4 @@
 package com.pharmcrm_RxworkflowModule.steps;
-
 import org.junit.Assert;
 import com.pharmcrm_RxworkflowModule.pages.rxworkflowpage;
 import hooks.Hooks;
@@ -10,44 +9,154 @@ public class rxworkflowstep {
 
 	private rxworkflowpage rxworkflowPage;
 
+	// Control Audit
+	@Then("I navigate to the Control Audit1 page test")
+	public void navigateToTheControlAudit1PageTest() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String controlAuditClass1Url = Hooks.prop.getProperty("controlAuditClass1Url");
+		Assert.assertNotNull("controlAuditClass1Url is missing in config", controlAuditClass1Url);
+		String fullUrl = baseUrl + controlAuditClass1Url;
+		rxworkflowPage = new rxworkflowpage(Hooks.driver);
+		rxworkflowPage.openControlAuditClass1Page(fullUrl);
+		Assert.assertTrue("Control Audit Class 1 page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Workflow/Home/ControlAudit?drugClass=1"));
+	}
+
+	// Followup Workflow
+	@Then("I navigate to the Followup Workflow page test")
+	public void navigateToTheFollowupWorkflowPageTest() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String followUpWorkflowUrl = Hooks.prop.getProperty("followUpWorkflowUrl");
+		Assert.assertNotNull("followUpWorkflowUrl is missing in config", followUpWorkflowUrl);
+		String fullUrl = baseUrl + followUpWorkflowUrl;
+		rxworkflowPage = new rxworkflowpage(Hooks.driver);
+		rxworkflowPage.openFollowUpWorkflowPage(fullUrl);
+		Assert.assertTrue("Dashboard page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Workflow/Home/FollowUpWorkflow"));
+	}
+
+	// Sync Workflow
+	@Then("I navigate to the Sync Workflow page test")
+	public void navigateToTheSyncWorkflowPageTest() {
+		String baseUrl = Hooks.prop.getProperty("baseUrl");
+		String medicationSyncUrl = Hooks.prop.getProperty("medicationSyncUrl");
+		Assert.assertNotNull("medicationSyncUrl is missing in config", medicationSyncUrl);
+		String fullUrl = baseUrl + medicationSyncUrl;
+		rxworkflowPage = new rxworkflowpage(Hooks.driver);
+		rxworkflowPage.openMedicationSyncPage(fullUrl);
+		Assert.assertTrue("Medication Sync page is not displayed",
+				Hooks.driver.getCurrentUrl().contains("/Workflow/Home/MedicationSyncReminder"));
+	}
+
 	// Action Workflow
-	
 	@Then("the Fax action should not be performed Action Workflow")
 	public void shouldNotPerformFaxActionWhenNoRecordIsSelectedInActionWorkflow() {
 		rxworkflowPage.shouldPreventFaxActionExecutionInActionWorkflow();
 
 	}
-	
+
 	@Then("I should see a validation message indicating no record selected please select one Action Workflow")
 	public void shouldShowValidationMessageWhenNoRecordIsSelectedForFaxInActionWorkflow() {
 		rxworkflowPage.shouldDisplayNoRecordSelectedValidationErrorForFaxInActionWorkflow();
 
 	}
-	
+
 	@Then("I click on Fax to Selected Action workflow")
 	public void shouldRedirectToFaxToSelectedInActionWorkflow() {
 		rxworkflowPage.shouldProcessFaxToSelectedRequestInActionWorkflow();
 
 	}
-	
+
 	@Then("the Mail action should not be performed Action workflow")
 	public void shouldNotPerformMailActionWhenNoRecordIsSelectedInActionWorkflow() {
 		rxworkflowPage.shouldPreventMailActionExecutionInActionWorkflow();
 
 	}
-	
+
 	@Then("I should see a validation message indicating no record selected please selecct one Action workflow")
 	public void shouldShowValidationMessageWhenNoRecordIsSelectedInActionWorkflow() {
 		rxworkflowPage.shouldDisplayNoRecordSelectedValidationErrorInActionWorkflow();
 
 	}
-	
+
 	@Then("I click on Mail to Selected Action Workflow")
 	public void shouldOpenMailToSelectedInActionWorkflow() {
 		rxworkflowPage.shouldNavigateToMailToSelectedInActionWorkflow();
 
 	}
-	
+
+	@Then("the Text action should not be performed Action Workflow")
+	public void theTextActionShouldNotBePerformedActionWorkflow() {
+		rxworkflowPage.textActionShouldNotBePerformedInActionWorkflow();
+
+	}
+
+	@Then("I should see a validation message indicating no record selected please select one Action Workflkflow")
+	public void iShouldSeeAValidationMessageIndicatingNoRecordSelectedPleaseSelectOneActionWorkflow() {
+		rxworkflowPage.shouldSeeValidationMessageForNoRecordSelectedInActionWorkflow();
+
+	}
+
+	@Then("the Callout action should not be performed Action Workflow")
+	public void calloutActionShouldNotBePerformedInActionWorkflow() {
+		rxworkflowPage.calloutActionShouldNotBePerformedInActionWorkflow();
+
+	}
+
+	@Then("the Quick Text action should not be performed test")
+	public void quickTextActionShouldNotBePerformedTest() {
+		rxworkflowPage.quickTextActionShouldNotBePerformedTest();
+
+	}
+
+	@Then("I should see a validation message indicating no record is selected, please select one test")
+	public void shouldSeeValidationMessageIndicatingNoRecordIsSelectedPleaseSelectOneTest() {
+		rxworkflowPage.shouldSeeValidationMessageForNoRecordSelectedTest();
+
+	}
+
+	@Then("the Send VCard action should not be performed test")
+	public void sendVCardActionShouldNotBePerformedTest() {
+		rxworkflowPage.sendVCardActionShouldNotBePerformedTest();
+
+	}
+
+	@Then("the Timeline Add action should not be performed test")
+	public void timelineAddActionShouldNotBePerformedTest() {
+		rxworkflowPage.timelineAddActionShouldNotBePerformedTest();
+
+	}
+
+	@Then("I click on Timeline Add Action test")
+	public void clickOnTimelineAddActionTest() {
+		rxworkflowPage.clickOnTimelineAddActionTest();
+
+	}
+
+	@Then("I click on Send VCard For Action Workflow test")
+	public void clickOnSendVCardForActionWorkflowTest() {
+		rxworkflowPage.clickOnSendVCardForActionWorkflowTest();
+
+	}
+
+	@Then("I click on Quick Text test")
+	public void clickOnQuickTextTest() {
+		rxworkflowPage.clickOnQuickTextTest();
+
+	}
+
+	@Then("I click on Callout to Selected Action Workflow")
+	public void clickOnCalloutToSelectedActionWorkflow() {
+		rxworkflowPage.clickOnCalloutToSelectedActionWorkflow();
+
+	}
+
+	@Then("I click on Text to Selected Action workflow")
+	public void iClickOnTextToSelectedActionWorkflow() {
+		rxworkflowPage.clickOnTextToSelectedActionWorkflow();
+
+	}
+
 	@Then("I select No records using the check box Action workflow")
 	public void shouldHandleNoRecordsCheckboxSelectionInActionWorkflow() {
 		rxworkflowPage.shouldApplyNoRecordsFilterInActionWorkflow();
@@ -176,11 +285,24 @@ public class rxworkflowstep {
 
 	}
 
+	@Then("the Followup Workflow template should not be created test")
+	public void followupWorkflowTemplateShouldNotBeCreatedTest() {
+		rxworkflowPage.followupWorkflowTemplateShouldNotBeCreatedTest();
+		System.out.println("Error validation triggered: Validation messages are displayed for required fields");
+		Hooks.scenario.log("Error validation triggered: Validation messages are displayed for required fields");
+	}
+
 	@Then("I should see validation messages for all required fields test")
 	public void shouldShowValidationMessagesForAllRequiredFields() {
 		rxworkflowPage.shouldDisplayValidationErrorsForRequiredFields();
 		System.out.println("Error validation triggered: Validation messages are displayed for required fields");
 		Hooks.scenario.log("Error validation triggered: Validation messages are displayed for required fields");
+	}
+
+	@Then("the followup workflow action should not be updated test")
+	public void followupWorkflowActionShouldNotBeUpdatedTest() {
+		rxworkflowPage.followupWorkflowActionShouldNotBeUpdatedTest();
+
 	}
 
 	@Then("I navigate to the Workflow Dashboard test")
@@ -265,6 +387,18 @@ public class rxworkflowstep {
 	@Then("I should see validation messages for all required fields Action Workflow test")
 	public void shouldDisplayRequiredFieldValidationErrorsInActionWorkflow() {
 		rxworkflowPage.shouldShowErrorsWhenRequiredFieldsAreEmptyInActionWorkflow();
+
+	}
+
+	@Then("I click Send for Followup Workflow Quick Notes test")
+	public void clickSendForFollowupWorkflowQuickNotesTest() {
+		rxworkflowPage.clickSendForFollowupWorkflowQuickNotesTest();
+
+	}
+
+	@Then("I click on Add Quick test")
+	public void clickOnAddQuickTest() {
+		rxworkflowPage.clickOnAddQuickTest();
 
 	}
 
@@ -814,6 +948,23 @@ public class rxworkflowstep {
 	@Then("the user should be able to perform Drug Dispense Credit Add action in Control Audit Class1")
 	public void shouldPerformDrugDispenseCreditAddInControlAuditTest() {
 		rxworkflowPage.addDrugDispenseCreditInControlAuditClass1();
+
+	}
+
+	@Then("I click on Drug Dispense Audit Add action in Control Audit Class1")
+	public void clickOnDrugDispenseAuditAddActionInControlAuditClass1() {
+		rxworkflowPage.clickOnDrugDispenseAuditAddActionInControlAuditClass1();
+
+	}
+
+	@Then("I click on Drug Dispense Credit Add action in Control Audit Class1")
+	public void clickOnDrugDispenseCreditAddActionInControlAuditClass1() {
+		rxworkflowPage.clickOnDrugDispenseCreditAddActionInControlAuditClass1();
+
+	}
+
+	@Then("I leave all required fields blank in Control Audit Class1")
+	public void leaveAllRequiredFieldsBlankInControlAuditClass1() {
 
 	}
 
