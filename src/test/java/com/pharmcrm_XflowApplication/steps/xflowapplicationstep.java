@@ -13,9 +13,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class xflowapplicationstep {
-
 	private xflowapplicationpage xflowapplicationpage;
-
 	private WiniumDriver driver;
 	private String appPath = "C:\\Program Files (x86)\\Default Company Name\\XFlow.QA\\PharmCRM.UploadWizard.exe";
 
@@ -71,9 +69,49 @@ public class xflowapplicationstep {
 		xflowapplicationpage.dataUploadSuccessMessageDisplayed();
 	}
 
+	@And("I upload a valid Clinical Report Appointment Excel file test")
+	public void iUploadValidClinicalReportAppointmentExcelFile() throws InterruptedException, IOException {
+		xflowapplicationpage.uploadValidClinicalReportAppointmentExcelFile();
+	}
+
+	@And("I upload a valid Demographic Excel file test")
+	public void iUploadValidDemographicExcelFile() throws InterruptedException, IOException {
+		xflowapplicationpage.uploadValidDemographicExcelFile();
+	}
+
+	@And("the system should display a popup message indicating Please select an Audience Type test")
+	public void verifyPleaseSelectAudienceTypePopupMessageIsDisplayed() throws InterruptedException, IOException {
+		xflowapplicationpage.pleaseSelectAudienceTypePopupIsDisplayed();
+	}
+
+	@And("I click on the Confirm and Process button without selecting Audience Type test")
+	public void iClickConfirmAndProcessWithoutSelectingAudienceType() throws InterruptedException, IOException {
+		xflowapplicationpage.confirmAndProcessWithNoAudienceTypeSelected();
+	}
+
+	@And("I upload a valid Lead Excel file test")
+	public void iUploadValidLeadExcelFile() throws InterruptedException, IOException {
+		xflowapplicationpage.uploadValidLeadExcelFile();
+	}
+
+	@And("I select the Audience Type from the available options test")
+	public void iSelectAudienceTypeFromAvailableOptions() throws InterruptedException, IOException {
+		xflowapplicationpage.selectAudienceType();
+	}
+
+	@And("I upload a valid Provider Excel file test")
+	public void iUploadValidProviderExcelFile() throws InterruptedException, IOException {
+		xflowapplicationpage.uploadProviderExcelFile();
+	}
+
 	@And("I click on Confirm and Process test")
 	public void clickConfirmAndProcessButton() throws InterruptedException, IOException {
 		xflowapplicationpage.iClickConfirmAndProcess();
+	}
+
+	@And("I upload a valid POS Excel file test")
+	public void uploadValidPOSExcelFile() throws InterruptedException, IOException {
+		xflowapplicationpage.uploadPOSExcelFile();
 	}
 
 	@And("I click on the Please Validate Excel format popup test")
@@ -121,14 +159,124 @@ public class xflowapplicationstep {
 		xflowapplicationpage.templateNotSelectedPopupIsDisplayed();
 	}
 
+	@And("I click on the Download Error Records button without selecting EHR Source test")
+	public void downloadErrorRecordsWithNoEHRSourceSelected() throws InterruptedException, IOException {
+		xflowapplicationpage.clickDownloadErrorRecordsWithoutSelectingEHRSource();
+	}
+
+	@And("I click on the Download Error Records button without selecting POS Source test")
+	public void iClickDownloadErrorRecordsWithoutSelectingPOSSource() throws InterruptedException, IOException {
+		xflowapplicationpage.downloadErrorRecordsWithNoPOSSourceSelected();
+	}
+
+	@And("the system should display a popup message indicating Error file not found test")
+	public void verifyErrorFileNotFoundPopupMessageIsDisplayed() throws InterruptedException, IOException {
+		xflowapplicationpage.errorFileNotFoundPopupIsDisplayed();
+	}
+
+	@And("I click on the Download Error Records button test")
+	public void iClickDownloadErrorRecordsButton() throws InterruptedException, IOException {
+		xflowapplicationpage.clickDownloadErrorRecordsButton();
+	}
+
 	@And("I click on the Upload File button test")
 	public void userClicksUploadFileButton() throws InterruptedException, IOException {
 		xflowapplicationpage.iClickUploadFileButton();
 	}
 
+	@And("the system should display a popup message indicating Please upload a file before processing test")
+	public void pleaseUploadFileBeforeProcessingPopupIsDisplayed() throws InterruptedException, IOException {
+		xflowapplicationpage.uploadFileRequiredPopupIsDisplayed();
+	}
+
+	@And("I click on the Confirm and Process button test")
+	public void iClickConfirmAndProcessButton() throws InterruptedException, IOException {
+		xflowapplicationpage.clickConfirmAndProcessButton();
+	}
+
 	@And("I Select RX Report Dispensed test")
 	public void iSelectRXReportDispensed() throws InterruptedException, IOException {
 		xflowapplicationpage.selectRXReportDispensed();
+	}
+
+	@And("the system should display a popup message indicating Please select EHR Source test")
+	public void verifyPleaseSelectEHRSourcePopupMessageIsDisplayed() throws InterruptedException {
+		xflowapplicationpage.pleaseSelectEHRSourcePopupIsDisplayed();
+	}
+
+	@And("I click on the Confirm and Process button without selecting Upload File test")
+	public void iClickConfirmAndProcessWithoutUploadingFile() throws InterruptedException {
+		xflowapplicationpage.confirmAndProcessWithNoFileUploaded();
+	}
+
+	@And("I Select Data Provider test")
+	public void userSelectsDataProvider() throws InterruptedException {
+		xflowapplicationpage.iSelectDataProvider();
+	}
+
+	@And("the system should download the Lead Template file successfully test")
+	public void leadTemplateFileShouldBeDownloadedSuccessfully() throws InterruptedException, IOException, AWTException {
+		xflowapplicationpage.leadTemplateDownloadIsSuccessful();
+	}
+
+	@And("the system should download the Provider Template file successfully test")
+	public void providerTemplateFileShouldBeDownloadedSuccessfully() throws InterruptedException, AWTException, IOException {
+		xflowapplicationpage.providerTemplateDownloadIsSuccessful();
+	}
+
+	@And("I click on Download Template test")
+	public void clickDownloadTemplateButton() throws InterruptedException {
+		xflowapplicationpage.downloadTemplate();
+	}
+
+	@And("I Select Data Lead test")
+	public void userSelectsDataLead() throws InterruptedException {
+		xflowapplicationpage.iSelectDataLead();
+	}
+
+	@And("the system should display a popup message indicating Please upload a file test")
+	public void verifyPleaseUploadFilePopupMessageIsDisplayed() throws InterruptedException {
+		xflowapplicationpage.pleaseUploadFilePopupIsDisplayed();
+	}
+
+	@And("I Select Rx Report POS test")
+	public void iSelectRxReportPOS() throws InterruptedException {
+		xflowapplicationpage.selectRxReportPOS();
+	}
+
+	@And("I click on the Confirm and Process button without selecting POS Source test")
+	public void iClickConfirmAndProcessWithoutSelectingPOSSource() throws InterruptedException {
+		xflowapplicationpage.confirmAndProcessWithNoPOSSourceSelected();
+	}
+
+	@And("I click on the Confirm and Process button without selecting EHR Source test")
+	public void iClickConfirmAndProcessWithoutSelectingEHRSource() throws InterruptedException {
+		xflowapplicationpage.confirmAndProcessWithNoEHRSourceSelected();
+	}
+
+	@And("I click on the Upload File button without selecting EHR Source test")
+	public void iClickUploadFileWithoutSelectingEHRSource() throws InterruptedException {
+		xflowapplicationpage.uploadFileWithNoEHRSourceSelected();
+	}
+
+	@And("I Select Demographic test")
+	public void userSelectsDemographic() throws InterruptedException {
+		xflowapplicationpage.iSelectDemographic();
+	}
+
+	@And("I Select Clinical Report Appointment test")
+	public void iSelectClinicalReportAppointment() throws InterruptedException {
+		xflowapplicationpage.selectClinicalReportAppointment();
+	}
+
+	@And("the system should log me out and display the login screen test")
+	public void systemShouldLogUserOutAndDisplayLoginScreen() throws InterruptedException {
+		xflowapplicationpage.loginScreenShouldBeDisplayedAfterLogout();
+	}
+
+	@And("I click the Logout button test")
+	public void userClicksLogoutButton() throws InterruptedException {
+		xflowapplicationpage.clickLogoutButton();
 	}
 
 	@And("I enter username and password and click OK test")
@@ -169,6 +317,16 @@ public class xflowapplicationstep {
 	@And("the system should display an error message indicating that Please enter username and password test")
 	public void verifyEmptyUsernameAndPasswordErrorMessageIsDisplayed() throws InterruptedException {
 		xflowapplicationpage.emptyCredentialsErrorMessageIsDisplayed();
+	}
+
+	@And("the Download button should be visible test")
+	public void downloadButtonShouldBeVisible() throws InterruptedException {
+		xflowapplicationpage.verifyDownloadButtonIsVisible();
+	}
+
+	@And("a text message should appear indicating New version is available for download test")
+	public void newVersionAvailableForDownloadMessageIsDisplayed() throws InterruptedException {
+		xflowapplicationpage.newVersionDownloadNotificationIsDisplayed();
 	}
 
 	@And("I click OK test")
