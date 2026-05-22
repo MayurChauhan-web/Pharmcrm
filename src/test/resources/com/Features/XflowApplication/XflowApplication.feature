@@ -311,4 +311,3 @@ And I enter username and password and click OK test
 And I Select Data Provider test
 When I click on Download Template test
 Then the system should download the Provider Template file successfully test
-

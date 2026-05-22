@@ -58,7 +58,7 @@ public class SalesRepsModuleFunctionalitySteps {
 		boolean result = SalesRepsModulefunctionalitypage.clickintotheAddNewSalesRepQuestionbutton();
 		
 		if (!result) {
-	        String message = "Sales Reps Questions (more options) button is not visible because for that user don't have the permission — skipping this step";
+	        String message = "Add New Sales Reps Questions (more options) button is not visible because for that user don't have the permission — skipping this step";
 	        System.out.println(message);
 	        Hooks.scenario.log(message);
 
@@ -257,7 +257,7 @@ public class SalesRepsModuleFunctionalitySteps {
 		boolean result = SalesRepsModulefunctionalitypage.clickintothethreedotbuttoninExistingFolder();
 		
 		if (!result) {
-	        String message = "Folder is not added, and the three-dot (more options) button is also not visible on the SalesRep Documents page — skipping this step";
+	        String message = "Folder or Folder Permission is not visible to the user because they do not have permission — skipping this step";
 	        System.out.println(message);
 	        Hooks.scenario.log(message);
 
@@ -272,14 +272,14 @@ public class SalesRepsModuleFunctionalitySteps {
 		boolean result = SalesRepsModulefunctionalitypage.clickintotheEditbuttoninExistingFolder();
 		
 		if (!result) {
-	        String message = "Edit (more options) button is not visible for that user because don't have the permission — skipping this step";
+	        String message = "Edit Folder (more options) button is not visible for that user because don't have the permission — skipping this step";
 	        System.out.println(message);
 	        Hooks.scenario.log(message);
 
 	        Assume.assumeTrue(message, false); // Step marked as SKIPPED
 	        return;
 	    }
-	    Hooks.scenario.log("Edit button clicked successfully");
+	    Hooks.scenario.log("Edit Folder button clicked successfully");
 	}
 	
 	@When("user change the folder name in edit folder pop-up window")
@@ -311,7 +311,7 @@ public class SalesRepsModuleFunctionalitySteps {
 		boolean result = SalesRepsModulefunctionalitypage.clickintotheDeletebuttoninExistingFolder();
 		
 		if (!result) {
-	        String message = "Delete (more options) button is not visible for that user because don't have the permission — skipping this step";
+	        String message = "Delete Folder (more options) button is not visible for that user because don't have the permission — skipping this step";
 	        System.out.println(message);
 	        Hooks.scenario.log(message);
 
@@ -420,7 +420,7 @@ public class SalesRepsModuleFunctionalitySteps {
 		boolean result = SalesRepsModulefunctionalitypage.clickintotheUploadtabinBuckets();
 		
 		if (!result) {
-	        String message = "Upload (more options) tab is not visible for that user because don't have the permission — skipping this step";
+	        String message = "Upload (Add File) (more options) tab is not visible for that user because don't have the permission — skipping this step";
 	        System.out.println(message);
 	        Hooks.scenario.log(message);
 
@@ -649,14 +649,14 @@ public class SalesRepsModuleFunctionalitySteps {
 		boolean result = SalesRepsModulefunctionalitypage.clickintotheEditFilebuttoninBuckets();
 		
 		if (!result) {
-	        String message = "Edit (more options) button is not visible for that user because don't have the permission — skipping this step";
+	        String message = "Edit File (more options) button is not visible for that user because don't have the permission — skipping this step";
 	        System.out.println(message);
 	        Hooks.scenario.log(message);
 
 	        Assume.assumeTrue(message, false); // Step marked as SKIPPED
 	        return;
 	    }
-	    Hooks.scenario.log("Edit button clicked successfully");
+	    Hooks.scenario.log("Edit File button clicked successfully");
 	}
 	
 	@Then("user change the existing file name in edit file name pop-up window")
@@ -690,7 +690,7 @@ public class SalesRepsModuleFunctionalitySteps {
 		boolean result = SalesRepsModulefunctionalitypage.clickintotheDeletebuttoninExistingFile();
 		
 		if (!result) {
-	        String message = "Delete (more options) button is not visible for that user because don't have the permission — skipping this step";
+	        String message = "Delete File (more options) button is not visible for that user because don't have the permission — skipping this step";
 	        System.out.println(message);
 	        Hooks.scenario.log(message);
 
@@ -705,7 +705,7 @@ public class SalesRepsModuleFunctionalitySteps {
 		boolean result = SalesRepsModulefunctionalitypage.clickintotheDownloadFilebuttoninBuckets();
 		
 		if (!result) {
-	        String message = "Download (more options) button is not visible for that user because don't have the permission — skipping this step";
+	        String message = "Download File (more options) button is not visible for that user because don't have the permission — skipping this step";
 	        System.out.println(message);
 	        Hooks.scenario.log(message);
 
@@ -739,7 +739,7 @@ public class SalesRepsModuleFunctionalitySteps {
 		boolean result = SalesRepsModulefunctionalitypage.clickintotheQuickTexttabinsalesrepvisits();
 		
 		if (!result) {
-	        String message = "Quick Text tab is also not visible on the Sales Rep Visits page — skipping this step";
+	        String message = "Quick Text tab is not visible for that user bacause don't have the permission on the Sales Rep Visits page — skipping this step";
 	        System.out.println(message);
 	        Hooks.scenario.log(message);
 
@@ -776,10 +776,19 @@ public class SalesRepsModuleFunctionalitySteps {
 	@When("user enter the phone number in quick text pop-up window")
 	public void user_enter_the_phone_number_in_quick_text_pop_up_window() {
 		String PhoneNumber = Hooks.prop.getProperty("phonenumber");
-		SalesRepsModulefunctionalitypage.enterthePhoneNumerinQuickText(PhoneNumber);
-		
-		System.out.println("User Entered Phone Number: " + PhoneNumber);
-		Hooks.scenario.log("User Entered Phone Number: " + PhoneNumber);
+		boolean result = SalesRepsModulefunctionalitypage.enterthePhoneNumerinQuickText(PhoneNumber);
+
+	    if (!result) {
+	        String message = "Phone number field is not visible for this user because don't have the permission in Quick Text pop-up — skipping this step";
+	        System.out.println(message);
+	        Hooks.scenario.log(message);
+
+	        Assume.assumeTrue(message, false); // Mark as SKIPPED
+	        return;
+	    }
+
+	    System.out.println("User Entered Phone Number: " + PhoneNumber);
+	    Hooks.scenario.log("User Entered Phone Number: " + PhoneNumber);
 	}
 	
 	@Then("user select the template by index in quick text pop-up window")
@@ -1817,6 +1826,9 @@ public class SalesRepsModuleFunctionalitySteps {
 	    }
 	}
 	
+	
+	//-------------------------------- Sales Reps Module (Profile Permission) -----------------------------
+	
 	@Then("user click on the Setup module tab in home page")
 	public void user_click_on_the_Setup_module_tab_in_home_page() {
 		boolean result = SalesRepsModulefunctionalitypage.clickintotheSetupmoduletab();
@@ -1863,4 +1875,590 @@ public class SalesRepsModuleFunctionalitySteps {
 		System.out.println("User Entered Profile Name: " + ProfileName);
 		Hooks.scenario.log("User Entered Profile Name: " + ProfileName);
 	}
+	
+	@Then("user click on the search button in profiles page")
+	public void user_click_on_the_search_button_in_profiles_page() {
+		String result = SalesRepsModulefunctionalitypage.clickintothesearchbuttoninProfiles();
+
+	    System.out.println("Search Result: " + result);
+	    Hooks.scenario.log("Search Result: " + result);
+
+	    //Skip remaining steps ONLY when no records / error
+	    if (result.startsWith("ERROR")) {
+	        // Scenario marked as SKIPPED (not FAILED)
+	        Assume.assumeTrue("Skipping scenario due to search result: " + result, false);
+	    }
+	}
+	
+	@When("user click on three dot button in existing profile name")
+	public void user_click_on_three_dot_button_in_existing_profile_name() {
+		boolean result = SalesRepsModulefunctionalitypage.clickintothethreedotbuttoninSalesRepQuestions();
+		
+		if (!result) {
+	        String message = "Sales Rep Question is not added, and the three-dot (more options) button is also not visible on the Sales Rep Questions page — skipping this step";
+	        System.out.println(message);
+	        Hooks.scenario.log(message);
+
+	        Assume.assumeTrue(message, false); // Step marked as SKIPPED
+	        return;
+	    }
+	    Hooks.scenario.log("Three dot button clicked successfully");
+	}
+	
+	@Then("user click on the edit button of existing profile")
+	public void user_click_on_the_edit_button_of_existing_profile() {
+		SalesRepsModulefunctionalitypage.clickintotheeditbuttonofexistingprofile();
+		
+		System.out.println("Edit button clicked successfully");
+		Hooks.scenario.log("Edit button clicked successfully");
+	}
+	
+	@And("user click on the sales reps module tab in profile details")
+	public void user_click_on_the_sales_reps_module_tab_in_profile_details() {
+		SalesRepsModulefunctionalitypage.clickintotheSalesRepstabinProfileDetails();
+		
+		System.out.println("Sales Reps tab clicked successfully");
+		Hooks.scenario.log("Sales Reps tab clicked successfully");
+	}
+	
+	@When("user uncheck the add folder checkbox button in bucket section of sales reps module")
+	public void user_uncheck_the_add_folder_checkbox_button_in_bucket_section_of_sales_reps_module() throws Exception {
+		 boolean result = SalesRepsModulefunctionalitypage.uncheckAddFolderCheckbox();
+		 Thread.sleep(1500);
+
+		 if (result) {
+		        System.out.println("Add Folder Checkbox is already unchecked");
+		        Hooks.scenario.log("Add Folder Checkbox is already unchecked");
+		    } else {
+		        System.out.println("Add Folder Checkbox was checked, now unchecked");
+		        Hooks.scenario.log("Add Folder Checkbox was checked, now unchecked");
+		    }
+    }
+	
+	@When("user check the add folder checkbox button in bucket section of sales reps module")
+	public void user_check_the_add_folder_checkbox_button_in_bucket_section_of_sales_reps_module() throws Exception {
+		boolean result = SalesRepsModulefunctionalitypage.checkAddFolderCheckbox();
+		Thread.sleep(1500);
+
+	    if (result) {
+	        System.out.println("Add Folder Checkbox is already checked");
+	        Hooks.scenario.log("Add Folder Checkbox is already checked");
+	    } else {
+	        System.out.println("Add Folder Checkbox was unchecked, now checked");
+	        Hooks.scenario.log("Add Folder Checkbox was unchecked, now checked");
+	    }
+	}
+	
+	@When("user uncheck the edit folder checkbox button in bucket section of sales reps module")
+	public void user_uncheck_the_edit_folder_checkbox_button_in_bucket_section_of_sales_reps_module() throws Exception {
+		boolean result = SalesRepsModulefunctionalitypage.uncheckEditFolderCheckbox();
+		 Thread.sleep(1500);
+
+		 if (result) {
+		        System.out.println("Edit Folder Checkbox is already unchecked");
+		        Hooks.scenario.log("Edit Folder Checkbox is already unchecked");
+		    } else {
+		        System.out.println("Edit Folder Checkbox was checked, now unchecked");
+		        Hooks.scenario.log("Edit Folder Checkbox was checked, now unchecked");
+		    }
+	}
+	
+	@When("user check the edit folder checkbox button in bucket section of sales reps module")
+	public void user_check_the_edit_folder_checkbox_button_in_bucket_section_of_sales_reps_module() throws Exception {
+		boolean result = SalesRepsModulefunctionalitypage.checkEditFolderCheckbox();
+		Thread.sleep(1500);
+
+	    if (result) {
+	        System.out.println("Edit Folder Checkbox is already checked");
+	        Hooks.scenario.log("Edit Folder Checkbox is already checked");
+	    } else {
+	        System.out.println("Edit Folder Checkbox was unchecked, now checked");
+	        Hooks.scenario.log("Edit Folder Checkbox was unchecked, now checked");
+	    }
+	}
+	
+	@When("user uncheck the delete folder checkbox button in bucket section of sales reps module")
+	public void user_uncheck_the_delete_folder_checkbox_button_in_bucket_section_of_sales_reps_module() throws Exception {
+		boolean result = SalesRepsModulefunctionalitypage.uncheckDeleteFolderCheckbox();
+		 Thread.sleep(1500);
+
+		 if (result) {
+		        System.out.println("Delete Folder Checkbox is already unchecked");
+		        Hooks.scenario.log("Delete Folder Checkbox is already unchecked");
+		    } else {
+		        System.out.println("Delete Folder Checkbox was checked, now unchecked");
+		        Hooks.scenario.log("Delete Folder Checkbox was checked, now unchecked");
+		    }
+	}
+	
+	@When("user check the delete folder checkbox button in bucket section of sales reps module")
+	public void user_check_the_delete_folder_checkbox_button_in_bucket_section_of_sales_reps_module() throws Exception {
+		boolean result = SalesRepsModulefunctionalitypage.checkDeleteFolderCheckbox();
+		Thread.sleep(1500);
+
+	    if (result) {
+	        System.out.println("Delete Folder Checkbox is already checked");
+	        Hooks.scenario.log("Delete Folder Checkbox is already checked");
+	    } else {
+	        System.out.println("Delete Folder Checkbox was unchecked, now checked");
+	        Hooks.scenario.log("Delete Folder Checkbox was unchecked, now checked");
+	    }
+	}
+	
+	@When("user uncheck the add file checkbox button in bucket section of sales reps module")
+	public void user_uncheck_the_add_file_checkbox_button_in_bucket_section_of_sales_reps_module() throws Exception {
+		boolean result = SalesRepsModulefunctionalitypage.uncheckAddFileCheckbox();
+		 Thread.sleep(1500);
+
+		 if (result) {
+		        System.out.println("Add File Checkbox is already unchecked");
+		        Hooks.scenario.log("Add File Checkbox is already unchecked");
+		    } else {
+		        System.out.println("Add File Checkbox was checked, now unchecked");
+		        Hooks.scenario.log("Add File Checkbox was checked, now unchecked");
+		    }
+	}
+	
+	@When("user check the add file checkbox button in bucket section of sales reps module")
+	public void user_check_the_add_file_checkbox_button_in_bucket_section_of_sales_reps_module() throws Exception {
+		boolean result = SalesRepsModulefunctionalitypage.checkAddFileCheckbox();
+		Thread.sleep(1500);
+
+	    if (result) {
+	        System.out.println("Add File Checkbox is already checked");
+	        Hooks.scenario.log("Add File Checkbox is already checked");
+	    } else {
+	        System.out.println("Add File Checkbox was unchecked, now checked");
+	        Hooks.scenario.log("Add File Checkbox was unchecked, now checked");
+	    }
+	}
+	
+	@When("user uncheck the edit file checkbox button in bucket section of sales reps module")
+	public void user_uncheck_the_edit_file_checkbox_button_in_bucket_section_of_sales_reps_module() throws Exception {
+		boolean result = SalesRepsModulefunctionalitypage.uncheckEditFileCheckbox();
+		 Thread.sleep(1500);
+
+		 if (result) {
+		        System.out.println("Edit File Checkbox is already unchecked");
+		        Hooks.scenario.log("Edit File Checkbox is already unchecked");
+		    } else {
+		        System.out.println("Edit File Checkbox was checked, now unchecked");
+		        Hooks.scenario.log("Edit File Checkbox was checked, now unchecked");
+		    }
+	}
+	
+	@When("user check the edit file checkbox button in bucket section of sales reps module")
+	public void user_check_the_edit_file_checkbox_button_in_bucket_section_of_sales_reps_module() throws Exception {
+		boolean result = SalesRepsModulefunctionalitypage.checkEditFileCheckbox();
+		Thread.sleep(1500);
+
+	    if (result) {
+	        System.out.println("Edit File Checkbox is already checked");
+	        Hooks.scenario.log("Edit File Checkbox is already checked");
+	    } else {
+	        System.out.println("Edit File Checkbox was unchecked, now checked");
+	        Hooks.scenario.log("Edit File Checkbox was unchecked, now checked");
+	    }
+	}
+	
+	@When("user uncheck the delete file checkbox button in bucket section of sales reps module")
+	public void user_uncheck_the_delete_file_checkbox_button_in_bucket_section_of_sales_reps_module() throws Exception {
+		boolean result = SalesRepsModulefunctionalitypage.uncheckDeleteFileCheckbox();
+		 Thread.sleep(1500);
+
+		 if (result) {
+		        System.out.println("Delete File Checkbox is already unchecked");
+		        Hooks.scenario.log("Delete File Checkbox is already unchecked");
+		    } else {
+		        System.out.println("Delete File Checkbox was checked, now unchecked");
+		        Hooks.scenario.log("Delete File Checkbox was checked, now unchecked");
+		    }
+	}
+	
+	@When("user check the delete file checkbox button in bucket section of sales reps module")
+	public void user_check_the_delete_file_checkbox_button_in_bucket_section_of_sales_reps_module() throws Exception {
+		boolean result = SalesRepsModulefunctionalitypage.checkDeleteFileCheckbox();
+		Thread.sleep(1500);
+
+	    if (result) {
+	        System.out.println("Delete File Checkbox is already checked");
+	        Hooks.scenario.log("Delete File Checkbox is already checked");
+	    } else {
+	        System.out.println("Delete File Checkbox was unchecked, now checked");
+	        Hooks.scenario.log("Delete File Checkbox was unchecked, now checked");
+	    }
+	}
+	
+	@When("user uncheck the download file checkbox button in bucket section of sales reps module")
+	public void user_uncheck_the_download_file_checkbox_button_in_bucket_section_of_sales_reps_module() throws Exception {
+		boolean result = SalesRepsModulefunctionalitypage.uncheckDownloadFileCheckbox();
+		 Thread.sleep(1500);
+
+		 if (result) {
+		        System.out.println("Download File Checkbox is already unchecked");
+		        Hooks.scenario.log("Download File Checkbox is already unchecked");
+		    } else {
+		        System.out.println("Download File Checkbox was checked, now unchecked");
+		        Hooks.scenario.log("Download File Checkbox was checked, now unchecked");
+		    }
+	}
+	
+	@When("user check the download file checkbox button in bucket section of sales reps module")
+	public void user_check_the_download_file_checkbox_button_in_bucket_section_of_sales_reps_module() throws Exception {
+		boolean result = SalesRepsModulefunctionalitypage.checkDownloadFileCheckbox();
+		Thread.sleep(1500);
+
+	    if (result) {
+	        System.out.println("Download File Checkbox is already checked");
+	        Hooks.scenario.log("Download File Checkbox is already checked");
+	    } else {
+	        System.out.println("Download File Checkbox was unchecked, now checked");
+	        Hooks.scenario.log("Download File Checkbox was unchecked, now checked");
+	    }
+	}
+	
+	@When("user uncheck the folder permission checkbox button in bucket section of sales reps module")
+	public void user_uncheck_the_folder_permission_checkbox_button_in_bucket_section_of_sales_reps_module() throws Exception {
+		boolean result = SalesRepsModulefunctionalitypage.uncheckFolderPermissionCheckbox();
+		 Thread.sleep(1500);
+
+		 if (result) {
+		        System.out.println("Folder Permission Checkbox is already unchecked");
+		        Hooks.scenario.log("Folder Permission Checkbox is already unchecked");
+		    } else {
+		        System.out.println("Folder Permission Checkbox was checked, now unchecked");
+		        Hooks.scenario.log("Folder Permission Checkbox was checked, now unchecked");
+		    }
+	}
+	
+	@When("user check the folder permission checkbox button in bucket section of sales reps module")
+	public void user_check_the_folder_permission_checkbox_button_in_bucket_section_of_sales_reps_module() throws Exception {
+		boolean result = SalesRepsModulefunctionalitypage.checkFolderPermissionCheckbox();
+		Thread.sleep(1500);
+
+	    if (result) {
+	        System.out.println("Folder Permission Checkbox is already checked");
+	        Hooks.scenario.log("Folder Permission Checkbox is already checked");
+	    } else {
+	        System.out.println("Folder Permission Checkbox was unchecked, now checked");
+	        Hooks.scenario.log("Folder Permission Checkbox was unchecked, now checked");
+	    }
+	}
+	
+	@When("user uncheck the bucket section checkbox of sales reps module")
+	public void user_uncheck_the_bucket_section_checkbox_of_sales_reps_module() throws Exception {
+		boolean success = SalesRepsModulefunctionalitypage.uncheckBucketUsingDoubleClickIfAllChildrenChecked();
+		 Thread.sleep(2000);
+
+		 if (success) {
+			    System.out.println("All child + parent checkboxes unchecked");
+			    Hooks.scenario.log("All child + parent checkboxes unchecked");
+			} else {
+			    System.out.println("All child + parent checkboxes are already Unchecked");
+			    Hooks.scenario.log("All child + parent checkboxes are already Unchecked");
+			}
+	}
+	
+	@When("user check the bucket section checkbox of sales reps module")
+	public void user_check_the_bucket_section_checkbox_of_sales_reps_module() throws Exception {
+		boolean success = SalesRepsModulefunctionalitypage.checkBucketUsingSingleClickIfAllChildrenUnchecked();
+		 Thread.sleep(2000);
+
+		 if (success) {
+			    System.out.println("All child + parent checkboxes checked");
+			    Hooks.scenario.log("All child + parent checkboxes checked");
+			} else {
+			    System.out.println("All child + parent checkboxes are already checked");
+			    Hooks.scenario.log("All child + parent checkboxes are already checked");
+			}
+	}
+	
+	@When("user uncheck the sales rep visits section checkbox of sales reps module")
+	public void user_uncheck_the_sales_rep_visits_section_checkbox_of_sales_reps_module() throws Exception {
+		boolean success = SalesRepsModulefunctionalitypage.uncheckSalesRepVisitsUsingDoubleClickIfAllChildrenChecked();
+		 Thread.sleep(2000);
+
+		 if (success) {
+			    System.out.println("All child + parent checkboxes unchecked");
+			    Hooks.scenario.log("All child + parent checkboxes unchecked");
+			} else {
+			    System.out.println("All child + parent checkboxes are already Unchecked");
+			    Hooks.scenario.log("All child + parent checkboxes are already Unchecked");
+			}
+	}
+	
+	@When("user check the sales rep visits section checkbox of sales reps module")
+	public void user_check_the_sales_rep_visits_section_checkbox_of_sales_reps_module() throws Exception {
+		boolean success = SalesRepsModulefunctionalitypage.checkSalesRepsVisitsUsingSingleClickIfAllChildrenUnchecked();
+		 Thread.sleep(2000);
+
+		 if (success) {
+			    System.out.println("All child + parent checkboxes checked");
+			    Hooks.scenario.log("All child + parent checkboxes checked");
+			} else {
+			    System.out.println("All child + parent checkboxes are already checked");
+			    Hooks.scenario.log("All child + parent checkboxes are already checked");
+			}
+	}
+	
+	@When("user uncheck the Add checkbox button in sales rep questions section of sales reps module")
+	public void user_uncheck_the_Add_checkbox_button_in_sales_rep_questions_section_of_sales_reps_module() throws Exception {
+		boolean result = SalesRepsModulefunctionalitypage.uncheckAddCheckboxinSalesRepQuestions();
+		 Thread.sleep(1500);
+
+		 if (result) {
+		        System.out.println("Add Checkbox is already unchecked");
+		        Hooks.scenario.log("Add Checkbox is already unchecked");
+		    } else {
+		        System.out.println("Add Checkbox was checked, now unchecked");
+		        Hooks.scenario.log("Add Checkbox was checked, now unchecked");
+		    }
+	}
+	
+	@When("user check the Add checkbox button in sales rep questions section of sales reps module")
+	public void user_check_the_Add_checkbox_button_in_sales_rep_questions_section_of_sales_reps_module() throws Exception {
+		boolean result = SalesRepsModulefunctionalitypage.checkAddCheckboxinSalesRepQuestions();
+		Thread.sleep(1500);
+
+	    if (result) {
+	        System.out.println("Add Checkbox is already checked");
+	        Hooks.scenario.log("Add Checkbox is already checked");
+	    } else {
+	        System.out.println("Add Checkbox was unchecked, now checked");
+	        Hooks.scenario.log("Add Checkbox was unchecked, now checked");
+	    }
+	}
+	
+	@When("user uncheck the Edit checkbox button in sales rep questions section of sales reps module")
+	public void user_uncheck_the_Edit_checkbox_button_in_sales_rep_questions_section_of_sales_reps_module() throws Exception {
+		boolean result = SalesRepsModulefunctionalitypage.uncheckEditCheckboxinSalesRepQuestions();
+		 Thread.sleep(1500);
+
+		 if (result) {
+		        System.out.println("Edit Checkbox is already unchecked");
+		        Hooks.scenario.log("Edit Checkbox is already unchecked");
+		    } else {
+		        System.out.println("Edit Checkbox was checked, now unchecked");
+		        Hooks.scenario.log("Edit Checkbox was checked, now unchecked");
+		    }
+	}
+	
+	@When("user check the Edit checkbox button in sales rep questions section of sales reps module")
+	public void user_check_the_Edit_checkbox_button_in_sales_rep_questions_section_of_sales_reps_module() throws Exception {
+		boolean result = SalesRepsModulefunctionalitypage.checkEditCheckboxinSalesRepQuestions();
+		Thread.sleep(1500);
+
+	    if (result) {
+	        System.out.println("Edit Checkbox is already checked");
+	        Hooks.scenario.log("Edit Checkbox is already checked");
+	    } else {
+	        System.out.println("Edit Checkbox was unchecked, now checked");
+	        Hooks.scenario.log("Edit Checkbox was unchecked, now checked");
+	    }
+	}
+	
+	@When("user uncheck the Delete checkbox button in sales rep questions section of sales reps module")
+	public void user_uncheck_the_Delete_checkbox_button_in_sales_rep_questions_section_of_sales_reps_module() throws Exception {
+		boolean result = SalesRepsModulefunctionalitypage.uncheckDeleteCheckboxinSalesRepQuestions();
+		 Thread.sleep(1500);
+
+		 if (result) {
+		        System.out.println("Delete Checkbox is already unchecked");
+		        Hooks.scenario.log("Delete Checkbox is already unchecked");
+		    } else {
+		        System.out.println("Delete Checkbox was checked, now unchecked");
+		        Hooks.scenario.log("Delete Checkbox was checked, now unchecked");
+		    }
+	}
+	
+	@When("user check the Delete checkbox button in sales rep questions section of sales reps module")
+	public void user_check_the_Delete_checkbox_button_in_sales_rep_questions_section_of_sales_reps_module() throws Exception {
+		boolean result = SalesRepsModulefunctionalitypage.checkDeleteCheckboxinSalesRepQuestions();
+		Thread.sleep(1500);
+
+	    if (result) {
+	        System.out.println("Delete Checkbox is already checked");
+	        Hooks.scenario.log("Delete Checkbox is already checked");
+	    } else {
+	        System.out.println("Delete Checkbox was unchecked, now checked");
+	        Hooks.scenario.log("Delete Checkbox was unchecked, now checked");
+	    }
+	}
+	
+	@When("user uncheck the sales rep questions section checkbox of sales reps module")
+	public void user_uncheck_the_sales_rep_questions_section_checkbox_of_sales_reps_module() throws Exception {
+		boolean success = SalesRepsModulefunctionalitypage.uncheckSalesRepQuestionsUsingDoubleClickIfAllChildrenChecked();
+		 Thread.sleep(2000);
+
+		 if (success) {
+			    System.out.println("All child + parent checkboxes unchecked");
+			    Hooks.scenario.log("All child + parent checkboxes unchecked");
+			} else {
+			    System.out.println("All child + parent checkboxes are already Unchecked");
+			    Hooks.scenario.log("All child + parent checkboxes are already Unchecked");
+			}
+	}
+	
+	@When("user check the sales rep questions section checkbox of sales reps module")
+	public void user_check_the_sales_rep_questions_section_checkbox_of_sales_reps_module() throws Exception {
+		boolean success = SalesRepsModulefunctionalitypage.checkSalesRepQuestionsUsingSingleClickIfAllChildrenUnchecked();
+		 Thread.sleep(2000);
+
+		 if (success) {
+			    System.out.println("All child + parent checkboxes checked");
+			    Hooks.scenario.log("All child + parent checkboxes checked");
+			} else {
+			    System.out.println("All child + parent checkboxes are already checked");
+			    Hooks.scenario.log("All child + parent checkboxes are already checked");
+			}
+	}
+	
+	@When("user uncheck the Send checkbox button in sales rep visits section of sales reps module")
+	public void user_uncheck_the_Send_checkbox_button_in_sales_rep_visits_section_of_sales_reps_module() throws Exception {
+		boolean result = SalesRepsModulefunctionalitypage.uncheckSendCheckboxinText();
+		 Thread.sleep(1500);
+
+		 if (result) {
+		        System.out.println("Send Checkbox is already unchecked");
+		        Hooks.scenario.log("Send Checkbox is already unchecked");
+		    } else {
+		        System.out.println("Send Checkbox was checked, now unchecked");
+		        Hooks.scenario.log("Send Checkbox was checked, now unchecked");
+		    }
+	}
+	
+	@When("user check the Send checkbox button in sales rep visits section of sales reps module")
+	public void user_check_the_Send_checkbox_button_in_sales_rep_visits_section_of_sales_reps_module() throws Exception {
+		boolean result = SalesRepsModulefunctionalitypage.checkSendCheckboxinText();
+		Thread.sleep(1500);
+
+	    if (result) {
+	        System.out.println("Send Checkbox is already checked");
+	        Hooks.scenario.log("Send Checkbox is already checked");
+	    } else {
+	        System.out.println("Send Checkbox was unchecked, now checked");
+	        Hooks.scenario.log("Send Checkbox was unchecked, now checked");
+	    }
+	}
+	
+	@When("user uncheck the Sales Rep Visible Number checkbox button in sales rep visits section of sales reps module")
+	public void user_uncheck_the_Sales_Rep_Visible_Number_checkbox_button_in_sales_rep_visits_section_of_sales_reps_module() throws Exception {
+		boolean result = SalesRepsModulefunctionalitypage.uncheckSalesRepVisibleNumberCheckboxinText();
+		 Thread.sleep(1500);
+
+		 if (result) {
+		        System.out.println("Sales Rep Visible Number Checkbox is already unchecked");
+		        Hooks.scenario.log("Sales Rep Visible Number Checkbox is already unchecked");
+		    } else {
+		        System.out.println("Sales Rep Visible Number Checkbox was checked, now unchecked");
+		        Hooks.scenario.log("Sales Rep Visible Number Checkbox was checked, now unchecked");
+		    }
+	}
+	
+	@When("user check the Sales Rep Visible Number checkbox button in sales rep visits section of sales reps module")
+	public void user_check_the_Sales_Rep_Visible_Number_checkbox_button_in_sales_rep_visits_section_of_sales_reps_module() throws Exception {
+		boolean result = SalesRepsModulefunctionalitypage.checkSalesRepVisibleNumberCheckboxinText();
+		Thread.sleep(1500);
+
+	    if (result) {
+	        System.out.println("Sales Rep Visible Number Checkbox is already checked");
+	        Hooks.scenario.log("Sales Rep Visible Number Checkbox is already checked");
+	    } else {
+	        System.out.println("Sales Rep Visible Number Checkbox was unchecked, now checked");
+	        Hooks.scenario.log("Sales Rep Visible Number Checkbox was unchecked, now checked");
+	    }
+	}
+	
+	@When("user uncheck the Send VCard checkbox button in sales rep visits section of sales reps module")
+	public void user_uncheck_the_Send_VCard_checkbox_button_in_sales_rep_visits_section_of_sales_reps_module() throws Exception {
+		boolean result = SalesRepsModulefunctionalitypage.uncheckSendVCardCheckboxinText();
+		 Thread.sleep(1500);
+
+		 if (result) {
+		        System.out.println("Send VCard Checkbox is already unchecked");
+		        Hooks.scenario.log("Send VCard Checkbox is already unchecked");
+		    } else {
+		        System.out.println("Send VCard Checkbox was checked, now unchecked");
+		        Hooks.scenario.log("Send VCard Checkbox was checked, now unchecked");
+		    }
+	}
+	
+	@When("user check the Send VCard checkbox button in sales rep visits section of sales reps module")
+	public void user_check_the_Send_VCard_checkbox_button_in_sales_rep_visits_section_of_sales_reps_module() throws Exception {
+		boolean result = SalesRepsModulefunctionalitypage.checkSendVCardCheckboxinText();
+		Thread.sleep(1500);
+
+	    if (result) {
+	        System.out.println("Send VCard Checkbox is already checked");
+	        Hooks.scenario.log("Send VCard Checkbox is already checked");
+	    } else {
+	        System.out.println("Send VCard Checkbox was unchecked, now checked");
+	        Hooks.scenario.log("Send VCard Checkbox was unchecked, now checked");
+	    }
+	}
+	
+	@When("user uncheck the Text checkbox button in sales rep visits section of sales reps module")
+	public void user_uncheck_the_Text_checkbox_button_in_sales_rep_visits_section_of_sales_reps_module() throws Exception {
+		boolean success = SalesRepsModulefunctionalitypage.uncheckTextUsingDoubleClickIfAllChildrenChecked();
+		 Thread.sleep(2000);
+
+		 if (success) {
+			    System.out.println("All child + parent checkboxes unchecked");
+			    Hooks.scenario.log("All child + parent checkboxes unchecked");
+			} else {
+			    System.out.println("All child + parent checkboxes are already Unchecked");
+			    Hooks.scenario.log("All child + parent checkboxes are already Unchecked");
+			}
+	}
+	
+	@When("user check the Text checkbox button in sales rep visits section of sales reps module")
+	public void user_check_the_Text_checkbox_button_in_sales_rep_visits_section_of_sales_reps_module() throws Exception {
+		boolean success = SalesRepsModulefunctionalitypage.checkTextSingleClickIfAllChildrenUnchecked();
+		 Thread.sleep(2000);
+
+		 if (success) {
+			    System.out.println("All child + parent checkboxes checked");
+			    Hooks.scenario.log("All child + parent checkboxes checked");
+			} else {
+			    System.out.println("All child + parent checkboxes are already checked");
+			    Hooks.scenario.log("All child + parent checkboxes are already checked");
+			}
+	}
+	
+	@Then("user check the text subsection is display")
+	public void user_check_the_text_subsection_is_display() {
+		 boolean areTabsNotVisible = SalesRepsModulefunctionalitypage.areQuickTextAndSendVCardTabsNotVisible();
+
+		    // If BOTH tabs are NOT visible → SKIP scenario
+		    if (areTabsNotVisible) {
+
+		        String message = "Text Subsection tabs (Quick Text and Send VCard) are NOT visible — user does not have permission";
+
+		        System.out.println(message);
+		        Hooks.scenario.log(message);
+
+		        Assume.assumeTrue(message, false); // Scenario SKIPPED
+		        return;
+		    }
+
+		    // If tabs are visible → continue execution
+		    Hooks.scenario.log("Text Subsection tabs (Quick Text and Send VCard) are visible");
+	}
+	
+	@Then("user click on the submit button in profile details page")
+	public void user_click_on_the_submit_button_in_profile_details_page() {
+		SalesRepsModulefunctionalitypage.clickintotheSubmitbuttoninProfileDetails();
+		
+		System.out.println("Submit button clicked successfully");
+		Hooks.scenario.log("Submit button clicked successfully");
+	}
+	
+	@And("user click on the pharm crm logo")
+	public void user_click_on_the_pharm_crm_logo() {
+		SalesRepsModulefunctionalitypage.clickintothePharmCRMlogo();
+		
+		System.out.println("Pharm CRM logo clicked successfully");
+		Hooks.scenario.log("Pharm CRM logo clicked successfully");
+	}
+	
 }

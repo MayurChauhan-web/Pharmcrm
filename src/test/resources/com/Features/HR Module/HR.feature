@@ -2769,6 +2769,39 @@ Scenario: Organizational user able to Add Employee New Timeline without filled a
   When user click on the new timeline button in timeline section
   And user click on the submit button in add employee timeline pop-up window
   
+Scenario: Organizational user able to perform the Edit Functionality of existing Employee Timeline in Employee Details page 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the timeline tab in employee details page
+  When user click on the edit button of existing employee timeline
+  Then user change the event in add employee timeline pop-up window
+  And user select the event date as today's in add employee timeline pop-up window
+  When user change the notes in add employee timeline pop-up window
+  Then user select the status as Resigned in add employee timeline pop-up window
+  And user click on the submit button in add employee timeline pop-up window
+  
+Scenario: Organizational user able to perform the Delete Functionality of existing Employee Timeline in Employee Details page 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the timeline tab in employee details page
+  When user click on the delete button of existing employee timeline      
+  
   
   #-------------------------- WorkBench Section in Employees Details ----------------------------------------------
   
@@ -2866,6 +2899,20 @@ Scenario: Organizational user able to Add New Workbench without filled any detai
   And user click on the workbench tab in employee details page
   When user click on the new workbench button in workbench section
   And user click on the submit button in add new workbench pop-up window
+  
+Scenario: Organizational user able to Delete Existing Workbench in Employee Details page 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the workbench tab in employee details page
+  When user click on the delete button of existing workbench in workbench section  
   
   
   #-------------------------- WorkBenches Section ----------------------------------------------
@@ -3142,4 +3189,3323 @@ Scenario: Organizational user able to perform the Export To Excel functionality 
   Then user click on the HR module tab in home page
   And user click on the sidebar collpase button in module dashboard page
   When user click on the timesheet tab in sidebar in HR module page
-  Then user click on the export to excel button  
+  Then user click on the export to excel button
+  
+  
+  #---------------------- HR Module (Profile Permission) --------------------------
+  
+  
+Scenario: User able to click on the Setup Module tab 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  
+Scenario: Verify that the user cannot access the Add Folder Functionality in Buckets Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the add folder checkbox button in bucket section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the documents tab in sidebar in HR module page
+  Then user click on the new folder tab in documents page
+  And user enter the new folder name in add new folder pop-up window
+  When user click on the submit button in add new folder pop-up window
+  
+Scenario: Verify that the user can access the Add Folder Functionality in Buckets Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the add folder checkbox button in bucket section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the documents tab in sidebar in HR module page
+  Then user click on the new folder tab in documents page
+  And user enter the new folder name in add new folder pop-up window
+  When user click on the submit button in add new folder pop-up window
+  
+Scenario: Verify that the user cannot access the Edit Folder Functionality in Buckets Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the edit folder checkbox button in bucket section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the documents tab in sidebar in HR module page
+  Then user click on the existing folder three dot button in documents page
+  And user click on edit folder button in three dot
+  Then user change the folder name in edit name pop-up window
+  When user click on the submit button in add new folder pop-up window
+  
+Scenario: Verify that the user can access the Edit Folder Functionality in Buckets Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the edit folder checkbox button in bucket section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the documents tab in sidebar in HR module page
+  Then user click on the existing folder three dot button in documents page
+  And user click on edit folder button in three dot
+  Then user change the folder name in edit name pop-up window
+  When user click on the submit button in add new folder pop-up window
+  
+Scenario: Verify that the user cannot access the Delete Folder Functionality in Buckets Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the delete folder checkbox button in bucket section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the documents tab in sidebar in HR module page
+  Then user click on the existing folder three dot button in documents page
+  When user delete the folder name in edit name pop-up window
+  
+Scenario: Verify that the user can access the Delete Folder Functionality in Buckets Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the delete folder checkbox button in bucket section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the documents tab in sidebar in HR module page
+  Then user click on the existing folder three dot button in documents page
+  When user delete the folder name in edit name pop-up window
+  
+Scenario: Verify that the user cannot access the Add File Functionality in Buckets Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the add file checkbox button in bucket section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the documents tab in sidebar in HR module page
+  And user click on the file upload tab in documents page
+  When user able to upload the PDF file in documents page
+  Then user click on the submit button in file upload pop-up window
+  
+Scenario: Verify that the user can access the Add File Functionality in Buckets Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the add file checkbox button in bucket section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the documents tab in sidebar in HR module page
+  And user click on the file upload tab in documents page
+  When user able to upload the PDF file in documents page
+  Then user click on the submit button in file upload pop-up window
+  
+Scenario: Verify that the user cannot access the Edit File Functionality in Buckets Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the edit file checkbox button in bucket section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the documents tab in sidebar in HR module page
+  And user click on the three dot button in newly uploaded file
+  When user click on the edit tab in uploaded file
+  Then user enter the new file name in file upload pop-up window
+  Then user click on the submit button in file upload pop-up window
+  
+Scenario: Verify that the user can access the Edit File Functionality in Buckets Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the edit file checkbox button in bucket section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the documents tab in sidebar in HR module page
+  And user click on the three dot button in newly uploaded file
+  When user click on the edit tab in uploaded file
+  Then user enter the new file name in file upload pop-up window
+  Then user click on the submit button in file upload pop-up window
+  
+Scenario: Verify that the user cannot access the Delete File Functionality in Buckets Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the delete file checkbox button in bucket section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the documents tab in sidebar in HR module page
+  And user click on the three dot button in newly uploaded file
+  When user able to perform the delete file action
+  
+Scenario: Verify that the user can access the Delete File Functionality in Buckets Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the delete file checkbox button in bucket section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the documents tab in sidebar in HR module page
+  And user click on the three dot button in newly uploaded file
+  When user able to perform the delete file action
+  
+Scenario: Verify that the user cannot access the Download File Functionality in Buckets Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the download file checkbox button in bucket section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the documents tab in sidebar in HR module page
+  And user click on the three dot button in newly uploaded file
+  When user able to perform the download file action
+  
+Scenario: Verify that the user can access the Download File Functionality in Buckets Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the download file checkbox button in bucket section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the documents tab in sidebar in HR module page
+  And user click on the three dot button in newly uploaded file
+  When user able to perform the download file action
+  
+Scenario: Verify that the user cannot access the Folder Permission Functionality in Buckets Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the folder permission checkbox button in bucket section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the documents tab in sidebar in HR module page
+  Then user click on the existing folder three dot button in documents page
+  When user click on the folder permission button
+  Then user click on the particular user checkbox in permission pop-up window
+  And user click on the submit button in permission pop-up window
+  
+Scenario: Verify that the user can access the Folder Permission Functionality in Buckets Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the folder permission checkbox button in bucket section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the documents tab in sidebar in HR module page
+  Then user click on the existing folder three dot button in documents page
+  When user click on the folder permission button
+  Then user click on the particular user checkbox in permission pop-up window
+  And user click on the submit button in permission pop-up window
+  
+Scenario: Verify that the user cannot access the Documents Functionality in Buckets Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the bucket checkbox button in bucket section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the documents tab in sidebar in HR module page
+  
+Scenario: Verify that the user can access the Documents Functionality in Buckets Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the bucket checkbox button in bucket section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the documents tab in sidebar in HR module page
+  
+Scenario: Verify that the user cannot access the Add Employee Functionality in Employee Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the Add checkbox button in employee section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the new employee tab in employees page
+  And user select the title as Mr in employee information section
+  When user enter the employee first name in employee information section
+  Then user enter the employee middle name in employee information section
+  And user enter the employee last name in employee information section
+  When user select the employee designation in employee information section
+  Then user enter the employee cell phone1 in employee information section
+  And user enter the employee business email in employee information section
+  Then user able to upload the new employee profile image in employee information section
+  When user select the employee start date in employee information section
+  Then user select the employment type as Employee in employee information section
+  And user select the employment status as Active in employee information section
+  Then user select the employee blood group as O in employee information section
+  When user select the employee birth date in employee information section
+  Then user select the employee gender as male in employee information section
+  When user click on the submit button in employee information section
+  
+Scenario: Verify that the user can access the Add Employee Functionality in Employee Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the Add checkbox button in employee section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the new employee tab in employees page
+  And user select the title as Mr in employee information section
+  When user enter the employee first name in employee information section
+  Then user enter the employee middle name in employee information section
+  And user enter the employee last name in employee information section
+  When user select the employee designation in employee information section
+  Then user enter the employee cell phone1 in employee information section
+  And user enter the employee business email in employee information section
+  Then user able to upload the new employee profile image in employee information section
+  When user select the employee start date in employee information section
+  Then user select the employment type as Employee in employee information section
+  And user select the employment status as Active in employee information section
+  Then user select the employee blood group as O in employee information section
+  When user select the employee birth date in employee information section
+  Then user select the employee gender as male in employee information section
+  When user click on the submit button in employee information section
+  
+Scenario: Verify that the user cannot access the Edit Employee Functionality in Employee Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the Edit checkbox button in employee section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the three dot button in existing employee in employees page
+  And user click on the edit tab in three dot in employees page
+  Then user change the employee last name in edit employee page
+  When user click on the submit button in employee information section
+  
+Scenario: Verify that the user can access the Edit Employee Functionality in Employee Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the Edit checkbox button in employee section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the three dot button in existing employee in employees page
+  And user click on the edit tab in three dot in employees page
+  Then user change the employee last name in edit employee page
+  When user click on the submit button in employee information section
+  
+Scenario: Verify that the user cannot access the Delete Employee Functionality in Employee Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the Delete checkbox button in employee section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the three dot button in existing employee in employees page
+  When user perform the existing employee delete functionality
+  
+Scenario: Verify that the user can access the Delete Employee Functionality in Employee Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the Delete checkbox button in employee section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the three dot button in existing employee in employees page
+  When user perform the existing employee delete functionality
+  
+Scenario: Verify that the user cannot access the Details Employee Functionality in Employee Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the Details checkbox button in employee section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  
+Scenario: Verify that the user can access the Details Employee Functionality in Employee Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the Details checkbox button in employee section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  
+Scenario: Verify that the user cannot access the Employees Functionality in Employees Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the Employee checkbox button in employee section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  
+Scenario: Verify that the user can access the Employees Functionality in Employees Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the Employee checkbox button in employee section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  
+Scenario: Verify that the user cannot access the Edit Employee Details Functionality in Employee Details Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the edit checkbox button in employee details section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the edit button in employee details page
+  When user change the employee last name in edit employee page
+  Then user click on the submit button in employee information section
+  
+Scenario: Verify that the user can access the Edit Employee Details Functionality in Employee Details Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the edit checkbox button in employee details section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the edit button in employee details page
+  When user change the employee last name in edit employee page
+  Then user click on the submit button in employee information section
+  
+Scenario: Verify that the user cannot access the Delete Employee Details Functionality in Employee Details Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the delete checkbox button in employee details section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user perform delete employee functionality in employee details page
+  
+Scenario: Verify that the user can access the Delete Employee Details Functionality in Employee Details Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the delete checkbox button in employee details section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user perform delete employee functionality in employee details page
+  
+Scenario: Verify that the user cannot access the Link User To Employee Functionality in Employee Details Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the Link User To Employee checkbox button in employee details section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on associated user link in employee details page
+  When user enter the user last name in search user pop-up window
+  Then user click on the search button for user link in search user pop-up window
+  And user click on the first user radio button in search user pop-up window
+  When user click on the submit button for user link in search user pop-up window
+  
+Scenario: Verify that the user can access the Link User To Employee Functionality in Employee Details Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the Link User To Employee checkbox button in employee details section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on associated user link in employee details page
+  When user enter the user last name in search user pop-up window
+  Then user click on the search button for user link in search user pop-up window
+  And user click on the first user radio button in search user pop-up window
+  When user click on the submit button for user link in search user pop-up window
+  
+Scenario: Verify that the user cannot access the DeLink User To Employee Functionality in Employee Details Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the DeLink User To Employee checkbox button in employee details section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the delink user button in employee details page
+  
+Scenario: Verify that the user can access the DeLink User To Employee Functionality in Employee Details Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the DeLink User To Employee checkbox button in employee details section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the delink user button in employee details page
+  
+Scenario: Verify that the user cannot access the About Tab View Functionality in Employee Details Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the About Tab View checkbox button in employee details section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the about view tab in employee details page
+  
+Scenario: Verify that the user can access the About Tab View Functionality in Employee Details Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the About Tab View checkbox button in employee details section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the about view tab in employee details page
+  
+Scenario: Verify that the user cannot access the Licenses Tab View Functionality in Employee Details Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the Licenses Tab View checkbox button in employee details section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the licenses tab in employee details page
+  
+Scenario: Verify that the user can access the Licenses Tab View Functionality in Employee Details Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the Licenses Tab View checkbox button in employee details section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the licenses tab in employee details page
+  
+Scenario: Verify that the user cannot access the Access Code Tab View Functionality in Employee Details Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the Access Code Tab View checkbox button in employee details section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the access code tab in employee details page
+  
+Scenario: Verify that the user can access the Access Code Tab View Functionality in Employee Details Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the Access Code Tab View checkbox button in employee details section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the access code tab in employee details page
+  
+Scenario: Verify that the user cannot access the Docs Tab View Functionality in Employee Details Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the Docs Tab View checkbox button in employee details section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the docs tab in employee details page
+  
+Scenario: Verify that the user can access the Docs Tab View Functionality in Employee Details Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the Docs Tab View checkbox button in employee details section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the docs tab in employee details page
+  
+Scenario: Verify that the user cannot access the Checklist Tab View Functionality in Employee Details Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the Checklist Tab View checkbox button in employee details section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the checklist tab in employee details page
+  
+Scenario: Verify that the user can access the Checklist Tab View Functionality in Employee Details Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the Checklist Tab View checkbox button in employee details section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the checklist tab in employee details page
+  
+Scenario: Verify that the user cannot access the Note Tab View Functionality in Employee Details Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the Note Tab View checkbox button in employee details section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the note tab in employee details page
+  
+Scenario: Verify that the user can access the Note Tab View Functionality in Employee Details Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the Note Tab View checkbox button in employee details section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the note tab in employee details page
+  
+Scenario: Verify that the user cannot access the Timeline Tab View Functionality in Employee Details Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the Timeline Tab View checkbox button in employee details section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the timeline tab in employee details page
+  
+Scenario: Verify that the user can access the Timeline Tab View Functionality in Employee Details Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the Timeline Tab View checkbox button in employee details section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the timeline tab in employee details page
+  
+Scenario: Verify that the user cannot access the Employee Details Functionality in Employee Details Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the Employee Details checkbox button in employee details section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user check the employee details tabs in employee details page
+  
+Scenario: Verify that the user can access the Employee Details Functionality in Employee Details Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the Employee Details checkbox button in employee details section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user check the employee details tabs in employee details page
+  
+Scenario: Verify that the user cannot access the Employee Details Add License Functionality in Employee Details - License Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the Add checkbox button in employee details license section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the licenses tab in employee details page
+  When user click on the new licenses button of licenses section in employee details page
+  Then user select the license type as Professional License in add employee license pop-up window
+  And user enter the license number in add employee license pop-up window
+  When user select the license expiration date in add employee license pop-up window
+  Then user select the state as Florida in add employee license pop-up window
+  And user select the status as Active in add employee license pop-up window
+  When user upload the employee license file in add employee license pop-up window
+  Then user click on the submit button in add employee license pop-up window
+  
+Scenario: Verify that the user can access the Employee Details Add License Functionality in Employee Details - License Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the Add checkbox button in employee details license section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the licenses tab in employee details page
+  When user click on the new licenses button of licenses section in employee details page
+  Then user select the license type as Professional License in add employee license pop-up window
+  And user enter the license number in add employee license pop-up window
+  When user select the license expiration date in add employee license pop-up window
+  Then user select the state as Florida in add employee license pop-up window
+  And user select the status as Active in add employee license pop-up window
+  When user upload the employee license file in add employee license pop-up window
+  Then user click on the submit button in add employee license pop-up window
+  
+Scenario: Verify that the user cannot access the Employee Details Edit License Functionality in Employee Details - License Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the Edit checkbox button in employee details license section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the licenses tab in employee details page
+  When user click on the three dot button of existing license in license section
+  Then user click on the edit tab in existing license in license section
+  And user change the license type Professional License to Organization_Administrator_testuser14 in add employee license pop-up window
+  When user change the license number in add employee pop-up window
+  Then user change the license expiration date in add employee pop-up window
+  And user change the state in add employee pop-up window
+  When user change the status in add employee pop-up window
+  Then user click on the submit button in add employee license pop-up window  
+  
+Scenario: Verify that the user can access the Employee Details Edit License Functionality in Employee Details - License Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the Edit checkbox button in employee details license section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the licenses tab in employee details page
+  When user click on the three dot button of existing license in license section
+  Then user click on the edit tab in existing license in license section
+  And user change the license type Professional License to Organization_Administrator_testuser14 in add employee license pop-up window
+  When user change the license number in add employee pop-up window
+  Then user change the license expiration date in add employee pop-up window
+  And user change the state in add employee pop-up window
+  When user change the status in add employee pop-up window
+  Then user click on the submit button in add employee license pop-up window
+  
+Scenario: Verify that the user cannot access the Employee Details Delete License Functionality in Employee Details - License Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the Delete checkbox button in employee details license section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the licenses tab in employee details page
+  When user click on the three dot button of existing license in license section
+  Then user click on the delete tab in existing license in license section
+  
+Scenario: Verify that the user can access the Employee Details Delete License Functionality in Employee Details - License Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the Delete checkbox button in employee details license section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the licenses tab in employee details page
+  When user click on the three dot button of existing license in license section
+  Then user click on the delete tab in existing license in license section
+  
+Scenario: Verify that the user cannot access the Employee Details Download File License Functionality in Employee Details - License Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the Download File checkbox button in employee details license section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the licenses tab in employee details page
+  When user click on the three dot button of existing license in license section
+  Then user click on the download tab in existing license in license section
+  
+Scenario: Verify that the user can access the Employee Details Download File License Functionality in Employee Details - License Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the Download File checkbox button in employee details license section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the licenses tab in employee details page
+  When user click on the three dot button of existing license in license section
+  Then user click on the download tab in existing license in license section
+  
+Scenario: Verify that the user cannot access the Employee Details License Functionality in Employee Details - License Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the employee details license section checkbox of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the licenses tab in employee details page
+  When user check the all license buttons are visible
+  
+Scenario: Verify that the user can access the Employee Details License Functionality in Employee Details - License Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the employee details license section checkbox of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the licenses tab in employee details page
+  When user check the all license buttons are visible
+  
+Scenario: Verify that the user cannot access the Employee Details Add Access Code Functionality in Employee Details - Access Code Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the Add checkbox button in employee details access code section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the access code tab in employee details page
+  When user click on the new access code button in access code section
+  Then user select the access code type by index in add employee access code pop-up window
+  And user select the today's date in add employee access code pop-up window
+  When user enter the notes in add employee access code pop-up window
+  Then user click on the submit button in add employee access code pop-up window
+  
+Scenario: Verify that the user can access the Employee Details Add Access Code Functionality in Employee Details - Access Code Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the Add checkbox button in employee details access code section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the access code tab in employee details page
+  When user click on the new access code button in access code section
+  Then user select the access code type by index in add employee access code pop-up window
+  And user select the today's date in add employee access code pop-up window
+  When user enter the notes in add employee access code pop-up window
+  Then user click on the submit button in add employee access code pop-up window
+  
+Scenario: Verify that the user cannot access the Employee Details Edit Access Code Functionality in Employee Details - Access Code Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the Edit checkbox button in employee details access code section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the access code tab in employee details page
+  When user click on the three dot button of existing access code in access code section
+  Then user click on the edit tab in access code section
+  And user change the date in edit employee access code pop-up window
+  When user change the notes in edit employee access code pop-up window
+  Then user click on the submit button in add employee access code pop-up window
+  
+Scenario: Verify that the user can access the Employee Details Edit Access Code Functionality in Employee Details - Access Code Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the Edit checkbox button in employee details access code section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the access code tab in employee details page
+  When user click on the three dot button of existing access code in access code section
+  Then user click on the edit tab in access code section
+  And user change the date in edit employee access code pop-up window
+  When user change the notes in edit employee access code pop-up window
+  Then user click on the submit button in add employee access code pop-up window
+  
+Scenario: Verify that the user cannot access the Employee Details Delete Access Code Functionality in Employee Details - Access Code Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the Delete checkbox button in employee details access code section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page  
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the access code tab in employee details page
+  When user click on the three dot button of existing access code in access code section
+  Then user click on the delete tab in access code section
+  
+Scenario: Verify that the user can access the Employee Details Delete Access Code Functionality in Employee Details - Access Code Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the Delete checkbox button in employee details access code section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page  
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the access code tab in employee details page
+  When user click on the three dot button of existing access code in access code section
+  Then user click on the delete tab in access code section
+  
+Scenario: Verify that the user cannot access the Employee Details Access Code Section Functionality in Employee Details - Access Code Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the access code checkbox button in employee details access code section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page  
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the access code tab in employee details page
+  When user check all the access code buttons are visible
+  
+Scenario: Verify that the user can access the Employee Details Access Code Section Functionality in Employee Details - Access Code Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the access code checkbox button in employee details access code section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page  
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the access code tab in employee details page
+  When user check all the access code buttons are visible
+  
+Scenario: Verify that the user cannot access the Employee Details Add Docs Functionality in Employee Details - Docs Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the Add checkbox button in employee details docs section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the docs tab in employee details page
+  When user click on the new document button in docs section
+  Then user enter the title name in add employee document pop-up window
+  And user upload the PDF document in add employee document pop-up window
+  When user click on the submit button in add employee document pop-up window
+  
+Scenario: Verify that the user can access the Employee Details Add Docs Functionality in Employee Details - Docs Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the Add checkbox button in employee details docs section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the docs tab in employee details page
+  When user click on the new document button in docs section
+  Then user enter the title name in add employee document pop-up window
+  And user upload the PDF document in add employee document pop-up window
+  When user click on the submit button in add employee document pop-up window
+  
+Scenario: Verify that the user cannot access the Employee Details Edit Docs Functionality in Employee Details - Docs Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the Edit checkbox button in employee details docs section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the docs tab in employee details page
+  When user click on the three dot tab in existing document in docs section
+  Then user click on the edit tab in existing document in docs section
+  And user change the title in existing document in docs section
+  Then user upload the JFIF image file in add employee document pop-up window
+  When user click on the submit button in add employee document pop-up window
+  
+Scenario: Verify that the user can access the Employee Details Edit Docs Functionality in Employee Details - Docs Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the Edit checkbox button in employee details docs section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the docs tab in employee details page
+  When user click on the three dot tab in existing document in docs section
+  Then user click on the edit tab in existing document in docs section
+  And user change the title in existing document in docs section
+  Then user upload the JFIF image file in add employee document pop-up window
+  When user click on the submit button in add employee document pop-up window
+  
+Scenario: Verify that the user cannot access the Employee Details Delete Docs Functionality in Employee Details - Docs Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the Delete checkbox button in employee details docs section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the docs tab in employee details page
+  When user click on the three dot tab in existing document in docs section
+  Then user click on the delete tab in existing document in docs section
+  
+Scenario: Verify that the user can access the Employee Details Delete Docs Functionality in Employee Details - Docs Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the Delete checkbox button in employee details docs section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the docs tab in employee details page
+  When user click on the three dot tab in existing document in docs section
+  Then user click on the delete tab in existing document in docs section
+ 
+Scenario: Verify that the user cannot access the Employee Details Download File Docs Functionality in Employee Details - Docs Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the Download File checkbox button in employee details docs section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the docs tab in employee details page
+  When user click on the three dot tab in existing document in docs section
+  Then user click on the download tab in existing document in docs section
+  
+Scenario: Verify that the user can access the Employee Details Download File Docs Functionality in Employee Details - Docs Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the Download File checkbox button in employee details docs section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the docs tab in employee details page
+  When user click on the three dot tab in existing document in docs section
+  Then user click on the download tab in existing document in docs section
+  
+Scenario: Verify that the user cannot access the Employee Details Docs Section Functionality in Employee Details - Docs Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the Docs section checkbox button in employee details docs section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user check the all tabs in docs
+  
+Scenario: Verify that the user can access the Employee Details Docs Section Functionality in Employee Details - Docs Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the Docs section checkbox button in employee details docs section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user check the all tabs in docs
+  
+Scenario: Verify that the user cannot access the Employee Details Add CheckList Functionality in Employee Details - CheckList Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the Add checkbox button in employee details checklist section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the checklist tab in employee details page
+  When user click on the new checklist button in checklist section
+  Then user select the checklist in add employee checklist pop-up window
+  And user upload PDF file in add employee checklist pop-up window
+  When user enter the notes in add employee checklist pop-up window
+  Then user click on the submit button in add employee checklist pop-up window
+  
+Scenario: Verify that the user can access the Employee Details Add CheckList Functionality in Employee Details - CheckList Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the Add checkbox button in employee details checklist section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the checklist tab in employee details page
+  When user click on the new checklist button in checklist section
+  Then user select the checklist in add employee checklist pop-up window
+  And user upload PDF file in add employee checklist pop-up window
+  When user enter the notes in add employee checklist pop-up window
+  Then user click on the submit button in add employee checklist pop-up window
+  
+Scenario: Verify that the user cannot access the Employee Details Edit CheckList Functionality in Employee Details - CheckList Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the Edit checkbox button in employee details checklist section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the checklist tab in employee details page
+  When user click on the three dot button in checklist section
+  Then user click on the edit button in existing employee checklist in checklist section
+  And user change the checklist in edit employee checklist pop-up window
+  When user change the file in edit employee checklist pop-up window
+  Then user change the notes in edit employee checklist pop-up window
+  And user click on the submit button in add employee checklist pop-up window
+  
+Scenario: Verify that the user can access the Employee Details Edit CheckList Functionality in Employee Details - CheckList Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the Edit checkbox button in employee details checklist section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the checklist tab in employee details page
+  When user click on the three dot button in checklist section
+  Then user click on the edit button in existing employee checklist in checklist section
+  And user change the checklist in edit employee checklist pop-up window
+  When user change the file in edit employee checklist pop-up window
+  Then user change the notes in edit employee checklist pop-up window
+  And user click on the submit button in add employee checklist pop-up window
+  
+Scenario: Verify that the user cannot access the Employee Details Delete CheckList Functionality in Employee Details - CheckList Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the Delete checkbox button in employee details checklist section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the checklist tab in employee details page
+  When user click on the three dot button in checklist section
+  Then user click on the delete button in existing employee checklist in checklist section
+  
+Scenario: Verify that the user can access the Employee Details Delete CheckList Functionality in Employee Details - CheckList Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the Delete checkbox button in employee details checklist section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the checklist tab in employee details page
+  When user click on the three dot button in checklist section
+  Then user click on the delete button in existing employee checklist in checklist section
+  
+Scenario: Verify that the user cannot access the Employee Details Download File CheckList Functionality in Employee Details - CheckList Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the Download File checkbox button in employee details checklist section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the checklist tab in employee details page
+  When user click on the three dot button in checklist section
+  Then user click on the download button in existing employee checklist in checklist section
+  
+Scenario: Verify that the user can access the Employee Details Download File CheckList Functionality in Employee Details - CheckList Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the Download File checkbox button in employee details checklist section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the checklist tab in employee details page
+  When user click on the three dot button in checklist section
+  Then user click on the download button in existing employee checklist in checklist section
+  
+Scenario: Verify that the user cannot access the Employee Details CheckList Section Functionality in Employee Details - CheckList Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the CheckList checkbox button in employee details checklist section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the checklist tab in employee details page
+  When user check the tabs in checklist
+  
+Scenario: Verify that the user can access the Employee Details CheckList Section Functionality in Employee Details - CheckList Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the CheckList checkbox button in employee details checklist section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the checklist tab in employee details page
+  When user check the tabs in checklist
+  
+Scenario: Verify that the user cannot access the Employee Details Add Note Functionality in Employee Details - Note Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the Add checkbox button in employee details note section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the note tab in employee details page
+  When user click on the new note button in note section
+  Then user enter the subject in add employee note pop-up window
+  And user enter the notes in add employee note pop-up window
+  When user upload the PDF file in add employee note pop-up window
+  Then user click on the submit button in add employee note pop-up window
+  
+Scenario: Verify that the user can access the Employee Details Add Note Functionality in Employee Details - Note Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the Add checkbox button in employee details note section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the note tab in employee details page
+  When user click on the new note button in note section
+  Then user enter the subject in add employee note pop-up window
+  And user enter the notes in add employee note pop-up window
+  When user upload the PDF file in add employee note pop-up window
+  Then user click on the submit button in add employee note pop-up window
+  
+Scenario: Verify that the user cannot access the Employee Details Edit Note Functionality in Employee Details - Note Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the Edit checkbox button in employee details note section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the note tab in employee details page
+  When user click on the three dot button in existing employee note in note section
+  Then user click on the edit button in note section
+  And user change the subject in edit employee note pop-up window
+  When user change the notes in edit employee note pop-up window
+  Then user change the file in edit employee note pop-up window
+  And user click on the submit button in add employee note pop-up window
+  
+Scenario: Verify that the user can access the Employee Details Edit Note Functionality in Employee Details - Note Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the Edit checkbox button in employee details note section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the note tab in employee details page
+  When user click on the three dot button in existing employee note in note section
+  Then user click on the edit button in note section
+  And user change the subject in edit employee note pop-up window
+  When user change the notes in edit employee note pop-up window
+  Then user change the file in edit employee note pop-up window
+  And user click on the submit button in add employee note pop-up window
+  
+Scenario: Verify that the user cannot access the Employee Details Delete Note Functionality in Employee Details - Note Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the Delete checkbox button in employee details note section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the note tab in employee details page
+  When user click on the three dot button in existing employee note in note section
+  Then user click on the delete button in note section
+  
+Scenario: Verify that the user can access the Employee Details Delete Note Functionality in Employee Details - Note Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the Delete checkbox button in employee details note section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the note tab in employee details page
+  When user click on the three dot button in existing employee note in note section
+  Then user click on the delete button in note section
+  
+Scenario: Verify that the user cannot access the Employee Details Download File Note Functionality in Employee Details - Note Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the Download File checkbox button in employee details note section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the note tab in employee details page
+  When user click on the three dot button in existing employee note in note section
+  Then user click on the download button in note section
+  
+Scenario: Verify that the user can access the Employee Details Download File Note Functionality in Employee Details - Note Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the Download File checkbox button in employee details note section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the note tab in employee details page
+  When user click on the three dot button in existing employee note in note section
+  Then user click on the download button in note section
+  
+Scenario: Verify that the user cannot access the Employee Details Note Functionality in Employee Details - Note Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the Note section checkbox button in employee details note section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the note tab in employee details page
+  When user check the note section tabs
+  
+Scenario: Verify that the user can access the Employee Details Note Functionality in Employee Details - Note Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the Note section checkbox button in employee details note section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the note tab in employee details page
+  When user check the note section tabs
+  
+Scenario: Verify that the user cannot access the Employee Details Add TimeLine Functionality in Employee Details - TimeLine Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the Add checkbox button in employee details timeline section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the timeline tab in employee details page
+  When user click on the new timeline button in timeline section
+  Then user enter the event in add employee timeline pop-up window
+  And user select the event date as today's in add employee timeline pop-up window
+  When user enter the notes in add employee timeline pop-up window
+  Then user select the status as Active in add employee timeline pop-up window
+  And user click on the submit button in add employee timeline pop-up window
+  
+Scenario: Verify that the user can access the Employee Details Add TimeLine Functionality in Employee Details - TimeLine Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the Add checkbox button in employee details timeline section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the timeline tab in employee details page
+  When user click on the new timeline button in timeline section
+  Then user enter the event in add employee timeline pop-up window
+  And user select the event date as today's in add employee timeline pop-up window
+  When user enter the notes in add employee timeline pop-up window
+  Then user select the status as Active in add employee timeline pop-up window
+  And user click on the submit button in add employee timeline pop-up window
+  
+Scenario: Verify that the user cannot access the Employee Details Edit TimeLine Functionality in Employee Details - TimeLine Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the Edit checkbox button in employee details timeline section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the timeline tab in employee details page
+  When user click on the edit button of existing employee timeline
+  Then user change the event in add employee timeline pop-up window
+  And user select the event date as today's in add employee timeline pop-up window
+  When user change the notes in add employee timeline pop-up window
+  Then user select the status as Resigned in add employee timeline pop-up window
+  And user click on the submit button in add employee timeline pop-up window
+  
+Scenario: Verify that the user can access the Employee Details Edit TimeLine Functionality in Employee Details - TimeLine Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the Edit checkbox button in employee details timeline section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the timeline tab in employee details page
+  When user click on the edit button of existing employee timeline
+  Then user change the event in add employee timeline pop-up window
+  And user select the event date as today's in add employee timeline pop-up window
+  When user change the notes in add employee timeline pop-up window
+  Then user select the status as Resigned in add employee timeline pop-up window
+  And user click on the submit button in add employee timeline pop-up window
+  
+Scenario: Verify that the user cannot access the Employee Details Delete TimeLine Functionality in Employee Details - TimeLine Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the Delete checkbox button in employee details timeline section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the timeline tab in employee details page
+  When user click on the delete button of existing employee timeline
+  
+Scenario: Verify that the user can access the Employee Details Delete TimeLine Functionality in Employee Details - TimeLine Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the Delete checkbox button in employee details timeline section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the timeline tab in employee details page
+  When user click on the delete button of existing employee timeline
+  
+Scenario: Verify that the user cannot access the Employee Details TimeLine Section Functionality in Employee Details - TimeLine Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the timeline checkbox button in employee details timeline section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the timeline tab in employee details page
+  When user check the tabs in timeline
+  
+Scenario: Verify that the user can access the Employee Details TimeLine Section Functionality in Employee Details - TimeLine Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the timeline checkbox button in employee details timeline section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the timeline tab in employee details page
+  When user check the tabs in timeline
+  
+Scenario: Verify that the user cannot access the Employee Details Add WorkBench Functionality in Employee Details - WorkBench Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the Add checkbox button in employee details workbench section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the workbench tab in employee details page
+  When user click on the new workbench button in workbench section
+  Then user enter the workbench name in add new workbench pop-up window
+  And user click on the checkbox of workbench name in add new workbench pop-up window
+  Then user click on the submit button in add new workbench pop-up window
+  
+Scenario: Verify that the user can access the Employee Details Add WorkBench Functionality in Employee Details - WorkBench Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the Add checkbox button in employee details workbench section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the workbench tab in employee details page
+  When user click on the new workbench button in workbench section
+  Then user enter the workbench name in add new workbench pop-up window
+  And user click on the checkbox of workbench name in add new workbench pop-up window
+  Then user click on the submit button in add new workbench pop-up window
+ 
+Scenario: Verify that the user cannot access the Employee Details Delete WorkBench Functionality in Employee Details - WorkBench Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the Delete checkbox button in employee details workbench section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the workbench tab in employee details page
+  When user click on the delete button of existing workbench in workbench section
+  
+Scenario: Verify that the user can access the Employee Details Delete WorkBench Functionality in Employee Details - WorkBench Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the Delete checkbox button in employee details workbench section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the workbench tab in employee details page
+  When user click on the delete button of existing workbench in workbench section
+  
+Scenario: Verify that the user cannot access the Employee Details WorkBench Section Functionality in Employee Details - WorkBench Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the WorkBench checkbox button in employee details workbench section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the workbench tab in employee details page
+  When user check the all workbench tabs
+  
+Scenario: Verify that the user can access the Employee Details WorkBench Section Functionality in Employee Details - WorkBench Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the WorkBench checkbox button in employee details workbench section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the employees tab in sidebar in HR module page
+  Then user click on the view button in existing employee in employees page
+  And user click on the workbench tab in employee details page
+  When user check the all workbench tabs
+  
+Scenario: Verify that the user cannot access the Add WorkBench Functionality in HR Module - WorkBench Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the Add checkbox button in workbench section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the workbenches tab in sidebar in HR module page
+  Then user click on the new workbench button in workbenches page
+  And user enter the workbench name in add new workbench pop-up window in workbenches page
+  When user enter the workbench description in add new workbench pop-up window in workbenches page
+  Then user click on the submit button in add new workbench pop-up window in workbenches page
+  
+Scenario: Verify that the user can access the Add WorkBench Functionality in HR Module - WorkBench Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the Add checkbox button in workbench section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the workbenches tab in sidebar in HR module page
+  Then user click on the new workbench button in workbenches page
+  And user enter the workbench name in add new workbench pop-up window in workbenches page
+  When user enter the workbench description in add new workbench pop-up window in workbenches page
+  Then user click on the submit button in add new workbench pop-up window in workbenches page
+  
+Scenario: Verify that the user cannot access the Edit WorkBench Functionality in HR Module - WorkBench Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the Edit checkbox button in workbench section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the workbenches tab in sidebar in HR module page
+  Then user click on the three dot button in existing workbench in workbenches page
+  And user click on the edit button in existing workbench in workbenches page
+  When user change the workbench name in edit workbench pop-up window
+  Then user change the workbench descriptions in edit workbench pop-up window
+  When user click on the submit button in add new workbench pop-up window in workbenches page
+  
+Scenario: Verify that the user can access the Edit WorkBench Functionality in HR Module - WorkBench Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the Edit checkbox button in workbench section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the workbenches tab in sidebar in HR module page
+  Then user click on the three dot button in existing workbench in workbenches page
+  And user click on the edit button in existing workbench in workbenches page
+  When user change the workbench name in edit workbench pop-up window
+  Then user change the workbench descriptions in edit workbench pop-up window
+  When user click on the submit button in add new workbench pop-up window in workbenches page
+  
+Scenario: Verify that the user cannot access the Delete WorkBench Functionality in HR Module - WorkBench Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the Delete checkbox button in workbench section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the workbenches tab in sidebar in HR module page
+  Then user click on the three dot button in existing workbench in workbenches page
+  And user click on the delete button in existing workbench in workbenches page
+  
+Scenario: Verify that the user can access the Delete WorkBench Functionality in HR Module - WorkBench Section, when permission is granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the Delete checkbox button in workbench section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the workbenches tab in sidebar in HR module page
+  Then user click on the three dot button in existing workbench in workbenches page
+  And user click on the delete button in existing workbench in workbenches page
+  
+Scenario: Verify that the user cannot access the WorkBench Functionality in HR Module - WorkBench Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user uncheck the WorkBench checkbox button in workbench section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the workbenches tab in sidebar in HR module page
+  Then user check the all tabs in workbench
+  
+Scenario: Verify that the user cannot access the WorkBench Functionality in HR Module - WorkBench Section, when permission is not granted 
+  Given user launch browser
+  Then user click on the user type dropdown
+  When user select the user type as organization from user type dropdown
+  Then user enter the organization emailid
+  And user enter the organization password
+  When user click on the go button
+  Then user click on the Setup module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the profiles tab in sidebar in Setup module page
+  Then user click on the filter tab in profiles page
+  And user enter the profile name in profiles page
+  Then user click on the search button in profiles page
+  When user click on three dot button in existing profile name
+  Then user click on the edit button of existing profile
+  And user click on the HR module tab in profile details
+  When user check the WorkBench checkbox button in workbench section of hr module
+  Then user click on the submit button in profile details page
+  And user click on the pharm crm logo
+  When user click on the HR module tab in home page
+  And user click on the sidebar collpase button in module dashboard page
+  When user click on the workbenches tab in sidebar in HR module page
+  Then user check the all tabs in workbench                                          

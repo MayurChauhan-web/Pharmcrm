@@ -1330,4 +1330,3 @@ And the user should be able to open Details View in Control Audit Class1
 And I leave all required fields blank in Control Audit Class1
 When I click on Drug Dispense Audit Add action in Control Audit Class1
 Then I should see validation messages for all required fields test
-
